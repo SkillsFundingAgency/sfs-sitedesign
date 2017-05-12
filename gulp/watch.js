@@ -12,6 +12,11 @@ gulp.task('watch-sass', function () {
 })
 
 gulp.task('watch-assets', function () {
-  return gulp.watch([config.paths.assets + 'images/**',
-    config.paths.assets + 'javascripts/**'], {cwd: './'}, ['copy-assets'])
+  return gulp.watch([
+  	config.paths.assets + 'images/**',
+    config.paths.assets + 'javascripts/**',
+    config.paths.assets + 'documents/**'
+
+    ], {cwd: './'}, ['copy-assets'])
 })
+
