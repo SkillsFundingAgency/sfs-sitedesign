@@ -145,21 +145,45 @@
                          </div>
 
                        </div>
-               
+  
 
 <form>
   <div class="form-group">
-    <fieldset class="inline">
+    <fieldset>
 
-      <legend class="visually-hidden">Do any of your subcontractors subcontract?</legend>
+      <legend>
+        <h1 class="heading-medium">
+          How do you want to be contacted?
+        </h1>
+      </legend>
 
-      <div class="multiple-choice">
-        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
-        <label for="radio-inline-1">Yes</label>
+      <div class="multiple-choice" data-target="contact-by-email">
+        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
+        <label for="example-contact-by-email">Email</label>
       </div>
-      <div class="multiple-choice">
-        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
-        <label for="radio-inline-2">No</label>
+
+      <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
+        <label class="form-label" for="contact-email">Email address</label>
+        <input class="form-control" name="contact-email" type="text" id="contact-email">
+      </div>
+
+      <div class="multiple-choice" data-target="contact-by-phone">
+        <input id="example-contact-by-phone" type="radio" name="radio-contact-group" value="No">
+        <label for="example-contact-by-phone">Phone</label>
+      </div>
+      
+      <div class="panel panel-border-narrow js-hidden" id="contact-by-phone">
+        <label class="form-label" for="contact-phone">Phone number</label>
+        <input class="form-control" name="contact-phone" type="text" id="contact-phone">
+      </div>
+
+      <div class="multiple-choice" data-target="contact-by-text">
+        <input id="example-contact-by-text" type="radio" name="radio-contact-group" value="No">
+        <label for="example-contact-by-text">Text message</label>
+      </div>
+      <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
+        <label class="form-label" for="contact-text-message">Mobile phone number</label>
+        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
       </div>
 
     </fieldset>
