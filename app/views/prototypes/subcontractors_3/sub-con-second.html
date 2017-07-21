@@ -7,6 +7,8 @@
 {% block content %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script src="jquery.min.js"></script>
 <script>
     
     // for tabs// 
@@ -97,6 +99,47 @@
 
 </script>
 
+<script>
+
+//Copyright 2015 Pareto Software, LLC, released under an MIT license: http://opensource.org/licenses/MIT
+$( document ).ready(function() {
+        
+        //Inputs that determine what fields to show
+        var radiobuttons = $('#live_form input:radio[name=radiobuttons]');
+        var option=$('#live_form input:radio[name=option]');                
+        
+        //Wrappers for all fields
+        var no = $('#live_form textarea[name="feedback_no"]').parent();     
+        var option_parent = $('#live_form #div_option');        
+        var all=no.add(option_parent);
+        
+        radiobuttons.change(function(){
+            var value=this.value;                       
+            all.addClass('hidden'); //hide everything and reveal as needed
+            
+            if (value == 'No')
+            {
+                //Do nothing - for now...                               
+            }
+        
+            else if (value == 'Yes')
+            {
+                option_parent.removeClass('hidden');
+
+            }});
+    
+        option.change(function(){
+            all.addClass('hidden'); 
+            option_parent.removeClass('hidden');        
+                        
+            
+        });
+});
+
+</script>
+
+
+
 <main role="main" id="content">
     <div class="phase-banner-beta">
 
@@ -133,80 +176,59 @@
 <div class="grid-row">
         <div class="column-two-thirds">    
 
-        <h1 class="heading-large">Will any of your subcontractors subcontract to another company?
+        <h1 class="heading-xlarge">Will any of your subcontractors subcontract to another company?
 </h1>
+   
+                    <form id="live_form">
+                     <div class="form-group">                  
+                       <div class="radio">
 
+                       <div class="multiple-choice" data-target="option-no">
+                        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
+                        <label class="radio">                       
+                         <input name="radiobuttons" type="radio" value="No"/>
+                         No
+                        </label>
+                       </div> 
                         
-  <div class="form-group">
-    <fieldset>
+                       <div class="multiple-choice" data-target="option-yes">
+                        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="No">
+                        <label class="radio">
+                         <input name="radiobuttons" type="radio" value="Yes"/>
+                         Yes
+                        </label>
+                       </div>       
+                    
 
-     <br>
-
-      <div class="multiple-choice" data-target="contact-by-email">
-        <input id="example-contact-by-email" type="radio" name="radio-contact-group" value="Yes">
-        <label for="example-contact-by-email">No</label>
-      </div>
-      <div class="panel panel-border-narrow js-hidden" id="contact-by-email">
-        <label class="form-label" for="contact-email">Email address</label>
-        <input class="form-control" name="contact-email" type="text" id="contact-email">
-      </div>
-
-      
-
-      <div class="multiple-choice" data-target="contact-by-text">
-        <input id="example-contact-by-text" type="radio" name="radio-contact-group" value="No">
-        <label for="example-contact-by-text">Yes</label>
-      </div>
-      <div class="panel panel-border-narrow js-hidden" id="contact-by-text">
-        <label class="form-label" for="contact-text-message">Mobile phone number</label>
-        <input class="form-control" name="contact-text-message" type="text" id="contact-text-message">
-      </div>
-
-    </fieldset>
-  </div>
-</form>
-
-            
-     
-        
-    </div>
-</div>
-<div class="form-group">
-  <div class="panel panel-border-narrow">
+                      </div>
+                     </div>
+                     
+                     
+                     <div class="form-group hidden" id="div_option">
+                       <div class="panel panel-border-narrow">
     
-<p>You need permission from the Chief Executive of Skills Funding.</p>
-                           <p></p>Our GOV.UK guidance page provides more information about permission.</p>
+                        <p>You need permission from the Chief Executive of Skills Funding.</p>
+                           <p>Our <a href="https://www.gov.uk/government/publications/sfa-subcontracting-to-a-second-level-seeking-written-approval"> GOV.UK guidance page</a> provides more information about permission.</p>
                            </div>
-</div>
-
-<div class="grid-row">
-
-    <div class="column-two-thirds">
-        <div id="tab1" class="main-table">
-        
-            <ul class="tab-content">
-                      
-<div class="form-group">
-       
-        </div>
-        
-    
-       
-<div>
-    <a class="button margin-right" href="sub-con-web">Continue</a>         
+                     </div>
+                     
+                             
+                     <div class="form-group">
+                    <div>
+    <a class="button margin-right" href="sub-con-search-add2">Continue</a>         
     
 </div>
-        
-
+                     </div>
+                    </form>                             
+                </div>                                      
+            </div>
         </div>
+    </div> 
+
+        
     </div>
-
-    
-
-
-
-
 </div>
+
 </main>
 
 
