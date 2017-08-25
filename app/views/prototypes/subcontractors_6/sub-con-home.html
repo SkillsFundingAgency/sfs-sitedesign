@@ -97,6 +97,17 @@
 
 </script>
 
+<script type="text/javascript">
+function whichsite(form){
+         var sites = form.elements.site, i = sites.length;
+         while (--i > -1){
+                 if(sites[i].checked){
+                          return sites[i].value;
+                 }
+         }
+}
+</script>
+
 <main role="main" id="content">
     <div class="phase-banner-beta">
 
@@ -166,7 +177,7 @@
                            
             
             </ul><br>   
-<div class="grid-row">
+<!--<div class="grid-row">
 
     
     <div class="column-two-thirds">
@@ -174,6 +185,7 @@
 <form>
   <div class="form-group">
     <fieldset>
+
 
       <legend>
         <h1 class="heading-medium">You must tell us if you:</h1>
@@ -197,7 +209,37 @@
 </div>
 
         </div>
-    </div>
+    </div> -->
+
+<form action="#" onsubmit="window.open(whichsite(this), '_blank'); return false;">
+
+<div class="form-group">
+<fieldset>
+<h1 class="heading-medium">You must tell us if you:</h1>
+
+<div class="multiple-choice">
+<input id="radio-1" type="radio" name="site" value="start">
+<label for="radio-1">use subcontractors</label>
+</div>
+
+<div class="multiple-choice">
+<input id="radio-2" type="radio" name="site" value="submit-nil">
+<label for="radio-2">do not use subcontractors</label>
+</div>
+
+    </fieldset>
+  </div>
+
+<div>    
+    <input type="submit" class="button margin-right" value="Continue"> <br>
+</div>
+
+
+
+</form>
+
+
+</head>
 
 
 
