@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $("#querySubmit").click(function(){
+
+        $(".hidden").addClass("show"); //to show 'query sent'
+
+        $("details").not(this).removeAttr("open");
+    });
+    
+    $("summary").click(function(){
+
+        $(".hidden").removeClass("show"); //to show 'query sent'
+
+    });
+    
+});
+    
+    
+</script>
+
+<main role="main" id="content">
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard3">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+<div class="grid-row spacing-top">
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Funding estimates</h1>
+
+    <div>
+    <p>Your adult education budget is a block grant. We have set the baseline using last years contract value on January 2017.</p>
+    </div>
+    
+    <p class="heading-secondary">Participation funding</p>
+
+<p class="bold-medium">Adult Education Budget = £4,195,590</p>
+ 
+<details>
+        <summary id="summaryLink" class="underline">How is this calculated?</summary>
+    <form><br>
+        <div>
+            <p>£4,247,028 - baseline<br>-£51,438 - 19+ continuing learners<br> 
+            £4,195,590 - total</p>  
+            <p>£2,628,537 - August 2017 to March 2018</p> 
+            <p>£1,567,053 - April 2018 to July 2018</p>  
+        </div>
+    </form>
+</details>
+<br>
+<hr>
+<hr>
+    
+    <p class="bold-medium">16 to 18 Apprenticeships = £9,696.66</p>
+    
+    <details>
+        <summary id="summaryLink" class="underline">How is this calculated?</summary>
+    
+        <form>
+
+        <div>
+            
+            <p>I don't know how this is calculated.</p> 
+          
+        </div>
+        
+    </form>
+
+</details>   
+
+</div> 
+ </div><br>
+ <hr>
+ <br>
+ <p class="heading-secondary">Advanced learner loans</p>
+
+<p class="bold-medium">Advanced learner loan facility = £182,916</p>
+
+    
+    <details>
+        <summary id="summaryLink" class="underline">How is this calculated?</summary>
+    
+        <form><br>
+         <div>
+            <p>£182,916 - baseline<br>£182,916 - 2017 to 2018 total</p>  
+            <p>£115,548 - August 2017 to March 2018<br>£67,368 - April 2018 to July 2018</p>  
+        </div>
+        
+    </form>
+</details>
+<br>
+<hr>
+</div>
+</div>
+
+<p><a class="link" href="dashboard3">Back</a></p>
+</div>
+
+</main>
+
+
+{% endblock %}
