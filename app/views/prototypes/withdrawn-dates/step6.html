@@ -15,37 +15,34 @@ $(document).ready(function(){
 
         $(".hidden").addClass("show"); //to show 'query sent'
 
-        $("details").not(this).removeAttr("open"); //remove the open attribute from the details tag
+        $("details").not(this).removeAttr("open");
     });
+    
+    $("summary").click(function(){
+
+        $(".hidden").removeClass("show"); //to show 'query sent'
+
+    });
+    
 });
+    
+    
 </script>
 
 <main role="main" id="content">
     
     
-    <div class="grid-row ">
-        <div class="welcome">
-        <ul class="">
-            <li class="font-xsmall">Andrea Authoriser</li>
-            <li class="font-xsmall"> Casterbridge College</li>
-            <li class="font-xsmall">UKPRN:12345678</li>
-        </ul>
-        </div>
-    </div>
+    
     
     <div class="grid-row ">
         <div class="navigation">
         <ul>
-            <li><a class="font-xsmall" href="dashboard">Home page</a></li>
-            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
-            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
-            <li><a class="font-xsmall" href="settings">Settings</a></li>
+            <li><a class="font-xsmall" href="dashboard">Home</a></li>
+            
             <li><a class="font-xsmall" href="/">Sign out</a></li>
         </ul>
         </div>
     </div>
-    
-    
     
 <!--    <div class="breadcrumbs">
       <ol role="breadcrumbs">
@@ -56,23 +53,15 @@ $(document).ready(function(){
 
 <div class="grid-row spacing-top">
     <div class="column-two-thirds">
-        <!--<a class="back-to-previous" href="/documents">Back</a>-->
         <h1 class="heading-xlarge">Review your contract</h1>
     
 <!--
 <div class="bold-medium">Step 1 of 2</div>
 <br>
 -->
-        
+        <!--<p>You are about to agree and sign your contract.</p>-->
 
 <section class="attachment">
-<!--
-    <div>
-        <p class="bold-medium">What does this mean and why?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>  
-    </div>
--->
-    
     <div class="attachment-thumb">
         <a class="thumbnail" href="/">
             <img alt="" src="/public/images/thumbnail_attachment_contract_pdf.png">
@@ -81,7 +70,7 @@ $(document).ready(function(){
     <div class="left-align">
         
         <h2 class="attachment-details">
-                <a href="#">2015/2016 Local Growth contract</a>
+                <a href="#">ESF SSU contract variation for Coast to Capital LEP version 2</a>
         </h2>
         
         <p class="metadata">
@@ -107,64 +96,49 @@ $(document).ready(function(){
         </div>
     
     </div>
-    
-
-    
 </section>
     
 <div class="call-to-action">
-    <p>This contract has been agreed by the authorised signatory for the Education and Skills Funding Agency acting on behalf of the Secretary of State and has been digitally signed by all parties</p>
-    <p>Signed by Andrea Authoriser on 24 Jan 2016</p> 
+    <div>This contract has been agreed by the authorised signatory for the Education and Skills Funding Agency, acting on behalf of the Secretary of State.</div>
+    <br>
+    
+    
+    
 </div>
-    
-    <div class="margin-top-2">
-    <p><a class="link" href="andrea-authoriser">back to contract documents</a></p>
-</div>
-    
-    
-   <!--  <div class="margin-top-2">
-        <h2 class="bold-medium">Previous versions</h2>
-        <ul class="document-list">
-            
-            <li class="document-row">
-                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 3</a>
-                <p>withdrawn on 2 Feb 2016 due to missed deadline</p>
-            </li>
-            
-            <li class="document-row">
-                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 2</a>
-                <p>replaced on 15 Jan 2016 by jim.riaz</p>
-            </li>
-            
-            <li class="document-row">
-                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 1</a>
-                <p>withdrawn on 7 Jan 2016 by provider.sFA</p>
-            </li>
-            
-        </ul>
-    </div> -->
- 
 
 
     
-
-    
-
+    <!--<p class="bold-small">
+        The <abbr title="Portable Document Format">PDF</abbr> contains:
+    </p>-->
+    <!--<ul class="list-bullet">
+        <li>a covering letter from the <abbr title="Skills Funding Agency">SFA</abbr></li>
+        <li>the contract and the period of time it is valid</li>
+        <li>information on the funding amounts</li>
+        <li>the terms and conditions that apply</li>
+        <li>appendices</li>
+    </ul>-->
 
    
     
-
+    <ul class="float">
+        <li><a class="button" href="/step2">Continue to sign</a></li>
+        <li class="link-to-contracts-page">or <a class="link" href="andrea-authoriser">back to your contracts documents</a></li> <!--needs looking at-->
+        
+    </ul>
     
-   
+    <br>
+    <br>
+    <br>
     
-<!--
-<details>
-    <summary class="underline">Raise a query</summary>
+    <details>
+        <summary id="summaryLink" class="underline">Raise a query</summary>
     
     <br>
     
-    <form>
-        <div>
+    
+        <form>
+        <!--<div>
             <label class="bold-small">Your details</label>
             <div class="call-to-action">
             <p>Name: jim</p>
@@ -173,7 +147,7 @@ $(document).ready(function(){
             <p>UKPRN: 12345678</p>
             </div>
             <br>
-        </div>
+        </div>-->
 
         <div class="form-group">
             <fieldset>
@@ -216,7 +190,7 @@ $(document).ready(function(){
             </ul>
             
             <br>
-            <textarea class="form-control additional-information" columns="10" rows="7"></textarea>
+            <textarea class="form-control additional-information"  rows="7"></textarea>
         </div>
         <br>
 
@@ -224,23 +198,34 @@ $(document).ready(function(){
             <a type="submit" id="querySubmit" class="button" value="Send query">Send query</a>
         </div>
     </form>
+        
 
 </details>
--->
     
-   <!-- <br>
+    <br>
     
     <div class="hidden">
         <div class="optional-section">
         <p class="bold-medium">Query sent</p>
         </div>
-    </div>-->
+    </div>
     
-    
+    <!-- <div class="margin-top-2">
+        <h2 class="bold-medium">Previous versions</h2>
+        <ul class="document-list">
+            
+            
+            <li class="document-row">
+                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 1</a>
+                <p>Signed on 7 Jan 2016 by mark.manager</p>
+            </li>
+            
+        </ul>
+    </div> -->
     
     </div>
 
-<div class="related-container">
+    <div class="related-container">
         <aside class="related" id="related">
             <div class="inner group related-subsection">
                 <h2 id="parent-subsection">Related</h2>
@@ -264,12 +249,10 @@ $(document).ready(function(){
         </aside>
 
     </div>
-
-
+    
 </div>
 
 </main>
-
 
 
 {% endblock %}
