@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+    // for tabs// 
+
+    $(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab-hidden").hide();
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab-hidden").show();
+        
+    });
+    
+    
+    $('a.tabbed-tab').click(function() {
+    
+    $('.tabbed-tab.active').removeClass('active');
+    
+    $(this).addClass('active');
+    });
+    
+    
+    // $('a.link.link-all').click(function() {
+    
+    // $('.tabbed-tab.active').removeClass('active');
+    
+    // });
+
+
+
+    
+
+
+    // for filters //
+
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+    });
+
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+
+        $(".view-all-hidden").hide();
+        
+    });
+
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+    
+});
+
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">Andrea Authoriser</li>
+            <li class="font-xsmall"> Casterbridge College</li>
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard2">Education and skills funding home</a></li>
+
+        </ul>
+        </div>
+    </div>
+    
+<div class="grid-row">
+        <div class="column-two-thirds">    
+
+        <h1 class="heading-xlarge">Will you be using subcontractors to deliver your training?</h1>
+       
+
+<form>
+  <div class="form-group">
+    <fieldset class="inline">
+
+      <legend class="visually-hidden">Do you already have a personal user account?</legend>
+
+      <div class="multiple-choice">
+        <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
+        <label for="radio-inline-1">Yes</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="radio-inline-2" type="radio" name="radio-inline-group" value="No">
+        <label for="radio-inline-2">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+</form>
+
+<!--<p class="margin-top-2"><a href="sub-contracting-nil">I don't use subcontractors</a></p>-->
+        
+            
+    </div>
+</div>
+
+
+<div class="grid-row">
+
+    
+    <div class="column-two-thirds">
+        <div id="tab1" class="main-table">
+             
+            
+        
+            <ul class="tab-content">
+                      
+                   
+            
+            </ul>
+
+        <div class="form-group">
+       
+        </div>
+        
+    
+       
+<div>
+    <a class="button margin-right" href="sub-con-second">Save and continue</a>         
+    
+</div>
+
+        </div>
+    </div>
+
+    
+
+
+
+
+</div>
+</main>
+
+
+{% endblock %}
