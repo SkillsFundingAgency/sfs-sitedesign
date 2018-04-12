@@ -1,0 +1,637 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+
+        $(".view-all-hidden").hide();
+        
+    });
+    
+    
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+    
+    
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+    
+
+
+    
+    $("#open-mobile-menu").click(function() {
+
+        $(".search-hidden-mobile").toggleClass("open-menu-mobile");
+
+        $(".mobile-arrow-down").toggleClass("mobile-arrow-up");
+    });
+
+
+
+
+
+
+    $('#update').on('click', function(e)  {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+        
+        $(".final, .end").show();
+
+        var firstTime = 0;
+
+        if(document.getElementById('mid').checked) {
+        
+            $(".mid, .end, .final, .end-recon, .final-recon").hide();
+
+            $(".mid").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found no results.");
+        }
+
+        if(document.getElementById('end').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".end").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 result.");
+
+        } 
+
+        if(document.getElementById('final').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".final").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 2 results.");
+
+        }
+
+        if(document.getElementById('end-recon').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".end-recon").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 result.");
+
+        }
+
+        if(document.getElementById('final-recon').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".final-recon").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 result.");
+
+        }
+
+
+
+        if(document.getElementById('year17').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year17").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 4 results.");
+
+        }
+        
+        if(document.getElementById('year16').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year16").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found no results.");
+
+        }
+
+        if(document.getElementById('year15').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year15").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found no results.");
+
+        }
+
+
+
+        if(document.getElementById('ready').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".ready").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+
+
+        if(document.getElementById('signed').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".signed").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+
+        if(document.getElementById('review').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".review").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+
+        if(document.getElementById('missed').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".missed").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+        
+        
+
+    });
+
+
+    $('#reset-filter').click(function() {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+
+        $(".ready, .signed, .review, .missed").show();
+
+        $('.text-here').text('');
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+        $('input[type=radio]').each(function() { this.checked = false; });
+    
+    });
+});
+
+
+/* v v for collapsable search boxes v v */
+$(document).ready(function() {
+
+    $("#funding-title").click(function(){    
+
+        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+
+        $(".up-arrow-new").toggleClass("down-arrow");
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+    });
+
+   
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+    });
+});
+
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">Andrea Authoriser</li>
+            <li class="font-xsmall"> Casterbridge College</li>
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home page</a></li>
+            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
+            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
+            <li><a class="font-xsmall" href="settings">Settings</a></li>
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+
+    
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge margin-bottom">Payment history</h1>
+
+            <!-- <p>Payment history was last updated 23 Dec 2016.</p> -->
+        </div>
+
+
+        
+        
+    </div>
+
+    
+
+    <!-- <div class="grid-row">
+        <div class="tabs"> 
+            <ul class="tab-links">
+                
+                <li class="column-third">
+                    <a class="impact-link" href="#tab1">
+                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-label">funding claim to sign by 24 Oct 2016</span>
+                    </a>
+                </li>
+                
+                <li class="column-third">
+                    <a class="impact-link" href="#tab2">
+                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-label">reconciliation to review</span>
+                    </a>
+                </li>
+
+                <li class="column-third">
+                    <a class="impact-link" href="#tab3">
+                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-label">funding claim missed deadline</span>
+                    </a>
+                </li>
+                                
+                
+            </ul>
+        </div>  
+    </div>
+
+    
+    <br>
+   
+
+    <div>
+        <a class="link link-all view-all-hidden float-right" href="#all">View all documents</a>
+    </div> -->
+
+
+    
+
+<div class="grid-row margin-top">
+    <div class="column-one-third">
+          
+              
+                
+
+                <a id="open-mobile-menu" class="heading-medium mob-search mobile-arrow-down">Edit search</a>
+            
+
+            <div class="search-hidden-mobile">   
+                
+                   
+                       <div class="filter-relative"> 
+                        <button type="button" value="Select claim types" id="funding-title" tabindex="0" role="button" class="filters-headings heading-small focusing">Select academic year<span class="up-arrow-new"></span></button>
+
+                        <fieldset class="filters">
+
+                            <legend class="visuallyhidden">Search</legend>
+
+                            
+
+                            <div class="displayed-checkbox">
+                                <section class="toggled-content">
+                              
+                                        <label class="block" for="ready">
+                                            <input id="ready" name="month-types" type="checkbox" value="">
+                                            2016 to 2017
+                                        </label>
+                                    
+                                    
+                                   
+                                        <label class="block" for="signed">
+                                            <input id="signed" name="month-types" type="checkbox" value="">
+                                           2015 to 2016
+                                        </label>
+                                
+
+                                    
+                                     </ul>
+                                </section>
+                            <!-- <li>
+                                            <label class="block" for="mid">
+                                                <input id="mid" name="waste-types" type="checkbox" value="waste-animal">
+                                                January
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="block" for="end">
+                                                <input id="end" name="waste-types" type="checkbox" value="waste-mines">
+                                                February
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="block" for="final">
+                                                <input id="final" name="waste-types" type="checkbox" value="waste-farm-agricultural">
+                                                March
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="block" for="end-recon">
+                                                <input id="end-recon" name="waste-types" type="checkbox" value="waste-mines">
+                                                April
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="block" for="final-recon">
+                                                <input id="final-recon" name="waste-types" type="checkbox" value="waste-farm-agricultural">
+                                                May
+                                            </label>
+                                        </li>
+
+                                        <li>
+                                            <label class="block" for="final-recon">
+                                                <input id="final-recon" name="waste-types" type="checkbox" value="waste-farm-agricultural">
+                                                June
+                                            </label>
+                                        </li> -->
+                                        
+                            </div>
+
+                        </fieldset>
+                        </div>
+                    
+                
+                
+                        <!-- <div class="filter-relative">
+                    <button type="button" value="Select status" id="funding-title-3" tabindex="0" role="button" class="filters-headings heading-small focusing">Select period<span class="down-arrow-3"></span></button>
+
+                        <fieldset class="filters">
+
+                            <legend class="visuallyhidden">Search</legend>
+ 
+
+                            <div class="hidden-3">
+                            <section class="toggled-content">
+                                <ul>
+                                    <li>
+                                        <label class="block" for="ready">
+                                            <input id="ready" name="waste-types" type="checkbox" value="">
+                                            Last 3 months
+                                        </label>
+                                    </li>
+                                    
+                                    <li>
+                                        <label class="block" for="signed">
+                                            <input id="signed" name="waste-types" type="checkbox" value="">
+                                           Last 6 months
+                                        </label>
+                                    </li>
+
+                                    <li>
+                                        <label class="block" for="review">
+                                            <input id="review" name="waste-types" type="checkbox" value="">
+                                           Last 9 months
+                                        </label>
+                                    </li>
+                                    
+                                    <li>
+                                        <label class="block" for="missed">
+                                            <input id="missed" name="waste-types" type="checkbox" value="">
+                                            Last year
+                                        </label>
+                                    </li>
+                                </ul>
+                            </section>
+                            </div>
+                        </fieldset>
+                        </div> -->
+                
+                    
+
+                 
+                    
+                    
+                        
+                    <ul> 
+                        <li><a id="update" href="payment-history" class="button margin-top">Update results</a></li>
+                        
+                    </ul>
+                    
+             </div>
+</div>
+
+
+    <div class="column-two-thirds">
+        <div id="tab1" class="main-table">
+             
+            <p class="text-here"></p>
+        
+            <ul class="tab-content">
+                      
+                   <!--  <h3 class="bold-medium">2016 to 2017 funding claim documents</h3>
+                    <hr> -->
+
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">12 Apr 2016
+                        </h4>
+                        <span>£3,204,761.21</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">10 Mar 2016
+                        </h4>
+                        <span>£7,767,957.17</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">21 Feb 2016 
+                        </h4>
+                        <span>£1,500.00</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">10 Feb 2016 
+                        </h4>
+                        <span>£7,858,599.37</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+                    
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">12 Jan 2016
+                        </h4>
+                        <span>£8,024,993.31</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">10 Dec 2015 
+                        </h4>
+                        <span>£7,858,599.37</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+                    
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">12 Nov 2015
+                        </h4>
+                        <span>£8,024,993.31</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">12 Oct 201
+                        </h4>
+                        <span>£8,024,993.31</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">12 Sept 2016
+                        </h4>
+                        <span>£8,024,993.31</span>
+                        <span class="action-link"><a href="payment-detail">View payment details</a></span>
+                    </li>
+            </ul>    
+
+        <div class="margin-top-2">
+            <!-- <p><a href="#"> Download full history </a></p> -->
+            <p><a href="dashboard"> Back </a></p>
+        </div>
+
+        </div>
+    </div>
+</div>    
+
+</div>
+
+</main>
+
+
+{% endblock %}
