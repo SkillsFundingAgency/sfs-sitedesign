@@ -1,0 +1,221 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $("#querySubmit").click(function(){
+
+        $(".hidden").addClass("show"); //to show 'query sent'
+
+        $("details").not(this).removeAttr("open");
+    });
+    
+    $("summary").click(function(){
+
+        $(".hidden").removeClass("show"); //to show 'query sent'
+
+    });
+    
+    
+    $(".show-year-end").click(function(){
+
+        $(".hidden-cell").addClass("show1"); 
+
+        $(".hidden-year-end").show();
+
+        $(".show-year-end").hide();
+
+    });
+
+
+    $(".hide-year-end").click(function(){
+
+        $(".hidden-cell").removeClass("show1"); 
+
+        $(".hidden-year-end").hide();
+
+        $(".show-year-end").show();
+
+    });
+    
+    
+
+
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table"); 
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding"); 
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+        $("#total-claims-hide-2").toggle();
+    });
+
+   
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+    
+    $("#funding-title-4").click(function(){
+
+        $(".hidden-4").toggleClass("show-table-4"); 
+
+        $(".down-arrow-4").toggleClass("up-arrow-new-4");
+    });
+
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2").click();
+
+        $(".open-link").hide(); 
+
+        $(".close-link").show();
+
+    });
+
+    $("#close-all").click(function(){
+
+        $("#funding-title, #funding-title-2").click(); 
+
+        $(".close-link").hide(); 
+
+        $(".open-link").show();
+    });
+    
+});
+</script>
+
+<main role="main" id="content" >
+    
+    
+    
+    
+    
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard3">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    
+
+
+<div class="grid-row">
+    <div class="column-three-thirds">
+        <div>               
+            <h1 class="heading-xlarge">Funding estimates</h1>      
+        </div>   
+                    
+
+                    <p>Some text here that explains about estimates - what it means and what it doesn't mean.</p>
+                        
+
+                    <p><a href="#">Download (CSV)</a></p>
+             
+                          
+                        <div>
+                            <table>
+                                
+                                <span class="heading-secondary">Participation funding</span>
+                                <tbody><br>
+                                    <tr>
+
+                                        <td class=""> Adult Education Budget</td>
+                                        
+                                        
+                                        <td class="numeric" >£96,067.55</td>
+                                      
+                                    </tr>
+                                    <tr>
+
+                                        <td class="">How is this calculated?</td>
+                                        
+                                        <td class="numeric" ></td>
+                                       
+                                    </tr>
+                                    <tr>
+                                          
+
+                                        <td class=""> 16-18 Apprenticeships</td>
+                                        
+                                        <td class="numeric" "numeric">£9,696.66</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td class="">How is this calculated?</td>
+                                        
+                                        <td class="numeric" ></td>
+                                       
+                                    </tr>
+
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                       
+                        <div>
+                            <table>
+                                <thead>
+                                   
+
+                                </thead>
+                                <span class="heading-secondary">Advanced learner loans</span>
+                                <tbody>
+                                    <tr> 
+
+                                        <td class=> Advanced learner loan facility</td><br>
+                                        
+                                        <td class="numeric" >£96,067.55</td>
+                                       
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+
+                 
+            <div class="margin-top-2">
+                
+                <p><a href="payment-history">Back</a></p>
+            </div>                          
+
+    </div>          
+
+</div>
+            
+
+</main>
+
+
+{% endblock %}
