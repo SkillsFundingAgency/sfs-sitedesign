@@ -291,30 +291,58 @@ $(document).ready(function() {
 </script>
 
 <main role="main" id="content">
-    <div class="phase-banner">
-  <p>
-    <strong class="phase-tag">PROTOTYPE</strong>
-    <span>For testing </span>
-  </p>
-</div>
+     <div class="service-info">
+        <nav id="secondary-nav" class="account-menu" role="navigation" aria-label="Account">
+            <a href="dash7" class="account-menu__link account-menu__link--home account-menu__link--active" data-journey-click="link - click:utility-nav:Account home">
+                            <span class="account-icon account-icon--home">
 
-    
-    
-    <div class="grid-row ">
-        <div class="navigation">
-        <ul>
-            <li><a class="font-xsmall" href="dashboard4">Home</a></li>
-            
-            <li><a class="font-xsmall" href="/">Sign out</a></li>
-        </ul>
-        </div>
+
+                                    Account home
+
+                            </span>
+            </a>
+
+            <a href="#" class="account-menu__link account-menu__link--menu js-hidden js-visible" aria-hidden="true" aria-expanded="false" data-journey-click="link - click:utility-nav:Account menu">
+
+
+                Account menu
+
+            </a>
+
+            <ul class="account-menu__main">
+                <li class="account-menu__link--back hidden" aria-hidden="true">
+                    <a href="#" class="account-menu__link" data-journey-click="link - click:utility-nav:Back">
+
+
+                        Back
+
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="#" class="#" data-journey-click="link - click:utility-nav:Sign out">
+
+
+                        Sign out
+
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
-     <div class="grid-row">
+
+
+
+    <div class="grid-row">
         <div class="column-two-thirds">
-
-
-       <h1 class="heading-secondary">THE BLYTHE ACADEMY</h1>
-      <p>UKPRN: 12345678</p>
+            <h1 class="heading-xlarge no-margin-bottom">Blythe Academy</h1>
+            <p class="page-info">UKPRN:12345678</p>
+        </div>
+        
+    </div>
+        
        <h1 class="heading-large margin-bottom">Funding statements</h1>
         </div>
     </div>
@@ -340,7 +368,7 @@ $(document).ready(function() {
 
                   
                     <div class="filter-relative">
-                    <button type="button" value="Select contract types" id="funding-title" tabindex="0" role="button" class="filters-headings heading-small focusing">Statement<span class="up-arrow-new"> </span></button>
+                    <button type="button" value="Select contract types" id="funding-title" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by document<span class="up-arrow-new"> </span></button>
 
 
                         <fieldset class="filters">
@@ -352,9 +380,10 @@ $(document).ready(function() {
                             <section class="toggled-content">
                                 <ul>
                                     
-                                    <li>
+                                    <li class="multiple-choice">
+                                        <input id="contract-type-1" name="contract" type="checkbox" value="16-19 Funding">
                                         <label class="block" for="contract-type-1">
-                                            <input id="contract-type-1" name="contract" type="checkbox" value="16-19 Funding">
+                                            
                                             General Annual Grant 
                                         </label>
                                     </li>
@@ -362,30 +391,15 @@ $(document).ready(function() {
                                     
                                         
                                     </li>
-                                    <li>
+                                    <li class="multiple-choice">
+                                        <input id="contract-type-5" name="contract" type="checkbox">
                                         <label class="block" for="contract-type-5">
-                                            <input id="contract-type-5" name="contract" type="checkbox">
+                                            
                                             16 to 19 allocation
                                         </label>
                                     </li>
 
-                                    <li>
-                                        <label class="block" for="contract-type-6">
-                                            <input id="contract-type-6" name="contract" type="checkbox">
-                                            Adult Education Budget
-                                        </label>
-                                    </li>
-
-                                    
-                                    
-
-                                    
-                                    <li>
-                                        <label class="block" for="contract-type-2">
-                                            <input id="contract-type-2" name="contract" type="checkbox" value="Mainstream">
-                                            19+ 
-                                        </label>
-
+                                                                        
                                     
                                  </ul>
                             </section>
@@ -396,7 +410,7 @@ $(document).ready(function() {
                  
                     
                       <div class="filter-relative">  
-                        <button type="button" value="Select years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Year<span class="down-arrow-2"></span></button>
+                        <button type="button" value="Select years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by year<span class="down-arrow-2"></span></button>
 
                         <fieldset class="filters">
 
@@ -435,44 +449,7 @@ $(document).ready(function() {
                 
                     
                     
-                      <div class="filter-relative">  
-                    <button type="button" value="Select status" id="funding-title-3" tabindex="0" role="button" class="filters-headings heading-small focusing">Version<span class="down-arrow-3"></span></button>
-
-                        <fieldset class="filters">
-
-                            <legend class="visuallyhidden">Search</legend>
-
-
-                            <div class="hidden-3">
-                            <section class="toggled-content">
-                                <ul>
-                                    
-                                    <li>
-                                        <label class="block" for="signed1">
-                                            <input id="signed1" name="status" type="checkbox" value="signed">
-                                            Version 1
-                                        </label>
-                                    </li>
-                                    
-                                    <li>
-                                        <label class="block" for="amended1">
-                                            <input id="amended1" name="status" type="checkbox" value="amended">
-                                            Version 2
-                                        </label>
-                                    </li>
-
-                                    <li>
-                                        <label class="block" for="withdrawn1">
-                                            <input id="withdrawn1" name="status" type="checkbox" value="withdrawn">
-                                            Other
-                                        </label>
-                                    </li>
-                                </ul>
-                            </section>
-                            </div>
-                        </fieldset>
-                        </div>
-                    
+                      
                   
                     
                     <ul> 
@@ -504,7 +481,7 @@ $(document).ready(function() {
                     
                      <div>
                     <h3>
-                        <a class="bold-small" href="school1">General Annual Grant 2018 to 2019</a>
+                        <a class="bold-small" href="school1">General Annual Grant - 2018 to 2019</a>
                     </h3>
                     
                 </div>
@@ -521,7 +498,7 @@ $(document).ready(function() {
                     <li class="tab1 tab active con-1 year17 ready" id="tab1">
                         <div>
                     <h3>
-                        <a class="bold-small" href="16">16 to 19 allocation</a>
+                        <a class="bold-small" href="16">16 to 19 allocation - 2018 to 2019</a>
                     </h3>
                     
                 </div>
@@ -533,7 +510,7 @@ $(document).ready(function() {
                    <li class="tab1 tab active con-1 year17 ready" id="tab1">
                         <div>
                     <h3>
-                        <a class="bold-small" href="16">16 to 19 allocation</a>
+                        <a class="bold-small" href="16">16 to 19 allocation 2017 to 2018</a>
                     </h3>
                     
                 </div>
