@@ -264,14 +264,6 @@ $(document).ready(function() {
         $(".up-arrow-new").toggleClass("down-arrow");
     });
 
-    
-    $("#funding-title-2").click(function(){
-
-        $(".hidden-2").toggleClass("show-2"); 
-
-        $(".down-arrow-2").toggleClass("up-arrow-new-2");
-    });
-
    
     $("#funding-title-3").click(function(){
 
@@ -280,7 +272,14 @@ $(document).ready(function() {
         $(".down-arrow-3").toggleClass("up-arrow-new-3");
     });
 
+  $("#funding-title-2").click(function(){
 
+        $(".displayed-checkbox-2").toggleClass("hidden-2");
+
+        //$(".hidden-2").toggleClass("show-2");
+
+        $(".up-arrow-new-2").toggleClass("down-arrow");
+    });
 
     
        
@@ -386,21 +385,21 @@ $(document).ready(function() {
                     
                  
                     
-                      <div class="filter-relative">  
-                        <button type="button" value="Select years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by year<span class="down-arrow-2"></span></button>
+                             <div class="filter-relative">  
+                        <button type="button" value="Select years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by academic year<span class="up-arrow-new-2"></span></button>
 
                         <fieldset class="filters">
 
                             <legend class="visuallyhidden">Search</legend>
 
 
-                            <div class="hidden-2">
+                            <div class="displayed-checkbox-2">
                             <section class="toggled-content">
                                 <ul>
                                     <li class="multiple-choice">
                                         <input id="year17" name="years" type="checkbox" >
                                         <label class="block" for="year17">
-                                            
+
                                             2018 to 2019
                                         </label>
                                     </li>
@@ -408,12 +407,12 @@ $(document).ready(function() {
                                     <li class="multiple-choice">
                                         <input id="year16" name="years" type="checkbox" >
                                         <label class="block" for="year16">
-                                            
+
                                             2017 to 2018
                                         </label>
                                     </li>
                                     
-                                   
+                                    
                                 </ul>
                             </section>
                             </div>
