@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Upload pattern
+{% endblock %}
+
+{% block head %}
+{% include "includes/head.html" %}
+{% include "includes/scripts.html" %}
+{% endblock %}
+
+{% import "templates/button.html" as button %}
+
+{% block content %}
+<main id="content" role="main">
+    <a href="#" title="back to previous page" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+                <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There was a problem</h1>
+
+                <p>Please amend the following details:</p>
+                <ul class="error-summary-list">
+                    <li class="qform-upload error-message"><a href="#fileInput">Upload a file</a></li>
+                </ul>
+            </div>
+            
+            <h1 class="heading-large">Upload pattern</h1>
+
+            <form class="form" onsubmit="return false;">
+                <div class="form-group no-bottom" id="qform-upload">
+                    <fieldset>
+                        <legend class="visuallyhidden">Upload a file</legend>
+
+                        <p class="lede">Tell the user what to upload here</p>
+
+                        <div class="form-group">
+
+                            <div id="form-upload">
+                                <!--<span class="error-message">
+                                    Upload a file
+                                </span>-->
+                                <label class="form-label visuallyhidden" for="fileInput">Choose a file to upload</label>
+                                <input id="fileInput" type="file" name="multiple-vehicles" accept="">
+                                <p> </p> 
+                                <p class="form-hint margin-top-1">Accepted file types: zip, doc, docx, jpg, png, gif, pdf, xls, xlsx, csv<br>Maximum file size: 5MB</p>
+                            </div>
+                            {{ button.input(id='continue', name='continue', class='button margin-top-1', type='button', value='Upload and continue') }}
+                        </div> 
+                    </fieldset>
+                </div>
+            </form>
+
+        </div><!--  end .column-two-thirds  -->
+        
+    </div><!--  end .grid-row  -->
+</main>
+
+<script type="text/javascript">
+
+    //this is what triggers any validation - it translates to 'on clicking something with the class 'button' perform 'validate' - we then set a function called 'validate later which runs a series of conditions for it to check
+    $(".button").click(function() {
+        checkAnswers()
+    }); 
+    
+    if (member.questions === undefined) {
+        member.questions = {};
+    }
+    
+    // this section is a bit hacky but it works perfectly for the system remembering if it's come from a check your answers page - when we come back to this page we want it to hide the back button - it looks to see if the url has '?change=true' at the end of it - this is important so that it can be re-routed back to the check your answers page
+    var changing = location.search.split('change=')[1];
+    if (changing === 'true') {
+        $('.button-back').hide();
+    }
+    
+    //this sets a function of 'validate' which runs through all the conditions set within it before either throwing up an error or letting it pass
+    function checkAnswers() {
+        //we set a variable called file which looks for the value of the id (#) 'fileInput'
+        var file = $('#fileInput').val();
+        
+        //this is just good practise - as you add more to this page you will need something to clear errors (this will come in handy once you have more than one thing per page)
+        hideerror('.error-message');
+        $(".error.form-group-error").removeClass("error form-group-error");
+        $('.error-summary').hide();
+        
+        //now we check to see if changing is true and there is a file 
+        if (changing == 'true' && file) {
+            //then we remember the name of the file - this shortens the path name to only include the file name before rerouting it to the check your answers page
+            member.questions.upload = file.substr(file.lastIndexOf('\\')+1,file.length);
+            go('/DVLA/check-your-answers');
+        //now we do a similar thing but don't check for changing - we remove any errors and route to the next page    
+        } else if (file) {
+            member.questions.upload = file.substr(file.lastIndexOf('\\')+1,file.length);
+            go('/DVLA/basic-path/basic-postcode-package');
+        //now we check to see if there is no (!) file before showing error messages                
+        } else if (!file) { 
+            $('#form-upload').addClass('form-group-error');
+            $('.error-message').show();
+            $('.error-summary').show();
+            $('body').scrollTop(0);
+            $('.error-summary').focus();
+        } 
+    }
+</script>
+{% endblock %}
