@@ -1,0 +1,109 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+
+        jQuery(document).ready(function($) {
+            var form = $('form[name="form1"]'),
+                    radio = $('input[name="radio-group'),
+                    choice = '';
+
+            radio.change(function(e) {
+                choice = this.value;
+                if (choice === '1') {
+                    form.attr('action', 'subcontractor-list2');
+                }
+                if (choice === '2') {
+                    form.attr('action', 'sub-con-home');
+                }
+                else {
+                    window.console&&console.log('test');
+                    //form.attr('action', 'client-income-record');
+                }
+            });
+        });
+    });
+</script>
+        <style>
+
+            @media (min-width: 641px){
+                .multiple-choice label {
+                    padding-top: 0px;
+                }
+                }
+        </style>
+
+<main role="main" id="content">
+
+
+
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard2">Home</a></li>
+
+        </ul>
+        </div>
+    </div>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-secondary">Warwickshire college</h1>
+            
+        </div>
+
+
+        
+        
+    </div>
+    
+<div class="grid-row">
+        <div class="column-two-thirds">    
+
+        <h1 class="heading-xlarge">Make a new declaration</h1>
+
+
+
+
+<form method="post" name="form1" action="">
+    <fieldset>
+
+      <legend>
+        <h1 class="heading-medium">Do you want to:</h1>
+      </legend>
+      <br>
+
+
+
+
+      <div class="multiple-choice">
+        <input id="radio-1" type="radio" name="radio-group" action="" id="radio-1" value="1">
+        <label for="radio-1">use the last list of subcontractors you declared</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="radio-2" type="radio" name="radio-group" action="" id="radio-2" value="2">
+        <label for="radio-2">start a new declaration</label>
+      </div>
+
+    </fieldset>
+
+    <input id='button_1' type="submit" class="button margin-right radio-redirect" type="submit" style="margin-top: 30px" value="Continue">
+
+</form>
+
+
+
+
+
+</div>
+</div>
+</main>
+
+
+{% endblock %}
