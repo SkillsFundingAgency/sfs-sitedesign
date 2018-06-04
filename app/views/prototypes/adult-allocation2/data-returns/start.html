@@ -1,0 +1,54 @@
+{{<layout}}
+
+{{$title}}Check that you can use this service{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+
+    <form method="post" class="form">
+        <input type="hidden" name="crumb" value="{{crumb}}"/>
+        <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+        <div class="text">
+            <h2 class="heading-medium">1. You need to be set up on the system</h2>
+
+            <details class="form-group">
+                <summary><span class="summary">Companies who can use this service</span></summary>
+                <div class="panel panel-border-narrow">
+                    <ul class="list list-bullet">
+                        <li>Biffa</li>
+                        <li>Brett Aggregates</li>
+                        <li>CEMEX</li>
+                        <li>Cory Environmental</li>
+                        <li>FCC Recycling</li>
+                        <li>Grundon Waste Management</li>
+                        <li>SUEZ Recycling and Recovery (SITA)</li>
+                        <li>Veolia</li>
+                        <li>Viridor</li>
+                    </ul>
+                </div>
+            </details>
+            <p>If your company has not been set up, please carry on with your normal way of sending data.</p>
+
+
+            <h2 class="heading-medium">2. Your data must be in the right format</h2>
+
+            <p>Make sure your data is in a CSV file that meets the <a href="{{links.Landfill_Data_Rules}}">data formatting rules</a> and uses only the allowed values.</p>
+
+            <p>You can use the system to check data file format without doing a final submission.</p>
+
+            <h2 class="heading-medium">3. You’ll need access to email</h2>
+
+            <p>We’ll send you a single-use confirmation code after you upload your data.</p>
+
+            <!-- Primary button -->
+            <form action="/start/continue" method="get">
+                <input class="button" type="submit" accesskey="C" role="button" value="Continue" id="continueBtn"/>
+            </form>
+        </div>
+    </form>
+</main>
+
+{{/content}}
+{{/layout}}

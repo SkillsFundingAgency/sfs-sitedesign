@@ -1,0 +1,48 @@
+{{<layout}}
+
+{{$title}}Corrections{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+    <div class="error-summary" role="group" aria-labelledby="make-corrections file-name" tabindex="-1">
+        {{{errorSummary}}}
+    </div>
+
+    <p class="back">
+      <a id="back.btn" href="/file/choose" class="button">Back to file list</a>
+    </p>
+
+    <table id="errorTableHeader" class="table-control mobile-format single-column corrections-table">
+        <thead>
+        <tr>
+            <th class="cell-one-sixth" scope="col">Column heading</th>
+            <th class="cell-one-sixth" scope="col">Errors</th>
+            <th class="cell-two-thirds" scope="col">Correction</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#correctionsData.lineErrors}}
+        <tr id="ERR_DR{{errorCode}}">
+            <th class="td-field-heading" scope="row">
+                <abbr {{#definition}}title="{{definition}}"{{/definition}}>{{fieldName}}</abbr>
+                <input type="hidden" id="{{fieldName}}_error_code" value="DR{{errorCode}}"/>
+            </th>
+            <td class="td-errors">
+                <a href="/correction/detail?uuid={{id}}&amp;id={{errorCode}}">
+                    <span>View {{violationCount}} error{{#multipleViolations}}s{{/multipleViolations}}</span>
+                    <span class="visually-hidden"> with {{fieldName}}</span>
+                </a>
+            </td>
+            <td class="td-correction">
+                {{{correction}}}
+            </td>
+        </tr>
+        {{/correctionsData.lineErrors}}
+        </tbody>
+    </table>
+</main>
+{{/content}}
+{{/layout}}

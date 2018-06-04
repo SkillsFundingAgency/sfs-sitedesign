@@ -1,0 +1,517 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+        <style>
+
+        .btn, .btn:visited {
+    display: inline;
+    border: none;
+    text-decoration: none;
+    position: relative;
+    font-size: 14px;
+    line-height: 1.25;
+    padding: 8px 16px;
+    cursor: pointer;
+    background-image: none;
+    text-shadow: none;
+    box-shadow: none;
+}
+
+
+.btn-secondary, .btn, .btn:visited {
+    background-color: #2e3191;
+    color: #fff;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    font-weight: 400;
+    overflow: visible;
+    -webkit-font-smoothing: antialiased;
+}
+        textarea, select, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
+    font-family: "nta", Helvetica, Arial, sans-serif;
+    height: auto;
+    border-radius: 0;
+    padding: 5px;
+    border: 2px solid #0b0c0c;
+    margin-bottom: 10px;
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 19px;
+    line-height: 1.3157894737;
+    color: #0b0c0c;
+    margin-bottom: 0;
+}
+
+
+
+        .pub-c-lead-paragraph {
+            font-family: "nta", Arial, sans-serif;
+            font-weight: 400;
+            text-transform: none;
+            font-size: 22px;
+            line-height: 1.2;
+            margin-bottom: 35px;
+            max-width: 30em;
+        }
+
+        .form-search {
+    width: 100%;
+    position: relative;
+    max-width: 350px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.form-search .search-input-wrapper {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+.form-search input.search-query {
+    height: 40px;
+    float: left;
+    width: 86%;
+    z-index: 10;
+}
+.form-search input[type="submit"] {
+    width: 40px;
+    height: 40px;
+    float: left;
+    padding: 6px;
+    background: #0b0c0c url(/public/images/search-button.png) no-repeat 2px 50%;
+    text-indent: -5000px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+        </style>
+
+<main role="main" id="content">
+<a href="#" title="back to previous page" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+
+
+    <div class="grid-row">
+    <div class="column-two-thirds">
+        <div class="pub-c-title pub-c-title--bottom-margin">
+
+            <p class="pub-c-lead-paragraph ">
+                PE and sport premium allocations and conditions of grant for the 2017 to 2018 academic&nbsp;year.
+            </p>
+
+            <h1 class="heading-large" style="margin-top: 0">
+                Search results for Local authority "202"
+            </h1>
+        </div>
+
+
+
+
+
+
+
+
+
+
+        <!--
+
+
+        <h3 class="heading-medium" style="font-weight: 300;">
+            Search by school name
+        </h3>
+        <div class="bottom search-container">
+                        <form role="search" method="get" id="searchform" class="form-search" action="school">
+            <label class="visuallyhidden" for="s">Search for:</label>
+            <div class="search-input-wrapper">
+                <input type="search" value="" name="s" id="s" class="search-query" placeholder="">
+                <input type="submit" id="searchsubmit" value="Search" class="btn">
+            </div>
+        </form>
+                    </div>
+
+
+
+
+
+
+
+                  <h3 class="heading-medium" style="margin-top:60px;    font-weight: 300;">
+            Search by local authority name
+        </h3>
+        <div class="bottom search-container">
+                        <form role="search" method="get" id="searchform" class="form-search" action="">
+            <label class="visuallyhidden" for="s">Search for:</label>
+            <div class="search-input-wrapper">
+                <input type="search" value="" name="s" id="s" class="search-query" placeholder="Camden">
+                <input type="submit" id="searchsubmit" value="Search" class="btn">
+            </div>
+        </form>
+                    </div>-->
+
+
+
+
+        <table style="margin-top: 40px;">
+            <thead>
+
+            <tr>
+                <th style=min-width:50px>Local Authority No.</th>
+                <th style=min-width:50px>Local Authority Name</th>
+                <th style=min-width:50px>Local Authority Established (at Sep 17)</th>
+                <th style=min-width:50px>School Name (at Sep 17)</th>
+                <th style=min-width:50px>Total Allocation</th>
+            </tr></thead>
+
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2021101</td>
+                <td style=min-width:50px>Camden Primary Pupil Referral Unit</td>
+                <td style=min-width:50px>16190</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022019</td>
+                <td style=min-width:50px>Argyle Primary School</td>
+                <td style=min-width:50px>18970</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022036</td>
+                <td style=min-width:50px>Beckford Primary School</td>
+                <td style=min-width:50px>19530</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022065</td>
+                <td style=min-width:50px>Brecknock Primary School</td>
+                <td style=min-width:50px>19300</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022078</td>
+                <td style=min-width:50px>Brookfield Primary School</td>
+                <td style=min-width:50px>19450</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022095</td>
+                <td style=min-width:50px>Carlton Primary School</td>
+                <td style=min-width:50px>18960</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022184</td>
+                <td style=min-width:50px>Edith Neville Primary School</td>
+                <td style=min-width:50px>17640</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022219</td>
+                <td style=min-width:50px>Fleet Primary School</td>
+                <td style=min-width:50px>17740</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022290</td>
+                <td style=min-width:50px>Hawley Primary School</td>
+                <td style=min-width:50px>16900</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022436</td>
+                <td style=min-width:50px>Netley Primary School & Centre for Autism</td>
+                <td style=min-width:50px>19420</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022438</td>
+                <td style=min-width:50px>New End Primary School</td>
+                <td style=min-width:50px>19450</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022475</td>
+                <td style=min-width:50px>Primrose Hill School</td>
+                <td style=min-width:50px>19560</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022502</td>
+                <td style=min-width:50px>Rhyl Primary School</td>
+                <td style=min-width:50px>19420</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022507</td>
+                <td style=min-width:50px>Richard Cobden Primary School</td>
+                <td style=min-width:50px>19390</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022603</td>
+                <td style=min-width:50px>Torriano Primary School</td>
+                <td style=min-width:50px>19550</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022775</td>
+                <td style=min-width:50px>Gospel Oak Primary School</td>
+                <td style=min-width:50px>19570</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022797</td>
+                <td style=min-width:50px>Fitzjohn's Primary School</td>
+                <td style=min-width:50px>17760</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022841</td>
+                <td style=min-width:50px>Eleanor Palmer Primary School</td>
+                <td style=min-width:50px>17800</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023323</td>
+                <td style=min-width:50px>Christ Church Primary School, Hampstead</td>
+                <td style=min-width:50px>17600</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023327</td>
+                <td style=min-width:50px>Christ Church School</td>
+                <td style=min-width:50px>17720</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023340</td>
+                <td style=min-width:50px>Emmanuel Church of England Primary School</td>
+                <td style=min-width:50px>17930</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023352</td>
+                <td style=min-width:50px>Hampstead Parochial Church of England Primary School</td>
+                <td style=min-width:50px>18030</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023359</td>
+                <td style=min-width:50px>Holy Trinity CofE Primary School, NW3</td>
+                <td style=min-width:50px>17560</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023361</td>
+                <td style=min-width:50px>Holy Trinity and Saint Silas CofE Primary School, NW1</td>
+                <td style=min-width:50px>17790</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023370</td>
+                <td style=min-width:50px>Kentish Town Church of England Primary School</td>
+                <td style=min-width:50px>17810</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023391</td>
+                <td style=min-width:50px>Rosary Roman Catholic Primary School</td>
+                <td style=min-width:50px>18510</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023398</td>
+                <td style=min-width:50px>St Alban's Church of England Primary School</td>
+                <td style=min-width:50px>17660</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023400</td>
+                <td style=min-width:50px>St Aloysius Catholic Primary School</td>
+                <td style=min-width:50px>19280</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023429</td>
+                <td style=min-width:50px>St Dominic's Catholic Primary School</td>
+                <td style=min-width:50px>18080</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023441</td>
+                <td style=min-width:50px>St George the Martyr Church of England Primary School</td>
+                <td style=min-width:50px>17750</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023482</td>
+                <td style=min-width:50px>St Josephs Primary School</td>
+                <td style=min-width:50px>17660</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023517</td>
+                <td style=min-width:50px>St Mary's Kilburn Church of England Primary School</td>
+                <td style=min-width:50px>17730</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023521</td>
+                <td style=min-width:50px>St Mary and St Pancras Church of England Primary School</td>
+                <td style=min-width:50px>17790</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023546</td>
+                <td style=min-width:50px>St Michael's Church of England Primary School</td>
+                <td style=min-width:50px>17560</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023560</td>
+                <td style=min-width:50px>St Patrick's Catholic Primary School</td>
+                <td style=min-width:50px>17780</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023568</td>
+                <td style=min-width:50px>St Paul's Church of England Primary School</td>
+                <td style=min-width:50px>17780</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023649</td>
+                <td style=min-width:50px>St Eugene de Mazenod Roman Catholic Primary School</td>
+                <td style=min-width:50px>17800</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2023655</td>
+                <td style=min-width:50px>Our Lady Roman Catholic Primary School</td>
+                <td style=min-width:50px>17720</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2027008</td>
+                <td style=min-width:50px>Frank Barnes School for Deaf Children</td>
+                <td style=min-width:50px>16220</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2027205</td>
+                <td style=min-width:50px>Swiss Cottage School - Development & Research Centre</td>
+                <td style=min-width:50px>16900</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022842</td>
+                <td style=min-width:50px>Christopher Hatton Primary School</td>
+                <td style=min-width:50px>17800</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2022843</td>
+                <td style=min-width:50px>Kingsgate Primary School</td>
+                <td style=min-width:50px>20990</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2025950</td>
+                <td style=min-width:50px>Children's Hospital School at Gt Ormond Street and UCH</td>
+                <td style=min-width:50px>16860</td>
+            </tr>
+            <tr>
+                <td style=min-width:50px>202</td>
+                <td style=min-width:50px>Camden</td>
+                <td style=min-width:50px>2027201</td>
+                <td style=min-width:50px>Royal Free Hospital Children's School</td>
+                <td style=min-width:50px>16530</td>
+            </tr>
+        </table>
+
+
+
+        <div class="responsive-bottom-margin" style="margin-top: 50px">
+            <h1 class="title attachment-details" style="margin-bottom: 20px">Documents</h1>
+
+            <section class="attachment embedded" id="attachment_2534955">
+
+                <div class="attachment-thumb">
+                    <a aria-hidden="true" class="thumbnail" href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/680153/PE___Sport_Premium_Allocations_2017-18_Publication_Final_ODS_Update.ods"><img alt="" src="/public/images/spreadsheet.png"></a>
+                </div>
+
+
+                <div>
+                    <h2><a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/680153/PE___Sport_Premium_Allocations_2017-18_Publication_Final_ODS_Update.ods">PE and sport premium allocations 2017 to 2018 </a></h2>
+                    <p class="metadata">
+                        <span class="type"><abbr title="OpenDocument Spreadsheet">ODS</abbr></span>, <span class="file-size">625KB</span>
+                    </p>
+
+                    <p class="opendocument-help">
+                        This file is in an <a rel="external" href="https://en.wikipedia.org/wiki/OpenDocument_software">OpenDocument</a> format
+                    </p>
+                </div> </section>
+        </div>
+
+
+
+    </div>
+    </div>
+
+
+</main>
+
+{% endblock %}
+
+
