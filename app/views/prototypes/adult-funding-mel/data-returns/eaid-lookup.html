@@ -1,0 +1,89 @@
+{{<layout}}
+
+{{$head}}
+{{>head}}
+{{$commonHead}}{{/commonHead}}
+<script src="/public/javascripts/jquery.mark.min.js" type="text/javascript"></script>
+{{/head}}
+
+{{$title}}Find the correct EA_ID and Site_Name{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <a id="back.btn" href="{{src}}" class="link-back">Go back</a>
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+
+    {{#errorMessage}}
+    <div class="error-summary" role="group" aria-labelledby="search-results" tabindex="-1">
+        {{{errorMessage}}}
+    </div>
+    {{/errorMessage}}
+    <div class="form-group inline {{#errorMessage}}error{{/errorMessage}}">
+        <form method="get" action="/lookup">
+            <label class="form-label" for="q">Enter the permit number or site name from your permit</label>
+            {{#errorMessage}}
+            <span class="error-message" id="error-message-full-name">Enter a permit number or site name</span>
+            {{/errorMessage}}
+            <input id="q" name="q" type="text" class="form-control" aria-controls="search-results" value="{{query.string}}"/>
+            <input type="submit" class="button" value="Find"/>
+            <input type="hidden" name="src" value="{{src}}">
+        </form>
+    </div>
+
+    <details class="text">
+        <summary><span class="summary">Why you need to find the EA_ID and Site_Name</span></summary>
+        <div class="panel panel-border-narrow">
+            <p>The EA_ID and Site_Name in your data file must match our records. We can then automatically link your data to our records.</p>
+            <p>You should use the Site_Name and EA_ID exactly as they are given here, even if they are different to your permit. The details on your permit are still valid for other uses.</p>
+        </div>
+    </details>
+
+
+    {{#messages.length}}
+    {{#messages}}
+    <div class="panel panel-border-wide">
+        <p>{{.}}</p>
+    </div>
+    {{/messages}}
+    {{/messages.length}}
+
+    {{#results.length}}
+    <div class="form-group">
+        <table id="search-results" class="eaid-search-results" style="">
+            <thead>
+            <tr>
+                <th style="width: 6em">EA_ID</th>
+                <th>Site_Name</th>
+                <th style="width: 8em">Alternative IDs</th>
+            </tr>
+            </thead>
+            {{#results}}
+            <tbody>
+            <tr style="border-bottom: none;">
+                <td class="search-result-entry" style="border-bottom: none; vertical-align: top;">{{uniqueIdentifier.name}}</td>
+                <td class="search-result-entry" style="border-bottom: none; vertical-align: top;">{{uniqueIdentifier.site.name}}</td>
+                <td class="search-result-entry" style="border-bottom: 1px solid #bfc1c3; vertical-align: top;" rowspan="2">
+                    {{#alternatives}}
+                    <div>{{.}}</div>
+                    {{/alternatives}}
+                </td>
+            </tr>
+            </tbody>
+            {{/results}}
+
+        </table>
+    </div>
+
+
+    {{#query.terms.length}}
+    <script type="text/javascript">
+        $(".search-result-entry").mark("{{query.terms}}".split(","));
+    </script>
+    {{/query.terms.length}}
+
+    {{/results.length}}
+</main>
+{{/content}}
+{{/layout}}
