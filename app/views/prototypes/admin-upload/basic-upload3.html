@@ -31,7 +31,7 @@ Upload pattern
             
             <h1 class="heading-large">Drag and drop files to upload them </h1>
 
-            <form class="form" action="confirmation.html">
+            <form class="form" action="basic-upload4.html">
                 <div class="form-group no-bottom" id="qform-upload">
                     <fieldset>
 
@@ -88,11 +88,11 @@ Upload pattern
         if (changing == 'true' && file) {
             //then we remember the name of the file - this shortens the path name to only include the file name before rerouting it to the check your answers page
             member.questions.upload = file.substr(file.lastIndexOf('\\')+1,file.length);
-            go('/DVLA/check-your-answers');
+            go('');
         //now we do a similar thing but don't check for changing - we remove any errors and route to the next page    
         } else if (file) {
             member.questions.upload = file.substr(file.lastIndexOf('\\')+1,file.length);
-            go('/DVLA/basic-path/basic-postcode-package');
+            go('');
         //now we check to see if there is no (!) file before showing error messages                
         } else if (!file) { 
             $('#form-upload').addClass('form-group-error');
