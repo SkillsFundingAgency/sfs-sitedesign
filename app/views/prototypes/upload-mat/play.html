@@ -1,0 +1,745 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+        
+        $(".view-all-hidden").hide();
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+    });
+    
+    
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    
+
+    $("#open-mobile-menu").click(function() {
+
+        $(".search-hidden-mobile").toggleClass("open-menu-mobile");
+
+        $(".mobile-arrow-down").toggleClass("mobile-arrow-up");
+    });
+   
+
+    
+    $('#update').on('click', function(e)  {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+        
+        $(".con-1, .con-2, .con-3, .con-4, .con-5").show();
+    
+        $('.text-here').text('');
+        
+        var firstTime = 0;
+
+        if(document.getElementById('contract-type-1').checked) {
+        
+            $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+
+            $(".con-1").show();
+
+            firstTime = 1;
+
+
+            $('.text-here').text('Weve found 4 contracts.');
+
+    
+        }
+
+        if(document.getElementById('contract-type-2').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-2").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        } 
+
+        if(document.getElementById('contract-type-3').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-3").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+        }
+
+        if(document.getElementById('contract-type-4').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-4").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        }
+
+        if(document.getElementById('contract-type-5').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-5").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        }
+
+
+        if(document.getElementById('year17').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year17").show();
+
+            firstTime = 1;
+
+        }
+        
+        if(document.getElementById('year16').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year16").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('year15').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year15").show();
+
+            firstTime = 1;
+
+        }
+
+
+
+        if(document.getElementById('signed1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".signed1").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('amended1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".amended1").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('withdrawn1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".withdrawn1").show();
+
+            firstTime = 1;
+
+        }
+        
+        
+
+    });
+
+
+    $('#reset-filter').click(function() {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+
+        $(".con-1, .con-2, .con-3, .con-4, .con-5").show();
+
+        $('.text-here').text('');
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+    
+    });
+
+
+
+    /* v v for collapsable search boxes v v */
+
+    $("#funding-title").click(function(){    
+
+        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+
+        $(".up-arrow-new").toggleClass("down-arrow");
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+    });
+
+   
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+    });
+
+
+
+    
+       
+});
+
+
+
+</script>
+
+<main role="main" id="content">
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard2">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div><a href="#" title="back to previous page" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-secondary">Multi Academy Trust: Romero</h1>
+            <p>UPIN:12345678</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="grid-row" >
+        
+            <h1 class="heading-xlarge margin-bottom">Casterbridge Academy Allocations</h1>
+        
+    </div>
+          
+                
+               
+            
+        
+    
+<head>
+
+<style>
+html, body, button, input, table, td, th {
+              font-family: "nta", Arial, sans-serif;
+}
+html, body, div, h1, h2, h3, h4, h5, h6, article, aside, footer, header, hgroup, nav, section {
+              margin: 0;
+              padding: 0;
+              vertical-align: baseline;
+}
+/* @media all and (min-width:769px) */
+#content {
+              padding-bottom: 90px;
+}
+section h1:first-child, section h2:first-child, section h3:first-child, section p:first-child, aside h1:first-child, aside h2:first-child, aside h3:first-child, aside p:first-child, div h1:first-child, div h2:first-child, div h3:first-child, div p:first-child, main h1:first-child, main h2:first-child, main h3:first-child, main p:first-child {
+              margin-top: 0px;
+}
+.mq-small-only {
+              display: none;
+}
+table {
+              border-collapse: collapse;
+              border-spacing: 0;
+              width: 100%;
+}
+.visuallyhidden {
+              position: absolute;
+              left: -9999em;
+}
+.visuallyhidden {
+              position: absolute;
+              overflow: hidden;
+              clip: rect(0px, 0px, 0px, 0px);
+              height: 1px;
+              width: 1px;
+              margin: -1px;
+              padding: 0;
+              border: 0;
+}
+/* @media all and (min-width:769px) */
+table.floated-header thead {
+              display: block;
+}
+/* @media all and (min-width:769px) */
+table.floated-header tbody {
+              display: block;
+              max-height: 28em;
+              overflow-y: auto;
+}
+table th, table td {
+              font-family: "nta",Arial,sans-serif;
+              font-size: 14px;
+              line-height: 1.1428;
+              font-weight: 400;
+              text-transform: none;
+              padding: 12px 20px 9px 0;
+              text-align: left;
+              color: #0b0c0c;
+              border-bottom: 1px solid #bfc1c3;
+}
+/* @media all and (min-width:641px) */
+table th, table td {
+              font-size: 16px;
+              line-height: 1.25;
+}
+table th, table thead th:first-child {
+              text-align: left;
+}
+table thead th {
+              font-weight: normal;
+              vertical-align: top;
+}
+.table-collapsible th:first-child {
+              width: 28%;
+}
+table .currency, table .percent, table .integer, table .number {
+              text-align: right;
+}
+table tbody .integer, table tbody .currency, table tbody .percent {
+              font-family: "ntatabularnumbers","nta",Arial,sans-serif;
+              font-size: 14px;
+              line-height: 1.1428;
+              font-weight: 400;
+              text-transform: none;
+              text-align: right;
+}
+/* @media all and (min-width:641px) */
+table tbody .integer, table tbody .currency, table tbody .percent {
+              font-size: 16px;
+              line-height: 1.25;
+}
+table th.numeric, table th.integer, table th.currency, table th.percent {
+              text-align: right;
+}
+table thead .sort-column, table tbody .sort-column {
+              font-weight: bold;
+}
+abbr[title] {
+              cursor: help;
+}
+a {
+              -webkit-tap-highlight-color: rgba(0, 0, 0, 0.3);
+}
+table th a {
+              position: relative;
+              text-decoration: none;
+}
+a:link {
+              color: #005ea5;
+}
+/* @media all and (min-width:769px) */
+.servicespage thead [data-key='number_of_transactions'] a {
+              position: absolute;
+              right: 1.2em;
+}
+#wrapper * {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+}
+#content section {
+              clear: left;
+              float: left;
+              width: 100%;
+              position: relative;
+              margin-top: 0.5em;
+              margin-bottom: 1em;
+              padding-top: 1em;
+              border-top: 1px solid #bfc1c3;
+}
+#content section.filtered-list {
+              padding: 1em 0 0 0;
+              margin-top: 0px;
+              margin-bottom: 3em;
+              border-top: 2px solid #dee0e2;
+}
+/* @media all and (min-width:769px) */
+#content section.filtered-list {
+              width: 100%;
+}
+.servicespage #content section.filtered-list {
+              padding-top: 0px;
+}
+main {
+              display: block;
+}
+.group {
+              zoom: 1;
+}
+.group::before, .group::after {
+              content: "\0020";
+              display: block;
+              height: 0px;
+              overflow: hidden;
+}
+.group::after {
+              clear: both;
+}
+#content {
+              max-width: 960px;
+              margin: 0 15px;
+}
+/* @media all and (min-width:641px) */
+#content {
+              margin: 0 30px;
+}
+/* @media all and (min-width:1020px) */
+#content {
+              margin: 0 auto;
+}
+#content {
+              max-width: 960px;
+              margin: 0 15px;
+}
+/* @media all and (min-width:641px) */
+#content {
+              margin: 0 30px;
+}
+/* @media all and (min-width:1020px) */
+#content {
+              margin: 0 auto;
+}
+#content {
+              max-width: 960px;
+              margin: 0 15px;
+}
+/* @media all and (min-width:641px) */
+#content {
+              margin: 0 30px;
+}
+/* @media all and (min-width:1020px) */
+#content {
+              margin: 0 auto;
+}
+#content {
+              max-width: 960px;
+              margin: 0 15px;
+}
+/* @media all and (min-width:641px) */
+#content {
+              margin: 0 30px;
+}
+/* @media all and (min-width:1020px) */
+#content {
+              margin: 0 auto;
+}
+#content {
+              padding-bottom: 30px;
+}
+#content, .content-centered {
+              -webkit-box-sizing: border-box;
+              -moz-box-sizing: border-box;
+              box-sizing: border-box;
+              display: block;
+              margin: 0 auto;
+              max-width: 1020px;
+              padding: 0 15px;
+}
+/* @media all and (min-width:641px) */
+#content, .content-centered {
+              padding: 0 30px;
+}
+#content {
+              background-color: #fff;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+.grid-row::after, .cols-row::after, #content #unpublished-warning::after, #content::after, #footer .footer-categories::after, #prototypes-content::after {
+              content: "";
+              display: block;
+              clear: both;
+}
+#wrapper {
+              border-bottom: 10px solid #005ea5;
+}
+body {
+              background: white;
+              color: #0b0c0c;
+              line-height: 1.5;
+              font-weight: 400;
+              -webkit-font-smoothing: antialiased;
+              -moz-osx-font-smoothing: grayscale;
+}
+body {
+              font-size: 160%;
+              margin: 0;
+}
+body {
+              font-family: "nta",Arial,sans-serif;
+              font-size: 16px;
+              line-height: 1.25;
+              font-weight: 400;
+              text-transform: none;
+}
+/* @media all and (min-width:641px) */
+body {
+              font-size: 19px;
+              line-height: 1.3157;
+}
+html {
+              -webkit-text-size-adjust: 100%;
+              -ms-text-size-adjust: 100%;
+              background-color: #dee0e2;
+}
+html {
+              -ms-overflow-style: scrollbar;
+}
+html {
+              font-size: 62.5%;
+              overflow-y: scroll;
+              -webkit-tap-highlight-color: transparent;
+}
+h2, .heading-2 {
+              font-family: "nta",Arial,sans-serif;
+              font-size: 18px;
+              line-height: 1.2;
+              font-weight: 700;
+              text-transform: none;
+              margin-top: 1.87em;
+              margin-bottom: 0.62em;
+}
+/* @media all and (min-width:641px) */
+h2, .heading-2 {
+              font-size: 24px;
+              line-height: 1.25;
+}
+h3, .heading-3 {
+              font-family: "nta",Arial,sans-serif;
+              font-size: 16px;
+              line-height: 1.25;
+              font-weight: 700;
+              text-transform: none;
+              margin-top: 1.05em;
+}
+/* @media all and (min-width:641px) */
+h3, .heading-3 {
+              font-size: 19px;
+              line-height: 1.3157;
+}
+/* @media all and (min-width:769px) */
+.servicespage thead {
+              position: relative;
+}
+table th.descending a::after, table th.ascending a::after {
+              content: "";
+              font-size: 8px;
+              position: absolute;
+              top: 0.7em;
+}
+</style>
+
+
+<h3 class="bold-medium">School Funding</h3>
+<p></p>
+                    
+<body class="servicespage js-enabled ready loaded"><div id="wrapper"><main class="group" id="content" role="main">
+
+    <section>
+  
+  
+  <table class="table-collapsible floated-header"><thead><tr>
+
+    <th width="300" class="sentence" role="columnheader" scope="col" data-key="department_name"><a class="js-sort" role="button" href="?sortby=department_name&amp;sortorder=descending">Funding </th>
+      <th width="200" class="sentence" role="columnheader" scope="col" data-key="department_name"><a class="js-sort" role="button" href="?sortby=department_name&amp;sortorder=descending">Description </th>
+        <th width="200" class="sentence" role="columnheader" scope="col" data-key="department_name"><a class="js-sort" role="button" href="?sortby=department_name&amp;sortorder=descending">Pupils </th>
+          
+
+<th width="200" role="columnheader" scope="col" data-key="titleLink"><a class="js-sort" role="button" href="?sortby=titleLink&amp;sortorder=descending">Rate 
+    <span></th>
+<th width="66" class="integer descending sort-column" role="columnheader" aria-sort="descending" scope="col" data-key="number_of_transactions">
+
+
+    <a class="js-sort" role="button" href="?sortby=number_of_transactions&amp;sortorder=ascending">Total</th></tr></thead><tbody><tr>
+
+<th width="300" class="sentence" scope="row" data-key="department_name" data-title="1">Age Weighted Pupil Unit</th>
+<td width="300" data-key="titleLink" data-title="Service name: ">Primary and Reception</td>
+<td width="" data-key="titleLink" data-title="Service name: ">3</td>
+<td width="" data-key="titleLink" data-title="Service name: ">3</td>
+<td width="100" class="integer sort-column" data-key="number_of_transactions" data-title="Completed transactions per year: "><abbr title="No data provided">£20.00</abbr></td></tr>
+
+
+
+<tr><th width="" class="sentence" scope="row" data-key="department_name" data-title="2"> </th>
+<td width="" data-key="titleLink" data-title="Service name: ">Key Stage 3</td>
+<td width="" data-key="titleLink" data-title="Service name: ">3</td>
+<td width="" data-key="titleLink" data-title="Service name: ">3</td>
+<td width="" class="integer sort-column" data-key="number_of_transactions" data-title="Completed transactions per year: "><abbr title="No data provided">£20.00</abbr></td></tr>
+
+
+<tr><th width="" class="sentence" scope="row" data-key="department_name" data-title="3"></th>
+<td width="" data-key="titleLink" data-title="Service name: ">Key Stage 4</td>
+<td width="" data-key="titleLink" data-title="Service name: ">4</td>
+<td width="" data-key="titleLink" data-title="Service name: ">4</td>
+<td width="" class="integer sort-column" data-key="number_of_transactions" data-title="Completed transactions per year: "><abbr title="£20.00">£20.00</abbr></td></tr>
+
+
+</tbody></table>
+</section></div></body>
+<br>
+
+                    
+
+        
+    
+    </div>
+</section>
+
+
+    </div>
+</section>
+        </div>
+    
+    </div>
+
+            
+        </div>
+    </div>
+</div>
+
+    <br>
+    
+
+    </div>
+
+</main>
+
+
+{% endblock %}
