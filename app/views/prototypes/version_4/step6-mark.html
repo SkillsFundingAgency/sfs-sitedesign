@@ -1,0 +1,256 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $("#querySubmit").click(function(){
+
+        $(".hidden").addClass("show"); //to show 'query sent'
+
+        $("details").not(this).removeAttr("open");
+    });
+    
+    $("summary").click(function(){
+
+        $(".hidden").removeClass("show"); //to show 'query sent'
+
+    });
+    
+});
+    
+    
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">Andrea Authoriser</li>
+            <li class="font-xsmall"> Casterbridge College</li>
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home page</a></li>
+            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
+            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
+            <li><a class="font-xsmall" href="settings">Settings</a></li>
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+<!--    <div class="breadcrumbs">
+      <ol role="breadcrumbs">
+        <li><a href="/index">Home</a></li>
+        <li><a href="/documents">Your contract documents</a></li>
+      </ol>
+    </div>-->
+
+<div class="grid-row spacing-top">
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">Review your contract</h1>
+    </div>
+</div>
+
+
+<div class="grid-row">    
+<div class="column-two-thirds">
+<!--
+<div class="bold-medium">Step 1 of 2</div>
+<br>
+-->
+        <!--<p>You are about to agree and sign your contract.</p>-->
+
+<section class="attachment">
+    <div class="attachment-thumb">
+        <a class="thumbnail" href="/">
+            <img alt="" src="/public/images/thumbnail_attachment_contract_pdf.png">
+        </a>
+    </div>
+    <div class="left-align">
+        
+        <h2 class="attachment-details">
+                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 4</a>
+        </h2>
+        
+        <p class="metadata">
+            <span>PDF, 82KB</span>
+        </p>
+        
+        <div class="accessibility-warning">
+            
+            <h2>
+                This file may not be suitable for users of assistive technology.
+                <br>
+                <span><a href="#">Request a different format</a></span>
+            </h2>
+            
+            <p class="visuallyhidden" id="help_block">
+                <span class="arrow"></span>
+                If you use assistive technology and need a version of this document
+                in a more accessible format, please email
+                <a href="/">info@sfa.bis.gov.uk</a>.
+                Please tell us what format you need. It will help us if you say what assistive technology you use.
+            </p>
+        
+        </div>
+    
+    </div>
+</section>
+    
+<div class="call-to-action">
+    <div>This contract has been agreed by the authorised signatory for the Skills Funding Agency, acting on behalf of the Secretary of State.</div>
+    <br>
+    
+    <div>Sign by 4:00pm 05 May 2016</div>
+    
+</div>
+
+
+  
+
+   
+    
+        
+        <p><a class="link" href="andrea-authoriser">back to your contracts documents</a></p> <!--needs looking at-->
+        
+    
+    
+    
+    
+    <details>
+        <summary id="summaryLink" class="underline">Raise a query</summary>
+    
+    <br>
+    
+    
+        <form>
+        <!--<div>
+            <label class="bold-small">Your details</label>
+            <div class="call-to-action">
+            <p>Name: jim</p>
+            <p>Provider: CASTERBRIDGE COLLEGE</p>
+            <p>Email: andrea90000058@gmail.com</p>
+            <p>UKPRN: 12345678</p>
+            </div>
+            <br>
+        </div>-->
+
+        <div class="form-group">
+            <fieldset>
+                <legend >
+                    <span class="form-label-bold">What is your query about?</span>
+                    <span class="field-validation-valid error-message"></span>
+                </legend>
+                
+                <label class="block-label" >
+                    <input type="checkbox" value="ContractValues">
+                Contract values
+                </label>
+                
+                <label class="block-label">
+                    <input type="checkbox" value="ContractDates">
+                Contract dates
+                </label>
+                
+                <label class="block-label" >
+                    <input type="checkbox" value="Other">
+                Something else
+                </label>
+
+            </fieldset>
+        </div>
+        <br>
+
+        
+
+        <div>
+            <label>
+                <span class="form-label-bold">Your query</span>
+            </label>
+            
+            <p>You do not need to give:</p>
+                <ul class="list-bullet">
+                <li>your name</li>
+                <li>your contact details</li>
+                <li>the name or reference number of this contract</li>
+            </ul>
+            
+            <br>
+            <textarea class="form-control additional-information"  rows="7"></textarea>
+        </div>
+        <br>
+
+        <div>
+            <a type="submit" id="querySubmit" class="button" value="Send query">Send query</a>
+        </div>
+    </form>
+        
+
+</details>
+    
+    <br>
+    
+    <div class="hidden">
+        <div class="optional-section">
+        <p class="bold-medium">Query sent</p>
+        </div>
+    </div>
+    
+    
+    <div class="margin-top-2">
+        <h2 class="bold-medium">Previous versions</h2>
+        <ul class="document-list">
+            
+            <li class="document-row">
+                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 3</a>
+                <p>withdrawn on 2 Feb 2016 due to missed deadline</p>
+            </li>
+            
+            <li class="document-row">
+                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 2</a>
+                <p>replaced on 15 Jan 2016 by jim.riaz</p>
+            </li>
+            
+            <li class="document-row">
+                <a href="#">ESF SSW Retraining for Employment contract for Cornwall and the Isles of Scilly LEP version 1</a>
+                <p>withdrawn on 7 Jan 2016 by provider.sFA</p>
+            </li>
+            
+        </ul>
+    </div>
+    
+    
+    </div>
+</div>
+
+</main>
+
+
+{% endblock %}

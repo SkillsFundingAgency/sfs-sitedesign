@@ -1,0 +1,102 @@
+<script type="text/javascript">
+    (function () {
+        var $uploader = $("#uploader-container");
+        var $template = $("#fu-template");
+        $uploader.html($template.html());
+
+        new qq.DragAndDrop({
+            dropZoneElements: [document.body],
+            classes: {
+                dropActive: "file-drop-active"
+            },
+            callbacks: {
+                processingDroppedFilesComplete: function (files) {
+                    if (files && files.length > 0) {
+                        fileUploader.addFiles(files);
+                    }
+                }
+            }
+        });
+        var fileUploader = new qq.FineUploaderBasic({
+            element: document.getElementById("uploader-container"),
+            button: document.getElementById("choose-file-button"),
+            debug: false,
+            autoUpload: true,
+            multiple: true,
+            disableCancelForFormUploads: true,
+            validation: {
+                stopOnFirstInvalidFile: false,
+                allowEmpty: true
+            },
+            request: {
+                endpoint: "/file/choose?fineuploader=true",
+                inputName: "fileUpload",
+                method: "POST",
+                // Use request parameters rather than encoding data in body (allows us to handle max file size server-side)
+                paramsInBody: false,
+                filenameParam: 'filename',
+                totalFileSizeName: 'filesize',
+                uuidName: 'uuid'
+            },
+            chunking: {
+                enabled: false
+            },
+            cors: {
+                allowXdr: false
+            },
+            resume: {
+                enabled: true
+            },
+            retry: {
+                enableAuto: false
+            },
+            text: {
+                defaultResponseError: "Unable to upload file",
+                fileInputTitle: ""
+            },
+            messages: {
+                emptyError: "File is empty",
+                noFilesError: null
+            },
+            callbacks: {
+                onError: function (id, name, errorReason, xhrOrXdr) {
+                    var uuid = "Unsubmitted" + Math.random();
+                    if (id != null) {
+                        uuid = fileUploader.getUuid(id);
+                    }
+                    var responseJSON = {
+                        "id": uuid,
+                        "name": name,
+                        "status": {
+                            "state": "error",
+                            "description": errorReason
+                        }
+                    };
+
+                    try {
+                        if (xhrOrXdr) {
+                            responseJSON = JSON.parse(xhrOrXdr.responseText);
+                        }
+                    } catch (e) {
+                    }
+                    setFileStatus(responseJSON);
+                },
+                onComplete: function (id, name, responseJSON, xhr) {
+                    setFileStatus(responseJSON.details);
+                },
+                onAllComplete: updateContinueStatus,
+                onSubmit: function (id, name) {
+                    var details = {
+                        "id": fileUploader.getUuid(id),
+                        "name": name,
+                        "status": {
+                            "state": "pending",
+                            "description": "<span>Checking </span>"
+                        }
+                    };
+                    setFileStatus(details);
+                }
+            }
+        });
+    }());
+</script>

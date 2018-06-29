@@ -1,0 +1,54 @@
+{{<layout}}
+
+{{$title}}Confirm details{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+    {{#summary.substitutions}}
+        <div id="eaid-substitutions-message" class="panel panel-border-wide">
+            You’ve put your permit or licence number in the EA_ID field. We’ve replaced it with the correct EA_ID to match the one we use to identify your data. Please use the replacement EA_ID in future return files. Your permit number is valid for other uses.
+        </div>
+    {{/summary.substitutions}}
+
+    <p class="lede">The data you’re going to send is about:</p>
+
+      {{#summary.files}}
+      <div class="text panel panel-border-wide file-summary">
+        <div class="file-name">{{{name}}}</div>
+        <ul>
+            {{#sites}}
+                <li class="site-name">
+                    {{#name}}
+                        {{name}}
+                    {{/name}}
+                    {{^name}}
+                        Not given
+                    {{/name}}
+                </li>
+                {{#identifiers}}
+                <li class="ea-id">
+                    {{#substituted}}
+                        We replaced
+                        <span class="submittedUniqueIdentifier">{{submitted_ea_id}}</span>
+                        with
+                    {{/substituted}}
+                    <span class="resolvedUniqueIdentifier">{{resolved_ea_id}}</span>
+                </li>
+                {{/identifiers}}
+            {{/sites}}
+        </ul>
+      </div>
+      {{/summary.files}}
+
+    <p>Do you need to choose different files? <a href="/file/choose" id="details-wrong-link">Start again</a> so you can send the right files and details.</p>
+
+    <!-- Primary button -->
+    <form action="/email" method="get">
+        <input class="button" type="submit" accesskey="C" role="button" value="Continue" id="continueBtn"/>
+    </form>
+</main>
+{{/content}}
+{{/layout}}

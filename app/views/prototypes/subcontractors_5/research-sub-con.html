@@ -1,0 +1,233 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+    // for tabs// 
+
+    $(document).ready(function() {
+    
+        $('#search-submit').click(function() {
+        
+        $('.hidden-results').addClass('show-results');
+        
+        });
+
+        
+        $('#add-to-list-1').click(function() {
+        
+        $('.hidden-tag-1').addClass('show-tag-1') 
+
+        $(this).hide();
+
+        $('.hidden-complete').addClass('show-complete')
+        
+        });
+
+
+        $('#add-to-list-2').click(function() {
+        
+        $('.hidden-tag-2').addClass('show-tag-2') 
+
+        $(this).hide();
+
+        $('.hidden-complete2').addClass('show-complete2')
+        
+        });
+
+
+    });
+
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">Andrea Authoriser</li>
+            <li class="font-xsmall"> Casterbridge College</li>
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home page</a></li>
+            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
+            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
+            <li><a class="font-xsmall" href="sub-con-home">Subcontractors</a></li>
+            <li><a class="font-xsmall" href="settings">Settings</a></li>
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+<!--    <div class="breadcrumbs">
+      <ol role="breadcrumbs">
+        <li><a href="/index">Home</a></li>
+        <li><a href="/documents">Your contract documents</a></li>
+      </ol>
+    </div>-->
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+
+           
+    
+    </div>
+</div>
+
+
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+
+    <h1 class="heading-xlarge">Search and add subcontractors</h1> 
+        <!-- <div class="tabs margin-top-2"> 
+            <ul id="tabs" class="tab-links">
+
+                  <li class="">
+                    <a class="tabbed-tab link-all" href="#all"><span>All</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="tabbed-tab active" href="#tab1"><span>Your sub-contractors</span>
+                        <span class="bold-xsmall withdrawn">5</span>
+                    </a>
+                  </li>
+
+                  <li>
+                    <a class="tabbed-tab" href="#tab2"><span>Add new sub-contractors <strong class="bold-small">+</strong></span>
+                        
+                        
+                    </a>
+                  </li>
+            </ul>
+
+
+        </div> -->
+
+        <p class="lede">Enter provider name or UK Provider Registration Number (UKPRN) to search for a provider.</p>
+
+        <div class="search-filter">
+            <label class="legend bold-medium" for="finder-keyword-search">Search</label>
+            <!-- <span class="form-hint">Search by name or UK Provider Registration Number (UKPRN)</span> -->
+            <input value="" type="text" name="keywords" id="finder-keyword-search" class="text">
+            <button type="submit" id="search-submit" class="search-submit">Search</button>
+        </div>
+
+      </div>
+      
+     <!--  <div class="column-third">
+        <aside class="your-additions" id="related">
+            <h2 class="bold-medium">Sub-contractors saved</h2>
+                
+                <ul>
+                    <h3>You've saved <span class="bold-medium">2</span> sub-contractors.</h3>
+                    <p class="action-link">
+                        <a class="bold-small" href="/sub-con-home">View list</a>
+                    </p>
+                </ul>
+                
+        </aside>
+    </div> -->  
+
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        
+            
+            <p><a href="/sub-con-home">View your sub-contractors list</a> </p>
+            <br>
+            
+            <div class="hidden-results">
+            <p class="text-here">Your search returned <span class="bold-medium">2</span> results</p>
+        
+            <ul>
+                      
+                   <!--  <h3 class="bold-medium">2016 to 2017 funding claim documents</h3>
+                    <hr> -->
+
+                    <li class="mini-card">
+                        <h4 class="bold-small">The college of Pet Welfare Limited <span class="new-tag bold-xsmall hidden-tag-1">ADDED</span></h4>
+                        <ul>
+                            <li>UKPRN: 12348765</li>
+                            <li id="add-to-list-1" class="action-link"><a href="#">Add to list</a></li>
+                            <li class="action-link hidden-complete"><a href="sub-contractor-form-s1">Complete details</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="mini-card">
+                        <h4 class="bold-small">The college of Leicester <span class="new-tag bold-xsmall hidden-tag-2">ADDED</span></h4>
+                        <ul>
+                            <li>UKPRN: 87651234</li>
+                            
+                            <li id="add-to-list-2" class="action-link"><a href="#">Add to list</a></li>
+                            <li class="action-link hidden-complete2"><a href="sub-contractor-form-s1">Complete details</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- <li class="mini-card">
+                        <h4 class="bold-small">The college of Coventry</h4>
+                        <ul>
+                            <li>UKPRN: 21436587</li>
+                            
+                            <li class="action-link"><a href="#">Save to your sub-contractors</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="mini-card">
+                        <h4 class="bold-small">The college of Birmingham</h4>
+                        <ul>
+                            <li>UKPRN: 78561423</li>
+                            
+                            <li class="action-link"><a href="#">Save to your sub-contractors</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="mini-card">
+                        <h4 class="bold-small">The college of Yorkshire</h4>
+                        <ul>
+                            <li>UKPRN: 24687531</li>
+                            
+                            <li class="action-link"><a href="#">Save to your sub-contractors</a></li>
+                        </ul>
+                    </li> -->
+            
+            </ul> 
+            </div>   
+        
+    </div>
+
+
+
+
+</div>
+</main>
+
+
+{% endblock %}

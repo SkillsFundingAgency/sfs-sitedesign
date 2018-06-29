@@ -1,0 +1,86 @@
+{{<layout}}
+
+{{$head}}
+    {{>head}}
+    {{$commonHead}}{{/commonHead}}
+    {{>fineuploader_head}}
+{{/head}}
+
+{{$title}}Upload and check your data{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+    <p class="lede text">You can upload more than one file at a time.</p>
+
+    <div class="file-upload">
+        <div id="uploader-container" class="uploader-container">
+            <form id="uploadForm" enctype="multipart/form-data" method="post" action="/file/choose">
+                <div class="form-group">
+                    <div class="form-control">
+                        <input type="file" name="fileUpload" multiple="multiple" accesskey="U"></input>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <input id="submit-upload" class="upload-button button-secondary" type="submit" value="Upload file"  accesskey="S" name="submit"></input>
+                </div>
+            </form>
+        </div>
+        <!-- /.form-group -->
+
+        <table id="upload-list" class="table-control upload-list">
+            <thead>
+            <tr class="statusbar statusbar-header">
+                <th class="filename" scope="col">File name</th>
+                <th class="status" scope="col">Status</th>
+                <th class="details" scope="col"><span class="visually-hidden">Action</span></th>
+                <th class="remove" scope="col"><span class="visually-hidden">Remove</span></th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#files}}
+            <tr id="summary-{{{id}}}" filename="{{name}}" class="statusbar">
+                <th class="filename" scope="row">{{name}}</th>
+                <td class="status">
+                    <div class="file-{{{status.state}}}" title="{{status.explanation}}">{{status.description}}</div>
+                </td>
+                <td class="details">
+                    {{#status.moreDetailsUrl}}
+                    <a href="{{{status.moreDetailsUrl}}}">
+                        <span>{{status.moreDetailsTitle}}</span>
+                        <span class="visually-hidden"> for {{name}}</span>
+                    </a>
+                    {{/status.moreDetailsUrl}}
+                </td><td class="remove">
+                    <form method="post" action="/file/choose" enctype="multipart/form-data">
+                        <input type="hidden" name="action" value="remove"></input>
+                        <input type="hidden" name="uuid" class="file-uuid" value="{{id}}"></input>
+                        <label for="{{id}}-remove-link" class="visually-hidden">Remove {{name}}</label>
+                        <input id="{{id}}-remove-link" type="submit" class="remove-uuid-submit link" value="Remove"></input>
+                    </form>
+                </td>
+            </tr>
+            {{/files}}
+            {{^files}}
+            <tr class="upload-list-no-files statusbar">
+                <td colspan="4" class="filename">Upload at least one file to continue</td>
+            </tr>
+            {{/files}}
+            </tbody>
+        </table>
+
+        <form action="/file/confirm" method="get">
+            <input class="button" type="submit" accesskey="C" value="Continue" id="continueBtn" {{^canContinue}}disabled="disabled" {{/canContinue}} />
+        </form>
+
+        <div class="drag-drop-indicator">
+            <div class="drag-drop-message">Drop your files here</div>
+        </div>
+
+        {{>fineuploader_body}}
+    </div><!-- /file-upload -->
+</main>
+{{/content}}
+{{/layout}}

@@ -1,0 +1,75 @@
+{% extends "layout.html" %}
+{% block page_title %}
+  Apprenticeships
+{% endblock %}
+{% block content %}
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+<style>
+.govuk-option-select .options-container label {width:100%;}
+</style>
+<script>
+//THERE'S ANOTHER SCRIPT AT THE BOTTOM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>IT changes the name of the apprenticeship at the top of the page
+// This adds/removes apprenticeships
+    $(".shortlist").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + proCount);
+        //proCount++;
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            proCount++;
+            appCount++;
+            console.log(proCount);
+            Cookies.set("proCount", proCount);
+            Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove training provider");
+            $("#bannerCountProvider span").text(Number(proCount));
+            $("#bannerCount span").text(Number(appCount));
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save training provider");
+            proCount--;
+            appCount--;
+            Cookies.set("proCount", proCount);
+            Cookies.set("appCount", appCount);
+            console.log(proCount);
+            $("#bannerCountProvider span").text(Number(proCount));
+            $("#bannerCount span").text(Number(appCount));
+        }
+        //.toggleClass(".fa-star-o").toggleClass(".fa-star");
+    })
+</script>
+    <link target="_blank=" href="/public/stylesheets/main.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/stylesheets/elements-page.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/stylesheets/_app.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/stylesheets/_proResults.css" rel="stylesheet" />
+    <main id="content" role="main">
+
+      <div class="accordion">
+
+        <div class="accordion-section">
+
+          <div class="accordion-section-header">
+            <h2 class="heading-medium">Section title</h2>
+          </div>
+          <div class="accordion-section-body">
+            <ul class="list"><li>Section content</li></ul>
+          </div>
+
+        </div>
+        <div class="accordion-section">
+
+          <div class="accordion-section-header">
+            <h2 class="heading-medium">Section title</h2>
+          </div>
+          <div class="accordion-section-body">
+            <ul class="list"><li>Section content</li></ul>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+            
+              {% endblock %}

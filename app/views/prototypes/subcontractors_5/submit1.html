@@ -1,0 +1,200 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+  
+$(document).ready(function() {
+     $('#agree-terms').change(function(){
+        if ($('#agree-terms').is(':checked'))    
+        {
+            $("#submit-sub").attr("href", "confirmation");   
+
+            $(".error-summary").addClass("hidden");
+            
+            $(".add-error").removeClass("error");
+            
+            $(".error-message").addClass("hidden");
+        }
+        
+        else
+        {
+            $("#submit-sub").attr("href", "");
+            
+        }
+    });
+
+    $("#submit-sub").click(function() {
+        
+        if ($('#agree-terms').is(':checked')) {
+            
+        }
+            
+            else
+            {
+                $(".error-summary").removeClass("hidden");
+                
+                $(".add-error").addClass("error");
+                
+                $(".error-message").removeClass("hidden");
+
+            }
+    });
+});
+
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                
+            </p>
+        </div>
+    </div>
+    
+    
+    </div>
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    
+
+<div class="grid-row spacing-top">
+    <div class="column-two-thirds">
+
+    <div class="error-summary hidden" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+                  <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+                    You need to agree the subcontractor declaration terms
+                  </h1>
+
+                 
+
+                  <ul class="error-summary-list">
+                    <li><a href="#example-personal-details">You must check the box before submiting </a></li>
+                  </ul>
+
+            </div>
+
+        <h2 class="heading-xlarge">Download your subcontractor information for 2017 to 2018</h2>
+
+        
+
+        
+
+        <section class="attachment">
+            <div class="attachment-thumb">
+                <a class="thumbnail" href="/">
+                    <img alt="" src="/public/images/xls_thumbnail2.png">
+                </a>
+            </div>
+            <div class="left-align">
+                
+                <h2 class="attachment-details">
+                        <a href="#">Subcontractor Declaration <br>Warwickshire College October 2017</a>
+                </h2>
+                
+                <p class="metadata">
+                    <span>PDF, 82KB</span>
+                </p>
+                
+                <div class="accessibility-warning">
+                    
+                                    </div>
+            </div>
+        </section>
+
+</div>
+
+        
+        
+        
+        <div class="column-two-thirds">
+        &nbsp;
+      
+            
+
+
+            
+
+
+</div>
+                  
+
+        
+<div class="form-group add-error"> 
+               <legend id="example-personal-details">
+
+                    <!--<span class="error-message hidden">
+                        Please check box before submitting
+                    </span>
+                    <label class="block-label" for="agree-terms">
+                        <input id="agree-terms" name="agree-terms" type="checkbox" value="agree-terms" >
+                        
+                    </label>
+                </legend>
+            </div>-->
+                  
+
+        <div class="form-group margin-top-2">  
+            <ul class="float">
+                <!--<li><a id="submit-sub" class="button" href="#">Sign</a></li>-->
+                </li>
+            </ul>
+        </div>
+
+</div>
+
+        
+    </div>
+
+
+
+</main>        
+
+<!-- <script type="text/javascript">
+    
+    function add(v1 , v2, v3)
+    {
+        var  values = {};
+        values.Arifsnumber1 = v1;
+        values.MatsNumber1 = v2;
+        values.name = v3;
+
+        return ArifsanotherAdd(values);
+
+        if (typeof(Number(v1)) == "string")
+        {
+            return "Sod off";
+        }
+        else
+        {
+            return Number(v1) + Number(v2);    
+        }
+        
+    }
+
+function ArifsanotherAdd(values)
+{
+    return  values.name + " addition equals " +  Number(values.MatsNumber1) + Number(values.Arifsnumber1);
+}
+
+</script>         -->
+
+{% endblock %}

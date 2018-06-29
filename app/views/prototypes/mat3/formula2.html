@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+{% block page_title %}
+  ESFS
+{% endblock %}
+{% block content %}
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+<style>
+.govuk-option-select .options-container label {width:100%;}
+</style>
+<script>
+
+    $(".shortlist").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + proCount);
+        //proCount++;
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            proCount++;
+            appCount++;
+            console.log(proCount);
+            Cookies.set("proCount", proCount);
+            Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove training provider");
+            $("#bannerCountProvider span").text(Number(proCount));
+            $("#bannerCount span").text(Number(appCount));
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save training provider");
+            proCount--;
+            appCount--;
+            Cookies.set("proCount", proCount);
+            Cookies.set("appCount", appCount);
+            console.log(proCount);
+            $("#bannerCountProvider span").text(Number(proCount));
+            $("#bannerCount span").text(Number(appCount));
+        }
+        //.toggleClass(".fa-star-o").toggleClass(".fa-star");
+    })
+</script>
+    <link target="_blank=" href="/public/stylesheets/main.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/stylesheets/elements-page.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/stylesheets/_app.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/stylesheets/_proResults.css" rel="stylesheet" />
+    <main id="content" role="main">
+       {% include "includes/phase_banner_alpha.html" %}
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard4">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+    
+    <span class="heading-secondary">BLYTHE ACADEMY</span>
+    <p>UKPRN:12345678</p>
+    <h1 class="heading-large margin-bottom">16 to 19 allocation 2017 to 2018 </h1>
+
+    <h3 class="bold-medium">Programme Funding Formula</h3>
+    <div class="align-centre">
+        
+            <img src="/public/images/boxes.png">
+        
+    </div><br>
+    <div class="data">
+  <span class="data-item bold-xxlarge">118</span>
+  <span class="data-item bold-xsmall">Lagged students</span>
+</div>
+    
+</div>
+</div>
+</div>
+</div>
+
+<div class="grid-row">
+  <div class="column-two-thirds">
+
+      
+      <table>
+  
+  <tbody>
+    <tr>
+      
+      <td class="data-item bold-xxlarge">118</td>
+      <td class="data-item xsmall">Lagged students</td>
+      <td class="numeric"></td>
+      <td class="data-item bold-xxlarge">0</td>
+      <td class="data-item xsmall">Exceptional variations</td>
+    </tr>
+    
+
+    <tr>
+      
+      <td class="bold-small">National Funding Rate</td>
+      <td class="numeric"></td>
+      <td class="numeric"></td>
+      <td class="numeric bold-small">£455,909</td>
+    </tr>
+    <tr>
+      
+      <td class="bold-small">Disadvantage funding</td>
+      <td class="numeric"></td>
+      <td class="numeric"></td>
+      <td class="numeric bold-small">£135,462</td>
+    </tr>
+    
+    
+  </tbody>
+</table>
+
+<table>
+  <details>
+
+  <summary><span class="summary">Large programme Funding</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+    <p>Large Programme Uplift at 20% of National Rate</p>
+    <p>Large Programme Uplift at 10% of National Rate</p>
+    
+      <td class="numeric bold-small">£1,600</td>
+    
+
+  </div>
+
+</details>
+<table>
+  
+  <tbody>
+    <tr>
+      
+      <td class="bold-small">Total</td>
+      <td class="numeric"></td>
+      <td class="numeric"></td>
+      <td class="numeric bold-small">£514,329</td>
+    </tr>
+    
+  </tbody>
+</table>
+<br>
+</div>
+</div>
+
+    </main>
+            
+              {% endblock %}

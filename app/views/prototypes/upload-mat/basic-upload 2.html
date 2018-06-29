@@ -1,0 +1,250 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Upload pattern
+{% endblock %}
+
+{% block head %}
+{% include "includes/head.html" %}
+{% include "includes/scripts.html" %}
+{% endblock %}
+
+{% import "templates/button.html" as button %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="service-info">
+        <nav id="secondary-nav" class="account-menu" role="navigation" aria-label="Account">
+            <a href="dash-grey" class="account-menu__link account-menu__link--home account-menu__link--active" data-journey-click="link - click:utility-nav:Account home">
+                            <span class="account-icon account-icon--home">
+
+
+                                    Home
+
+                            </span>
+            </a>
+
+            <a href="#" class="account-menu__link account-menu__link--menu js-hidden js-visible" aria-hidden="true" aria-expanded="false" data-journey-click="link - click:utility-nav:Account menu">
+
+
+                Account menu
+
+            </a>
+
+            <ul class="account-menu__main">
+                <li class="account-menu__link--back hidden" aria-hidden="true">
+                    <a href="#" class="account-menu__link" data-journey-click="link - click:utility-nav:Back">
+
+
+                        Back
+
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="#" class="account-menu__link" data-journey-click="link - click:utility-nav:Sign out">
+
+
+                        Sign out
+
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div><a href="#" title="back to previous page" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-secondary">Blythe College</h1>
+            <p class="page-info">UKPRN: 12345678</p>
+        </div>
+        
+    </div>
+    
+
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <div class="error-summary" role="group" aria-labelledby="error-summary-heading" tabindex="-1">
+                <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There was a problem</h1>
+
+                <p>Please amend the following details:</p>
+                <ul class="error-summary-list">
+                    <li class="qform-upload error-message"><a href="#fileInput">Upload a document</a></li>
+                </ul>
+            </div>
+            
+            <h1 class="heading-large">Upload a file to ESFA</h1>
+
+            <form class="form" action="confirmation.html">
+                <div class="form-group no-bottom" id="qform-upload">
+                    <fieldset>
+
+                        
+
+                        <div class="form-group">
+  <fieldset>
+
+    <legend>
+      <h1 class="heading-medium">Select file type </h1>
+    </legend>
+
+    <div class="multiple-choice">
+      <input id="radio-1" type="radio" name="radio-group" value="Northern Ireland">
+      <label for="radio-1">Business case template</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-2" type="radio" name="radio-group" value="Isle of Man or the Channel Islands">
+      <label for="radio-2">Traineeship in year growth</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-3" type="radio" name="radio-group" value="Northern Ireland">
+      <label for="radio-1">Data sharing protocols</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="radio-4" type="radio" name="radio-group" value="Isle of Man or the Channel Islands">
+      <label for="radio-2">Financial report</label>
+    </div>
+<div class="multiple-choice">
+      <input id="radio-5" type="radio" name="radio-group" value="Isle of Man or the Channel Islands">
+      <label for="radio-2">Supporting evidence</label>
+    </div>
+  </fieldset>
+</div>
+
+
+                        
+
+                        <legend class="visuallyhidden">Upload a file</legend>
+
+
+
+                        <div class="form-group">
+
+                            <div id="form-upload" style="margin-top: 20px">
+                               
+                                <label class="form-label visuallyhidden" for="fileInput">Choose a file to upload</label>
+                                <input style="font-size: 16px" id="fileInput" type="file" name="multiple-vehicles" accept="">
+                                <p> </p> 
+                                <p class="form-hint margin-top-1">Accepted file types: doc, docx, jpg, pdf, xls, xlsx, csv<br>Maximum file size: 5MB</p>
+                            </div>
+                        </div>
+
+                        <label>Your message (Optional)</label>
+                        <textarea name="your-message" cols="30" rows="3"></textarea>
+                        <br>
+                        <input id="continue" class="button margin-top-1" name="continue" type="submit" value="Send">
+                    </fieldset>
+                </div>
+            </form>
+
+            </div><!--  end .column-two-thirds  -->
+
+       
+                  <section>
+
+
+          
+
+ <div class="related-container">
+        <aside class="related" id="related">
+            <div class="inner group related-subsection">
+                <h2 id="parent-subsection"></h2>
+                    <nav role="navigation" aria-labelledby="parent-subsection">
+                        <ul>
+                            <li class="heading-medium">Sent files
+                            </li>
+                             
+                               
+                            
+                    </ul>
+                </nav>
+            </div>
+            
+        </aside>
+        
+
+            
+         
+          
+<hr>
+
+            <div style="margin-bottom: 40px">
+
+                <span class="bold-small" style="margin-top:0"> Business case 2018 to 2019</span>
+                <p>Blythe Academy</p>
+                <p>Sent 13 April 2018</p>
+                
+            </div><hr>
+          
+
+
+            <div style="margin-bottom: 40px">
+
+                <span class="bold-small" style="margin-top:0">Supporting evidence number 1</span>
+                <p>Newman Academy</p>
+                <p>Sent 13 April 2018</p>
+                
+            </div>
+            <hr>
+        </div>
+        </ul>
+                </nav>
+            </div>
+            
+        </aside>
+        
+        
+    </div><!--  end .grid-row  -->
+
+
+</main>
+
+<script type="text/javascript">
+
+    //this is what triggers any validation - it translates to 'on clicking something with the class 'button' perform 'validate' - we then set a function called 'validate later which runs a series of conditions for it to check
+    $(".button").click(function() {
+        checkAnswers()
+    }); 
+    
+    if (member.questions === undefined) {
+        member.questions = {};
+    }
+    
+    // this section is a bit hacky but it works perfectly for the system remembering if it's come from a check your answers page - when we come back to this page we want it to hide the back button - it looks to see if the url has '?change=true' at the end of it - this is important so that it can be re-routed back to the check your answers page
+    var changing = location.search.split('change=')[1];
+    if (changing === 'true') {
+        $('.button-back').hide();
+    }
+    
+    //this sets a function of 'validate' which runs through all the conditions set within it before either throwing up an error or letting it pass
+    function checkAnswers() {
+        //we set a variable called file which looks for the value of the id (#) 'fileInput'
+        var file = $('#fileInput').val();
+        
+        //this is just good practise - as you add more to this page you will need something to clear errors (this will come in handy once you have more than one thing per page)
+        hideerror('.error-message');
+        $(".error.form-group-error").removeClass("error form-group-error");
+        $('.error-summary').hide();
+        
+        //now we check to see if changing is true and there is a file 
+        if (changing == 'true' && file) {
+            //then we remember the name of the file - this shortens the path name to only include the file name before rerouting it to the check your answers page
+            member.questions.upload = file.substr(file.lastIndexOf('\\')+1,file.length);
+            go('/DVLA/check-your-answers');
+        //now we do a similar thing but don't check for changing - we remove any errors and route to the next page    
+        } else if (file) {
+            member.questions.upload = file.substr(file.lastIndexOf('\\')+1,file.length);
+            go('/DVLA/basic-path/basic-postcode-package');
+        //now we check to see if there is no (!) file before showing error messages                
+        } else if (!file) { 
+            $('#form-upload').addClass('form-group-error');
+            $('.error-message').show();
+            $('.error-summary').show();
+            $('body').scrollTop(0);
+            $('.error-summary').focus();
+        } 
+    }
+</script>
+{% endblock %}

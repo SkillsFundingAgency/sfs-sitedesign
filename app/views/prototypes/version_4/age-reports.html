@@ -1,0 +1,187 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+
+        $(".view-all-hidden").hide();
+        
+    });
+    
+    
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+    
+    
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">Andrea Authoriser</li>
+            <li class="font-xsmall"> Casterbridge College</li>
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home page</a></li>
+            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
+            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
+            <li><a class="font-xsmall" href="settings">Settings</a></li>
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+
+    
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge margin-bottom">Age reports</h1>
+
+            <!-- <p>Payment history was last updated 23 Dec 2016.</p> -->
+        </div>
+    </div>
+
+    
+
+    <!-- <div class="grid-row">
+        <div class="tabs"> 
+            <ul class="tab-links">
+                
+                <li class="column-third">
+                    <a class="impact-link" href="#tab1">
+                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-label">funding claim to sign by 24 Oct 2016</span>
+                    </a>
+                </li>
+                
+                <li class="column-third">
+                    <a class="impact-link" href="#tab2">
+                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-label">reconciliation to review</span>
+                    </a>
+                </li>
+
+                <li class="column-third">
+                    <a class="impact-link" href="#tab3">
+                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-label">funding claim missed deadline</span>
+                    </a>
+                </li>
+                                
+                
+            </ul>
+        </div>  
+    </div>
+
+    
+    <br>
+   
+
+    <div>
+        <a class="link link-all view-all-hidden float-right" href="#all">View all documents</a>
+    </div> -->
+
+    <div class="column-full">
+        <div id="tab1" class="main-table">
+             
+            <p class="text-here"></p>
+        
+            <ul class="tab-content">
+                      
+                   <!--  <h3 class="bold-medium">2016 to 2017 funding claim documents</h3>
+                    <hr> -->
+
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">AGE report for April
+                        </h4>
+                        <span>Report created on 25 Apr 2017</span>
+                        <span class="action-link"><a href="age-detail">View report</a></span>
+                    </li>
+
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">AGE report for March
+                        </h4>
+                        <span>Report created on 25 Mar 2017</span>
+                        <span class="action-link"><a href="age-detail">View report</a></span>
+                    </li>
+
+                    <li class="tab1 tab active payment-section final year17 ready">
+                        <h4 class="bold-small">AGE report for February
+                        </h4>
+                        <span>Report created on 25 Feb 2017</span>
+                        <span class="action-link"><a href="age-detail">View report</a></span>
+                    </li>
+            </ul>    
+
+        <div class="margin-top-2">
+            <!-- <p><a href="#"> Download full history </a></p> -->
+            <p><a href="dashboard"> Back </a></p>
+        </div>
+
+        </div>
+    </div>
+</div>    
+
+</div>
+
+</main>
+
+
+{% endblock %}
