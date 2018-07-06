@@ -1,0 +1,180 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    
+     
+    
+ 
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table"); 
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding"); 
+
+
+        if (".down-arrow-funding")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+
+        if (".down-arrow-2")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-2").toggle();
+
+    });
+
+
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+
+        if (".down-arrow-3")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2, #funding-title-3").click();
+
+        $("#open-all").text("Close all"); 
+
+    });
+
+    
+
+});
+
+
+</script>
+
+<main role="main" id="content" >
+    {% include "includes/phase_banner_alpha.html" %}
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard6">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    <a href="#" title="back to previous page" onclick="window.history.go(-1); return false;" class="link-back">Back</a>
+    <div class="grid-row">
+    <div class="column-two-thirds">
+    <span class="heading-secondary">THE BLYTHE ACADEMY</span>
+    <p>UKPRN: 12345678</p>
+
+           <h1 class="heading-large">Document to download</h1>    
+           
+            </div>
+</div>
+
+    
+    
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+    
+                    
+                    <div id="funding-title" class="filters-headings-funding margin-bottom">
+                        <h2 class="bold-medium">Business case
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="small">12 April 2018</p>
+  
+                    </div>
+                        
+                                  
+        
+
+                    <div id="funding-title-2" class="filters-headings-funding">
+                        <h2 class="bold-medium width-90per">Another business case<span class="down-arrow-2"></span></h2>
+                        <p id="total-claims-hide-2" class="small">3 April 2018</p>
+
+                    </div>
+                                       
+                          
+                        
+                            
+
+
+                    <div id="funding-title-3" class="filters-headings-funding">
+                        <h2 class="bold-medium width-90per">Another business case<span class="down-arrow-3"></span></h2>
+                        <p id="total-claims-hide-3" class="small">12 April 2018</p>
+
+                    </div>
+                                       
+                          
+
+
+                 
+            <ul class="float margin-top">
+                <li><a class="button" href="Step-2-funding">Continue to sign</a></li>
+                <li class="link-to-contracts-page">or go <a href="andrea-authoriser-NEW"> back to funding claims</a></li>
+            </ul>
+                    <br>
+                
+                    <br>
+
+
+                                    
+                    <!-- <a href="#" id="summaryLink" class="underline">Raise a query</a> -->
+
+                    
+                    
+
+          </div>       
+
+    
+
+</div>
+          
+    
+        
+
+</main>
+
+
+{% endblock %}
