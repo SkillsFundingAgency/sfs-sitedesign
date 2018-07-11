@@ -1,0 +1,485 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+        
+        $(".view-all-hidden").hide();
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+    });
+    
+    
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    
+
+    $("#open-mobile-menu").click(function() {
+
+        $(".search-hidden-mobile").toggleClass("open-menu-mobile");
+
+        $(".mobile-arrow-down").toggleClass("mobile-arrow-up");
+    });
+   
+
+    
+    $('#update').on('click', function(e)  {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+        
+        $(".con-1, .con-2, .con-3, .con-4, .con-5").show();
+    
+        $('.text-here').text('');
+        
+        var firstTime = 0;
+
+        if(document.getElementById('contract-type-1').checked) {
+        
+            $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+
+            $(".con-1").show();
+
+            firstTime = 1;
+
+
+            $('.text-here').text('Weve found 4 contracts.');
+
+    
+        }
+
+        if(document.getElementById('contract-type-2').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-2").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        } 
+
+        if(document.getElementById('contract-type-3').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-3").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+        }
+
+        if(document.getElementById('contract-type-4').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-4").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        }
+
+        if(document.getElementById('contract-type-5').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-5").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        }
+
+
+        if(document.getElementById('year17').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year17").show();
+
+            firstTime = 1;
+
+        }
+        
+        if(document.getElementById('year16').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year16").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('year15').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year15").show();
+
+            firstTime = 1;
+
+        }
+
+
+
+        if(document.getElementById('signed1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".signed1").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('amended1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".amended1").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('withdrawn1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".withdrawn1").show();
+
+            firstTime = 1;
+
+        }
+        
+        
+
+    });
+
+
+    $('#reset-filter').click(function() {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+
+        $(".con-1, .con-2, .con-3, .con-4, .con-5").show();
+
+        $('.text-here').text('');
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+    
+    });
+
+
+
+    /* v v for collapsable search boxes v v */
+
+    $("#funding-title").click(function(){    
+
+        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+
+        $(".up-arrow-new").toggleClass("down-arrow");
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+    });
+
+   
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+    });
+
+
+
+    
+       
+});
+
+
+
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+
+    
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard2">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+
+    <div class="grid-row" >
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge margin-bottom">Your allocations</h1>
+        </div>
+    </div>
+          
+                
+               
+            </ul>
+        </div>  
+    </div>
+
+    <br>
+
+   <div>
+        <a class="link link-all view-all-hidden float-right" href="#all"></a>
+    </div>
+
+    
+
+<div class="grid-row margin-top">
+    
+                            </section>
+                            </div>
+                        </fieldset>
+                        </div>
+    
+                    
+                    
+                    
+              </div>  
+
+    
+</div>
+
+    <div class="column-two-thirds">
+        <div id="tab1" class="main-table">
+            
+
+             <ul class="tab-content">
+                      
+                    <h3 class="bold-medium">Download your allocations</h3>
+                    <br> 
+                     <hr>
+
+                     
+                    <section class="attachment">
+    <div class="attachment-thumb">
+        <a class="thumbnail" href="/public/documents/february.xls" target="_blank">
+            <img src="/public/images/xls_thumbnail2.png">
+        </a>
+    </div>
+    <div class="left-align">
+        
+        <h2 class="attachment-details"><a href="/public/documents/february.xls" target="_blank">The General Annual Grant</a>
+        </h2>
+        
+        <p class="metadata">
+            <span>PDF, 108KB</span>
+        </p>
+        <br>
+        &nbsp;
+        
+        <div class="accessibility-warning"><span><a href="#"></a></span>
+            
+            <h2>
+                
+                <br>
+                <span><a href="#"></a></span>
+            </h2>
+            
+            <p class="visuallyhidden" id="help_block">
+                <<span class="arrow"></span>
+                This file may not be suitable for users of assistive technology.
+                <a href="/">info@sfa.bis.gov.uk</a>.
+                Request an accessible format.
+            </p>
+        
+        </div>
+    
+    </div>
+</section>
+<br>
+<hr>
+                     
+                    <section class="attachment">
+    <div class="attachment-thumb">
+        <a class="thumbnail" href="/public/documents/february.xls" target="_blank">
+            <img src="/public/images/xls_thumbnail2.png">
+        </a>
+    </div>
+    <div class="left-align">
+        
+        <h2 class="attachment-details"><a href="/public/documents/february.xls" target="_blank">16 to 19 Allocation Statement</a>
+        </h2>
+        
+        <p class="metadata">
+            <span>PDF, 108KB</span>
+        </p>
+       <p class="metadata">
+            <span>&nbsp;</span>
+        </p>
+        
+        <div class="accessibility-warning"><span><a href="#"></a></span>
+            
+            <h2>
+                
+                <br>
+                <span><a href="#"></a></span>
+            </h2>
+            
+            <p class="visuallyhidden" id="help_block">
+                <<span class="arrow"></span>
+                This file may not be suitable for users of assistive technology.
+                <a href="/">info@sfa.bis.gov.uk</a>.
+                Request an accessible format.
+            </p>
+        
+        </div>
+    
+    </div>
+</section>
+</ul>
+
+</div>
+
+                     
+     
+        
+        
+    
+    </div>
+</section>
+
+
+    </div>
+</section>
+        </div>
+    
+    </div>
+
+
+                    
+                         
+
+
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+    <br>
+    <br>
+
+    
+
+
+    </div>
+
+</main>
+
+
+{% endblock %}

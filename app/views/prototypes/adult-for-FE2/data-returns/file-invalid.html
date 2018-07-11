@@ -1,0 +1,21 @@
+{{<layout}}
+
+{{$title}}You can't send this file{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+
+    <div id="Validation-Summary">
+        <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+        <div class="error-summary">
+            {{{errorSummary}}}
+            <input type="hidden" id="error_code" value="{{errorCode}}"/>
+        </div>
+    </div>
+    <p>
+      <a id="back.btn" href="/file/choose" class="button">Back to file list</a>
+    </p>
+</main>
+{{/content}}
+{{/layout}}
