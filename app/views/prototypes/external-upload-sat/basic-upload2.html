@@ -55,6 +55,16 @@ Upload pattern
                         </div>
 
 
+                        <div class="info-summary" style='margin-top: 150px!important;'>
+                            <h3 class="heading-medium">
+                                Selected file
+                            </h3>
+                            <p>
+                                <span class="file-name">sitemap.graffle</span>
+                                <br>
+                                <a id="change-file" href="#change">Change file</a>
+                            </p>
+                        </div>
                    
                      
             <ul class="float">
@@ -92,9 +102,9 @@ Upload pattern
         checkAnswers()
     }); 
     
-    if (member.questions === undefined) {
-        member.questions = {};
-    }
+  //  if (member.questions === undefined) {
+  //      member.questions = {};
+  //  }
     
     // this section is a bit hacky but it works perfectly for the system remembering if it's come from a check your answers page - when we come back to this page we want it to hide the back button - it looks to see if the url has '?change=true' at the end of it - this is important so that it can be re-routed back to the check your answers page
     var changing = location.search.split('change=')[1];
@@ -130,5 +140,18 @@ Upload pattern
             $('.error-summary').focus();
         } 
     }
+
+    $(document).ready(function() {
+        $('#fileInput').on('change', function() {
+            if ($('.info-summary').is(":hidden")) {
+                $('.info-summary').toggle();
+            }
+
+            var file = $('#fileInput').val();
+            file = file.substr(file.lastIndexOf('\\')+1,file.length);
+            $('.info-summary .file-name').text(file);
+        });
+
+    });
 </script>
 {% endblock %}
