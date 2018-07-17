@@ -1,0 +1,53 @@
+{{<layout}}
+
+{{$title}}Correct {{fieldHeadingText}} errors{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+
+    <div class="error-summary" role="group" aria-labelledby="correct-errors" tabindex="-1">
+        <h1 id="correct-errors" class="heading-medium error-summary-heading"><span id="title">{{$title}}{{/title}}</span></h1>
+
+        <ul class="error-summary-list">
+            {{#summaries}}
+            <li>
+                <a href="{{link}}">{{errorType.message}}</a>
+                {{{guidance}}}
+            </li>
+            {{/summaries}}
+        </ul>
+
+        {{{moreHelp}}}
+
+        <input type="hidden" id="error_code" value="DR{{errorCode}}"/>
+    </div>
+
+    <div class="form-group">
+        <p class="back">
+            <a id="back.btn" class="button" href="/correction/table?uuid={{uuid}}">Back to corrections table</a>
+        </p>
+    </div>
+
+    <table id="data-error-table" class="table-control mobile-format">
+        <caption>{{fieldHeadingText}} corrections for {{name}}</caption>
+        <thead>
+        <tr>
+            <th class="cell-one-third" scope="col">Row number(s)</th>
+            <th class="cell-one-sixth" scope="col">Error</th>
+            <th class="cell-one-half" scope="col">Your data</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#errorDetail.violations}}
+        <tr{{#anchor}} id="{{anchor}}"{{/anchor}}>
+            <td class="td-row">{{rows}}</td>
+            <td class="td-error">{{errorTypeInfo.name}}</td>
+            <td class="td-data">{{errorValue}}</td>
+        </tr>
+        {{/errorDetail.violations}}
+        </tbody>
+    </table>
+</main>
+{{/content}}
+{{/layout}}

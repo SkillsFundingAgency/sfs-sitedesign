@@ -1,0 +1,114 @@
+{{<layout}}
+
+{{$head}}
+{{>head}}
+{{$commonHead}}{{/commonHead}}
+<script src="/public/javascripts/jquery.mark.min.js" type="text/javascript"></script>
+{{/head}}
+
+{{$title}}{{listMetaData.title}} allowed values{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <a id="back.btn" href="{{src}}" class="link-back">Go back</a>
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+        </div>
+        <div class="column-third float-right">
+            <h2 class="heading-small">Version 1.0</h2>
+            <details>
+                <summary><span class="summary">How we deal with changes</span></summary>
+                <div class="panel panel-border-narrow">
+                    <p>We aim to keep these allowed values fixed. This should allow you to adapt your software systems to use these values. If we need to make changes, we won't remove values but we may add missing values as alternatives or correct any mistakes.</p>
+                </div>
+            </details>
+        </div>
+        <div class="column-two-thirds">
+            <p>Use only these values, spelt exactly as they are in this list. Use the preferred value if you can. If there are alternative values, you can also use those. When you upload your data we’ll convert alternatives into the preferred value. Contact us <a href="#contact">if you need to report using a value that is not in this list</a>.</p>
+            <p class="download"><i class="icon icon-file-download"></i> <a href="/csv/{{listMetaData.heading}}"> Download {{$title}}{{/title}} list (CSV)</a></p>
+            <div class="form-group inline search-list {{#errorMessage}}error{{/errorMessage}}">
+                <form method="get" action="/display-list/search" >
+                    <label class="form-label" for="search">Search this list</label>
+                    <input id="search" name="q" class="form-control" type="text" value="{{query.string}}" />
+                    <input class="button" type="submit" value="Search">
+                    {{#clear}}
+                    <a id="clear" class="button button-secondary" href="/display-list?list={{listMetaData.heading}}&amp;src={{src}}">Clear</a>
+                    {{/clear}}
+                    <input type="hidden" name="list" value="{{listMetaData.heading}}"/>
+                    <input type="hidden" name="src" value="{{src}}"/>
+                </form>
+            </div>
+
+            {{#errorMessage}}
+            <div style="overflow:hidden" class="error-summary" role="group" aria-live="assertive" aria-labelledby="search-results" tabindex="-1">
+                {{{errorMessage}}}
+            </div>
+            {{/errorMessage}}
+
+        </div>
+    </div>
+
+    {{#messages.length}}
+    {{#messages}}
+    <div class="panel panel-border-wide">
+        <p>{{.}}</p>
+    </div>
+    {{/messages}}
+    {{/messages.length}}
+
+    {{#rows.length}}
+    <table id="controlled-list-table" class="{{listMetaData.heading}} table-control mobile-format">
+        <thead>
+        <tr>
+            {{#tableHeadings}}
+            <th scope="col">{{.}}</th>
+            {{/tableHeadings}}
+        </tr>
+        </thead>
+        <tbody class="controlled-list-table-body">
+        {{#rows}}
+        <tr>
+            {{#cells.length}}
+            {{#cells}}
+            <td class="{{cellCls}}">
+                <ul>
+                    {{#values}}
+                    <li>{{.}}</li>
+                    {{/values}}
+                </ul>
+            </td>
+            {{/cells}}
+            {{/cells.length}}
+        </tr>
+        {{/rows}}
+        </tbody>
+    </table>
+    {{/rows.length}}
+
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h2 class="heading-medium" id="contact">If you need to report using a value that is not in this list</h2>
+            <p>If there is a value on the list that has the same meaning as the value you’ve used before, you should use that.</p>
+            <p>If you can’t report your data without having a new value added to the list, please contact the Environment Agency National Customer Contact Centre:</p>
+            <ul class="list">
+                <li>Telephone <a href="tel:+443301591988">03301&#160;591&#160;988</a></li>
+            </ul>
+            <p><a href="#content">Back to top</a></p>
+        </div>
+    </div>
+
+
+    {{#query.terms.length}}
+    <script type="text/javascript">
+        var hlClasses = "{{listMetaData.searchFields}}";
+        hlClasses = hlClasses.split(",").map(function(field) {return "td." + field}).join(",");
+        var cells = $("#controlled-list-table").find(hlClasses);
+        cells.mark("{{query.terms}}".split(","));
+    </script>
+    {{/query.terms.length}}
+</main>
+{{/content}}
+{{/layout}}
