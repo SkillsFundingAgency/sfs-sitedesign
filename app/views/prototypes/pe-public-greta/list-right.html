@@ -1,0 +1,184 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    
+     
+    
+ 
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table"); 
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding"); 
+
+
+        if (".down-arrow-funding")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+
+        if (".down-arrow-2")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-2").toggle();
+
+    });
+
+
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+
+        if (".down-arrow-3")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2, #funding-title-3").click();
+
+        $("#open-all").text("Close all"); 
+
+    });
+
+    
+
+});
+
+
+</script>
+
+<main role="main" id="content" >
+    <div class="phase-banner-beta">
+
+        <div>
+            
+        </div>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <div>               
+            <h1 class="heading-large">Manage your skills and education funding </h1>      
+        </div>
+
+        <p></p>
+           
+
+            
+                
+        <div class="grid-row">
+        <div class="column-two-thirds">
+            
+                
+        <p>Sign in or register for skills and education funding contracts and information online. You can:
+</p>
+            <ul class="list list-bullet">
+                <li>sign documents</li>
+                <li>check your funding allocations</li>
+                <li>view the funding you’ve received</li>
+<li>manage apprenticeship details</li>
+<li>tell us about your subcontractors
+</li>
+                
+            </ul>
+            
+            <div class="transaction">
+                <div id="get-started" class="get-started">
+                    <a class="button button-get-started" href="idams">Sign in or create an account</a>
+                </div>
+            </div>
+
+                 
+
+    </div>
+    </div>
+            
+        
+            
+            
+            
+    </div> 
+
+
+    <div class="related-container">
+        <aside class="related" id="related">
+            <div class="inner group related-subsection">
+                <h2 id="parent-subsection">Related content</h2>
+                <p>Pupil premium and other school premiums</p>
+                    
+                        <ul>
+                            <li>
+                                <a href="index">PE and sport premium: funding allocations for 2018 to 2019</a>
+                            </li>
+                            <li>
+                                <a href="#">PE and sport premium: funding allocations for 2017 to 2018</a>
+                            </li>
+                            <li><a href="#">Pupil premium: funding and accountability for schools</a></li>
+                            
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        
+
+    </div>   
+
+</div>
+          
+    
+        
+
+</main>
+
+
+{% endblock %}
