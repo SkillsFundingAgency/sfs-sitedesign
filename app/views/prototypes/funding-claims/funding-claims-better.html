@@ -1,0 +1,556 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    
+     
+    
+ 
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table"); 
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding"); 
+
+
+        if (".down-arrow-funding")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+
+        if (".down-arrow-2")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-2").toggle();
+
+    });
+
+
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+
+        if (".down-arrow-3")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2, #funding-title-3").click();
+
+        $("#open-all").text("Close all"); 
+
+    });
+
+    
+
+});
+
+
+</script>
+
+<main role="main" id="content" >
+
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home</a></li>
+            
+        </ul>
+        </div>
+    </div>
+    
+    
+
+
+<div class="grid-row">
+    <div class="column-full">
+        <div>               
+            <h1 class="heading-large">Review your funding claim</h1>      
+        </div>
+
+                        
+
+                                        <p>This is your final (R14) funding claim for 2017 to 2018 and is the information entered on the Hub at 10.27am on 8 April 2018</p>
+
+                    <p>Your delegated authority should sign this claim by 10.19am on 15 April 2018</p>
+
+                   
+                    <!--<p ><a href="public/images/Final funding for 2015 to 2016.pdf">Save and Print final amount (PDF)</a>-->
+                    
+                    
+                    <a href="#" id="open-all" class="open-link float-right">Open all</a><br />
+                    
+
+
+                    </p>
+                    
+                    <div id="funding-title" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">Adult Apprenticeship
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim figures £3,002.00</p>
+                        
+                    </div>
+                                       
+                        <div class="hidden">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">Adult apprenticeships total funding</th>
+                                        <th class="numeric">Students</th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Delivery to date</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£2,001.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£1,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£3,002.00</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 Apprenticeship frameworks programme funding</th>
+                                        <th class="numeric">Students</th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£4,001.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£2,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£4,003.00</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 Apprenticeship frameworks learning support</th>
+                                        <th class="numeric">Students</th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Delivery to date</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£6,001.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£3,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£5,004.00</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19+ Apprenticeships frameworks learner support</th>
+                                        <th class="numeric">Students</th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Delivery to date</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£8,001.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£4,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£6,005.00</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">24+ Apprenticeships frameworks learning support</th>
+                                        <th class="numeric">Students</th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Delivery to date</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£12,001.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£6,000.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <th class="numeric">100</th>
+                                        <td class="numeric">£8,007.00</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+
+                            <table>
+                                
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left"></td>
+                                        <th class=""></th>
+                                        <td class="numeric"></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="column-left"><strong>Total claim figures</strong></td>
+                                        <th class=""></th>
+                                        <td class="numeric">£75,003.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <table>
+                                
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left"></td>
+                                        <th class=""></th>
+                                        <td class="numeric"></td>
+                                    </tr>
+                                    
+                                    <tr>
+                                        <td class="column-left"><strong>Total conract value</strong></td>
+                                        <th class=""></th>
+                                        <td class="numeric">£12,345,678.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        
+                            
+                        </div>
+
+
+                    <div id="funding-title" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">Adult Education Budget
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim figures £3,002.00</p>
+
+                            
+                        
+                    </div>
+                                       
+                          
+                        <div class="hidden-2">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 apprenticeships programme funding</th>
+                                        <th class="numeric">Year end</th>
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19-23 Apprenticeships Learning Support</th>
+                                        <th class="numeric">Year end</th>
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">24+ Apprenticeships Programme Funding</th>
+                                        <th class="numeric">Year end</th>
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">24+ Apprenticeships Learning Support</th>
+                                        <th class="numeric">Year end</th>
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19+ Apprenticeships Learner Support</th>
+                                        <th class="numeric">Year end</th>
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">Total claim figures</th>
+                                        <th class="">-</th>
+                                        <th class="numeric">£99,999,999.99</th>
+                                    </tr>
+                                </thead>
+                                <thead class="grey-background">
+                                    <tr>
+                                        <th class="column-left">Total contract value</th>
+                                        <th class=""></th>
+                                        <th class="numeric">£99,999,999.99</th>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                            
+                            
+
+                        </div>
+
+
+
+                    <div id="funding-title" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">Advanced Learner Loans Bursary
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim figures £3,002.00</p>   
+                        
+                    </div>
+                    <hr>
+                                       
+                          
+                        <div class="hidden-3">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 apprenticeships programme funding</th>
+                                        <th class="numeric">Year end</th>
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                        <td class="numeric">£99,999,999.99</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">Total claim figures</th>
+                                        <th class="">-</th>
+                                        <th class="numeric">£99,999,999.99</th>
+                                    </tr>
+                                </thead>
+                                <thead class="grey-background">
+                                    <tr>
+                                        <th class="column-left">Total contract value</th>
+                                        <th class=""></th>
+                                        <th class="numeric">£99,999,999.99</th>
+                                    </tr>
+                                </thead>
+                            </table>                    
+                            
+                        </div>
+
+
+
+
+
+                 
+            <ul class="float margin-top">
+                <li><a class="button" href="Step-2-funding">Continue to sign</a></li><br /><p></p>
+                <li class="link-to-contracts-page">or go <a href="andrea-authoriser-NEW"> back to funding claims</a></li>
+            </ul>
+                    
+                
+                    <br>
+
+       
+
+          </div>       
+
+    
+
+</div>
+          
+    
+        
+
+</main>
+
+
+{% endblock %}
