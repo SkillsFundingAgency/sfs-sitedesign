@@ -308,7 +308,7 @@ strong{
 
 
 
-   
+
 
 
 
@@ -577,7 +577,7 @@ html[data-useragent*='MSIE 10.0'] .flex-container {
 
 .card a {
   display: inline-block;
-  
+
   line-height: 20px;
   text-decoration: none;
 }
@@ -707,12 +707,23 @@ html[data-useragent*='MSIE 10.0'] .flex-container {
     left: 0;
   }
 
+  [type=smallcheckbox] + label::before {
+    content: "";
+    border: 2px solid;
+    background: transparent;
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
   [type=checkbox] + label::after {
     content: "";
     border: solid;
     border-width: 0 0 5px 5px;
     background: transparent;
-    width: 17px;
+    width: 107px;
     height: 7px;
     position: absolute;
     top: 10px;
@@ -776,15 +787,15 @@ html[data-useragent*='MSIE 10.0'] .flex-container {
     }
     .previous {
         text-align: left
-    }    
+    }
     .next {
         text-align: right;
         .arrow-button {
             float: right;
             margin-left: 10px;
             margin-right: 0
-        }            
-    }    
+        }
+    }
 }
 
 // To sit multiple choice inputs next to each other, use .inline on parent
@@ -804,3 +815,30 @@ html[data-useragent*='MSIE 10.0'] .flex-container {
 }
 
 .upload-layout .multiple-choice {float:right;     padding: 18px 10px 9px 26px;}
+
+
+// Bits added by Dave
+
+hr.style1{
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #b9b9b9; /* old IE */
+    background-color: #b9b9b9; /* Modern Browsers */
+}
+
+// Start button without arrow
+
+.button-new,
+.button-get-started-new {
+    font-family: "nta", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 2.0;
+    font-weight: 700;
+    text-transform: none;
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    padding: 0.3684210526em 0.9em 0.2105263158em 0.9em;
+}
+
+// Start button with arrow try .button-start or .button-get-started

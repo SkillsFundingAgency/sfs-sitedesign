@@ -8,52 +8,52 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script>
-    
+
 $(document).ready(function() {
     $('.tabs .tab-links a').on('click', function(e)  {
         var currentAttrValue = $(this).attr('href');
-        
-        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
-        
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)
+
         $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
-        $(newCurrentValue).show();            
- 
+        $(newCurrentValue).show();
+
         e.preventDefault();
 
         $(".view-all-hidden").show();
     });
-    
-    
+
+
     $('.link-all').on('click', function(e)  {
         var currentAttrValue = $(this).attr('href');
-        
-        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
-        
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)
+
         $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
 
         $(".view-all-hidden").hide();
-        
+
     });
-    
-    
+
+
     $('a.impact-link').click(function() {
-    
+
         $('.impact-link.active').removeClass('active');
-        
+
         $(this).addClass('active');
     })
-    
-    
+
+
     $('a.link.link-all').click(function() {
-    
+
         $('.impact-link.active').removeClass('active');
-        
+
         $(this).addClass('active');
     })
-    
 
 
-    
+
+
     $("#open-mobile-menu").click(function() {
 
         $(".search-hidden-mobile").toggleClass("open-menu-mobile");
@@ -69,15 +69,15 @@ $(document).ready(function() {
     $('#update').on('click', function(e)  {
 
         $('.impact-link.active').removeClass('active');
-        
+
         $(".view-all-hidden").hide();
-        
+
         $(".final, .end").show();
 
         var firstTime = 0;
 
         if(document.getElementById('mid').checked) {
-        
+
             $(".mid, .end, .final, .end-recon, .final-recon").hide();
 
             $(".mid").show();
@@ -88,27 +88,27 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('end').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".end").show();
 
             firstTime = 1;
 
             $('.text-here').text("We've found 1 result.");
 
-        } 
+        }
 
         if(document.getElementById('final').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".final").show();
 
             firstTime = 1;
@@ -118,12 +118,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('end-recon').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".end-recon").show();
 
             firstTime = 1;
@@ -133,12 +133,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('final-recon').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".final-recon").show();
 
             firstTime = 1;
@@ -150,12 +150,12 @@ $(document).ready(function() {
 
 
         if(document.getElementById('year17').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".year15, .year16, .year17").hide();
             }
-            
+
             $(".year17").show();
 
             firstTime = 1;
@@ -163,14 +163,14 @@ $(document).ready(function() {
             $('.text-here').text("We've found 4 results.");
 
         }
-        
+
         if(document.getElementById('year16').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".year15, .year16, .year17").hide();
             }
-            
+
             $(".year16").show();
 
             firstTime = 1;
@@ -180,12 +180,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('year15').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".year15, .year16, .year17").hide();
             }
-            
+
             $(".year15").show();
 
             firstTime = 1;
@@ -197,12 +197,12 @@ $(document).ready(function() {
 
 
         if(document.getElementById('ready').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".ready").show();
 
             firstTime = 1;
@@ -213,12 +213,12 @@ $(document).ready(function() {
 
 
         if(document.getElementById('signed').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".signed").show();
 
             firstTime = 1;
@@ -228,12 +228,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('review').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".review").show();
 
             firstTime = 1;
@@ -243,12 +243,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('missed').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".missed").show();
 
             firstTime = 1;
@@ -256,8 +256,8 @@ $(document).ready(function() {
             $('.text-here').text("We've found 1 contract.");
 
         }
-        
-        
+
+
 
     });
 
@@ -265,7 +265,7 @@ $(document).ready(function() {
     $('#reset-filter').click(function() {
 
         $('.impact-link.active').removeClass('active');
-        
+
         $(".view-all-hidden").hide();
 
         $(".ready, .signed, .review, .missed").show();
@@ -275,7 +275,7 @@ $(document).ready(function() {
         $('input[type=checkbox]').each(function() { this.checked = false; });
 
         $('input[type=radio]').each(function() { this.checked = false; });
-    
+
     });
 });
 
@@ -283,25 +283,25 @@ $(document).ready(function() {
 /* v v for collapsable search boxes v v */
 $(document).ready(function() {
 
-    $("#funding-title").click(function(){    
+    $("#funding-title").click(function(){
 
-        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+        $(".displayed-checkbox").toggleClass("hidden-checkbox");
 
         $(".up-arrow-new").toggleClass("down-arrow");
     });
 
-    
+
     $("#funding-title-2").click(function(){
 
-        $(".hidden-2").toggleClass("show-2"); 
+        $(".hidden-2").toggleClass("show-2");
 
         $(".down-arrow-2").toggleClass("up-arrow-new-2");
     });
 
-   
+
     $("#funding-title-3").click(function(){
 
-        $(".hidden-3").toggleClass("show-3"); 
+        $(".hidden-3").toggleClass("show-3");
 
         $(".down-arrow-3").toggleClass("up-arrow-new-3");
     });
@@ -315,7 +315,7 @@ $(document).ready(function() {
         <div>
             <p>
                 <strong class="phase-tag">BETA</strong>
-                
+
             </p>
         </div>
     </div>-->
@@ -323,12 +323,12 @@ $(document).ready(function() {
     <div class="grid-row ">
         <div class="welcome">
         <ul class="">
-           
+
             <li class="font-xsmall">UKPRN:12345678</li>
         </ul>
         </div>
     </div>
-    
+
     <div class="service-info">
         <nav id="secondary-nav" class="account-menu" role="navigation" aria-label="Account">
             <a href="dash-old" class="account-menu__link account-menu__link--home account-menu__link--active" data-journey-click="link - click:utility-nav:Account home">
@@ -371,20 +371,20 @@ $(document).ready(function() {
         </nav>
     </div>
 
-   
+
 
     <div class="grid-row">
         <div class="column-two-thirds" style="margin-bottom: 40px">
             <p class="page-info">UKPRN:12345678</p><br />
-            <h1 class="heading-large no-margin-top">Allocation statements 2018 to 2019</h1>
-           
+            <h1 class="heading-large no-margin-top">Allocation statements</h1>
+
         </div>
-        
+
     </div>
 
 
 
-     
+
      <div class="grid-row">
 
 
@@ -429,7 +429,7 @@ $(document).ready(function() {
                                      </label>
                                  </li>
 
-                                 
+
                                  <li class="multiple-choice">
                                      <input id="contract-type-1" name="contract" type="checkbox" value="16-19 Funding">
                                      <label class="block" for="contract-type-1">
@@ -490,7 +490,7 @@ $(document).ready(function() {
                                      </label>
                                  </li>
 
-                                 
+
 
 
                              </ul>
@@ -509,8 +509,8 @@ $(document).ready(function() {
 
     <div class="column-two-thirds">
         <div id="tab1" class="main-table"><br /><hr>
-             
-        
+
+
             <ul class="tab-content">
                 <li class="tab1 tab active payment-section final year17 ready">
                         <h2 class="bold-small"><a href="#">16 to 19 for 2018 to 2019</a>
@@ -521,10 +521,10 @@ $(document).ready(function() {
                             <h3 style="float: left;padding-right: font-weight:bold;"></h3><label>£1,468,805</label>
                         </div>
                     </div>
-                   
+
                     </li>
-                      
-               
+
+
 
                     <li class="tab1 tab active payment-section final year17 ready">
                         <h2 class="bold-small"><a href="funding-list">Adult education budget for 2018 to 2019</a>
@@ -536,7 +536,7 @@ $(document).ready(function() {
                             <h3 style="float: left;padding-right: font-weight:bold;"></h3><label>£4,725,425</label>
                         </div>
                         </div>
-                   
+
                     </li>
 
 
@@ -550,7 +550,7 @@ $(document).ready(function() {
                             <h3 style="float: left;padding-right: font-weight:bold;"></h3><label>£568,805</label>
                         </div>
                     </div>
-                   
+
                     </li>
 
 
@@ -580,25 +580,29 @@ $(document).ready(function() {
                 </li>
 
                      <li class="tab1 tab active payment-section final year17 ready">
-                        <h2 class="bold-small">Adult funding for 2017 to 2018
-                        </h2>
+
+
+                        <h2 class="bold-small"><a href="pdf-page">Adult funding for 2017 to 2018</a>
+
+
+
                        <p>Adult Education Budget and loans facilities<br /><br />10 February 2017 version 1</p>
 
-                        <span class="action-link"><a href="pdf-page">View PDF</a></span> <br />
+              
                     </div>
-                   
+
                     </li>
 
-                </ul>  
-        
-        
-        
+                </ul>
 
-        
+
+
+
+
 
         </div>
     </div>
-</div>    
+</div>
 
 </div>
 

@@ -1,0 +1,586 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+    $("#querySubmit").click(function(){
+        $(".hidden").addClass("show"); //to show 'query sent'
+        $("details").not(this).removeAttr("open");
+    });
+    $("summary").click(function(){
+        $(".hidden").removeClass("show"); //to show 'query sent'
+    });
+    $(".show-year-end").click(function(){
+        $(".hidden-cell").addClass("show1");
+        $(".hidden-year-end").show();
+        $(".show-year-end").hide();
+    });
+    $(".hide-year-end").click(function(){
+        $(".hidden-cell").removeClass("show1");
+        $(".hidden-year-end").hide();
+        $(".show-year-end").show();
+    });
+    // $("summary").click(function(){
+    //     $(".hidden").removeClass("show"); //to show 'query sent'
+    // });
+    // $(window).scroll(function(){
+    //   if($(window).scrollTop() + 100 > $(window).height() ){
+    //     $("#js-back-to-content").show();
+    //       }
+    //     else {
+    //         $("#js-back-to-content").hide();
+    //     }
+    // });
+    $("#funding-title").click(function(){
+        $(".hidden").toggleClass("show-table");
+        $(".down-arrow-funding").toggleClass("up-arrow-funding");
+        $("#total-claims-hide").toggle();
+    });
+    $("#funding-title-2").click(function(){
+        $(".hidden-2").toggleClass("show-table-2");
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+        $("#total-claims-hide-2").toggle();
+    });
+    $("#funding-title-3").click(function(){
+        $(".hidden-3").toggleClass("show-table-3");
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+        $("#total-claims-hide-3").toggle();
+    });
+    $("#funding-title-4").click(function(){
+        $(".hidden-4").toggleClass("show-table-4");
+        $(".down-arrow-4").toggleClass("up-arrow-new-4");
+        $("#total-claims-hide-4").toggle();
+    });
+    $("#open-all").click(function(){
+        $("#funding-title, #funding-title-2").click();
+        $(".open-link").hide();
+        $(".close-link").show();
+    });
+    $("#close-all").click(function(){
+        $("#funding-title, #funding-title-2").click();
+        $(".close-link").hide();
+        $(".open-link").show();
+    });
+});
+</script>
+
+<main role="main" id="content" >
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+
+
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard">Home</a></li>
+            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
+            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
+            <li><a class="font-xsmall" href="settings">Settings</a></li>
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+
+
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <div>
+            <h1 class="heading-xlarge">Review your funding claim</h1>
+        </div>
+
+
+                                        <p>This is your Year end (R13) funding claim for 2017 to 2018 Version 1 and is the information you entered on the Hub at 8.25am on 17 September 2018.</p>
+
+
+
+<br>
+<p ><a href="public/images/Final funding for 2015 to 2016.pdf">Download document</a></p>
+
+                  <br />  <h2 class="heading-medium">Your claim figures</h2>
+
+
+
+                    <a href="#" id="close-all" class="close-link float-right" ></a>
+                    <a href="#" id="open-all" class="open-link float-right" style="padding-bottom: 20px" ></a>
+
+
+
+                    </p>
+
+                    <div id="funding-title" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">16 to 19 Funding
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim £4,055,981.57</p>
+
+                    </div>
+
+                        <div class="hidden">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">14 to 16 direct funded students</th>
+                                        <th class="column-left"></th>
+                                        <th class="numeric"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Student Numbers</td>
+                                        <th class=""></th>
+                                        <td class="numeric">487</td>
+                                    </tr>
+
+                                </tbody>
+                            </table><br />
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">16 to 19 students - including High Needs</th>
+                                        <th class=""></th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Student numbers</td>
+                                        <th class=""></th>
+                                        <td class="numeric">923</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2017 to 2018</td>
+                                        <th class=""></th>
+                                        <td class="numeric">£3,857,889.18</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 24 students with an Education Health and Care Plan</th>
+                                        <th class=""></th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Student numbers</td>
+                                        <th class=""></th>
+                                        <td class="numeric">52</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Forecasted delivery</td>
+                                        <th class=""></th>
+                                        <td class="numeric">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2017 to 2018</td>
+                                        <th class=""></th>
+                                        <td class="numeric">£233,092.39</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19+ continuing students excluding those with an Education Health and Care Plan</th>
+                                        <th class="numeric"></th>
+                                        <th class="numeric">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Student numbers</td>
+                                        <th class=""></th>
+                                        <td class="numeric">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Forecasted delivery</td>
+                                        <th class=""></th>
+                                        <td class="numeric">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2017 to 2018</td>
+                                        <th class=""></th>
+                                        <td class="numeric">0</td>
+                                    </tr>
+                                </tbody>
+                            </table><br />
+
+
+
+
+                            <table>
+
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left"></td>
+                                        <th class=""></th>
+                                        <td class="numeric"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="column-left"><strong>Sub total</strong></td>
+                                        <th class=""></th>
+                                        <td class="numeric"><strong>£4,090,981.57</strong></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="column-left"></td>
+                                        <th class=""></th>
+                                        <td class="numeric"></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="column-left"><strong>Condition of funding removal for 2017 to 2018</strong></td>
+                                        <th class=""></th>
+                                        <td class="numeric">-£35,000.00</td>
+                                    </tr>
+                                </tbody>
+
+
+
+
+                                    <tr>
+                                        <td class="column-left"><strong>Total claim</strong></td>
+                                        <th class=""></th>
+                                        <td class="numeric"><strong>£4,055,981.57</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+
+
+                        </div><br />
+
+
+<div id="funding-title" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">Non-procured adult education budget
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim £2,055,000.50</p>
+
+                    </div>
+
+
+
+
+                        <div class="hidden-2">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 apprenticeships programme funding</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2017 to 2018</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19-23 Apprenticeships Learning Support</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">24+ Apprenticeships Programme Funding</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">24+ Apprenticeships Learning Support</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19+ Apprenticeships Learner Support</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">Total claim figures</th>
+
+                                        <th class="numeric">£0</th>
+                                    </tr>
+                                </thead>
+                            </table>
+
+
+
+
+                        </div>
+
+<div id="funding-title" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">Procured learner support
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim ££355,900.00</p>
+
+                    </div>
+
+
+
+
+                        <div class="hidden-3">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 apprenticeships programme funding</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+
+                                        <td class="numeric">£0</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">Total claim figures</th>
+
+                                        <th class="numeric">£0</th>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                        </div>
+                    <br />
+
+                    <div id="funding-title-4" class="filters-headings-funding margin-bottom"><br />
+                        <h2 class="bold-medium">Advanced learner loans bursary
+                            <span class=""></span></h2>
+
+                            <h2 class="bold-small">
+                            <span class="down-arrow-funding"></span></h2>
+                            <p id="total-claims-hide" class="">Total claim £550,234.30</p>
+
+                    </div>
+
+
+
+
+                        <div class="hidden-3">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">19 to 23 apprenticeships programme funding</th>
+
+                                        <th class="numeric">Final year</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="column-left">Your claim</td>
+
+                                        <td class="numeric">£99,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Exceptional adjustments</td>
+
+                                        <td class="numeric">£99,999.99</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="column-left">Total delivery for 2016 to 2017</td>
+
+                                        <td class="numeric">£99,999.99</td>
+                                    </tr>
+                                </tbody>
+                                <thead>
+                                    <tr>
+                                        <th class="column-left">Total claim figures</th>
+
+                                        <th class="numeric">£99,999.99</th>
+                                    </tr>
+                                </thead>
+                            </table>
+
+                        </div>
+                    <br />
+
+
+                    <hr>
+
+
+            <p><a href="andrea-authoriser-NEW">Back to funding claims</a></p>
+
+
+
+
+
+
+
+          </div>
+
+          <div class="related-container">
+        <aside class="related" id="related">
+            <div class="inner group related-subsection">
+                <h2 id="parent-subsection">Related</h2>
+                    <nav role="navigation" aria-labelledby="parent-subsection">
+                        <ul>
+                            <li>
+                                <a href="andrea-authoriser">View contracts</a>
+                            </li>
+                            <li>
+                                <a href="andrea-authoriser-NEW">View funding claims</a>
+                            </li>
+                            <li>
+                                <a href="https://hub.fasst.org.uk/Pages/default.aspx">The Hub</a>
+                            </li>
+                            <li>
+                                <a href="andrea-authoriser-NEW">Working with the ESFA as a provider</a>
+                            </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+    </div>
+
+</div>
+
+
+
+
+</main>
+
+
+{% endblock %}

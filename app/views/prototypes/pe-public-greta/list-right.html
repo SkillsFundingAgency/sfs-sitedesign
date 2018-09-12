@@ -11,15 +11,25 @@
 
 <script>
 $(document).ready(function(){
-    
-     
-    
- 
+
+$("#next-button").on("click", function() {
+  if($('#radio-1').is(':checked'))
+  {
+    window.location.replace("../pe-public-gov-page/list-right");
+  }
+  else if ($('#radio-2').is(':checked'))
+  {
+    window.location.replace("idams");
+  }
+});
+
+
+
     $("#funding-title").click(function(){
 
-        $(".hidden").toggleClass("show-table"); 
+        $(".hidden").toggleClass("show-table");
 
-        $(".down-arrow-funding").toggleClass("up-arrow-funding"); 
+        $(".down-arrow-funding").toggleClass("up-arrow-funding");
 
 
         if (".down-arrow-funding")
@@ -31,10 +41,10 @@ $(document).ready(function(){
 
     });
 
-    
+
     $("#funding-title-2").click(function(){
 
-        $(".hidden-2").toggleClass("show-table-2"); 
+        $(".hidden-2").toggleClass("show-table-2");
 
         $(".down-arrow-2").toggleClass("up-arrow-new-2");
 
@@ -55,7 +65,7 @@ $(document).ready(function(){
 
     $("#funding-title-3").click(function(){
 
-        $(".hidden-3").toggleClass("show-table-3"); 
+        $(".hidden-3").toggleClass("show-table-3");
 
         $(".down-arrow-3").toggleClass("up-arrow-new-3");
 
@@ -77,11 +87,11 @@ $(document).ready(function(){
 
         $("#funding-title, #funding-title-2, #funding-title-3").click();
 
-        $("#open-all").text("Close all"); 
+        $("#open-all").text("Close all");
 
     });
 
-    
+
 
 });
 
@@ -92,76 +102,94 @@ $(document).ready(function(){
     <div class="phase-banner-beta">
 
         <div>
-            
+
         </div>
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
 
 
 <div class="grid-row">
     <div class="column-two-thirds">
-        <div>               
-            <h1 class="heading-large">Manage your skills and education funding </h1>      
+        <div>
+            <h1 class="heading-large">What do you want to do?</h1>
         </div>
 
         <p></p>
-           
 
-            
-                
+
+
+
         <div class="grid-row">
         <div class="column-two-thirds">
-            
-                
-        <p>Sign in or register for skills and education funding contracts and information online. You can:
-</p>
-            <ul class="list list-bullet">
-                <li>sign documents</li>
-                <li>check your funding allocations</li>
-                <li>view the funding you’ve received</li>
-<li>manage apprenticeship details</li>
-<li>tell us about your subcontractors
-</li>
-                
-            </ul>
-            <div class="panel panel-border-wide">
-  <p>
-    You do not have to sign in to <a href="../pe-public-gov-page/list-right">see information on funding for schools and academies.</a>
-</p>
+
+
+
+
+<fieldset>
+<p>
+
+<div class="multiple-choice">
+  <input id="radio-1" type="radio" name="radio-group" value="view public info">
+  <label for="radio-1">View all PE and sport premium allocations for 2017 to 2018</label>
 </div>
+
+<div class="multiple-choice">
+  <input id="radio-2" type="radio" name="radio-group" value="login journey">
+  <label for="radio-2">Sign in to the skills funding service</label>
+</div>
+
+</p>
+</fieldset>
+<p>
+<fieldset>
+</P>
+
+<p>
+<fieldset>
+</P>
+
+
+<div class="transaction">
+    <div id="get-started" class="get-started">
+        <a class="button" href="#" id="next-button">Next</a>
+    </div>
+
+</p>
+
+
+
+</fieldset>
+
+
 <br />
-            
-            <div class="transaction">
-                <div id="get-started" class="get-started">
-                    <a class="button button-get-started" href="idams">Sign in or create an account</a>
-                </div>
-            </div>
 
-                 
+
+
+
 
     </div>
     </div>
-            
-        
-            
-            
-            
-    </div> 
+
+
+
+
+
+    </div>
 
 
     <div class="related-container">
         <aside class="related2" id="related">
             <div class="inner group related-subsection">
                 <h2 id="parent-subsection">Related content</h2>
-                
-                    
+
+
                         <ul>
                             <li>
                                 <a href="https://skillsfunding.service.gov.uk/settings">User roles and permissions</a>
@@ -172,7 +200,7 @@ $(document).ready(function(){
 
                             <h3 id="related-nav-topics-9989fba8" data-track-count="sidebarRelatedItemSection" class="gem-c-related-navigation__sub-heading">
       Explore the topic
-    </h3> 
+    </h3>
                         <ul id="related-links-list">
                             <li>
                                 <a href="https://www.gov.uk/guidance/how-to-become-an-approved-training-provider-and-bid-for-funding">How to become an approved training provider and bid for funding</a>
@@ -181,7 +209,7 @@ $(document).ready(function(){
                             <li><a href="https://www.gov.uk/education/school-and-academy-funding">School and academy funding</a></li>
                         </ul><br />
                             <h4 class="heading-small">Elsewhere on the web</h4>
-                           
+
                    <ul id="related-links-list">
                             <li>
                                 <a href="https://hub.fasst.org.uk/Pages/default.aspx">The Hub</a>
@@ -189,16 +217,16 @@ $(document).ready(function(){
                         </ul>
                 </nav>
             </div>
-            
-        </aside>
-        
 
-    </div>   
+        </aside>
+
+
+    </div>
 
 </div>
-          
-    
-        
+
+
+
 
 </main>
 

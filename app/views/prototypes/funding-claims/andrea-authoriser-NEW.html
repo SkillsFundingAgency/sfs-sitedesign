@@ -8,52 +8,52 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 <script>
-    
+
 $(document).ready(function() {
     $('.tabs .tab-links a').on('click', function(e)  {
         var currentAttrValue = $(this).attr('href');
-        
-        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
-        
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)
+
         $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
-        $(newCurrentValue).show();            
- 
+        $(newCurrentValue).show();
+
         e.preventDefault();
 
         $(".view-all-hidden").show();
     });
-    
-    
+
+
     $('.link-all').on('click', function(e)  {
         var currentAttrValue = $(this).attr('href');
-        
-        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
-        
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)
+
         $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
 
         $(".view-all-hidden").hide();
-        
+
     });
-    
-    
+
+
     $('a.impact-link').click(function() {
-    
+
         $('.impact-link.active').removeClass('active');
-        
+
         $(this).addClass('active');
     })
-    
-    
+
+
     $('a.link.link-all').click(function() {
-    
+
         $('.impact-link.active').removeClass('active');
-        
+
         $(this).addClass('active');
     })
-    
 
 
-    
+
+
     $("#open-mobile-menu").click(function() {
 
         $(".search-hidden-mobile").toggleClass("open-menu-mobile");
@@ -69,15 +69,15 @@ $(document).ready(function() {
     $('#update').on('click', function(e)  {
 
         $('.impact-link.active').removeClass('active');
-        
+
         $(".view-all-hidden").hide();
-        
+
         $(".final, .end").show();
 
         var firstTime = 0;
 
         if(document.getElementById('mid').checked) {
-        
+
             $(".mid, .end, .final, .end-recon, .final-recon").hide();
 
             $(".mid").show();
@@ -88,27 +88,27 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('end').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".end").show();
 
             firstTime = 1;
 
             $('.text-here').text("We've found 1 result.");
 
-        } 
+        }
 
         if(document.getElementById('final').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".final").show();
 
             firstTime = 1;
@@ -118,12 +118,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('end-recon').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".end-recon").show();
 
             firstTime = 1;
@@ -133,12 +133,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('final-recon').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".mid, .end, .final, .end-recon, .final-recon").hide();
             }
-            
+
             $(".final-recon").show();
 
             firstTime = 1;
@@ -150,12 +150,12 @@ $(document).ready(function() {
 
 
         if(document.getElementById('year17').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".year15, .year16, .year17").hide();
             }
-            
+
             $(".year17").show();
 
             firstTime = 1;
@@ -163,14 +163,14 @@ $(document).ready(function() {
             $('.text-here').text("We've found 4 results.");
 
         }
-        
+
         if(document.getElementById('year16').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".year15, .year16, .year17").hide();
             }
-            
+
             $(".year16").show();
 
             firstTime = 1;
@@ -180,12 +180,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('year15').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".year15, .year16, .year17").hide();
             }
-            
+
             $(".year15").show();
 
             firstTime = 1;
@@ -197,12 +197,12 @@ $(document).ready(function() {
 
 
         if(document.getElementById('ready').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".ready").show();
 
             firstTime = 1;
@@ -213,12 +213,12 @@ $(document).ready(function() {
 
 
         if(document.getElementById('signed').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".signed").show();
 
             firstTime = 1;
@@ -228,12 +228,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('review').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".review").show();
 
             firstTime = 1;
@@ -243,12 +243,12 @@ $(document).ready(function() {
         }
 
         if(document.getElementById('missed').checked) {
-            
+
             if(firstTime == 0) {
-                
+
                 $(".ready, .signed, .review, .missed").hide();
             }
-            
+
             $(".missed").show();
 
             firstTime = 1;
@@ -256,8 +256,8 @@ $(document).ready(function() {
             $('.text-here').text("We've found 1 contract.");
 
         }
-        
-        
+
+
 
     });
 
@@ -265,7 +265,7 @@ $(document).ready(function() {
     $('#reset-filter').click(function() {
 
         $('.impact-link.active').removeClass('active');
-        
+
         $(".view-all-hidden").hide();
 
         $(".ready, .signed, .review, .missed").show();
@@ -273,7 +273,7 @@ $(document).ready(function() {
         $('.text-here').text('');
 
         $('input[type=checkbox]').each(function() { this.checked = false; });
-    
+
     });
 });
 
@@ -281,25 +281,25 @@ $(document).ready(function() {
 /* v v for collapsable search boxes v v */
 $(document).ready(function() {
 
-    $("#funding-title").click(function(){    
+    $("#funding-title").click(function(){
 
-        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+        $(".displayed-checkbox").toggleClass("hidden-checkbox");
 
         $(".up-arrow-new").toggleClass("down-arrow");
     });
 
-    
+
     $("#funding-title-2").click(function(){
 
-        $(".hidden-2").toggleClass("show-2"); 
+        $(".hidden-2").toggleClass("show-2");
 
         $(".down-arrow-2").toggleClass("up-arrow-new-2");
     });
 
-   
+
     $("#funding-title-3").click(function(){
 
-        $(".hidden-3").toggleClass("show-3"); 
+        $(".hidden-3").toggleClass("show-3");
 
         $(".down-arrow-3").toggleClass("up-arrow-new-3");
     });
@@ -330,20 +330,16 @@ $(document).ready(function() {
         </ul>
         </div>
     </div>
-    
-    <div class="grid-row ">
-        <div class="navigation">
-        <ul>
-            <li><a class="font-xsmall" href="dashboard">Home</a></li>
-            <li><a class="font-xsmall active" href="andrea-authoriser">Contracts</a></li>
-            <li><a class="font-xsmall" href="andrea-authoriser-NEW">Funding claims</a></li>
-            <li><a class="font-xsmall" href="settings">Settings</a></li>
-            <li><a class="font-xsmall" href="/">Sign out</a></li>
-        </ul>
-        </div>
+
+    <div class="breadcrumbs">
+      <ol>
+        <li><a href="dashboard">Home</a></li>
+        <li>Funding claims documents</li>
+
+      </ol>
     </div>
 
-    
+
 
     <div class="grid-row">
         <div class="column-two-thirds">
@@ -351,63 +347,63 @@ $(document).ready(function() {
         </div>
 
 
-        
-        
+
+
     </div>
 
-    
+
 
     <div class="grid-row">
-        <div class="tabs"> 
+        <div class="tabs">
             <ul class="tab-links">
-                
+
                 <li class="column-third">
                     <a class="impact-link" href="#tab1">
-                        <span class="impact-link-figure">1</span> 
+                        <span class="impact-link-figure">1</span>
                         <span class="impact-link-label">funding claim to sign by 29 October 2018</span>
                     </a>
                 </li>
-                
-                
 
-                
-                                
-                
+
+
+
+
+
             </ul>
-        </div>  
+        </div>
     </div>
 
-    
+
     <br>
-   
+
 
     <div>
         <a class="link link-all view-all-hidden float-right" href="#all">View all documents</a>
     </div>
 
 
-    
+
 
 <div class="grid-row margin-top">
     <div class="column-one-third">
-          
-              
+
+
                 <h2 class="heading-medium desktop-search">Edit search</h2>
 
                 <a id="open-mobile-menu" class="heading-medium mob-search mobile-arrow-down">Edit search</a>
-            
 
-            <div class="search-hidden-mobile">   
-                
-                   
-                       <div class="filter-relative"> 
+
+            <div class="search-hidden-mobile">
+
+
+                       <div class="filter-relative">
                         <button type="button" value="Select claim types" id="funding-title" tabindex="0" role="button" class="filters-headings heading-small focusing">Select claim type<span class="up-arrow-new"></span></button>
 
                         <fieldset class="filters">
 
                             <legend class="visuallyhidden">Search</legend>
 
-                            
+
 
                             <div class="displayed-checkbox">
                                 <section class="toggled-content">
@@ -427,7 +423,7 @@ $(document).ready(function() {
                                          Year end funding claim
                                      </label>
                                  </li>
-                                        
+
                                         <li class="multiple-choice">
                                      <input id="contract-type-1" name="contract" type="checkbox" value="16-19 Funding">
                                      <label class="block" for="contract-type-1">
@@ -458,8 +454,8 @@ $(document).ready(function() {
 
                         </fieldset>
                         </div>
-                    
-                    
+
+
                     <div class="filter-relative">
                         <button type="button" value="Select academic years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Select academic year<span class="down-arrow-2"></span></button>
 
@@ -471,9 +467,9 @@ $(document).ready(function() {
                             <div class="hidden-2">
                             <section class="toggled-content">
                                 <ul>
-                                    
-                                    
-                                   
+
+
+
                                     <li class="multiple-choice">
                                      <input id="contract-type-1" name="contract" type="checkbox" value="16-19 Funding">
                                      <label class="block" for="contract-type-1">
@@ -488,24 +484,24 @@ $(document).ready(function() {
                                          2016 to 2017
                                      </label>
                                  </li>
-                                    
-                                    
+
+
                                 </ul>
                             </section>
                             </div>
                         </fieldset>
                         </div>
-                    
-                
-                    
-                    
+
+
+
+
                     <div class="filter-relative">
                     <button type="button" value="Select status" id="funding-title-3" tabindex="0" role="button" class="filters-headings heading-small focusing">Select status<span class="down-arrow-3"></span></button>
 
                         <fieldset class="filters">
 
                             <legend class="visuallyhidden">Search</legend>
- 
+
 
                             <div class="hidden-3">
                             <section class="toggled-content">
@@ -538,28 +534,28 @@ $(document).ready(function() {
                                          Missed deadline
                                      </label>
                                  </li>
-                                    
-                                    
-                                    
 
-                                    
-                                    
-                                    
+
+
+
+
+
+
                                 </ul>
                             </section>
                             </div>
                         </fieldset>
                         </div>
-                    
-                  
-                    
-                        
-                    <ul> 
+
+
+
+
+                    <ul>
                         <li><a id="update" href="#tab1" class="button margin-top">Update results</a></li>
                         <li class="margin-top-2"><p><a  id="reset-filter" href="sign-contract">Reset search</a></p></li>
                     </ul>
-                    
-             </div>   
+
+             </div>
 
 </div>
 
@@ -567,31 +563,31 @@ $(document).ready(function() {
 
     <div class="column-two-thirds">
         <div id="tab1" class="main-table">
-             
+
             <p class="text-here"></p>
-        
+
             <ul class="tab-content">
-                   
+
 
                     <li class="tab1 tab active final year17 ready">
-                        <h4 class="bold-small">Final (R14) funding claim for 2017 to 2018 version 1 
+                        <h4 class="bold-small">Final (R14) funding claim for 2017 to 2018 version 1
                         </h4>
-                        <p>This claim was submitted in the Hub at 10.27am on 20 October 2018</p>
+                        <p>This claim was submitted in the Hub at 10.27am on 20 October 2018.</p>
                         <p>You should sign by 6.00pm on 29 October 2018.</p>
                         <p class="action-link"><a href="funding-claims-p1">Review and sign funding claim</a></p>
                     </li>
-                    
+
                     <li class="tab3 tab active final year17 missed">
                         <h4 class="bold-small">Year end (R13) funding claim year for 2017 to 2018 version 1</h4>
                         <p>This claim was submitted in the Hub at 8.25am on 17 September 2018.</p>
                         <p class="action-link"><a href="funding-claims-p1-review">Review funding claim</a></p>
                     </li>
 
-                    
+
 
                    <!-- <li class="tab2 tab active final-recon year17 review">
                         <h4 class="bold-small">Final reconciliation for Discretionary learner support (DLS) 2016 to 2017</h4>
-                        <p>Statement created on 25 September 2016.</p>                  
+                        <p>Statement created on 25 September 2016.</p>
                         <p class="action-link"><a href="funding-claims-p1-reconciliation">Review reconciliation statment</a></p>
                     </li>
 
@@ -603,30 +599,30 @@ $(document).ready(function() {
 
                     <li class="tab1 tab active final year17 ready">
                         <h4 class="bold-small">Final funding claim (R14) for 2016 to 2017 Version 3
-                         
+
                         </h4>
                         <p>This claim was created in the Hub.</p>
                         <p>You should sign by 4:00pm 25 October 2016.</p>
                         <p class="action-link"><a href="funding-claims-p1-versions">Review and sign funding claim</a></p>
                     </li>
-                    
+
 
                     <li class="tab-hidden tab active">
                         <h4 class="bold-small">2016/2017 Funding claim 2016 to 2017</h4>
                         <p>These are new claim details submitted on 29 Oct 2016 and signed by [name here] on [dd mm yyyy]</p>
                         <p><a href="/funding-claims-p1-signed">View funding claim</a></p>
                     </li> -->
-                    
-                    
-                
-            </ul>    
+
+
+
+            </ul>
 
 
         </div>
     </div>
 </div>
 
-    
+
 
 
     <!-- <div class="grid-row">
@@ -641,7 +637,7 @@ $(document).ready(function() {
                         <th>Action</th>
                     </tr>
                 </thead>
-            
+
                 <div class="tab-content">
                     <tbody>
                         <tr class="tab1 tab active">
@@ -658,7 +654,7 @@ $(document).ready(function() {
                             <td data-label="Date issued">12 Apr 2016</td>
                             <td data-label="Action"><a href="/step6">Review and sign</a></td>
                         </tr>
-                        
+
 
 
                         <tr class="tab2 tab active">
@@ -668,7 +664,7 @@ $(document).ready(function() {
                             <td data-label="Date issued">12 Apr 2016</td>
                             <td data-label="Action"><a href="/step5">Review amendments</a></td>
                         </tr>
-                        
+
 
 
                         <tr class="tab3 tab active">
@@ -691,8 +687,8 @@ $(document).ready(function() {
                             <td data-label="Version">1</td>
                             <td data-label="Date issued">12 Apr 2016</td>
                             <td data-label="Action"><a href="/withdrawn">View withdrawn contract</a></td>
-                        </tr>  
-                        
+                        </tr>
+
 
                         <!-\\only appear when 'all' is clicked//-->
                         <!-- <tr class="tab-hidden tab active">
@@ -702,7 +698,7 @@ $(document).ready(function() {
                             <td data-label="Date issued">12 Apr 2016</td>
                             <td data-label="Status"><a href="/step1">View contract</a></td>
                         </tr>
-                            
+
                         <tr class="tab-hidden tab active">
                             <td data-label="Contract name (PDF)">AGE Grant contract variation for 2016 to 2017 version 2 (Replaced)</td>
                             <td data-label="Period">2016 to 2017</td>
@@ -711,14 +707,14 @@ $(document).ready(function() {
                             <td data-label="Action"><a href="/replaced">View contract</a></td>
                         </tr> -->
                         <!--//only appear when 'all' is clicked\\-->
-                        
+
                     <!-- </tbody>
-                </div>    
+                </div>
             </table>
         </div>
     </div> -->
-    
-    
+
+
 
 
     </div>

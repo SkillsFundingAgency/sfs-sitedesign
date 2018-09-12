@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+
+
+
+
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table");
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding");
+
+
+        if (".down-arrow-funding")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2");
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+
+        if (".down-arrow-2")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-2").toggle();
+
+    });
+
+
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3");
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+
+        if (".down-arrow-3")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2, #funding-title-3").click();
+
+        $("#open-all").text("Close all");
+
+    });
+
+
+
+});
+
+
+</script>
+
+<main role="main" id="content" >
+    <div class="phase-banner-beta">
+
+        <div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div class="grid-row">
+      <div class="column-two-thirds">
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="../skills-funding-service/start.html">Skills funding service</a></li>
+      <li>PE and sport premium allocations</li>
+    </ol>
+  </div>
+     <div>
+            <h1 class="heading-large">PE and sport premium allocations for 2018 to 2019 </h1>
+        </div>
+
+        <p></p>
+
+
+            <p class="lede">Find out how much PE and sport premium was allocated to specific organisations.</p><br />
+
+
+        <p>You can view funding for the following types of school:</p>
+             <ul class="list list-bullet">
+                <li>schools maintained by the local authority</li>
+                <li>academies and free schools</li>
+                <li>non-maintained special schools</li>
+                <li>city technology colleges</li>
+                <li>pupil referral units</li>
+                <li>general schools</li>
+
+            </ul>
+
+
+
+            <div class="transaction">
+                <div id="get-started" class="get-started">
+                    <a class="button" href="journey-split.html">Find an organisation</a>
+                </div>
+            </div><br />
+
+
+    </div>
+
+
+    <div class="related-container">
+        <aside class="related" id="related">
+            <div class="inner group related-subsection">
+                <h2 id="parent-subsection">Related content</h2>
+
+
+                        <ul>
+                            <li><a href="https://www.gov.uk/guidance/pe-and-sport-premium-for-primary-schools#how-to-use-the-pe-and-sport-premium" target="_blank">How to use the PE and sport premium</a></li>
+                            <li>
+                                <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/680159/PE___Sport_Premium_Allocations_2017-18_Publication_Final_Update.xlsx" target="_blank">PE and sport premium: funding allocations for 2017 to 2018</a>
+                            </li>
+                            <li>
+                                <a href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-allocations-for-2017-to-2018" target="_blank">PE and sport premium conditions of grant</a>
+                            </li>
+
+                          </ul><br />
+
+                            <hr style="height:1px;border:none;color:#b9b9b9;background-color:#b9b9bb;" />
+
+
+
+
+
+                            <p>Other</p>
+
+                                    <ul>
+
+                                            <a href="#">Skills funding service</a>
+                                        </li><p></p>
+
+
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+
+    </div>
+
+</div>
+
+
+
+
+</main>
+
+
+{% endblock %}
