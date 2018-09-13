@@ -1,0 +1,62 @@
+{{<layout}}
+
+{{$title}}Confirm your email address{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+    <form method="post" class="form">
+        <input type="hidden" name="csrf" value="{{csrf}}"/>
+
+        {{#invalidEmailAddress}}
+        <div class="error-summary">
+            {{{invalidEmailAddressErrorMessage}}}
+            <input type="hidden" id="error_code" value="{{errorCode}}"/>
+        </div>
+        {{/invalidEmailAddress}}
+
+
+        {{^invalidEmailAddress}}
+        <p class="text">We need to send you a code to confirm your email address is valid.</p>
+        {{/invalidEmailAddress}}
+
+
+        {{#showInput}}
+        <div class="form-group {{#invalidEmailAddress}} error{{/invalidEmailAddress}}">
+            <label class="form-label" for="email">Email address</label>
+            {{#invalidEmailAddress}}
+            <span class="error-message" id="error-message-full-name">Enter a valid email address</span>
+            {{/invalidEmailAddress}}
+            <input class="form-control" id="email" name="user_email" type="text" autocomplete="off"
+                   autofocus="autofocus">
+        </div>
+        {{/showInput}}
+
+        {{^invalidEmailAddress}}
+        <div class="text">
+            <p>We’ll send a receipt to this email address after your data is uploaded.</p>
+            <p>Find out <a href="{{links.Privacy_Policy}}">how we use your personal information</a>.</p>
+            {{/invalidEmailAddress}}
+        </div>
+
+
+        {{#showSendMailButton}}
+        <div class="form-group">
+            <a id="nextHref">
+                <input class="button" type="submit" id="continueBtn" value="Send email" accesskey="C">
+            </a>
+        </div>
+        {{/showSendMailButton}}
+
+        {{#showStartAgainButton}}
+        <div class="form-group">
+            <a id="startagain.btn" href="/start" class="button">Start again</a>
+        </div>
+        {{/showStartAgainButton}}
+        <!-- /text -->
+    </form>
+</main>
+{{/content}}
+{{/layout}}
