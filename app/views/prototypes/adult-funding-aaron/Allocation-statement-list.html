@@ -49,6 +49,7 @@ $(document).ready(function() {
     function reset(){
         $(".hide").removeClass("hide"); 
         $(".tab").addClass("hide");
+        $("#view-all").addClass("hide");
     }
 
     $('a.impact-link').click(function() {
@@ -62,12 +63,14 @@ $(document).ready(function() {
         reset();
         $(".new").removeClass("hide"); 
         $('input:checkbox').removeAttr('checked');
+        $("#view-all").removeClass("hide");
     });
 
     $("#updated-statement-alert").click(function(){
         reset();
         $(".updated").removeClass("hide"); 
         $('input:checkbox').removeAttr('checked');
+        $("#view-all").removeClass("hide");
     });
 
     $("#filter-2018 , #filter-2017 , #filter-adult , #filter-carryin , #filter-loans").click(function(){
@@ -97,6 +100,7 @@ $(document).ready(function() {
             {
                 $(".loans").removeClass("hide"); 
             }
+            $("#view-all").removeClass("hide");
         }
     });
 });
@@ -148,7 +152,7 @@ $(document).ready(function() {
                 <nav>
                     <ol>
                         <li>
-                            <a href="dash-old.html">Home</a>
+                            <a href="dashboard.html">Home</a>
                         </li>
                         <li>
                             Allocation statements
@@ -176,6 +180,9 @@ $(document).ready(function() {
             </div>
         </div>
     </div>
+    <div>
+        <a id="view-all" class="float-right hide" href="Allocation-statement-list.html">View all allocation statements</a>
+    </div>
      <div class="grid-row">
         <div class="column-one-third" style="margin-top: 20px">
             <a id="open-mobile-menu" class="heading-medium mob-search mobile-arrow-down">Edit search</a>
@@ -194,15 +201,15 @@ $(document).ready(function() {
                                         </label>
                                     </li>
                                     <li class="multiple-choice">
-                                        <input id="filter-carryin" name="contract" type="checkbox">
-                                        <label class="block" for="contract-type-1">
-                                            Carry in apprenticeships
-                                        </label>
-                                    </li>
-                                    <li class="multiple-choice">
                                         <input id="filter-loans" name="contract" type="checkbox" onclick="location.href='#';">
                                         <label class="block" for="contract-type-5">
                                             <a href="#" style="text-decoration: none; color: #000;">Advanced learner loans</a>
+                                        </label>
+                                    </li>
+                                    <li class="multiple-choice">
+                                        <input id="filter-carryin" name="contract" type="checkbox">
+                                        <label class="block" for="contract-type-1">
+                                            Carry in apprenticeships
                                         </label>
                                     </li>
                                     <br/>
@@ -243,9 +250,9 @@ $(document).ready(function() {
                 <ul class="tab-content">
                     <li class="new tab1 tab 2018 carryin payment-section ">
                         <h2 class="bold-small">
-                            <a href="#">Carry-in apprenticeship for 2018 to 2019</a>
+                            <a href="Carry-in-apprenticeship-details">Carry-in apprenticeship for 2018 to 2019</a>
                         </h2>
-                        <span>10 February 2019 version 1</span>
+                        <span>10 June 2019 version 1</span>
                         <div style="width: 100%;padding-bottom: 10px;">
                             <div style="float: right;font-weight:bold;">
                                 <h3 style="float: left; font-weight:bold;"></h3><label>£1,468,805</label>
@@ -254,9 +261,21 @@ $(document).ready(function() {
                     </li>
                     <li class="updated tab1 tab 2018 adult payment-section">
                         <h2 class="bold-small">
-                            <a href="funding-list">Adult education budget for 2018 to 2019</a>
+                            <a href="adult-education-budget-details">Adult education budget for 2018 to 2019</a>
                         </h2>
-                        <span>15 February 2019 version 1</span>
+                        <span>15 March 2019 version 2</span>
+                        <div style="width: 100%;padding-bottom: 10px;">
+                            <div style="float: right;font-weight:bold;">
+                                <h3 style="float: left; font-weight:bold;"></h3>
+                                <label>£4,725,425</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab1 tab 2018 adult payment-section">
+                        <h2 class="bold-small">
+                            <a href="adult-education-budget-details">Adult education budget for 2018 to 2019</a>
+                        </h2>
+                        <span>11 March 2019 version 1</span>
                         <div style="width: 100%;padding-bottom: 10px;">
                             <div style="float: right;font-weight:bold;">
                                 <h3 style="float: left; font-weight:bold;"></h3>
@@ -266,15 +285,27 @@ $(document).ready(function() {
                     </li>
                         <li class="updated tab1 tab loans payment-section 2018">
                         <h2 class="bold-small">
-                            <a href="loans2">Advanced learner loans for 2018 to 2019</a>
+                            <a href="Advanced-learner-loan-details">Advanced learner loans for 2018 to 2019</a>
                         </h2>
-                        <span>21 February 2019 version 1</span>
+                        <span>9 March 2019 version 2</span>
                         <div style="width: 100%;padding-bottom: 10px;">
                             <div style="float: right;font-weight:bold;">
                                 <h3 style="float: left; font-weight:bold;"></h3><label>£568,805</label>
                             </div>
                         </div>
                     </li>
+                </li>
+                <li class="tab1 tab loans payment-section 2018">
+                <h2 class="bold-small">
+                    <a href="Advanced-learner-loan-details">Advanced learner loans for 2018 to 2019</a>
+                </h2>
+                <span>2 March 2019 version 1</span>
+                <div style="width: 100%;padding-bottom: 10px;">
+                    <div style="float: right;font-weight:bold;">
+                        <h3 style="float: left; font-weight:bold;"></h3><label>£568,805</label>
+                    </div>
+                </div>
+            </li>
                     <li class="tab1 tab active payment-section 2017">
                         <h4 class="bold-small card-text">
                             <a class="pdf-open-link" href="#" id="downloadContractLink" rel="external" target="_blank" title="This PDF will open in a new window">Non-levy apprenticeship funding 2017 to 2018 (PDF, 285KB)</a>
