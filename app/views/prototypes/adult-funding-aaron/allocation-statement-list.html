@@ -1,0 +1,343 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<style>
+
+.multiple-choice [type=checkbox] + label::before
+{
+    width: 12px;
+    height: 12px;
+    box-sizing: initial;
+}
+
+.multiple-choice [type=checkbox] + label::after {
+    width: 8px;
+    height: 3px;
+    border-width: 0 0 2px 2px;
+    top: 5px;
+    left: 3px;
+    box-sizing: initial;
+}
+
+@media (min-width: 641px){
+
+    .multiple-choice {
+    padding: 0 0 0 30px;
+    }
+}
+#global-breadcrumb a:link {
+    color: #0b0c0c;
+}
+.tab, .tab.active {
+    display: block;
+}
+
+.hide {
+    display: none !important;
+}
+
+</style>
+<script>
+    
+$(document).ready(function() {
+    function reset(){
+        $(".hide").removeClass("hide"); 
+        $(".tab").addClass("hide");
+        $("#view-all").addClass("hide");
+    }
+
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+
+    $("#new-statement-alert").click(function(){
+        reset();
+        $(".new").removeClass("hide"); 
+        $('input:checkbox').removeAttr('checked');
+        $("#view-all").removeClass("hide");
+    });
+
+    $("#updated-statement-alert").click(function(){
+        reset();
+        $(".updated").removeClass("hide"); 
+        $('input:checkbox').removeAttr('checked');
+        $("#view-all").removeClass("hide");
+    });
+
+    $("#filter-2018 , #filter-2017 , #filter-adult , #filter-carryin , #filter-loans").click(function(){
+        reset();
+        $(".active").removeClass("active"); 
+        if($('#filter-2018').prop('checked') == false && $('#filter-2017').prop('checked') == false && $('#filter-adult').prop('checked') == false && $('#filter-carryin').prop('checked') == false && $('#filter-loans').prop('checked') == false){
+            $(".hide").removeClass("hide"); 
+        }
+        else{
+            if ($('#filter-2018').is(':checked')) 
+            {
+                $(".2018").removeClass("hide"); 
+            }
+            if ($('#filter-2017').is(':checked')) 
+            {
+                $(".2017").removeClass("hide"); 
+            }
+            if ($('#filter-adult').is(':checked')) 
+            {
+                $(".adult").removeClass("hide"); 
+            }
+            if ($('#filter-carryin').is(':checked')) 
+            {
+                $(".carryin").removeClass("hide"); 
+            }
+            if ($('#filter-loans').is(':checked')) 
+            {
+                $(".loans").removeClass("hide"); 
+            }
+            $("#view-all").removeClass("hide");
+        }
+    });
+});
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>This is a new service - your <a href="#" rel="external" target="_blank" class="font16-ext-link">feedback<span class="visuallyhidden"></span></a> will help us to improve it.</span>
+            </p>
+        </div>
+    </div>
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    <div>
+        <div class="grid-row account-details">
+            <div class="column-two-thirds" style="text-align: left;" id="userdetails">
+                <span class="font-small" style="margin-right: 5px;">Welcome Jim,</span>
+                    <span class="font-small" style="margin-right: 20px;">
+                        <span></span>
+                        CASTERBRIDGE COLLEGE
+                    </span>
+                    <span class="font-small" style="margin-right: 20px;">
+                    <span>UKPRN:12345678</span>
+                </span>
+            </div>
+            <div class="column-third controls" style="text-align: right;">
+                <span>
+                </span>
+                <span>
+                    <a href="#">Settings</a>
+                </span>
+                <span style="padding-left: 10px;">
+                    <a href="#">Sign out</a>
+                </span>
+            </div>
+        </div>
+    </div>
+    <Br>
+    <div class="grid-full">
+        <div id="global-breadcrumb" class="breadcrumbs">
+                <nav>
+                    <ol>
+                        <li>
+                            <a href="dashboard.html">Home</a>
+                        </li>
+                        <li>
+                            Allocation statements
+                        </li>
+                    </ol>
+                </nav>
+            </div>
+        <h1 class="heading-large no-margin-top">Allocation statements</h1>
+    </div>
+    <div class="grid-row">
+        <div class="column-third">
+            <div class="data">
+                <a id="new-statement-alert" class="impact-link " href="#">
+                    <span class="impact-link-figure">1</span>
+                    <span class="impact-link-label">new allocation statement to review</span>
+                </a>
+            </div>
+        </div>
+        <div class="column-third">
+            <div class="data">
+                <a id="updated-statement-alert" class="impact-link " href="#">
+                    <span class="impact-link-figure">2</span>
+                    <span class="impact-link-label">allocation statements updated</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a id="view-all" class="float-right hide" href="Allocation-statement-list.html">View all allocation statements</a>
+    </div>
+     <div class="grid-row">
+        <div class="column-one-third" style="margin-top: 20px">
+            <div>
+                <div class="filter-relative">
+                    <button type="button" value="Select contract types" id="funding-title" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by type<span class="up-arrow-new"> </span></button>
+                    <fieldset class="filters">
+                        <legend class="visuallyhidden">Search</legend>
+                        <div class="displayed-checkbox">
+                            <section class="toggled-content">
+                                <ul>
+                                    <li class="multiple-choice">
+                                        <input id="filter-adult" name="contract" type="checkbox">
+                                        <label class="block" for="contract-type-1">
+                                            Adult education budget
+                                        </label>
+                                    </li>
+                                    <li class="multiple-choice">
+                                        <input id="filter-loans" name="contract" type="checkbox" onclick="location.href='#';">
+                                        <label class="block" for="contract-type-5">
+                                            <a href="#" style="text-decoration: none; color: #000;">Advanced learner loans</a>
+                                        </label>
+                                    </li>
+                                    <li class="multiple-choice">
+                                        <input id="filter-carryin" name="contract" type="checkbox">
+                                        <label class="block" for="contract-type-1">
+                                            Carry in apprenticeships
+                                        </label>
+                                    </li>
+                                    <br/>
+                                </ul>
+                                <br />
+                            </section>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="filter-relative">
+                    <button type="button" value="Select years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by academic year<span class="up-arrow-new-2"></span></button>
+                    <fieldset class="filters">
+                        <legend class="visuallyhidden">Search</legend>
+                        <div class="displayed-checkbox-2">
+                            <section class="toggled-content">
+                                <ul>
+                                    <li class="multiple-choice">
+                                        <input id="filter-2018" name="years" type="checkbox">
+                                        <label class="block" for="year17">
+                                            2018 to 2019
+                                        </label>
+                                    </li>
+                                    <li class="multiple-choice">
+                                        <input id="filter-2017" name="years" type="checkbox">
+                                        <label class="block" for="year17">
+                                            2017 to 2018
+                                        </label>
+                                    </li>
+                                </ul>
+                            </section>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        <div class="column-two-thirds">
+            <div id="tab1" class="main-table"><br />
+                <ul class="tab-content">
+                    <li class="new tab1 tab 2018 carryin payment-section ">
+                        <h2 class="bold-small">
+                            <a href="carry-in-apprenticeship-details">Carry-in apprenticeship for 2018 to 2019</a>
+                        </h2>
+                        <span>10 June 2019 version 1</span>
+                        <div style="width: 100%;padding-bottom: 10px;">
+                            <div style="float: right;font-weight:bold;">
+                                <h3 style="float: left; font-weight:bold;"></h3><label>£1,474,183</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="updated tab1 tab 2018 adult payment-section">
+                        <h2 class="bold-small">
+                            <a href="adult-education-budget-details">Adult education budget for 2018 to 2019</a>
+                        </h2>
+                        <span>15 March 2019 version 2</span>
+                        <div style="width: 100%;padding-bottom: 10px;">
+                            <div style="float: right;font-weight:bold;">
+                                <h3 style="float: left; font-weight:bold;"></h3>
+                                <label>£4,725,425</label>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="tab1 tab 2018 adult payment-section">
+                        <h2 class="bold-small">
+                            <a href="adult-education-budget-details">Adult education budget for 2018 to 2019</a>
+                        </h2>
+                        <span>11 March 2019 version 1</span>
+                        <div style="width: 100%;padding-bottom: 10px;">
+                            <div style="float: right;font-weight:bold;">
+                                <h3 style="float: left; font-weight:bold;"></h3>
+                                <label>£4,725,425</label>
+                            </div>
+                        </div>
+                    </li>
+                        <li class="updated tab1 tab loans payment-section 2018">
+                        <h2 class="bold-small">
+                            <a href="advanced-learner-loan-details">Advanced learner loans for 2018 to 2019</a>
+                        </h2>
+                        <span>9 March 2019 version 2</span>
+                        <div style="width: 100%;padding-bottom: 10px;">
+                            <div style="float: right;font-weight:bold;">
+                                <h3 style="float: left; font-weight:bold;"></h3><label>£568,805</label>
+                            </div>
+                        </div>
+                    </li>
+                </li>
+                <li class="tab1 tab loans payment-section 2018">
+                <h2 class="bold-small">
+                    <a href="advanced-learner-loan-details">Advanced learner loans for 2018 to 2019</a>
+                </h2>
+                <span>2 March 2019 version 1</span>
+                <div style="width: 100%;padding-bottom: 10px;">
+                    <div style="float: right;font-weight:bold;">
+                        <h3 style="float: left; font-weight:bold;"></h3><label>£568,805</label>
+                    </div>
+                </div>
+            </li>
+                    <li class="tab1 tab active payment-section 2017">
+                        <h4 class="bold-small card-text">
+                            <a class="pdf-open-link" href="https://github.com/SkillsFundingAgency/sfs-sitedesign/raw/master/app/views/prototypes/adult-funding-aaron/includes/Example_Allocation_Statement.pdf" id="downloadContractLink" rel="external" target="_blank" title="This PDF will open in a new window">Non-levy apprenticeship funding 2017 to 2018 (PDF, 285KB)</a>
+                        </h4>
+                        <p class="card-text">Funding for apprentices on non-levy training.</p>
+                        <p class="card-text">September 2017 version 2</p>
+                    </li>
+                    <li class="tab1 tab active 2017">
+                        <h4 class="bold-small">
+                            <a class="pdf-open-link" href="https://github.com/SkillsFundingAgency/sfs-sitedesign/raw/master/app/views/prototypes/adult-funding-aaron/includes/Example_Allocation_Statement.pdf" id="downloadContractLink" rel="external" target="_blank" title="This PDF will open in a new window">Non-levy apprenticeship funding 2017 to 2018 (PDF, 245KB)</a>
+                        </h4>
+                        <p class="card-text">Funding for apprentices on non-levy training.</p>
+                        <p class="card-text">September 2017 version 1</p>
+                    </li>
+                    <li class="tab1 tab active 2017">
+                        <h4 class="bold-small card-text">
+                            <a class="pdf-open-link" href="https://github.com/SkillsFundingAgency/sfs-sitedesign/raw/master/app/views/prototypes/adult-funding-aaron/includes/Example_Allocation_Statement.pdf" id="downloadContractLink" rel="external" target="_blank" title="This PDF will open in a new window">Allocation statement for 2017 to 2018 (PDF, 221KB)</a>
+                        </h4>
+                        <p class="card-text">Adult education budget (AEB), 16 to 18 traineeships and loans facilities funding allocation statement.</p>
+                        <p class="card-text">August 2017 version 1</p>
+                    </li>
+                    <li class="tab1 tab active 2017">
+                        <h4 class="bold-small card-text">
+                            <a class="pdf-open-link" href="https://github.com/SkillsFundingAgency/sfs-sitedesign/raw/master/app/views/prototypes/adult-funding-aaron/includes/Example_Allocation_Statement.pdf" id="downloadContractLink" rel="external" target="_blank" title="This PDF will open in a new window">Carry-in for 2017 to 2018 (PDF, 221KB)</a>
+                        </h4>
+                        <p class="card-text">Funding for apprentices who started their training before 1 May 2017.</p>
+                        <p class="card-text">August 2017 version 1</p>
+                    </li>
+                </ul>  
+                </div>
+        </div>
+        </div>    
+    </div>
+</main>
+
+{% endblock %}
