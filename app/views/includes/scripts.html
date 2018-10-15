@@ -6,23 +6,19 @@
 <script src="/public/javascripts/application.js"></script>
 <script src="/public/javascripts/accordion.js"></script>
 <script>
-      if (
-        'addEventListener' in document &&
-        document.querySelectorAll
-        ) {
+	
+	if ('addEventListener' in document && document.querySelectorAll) {
+		document.addEventListener('DOMContentLoaded', function() {
+			var accordions = document.querySelectorAll('.accordion');
 
-        document.addEventListener('DOMContentLoaded', function() {
+			for (var i = accordions.length - 1; i >= 0; i--) {
+				new Accordion(accordions[i]);
+			};
 
-          var accordions = document.querySelectorAll('.accordion')
+		});
+	}
 
-          for (var i = accordions.length - 1; i >= 0; i--) {
-            new Accordion(accordions[i])
-          };
-
-        })
-
-      }
-    </script>
+</script>
 {% if useAutoStoreData %}
-  <!-- <script src="/public/javascripts/auto-store-data.js"></script> -->
+<!-- <script src="/public/javascripts/auto-store-data.js"></script> -->
 {% endif %}
