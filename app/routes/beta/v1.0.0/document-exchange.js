@@ -8,26 +8,26 @@ module.exports = function(router) {
 	});
 
 	router.post('/' + version + '/start', function (req, res) {		
-		res.redirect('/' + version + '/information-1');
+		res.redirect('/' + version + '/information-3');
 	});
 
 	// Information (Slide 1)
-	router.get('/' + version + '/information-1', function (req, res) {
-		res.render(version + '/information-1');
-	});
+	// router.get('/' + version + '/information-1', function (req, res) {
+	// 	res.render(version + '/information-1');
+	// });
 
-	router.post('/' + version + '/information-1', function (req, res) {		
-		res.redirect('/' + version + '/information-2');
-	});
+	// router.post('/' + version + '/information-1', function (req, res) {		
+	// 	res.redirect('/' + version + '/information-2');
+	// });
 
 	// Information (Slide 2)
-	router.get('/' + version + '/information-2', function (req, res) {
-		res.render(version + '/information-2');
-	});
+	// router.get('/' + version + '/information-2', function (req, res) {
+	// 	res.render(version + '/information-2');
+	// });
 
-	router.post('/' + version + '/information-2', function (req, res) {		
-		res.redirect('/' + version + '/information-3');
-	});
+	// router.post('/' + version + '/information-2', function (req, res) {		
+	// 	res.redirect('/' + version + '/information-3');
+	// });
 
 	// Information (Slide 3)
 	router.get('/' + version + '/information-3', function (req, res) {
