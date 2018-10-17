@@ -1,9 +1,9 @@
 
 <!DOCTYPE html>
-<!-- saved from url=(0032)http://sfs.web/document-exchange -->
+<!-- saved from url=(0037)http://sfs.web/document-exchange/sent -->
 <html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <title>Document exchange</title>
+    <title>Documents you've received from ESFA </title>
 
     <link rel="shortcut icon" href="http://sfs.web/Content/govuk/images/favicon.ico" type="image/x-icon">
 
@@ -162,33 +162,92 @@
                     <li>
 <a href="dashboard-a">Home</a>                    </li>
                     <li>
-Document exchange                    </li>
+<a href="document-exchange">Document exchange</a>                    </li>
+                    <li>
+Documents you've received from ESFA                     </li>
             </ol>
         </nav>
     </div>
 
 
                     <span class="govuk-caption-l gapAbove">Casterbridge College</span>
-<span class="govuk-caption-m">UKPRN: 12345678</span>                    <h1 class="govuk-heading-xl">Document exchange</h1>
+<span class="govuk-caption-m">UKPRN: 12345678</span>                    <h1 class="govuk-heading-xl">Documents you've received from ESFA </h1>
 
-                
-<h2 class="govuk-heading-m">Your documents</h2>
+<form action="http://sfs.web/documentexchange/sent" method="get"><div class="column-third minus-20px-margin-top">
 
-<p>
-    <a href="received-from-esfa">Received from ESFA
-        <strong class="govuk-tag govuk-bgred gapLeft">1 new</strong>
+<input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">        <section class="filters">
+            <br>
+            <div class="">
+                <ul>
+                             <li>
+                                 
+<fieldset class="filter">
+    <legend class="visuallyhidden">Academic year</legend>
+    <div class="js-filter-collapsible-collections AcademicYearFilter">
+        <section class="js-filter-collapsible js-open">
+            <input type="hidden" name="QueryFilter.Filters.Open.AcademicYear" id="QueryFilter.Filters.Open.AcademicYear" value="True">
+            <header class="js-filter-collapsible-header">
+                <h3 id="Academicyear" class="filters-headings heading-small">Academic year</h3>
+            </header>
+            <div class="js-filter-collapsible-content">
+                <section class="toggled-adult-funding-content group">
+                    <ul>
+                        <li class="gds-multiple-choice multiple-choice">
+                            <input id="QueryFilter.Filters.2018-2019" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2018-2019" onclick="filterCheck()" checked>
+                            <label class="block" for="QueryFilter.Filters.2018-2019">
+                                2018 to 2019
+                            </label>
+                        </li>
+                        <li class="gds-multiple-choice multiple-choice">
+                            <input id="QueryFilter.Filters.2017-2018" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2017-2018" onclick="filterCheck()">
+                            <label class="block" for="QueryFilter.Filters.2017-2018">
+                                2017 to 2018
+                            </label>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </div>
+</fieldset>
+                             </li>
+                </ul>
+                <ul>
+                    <li>
+                        &nbsp;
+                    </li>
+                    <li>
+                        &nbsp;
+                    </li>
+                </ul>
+            </div>
+        </section>
+</div></form>
 
-</a></p>
+     <!-- Document list -->
+     <div id="sent-files" class="column-two-thirds">
+        <table>
+            <thead>
+                <tr>
+                    <th>File name</th>
+                    <th>Last opened</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#">businesscasetemplate-02.pdf</a>
+                        <br>
+                        04 October 2018 <strong class="govuk-tag govuk-bgred gapLeft">NEW</strong>
+                    </td>
+                    <td style="vertical-align: top;">
+                        --
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
-<p>
-<a href="sent-to-esfa">Sent to ESFA</a>
-</p>
-
-<div>
-    <h2 class="heading-medium"><a class="heading-medium" href="document-upload-file-type">Send a document</a></h2>
-
-    <p>You can send any documents that we've asked for.</p>
-</div>
             </div>
         </div>
 
@@ -258,11 +317,52 @@ Document exchange                    </li>
 <script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
 <script src="/public/javascripts/lifted/selection-buttons.js"></script>
 <script src="/public/javascripts/lifted/pds.js"></script>
-
-
-    <!--<![endif]-->
+<!--<![endif]-->
     
+<!-- Filters for the document list -->
+<script type="text/javascript">
 
+	function filterCheck() {
 
+        var checkbox20182019 = document.getElementById("QueryFilter.Filters.2018-2019").checked;
+        var checkbox20172018 = document.getElementById("QueryFilter.Filters.2017-2018").checked;
 
-</body></html>
+        // I've had to inverse the normal logic for this to work (don't know why, possibly becasue the status changes just before the logic is run)
+        // RULE 1 - Both boxes NOT CHECKED (NONE)
+        if (checkbox20182019 == false && checkbox20172018 == false) {
+            console.log("RULE 1 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 1 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("received-from-esfa-none");
+        }
+        // RULE 2 - 2018-2019 CHECKED and 2017-2018 NOT CHECKED (received-from-esfa-2018-2019)
+        else if (checkbox20182019 == true && checkbox20172018 == false) {
+            console.log("RULE 2 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 2 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("received-from-esfa-2018-2019");
+        }
+        // RULE 3 - 2018-2019 NOT CHECKED and 2017-2018 CHECKED (received-from-esfa-2018-2019)
+        else if (checkbox20182019 == false && checkbox20172018 == true) {
+            console.log("RULE 3 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 3 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("received-from-esfa-2017-2018");
+        }
+        // RULE 4 - Both boxes CHECKED (ALL)
+        else if (checkbox20182019 == true && checkbox20172018 == true) {
+            console.log("RULE 4 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 4 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("received-from-esfa");
+        }
+        // Default - Display all results
+		else {
+            console.log("ELSE - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("ELSE - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("received-from-esfa");
+		}
+
+	}
+    
+</script>
+
+</body>
+
+</html>

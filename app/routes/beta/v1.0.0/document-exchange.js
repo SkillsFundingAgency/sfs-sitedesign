@@ -63,14 +63,49 @@ module.exports = function(router) {
 		res.render(version + '/document-exchange');
 	});
 
-	// Received from ESFA
+	// Received from ESFA (ALL)
 	router.get('/' + version + '/received-from-esfa', function (req, res) {
 		res.render(version + '/received-from-esfa');
 	});
 
-	// Sent to ESFA
+	// Received fromESFA (2017-2018)
+	router.get('/' + version + '/received-from-esfa-2017-2018', function (req, res) {
+		res.render(version + '/received-from-esfa-2017-2018');
+	});
+
+	// Received from ESFA (2018-2019)
+	router.get('/' + version + '/received-from-esfa-2018-2019', function (req, res) {
+		res.render(version + '/received-from-esfa-2018-2019');
+	});
+
+	// Received from ESFA (NONE)
+	router.get('/' + version + '/received-from-esfa-none', function (req, res) {
+		res.render(version + '/received-from-esfa-none');
+	});
+
+	// Sent to ESFA (ALL)
 	router.get('/' + version + '/sent-to-esfa', function (req, res) {
 		res.render(version + '/sent-to-esfa');
+	});
+
+	// Sent to ESFA (2017-2018)
+	router.get('/' + version + '/sent-to-esfa-2017-2018', function (req, res) {
+		res.render(version + '/sent-to-esfa-2017-2018');
+	});
+
+	// Sent to ESFA (2018-2019)
+	router.get('/' + version + '/sent-to-esfa-2018-2019', function (req, res) {
+		res.render(version + '/sent-to-esfa-2018-2019');
+	});
+
+	// Sent to ESFA (NONE)
+	router.get('/' + version + '/sent-to-esfa-none', function (req, res) {
+		res.render(version + '/sent-to-esfa-none');
+	});
+
+	// Document Upload File Type
+	router.get('/' + version + '/document-upload-file-type', function (req, res) {
+		res.render(version + '/document-upload-file-type');
 	});
 
 	// Document Upload
@@ -78,9 +113,19 @@ module.exports = function(router) {
 		res.render(version + '/document-upload');
 	});
 
+	// Document Upload (Replace)
+	router.get('/' + version + '/document-upload-replace', function (req, res) {		
+		res.render(version + '/document-upload-replace');
+	});
+
 	// Document Upload Complete
 	router.get('/' + version + '/document-upload-complete', function (req, res) {
 		res.render(version + '/document-upload-complete');
+	});
+
+	// Document Upload (Replace) Complete
+	router.get('/' + version + '/document-upload-replace-complete', function (req, res) {
+		res.render(version + '/document-upload-replace-complete');
 	});
 
 }

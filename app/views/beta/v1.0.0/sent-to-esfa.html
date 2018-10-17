@@ -76,7 +76,7 @@
     <iframe src="//www.googletagmanager.com/ns.html?id=UA-63492141-3"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
-<script async="" src="./6 - Sent_files/analytics.js"></script><script async="" src="./6 - Sent_files/analytics.js(1)"></script><script>
+<script async="" src="/public/javascripts/lifted/analytics.js"></script><script async="" src="/public/javascripts/lifted/analytics.js(1)"></script><script>
     (function(i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;
         i[r] = i[r] ||
@@ -109,7 +109,7 @@
         <div class="header-global">
             <div class="header-logo">
                 <a href="https://www.gov.uk/" title="Go to the GOV.UK homepage" id="logo" class="content">
-                    <img alt="Crown logo" src="https://assets.digital.cabinet-office.gov.uk/static/gov.uk_logotype_crown-e29852f97b3a3fc0abfd44de1418e260.png" width="35" height="31"> GOV.UK
+                    <img alt="Crown logo" src="/public/images/lifted/gov.uk_logotype_crown-e29852f97b3a3fc0abfd44de1418e260.png" width="36" height="32"> GOV.UK
                 </a>
             </div>
 
@@ -118,7 +118,7 @@
         <div class="header-proposition">
             <div class="content">
                 <div class="header-logo" style="margin: 5px 0 2px;">
-<a href="http://sfs.web/home" id="proposition-name">Manage your education and skills funding</a>                </div>
+<a href="/" id="proposition-name">Manage your education and skills funding</a>                </div>
             </div>
         </div>
     </div>
@@ -145,10 +145,10 @@
             <span>
             </span>
             <span>
-                <a href="http://sfs.web/settings">Settings</a>
+                <a href="#">Settings</a>
             </span>
             <span>
-                <a href="http://sfs.web/account/logout">Sign out</a>
+                <a href="#">Sign out</a>
             </span>
         </div>
     </div>
@@ -173,17 +173,23 @@ Documents you've sent to ESFA                    </li>
                     <span class="govuk-caption-l gapAbove">Casterbridge College</span>
 <span class="govuk-caption-m">UKPRN: 12345678</span>                    <h1 class="govuk-heading-xl">Documents you've sent to ESFA</h1>
 
-                
-<details class="govuk-details" role="group">
-    <summary class="govuk-details__summary" role="button" aria-controls="details-content-0" tabindex="0" aria-expanded="false">
-        <span class="govuk-details__summary-text">
-            I've sent the wrong document
-        </span>
-    </summary>
-    <div class="govuk-details__text" id="details-content-0" aria-hidden="true" style="display: none;">
-        If you've sent the wrong document, you need to <a href="7 - Upload.html">resend the correct one</a>. We will only check the latest version.
-    </div>
-</details>
+<div class="form-group">
+    <a class="lede" href="document-upload-file-type">Send a document</a>
+</div>
+
+<div class="form-group">
+    <details role="group">
+        <summary aria-controls="details-content-0" tabindex="0" aria-expanded="false">
+            <span class="govuk-details__summary-text">My document is missing or incorrect</span>
+        </summary>
+
+        <div class="govuk-details__text" id="details-content-0" aria-hidden="true">
+            <p>After you’ve sent a document, it can take a few minutes to show here.</p>
+            <p>If you’ve sent the wrong document, you can replace it with the correct one. We’ll check the latest version.</p>
+        </div>
+
+    </details>
+</div>
 
 <form action="http://sfs.web/documentexchange/sent" method="get"><div class="column-third minus-20px-margin-top">
 
@@ -204,18 +210,18 @@ Documents you've sent to ESFA                    </li>
             <div class="js-filter-collapsible-content">
                 <section class="toggled-adult-funding-content group">
                     <ul>
-                            <li class="gds-multiple-choice multiple-choice">
-                                <input id="QueryFilter.Filters.2018-2019" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2018-2019">
-                                <label class="block" for="QueryFilter.Filters.2018-2019">
-                                    2018 to 2019
-                                </label>
-                            </li>
-                            <li class="gds-multiple-choice multiple-choice">
-                                <input id="QueryFilter.Filters.2017-2018" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2017-2018">
-                                <label class="block" for="QueryFilter.Filters.2017-2018">
-                                    2017 to 2018
-                                </label>
-                            </li>
+                        <li class="gds-multiple-choice multiple-choice">
+                            <input id="QueryFilter.Filters.2018-2019" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2018-2019"  onclick="filterCheck()" checked>
+                            <label class="block" for="QueryFilter.Filters.2018-2019">
+                                2018 to 2019
+                            </label>
+                        </li>
+                        <li class="gds-multiple-choice multiple-choice">
+                            <input id="QueryFilter.Filters.2017-2018" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2017-2018" onclick="filterCheck()" checked>
+                            <label class="block" for="QueryFilter.Filters.2017-2018">
+                                2017 to 2018
+                            </label>
+                        </li>
                     </ul>
                 </section>
             </div>
@@ -234,62 +240,100 @@ Documents you've sent to ESFA                    </li>
                 </ul>
             </div>
         </section>
-</div></form>    <div id="sent-files" class="column-two-thirds">
+</div></form>
+
+     <!-- Document list -->
+     <div id="sent-files" class="column-two-thirds">
         <table>
-        <thead>
-            <tr>
-                <th>File name</th>
-                <th>Sent by</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <a href="#">businesscase.xls</a><br>
-                    08 October 2018
-
-                        <span>version 2</span>
-                            <strong class="govuk-tag govuk-bgred gapLeft">UPDATED</strong>
-                </td>
-                <td>
-                    J Jones
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">supportingevidence.pdf</a><br>
-                    08 October 2018
-
-                        <span>version 2</span>
-                            <strong class="govuk-tag govuk-bgred gapLeft">UPDATED</strong>
-                </td>
-                <td>
-                    J Jones
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">businesscase.xls</a><br>
-                    08 October 2018
-
-                    <span>version 1</span>
-                </td>
-                <td>
-                    J Jones
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <a href="#">barcode.png</a><br>
-                    08 October 2018
-
-                    <span>version 1</span>
-                </td>
-                <td>
-                    J Jones
-                </td>
-            </tr>
-        </tbody>
+            <thead>
+                <tr>
+                    <th>File name</th>
+                    <th>Sent by</th>
+                    <th class="numeric"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#">businesscase-03.xls</a>
+                        <br>
+                        08 October 2018 <strong class="govuk-tag govuk-bgred gapLeft">UPDATED</strong>
+                        <br>
+                        <br>
+                        <a href="#">businesscase-02.xls</a>
+                        <br>
+                        01 April 2018
+                        <br>
+                        <br>
+                        <a href="#">businesscase-01.xls</a>
+                        <br>
+                        05 October 2017
+                    </td>
+                    <td style="vertical-align: top;">
+                        J Jones
+                        <br>
+                        <br>
+                        <br>
+                        J Jones
+                        <br>
+                        <br>
+                        <br>
+                        J Jones
+                    </td>
+                    <td class="numeric" style="vertical-align: top;">
+                        <a href="document-upload-replace">Replace</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">supportingevidence-02.pdf</a>
+                        <br>
+                        08 October 2018
+                        <strong class="govuk-tag govuk-bgred gapLeft">UPDATED</strong>
+                        <br>
+                        <br>
+                        <a href="#">supportingevidence-01.pdf</a>
+                        <br>
+                        05 October 2017
+                    </td>
+                    <td style="vertical-align: top;">
+                        J Jones
+                        <br>
+                        <br>
+                        <br>
+                        J Jones
+                    </td>
+                    <td class="numeric" style="vertical-align: top;">
+                        <a href="document-upload-replace">Replace</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">financialreport-01.xls</a>
+                        <br>
+                        23 March 2018
+                    </td>
+                    <td style="vertical-align: top;">
+                        J Jones
+                    </td>
+                    <td class="numeric" style="vertical-align: top;">
+                        <a href="document-upload-replace">Replace</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="#">infrastructurereturn-01.xls</a>
+                        <br>
+                        01 February 2017
+                    </td>
+                    <td style="vertical-align: top;">
+                        J Jones
+                    </td>
+                    <td class="numeric" style="vertical-align: top;">
+                        <a href="document-upload-replace">Replace</a>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
@@ -310,11 +354,11 @@ Documents you've sent to ESFA                    </li>
 
                 <h2 class="sfa-footer-link">
                     <span>
-<a href="http://sfs.web/support">Support</a>                    </span>
+<a href="#">Support</a>                    </span>
                 </h2>
                 <ul>
-                        <li><a href="http://sfs.web/privacy-and-cookies">Privacy and cookies</a></li>
-                        <li><a href="http://sfs.web/terms-and-conditions">Terms and conditions</a></li>
+                        <li><a href="#">Privacy and cookies</a></li>
+                        <li><a href="#">Terms and conditions</a></li>
                     <li>
                         Built by the <a href="https://www.gov.uk/government/organisations/education-and-skills-funding-agency" rel="external" target="_blank" title="This will open in a new window">Education and Skills Funding Agency</a>
                     </li>
@@ -351,22 +395,63 @@ Documents you've sent to ESFA                    </li>
 
     <![endif
 
-    <!--[if gt IE 8]><!-->
-    <script src="./6 - Sent_files/jquery-2.1.4.js"></script>
-<script src="./6 - Sent_files/jquery-ui.js"></script>
-<script src="./6 - Sent_files/jquery.unobtrusive-ajax.js"></script>
-<script src="./6 - Sent_files/application.js"></script>
-<script src="./6 - Sent_files/bind.js"></script>
-<script src="./6 - Sent_files/details.polyfill.js"></script>
-<script src="./6 - Sent_files/govuk-template.js"></script>
-<script src="./6 - Sent_files/HeaderFooterOnly.js"></script>
-<script src="./6 - Sent_files/selection-buttons.js"></script>
-<script src="./6 - Sent_files/pds.js"></script>
+<!--[if gt IE 8]><!-->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/lifted/jquery-ui.js"></script>
+<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
+<script src="/public/javascripts/lifted/application.js"></script>
+<script src="/public/javascripts/lifted/bind.js"></script>
+<script src="/public/javascripts/lifted/details.polyfill.js"></script>
+<script src="/public/javascripts/lifted/govuk-template.js"></script>
+<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
+<script src="/public/javascripts/lifted/selection-buttons.js"></script>
+<script src="/public/javascripts/lifted/pds.js"></script>
+<!--<![endif]-->
 
+<!-- Filters for the document list -->
+<script type="text/javascript">
 
-    <!--<![endif]-->
+	function filterCheck() {
+
+        var checkbox20182019 = document.getElementById("QueryFilter.Filters.2018-2019").checked;
+        var checkbox20172018 = document.getElementById("QueryFilter.Filters.2017-2018").checked;
+
+        // I've had to inverse the normal logic for this to work (don't know why, possibly becasue the status changes just before the logic is run)
+        // RULE 1 - Both boxes NOT CHECKED (NONE)
+        if (checkbox20182019 == false && checkbox20172018 == false) {
+            console.log("RULE 1 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 1 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("sent-to-esfa-none");
+        }
+        // RULE 2 - 2018-2019 CHECKED and 2017-2018 NOT CHECKED (sent-to-esfa-2018-2019)
+        else if (checkbox20182019 == true && checkbox20172018 == false) {
+            console.log("RULE 2 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 2 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("sent-to-esfa-2018-2019");
+        }
+        // RULE 3 - 2018-2019 NOT CHECKED and 2017-2018 CHECKED (sent-to-esfa-2018-2019)
+        else if (checkbox20182019 == false && checkbox20172018 == true) {
+            console.log("RULE 3 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 3 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("sent-to-esfa-2017-2018");
+        }
+        // RULE 4 - Both boxes CHECKED (ALL)
+        else if (checkbox20182019 == true && checkbox20172018 == true) {
+            console.log("RULE 4 - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("RULE 4 - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("sent-to-esfa");
+        }
+        // Default - Display all results
+		else {
+            console.log("ELSE - Checkbox checkbox20182019 value is " + checkbox20182019);
+            console.log("ELSE - Checkbox checkbox20172018 value is " + checkbox20172018);
+            window.location.assign("sent-to-esfa");
+		}
+
+	}
     
+</script>
 
+</body>
 
-
-</body></html>
+</html>
