@@ -6,7 +6,6 @@ module.exports = function(router) {
 	router.get('/' + version + '/start', function (req, res) {
 		res.render(version + '/start');
 	});
-
 	router.post('/' + version + '/start', function (req, res) {		
 		res.redirect('/' + version + '/information-3');
 	});
@@ -15,7 +14,6 @@ module.exports = function(router) {
 	// router.get('/' + version + '/information-1', function (req, res) {
 	// 	res.render(version + '/information-1');
 	// });
-
 	// router.post('/' + version + '/information-1', function (req, res) {		
 	// 	res.redirect('/' + version + '/information-2');
 	// });
@@ -24,7 +22,6 @@ module.exports = function(router) {
 	// router.get('/' + version + '/information-2', function (req, res) {
 	// 	res.render(version + '/information-2');
 	// });
-
 	// router.post('/' + version + '/information-2', function (req, res) {		
 	// 	res.redirect('/' + version + '/information-3');
 	// });
@@ -33,7 +30,6 @@ module.exports = function(router) {
 	router.get('/' + version + '/information-3', function (req, res) {
 		res.render(version + '/information-3');
 	});
-
 	router.post('/' + version + '/information-3', function (req, res) {		
 		res.redirect('/' + version + '/dashboard-a');
 	});
@@ -41,11 +37,6 @@ module.exports = function(router) {
 	// Dashboard (version A)
 	router.get('/' + version + '/dashboard-a', function (req, res) {
 		res.render(version + '/dashboard-a');
-	});
-
-	// Dashboard (version A) - REFACTORED
-	router.get('/' + version + '/dashboard-a-refactor', function (req, res) {
-		res.render(version + '/dashboard-a-refactor');
 	});
 
 	// Dashboard (version B)
@@ -103,9 +94,26 @@ module.exports = function(router) {
 		res.render(version + '/sent-to-esfa-none');
 	});
 
+
 	// Document Upload File Type
 	router.get('/' + version + '/document-upload-file-type', function (req, res) {
-		res.render(version + '/document-upload-file-type');
+		res.render(version + '/document-upload-file-type', {
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/document-upload-file-type', function (req, res) {		
+		
+		var fileType = req.body.fileType;
+
+		// Make sure the user chooses an option
+		if (fileType == undefined) {
+			res.redirect('/' + version + '/document-upload-file-type?error=true');
+		}
+		// Success
+		else {
+			res.redirect('/' + version + '/document-upload');
+		}
+		
 	});
 
 	// Document Upload
@@ -122,10 +130,16 @@ module.exports = function(router) {
 	router.get('/' + version + '/document-upload-complete', function (req, res) {
 		res.render(version + '/document-upload-complete');
 	});
+	router.post('/' + version + '/document-upload-complete', function (req, res) {		
+		res.redirect('/' + version + '/dashboard-a');
+	});
 
 	// Document Upload (Replace) Complete
 	router.get('/' + version + '/document-upload-replace-complete', function (req, res) {
 		res.render(version + '/document-upload-replace-complete');
+	});
+	router.post('/' + version + '/document-upload-replace-complete', function (req, res) {		
+		res.redirect('/' + version + '/sent-to-esfa');
 	});
 
 }
