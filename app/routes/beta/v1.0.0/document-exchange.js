@@ -7,7 +7,7 @@ module.exports = function(router) {
 		res.render(version + '/start');
 	});
 	router.post('/' + version + '/start', function (req, res) {		
-		res.redirect('/' + version + '/information-3');
+		res.redirect('/' + version + '/dashboard');
 	});
 
 	// Information (Slide 1)
@@ -27,16 +27,16 @@ module.exports = function(router) {
 	// });
 
 	// Information (Slide 3)
-	router.get('/' + version + '/information-3', function (req, res) {
-		res.render(version + '/information-3');
-	});
-	router.post('/' + version + '/information-3', function (req, res) {		
-		res.redirect('/' + version + '/dashboard-a');
-	});
+	// router.get('/' + version + '/information-3', function (req, res) {
+	// 	res.render(version + '/information-3');
+	// });
+	// router.post('/' + version + '/information-3', function (req, res) {		
+	// 	res.redirect('/' + version + '/dashboard');
+	// });
 
-	// Dashboard (version A)
-	router.get('/' + version + '/dashboard-a', function (req, res) {
-		res.render(version + '/dashboard-a');
+	// Dashboard
+	router.get('/' + version + '/dashboard', function (req, res) {
+		res.render(version + '/dashboard');
 	});
 
 	// Dashboard (version B)
@@ -131,7 +131,7 @@ module.exports = function(router) {
 		res.render(version + '/document-upload-complete');
 	});
 	router.post('/' + version + '/document-upload-complete', function (req, res) {		
-		res.redirect('/' + version + '/dashboard-a');
+		res.redirect('/' + version + '/dashboard');
 	});
 
 	// Document Upload (Replace) Complete

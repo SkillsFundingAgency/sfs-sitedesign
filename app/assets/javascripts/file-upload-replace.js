@@ -1,8 +1,8 @@
 
 /*
--------------
-File Upload Functionality (JavaScript)
---------------
+--------------------------------------
+File Upload Functionality (JavaScript) - REPLACE
+--------------------------------------
 */
 (function () {
 
@@ -124,7 +124,7 @@ File Upload Functionality (JavaScript)
                   "<tr>" +
                   "<td><a href='#'>" + upload.files[0].name + "</a></td>" +
                   "<td>Business case</td>" +
-                  "<td>businesscase-01</td>" +
+                  "<td>businesscase-03</td>" +
                   "<td class='numeric'><a class='removeLink' id='remove" + i + "' href='#'>Remove</a></td>" +
                   "</tr>"
               );
