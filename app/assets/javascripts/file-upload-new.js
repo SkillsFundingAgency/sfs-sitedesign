@@ -1,8 +1,8 @@
 
 /*
--------------
-File Upload Functionality (JavaScript)
---------------
+--------------------------------------
+File Upload Functionality (JavaScript) - NEW
+--------------------------------------
 */
 (function () {
 
