@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Documents you've received from ESFA
+    Documents you've sent to ESFA
 {% endblock %}
 
 {% block content %}
@@ -31,9 +31,9 @@
 
                 <nav>
                     <ol id="removeADocBreadcrumb1">
-                        <li><a href="dashboard">Home</a></li>
-                        <li><a href="document-exchange">Document exchange</a></li>
-                        <li>Documents you've received from ESFA</li>
+                        <li><a href="../../external/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>Documents you've sent to ESFA</li>
                     </ol>
                 </nav>
 
@@ -42,8 +42,26 @@
             <h1 class="heading-xlarge">
                 <span class="heading-secondary">Casterbridge College</span>
                 <span class="heading-secondary">UKPRN: 12345678</span>
-                Documents you've received from ESFA
+                Documents you've sent to ESFA
             </h1>
+
+            <div class="form-group">
+                <a class="lede" href="document-upload-file-type">Send a document</a>
+            </div>
+
+            <div class="form-group">
+                <details role="group">
+                    <summary aria-controls="details-content-0" tabindex="0" aria-expanded="false">
+                        <span class="summary">My document is missing or incorrect</span>
+                    </summary>
+
+                    <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                        <p>After you’ve sent a document, it can take a few minutes to show here.</p>
+                        <p>If you’ve sent the wrong document, you can replace it with the correct one. We’ll check the latest version.</p>
+                    </div>
+
+                </details>
+            </div>
 
             <form action="http://sfs.web/documentexchange/sent" method="get">
                 
@@ -69,7 +87,7 @@
                                                     <section class="toggled-adult-funding-content group">
                                                         <ul>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="QueryFilter.Filters.2018-2019" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2018-2019" onclick="filterCheck()">
+                                                                <input id="QueryFilter.Filters.2018-2019" name="QueryFilter.Filters.AcademicYear" type="checkbox" value="2018-2019" onclick="filterCheck()" checked>
                                                                 <label class="block" for="QueryFilter.Filters.2018-2019">
                                                                 2018 to 2019
                                                                 </label>
@@ -107,32 +125,94 @@
                     <thead>
                         <tr>
                             <th>File name</th>
-                            <th>Last opened</th>
+                            <th>Sent by</th>
+                            <th class="numeric"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
-                                <a href="#">businesscasetemplate-01.xls</a>
+                                <a href="#">businesscase-02.xls</a>
                                 <br>
-                                10:13am on 01 October 2017
+                                11:17am on 08 October 2018 <strong class="govuk-tag govuk-bgred gapLeft">UPDATED</strong>
+                                <br>
+                                <br>
+                                <a href="#">businesscase-01.xls</a>
+                                <br>
+                                5:44pm on 01 April 2018
                             </td>
-                            <td>
+                            <td style="vertical-align: top;">
                                 J Jones
                                 <br>
-                                11:55pm on 01 October 2017
+                                <br>
+                                <br>
+                                J Jones
+                            </td>
+                            <td class="numeric" style="vertical-align: top;">
+                                <a href="document-upload-replace">Replace</a>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                <a href="#">datasharingprotocols-01.xls</a>
+                                <a href="#">businesscaseauditevidence-01.pdf</a>
                                 <br>
-                                4:48am on 28 April 2017
+                                11:29 on 08 October 2018
+                                <strong class="govuk-tag govuk-bgred gapLeft">UPDATED</strong>
                             </td>
-                            <td>
+                            <td style="vertical-align: top;">
                                 J Jones
+                            </td>
+                            <td class="numeric" style="vertical-align: top;">
+                                <a href="document-upload-replace">Replace</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">financialreport-01.xls</a>
                                 <br>
-                                12:20pm on 28 April 2017
+                                2:33pm on 23 March 2018
+                            </td>
+                            <td style="vertical-align: top;">
+                                J Jones
+                            </td>
+                            <td class="numeric" style="vertical-align: top;">
+                                <a href="document-upload-replace">Replace</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">businesscase-01.xls</a>
+                                <br>
+                                3:03am on 05 October 2017
+                            </td>
+                            <td style="vertical-align: top;">
+                                J Jones
+                            </td>
+                            <td class="numeric" style="vertical-align: top;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">businesscaseauditevidence-01.pdf</a>
+                                <br>
+                                3:09am on 05 October 2017
+                            </td>
+                            <td style="vertical-align: top;">
+                                J Jones
+                            </td>
+                            <td class="numeric" style="vertical-align: top;">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <a href="#">infrastructurereturn-01.xls</a>
+                                <br>
+                                10:21am on 01 February 2017
+                            </td>
+                            <td style="vertical-align: top;">
+                                J Jones
+                            </td>
+                            <td class="numeric" style="vertical-align: top;">
                             </td>
                         </tr>
                     </tbody>
@@ -158,6 +238,6 @@
 <script src="/public/javascripts/lifted/pds.js"></script>
 
 <!-- Filters for the document list -->
-<script src="/public/javascripts/filter-checkboxes-received.js"></script>
+<script src="/public/javascripts/filter-checkboxes-sent.js"></script>
 
 {% endblock %}
