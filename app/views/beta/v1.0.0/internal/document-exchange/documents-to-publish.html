@@ -39,23 +39,34 @@
 
             </div>
 
-            <form action="http://sfs.web/documentexchange/sent" method="get">
+            <form method="post" class="form">
 
                 {% if error %}
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
+                    <p>There are 2 documents which need your attention before they can be published. </p>
                     <ul class="error-summary-list">
-                        <li><a href="#file-03">The file name doesn't meet the naming conventions.</a></li>
-                        <li><a href="#file-05">The file name is invalid.</a></li>
+                        <li><a href="#">Review and resolve the 2 documents.</a></li>
                     </ul>
                 </div>
                 {% endif %}
     
-                <h1 class="heading-xlarge">
-                    <!-- <span class="heading-secondary">Casterbridge College</span>
-                    <span class="heading-secondary">UKPRN: 12345678</span> -->
-                    Documents ready to publish
-                </h1>
+                    <h1 class="heading-xlarge">
+                        <!-- <span class="heading-secondary">Casterbridge College</span>
+                        <span class="heading-secondary">UKPRN: 12345678</span> -->
+                        Documents ready to publish
+                    </h1>
+
+                    <div class="form-group">
+
+                        <div class="panel panel-border-wide">
+                            <p>There are 2 documents which need your attention before they can be published.</p>
+                            <ul class="error-summary-list">
+                                <li><a href="#">Review and resolve the 2 documents.</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
                 
                 <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
@@ -81,31 +92,31 @@
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.01" name="QueryFilter.Filters.documentType" type="checkbox" value="01" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.01">
-                                                                    Allocation Statement FE Colleges IYPG
+                                                                    Allocation Statement FE Colleges IYPG (1)
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.02" name="QueryFilter.Filters.documentType" type="checkbox" value="02" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.02">
-                                                                    Business case Template IYPG
+                                                                    Business case Template IYPG (2)
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.03" name="QueryFilter.Filters.documentType" type="checkbox" value="03" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.03">
-                                                                    FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
+                                                                    FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG (1)
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.04" name="QueryFilter.Filters.documentType" type="checkbox" value="04" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.04">
-                                                                    Local authority RAT extracts (LARAT) AMSG
+                                                                    Local authority RAT extracts (LARAT) AMSG (1)
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.05" name="QueryFilter.Filters.documentType" type="checkbox" value="05" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.05">
-                                                                    R06 Reconcilliation Statement
+                                                                    R06 Reconcilliation Statement (1)
                                                                 </label>
                                                             </li>
                                                         </ul>
@@ -134,13 +145,13 @@
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.incomplete" name="QueryFilter.Filters.status" type="checkbox" value="error" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.incomplete">
-                                                                    Error
+                                                                    Error (2)
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="QueryFilter.Filters.ready" name="QueryFilter.Filters.status" type="checkbox" value="ready" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.ready">
-                                                                    Ready
+                                                                    Ready (4)
                                                                 </label>
                                                             </li>
                                                         </ul>
@@ -250,9 +261,7 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        {% if error3 %}
                                         <span class="error-message sortable-td-error">The file name doesn't meet the naming conventions.</span>
-                                        {% endif %}
                                         <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
@@ -291,9 +300,7 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        {% if error5 %}
                                         <span class="error-message sortable-td-error">The file name is invalid.</span>
-                                        {% endif %}
                                         <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
