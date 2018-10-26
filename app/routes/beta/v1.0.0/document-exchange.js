@@ -180,7 +180,7 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/?');
+		res.redirect('/' + version + '/internal/document-exchange/documents-to-publish?error=true');
 	});
 
 }
