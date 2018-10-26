@@ -169,7 +169,15 @@ module.exports = function(router) {
 
 	// Documents to Publish
 	router.get('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {
-		res.render(version + '/internal/document-exchange/documents-to-publish');
+		res.render(version + '/internal/document-exchange/documents-to-publish', {
+			'error' : req.query.error,
+			'error1' : req.query.error1,
+			'error2' : req.query.error2,
+			'error3' : req.query.error3,
+			'error4' : req.query.error4,
+			'error5' : req.query.error5,
+			'error6' : req.query.error6
+		});
 	});
 	router.post('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
 		res.redirect('/' + version + '/internal/document-exchange/?');

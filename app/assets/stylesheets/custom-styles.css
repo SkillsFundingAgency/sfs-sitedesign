@@ -260,9 +260,16 @@ a.dashboard-links {
 	padding: 7px 15px;
 }
 
-/* Chris Harding (22.10.18) - Filters and document list CSS for the received and sent ESFA pages for the Document Exchange (EXTERNAL) */
-.minus-20px-margin-top {
-	margin-top: -20px
+/* Chris Harding (22.10.18) - Filters, sorting and checkboxes for all document lists across all ESFA pages for the Document Exchange (EXTERNAL and INTERNAL) */
+/* FILTERING */
+.column-filter-one-third {
+	padding: 0px 15px 0px 0px;
+}
+.column-document-list-two-thirds {
+	padding: 0px 0px 0px 15px;
+}
+.minus-25px-margin-top {
+	margin-top: -25px
 }
 .filters h2 {
 	font-weight: 700;
@@ -332,6 +339,7 @@ a.dashboard-links {
 }
 .js-filter-collapsible-content .toggled-adult-funding-content {
 	padding-top: 20px;
+	padding-right: 20px;
 	padding-bottom: 20px;
 	padding-left: 20px;
 }
@@ -392,8 +400,125 @@ a.dashboard-links {
 .block {
 	display: block;
 }
-.document-list table, .document-list th, .document-list tr, .document-list td {
+/* SORTING */
+.sortable-table {
 	font-size: 16px;
+	padding: 15px 0px 15px 15px;
+}
+.sortable-th {
+	font-size: 16px;
+	padding: 15px 0px 15px 0px;
+}
+.sortable-td {
+	font-size: 16px;
+	padding: 15px 0px 15px 15px;
+}
+.sortable-td-error {
+	font-size: 16px;
+}
+.width-column-0 {
+	min-width: 26px;
+	max-width: 26px;
+	width: 26px;
+}
+.width-column-1 {
+	min-width: 300px;
+	/* max-width: 292px;
+	width: 292px; */
+}
+.width-column-2 {
+	min-width: 155px;
+	/* max-width: 155px;
+	width: 155px; */
+}
+.width-column-3 {
+	min-width: 100px;
+	/* max-width: 130px;
+	width: 130px; */
+	text-align: right;
+}
+.tab-header a {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 15px 0px 15px 15px;
+	margin: -15px 0px -15px 0px;
+	transition: 0.3s;
+	display: block;
+}
+.tab-header > span {
+	position: relative;
+	padding-right: 1.5em;
+}
+a.tab-header .hod-chevron-up {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	content: "";
+	margin-left: 5px;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+a.tab-header .hod-chevron-down {
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	content: "";
+	margin-left: 5px;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+a.tab-header .hod-chevron-up:last-child, 
+a.tab-header .hod-chevron-down:first-child {
+	top: 15%;
+}
+.tab-header a:hover {
+	background-color: #ffbf47;
+	color: black;
+}
+.tab-header a.active {
+	background-color: #ddd;
+	color: black;
+	text-decoration: none;
+}
+.chevron-size {
+	font-size: x-small;
+}
+/* CHECKBOXES */
+.document-checkbox-th {
+	vertical-align: top;
+	margin: 0px;
+	padding: 15px 0px 0px 0px;
+}
+.document-checkbox-td {
+	vertical-align: top;
+	margin: 0px;
+	padding: 15px 0px 0px 0px;
+}
+.document-checkbox-div {
+	width: 16px;
+	height: 16px;
+	padding: 0px;
+}
+.document-checkbox-div input {
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin: 0px 0px 0px 5px;
+}
+.document-checkbox-div [type=checkbox] + label::before {
+	width: 12px;
+	height: 12px;
+	box-sizing: initial;
+	left: 5px;
+}
+.document-checkbox-div [type=checkbox] + label::after {
+	width: 8px;
+	height: 3px;
+	border-width: 0 0 2px 2px;
+	top: 5px;
+	left: 8px;
+	box-sizing: initial;
 }
 
 /* Chris Harding (19.10.18) - GOV.UK tag styling */
