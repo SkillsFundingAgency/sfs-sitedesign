@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Documents ready to publish
+    {% if error %}Error: {% endif %}Documents ready to publish
 {% endblock %}
 
 {% block content %}
@@ -39,15 +39,25 @@
 
             </div>
 
-            <h1 class="heading-xlarge">
-                <!-- <span class="heading-secondary">Casterbridge College</span>
-                <span class="heading-secondary">UKPRN: 12345678</span> -->
-                Documents ready to publish
-            </h1>
-
             <form action="http://sfs.web/documentexchange/sent" method="get">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
+                    <ul class="error-summary-list">
+                        <li><a href="#file-03">The file name doesn't meet the naming conventions.</a></li>
+                        <li><a href="#file-05">The file name is invalid.</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+    
+                <h1 class="heading-xlarge">
+                    <!-- <span class="heading-secondary">Casterbridge College</span>
+                    <span class="heading-secondary">UKPRN: 12345678</span> -->
+                    Documents ready to publish
+                </h1>
                 
-                <div class="column-third minus-20px-margin-top">
+                <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
                     <section class="filters">
                         <br>
@@ -122,9 +132,9 @@
                                                     <section class="toggled-adult-funding-content group">
                                                         <ul>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="QueryFilter.Filters.incomplete" name="QueryFilter.Filters.status" type="checkbox" value="incomplete" onclick="filterCheck()">
+                                                                <input id="QueryFilter.Filters.incomplete" name="QueryFilter.Filters.status" type="checkbox" value="error" onclick="filterCheck()">
                                                                 <label class="block" for="QueryFilter.Filters.incomplete">
-                                                                    Incomplete
+                                                                    Error
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
@@ -133,7 +143,6 @@
                                                                     Ready
                                                                 </label>
                                                             </li>
-                                                            
                                                         </ul>
                                                     </section>
                                                 </div>
@@ -154,96 +163,170 @@
                 </div>
 
                 <!-- Document list -->
-                <div id="sent-files" class="column-two-thirds">
-                    <table class="document-list">
-                        <thead>
-                            <tr>
-                                <th>File name</th>
-                                <th>Document type</th>
-                                <th class="numeric">Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">2345609_R06reconcilliationstatement_v1-20182019.pdf</a>
-                                    <br>
-                                    Modified 11:17am on 04 October 2018
-                                </td>
-                                <td style="vertical-align: top;">
-                                    R06 Reconcilliation Statement
-                                </td>
-                                <td class="numeric" style="vertical-align: top;">
-                                    <strong class="govuk-tag gapLeft">Ready</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">4166019_businesscasetemplateIYPG_v3-20182019.docx</a>
-                                    <br>
-                                    Modified 9:46am on 23 September 2018
-                                </td>
-                                <td style="vertical-align: top;">
-                                    Business case Template IYPG
-                                </td>
-                                <td class="numeric" style="vertical-align: top;">
-                                    <strong class="govuk-tag gapLeft">Ready</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">7655122_localauthorityRATextractsAMSG_v1-20182019.pdf</a>
-                                    <br>
-                                    Modified 4:02pm on 01 October 2018
-                                </td>
-                                <td style="vertical-align: top;">
-                                    Local authority RAT extracts (LARAT) AMSG
-                                </td>
-                                <td class="numeric" style="vertical-align: top;">
-                                    <strong class="govuk-tag govuk-bgred gapLeft">Incomplete</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.xls</a>
-                                    <br>
-                                    Modified 12:32pm on 07 October 2018
-                                </td>
-                                <td style="vertical-align: top;">
-                                    FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                </td>
-                                <td class="numeric" style="vertical-align: top;">
-                                    <strong class="govuk-tag gapLeft">Ready</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">2001034_businesscasetemplateIYPG_v4-20182019.pdf</a>
-                                    <br>
-                                    Modified 10:54am on 02 June 2018
-                                </td>
-                                <td style="vertical-align: top;">
-                                    Business case Template IYPG
-                                </td>
-                                <td class="numeric" style="vertical-align: top;">
-                                    <strong class="govuk-tag govuk-bgred gapLeft">Incomplete</strong>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">4450019_allocationstatementFEcollegesIYPG_v1-20182019.pdf</a>
-                                    <br>
-                                    Modified 9:02am on 28 September 2018
-                                </td>
-                                <td style="vertical-align: top;">
-                                    Allocation Statement FE Colleges IYPG
-                                </td>
-                                <td class="numeric" style="vertical-align: top;">
-                                    <strong class="govuk-tag gapLeft">Ready</strong>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
+
+                    <div class="form-group">
+                        <table class="sortable-table">
+                            <thead>
+                                <tr>
+                                    <th class="document-checkbox-th width-column-0">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onclick="">
+                                            <label for="document-checkbox"></label>
+                                        </div>
+                                    </th>
+                                    <th class="sortable-th tab-header width-column-1">
+                                        <a href="#" class="tab-header tab-header-active active">
+                                            <span>
+                                                File name
+                                                <span class="chevron-size hod-chevron-up"></span>
+                                            </span>
+                                        </a>
+                                    </th>                                
+                                    <th class="sortable-th tab-header width-column-2">
+                                        <a href="#" class="tab-header">
+                                            <span>
+                                                Document type
+                                                <span class="chevron-size hod-chevron-up"></span>
+                                                <span class="chevron-size hod-chevron-down"></span>
+                                            </span>
+                                        </a>
+                                    </th>
+                                    <th class="sortable-th tab-header width-column-3">
+                                        <a href="#" class="tab-header">
+                                            <span>
+                                                Status
+                                                <span class="chevron-size hod-chevron-up"></span>
+                                                <span class="chevron-size hod-chevron-down"></span>
+                                            </span>
+                                        </a>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr id="file-01">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
+                                            <label for="checkbox-file-01"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        R06 Reconcilliation Statement
+                                    </td>
+                                    <td class="numeric sortable-td" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
+                                        <br>
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        Business case Template IYPG
+                                    </td>
+                                    <td class="numeric sortable-td" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        {% if error3 %}
+                                        <span class="error-message sortable-td-error">The file name doesn't meet the naming conventions.</span>
+                                        {% endif %}
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        Local authority RAT extracts (LARAT) AMSG
+                                    </td>
+                                    <td class="numeric sortable-td" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.xls</a>
+                                        <br>
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
+                                    </td>
+                                    <td class="numeric sortable-td" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        {% if error5 %}
+                                        <span class="error-message sortable-td-error">The file name is invalid.</span>
+                                        {% endif %}
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 10:54am on 02 June 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        Business case Template IYPG
+                                    </td>
+                                    <td class="numeric sortable-td" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        Allocation Statement FE Colleges IYPG
+                                    </td>
+                                    <td class="numeric sortable-td" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
                     <div class="form-group">
                         <button class="button">Publish</button>
