@@ -1,9 +1,11 @@
 
+
 /*
 ------------------------------
 Filter Checkboxes (JavaScript) - RECEIVED
 ------------------------------
 */
+
 function filterCheck() {
 
     var checkbox20182019 = document.getElementById("QueryFilter.Filters.2018-2019").checked;

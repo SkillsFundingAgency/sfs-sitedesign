@@ -177,7 +177,7 @@
                 <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
 
                     <div class="form-group">
-                        <table class="sortable-table">
+                        <table id="sortable-table" class="sortable-table">
                             <thead>
                                 <tr>
                                     <th class="document-checkbox-th width-column-0">
@@ -186,29 +186,30 @@
                                             <label for="document-checkbox"></label>
                                         </div>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-1">
-                                        <a href="#" class="tab-header tab-header-active active">
+                                    <th class="sortable-th tab-header width-column-1" onclick="sortTable(1)">
+                                        <a href="#" id="file-name" class="tab-header tab-header-active active">
                                             <span>
                                                 File name
-                                                <span class="chevron-size hod-chevron-up"></span>
+                                                <span id="file-name-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
+                                                <span id="file-name-hod-chevron-down" class="hidden chevron-size hod-chevron-down"></span>
                                             </span>
                                         </a>
                                     </th>                                
-                                    <th class="sortable-th tab-header width-column-2">
-                                        <a href="#" class="tab-header">
+                                    <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
+                                        <a href="#" id="document-type" class="tab-header">
                                             <span>
                                                 Document type
-                                                <span class="chevron-size hod-chevron-up"></span>
-                                                <span class="chevron-size hod-chevron-down"></span>
+                                                <span id="document-type-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
+                                                <span id="document-type-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
                                             </span>
                                         </a>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-3">
-                                        <a href="#" class="tab-header">
+                                    <th class="sortable-th tab-header width-column-3" onclick="sortTable(3)">
+                                        <a href="#" id="document-status" class="tab-header">
                                             <span>
                                                 Status
-                                                <span class="chevron-size hod-chevron-up"></span>
-                                                <span class="chevron-size hod-chevron-down"></span>
+                                                <span id="document-status-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
+                                                <span id="document-status-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
                                             </span>
                                         </a>
                                     </th>
@@ -223,12 +224,12 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                        <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
+                                        Business case Template IYPG
                                     </td>
                                     <td class="numeric sortable-td" style="vertical-align: top;">
                                         <strong class="govuk-tag gapLeft">Ready</strong>
@@ -240,14 +241,14 @@
                                             <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
                                             <label for="checkbox-file-02"></label>
                                         </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        <!-- Modified 9:46am on 23 September 2018 -->
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        Business case Template IYPG
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        R06 Reconcilliation Statement
                                     </td>
                                     <td class="numeric sortable-td" style="vertical-align: top;">
                                         <strong class="govuk-tag gapLeft">Ready</strong>
@@ -259,15 +260,15 @@
                                             <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
                                             <label for="checkbox-file-03"></label>
                                         </div>
-                                    </td>
+                                    </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <span class="error-message sortable-td-error">The file name doesn't meet the naming conventions.</span>
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
-                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                        <span class="error-message sortable-td-error">The file name is invalid.</span>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
+                                        Business case Template IYPG
                                     </td>
                                     <td class="numeric sortable-td" style="vertical-align: top;">
                                         <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
@@ -281,12 +282,12 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.xls</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
-                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
                                     <td class="numeric sortable-td" style="vertical-align: top;">
                                         <strong class="govuk-tag gapLeft">Ready</strong>
@@ -300,13 +301,13 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <span class="error-message sortable-td-error">The file name is invalid.</span>
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.xls</a>
                                         <br>
-                                        <!-- Modified 10:54am on 02 June 2018 -->
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <span class="error-message sortable-td-error">The file name doesn't meet the naming conventions.</span>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        Business case Template IYPG
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
                                     <td class="numeric sortable-td" style="vertical-align: top;">
                                         <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
@@ -320,12 +321,12 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
-                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
                                     <td class="numeric sortable-td" style="vertical-align: top;">
                                         <strong class="govuk-tag gapLeft">Ready</strong>
@@ -363,5 +364,7 @@
 
 <!-- Filters for the document list -->
 <script src="/public/javascripts/filter-checkboxes-sent.js"></script>
+<!-- Sorting for the document list -->
+<script src="/public/javascripts/sorting-fileshare.js"></script>
 
 {% endblock %}
