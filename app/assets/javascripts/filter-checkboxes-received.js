@@ -11,7 +11,7 @@ function filterCheck() {
     var checkbox20182019 = document.getElementById("QueryFilter.Filters.2018-2019").checked;
     var checkbox20172018 = document.getElementById("QueryFilter.Filters.2017-2018").checked;
 
-    // I've had to inverse the normal logic for this to work (don't know why, possibly becasue the status changes just before the logic is run)
+    // I've had to inverse the normal logic for this to work (don't know why, possibly because the status changes just before the logic is run)
     // RULE 1 - Both boxes NOT CHECKED (NONE)
     if (checkbox20182019 == false && checkbox20172018 == false) {
         window.location.assign("received-from-esfa-none");
