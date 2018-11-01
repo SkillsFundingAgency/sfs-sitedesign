@@ -6,6 +6,7 @@ Sorting (JavaScript)
 --------------------
 */
 
+// jQuery (READY)
 // Change the visual (sorting) indicators for each table column heading whenever they are clicked
 $(document).ready(function() {
 
@@ -146,6 +147,7 @@ $(document).ready(function() {
 
 });
 
+// JavaScript
 // Sort the table rows
 function sortTable(n) {
         
