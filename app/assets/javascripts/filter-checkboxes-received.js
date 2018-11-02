@@ -1,11 +1,10 @@
 
 
-/*
-------------------------------
-Filter Checkboxes (JavaScript) - RECEIVED
-------------------------------
-*/
+/**********
+ * FILTER CHECKBOXES - RECEIVED (JavaScript)
+ * **********/
 
+// JavaScript (START)
 function filterCheck() {
 
     var checkbox20182019 = document.getElementById("QueryFilter.Filters.2018-2019").checked;
@@ -34,3 +33,4 @@ function filterCheck() {
     }
 
 }
+// JavaScript (END)

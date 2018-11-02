@@ -1,13 +1,16 @@
 
 
-/*
-----------------------------------
-Filter and Checkboxes (JavaScript)
-----------------------------------
-*/
+/**********
+ * FILTERS AND CHECKBOXES (JavaScript)
+ * **********/
 
-// jQuery (READY)
+// jQuery (START)
 $(document).ready(function () {
+
+    // Filter (via clicking ERROR link) to show me only documents with errors
+    $("#showMeErrorsOnlyErrorLink").click(function () {
+        $("#queryFilterStatusError").trigger("click");
+    });
 
     // Filter (via clicking link) to show me only documents with errors
     $("#showMeErrorsOnlyLink").click(function () {
@@ -65,7 +68,9 @@ $(document).ready(function () {
     });
 
 });
+// jQuery (END)
 
+// JavaScript (START)
 // Select and unselect all documents in the document list
 function selectAll(divid) {
     
@@ -85,3 +90,4 @@ function selectAll(divid) {
     }
 
 }
+// JavaScript (END)

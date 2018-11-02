@@ -1,9 +1,202 @@
 
-/*
--------------
-Custom Styles (CSS)
---------------
-*/
+
+/**********
+ * CUSTOM STYLES (CSS)
+ * **********/
+
+ /* iFrame CSS (Site Map) */
+@media (max-width: 431px) {
+	.next a:before {
+		background: url('arrow-sprite.png') no-repeat -80px -7px;
+		background-position-x: right;
+		background-position-y: center;
+		display: block;
+		float: right;
+		width: 20px;
+		height: 24px;
+		background-size: 250%;
+		content: " ";
+	}
+}
+@media (max-width: 431px) {
+	.previous a:before {
+		background: url('arrow-sprite.png') no-repeat -80px -7px;
+		background-position-x: left;
+		background-position-y: center;
+		display: block;
+		float: left;
+		width: 20px;
+		height: 24px;
+		background-size: 250%;
+		content: " ";
+	}
+}
+@media (max-width: 550px) {
+	.hidden-page-items {
+		display: none;
+	}
+}
+@media (max-width: 550px) {
+	.next {
+		margin-left: 15px;
+	}
+}
+@media (max-width: 290px) {
+	.next {
+		padding-top: 5px;
+		margin-top: 5px;
+		margin-left: 0px;
+	}
+}
+.page {
+	margin: 0 10px 20px 0;
+	display: inline-block;
+	width: 32%;
+	position: relative;
+}
+.page--playlist:after {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('/public/images/chevron.svg') 0 0 no-repeat;
+	position: absolute;
+	top: 50%;
+	right: -15px;
+	background-size: 15px 15px;
+}
+.page:last-child:after {
+	display: none;
+}
+.page-playlist--withroute {
+	transform: translateX(50px)
+}
+.page-playlist--childroute {
+	transform: translateX(100px)
+}
+.page--route-heading:before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('/public/images/chevron.svg') 0 0 no-repeat;
+	position: absolute;
+	top: 0;
+	left: -30px;
+	background-size: 15px 15px;
+	height: 260px;
+	background-position: 0 66%;
+	border-left: 5px solid;
+}
+.page h2 {
+	word-break: break-word;
+	font-size: 0.8em;
+	line-height: 1.1;
+	padding-bottom: 5px;
+}
+.page-inner {
+	border: 1px solid #000;
+	width: 100%;
+	overflow: hidden;
+	height: 200px;
+	background: #fff url(/public/images/loader.svg) 50% 50% no-repeat;
+}
+.page--exit .page-inner {
+	background: none;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.page--exit {
+	height: 100%;
+	background: #005ea5;
+	color: white;
+}
+#userJourneyFrames {
+	width: 300%;
+	height: 600px;
+	transform: scale(0.33333);
+	transform-origin: 0 0;
+	background: none;
+	border: 0;
+}
+.page-width-wrapper {
+	position: relative;
+	margin-top: 3em;
+	width: 250px;
+}
+.page-width {
+	width: 100%;
+}
+.page-width:after {
+	content: "";
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url(/public/images/desktop.svg) 50% 50% no-repeat;
+}
+.page-width[data-device="desktop"]:after {
+	background-image: url(/public/images/desktop.svg)
+}
+.page-width[data-device="tablet"]:after {
+	background-image: url(/public/images/tablet.svg)
+}
+.page-width[data-device="mobile"]:after {
+	background-image: url(/public/images/mobile.svg)
+}
+input[type="range"] {
+	width: calc(100% - 40px);
+	display: inline-block;
+	margin: 0;
+}
+input[type="range"]::-moz-range-track {
+	height: 1px;
+}
+input[type=range]::-moz-range-thumb {
+	height: 12px;
+	width: 12px;
+	background: #ccc;
+	border: 1px solid #aaa;
+}
+output {
+	position: absolute;
+	right: 0;
+	top: 0.25em;
+	font-size: 0.8em;
+	opacity: 0.8;
+}
+output:after {
+	content: "px";
+}
+.non-playlisted {
+	padding: 2em 1em;
+	background: lightgray;
+	margin: 0 -1em;
+}
+.non-playlisted:before {
+	content: "Pages not added to playlist";
+	display: block;
+	padding-bottom: 1em;
+}
+@media (min-width: 641px){
+	.block-label {
+		float: left;
+	}
+}
+.block-label {
+	display: block;
+	float: none;
+	clear: left;
+	position: relative;
+	background: #dee0e2;
+	border: 1px solid #dee0e2;
+	padding: 18px 30px 15px 54px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.js-enabled label.selected {
+	background: #fff;
+	border-color: #0b0c0c;
+}
 
 /* General */
 @media (min-width: 641px) {
