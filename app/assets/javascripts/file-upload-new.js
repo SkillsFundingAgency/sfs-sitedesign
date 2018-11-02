@@ -1,11 +1,10 @@
 
 
-/*
---------------------------------------
-File Upload Functionality (JavaScript) - NEW
---------------------------------------
-*/
+/**********
+ * FILE UPLOAD - NEW (JavaScript)
+ * **********/
 
+// jQuery (START)
 (function () {
 
   // MOCK
@@ -241,3 +240,4 @@ File Upload Functionality (JavaScript) - NEW
   }
 
 })();
+// jQuery (END)

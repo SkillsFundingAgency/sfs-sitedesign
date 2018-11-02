@@ -1,12 +1,10 @@
 
 
-/*
---------------------
-Sorting (JavaScript)
---------------------
-*/
+/**********
+ * SORTING FILESHARE (JavaScript)
+ * **********/
 
-// jQuery (READY)
+// jQuery (START)
 // Change the visual (sorting) indicators for each table column heading whenever they are clicked
 $(document).ready(function() {
 
@@ -146,8 +144,9 @@ $(document).ready(function() {
     });
 
 });
+// jQuery (END)
 
-// JavaScript
+// JavaScript (START)
 // Sort the table rows
 function sortTable(n) {
         
@@ -218,3 +217,4 @@ function sortTable(n) {
 
     }
 }
+// JavaScript (END)
