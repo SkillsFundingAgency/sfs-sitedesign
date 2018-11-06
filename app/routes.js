@@ -32,8 +32,29 @@ router.get('/archive', function (req, res) {
 router.get('/archive/beta/sprint-10', function (req, res) {
 	res.render('archive/beta/sprint-10');
 });
+router.get('/archive/beta/sprint-9', function (req, res) {
+	res.render('archive/beta/sprint-9');
+});
+router.get('/archive/beta/sprint-8', function (req, res) {
+	res.render('archive/beta/sprint-8');
+});
+router.get('/archive/beta/sprint-7', function (req, res) {
+	res.render('archive/beta/sprint-7');
+});
+router.get('/archive/beta/sprint-6', function (req, res) {
+	res.render('archive/beta/sprint-6');
+});
+router.get('/archive/beta/sprint-5', function (req, res) {
+	res.render('archive/beta/sprint-5');
+});
+router.get('/archive/beta/sprint-4', function (req, res) {
+	res.render('archive/beta/sprint-4');
+});
 router.get('/archive/beta/sprint-3', function (req, res) {
 	res.render('archive/beta/sprint-3');
+});
+router.get('/archive/beta/sprint-2', function (req, res) {
+	res.render('archive/beta/sprint-2');
 });
 router.get('/archive/beta/sprint-1', function (req, res) {
 	res.render('archive/beta/sprint-1');
@@ -44,6 +65,12 @@ router.get('/archive/alpha/sprint-4', function (req, res) {
 });
 router.get('/archive/alpha/sprint-3', function (req, res) {
 	res.render('archive/alpha/sprint-3');
+});
+router.get('/archive/alpha/sprint-2', function (req, res) {
+	res.render('archive/alpha/sprint-2');
+});
+router.get('/archive/alpha/sprint-1', function (req, res) {
+	res.render('archive/alpha/sprint-1');
 });
 
 /**********
