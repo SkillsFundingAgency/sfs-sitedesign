@@ -74,17 +74,29 @@ $(document).ready(function () {
 // Select and unselect all documents in the document list
 function selectAll(divid) {
     
-    var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
-    
-    for (var i = 0; i < checks.length; i++) {
+    var selectAllCheckbox = document.getElementById('document-checkbox').checked;
+
+    if (selectAllCheckbox == true) {
+
+        var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
         
-        var check = checks[i];
+        for (var i = 0; i < checks.length; i++) {
         
-        if (check.checked) {
-            check.checked = false;
-        }
-        else {
+            var check = checks[i];
             check.checked = true;
+    
+        }
+
+    }
+    else {
+
+        var checks = document.querySelectorAll('#' + divid + ' input[type="checkbox"]');
+
+        for (var i = 0; i < checks.length; i++) {
+        
+            var check = checks[i];
+            check.checked = false;
+    
         }
 
     }
