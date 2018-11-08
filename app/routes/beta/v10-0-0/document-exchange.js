@@ -1,6 +1,6 @@
 module.exports = function(router) {
 
-	var version = 'beta/v10.0.0';
+	var version = 'beta/v10-0-0';
 
 	/**********
 	 * EXTERNAL USERS
