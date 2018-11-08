@@ -1,6 +1,6 @@
 module.exports = function(router) {
 
-	var version = 'beta/v11.0.0';
+	var version = 'beta/v11-0-0';
 
 	/**********
 	 * EXTERNAL USERS
@@ -13,30 +13,6 @@ module.exports = function(router) {
 	router.post('/' + version + '/external/document-exchange/start', function (req, res) {		
 		res.redirect('/' + version + '/external/document-exchange/dashboard');
 	});
-
-	// Information (Slide 1)
-	// router.get('/' + version + '/external/document-exchange/information-1', function (req, res) {
-	// 	res.render(version + '/information-1');
-	// });
-	// router.post('/' + version + '/external/document-exchange/information-1', function (req, res) {		
-	// 	res.redirect('/' + version + '/external/document-exchange/information-2');
-	// });
-
-	// Information (Slide 2)
-	// router.get('/' + version + '/external/document-exchange/information-2', function (req, res) {
-	// 	res.render(version + '/information-2');
-	// });
-	// router.post('/' + version + '/external/document-exchange/information-2', function (req, res) {		
-	// 	res.redirect('/' + version + '/external/document-exchange/information-3');
-	// });
-
-	// Information (Slide 3)
-	// router.get('/' + version + '/external/document-exchange/information-3', function (req, res) {
-	// 	res.render(version + '/information-3');
-	// });
-	// router.post('/' + version + '/external/document-exchange/information-3', function (req, res) {		
-	// 	res.redirect('/' + version + '/external/document-exchange/dashboard');
-	// });
 
 	// Dashboard
 	router.get('/' + version + '/external/document-exchange/dashboard', function (req, res) {
