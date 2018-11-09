@@ -19,16 +19,6 @@ module.exports = function(router) {
 		res.render(version + '/external/dashboard');
 	});
 
-	// Dashboard (version B)
-	router.get('/' + version + '/external/document-exchange/dashboard-b', function (req, res) {
-		res.render(version + '/external/dashboard-b');
-	});
-
-	// Dashboard (version C)
-	router.get('/' + version + '/external/document-exchange/dashboard-c', function (req, res) {
-		res.render(version + '/external/dashboard-c');
-	});
-
 	// Document Exchange (Home)
 	router.get('/' + version + '/external/document-exchange/home', function (req, res) {
 		res.render(version + '/external/document-exchange/home');

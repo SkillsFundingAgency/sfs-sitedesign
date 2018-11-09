@@ -67,6 +67,31 @@ $(document).ready(function () {
 
     });
 
+    // Filter logic for filter #3 (academic year)
+    $("#academic-year-filters :input:checkbox").change(function () {
+    
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+            }
+
+        });
+
+        if (showAll) {
+            $('tr').show();
+        }
+
+    });
+
 });
 // jQuery (END)
 
