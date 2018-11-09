@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Documents ready to publish
+    {% if error %}Error: {% endif %}Documents you've sent to ESFA
 {% endblock %}
 
 {% block content %}
@@ -31,41 +31,24 @@
 
                 <nav>
                     <ol id="removeADocBreadcrumb1">
-                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="../../external/document-exchange/dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
-                        <li>Documents to publish</li>
+                        <li>Documents you've sent to ESFA</li>
                     </ol>
                 </nav>
 
             </div>
 
             <form method="post" class="form">
-
-                {% if error %}
-                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-                    <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
-                    <p>There are 2 documents which need your attention before they can be published. </p>
-                    <ul class="error-summary-list">
-                        <li><a id="showMeErrorsOnlyErrorLink" href="#">Review and resolve the 2 documents.</a></li>
-                    </ul>
-                </div>
-                {% endif %}
     
                 <h1 class="heading-xlarge">
-                    <!-- <span class="heading-secondary">Casterbridge College</span>
-                    <span class="heading-secondary">UKPRN: 12345678</span> -->
-                    Documents ready to publish
+                    <span class="heading-secondary">Casterbridge College</span>
+                    <span class="heading-secondary">UKPRN: 12345678</span>
+                    Documents you've sent to ESFA
                 </h1>
 
                 <div class="form-group">
-
-                    <div class="panel panel-border-wide">
-                        <p>There are {% if pagingRequired %}18{% else %}2{% endif %} documents which need your attention before they can be published.</p>
-                        <ul class="error-summary-list">
-                            <li><a id="showMeErrorsOnlyLink" href="#">Review and resolve the {% if pagingRequired %}18{% else %}2{% endif %} documents.</a></li>
-                        </ul>
-                    </div>
-
+                    <p>If you’ve just sent a document, it can take a few minutes to show here.</p>
                 </div>
                 
                 <div class="column-filter-one-third column-third minus-25px-margin-top">
@@ -130,13 +113,13 @@
                                 </li>
                                 <li>
                                     <fieldset class="filter">
-                                        <legend class="visuallyhidden">Status</legend>
+                                        <legend class="visuallyhidden">Academic year</legend>
                 
                                         <div class="js-filter-collapsible-collections statusYearFilter">
                                             <section id="status-filters" class="js-filter-collapsible js-open">
                                                 <input type="hidden" name="queryFilterOpen.Status" id="queryFilterOpen.Status" value="True">
                                                 <header class="js-filter-collapsible-header">
-                                                    <h3 id="status" class="filters-headings heading-small">Status</h3>
+                                                    <h3 id="status" class="filters-headings heading-small">Academic year</h3>
                                                 </header>
 
                                                 <div class="js-filter-collapsible-content">
