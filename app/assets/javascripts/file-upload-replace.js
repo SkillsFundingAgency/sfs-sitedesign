@@ -125,7 +125,7 @@
                   "<tr>" +
                   "<td><a href='#'>" + upload.files[0].name + "</a></td>" +
                   "<td>Business case</td>" +
-                  "<td>businesscase-03</td>" +
+                  "<td>3</td>" +
                   "<td class='numeric'><a class='removeLink' id='remove" + i + "' href='#'>Remove</a></td>" +
                   "</tr>"
               );
