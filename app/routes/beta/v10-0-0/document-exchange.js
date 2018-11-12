@@ -8,35 +8,54 @@ module.exports = function(router) {
 
 	// Start
 	router.get('/' + version + '/external/document-exchange/start', function (req, res) {
-		res.render(version + '/start');
+		
+		req.session.announcements = req.query.announcements;
+
+		res.render(version + '/start', {
+			'announcements' : req.query.announcements
+		});
 	});
 	router.post('/' + version + '/external/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/external/document-exchange/dashboard');
+		
+		var announcements = req.session.announcements;
+
+		// If we want to see the announcements user journey...
+		if (announcements == "true") {
+			res.redirect('/' + version + '/external/document-exchange/information-1');
+		}
+		else {
+			res.redirect('/' + version + '/external/document-exchange/dashboard');
+		}
+		
 	});
 
+	/**********
+	 * ANNOUNCEMENTS
+	 * **********/
+
 	// Information (Slide 1)
-	// router.get('/' + version + '/external/document-exchange/information-1', function (req, res) {
-	// 	res.render(version + '/information-1');
-	// });
-	// router.post('/' + version + '/external/document-exchange/information-1', function (req, res) {		
-	// 	res.redirect('/' + version + '/external/document-exchange/information-2');
-	// });
+	router.get('/' + version + '/external/document-exchange/information-1', function (req, res) {
+		res.render(version + '/information-1');
+	});
+	router.post('/' + version + '/external/document-exchange/information-1', function (req, res) {		
+		res.redirect('/' + version + '/external/document-exchange/information-2');
+	});
 
 	// Information (Slide 2)
-	// router.get('/' + version + '/external/document-exchange/information-2', function (req, res) {
-	// 	res.render(version + '/information-2');
-	// });
-	// router.post('/' + version + '/external/document-exchange/information-2', function (req, res) {		
-	// 	res.redirect('/' + version + '/external/document-exchange/information-3');
-	// });
+	router.get('/' + version + '/external/document-exchange/information-2', function (req, res) {
+		res.render(version + '/information-2');
+	});
+	router.post('/' + version + '/external/document-exchange/information-2', function (req, res) {		
+		res.redirect('/' + version + '/external/document-exchange/information-3');
+	});
 
 	// Information (Slide 3)
-	// router.get('/' + version + '/external/document-exchange/information-3', function (req, res) {
-	// 	res.render(version + '/information-3');
-	// });
-	// router.post('/' + version + '/external/document-exchange/information-3', function (req, res) {		
-	// 	res.redirect('/' + version + '/external/document-exchange/dashboard');
-	// });
+	router.get('/' + version + '/external/document-exchange/information-3', function (req, res) {
+		res.render(version + '/information-3');
+	});
+	router.post('/' + version + '/external/document-exchange/information-3', function (req, res) {		
+		res.redirect('/' + version + '/external/document-exchange/dashboard');
+	});
 
 	// Dashboard
 	router.get('/' + version + '/external/document-exchange/dashboard', function (req, res) {
