@@ -89,15 +89,29 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/document-exchange/document-upload', function (req, res) {
 		res.render(version + '/external/document-exchange/document-upload');
 	});
+	router.post('/' + version + '/external/document-exchange/document-upload', function (req, res) {		
+
+		req.session.fileName = req.body.fileName;
+		
+		res.redirect('/' + version + '/external/document-exchange/document-upload-complete');
+	});
 
 	// Document Upload (Replace)
 	router.get('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {		
 		res.render(version + '/external/document-exchange/document-upload-replace');
 	});
+	router.post('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {		
+
+		req.session.fileName = req.body.fileName;
+		
+		res.redirect('/' + version + '/external/document-exchange/document-upload-replace-complete');
+	});
 
 	// Document Upload Complete
 	router.get('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {
-		res.render(version + '/external/document-exchange/document-upload-complete');
+		res.render(version + '/external/document-exchange/document-upload-complete', {
+			'fileName' : req.session.fileName
+		});
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {		
 		res.redirect('/' + version + '/external/document-exchange/dashboard');
@@ -105,7 +119,9 @@ module.exports = function(router) {
 
 	// Document Upload (Replace) Complete
 	router.get('/' + version + '/external/document-exchange/document-upload-replace-complete', function (req, res) {
-		res.render(version + '/external/document-exchange/document-upload-replace-complete');
+		res.render(version + '/external/document-exchange/document-upload-replace-complete', {
+			'fileName' : req.session.fileName
+		});
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload-replace-complete', function (req, res) {		
 		res.redirect('/' + version + '/external/document-exchange/sent-to-esfa');
