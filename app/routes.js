@@ -11,6 +11,8 @@ router.get('/', function (req, res) {
  * **********/
 
 // Beta
+// beta-v12-0-0
+require('./routes/beta/v12-0-0/document-exchange.js')(router);
 // beta-v11-0-0
 require('./routes/beta/v11-0-0/document-exchange.js')(router);
 // beta-v10-0-0
