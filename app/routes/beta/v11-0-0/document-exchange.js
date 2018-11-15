@@ -16,57 +16,51 @@ module.exports = function(router) {
 
 	// Dashboard
 	router.get('/' + version + '/external/document-exchange/dashboard', function (req, res) {
-		res.render(version + '/external/dashboard');
+		
+		req.session.idams = "external";
+		
+		res.render(version + '/external/dashboard', {
+			'idams' : req.session.idams
+		});
 	});
 
 	// Document Exchange (Home)
 	router.get('/' + version + '/external/document-exchange/home', function (req, res) {
-		res.render(version + '/external/document-exchange/home');
+		
+		req.session.idams = "external";
+		
+		res.render(version + '/external/document-exchange/home', {
+			'idams' : req.session.idams
+		});
 	});
 
-	// Received from ESFA (ALL)
+	// Received from ESFA
 	router.get('/' + version + '/external/document-exchange/received-from-esfa', function (req, res) {
-		res.render(version + '/external/document-exchange/received-from-esfa');
+		
+		req.session.idams = "external";
+		
+		res.render(version + '/external/document-exchange/received-from-esfa', {
+			'idams' : req.session.idams
+		});
 	});
 
-	// Received fromESFA (2017-2018)
-	router.get('/' + version + '/external/document-exchange/received-from-esfa-2017-2018', function (req, res) {
-		res.render(version + '/external/document-exchange/received-from-esfa-2017-2018');
-	});
-
-	// Received from ESFA (2018-2019)
-	router.get('/' + version + '/external/document-exchange/received-from-esfa-2018-2019', function (req, res) {
-		res.render(version + '/external/document-exchange/received-from-esfa-2018-2019');
-	});
-
-	// Received from ESFA (NONE)
-	router.get('/' + version + '/external/document-exchange/received-from-esfa-none', function (req, res) {
-		res.render(version + '/external/document-exchange/received-from-esfa-none');
-	});
-
-	// Sent to ESFA (ALL)
+	// Sent to ESFA
 	router.get('/' + version + '/external/document-exchange/sent-to-esfa', function (req, res) {
-		res.render(version + '/external/document-exchange/sent-to-esfa');
-	});
-
-	// Sent to ESFA (2017-2018)
-	router.get('/' + version + '/external/document-exchange/sent-to-esfa-2017-2018', function (req, res) {
-		res.render(version + '/external/document-exchange/sent-to-esfa-2017-2018');
-	});
-
-	// Sent to ESFA (2018-2019)
-	router.get('/' + version + '/external/document-exchange/sent-to-esfa-2018-2019', function (req, res) {
-		res.render(version + '/external/document-exchange/sent-to-esfa-2018-2019');
-	});
-
-	// Sent to ESFA (NONE)
-	router.get('/' + version + '/external/document-exchange/sent-to-esfa-none', function (req, res) {
-		res.render(version + '/external/document-exchange/sent-to-esfa-none');
+		
+		req.session.idams = "external";
+		
+		res.render(version + '/external/document-exchange/sent-to-esfa', {
+			'idams' : req.session.idams
+		});
 	});
 
 	// Document Upload File Type
 	router.get('/' + version + '/external/document-exchange/document-upload-file-type', function (req, res) {
+		
+		req.session.idams = "external";
+		
 		res.render(version + '/external/document-exchange/document-upload-file-type', {
+			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
 	});
@@ -87,7 +81,12 @@ module.exports = function(router) {
 
 	// Document Upload
 	router.get('/' + version + '/external/document-exchange/document-upload', function (req, res) {
-		res.render(version + '/external/document-exchange/document-upload');
+		
+		req.session.idams = "external";
+		
+		res.render(version + '/external/document-exchange/document-upload', {
+			'idams' : req.session.idams
+		});		
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload', function (req, res) {		
 
@@ -98,7 +97,12 @@ module.exports = function(router) {
 
 	// Document Upload (Replace)
 	router.get('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {		
-		res.render(version + '/external/document-exchange/document-upload-replace');
+		
+		req.session.idams = "external";
+		
+		res.render(version + '/external/document-exchange/document-upload-replace', {
+			'idams' : req.session.idams
+		});		
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {		
 
@@ -109,7 +113,11 @@ module.exports = function(router) {
 
 	// Document Upload Complete
 	router.get('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {
+		
+		req.session.idams = "external";
+		
 		res.render(version + '/external/document-exchange/document-upload-complete', {
+			'idams' : req.session.idams,
 			'fileName' : req.session.fileName
 		});
 	});
@@ -119,7 +127,11 @@ module.exports = function(router) {
 
 	// Document Upload (Replace) Complete
 	router.get('/' + version + '/external/document-exchange/document-upload-replace-complete', function (req, res) {
+		
+		req.session.idams = "external";
+		
 		res.render(version + '/external/document-exchange/document-upload-replace-complete', {
+			'idams' : req.session.idams,
 			'fileName' : req.session.fileName
 		});
 	});
@@ -141,17 +153,31 @@ module.exports = function(router) {
 
 	// Dashboard
 	router.get('/' + version + '/internal/document-exchange/dashboard', function (req, res) {
-		res.render(version + '/internal/dashboard');
+		
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/dashboard', {
+			'idams' : req.session.idams
+		});
 	});
 
 	// Document Exchange (Home)
 	router.get('/' + version + '/internal/document-exchange/home', function (req, res) {
-		res.render(version + '/internal/document-exchange/home');
+		
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/home', {
+			'idams' : req.session.idams
+		});
 	});
 
 	// Documents to Publish
 	router.get('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
+		
+		req.session.idams = "internal";
+		
 		res.render(version + '/internal/document-exchange/documents-to-publish', {
+			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'error1' : req.query.error1,
 			'error2' : req.query.error2,
