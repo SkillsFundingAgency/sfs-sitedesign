@@ -171,6 +171,16 @@ module.exports = function(router) {
 		});
 	});
 
+	// File Share
+	router.get('/' + version + '/internal/document-exchange/file-share', function (req, res) {
+		
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/file-share', {
+			'idams' : req.session.idams
+		});
+	});
+
 	// Documents to Publish
 	router.get('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
 		
@@ -179,19 +189,135 @@ module.exports = function(router) {
 		res.render(version + '/internal/document-exchange/documents-to-publish', {
 			'idams' : req.session.idams,
 			'error' : req.query.error,
-			'error1' : req.query.error1,
-			'error2' : req.query.error2,
-			'error3' : req.query.error3,
-			'error4' : req.query.error4,
-			'error5' : req.query.error5,
-			'error6' : req.query.error6,
-			'pagingRequired' : req.query.pagingRequired,
+			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2
 		});
 	});
 	router.post('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/documents-to-publish?error=true');
+		res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirmation');
+	});
+
+	// Documents to Publish (Confirmation)
+	router.get('/' + version + '/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
+
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-publish-confirmation', {
+			'idams' : req.session.idams
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/file-share');
+	});
+
+	// Documents to Review
+	router.get('/' + version + '/internal/document-exchange/documents-to-review', function (req, res) {		
+		
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-review', {
+			'idams' : req.session.idams,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-review', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/?');
+	});
+
+	// Documents to Review (Rename)
+	router.get('/' + version + '/internal/document-exchange/documents-to-review-rename', function (req, res) {		
+	
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-review-rename', {
+			'idams' : req.session.idams,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-review-rename', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/documents-to-review-rename-confirmation');
+	});
+
+	// Documents to Review (Rename Confirmation)
+	router.get('/' + version + '/internal/document-exchange/documents-to-review-rename-confirmation', function (req, res) {		
+
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-review-rename-confirmation', {
+			'idams' : req.session.idams,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-review-rename-confirmation', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/file-share');
+	});
+
+	// Documents to Review (Remove)
+	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove', function (req, res) {		
+
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-review-remove', {
+			'idams' : req.session.idams,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-review-remove', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/documents-to-review-remove-confirmation');
+	});
+
+	// Documents to Review (Remove Confirmation)
+	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove-confirmation', function (req, res) {		
+
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-review-remove-confirmation', {
+			'idams' : req.session.idams,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-review-remove-confirmation', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/file-share');
+	});
+
+	// Download Documents
+	router.get('/' + version + '/internal/document-exchange/download-documents', function (req, res) {		
+		
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/download-documents', {
+			'idams' : req.session.idams,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/download-documents', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/download-documents-confirmation');
+	});
+
+	// Download Documents (Confirmation)
+	router.get('/' + version + '/internal/document-exchange/download-documents-confirmation', function (req, res) {		
+	
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/download-documents-confirmation', {
+			'idams' : req.session.idams
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/download-documents-confirmation', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/home');
 	});
 
 }

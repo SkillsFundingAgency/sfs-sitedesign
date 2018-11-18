@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Documents ready to publish
+    {% if error %}Error: {% endif %}Download documents
 {% endblock %}
 
 {% block content %}
@@ -22,8 +22,7 @@
                     <ol id="removeADocBreadcrumb1">
                         <li><a href="dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
-                        <li><a href="file-share">File share</a></li>
-                        <li>Documents to publish</li>
+                        <li>Download documents</li>
                     </ol>
                 </nav>
 
@@ -36,7 +35,7 @@
                     <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
                     <p>There is a problem</p>
                     <ul class="error-summary-list">
-                        <li><a id="sortable-table" href="#">Please choose at least one document to publish.</a></li>
+                        <li><a id="sortable-table" href="#">Please choose at least one document to download.</a></li>
                     </ul>
                 </div>
                 {% endif %}
@@ -44,10 +43,10 @@
                 <h1 class="heading-xlarge">
                     <!-- <span class="heading-secondary">Casterbridge College</span>
                     <span class="heading-secondary">UKPRN: 12345678</span> -->
-                    Documents ready to publish
+                    Download documents
                 </h1>
                 
-                <!-- <div class="column-filter-one-third column-third minus-25px-margin-top">
+                <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
                     <section class="filters">
                         <br>
@@ -122,15 +121,15 @@
                                                     <section class="toggled-adult-funding-content group">
                                                         <ul>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusError" rel="Error" name="queryFilterStatus" type="checkbox" value="Error">
+                                                                <input id="queryFilterStatusError" rel="New" name="queryFilterStatus" type="checkbox" value="New">
                                                                 <label class="block" for="queryFilterStatusError">
-                                                                    Error ({% if paginationRequired %}18{% else %}2{% endif %})
+                                                                    New ({% if paginationRequired %}18{% else %}2{% endif %})
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusReady" rel="Ready" name="queryFilterStatus" type="checkbox" value="Ready">
+                                                                <input id="queryFilterStatusReady" rel="Downloaded" name="queryFilterStatus" type="checkbox" value="Downloaded">
                                                                 <label class="block" for="queryFilterStatusReady">
-                                                                    Ready ({% if paginationRequired %}36{% else %}4{% endif %})
+                                                                    Downloaded ({% if paginationRequired %}36{% else %}4{% endif %})
                                                                 </label>
                                                             </li>
                                                         </ul>
@@ -150,38 +149,10 @@
                         </div>
 
                     </section>
-                </div> -->
-
-                {% if paginationRequired %}
-                {% if page1 %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 50 documents selected
-                    </div>
-    
                 </div>
-                {% elif page2 %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 4 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
-                {% else %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 6 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
 
                 <!-- Document list -->
-                <div id="sent-files" class="column-full">
+                <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
 
                     <div class="form-group">
                         <table id="sortable-table" class="sortable-table">
@@ -211,7 +182,7 @@
                                             </span>
                                         </a>
                                     </th>
-                                    <!-- <th class="sortable-th tab-header width-column-3" onclick="sortTable(3)">
+                                    <th class="sortable-th tab-header width-column-3" onclick="sortTable(3)">
                                         <a href="#" id="document-status" class="tab-header">
                                             <span>
                                                 Status
@@ -219,13 +190,11 @@
                                                 <span id="document-status-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
                                             </span>
                                         </a>
-                                    </th> -->
+                                    </th>
                                 </tr>
                             </thead>
-                            <!-- 54 RESULTS -->
+                            <!-- 51 RESULTS -->
                             {% if paginationRequired %}
-                            <!-- 50 RESULTS (OF 54) -->
-                            {% if page1 %}
                             <tbody id="sortable-table-contents">
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -235,16 +204,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -254,16 +223,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -273,17 +242,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -293,16 +262,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -312,17 +281,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -332,16 +301,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -351,16 +320,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -370,16 +339,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -389,17 +358,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -409,16 +378,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -428,17 +397,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -448,16 +417,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -467,16 +436,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -486,16 +455,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -505,17 +474,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -525,16 +494,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -544,17 +513,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -564,16 +533,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -583,16 +552,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -602,16 +571,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -621,17 +590,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -641,16 +610,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -660,17 +629,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -680,16 +649,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -699,16 +668,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -718,16 +687,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -737,17 +706,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -757,16 +726,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -776,17 +745,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -796,16 +765,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -815,16 +784,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -834,16 +803,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -853,17 +822,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -873,16 +842,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -892,17 +861,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -912,16 +881,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -931,16 +900,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -950,16 +919,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -969,17 +938,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -989,16 +958,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -1008,17 +977,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -1028,16 +997,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -1047,16 +1016,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -1066,16 +1035,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -1085,17 +1054,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -1105,16 +1074,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -1124,17 +1093,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -1144,16 +1113,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -1163,16 +1132,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -1182,100 +1151,96 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
+                                        <br>
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case Template IYPG
+                                    </td>
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Allocation Statement FE Colleges IYPG
+                                    </td>
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
+                                        <br>
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
+                                    </td>
+                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
+                                    </td>
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
+                                        <br>
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        Local authority RAT extracts (LARAT) AMSG
+                                    </td>
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
+                                </tr>                                
                             </tbody>
-                            <!-- 4 RESULTS (OF 54) -->
-                            {% elif page2 %}
-                            <tbody id="sortable-table-contents">
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 10:54am on 02 June 2018 -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:02am on 28 September 2018 -->
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                            </tbody>
-                            {% endif %}
                             <!-- 6 RESULTS -->
                             {% else %}
                             <tbody id="sortable-table-contents">
@@ -1287,16 +1252,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -1306,16 +1271,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
+                                        R06 Reconcilliation Statement
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -1325,17 +1290,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
                                         <br>
                                         <!-- Modified 9:46am on 23 September 2018 -->
                                         <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                        Business case Template IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -1345,16 +1310,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation Statement FE Colleges IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -1364,17 +1329,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
                                         <br>
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
                                     <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -1384,16 +1349,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
                                     <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                        Local authority RAT extracts (LARAT) AMSG
                                     </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
+                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    </td>
                                 </tr>
                             </tbody>
                             {% endif %}
