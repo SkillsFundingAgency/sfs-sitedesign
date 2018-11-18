@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Rename documents
+{% endblock %}
+
+{% block content %}
+
+<main id="content">
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+
+                <nav>
+                    <ol id="removeADocBreadcrumb1">
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li><a href="file-share">File share</a></li>
+                        <li><a href="documents-to-review">Documents to review</a></li>
+                        <li>Rename documents</li>
+                    </ol>
+                </nav>
+
+            </div>
+
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
+                    <p>There is a problem</p>
+                    <ul class="error-summary-list">
+                        <li><a id="sortable-table" href="#">Please select an option.</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+    
+                <h1 class="heading-xlarge">
+                    <!-- <span class="heading-secondary">Casterbridge College</span>
+                    <span class="heading-secondary">UKPRN: 12345678</span> -->
+                    Rename documents
+                </h1>
+
+                <div class="form-group">
+                    <input class="form-control" id="full-name-f1" type="text" name="full-name-f1" value="10044577_10041_201819">.pdf
+                </div>
+
+                <div class="form-group">
+                    <button class="button">Rename document</button>
+                </div>
+
+                <div class="form-group">
+                    <a href="javascript: history.go(-1)">Cancel and go back</a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
