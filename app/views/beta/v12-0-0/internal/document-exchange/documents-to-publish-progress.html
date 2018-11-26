@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    You've published 4 documents
+{% endblock %}
+
+{% block content %}
+
+<main id="content">
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <form method="get" class="form" action="./documents-to-publish-confirmation.html">
+
+                <div class="form-group">
+                
+                    <div class="govuk-box-highlight">
+                        <h1 class="bold-xlarge">Your documents are publishing</h1>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="progress-box">
+                        <div id=progress><span></span> completed</div>
+                        <div id="myProgress">
+                                <div id="myBar"></div>
+                        </div>
+                    </div>
+                </div>
+               
+                <div class="actions">
+                    <button class="button">Continue</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

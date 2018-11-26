@@ -39,6 +39,19 @@
 				window.location.href = 'documents-to-review.html';
 			}
 		});
+
+      var elem = document.getElementById("myBar"); 
+    var width = 0;
+    var id = setInterval(frame, 0);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+			elem.style.width = width + '%'; 
+			$('#progress span').html(width * 1 + '%');
+        }
+    }
 	}); 
 </script>
 {% if useAutoStoreData %}
