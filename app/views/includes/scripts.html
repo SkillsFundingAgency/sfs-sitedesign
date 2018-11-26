@@ -18,6 +18,28 @@
 		});
 	}
 
+	$(document).ready(function() {
+		$('.confirmation-internal .button').click(function() {
+			var choice = $('input[name=radio-inline-group]:checked').val();
+			if (choice == "Yes") {
+				window.location.href = 'documents-to-review-published-remove-confirmation.html';
+				return false;
+			}
+			else {
+				window.location.href = 'documents-to-review.html';
+				return false;
+			}
+		});
+		$('.confirmation-review .button').click(function() {
+			var choice = $('input[name=radio-inline-group]:checked').val();
+			if (choice == "Yes") {
+				window.location.href = 'documents-to-review-remove-confirmation.html';
+			}
+			else {
+				window.location.href = 'documents-to-review.html';
+			}
+		});
+	}); 
 </script>
 {% if useAutoStoreData %}
 <!-- <script src="/public/javascripts/auto-store-data.js"></script> -->

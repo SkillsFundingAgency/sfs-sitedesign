@@ -6,7 +6,7 @@
 
 {% block content %}
 
-<main id="content">
+<main id="content" class="confirmation-internal confirmation-published">
 
     <!-- Account Management (IDAMS) - START -->
     {% include "includes/idams-account-header.html" %}
@@ -30,7 +30,7 @@
 
             </div>
 
-            <form method="post" class="form" action="documents-to-review-published-remove-confirmation">
+            <form method="post" class="form" >
 
                 {% if error %}
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
@@ -45,9 +45,17 @@
                 <div class="form-group">
                     <fieldset class="inline">
                         <legend>
-                            <h1 class="heading-xlarge">Are you sure you want to remove 10044577_10041_201819.pdf?</h1>
+                            <h1 class="heading-xlarge">Are you sure you want to remove these documents?</h1>
                         </legend>
 
+                        <div class="form-group">
+                                <p>The documents are:</p>
+                                <ul>
+                                    <li>10006622_10041_201819.pdf</li>
+                                    <li>10044577_10041_201819.pdf</li>
+                                    <li>10006473_10041_201819.pdf</li>
+                                </ul>                
+                        </div>
                         <div class="multiple-choice">
                             <input id="radio-inline-1" type="radio" name="radio-inline-group" value="Yes">
                             <label for="radio-inline-1">Yes</label>
@@ -71,6 +79,6 @@
 
     </div>
 
+    
 </main>
-
 {% endblock %}
