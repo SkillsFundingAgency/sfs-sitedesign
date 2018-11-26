@@ -51,6 +51,22 @@
                     <p>You need to review 14 documents. You can rename the documents or remove them.</p>
                 </div>
                 
+                
+                {% if paginationRequired %}
+                {% if page1 %}
+
+                {% elif page2 %}
+
+                {% endif %}
+                {% else %}
+                <div class="pager">
+    
+                    <div class="pager-summary">
+                        0 of 14 documents selected
+                    </div>
+    
+                </div>
+                {% endif %}
                 <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
                     <section class="filters">
@@ -173,22 +189,6 @@
 
                     </section>
                 </div>
-
-                {% if paginationRequired %}
-                {% if page1 %}
-
-                {% elif page2 %}
-
-                {% endif %}
-                {% else %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 14 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
 
                 <!-- Document list -->
                 <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
@@ -573,11 +573,11 @@
 
                     <div class="form-group">
                         
-                        <a class="button" href="documents-to-review-rename?error=ukprn" role="button">Rename documents</a>
+                        <a class="button" href="documents-to-review-rename?error=ukprn" role="button">Rename selected documents</a>
                     </div>
 
                     <div class="form-group">
-                        <a class="button remove" href="documents-to-review-remove" role="button">Remove documents</a>
+                        <a class="button remove" href="documents-to-review-remove" role="button">Remove selected documents</a>
                     </div>
 
                     <div class="form-group direction-rtl">

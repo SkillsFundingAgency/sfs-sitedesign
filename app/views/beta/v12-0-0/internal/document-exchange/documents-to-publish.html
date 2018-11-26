@@ -47,7 +47,34 @@
                     Documents ready to publish
                 </h1>
                 
-                <!-- <div class="column-filter-one-third column-third minus-25px-margin-top">
+                {% if paginationRequired %}
+                {% if page1 %}
+                <div class="pager">
+    
+                    <div class="pager-summary">
+                        0 of 50 documents selected
+                    </div>
+    
+                </div>
+                {% elif page2 %}
+                <div class="pager">
+    
+                    <div class="pager-summary">
+                        0 of 4 documents selected
+                    </div>
+    
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="pager">
+    
+                    <div class="pager-summary">
+                        0 of 6 documents selected
+                    </div>
+    
+                </div>
+                {% endif %}
+                <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
                     <section class="filters">
                         <br>
@@ -107,41 +134,7 @@
 
                                     </fieldset>
                                 </li>
-                                <li>
-                                    <fieldset class="filter">
-                                        <legend class="visuallyhidden">Status</legend>
-                
-                                        <div class="js-filter-collapsible-collections statusFilter">
-                                            <section id="status-filters" class="js-filter-collapsible js-open">
-                                                <input type="hidden" name="queryFilterOpen.Status" id="queryFilterOpen.Status" value="True">
-                                                <header class="js-filter-collapsible-header">
-                                                    <h3 id="status" class="filters-headings heading-small">Status</h3>
-                                                </header>
-
-                                                <div class="js-filter-collapsible-content">
-                                                    <section class="toggled-adult-funding-content group">
-                                                        <ul>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusError" rel="Error" name="queryFilterStatus" type="checkbox" value="Error">
-                                                                <label class="block" for="queryFilterStatusError">
-                                                                    Error ({% if paginationRequired %}18{% else %}2{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusReady" rel="Ready" name="queryFilterStatus" type="checkbox" value="Ready">
-                                                                <label class="block" for="queryFilterStatusReady">
-                                                                    Ready ({% if paginationRequired %}36{% else %}4{% endif %})
-                                                                </label>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                </div>
-
-                                            </section>
-                                        </div>
-
-                                    </fieldset>
-                                </li>
+                                
                             </ul>
                             <ul>
                                 <li>&nbsp;</li>
@@ -150,38 +143,10 @@
                         </div>
 
                     </section>
-                </div> -->
-
-                {% if paginationRequired %}
-                {% if page1 %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 50 documents selected
-                    </div>
-    
-                </div>
-                {% elif page2 %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 4 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
-                {% else %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 6 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
+                </div> 
 
                 <!-- Document list -->
-                <div id="sent-files" class="column-full">
+                <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
 
                     <div class="form-group">
                         <table id="sortable-table" class="sortable-table">
@@ -1455,10 +1420,10 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="button">Publish documents</button>
+                        <button class="button">Publish selected documents</button>
                     </div>
                     <div class="form-group">
-                        <a class="button remove" href="documents-to-review-published-remove" role="button">Remove documents</a>
+                        <a class="button remove" href="documents-to-review-published-remove" role="button">Remove selected documents</a>
                     </div>
                     <div class="form-group direction-rtl">
                         <a class="app-c-back-to-top dont-print" href="#content">
