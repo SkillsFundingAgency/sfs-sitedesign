@@ -13,11 +13,6 @@
       delete config.universalId
       this.trackers.push(new GOVUK.GoogleAnalyticsUniversalTracker(universalId, config))
     }
-    if (typeof config.govukTrackerGifUrl !== 'undefined') {
-      var govukTrackerGifUrl = config.govukTrackerGifUrl
-      delete config.govukTrackerGifUrl
-      this.trackers.push(new GOVUK.GOVUKTracker(govukTrackerGifUrl))
-    }
   }
 
   Analytics.prototype.sendToTrackers = function (method, args) {
@@ -33,7 +28,6 @@
 
   Analytics.load = function () {
     GOVUK.GoogleAnalyticsUniversalTracker.load()
-    GOVUK.GOVUKTracker.load()
   }
 
   Analytics.prototype.trackPageview = function (path, title, options) {
