@@ -6,23 +6,14 @@
 
 {% block content %}
 
-<main id="content">
+<main role="main" id="content">
 
     <!-- Account Management (IDAMS) - START -->
-    <div class="account-master">
-
-        <div class="grid-row account-details">
-            
-            <div class="column-full controls account-div">
-                <span class="account-link"><a href="#">Settings</a></span>
-                <span class="account-link"><a href="#">Sign out</a></span>
-            </div>
-
-        </div>
-    </div>
+    {% include "includes/idams-account-header.html" %}
     <!-- Account Management (IDAMS) - END -->
 
     <div class="grid-row">
+
         <div class="column-full">
             <h1 class="heading-xlarge">
                 <span class="heading-secondary">Casterbridge College</span>
@@ -31,49 +22,61 @@
             </h1>
 
             <section>
+
                 <div class="grid-row">
                     <ul>
+
                         <div class="service-transaction">
                             <li class="column-third margin-top">
-                                <a id="apprenticeships" class="dashboard-links" href="#">
+                                <a href="#" id="apprenticeships" class="dashboard-links">
                                     <span id="apprenticeship-service" class="service-name">Apprenticeship service</span>
                                     <span id="apprenticeship-alert" class="alert alert-name-grey">Request permission to access</span>
                                 </a>
                             </li>
                         </div>
+
                         <div class="service-transaction">
                             <li class="column-third margin-top">
-                                <a id="contracts" class="dashboard-links" href="#">
+                                <a href="#" id="contracts" class="dashboard-links">
                                     <span id="contracts-service" class="service-name">ESFA contracts and agreements</span>
                                     <span id="contract-alert" class="alert alert-name-green">No documents to review</span>
                                 </a>
                             </li>
                         </div>
+
                         <div class="service-transaction">
                             <li class="column-third margin-top">
-                                <a id="ageReports" class="dashboard-links">
+                                <a href="#" id="ageReports" class="dashboard-links">
                                     <span id="age-service" class="service-name">Apprenticeship grant for employers</span>
                                     <span id="age-alert" class="alert alert-name-grey">Service unavailable</span>
                                 </a>
                             </li>
                         </div>
+
                         <div class="service-transaction">
                             <li class="column-third margin-top">
-                                <a id="allocations" class="dashboard-links" href="disclaimer.html">
+                                <a href="disclaimer" id="allocations" class="dashboard-links">
                                     <span id="allocations-service" class="service-name">Allocation statements</span>
                                     <span id="allocation-alert" class="alert alert-name-red">3 new alerts to review</span>
                                 </a>
                             </li>
                         </div>
+
                     </ul>
                 </div>
+
                 <br>
+
                 <div class="panel panel-border-wide">
                     <p>Find out how this <a href="#" title="This will open in a new window">service is performing</a>.</p>
                 </div>
+
             </section>
+
         </div>
+
     </div>
+
 </main>
 
 {% endblock %}

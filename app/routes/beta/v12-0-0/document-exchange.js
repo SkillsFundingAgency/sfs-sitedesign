@@ -17,7 +17,7 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/external/document-exchange/dashboard', function (req, res) {
 		
-		req.session.idams = "external";
+		req.session.idams = "dashboard";
 		
 		res.render(version + '/external/dashboard', {
 			'idams' : req.session.idams
