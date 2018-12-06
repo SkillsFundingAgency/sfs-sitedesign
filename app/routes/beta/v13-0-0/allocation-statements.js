@@ -8,6 +8,9 @@ module.exports = function(router) {
 
 	// GOV.UK Entry Point
 	router.get('/' + version + '/allocation-statements/adults/start', function (req, res) {
+		
+		req.session.disclaimerAccepted = "No";
+		
 		res.render(version + '/start');
 	});
 	router.post('/' + version + '/allocation-statements/adults/start', function (req, res) {		
