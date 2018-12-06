@@ -42,16 +42,14 @@
 
 {% block footer_support_links %}
 
-	{% if useAutoStoreData %}
-	<ul>
-		<li><a href="/prototype-admin/clear-data">Clear data</a></li>
-	</ul>
-	{% endif %}
+{% if useAutoStoreData %}
+<ul>
+	<li><a href="/prototype-admin/clear-data">Clear data</a></li>
 	{% if disclaimerAccepted == 'Yes' %}
-	<ul>
-		<li><a href="/">Test</a></li>
-	</ul>
+	<li><a href="/beta/{{disclaimerVersion}}/allocation-statements/adults/disclaimer-accepted">Disclaimer</a></li>
 	{% endif %}
+</ul>
+{% endif %}
 
 {% endblock %}
 
