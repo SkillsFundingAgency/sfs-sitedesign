@@ -11,6 +11,14 @@ module.exports = function(router) {
 		res.render(version + '/start');
 	});
 	router.post('/' + version + '/external/document-exchange/start', function (req, res) {		
+		res.redirect('/' + version + '/external/document-exchange/idams');
+	});
+
+	// IDAMS
+	router.get('/' + version + '/external/document-exchange/idams', function (req, res) {
+		res.render(version + '/idams');
+	});
+	router.post('/' + version + '/external/document-exchange/idams', function (req, res) {		
 		res.redirect('/' + version + '/external/document-exchange/dashboard');
 	});
 
@@ -148,6 +156,14 @@ module.exports = function(router) {
 		res.render(version + '/start');
 	});
 	router.post('/' + version + '/internal/document-exchange/start', function (req, res) {		
+		res.redirect('/' + version + '/internal/document-exchange/idams');
+	});
+
+	// IDAMS
+	router.get('/' + version + '/internal/document-exchange/idams', function (req, res) {
+		res.render(version + '/idams');
+	});
+	router.post('/' + version + '/internal/document-exchange/idams', function (req, res) {		
 		res.redirect('/' + version + '/internal/document-exchange/dashboard');
 	});
 
