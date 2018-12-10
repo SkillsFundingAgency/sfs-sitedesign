@@ -207,11 +207,39 @@ module.exports = function(router) {
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
-			'page2' : req.query.page2
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 	router.post('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirmation');
+		res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirm');
+	});
+
+	// Documents to Publish (Are you sure?)
+	router.get('/' + version + '/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
+	
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-publish-confirm', {
+			'idams' : req.session.idams,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
+
+		var publishConfirm = req.body.publishConfirm;
+		
+		if (publishConfirm == "Yes") {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirmation');
+		}
+		else if (publishConfirm == "No") {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish?paginationRequired=true&page1=true');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirm?error=true');
+		}
+		
 	});
 
 	// Documents to Publish (Confirmation)
@@ -227,6 +255,33 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/internal/document-exchange/file-share');
 	});
 
+	// Documents to Publish > Remove (Are you sure?)
+	router.get('/' + version + '/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
+	
+		req.session.idams = "internal";
+		
+		res.render(version + '/internal/document-exchange/documents-to-publish-remove-confirm', {
+			'idams' : req.session.idams,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
+
+		var removeConfirm = req.body.removeConfirm;
+		
+		if (removeConfirm == "Yes") {
+			res.redirect('/' + version + '/internal/document-exchange/documents-removed-confirmation');
+		}
+		else if (removeConfirm == "No") {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish?paginationRequired=true&page1=true');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-remove-confirm?error=true');
+		}
+		
+	});
+	
 	// Documents to Review
 	router.get('/' + version + '/internal/document-exchange/documents-to-review', function (req, res) {		
 		
@@ -234,76 +289,54 @@ module.exports = function(router) {
 		
 		res.render(version + '/internal/document-exchange/documents-to-review', {
 			'idams' : req.session.idams,
+			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
-			'page2' : req.query.page2
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 	router.post('/' + version + '/internal/document-exchange/documents-to-review', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/?');
+		res.redirect('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm');
 	});
 
-	// Documents to Review (Rename)
-	router.get('/' + version + '/internal/document-exchange/documents-to-review-rename', function (req, res) {		
-	
+	// Documents to Review > Remove (Are you sure?)
+	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
+		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-review-rename', {
+		res.render(version + '/internal/document-exchange/documents-to-review-remove-confirm', {
 			'idams' : req.session.idams,
-			'paginationRequired' : req.query.paginationRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2
+			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-review-rename', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/documents-to-review-rename-confirmation');
-	});
+	router.post('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
 
-	// Documents to Review (Rename Confirmation)
-	router.get('/' + version + '/internal/document-exchange/documents-to-review-rename-confirmation', function (req, res) {		
-
-		req.session.idams = "internal";
+		var removeConfirm = req.body.removeConfirm;
 		
-		res.render(version + '/internal/document-exchange/documents-to-review-rename-confirmation', {
-			'idams' : req.session.idams,
-			'paginationRequired' : req.query.paginationRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2
-		});
-	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-review-rename-confirmation', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/file-share');
+		if (removeConfirm == "Yes") {
+			res.redirect('/' + version + '/internal/document-exchange/documents-removed-confirmation');
+		}
+		else if (removeConfirm == "No") {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-review?paginationRequired=true&page1=true');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm?error=true');
+		}
+		
 	});
 
-	// Documents to Review (Remove)
-	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove', function (req, res) {		
+	// Documents Removed (Remove Confirmation)
+	router.get('/' + version + '/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
 
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-review-remove', {
-			'idams' : req.session.idams,
-			'paginationRequired' : req.query.paginationRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2
+		res.render(version + '/internal/document-exchange/documents-removed-confirmation', {
+			'idams' : req.session.idams
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-review-remove', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/documents-to-review-remove-confirmation');
-	});
-
-	// Documents to Review (Remove Confirmation)
-	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove-confirmation', function (req, res) {		
-
-		req.session.idams = "internal";
-		
-		res.render(version + '/internal/document-exchange/documents-to-review-remove-confirmation', {
-			'idams' : req.session.idams,
-			'paginationRequired' : req.query.paginationRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2
-		});
-	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-review-remove-confirmation', function (req, res) {		
+	router.post('/' + version + '/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
 		res.redirect('/' + version + '/internal/document-exchange/file-share');
 	});
 
@@ -314,26 +347,12 @@ module.exports = function(router) {
 		
 		res.render(version + '/internal/document-exchange/download-documents', {
 			'idams' : req.session.idams,
+			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
-			'page2' : req.query.page2
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
-	});
-	router.post('/' + version + '/internal/document-exchange/download-documents', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/download-documents-confirmation');
-	});
-
-	// Download Documents (Confirmation)
-	router.get('/' + version + '/internal/document-exchange/download-documents-confirmation', function (req, res) {		
-	
-		req.session.idams = "internal";
-		
-		res.render(version + '/internal/document-exchange/download-documents-confirmation', {
-			'idams' : req.session.idams
-		});
-	});
-	router.post('/' + version + '/internal/document-exchange/download-documents-confirmation', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/home');
 	});
 
 }

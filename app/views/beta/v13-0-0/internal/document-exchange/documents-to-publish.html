@@ -1,10 +1,20 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Documents ready to publish
+    {% if error %}Error: {% endif %}Publish your documents
 {% endblock %}
 
 {% block content %}
+
+<style>
+
+    .non-linked-error {
+        color: #b10e1e;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+</style>
 
 <main role="main" id="content">
 
@@ -19,7 +29,7 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
 
                 <nav>
-                    <ol id="removeADocBreadcrumb1">
+                    <ol>
                         <li><a href="dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
                         <li><a href="file-share">File share documents</a></li>
@@ -29,14 +39,14 @@
 
             </div>
 
-            <form method="get" class="form" action="documents-to-publish-progress">
+            <form method="post" class="form">
 
                 {% if error %}
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
-                    <p>There is a problem</p>
                     <ul class="error-summary-list">
-                        <li><a id="sortable-table" href="#">Please choose at least one document to publish.</a></li>
+                        <li class="non-linked-error">Select at least one document to publish</li>
+                        <!-- <li>Select at least one document to remove</li> -->
                     </ul>
                 </div>
                 {% endif %}
@@ -46,24 +56,26 @@
                     <span class="heading-secondary">UKPRN: 12345678</span> -->
                     Publish your documents
                 </h1>
-                
-                <div class="form-group">
-                    <button class="button">Publish selected documents</button>
-                </div>
-                <div class="form-group">
-                    <a class="button remove" href="documents-to-review-published-remove" role="button">Remove selected documents</a>
-                </div>
+                <p>You must select at least one document.</p>
                 
                 {% if paginationRequired %}
                 {% if page1 %}
                 <div class="pager">
     
                     <div class="pager-summary">
-                        0 of 50 documents selected
+                        0 of 25 documents selected
                     </div>
     
                 </div>
                 {% elif page2 %}
+                <div class="pager">
+    
+                    <div class="pager-summary">
+                        0 of 25 documents selected
+                    </div>
+    
+                </div>
+                {% elif page3 %}
                 <div class="pager">
     
                     <div class="pager-summary">
@@ -90,13 +102,13 @@
                             <ul>
                                 <li>
                                     <fieldset class="filter">
-                                        <legend class="visuallyhidden">Document type</legend>
+                                        <legend class="visuallyhidden">Filter by document type</legend>
                 
                                         <div class="js-filter-collapsible-collections documentTypeFilter">
                                             <section id="document-type-filters" class="js-filter-collapsible js-open">
                                                 <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
                                                 <header class="js-filter-collapsible-header">
-                                                    <h3 id="Academicyear" class="filters-headings heading-small">Document type</h3>
+                                                    <h3 id="Academicyear" class="filters-headings heading-small">Filter by document type</h3>
                                                 </header>
 
                                                 <div class="js-filter-collapsible-content">
@@ -105,31 +117,13 @@
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                                 <label class="block" for="queryFilterDocumentType01">
-                                                                    Allocation Statement FE Colleges IYPG ({% if paginationRequired %}9{% else %}1{% endif %})
+                                                                    Allocation calculation toolkit ({% if paginationRequired %}6{% else %}2{% endif %})
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
                                                                 <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                                 <label class="block" for="queryFilterDocumentType02">
-                                                                    Business case Template IYPG ({% if paginationRequired %}18{% else %}2{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
-                                                                <label class="block" for="queryFilterDocumentType03">
-                                                                    FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
-                                                                <label class="block" for="queryFilterDocumentType04">
-                                                                    Local authority RAT extracts (LARAT) AMSG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
-                                                                <label class="block" for="queryFilterDocumentType05">
-                                                                    R06 Reconcilliation Statement ({% if paginationRequired %}9{% else %}1{% endif %})
+                                                                    Business case template ({% if paginationRequired %}48{% else %}4{% endif %})
                                                                 </label>
                                                             </li>
                                                         </ul>
@@ -141,11 +135,6 @@
 
                                     </fieldset>
                                 </li>
-                                
-                            </ul>
-                            <ul>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
                             </ul>
                         </div>
 
@@ -196,7 +185,7 @@
                             </thead>
                             <!-- 54 RESULTS -->
                             {% if paginationRequired %}
-                            <!-- 50 RESULTS (OF 54) -->
+                            <!-- 25 RESULTS (1-25 OF 54) -->
                             {% if page1 %}
                             <tbody id="sortable-table-contents">
                                 <tr id="file-01">
@@ -230,7 +219,7 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -270,7 +259,7 @@
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
                                     <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
+                                        Allocation calculation toolkit
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
                                         <strong class="govuk-tag gapLeft">Ready</strong>
@@ -289,7 +278,7 @@
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
@@ -308,8 +297,8 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Allocation calculation toolkit
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
                                         <strong class="govuk-tag gapLeft">Ready</strong>
@@ -346,7 +335,7 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -385,7 +374,7 @@
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -405,8 +394,8 @@
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Allocation calculation toolkit
                                     </td>
                                     <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
                                         <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
@@ -424,7 +413,7 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -462,7 +451,7 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -501,7 +490,7 @@
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -521,7 +510,7 @@
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
@@ -540,7 +529,7 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -578,7 +567,7 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -617,7 +606,7 @@
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -637,7 +626,7 @@
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
@@ -656,7 +645,7 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -676,489 +665,6 @@
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
                                     <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:02am on 28 September 2018 -->
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 4:02pm on 01 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 10:54am on 02 June 2018 -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:02am on 28 September 2018 -->
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 4:02pm on 01 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 10:54am on 02 June 2018 -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:02am on 28 September 2018 -->
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 4:02pm on 01 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 10:54am on 02 June 2018 -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10056867_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:46am on 23 September 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 9:02am on 28 September 2018 -->
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006473_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 12:32pm on 07 October 2018 -->
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006622_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 4:02pm on 01 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10044577_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 10:54am on 02 June 2018 -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Ready</strong>
-                                    </td> -->
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10043873_10041_201819.pdf</a>
-                                        <br>
-                                        <!-- Modified 11:17am on 04 October 2018 -->
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -1166,8 +672,495 @@
                                     </td> -->
                                 </tr>
                             </tbody>
-                            <!-- 4 RESULTS (OF 54) -->
+                            <!-- 25 RESULTS (OF 54) -->
                             {% elif page2 %}
+                            <tbody id="sortable-table-contents">
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                    </td>
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Allocation calculation toolkit
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-01">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
+                                            <label for="checkbox-file-01"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 10:54am on 02 June 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Allocation calculation toolkit
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-01">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
+                                            <label for="checkbox-file-01"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 10:54am on 02 June 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-01">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
+                                            <label for="checkbox-file-01"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 10:54am on 02 June 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10056867_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:46am on 23 September 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006943_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 9:02am on 28 September 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006473_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 12:32pm on 07 October 2018 -->
+                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred gapLeft">Error</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10006622_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 4:02pm on 01 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-01">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
+                                            <label for="checkbox-file-01"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10044577_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 10:54am on 02 June 2018 -->
+                                    </td>
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Allocation calculation toolkit
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">10043873_10041_201819.pdf</a>
+                                        <br>
+                                        <!-- Modified 11:17am on 04 October 2018 -->
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
+                                        <strong class="govuk-tag gapLeft">Ready</strong>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                            <!-- 4 RESULTS (51-54 OF 54) -->
+                            {% elif page3 %}
                             <tbody id="sortable-table-contents">
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -1200,7 +1193,7 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -1239,7 +1232,7 @@
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -1282,7 +1275,7 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -1321,7 +1314,7 @@
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -1341,7 +1334,7 @@
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Error" rel="Error" style="vertical-align: top;">
@@ -1360,7 +1353,7 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <!-- <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
@@ -1383,12 +1376,15 @@
                                     <li>
                                         <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
                                     </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
                                     <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Next</a>
                                 </ul>                                
                             </div>
             
                             <div class="pager-summary">
-                                Showing 1 - 50 of 54 documents
+                                Showing 1 to 25 of 54 documents
                             </div>
             
                         </div>
@@ -1405,11 +1401,39 @@
                                     <li>
                                         <span class="text-bold">2</span>
                                     </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page3=true">Next</a>
                                 </ul>
                             </div>
             
                             <div class="pager-summary">
-                                Showing 51 - 54 of 54 documents
+                                Showing 26 to 50 of 54 documents
+                            </div>
+            
+                        </div>
+                        {% elif page3 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Previous</a>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 51 to 54 of 54 documents
                             </div>
             
                         </div>
@@ -1418,7 +1442,7 @@
                         <div class="pager">
             
                             <div class="pager-summary">
-                                Showing 1 - 6 of 6 documents
+                                Showing 1 t0 6 of 6 documents
                             </div>
             
                         </div>
@@ -1426,6 +1450,13 @@
 
                     </div>
 
+                    <div class="form-group">
+                        <button class="button">Publish selected documents</button>
+                    </div>
+                    
+                    <div class="form-group">
+                        <a href="documents-to-publish-remove-confirm">Remove selected documents</a>
+                    </div>
                    
                     <div class="form-group direction-rtl">
                         <a class="app-c-back-to-top dont-print" href="#content">
