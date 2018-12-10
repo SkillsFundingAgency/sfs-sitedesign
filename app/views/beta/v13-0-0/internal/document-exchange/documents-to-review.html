@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Documents to review
+    {% if error %}Error: {% endif %}Review your file names
 {% endblock %}
 
 {% block content %}
@@ -19,11 +19,11 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
 
                 <nav>
-                    <ol id="removeADocBreadcrumb1">
+                    <ol>
                         <li><a href="dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
                         <li><a href="file-share">File share documents</a></li>
-                        <li>Review your documents</li>
+                        <li>Review your file names</li>
                     </ol>
                 </nav>
 
@@ -34,9 +34,8 @@
                 {% if error %}
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
-                    <p>There is a problem</p>
                     <ul class="error-summary-list">
-                        <li><a id="sortable-table" href="#">Please choose at least one document to review.</a></li>
+                        <li class="non-linked-error">Select at least one document to remove</li>
                     </ul>
                 </div>
                 {% endif %}
@@ -44,29 +43,19 @@
                 <h1 class="heading-xlarge">
                     <!-- <span class="heading-secondary">Casterbridge College</span>
                     <span class="heading-secondary">UKPRN: 12345678</span> -->
-                    Review your documents
+                    Review your file names
                 </h1>
 
                 <div class="form-group">
-                    <p>You need to review 12 documents. You can rename the documents or remove them.</p>
-                </div>
-                
-                <div class="form-group">
-                        
-                    <a class="button" href="documents-to-review-rename?error=ukprn" role="button">Rename selected documents</a>
-                </div>
-
-                <div class="form-group">
-                    <a class="button remove" href="documents-to-review-remove" role="button">Remove selected documents</a>
+                    <ol class="list list-number">
+                        <li>Select which error details you want to download.</li>
+                        <li>Download your list of file name errors.</li>
+                        <li>Remove all of these files from the error list on this page. </li>
+                        <li>Correct the file names in your local area.</li>
+                        <li>Add the files back into the file share.</li>
+                    </ol>
                 </div>
 
-                {% if paginationRequired %}
-                {% if page1 %}
-
-                {% elif page2 %}
-
-                {% endif %}
-                {% else %}
                 <div class="pager">
     
                     <div class="pager-summary">
@@ -74,7 +63,7 @@
                     </div>
     
                 </div>
-                {% endif %}
+
                 <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
                     <section class="filters">
@@ -82,95 +71,42 @@
 
                         <div class="">
                             <ul>
-                                <!-- <li>
-                                    <fieldset class="filter">
-                                        <legend class="visuallyhidden">Document type</legend>
-                
-                                        <div class="js-filter-collapsible-collections documentTypeFilter">
-                                            <section id="document-type-filters" class="js-filter-collapsible js-open">
-                                                <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
-                                                <header class="js-filter-collapsible-header">
-                                                    <h3 id="Academicyear" class="filters-headings heading-small">Document type</h3>
-                                                </header>
-
-                                                <div class="js-filter-collapsible-content">
-                                                    <section class="toggled-adult-funding-content group">
-                                                        <ul>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
-                                                                <label class="block" for="queryFilterDocumentType01">
-                                                                    Allocation Statement FE Colleges IYPG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
-                                                                <label class="block" for="queryFilterDocumentType02">
-                                                                    Business case Template IYPG ({% if paginationRequired %}18{% else %}2{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
-                                                                <label class="block" for="queryFilterDocumentType03">
-                                                                    FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
-                                                                <label class="block" for="queryFilterDocumentType04">
-                                                                    Local authority RAT extracts (LARAT) AMSG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
-                                                                <label class="block" for="queryFilterDocumentType05">
-                                                                    R06 Reconcilliation Statement ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                </div>
-
-                                            </section>
-                                        </div>
-
-                                    </fieldset>
-                                </li> -->
                                 <li>
                                     <fieldset class="filter">
-                                        <legend class="visuallyhidden">Error</legend>
+                                        <legend class="visuallyhidden">Filter by file name error</legend>
                 
                                         <div class="js-filter-collapsible-collections statusFilter">
                                             <section id="status-filters" class="js-filter-collapsible js-open">
                                                 <input type="hidden" name="queryFilterOpen.Status" id="queryFilterOpen.Status" value="True">
                                                 <header class="js-filter-collapsible-header">
-                                                    <h3 id="status" class="filters-headings heading-small">Error</h3>
+                                                    <h3 id="status" class="filters-headings heading-small">Filter by file name error</h3>
                                                 </header>
 
                                                 <div class="js-filter-collapsible-content">
                                                     <section class="toggled-adult-funding-content group">
                                                         <ul>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusReady" rel="Ready" name="queryFilterStatus" type="checkbox" value="Ready">
-                                                                <label class="block" for="queryFilterStatusReady">
-                                                                    Invalid UKPRN ({% if paginationRequired %}4{% else %}4{% endif %})
+                                                                <input id="queryFilterErrorType01" rel="01" name="queryFilterErrorType" type="checkbox" value="01">
+                                                                <label class="block" for="queryFilterErrorType01">
+                                                                    Academic year is not a valid format ({% if paginationRequired %}4{% else %}4{% endif %})
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusReady" rel="Ready" name="queryFilterStatus" type="checkbox" value="Ready">
-                                                                <label class="block" for="queryFilterStatusReady">
-                                                                    Invalid document type code ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                                <input id="queryFilterErrorType02" rel="02" name="queryFilterErrorType" type="checkbox" value="02">
+                                                                <label class="block" for="queryFilterErrorType02">
+                                                                    Document type code is not a valid format ({% if paginationRequired %}2{% else %}2{% endif %})
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusReady" rel="Ready" name="queryFilterStatus" type="checkbox" value="Ready">
-                                                                <label class="block" for="queryFilterStatusReady">
-                                                                    Invalid academic year ({% if paginationRequired %}4{% else %}4{% endif %})
+                                                                <input id="queryFilterErrorType03" rel="03" name="queryFilterErrorType" type="checkbox" value="03">
+                                                                <label class="block" for="queryFilterErrorType03">
+                                                                    UKPRN does not contain 8 numbers ({% if paginationRequired %}2{% else %}2{% endif %})
                                                                 </label>
                                                             </li>
                                                             <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusReady" rel="Ready" name="queryFilterStatus" type="checkbox" value="Ready">
-                                                                <label class="block" for="queryFilterStatusReady">
-                                                                    UKPRN is not recognised ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                                <input id="queryFilterErrorType04" rel="04" name="queryFilterErrorType" type="checkbox" value="04">
+                                                                <label class="block" for="queryFilterErrorType04">
+                                                                    UKPRN is not recognised in the system ({% if paginationRequired %}4{% else %}4{% endif %})
                                                                 </label>
                                                             </li>
                                                         </ul>
@@ -182,10 +118,6 @@
 
                                     </fieldset>
                                 </li>
-                            </ul>
-                            <ul>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
                             </ul>
                         </div>
 
@@ -214,7 +146,7 @@
                                             </span>
                                         </a>
                                     </th>                                
-                                    <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
+                                    <!-- <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
                                         <a href="#" id="document-type" class="tab-header">
                                             <span>
                                                 Document type
@@ -222,11 +154,11 @@
                                                 <span id="document-type-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
                                             </span>
                                         </a>
-                                    </th>
-                                    <th class="sortable-th tab-header width-column-3" onclick="sortTable(3)">
+                                    </th> -->
+                                    <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
                                         <a href="#" id="document-status" class="tab-header">
                                             <span>
-                                                Error
+                                                File name error
                                                 <span id="document-status-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
                                                 <span id="document-status-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
                                             </span>
@@ -234,15 +166,7 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <!-- 54 RESULTS (OF 54) -->
-                            {% if paginationRequired %}
-                            {% if page1 %}
-
-                            {% elif page2 %}
-
-                            {% endif %}
-                            <!-- 14 RESULTS -->
-                            {% else %}
+                            <!-- 12 RESULTS -->
                             <tbody id="sortable-table-contents">
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -256,11 +180,11 @@
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">             
-                                        UKPRN is not recognised 
+                                    </td> -->
+                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                        UKPRN does not contain 8 numbers
                                     </td>
                                 </tr>
                                 <tr id="file-02">
@@ -275,11 +199,11 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 05" rel="05" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid document type code
+                                    </td> -->
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Academic year is not a valid format
                                     </td>
                                 </tr>
                                 <tr id="file-03">
@@ -295,32 +219,13 @@
                                         <!-- Modified 9:46am on 23 September 2018 -->
                                         <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid UKPRN
+                                    </td> -->
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Document type code is not a valid format
                                     </td>
                                 </tr>
-                                <!-- <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">10006943_10041_201819.pdf</a>
-                                        <br>
-                                         Modified 9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Document name is too short
-                                    </td>
-                                </tr> -->
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
                                         <div class="document-checkbox-div multiple-choice">
@@ -334,11 +239,11 @@
                                         <!-- Modified 12:32pm on 07 October 2018 -->
                                         <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 03" rel="03" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid UKPRN
+                                    </td> -->
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Academic year is not a valid format
                                     </td>
                                 </tr>
                                 <tr id="file-06">
@@ -353,11 +258,11 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 04" rel="04" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid academic year
+                                    </td> -->
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        UKPRN is not recognised in the system
                                     </td>
                                 </tr>
                                 <tr id="file-01">
@@ -372,11 +277,11 @@
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid academic year
+                                    </td> -->
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Document type code is not a valid format
                                     </td>
                                 </tr>
                                 <tr id="file-02">
@@ -391,11 +296,11 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 05" rel="05" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">            
-                                        UKPRN is not recognised
+                                    </td> -->
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">            
+                                        UKPRN is not recognised in the system
                                     </td>
                                 </tr>
                                 <tr id="file-03">
@@ -411,11 +316,11 @@
                                         <!-- Modified 9:46am on 23 September 2018 -->
                                         <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid document type code
+                                    </td> -->
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        UKPRN is not recognised in the system
                                     </td>
                                 </tr>
                                 <tr id="file-04">
@@ -430,11 +335,11 @@
                                         <br>
                                         <!-- Modified 9:02am on 28 September 2018 -->
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 01" rel="01" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid UKPRN
+                                    </td> -->
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        UKPRN is not recognised in the system
                                     </td>
                                 </tr>
                                 <tr id="file-06">
@@ -449,11 +354,11 @@
                                         <br>
                                         <!-- Modified 4:02pm on 01 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 04" rel="04" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid UKPRN
+                                    </td> -->
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Academic year is not a valid format
                                     </td>
                                 </tr>
                                 <tr id="file-01">
@@ -468,11 +373,11 @@
                                         <br>
                                         <!-- Modified 10:54am on 02 June 2018 -->
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 02" rel="02" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid academic year
+                                    </td> -->
+                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                        UKPRN does not contain 8 numbers
                                     </td>
                                 </tr>
                                 <tr id="file-02">
@@ -487,73 +392,33 @@
                                         <br>
                                         <!-- Modified 11:17am on 04 October 2018 -->
                                     </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                    <!-- <td class="sortable-td 05" rel="05" style="vertical-align: top;">
                                         Business case template
-                                    </td>
-                                    <td class="numeric sortable-td Ready" rel="Ready" style="vertical-align: top;">
-                                        Invalid academic year
+                                    </td> -->
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        Academic year is not a valid format
                                     </td>
                                 </tr>
                             </tbody>
-                            {% endif %}
                         </table>
 
-                        {% if paginationRequired %}
-                        {% if page1 %}
-                        <div class="pager">
-
-                            <div class="pager-controls">
-                                <ul class="pager-items">
-                                    <li>
-                                        <span class="text-bold">1</span>
-                                    </li>
-                                    <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
-                                    </li>
-                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Next</a>
-                                </ul>                                
-                            </div>
-            
-                            <div class="pager-summary">
-                                Showing 1 - 50 of 54 documents
-                            </div>
-            
-                        </div>
-                        {% elif page2 %}
-                        <div class="pager">
-
-                            <div class="pager-controls">                               
-                                <ul class="pager-items">
-                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page1=true">Previous</a>
-                                    &nbsp;&nbsp;
-                                    <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
-                                    </li>
-                                    <li>
-                                        <span class="text-bold">2</span>
-                                    </li>
-                                </ul>
-                            </div>
-            
-                            <div class="pager-summary">
-                                Showing 51 - 54 of 54 documents
-                            </div>
-            
-                        </div>
-                        {% endif %}
-                        {% else %}
                         <div class="pager">
             
                             <div class="pager-summary">
-                                Showing 1 - 12 of 12 documents
+                                Showing 1 to 12 of 12 documents
                             </div>
             
                         </div>
-                        {% endif %}
 
                     </div>
 
-
+                    <div class="form-group">
+                        <a class="button remove" href="documents-to-review-remove-confirm" role="button">Remove selected documents</a>
+                    </div>
+    
+                    <div class="form-group">
+                        <a href="#">Download the list of selected errors (ODS)</a>
+                    </div>
 
                     <div class="form-group direction-rtl">
                         <a class="app-c-back-to-top dont-print" href="#content">
