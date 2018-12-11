@@ -119,6 +119,7 @@
             for (var i = 0; i < uploadsLength; i++) {
                 
                 var upload = $("#fileInput" + i)[0];
+                // var fileType = $("#fileType").text();
 
                 if (upload.files.length === 0) continue;                        
                 sb.push(
@@ -126,7 +127,7 @@
                         "<td><a href='#'>" + upload.files[0].name + "</a></td>" +
                         "<td>Business case</td>" +
                         "<td>3</td>" +
-                        "<td class='numeric'><a class='removeLink' id='remove" + i + "' href='#'>Remove</a></td>" +
+                        "<td class='numeric'><a class='' id='" + i + "' href='document-upload-replace-remove?uploadedDocumentName=" + upload.files[0].name + "'>Remove</a></td>" +
                     "</tr>" +
                     "<tr style='display:none;'>" +
                         "<td><input name='fileName' type='text' value='" + upload.files[0].name + "'></td>" +
@@ -139,7 +140,7 @@
         }
     }            
 
-    function GoToStep(step) {
+    function GoToStep(step) {        
         // Hide all steps
         $("#fileTypeDiv, #uploadFileDiv, #documentsToSend, #uploadAnotherDiv, #goToStep3, #removeFileDiv").hide();
         $("#goToStep2").attr("disabled", "disabled");
@@ -153,6 +154,7 @@
                 break;
             case 3:
                 $("#removeFileDiv").show();
+                $("#removeFileNameHeading1").text($("#fileInput" + removeFileIdx)[0].files[0].name);
                 $("#removeFileName").text($("#fileInput" + removeFileIdx)[0].files[0].name);
                 break;
         }
@@ -163,6 +165,7 @@
 
             $("#removeADocBreadcrumb1").show();
             $("#removeADocBreadcrumb2").hide();
+            $("#originalHeading1").show();
 
             switch (step) {
                 case 1:
@@ -172,9 +175,10 @@
                     t = "Send your document";
                     break;
                 case 3:
-                    t = "Confirm you want to remove this document";
+                    // t = "Are you sure you want to remove [DOCUMENT NAME]?";
                     $("#removeADocBreadcrumb1").hide();
                     $("#removeADocBreadcrumb2").show();
+                    $("#originalHeading1").hide();
                     break;
                 }
 

@@ -19,7 +19,7 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
 
                 <nav>
-                    <ol>
+                    <ol id="removeADocBreadcrumb1">
                         <li><a href="../../external/document-exchange/dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
                         <li>Replace your document </li>
@@ -40,13 +40,15 @@
         <div class="column-two-thirds">
 
             <form method="post" class="form">
-            
-                <h1 class="heading-xlarge">
+                
+                <h1 id="originalHeading1" class="heading-xlarge">
                     <!-- <span class="heading-secondary">Casterbridge College</span>
                     <span class="heading-secondary">UKPRN: 12345678</span> -->
                     Replace your document
                 </h1>
 
+                {% if uploadedDocumentStatus == 'Show' %}
+                {% else %}
                 <div class="form-group" id="uploadFileDiv">
                     
                     <div class="form-block" id="form-upload">
@@ -60,9 +62,10 @@
                         </div>
                         
                     </div>
+                {% endif %}
                     
                     <div class="form-group">
-                        <table class="file-upload-table" id="documentsToSend" style="display: none;">
+                        <table class="file-upload-table" id="documentsToSend" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;{% endif %}">
                             <thead>
                                 <tr>
                                     <th>File name</th>
@@ -72,23 +75,35 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                {% if uploadedDocumentStatus == 'Show' %}
+                                <tr>
+                                    <td><a href="#">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></td>
+                                    <td>Business case</td>
+                                    <td>3</td>
+                                    <td class="numeric"><a class="" href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">Remove</a></td>
+                                </tr>
+                                <tr style="display: none;">
+                                    <td><input name="fileName" type="text" value="{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}"></td>
+                                </tr>
+                                {% endif %}
                             </tbody>
                         </table>
                     </div>
 
-                    <input type="submit" id="goToStep3" style="display: none;" class="button" value="Send">
+                    <input type="submit" id="goToStep3" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %} class="button" value="Send">
                 </div>        
 
                 <div class="form-group" id="removeFileDiv" style="display: none;">
+                    <h1 class="heading-xlarge">Are you sure you want to remove <span id="removeFileNameHeading1"></span>?</h1>
                     <p>This will remove <span id="removeFileName"></span> from your list of documents and it will not be sent to ESFA.</p>
-                    <p><a href="http://sfs.web/documentexchange/upload#" id="backToStep2">Cancel and go back</a></p>
-                    <!-- <button id="removeFile" class="button button-danger">Remove</button> -->
-                    <a class="button" id="button-to-remove" href="sent-to-esfa">Remove</a>
+                    <p><a href="#" id="backToStep2">Cancel and go back</a></p>
+                    <a class="button" id="button-to-remove" href="document-upload-file-type">Remove</a>
                     <p></p>
                 </div>
 
-                <div style="display: none" id="hiddenFormEles">
+                <div style="display: none;" id="hiddenFormEles">
                     <!-- File uploads will get sent here + radio button selections -->
+                    <p id="fileType">{% if fileType %}{{fileType}}{% endif %}</p>
                 </div>
 
             </form>
