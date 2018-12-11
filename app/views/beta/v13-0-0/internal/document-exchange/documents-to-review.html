@@ -6,6 +6,16 @@
 
 {% block content %}
 
+<style>
+
+    .non-linked-error {
+        color: #b10e1e;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+</style>
+
 <main role="main" id="content">
 
     <!-- Account Management (IDAMS) - START -->
@@ -48,9 +58,8 @@
 
                 <div class="form-group">
                     <ol class="list list-number">
-                        <li>Select which error details you want to download.</li>
-                        <li>Download your list of file name errors.</li>
-                        <li>Remove all of these files from the error list on this page. </li>
+                        <li>Select and download a list of file names and errors.</li>
+                        <li>Remove these files from the table below.</li>
                         <li>Correct the file names in your local area.</li>
                         <li>Add the files back into the file share.</li>
                     </ol>
@@ -58,8 +67,8 @@
 
                 <div class="pager">
     
-                    <div class="pager-summary">
-                        0 of 12 documents selected
+                    <div id="documentsSelectedText" class="pager-summary">
+                        0 documents selected
                     </div>
     
                 </div>
@@ -126,6 +135,7 @@
 
                 <!-- Document list -->
                 <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
+                    <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
 
                     <div class="form-group">
                         <table id="sortable-table" class="sortable-table">
@@ -137,7 +147,7 @@
                                             <label for="document-checkbox"></label>
                                         </div>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-1" onclick="sortTable(1)">
+                                    <th class="sortable-th tab-header" onclick="sortTable(1)">
                                         <a href="#" id="file-name" class="tab-header tab-header-active active">
                                             <span>
                                                 File name
@@ -155,7 +165,7 @@
                                             </span>
                                         </a>
                                     </th> -->
-                                    <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
+                                    <th class="sortable-th tab-header" onclick="sortTable(2)">
                                         <a href="#" id="document-status" class="tab-header">
                                             <span>
                                                 File name error
@@ -166,7 +176,20 @@
                                     </th>
                                 </tr>
                             </thead>
+                            <!-- 54 RESULTS -->
+                            {% if paginationRequired %}
+                            <!-- 25 RESULTS (1-25 OF 54) -->
+                            {% if page1 %}
+                            
+                            <!-- 25 RESULTS (26-50 OF 54) -->
+                            {% elif page2 %}
+
+                            <!-- 4 RESULTS (51-54 OF 54) -->
+                            {% elif page3 %}
+
+                            {% endif %}
                             <!-- 12 RESULTS -->
+                            {% else %}
                             <tbody id="sortable-table-contents">
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
@@ -400,24 +423,105 @@
                                     </td>
                                 </tr>
                             </tbody>
+                            {% endif %}
                         </table>
 
+                        {% if paginationRequired %}
+                        {% if page1 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">
+                                <ul class="pager-items">
+                                    <li>
+                                        <span class="text-bold">1</span>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Next</a>
+                                </ul>                                
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 1 to 25 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page2 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page1=true">Previous</a>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">2</span>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page3=true">Next</a>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 26 to 50 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page3 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Previous</a>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 51 to 54 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% endif %}
+                        {% else %}
                         <div class="pager">
             
                             <div class="pager-summary">
                                 Showing 1 to 12 of 12 documents
+                                <span id="totalDocumentCount" style="display: none;">12</span>
                             </div>
             
                         </div>
+                        {% endif %}
 
                     </div>
 
                     <div class="form-group">
-                        <a class="button remove" href="documents-to-review-remove-confirm" role="button">Remove selected documents</a>
+                        <button class="button">Download selected file names and errors (ODS)</button>
                     </div>
-    
+                    
                     <div class="form-group">
-                        <a href="#">Download the list of selected errors (ODS)</a>
+                        <a href="documents-to-review-remove-confirm">Remove selected documents</a>
                     </div>
 
                     <div class="form-group direction-rtl">
