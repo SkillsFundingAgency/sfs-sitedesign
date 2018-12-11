@@ -56,6 +56,11 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/document-exchange/sent-to-esfa', function (req, res) {
 		
 		req.session.idams = "external";
+
+		// Reset all session variables for document upload (START)
+		req.session.uploadedDocumentStatus = "";
+		req.session.uploadedDocumentName = "";
+		req.session.fileType = "";
 		
 		res.render(version + '/external/document-exchange/sent-to-esfa', {
 			'idams' : req.session.idams
@@ -66,15 +71,24 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/document-exchange/document-upload-file-type', function (req, res) {
 		
 		req.session.idams = "external";
+
+		// Reset all session variables for document upload (START)
+		req.session.uploadedDocumentStatus = "";
+		req.session.uploadedDocumentName = "";
+		req.session.fileType = "";
 		
 		res.render(version + '/external/document-exchange/document-upload-file-type', {
 			'idams' : req.session.idams,
-			'error' : req.query.error
+			'error' : req.query.error,
+			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
+			'uploadedDocumentName' : req.session.uploadedDocumentName,
+			'fileType' : req.session.fileType
 		});
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload-file-type', function (req, res) {		
 		
-		var fileType = req.body.fileType;
+		req.session.fileType = req.body.fileType;
+		var fileType = req.session.fileType;
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
@@ -89,11 +103,18 @@ module.exports = function(router) {
 
 	// Document Upload
 	router.get('/' + version + '/external/document-exchange/document-upload', function (req, res) {
-		
+
+		// Set the session variable if is does not exist
+		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
+		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
+		req.session.fileType = req.session.fileType || "";
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload', {
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
+			'uploadedDocumentName' : req.session.uploadedDocumentName,
+			'fileType' : req.session.fileType
 		});		
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload', function (req, res) {		
@@ -103,13 +124,80 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/external/document-exchange/document-upload-complete');
 	});
 
-	// Document Upload (Replace)
-	router.get('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {		
+	// Document Upload - Remove Document
+	router.get('/' + version + '/external/document-exchange/document-upload-remove', function (req, res) {
+	
+		req.session.idams = "external";
+
+		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
+			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
+		}
 		
+		res.render(version + '/external/document-exchange/document-upload-remove', {
+			'idams' : req.session.idams,
+			'error' : req.query.error,
+			'uploadedDocumentName' : req.session.uploadedDocumentName
+		});
+	});
+	router.post('/' + version + '/external/document-exchange/document-upload-remove', function (req, res) {
+		
+		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
+			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
+		}
+
+		var deleteDocument = req.body.deleteDocument;
+
+		if (deleteDocument == "Yes") {
+			res.redirect('/' + version + '/external/document-exchange/document-upload-file-type');
+		}
+		else if (deleteDocument == "No") {
+
+			// Tell the next page to show the last uploaded document information
+			req.session.uploadedDocumentStatus = "Show";
+
+			res.redirect('/' + version + '/external/document-exchange/document-upload');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/external/document-exchange/document-upload-remove?error=true');
+		}
+		
+	});
+
+	// Document Upload Complete
+	router.get('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {
+	
+		req.session.idams = "external";
+		
+		res.render(version + '/external/document-exchange/document-upload-complete', {
+			'idams' : req.session.idams,
+			'fileName' : req.session.fileName
+		});
+	});
+	router.post('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {		
+		
+		// Reset all session variables for document upload (END)
+		req.session.uploadedDocumentStatus = "";
+		req.session.uploadedDocumentName = "";
+		req.session.fileType = "";
+		
+		res.redirect('/' + version + '/external/document-exchange/dashboard');
+	});
+
+	// Document Upload (Replace)
+	router.get('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {
+
+		// Set the session variable if is does not exist
+		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
+		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
+		req.session.fileType = req.session.fileType || "";
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload-replace', {
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
+			'uploadedDocumentName' : req.session.uploadedDocumentName,
+			'fileType' : req.session.fileType
 		});		
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload-replace', function (req, res) {		
@@ -119,23 +207,49 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/external/document-exchange/document-upload-replace-complete');
 	});
 
-	// Document Upload Complete
-	router.get('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {
-		
+	// Document Upload - Remove Document (Replace)
+	router.get('/' + version + '/external/document-exchange/document-upload-replace-remove', function (req, res) {
+
 		req.session.idams = "external";
+
+		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
+			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
+		}
 		
-		res.render(version + '/external/document-exchange/document-upload-complete', {
+		res.render(version + '/external/document-exchange/document-upload-replace-remove', {
 			'idams' : req.session.idams,
-			'fileName' : req.session.fileName
+			'error' : req.query.error,
+			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
-	router.post('/' + version + '/external/document-exchange/document-upload-complete', function (req, res) {		
-		res.redirect('/' + version + '/external/document-exchange/dashboard');
+	router.post('/' + version + '/external/document-exchange/document-upload-replace-remove', function (req, res) {
+		
+		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
+			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
+		}
+
+		var deleteDocument = req.body.deleteDocument;
+
+		if (deleteDocument == "Yes") {
+			res.redirect('/' + version + '/external/document-exchange/sent-to-esfa');
+		}
+		else if (deleteDocument == "No") {
+
+			// Tell the next page to show the last uploaded document information
+			req.session.uploadedDocumentStatus = "Show";
+
+			res.redirect('/' + version + '/external/document-exchange/document-upload-replace');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/external/document-exchange/document-upload-replace-remove?error=true');
+		}
+		
 	});
 
-	// Document Upload (Replace) Complete
+	// Document Upload Complete (Replace)
 	router.get('/' + version + '/external/document-exchange/document-upload-replace-complete', function (req, res) {
-		
+
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload-replace-complete', {
@@ -144,7 +258,13 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/external/document-exchange/document-upload-replace-complete', function (req, res) {		
-		res.redirect('/' + version + '/external/document-exchange/sent-to-esfa');
+		
+		// Reset all session variables for document upload (END)
+		req.session.uploadedDocumentStatus = "";
+		req.session.uploadedDocumentName = "";
+		req.session.fileType = "";
+		
+		res.redirect('/' + version + '/external/document-exchange/dashboard');
 	});
 
 	/**********
