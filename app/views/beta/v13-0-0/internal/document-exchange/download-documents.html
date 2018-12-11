@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Download documents
+    {% if error %}Error: {% endif %}Download your documents
 {% endblock %}
 
 {% block content %}
@@ -28,14 +28,13 @@
 
             </div>
 
-            <form method="post" class="form">
+            <!-- <form method="post" class="form"> -->
 
                 {% if error %}
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
-                    <p>There is a problem</p>
                     <ul class="error-summary-list">
-                        <li><a id="sortable-table" href="#">Please choose at least one document to download.</a></li>
+                        <li class="non-linked-error">Select at least one document to download</li>
                     </ul>
                 </div>
                 {% endif %}
@@ -45,10 +44,14 @@
                     <span class="heading-secondary">UKPRN: 12345678</span> -->
                     Download your documents
                 </h1>
-                
-                <div class="form-group">
-                        <button class="button">Download</button>
+
+                <div class="pager">
+    
+                    <div id="documentsSelectedText" class="pager-summary">
+                        0 documents selected
                     </div>
+    
+                </div>
 
                 <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
@@ -59,66 +62,13 @@
                             <ul>
                                 <li>
                                     <fieldset class="filter">
-                                        <legend class="visuallyhidden">Document type</legend>
-                
-                                        <div class="js-filter-collapsible-collections documentTypeFilter">
-                                            <section id="document-type-filters" class="js-filter-collapsible js-open">
-                                                <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
-                                                <header class="js-filter-collapsible-header">
-                                                    <h3 id="Academicyear" class="filters-headings heading-small">Document type</h3>
-                                                </header>
-
-                                                <div class="js-filter-collapsible-content">
-                                                    <section class="toggled-adult-funding-content group">
-                                                        <ul>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
-                                                                <label class="block" for="queryFilterDocumentType01">
-                                                                    Allocation Statement FE Colleges IYPG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
-                                                                <label class="block" for="queryFilterDocumentType02">
-                                                                    Business case Template IYPG ({% if paginationRequired %}18{% else %}2{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
-                                                                <label class="block" for="queryFilterDocumentType03">
-                                                                    FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
-                                                                <label class="block" for="queryFilterDocumentType04">
-                                                                    Local authority RAT extracts (LARAT) AMSG ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
-                                                                <label class="block" for="queryFilterDocumentType05">
-                                                                    R06 Reconcilliation Statement ({% if paginationRequired %}9{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                </div>
-
-                                            </section>
-                                        </div>
-
-                                    </fieldset>
-                                </li>
-                                <li>
-                                    <fieldset class="filter">
-                                        <legend class="visuallyhidden">Status</legend>
+                                        <legend class="visuallyhidden">Filter by status</legend>
                 
                                         <div class="js-filter-collapsible-collections statusFilter">
                                             <section id="status-filters" class="js-filter-collapsible js-open">
                                                 <input type="hidden" name="queryFilterOpen.Status" id="queryFilterOpen.Status" value="True">
                                                 <header class="js-filter-collapsible-header">
-                                                    <h3 id="status" class="filters-headings heading-small">Status</h3>
+                                                    <h3 id="status" class="filters-headings heading-small">Filter by status</h3>
                                                 </header>
 
                                                 <div class="js-filter-collapsible-content">
@@ -145,10 +95,59 @@
 
                                     </fieldset>
                                 </li>
-                            </ul>
-                            <ul>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
+                                <li>
+                                    <fieldset class="filter">
+                                        <legend class="visuallyhidden">Filter by document type</legend>
+                
+                                        <div class="js-filter-collapsible-collections documentTypeFilter">
+                                            <section id="document-type-filters" class="js-filter-collapsible js-open">
+                                                <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
+                                                <header class="js-filter-collapsible-header">
+                                                    <h3 id="Academicyear" class="filters-headings heading-small">Filter by document type</h3>
+                                                </header>
+
+                                                <div class="js-filter-collapsible-content">
+                                                    <section class="toggled-adult-funding-content group">
+                                                        <ul>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                                <label class="block" for="queryFilterDocumentType01">
+                                                                    16 to 19 reconciliation statement ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                                <label class="block" for="queryFilterDocumentType02">
+                                                                    Business case audit evidence return ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                                <label class="block" for="queryFilterDocumentType03">
+                                                                    Data sharing protocol ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
+                                                                <label class="block" for="queryFilterDocumentType04">
+                                                                    Pupil premium return ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
+                                                                <label class="block" for="queryFilterDocumentType05">
+                                                                    School financial value assurance statement ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </section>
+                                                </div>
+
+                                            </section>
+                                        </div>
+
+                                    </fieldset>
+                                </li>
                             </ul>
                         </div>
 
@@ -156,1114 +155,42 @@
                 </div>
 
                 <!-- Document list -->
-                <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
+                <div id="sent-files" class="column-document-list-two-thirds column-two-thirds document-list">
+                    <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
 
                     <div class="form-group">
-                        <table id="sortable-table" class="sortable-table">
+                        <table>
                             <thead>
                                 <tr class="first">
-                                    <th class="document-checkbox-th width-column-0">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onclick="selectAll('sortable-table-contents')">
+                                    <th>
+                                        <div style="display: none;" class="document-checkbox-div multiple-choice">
+                                            <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
                                             <label for="document-checkbox"></label>
                                         </div>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-1" onclick="sortTable(1)">
-                                        <a href="#" id="file-name" class="tab-header tab-header-active active">
-                                            <span>
-                                                File name
-                                                <span id="file-name-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
-                                                <span id="file-name-hod-chevron-down" class="hidden chevron-size hod-chevron-down"></span>
-                                            </span>
-                                        </a>
+                                    <th class="">
+                                        <span class="tab-header-no-sort">File name</span>
                                     </th>                                
-                                    <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
-                                        <a href="#" id="document-type" class="tab-header">
-                                            <span>
-                                                Document type
-                                                <span id="document-type-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
-                                                <span id="document-type-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
-                                            </span>
-                                        </a>
+                                    <th>
+                                        <span class="tab-header-no-sort">Document type</span>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-3" onclick="sortTable(3)">
-                                        <a href="#" id="document-status" class="tab-header">
-                                            <span>
-                                                Status
-                                                <span id="document-status-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
-                                                <span id="document-status-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
-                                            </span>
-                                        </a>
+                                    <th>
+                                        <span class="tab-header-no-sort">Status</span>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-3" onclick="sortTable(3)">
-                                            <a href="#" id="document-status" class="tab-header">
-                                                <span>
-                                                    Downloaded By
-                                                    <span id="document-status-hod-chevron-up" class="chevron-size hod-chevron-up"></span>
-                                                    <span id="document-status-hod-chevron-down" class="chevron-size hod-chevron-down"></span>
-                                                </span>
-                                            </a>
-                                        </th>
                                 </tr>
                             </thead>
-                            <!-- 51 RESULTS -->
+                            <!-- 54 RESULTS -->
                             {% if paginationRequired %}
-                            <tbody id="sortable-table-contents">
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018 -->
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                            <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                            <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    
-                                        </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                            <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                        </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-01">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
-                                        <br>
-                                        10:54am on 02 June 2018
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-02">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        Modified 11:17am on 04 October 2018
-                                    </td>
-                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        R06 Reconcilliation Statement
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-03">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
-                                        </div>
-                                    </td>  
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
-                                        <br>
-                                        9:46am on 23 September 2018
-                                        <span class="error-message sortable-td-error">You have already published a file with this name</span>
-                                    </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-04">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf</a>
-                                        <br>
-                                        9:02am on 28 September 2018
-                                    </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation Statement FE Colleges IYPG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-05">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
-                                        <br>
-                                        12:32pm on 07 October 2018
-                                        <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span>
-                                    </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium return 14 to 16 year olds who are eligible for pupil premium funding IYPG
-                                    </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
-                                    </td>
-                                </tr>
-                                <tr id="file-06">
-                                    <td class="document-checkbox-td sortable-td">
-                                        <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
-                                        </div>
-                                    </td>
-                                    <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf</a>
-                                        <br>
-                                        4:02pm on 01 October 2018
-                                    </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority RAT extracts (LARAT) AMSG
-                                    </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                    </td>
-                                </tr>                                
-                            </tbody>
+                            <!-- 25 RESULTS (1-25 OF 54) -->
+                            {% if page1 %}
+                            
+                            <!-- 25 RESULTS (26-50 OF 54) -->
+                            {% elif page2 %}
+
+                            <!-- 4 RESULTS (51-54 OF 54) -->
+                            {% elif page3 %}
+
+                            {% endif %}
                             <!-- 6 RESULTS -->
                             {% else %}
                             <tbody id="sortable-table-contents">
@@ -1275,19 +202,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_businesscasetemplate_v4-20182019.pdf</a>
+                                        <a href="#">2001034_pupilpremiumreturn_v2-20182019.pdf</a>
                                         <br>
-                                        10:54am on 02 June 2018
+                                        10:54am on 12 December 2018
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case Template IYPG
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        Pupil premium return
                                     </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred">New</strong>
                                     </td>
-                                    <td class="numeric sortable-td" rel="Downloaded" style="vertical-align: top; text-align: left;">
-                                            <strong class="">-</strong>
-                                        </td>
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
@@ -1297,19 +221,16 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2345609_reconcilliationstatement_v1-20182019.pdf</a>
+                                        <a href="#">2345609_financialvaluestatement_v1-20182019.pdf</a>
                                         <br>
-                                        11:17am on 23 November 2018
+                                        10:51am on 12 December 2018
                                     </td>
                                     <td class="sortable-td 05" rel="05" style="vertical-align: top;">
-                                        Reconcilliation Statement
+                                        School financial value assurance statement
                                     </td>
-                                    <td class="numeric sortable-td New" rel="New" style="vertical-align: top;">
-                                        <strong class="govuk-tag govuk-bgred gapLeft">New</strong>
+                                    <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred">New</strong>
                                     </td>
-                                    <td class="numeric sortable-td" rel="Downloaded" style="vertical-align: top; text-align: left;">
-                                            <strong class="">-</strong>
-                                        </td>
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
@@ -1319,20 +240,17 @@
                                         </div>
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4166019_businesscasetemplate_v3-20182019.docx</a>
+                                        <a href="#">4166019_pupilpremiumreturn_v1-20182019.docx</a>
                                         <br>
-                                        9:46am on 23 September 2018
-                                        <!-- <span class="error-message sortable-td-error">You have already published a file with this name</span> -->
+                                        9:46am on 23 October 2018
                                     </td>
-                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
-                                        Business case template
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        Pupil premium return
                                     </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                            <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <p>J Jones at 10:07am on 24 October 2018</p>
                                     </td>
-                                    <td class="numeric sortable-td" rel="Downloaded" style="vertical-align: top; text-align: left;">
-                                            <strong class="">J Jones at 10:07am on 23 November 2018 </strong>
-                                        </td>
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
@@ -1342,19 +260,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">4450019_allocationstatement_v1-20182019.pdf </a>
+                                        <a href="#">4450019_businesscaseauditevidence_v1-20182019.pdf </a>
                                         <br>
-                                        9:02am on 28 September 2018
+                                        9:02am on 13 October 2018
                                     </td>
-                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
-                                        Allocation statement
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case audit evidence return
                                     </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <p>J Jones at 4:22pm on 14 October 2018</p>
                                     </td>
-                                    <td class="numeric sortable-td" rel="Downloaded" style="vertical-align: top; text-align: left;">
-                                            <strong class="">J Jones at 9:15am on 23 November 2018 </strong>
-                                        </td>
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
@@ -1364,20 +280,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">6465888_FEpupilpremiumreturn_v2-20182019.ppt</a>
+                                        <a href="#">6465888_16to19statement_v1-20182019.ppt</a>
                                         <br>
-                                        12:32pm on 21 November 2018
-                                        <!-- <span class="error-message sortable-td-error">This file must be in XLS, PDF or DOCX format</span> -->
+                                        12:32pm on 21 September 2018
                                     </td>
-                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
-                                        FE pupil premium returns
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        16 to 19 reconciliation statement
                                     </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                            <strong class="govuk-tag gapLeft">Downloaded</strong>
-                                        </td>
-                                    <td class="numeric sortable-td" rel="Downloaded" style="vertical-align: top; text-align: left;">
-                                            <strong class="">J Jones at 9:15am on 21 November 2018  </strong>
-                                        </td>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <p>J Jones at 10:34am on 24 September 2018</p>
+                                    </td>
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
@@ -1387,19 +300,17 @@
                                         </div>
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">7655122_localauthorityextracts_v1-20182019.pdf </a>
+                                        <a href="#">7655122_datasharingprotocol_v1-20182019.pdf </a>
                                         <br>
-                                        4:02pm on 20 November 2018
+                                        4:02pm on 20 September 2018
                                     </td>
-                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
-                                        Local authority rat extracts
+                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                        Data sharing protocol
                                     </td>
-                                    <td class="numeric sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
-                                        <strong class="govuk-tag gapLeft">Downloaded</strong>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <p>J Jones at 9:15am on 21 September 2018</p>
                                     </td>
-                                    <td class="numeric sortable-td" rel="Downloaded" style="vertical-align: top; text-align: left;">
-                                            <strong class="">J Jones at 9:15am on 21 November 2018  </strong>
-                                        </td>
                                 </tr>
                             </tbody>
                             {% endif %}
@@ -1417,12 +328,16 @@
                                     <li>
                                         <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
                                     </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
                                     <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Next</a>
                                 </ul>                                
                             </div>
             
                             <div class="pager-summary">
-                                Showing 1 - 50 of 54 documents
+                                Showing 1 to 25 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
                             </div>
             
                         </div>
@@ -1439,11 +354,41 @@
                                     <li>
                                         <span class="text-bold">2</span>
                                     </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page3=true">Next</a>
                                 </ul>
                             </div>
             
                             <div class="pager-summary">
-                                Showing 51 - 54 of 54 documents
+                                Showing 26 to 50 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page3 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Previous</a>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 51 to 54 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
                             </div>
             
                         </div>
@@ -1453,11 +398,16 @@
             
                             <div class="pager-summary">
                                 Showing 1 to 6 of 6 documents
+                                <span id="totalDocumentCount" style="display: none;">6</span>
                             </div>
             
                         </div>
                         {% endif %}
 
+                    </div>
+
+                    <div class="form-group">
+                        <button class="button">Download selected documents</button>
                     </div>
 
                     <div class="form-group direction-rtl">
@@ -1471,7 +421,7 @@
 
                 </div>
 
-            </form>
+            <!-- </form> -->
 
         </div>
 

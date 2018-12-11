@@ -318,7 +318,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/internal/document-exchange/documents-removed-confirmation');
 		}
 		else if (removeConfirm == "No") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-review?paginationRequired=true&page1=true');
+			res.redirect('/' + version + '/internal/document-exchange/documents-to-review');
 		}
 		// Make sure the user chooses an option
 		else {

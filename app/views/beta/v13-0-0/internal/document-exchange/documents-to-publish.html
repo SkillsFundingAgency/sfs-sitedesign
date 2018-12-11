@@ -58,41 +58,14 @@
                 </h1>
                 <p>You must select at least one document.</p>
                 
-                {% if paginationRequired %}
-                {% if page1 %}
                 <div class="pager">
     
-                    <div class="pager-summary">
-                        0 of 25 documents selected
+                    <div id="documentsSelectedText" class="pager-summary">
+                        0 documents selected
                     </div>
     
                 </div>
-                {% elif page2 %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 25 documents selected
-                    </div>
-    
-                </div>
-                {% elif page3 %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 4 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
-                {% else %}
-                <div class="pager">
-    
-                    <div class="pager-summary">
-                        0 of 6 documents selected
-                    </div>
-    
-                </div>
-                {% endif %}
+
                 <div class="column-filter-one-third column-third minus-25px-margin-top">
                     <input name="__RequestVerificationToken" type="hidden" value="1zh_N8lRib7lfcfEl8QxdJnYtoRXaIeniwGFkUN2Liog1DsmAPfZMC6ZzKpp9DvdW6zZRV3xT3KEuwWgkjhHtyxDJ41ln4KMqhcjzkGzbJ7l6fbUnxkH6_XzM60_kqjB69W5yg2">
                     <section class="filters">
@@ -143,6 +116,7 @@
 
                 <!-- Document list -->
                 <div id="sent-files" class="column-document-list-two-thirds column-two-thirds">
+                    <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
 
                     <div class="form-group">
                         <table id="sortable-table" class="sortable-table">
@@ -154,7 +128,7 @@
                                             <label for="document-checkbox"></label>
                                         </div>
                                     </th>
-                                    <th class="sortable-th tab-header width-column-1" onclick="sortTable(1)">
+                                    <th class="sortable-th tab-header" onclick="sortTable(1)">
                                         <a href="#" id="file-name" class="tab-header tab-header-active active">
                                             <span>
                                                 File name
@@ -163,7 +137,7 @@
                                             </span>
                                         </a>
                                     </th>                                
-                                    <th class="sortable-th tab-header width-column-2" onclick="sortTable(2)">
+                                    <th class="sortable-th tab-header" onclick="sortTable(2)">
                                         <a href="#" id="document-type" class="tab-header">
                                             <span>
                                                 Document type
@@ -1385,6 +1359,7 @@
             
                             <div class="pager-summary">
                                 Showing 1 to 25 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
                             </div>
             
                         </div>
@@ -1410,6 +1385,7 @@
             
                             <div class="pager-summary">
                                 Showing 26 to 50 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
                             </div>
             
                         </div>
@@ -1434,6 +1410,7 @@
             
                             <div class="pager-summary">
                                 Showing 51 to 54 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
                             </div>
             
                         </div>
@@ -1442,7 +1419,8 @@
                         <div class="pager">
             
                             <div class="pager-summary">
-                                Showing 1 t0 6 of 6 documents
+                                Showing 1 to 6 of 6 documents
+                                <span id="totalDocumentCount" style="display: none;">6</span>
                             </div>
             
                         </div>

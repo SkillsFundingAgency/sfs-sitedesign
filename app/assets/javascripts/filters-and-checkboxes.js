@@ -7,6 +7,11 @@
 // jQuery (START)
 $(document).ready(function () {
 
+    // Trigger the select all documents in document list rules (see below) via clicking "Select/deselect all team members" link
+    $("#selectAllTrigger").click(function () {
+        $("#document-checkbox").trigger("click");
+    });
+
     // Filter (via clicking ERROR link) to show me only documents with errors
     $("#showMeErrorsOnlyErrorLink").click(function () {
         $("#queryFilterStatusError").trigger("click");
@@ -100,6 +105,7 @@ $(document).ready(function () {
 function selectAll(divid) {
     
     var selectAllCheckbox = document.getElementById('document-checkbox').checked;
+    var totalDocumentCount = document.getElementById('totalDocumentCount').textContent;
 
     if (selectAllCheckbox == true) {
 
@@ -112,6 +118,8 @@ function selectAll(divid) {
     
         }
 
+        document.getElementById("documentsSelectedText").innerHTML = totalDocumentCount + " documents selected";
+
     }
     else {
 
@@ -123,6 +131,8 @@ function selectAll(divid) {
             check.checked = false;
     
         }
+
+        document.getElementById("documentsSelectedText").innerHTML = "0 documents selected";
 
     }
 
