@@ -33,12 +33,13 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/dashboard', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
 	// Disclaimer
+	/*
 	router.get('/' + version + '/allocation-statements/adults/disclaimer', function (req, res) {
 	
 		req.session.idams = "adults";
@@ -63,8 +64,10 @@ module.exports = function(router) {
 		
 		res.redirect('/' + version + '/allocation-statements/adults/allocation-statement-list');
 	});
+	*/
 
 	// Disclaimer (Accepted)
+	/*
 	router.get('/' + version + '/allocation-statements/adults/disclaimer-accepted', function (req, res) {
 
 		req.session.idams = "adults";
@@ -75,6 +78,7 @@ module.exports = function(router) {
 			'disclaimerVersion' : disclaimerVersion
 		});
 	});
+	*/
 
 	// Allocation statements
 	router.get('/' + version + '/allocation-statements/adults/allocation-statement-list', function (req, res) {
@@ -83,8 +87,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/adults/allocation-statement-list', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
@@ -95,8 +99,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/adults/carry-in-apprenticeship-details', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
@@ -107,8 +111,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/adults/adult-education-budget-details-v2', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
@@ -119,8 +123,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/adults/adult-education-budget-details-v1', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
@@ -131,8 +135,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/adults/advanced-learner-loan-details-v2', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
@@ -143,8 +147,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/adults/advanced-learner-loan-details-v1', {
 			'idams' : req.session.idams,
-			'disclaimerAccepted' : req.session.disclaimerAccepted,
-			'disclaimerVersion' : disclaimerVersion
+			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
+			// 'disclaimerVersion' : disclaimerVersion
 		});
 	});
 
