@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Review your file names
+    {% if error %}Error: {% endif %}Review your document names
 {% endblock %}
 
 {% block content %}
@@ -23,7 +23,7 @@
                         <li><a href="dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
                         <li><a href="file-share">File share documents</a></li>
-                        <li>Review your file names</li>
+                        <li>Review your document names</li>
                     </ol>
                 </nav>
 
@@ -35,7 +35,8 @@
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
                     <ul class="error-summary-list">
-                        <li class="non-linked-error">Select at least one document to remove</li>
+                        <li class="non-linked-error">Select the document names and errors that you want to download</li>
+                        <!-- <li class="non-linked-error">Select the documents that you want to remove</li> -->
                     </ul>
                 </div>
                 {% endif %}
@@ -43,15 +44,15 @@
                 <h1 class="heading-xlarge">
                     <!-- <span class="heading-secondary">Casterbridge College</span>
                     <span class="heading-secondary">UKPRN: 12345678</span> -->
-                    Review your file names
+                    Review your document names
                 </h1>
 
                 <div class="form-group">
                     <ol class="list list-number">
-                        <li>Select and download a list of file names and errors.</li>
-                        <li>Remove these files from the table below.</li>
-                        <li>Correct the file names in your local area.</li>
-                        <li>Add the files back into the file share.</li>
+                        <li>Select and download a list of document names and errors.</li>
+                        <li>Remove these documents from the table below.</li>
+                        <li>Correct the document names in your local area.</li>
+                        <li>Add the documents back into the file share.</li>
                     </ol>
                 </div>
 
@@ -72,13 +73,13 @@
                             <ul>
                                 <li>
                                     <fieldset class="filter">
-                                        <legend class="visuallyhidden">Filter by file name error</legend>
+                                        <legend class="visuallyhidden">Filter by document name error</legend>
                 
                                         <div class="js-filter-collapsible-collections statusFilter">
                                             <section id="status-filters" class="js-filter-collapsible js-open">
                                                 <input type="hidden" name="queryFilterOpen.Status" id="queryFilterOpen.Status" value="True">
                                                 <header class="js-filter-collapsible-header">
-                                                    <h3 id="status" class="filters-headings heading-small">Filter by file name error</h3>
+                                                    <h3 id="status" class="filters-headings heading-small">Filter by document name error</h3>
                                                 </header>
 
                                                 <div class="js-filter-collapsible-content">
@@ -138,10 +139,10 @@
                                         </div>
                                     </th>
                                     <th class="">
-                                        <span class="tab-header-no-sort">File name</span>
+                                        <span class="tab-header-no-sort">Document name</span>
                                     </th>                                
                                     <th>
-                                        <span class="tab-header-no-sort">File name error</span>
+                                        <span class="tab-header-no-sort">Document name error</span>
                                     </th>
                                 </tr>
                             </thead>
@@ -448,7 +449,7 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="button">Download selected file names and errors (ODS)</button>
+                        <button class="button">Download selected document names and errors (ODS)</button>
                     </div>
                     
                     <div class="form-group">

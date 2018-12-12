@@ -181,7 +181,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		
-		res.redirect('/' + version + '/external/document-exchange/dashboard');
+		res.redirect('/' + version + '/external/document-exchange/home');
 	});
 
 	// Document Upload (Replace)
@@ -231,7 +231,7 @@ module.exports = function(router) {
 		var deleteDocument = req.body.deleteDocument;
 
 		if (deleteDocument == "Yes") {
-			res.redirect('/' + version + '/external/document-exchange/sent-to-esfa');
+			res.redirect('/' + version + '/external/document-exchange/document-upload-replace');
 		}
 		else if (deleteDocument == "No") {
 
@@ -264,7 +264,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		
-		res.redirect('/' + version + '/external/document-exchange/dashboard');
+		res.redirect('/' + version + '/external/document-exchange/home');
 	});
 
 	/**********
