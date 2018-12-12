@@ -416,9 +416,6 @@ module.exports = function(router) {
 			'page3' : req.query.page3
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-review', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm');
-	});
 
 	// Documents to Review > Remove (Are you sure?)
 	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
