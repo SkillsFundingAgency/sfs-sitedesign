@@ -11,6 +11,9 @@ router.get('/', function (req, res) {
  * **********/
 
 // Beta
+// beta-v14-0-0
+require('./routes/beta/v14-0-0/allocation-statements.js')(router);
+require('./routes/beta/v14-0-0/document-exchange.js')(router);
 // beta-v13-0-0
 require('./routes/beta/v13-0-0/allocation-statements.js')(router);
 require('./routes/beta/v13-0-0/document-exchange.js')(router);

@@ -22,8 +22,8 @@ $(document).ready(function () {
         $("#queryFilterStatusError").trigger("click");
     });
 
-    // Filter logic for filter #1 (document type)
-    $("#document-type-filters :input:checkbox").change(function () {
+    // Filter logic #1 (Academic Year)
+    $("#academic-year-filter :input:checkbox").change(function () {
         
         var showAll = true;
         
@@ -47,9 +47,9 @@ $(document).ready(function () {
 
     });
 
-    // Filter logic for filter #2 (status)
-    $("#status-filters :input:checkbox").change(function () {
-        
+    // Filter logic #2 (Document Name Error)
+    $("#document-name-error-filter :input:checkbox").change(function () {
+
         var showAll = true;
         
         $('tr').not('.first').hide();
@@ -72,9 +72,84 @@ $(document).ready(function () {
 
     });
 
-    // Filter logic for filter #3 (academic year)
-    $("#academic-year-filters :input:checkbox").change(function () {
-    
+    // Filter logic #3 (Document Type)
+    $("#document-type-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+            }
+
+        });
+
+        if (showAll) {
+            $('tr').show();
+        }
+
+    });
+
+    // Filter logic #4 (Status)
+    $("#status-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+            }
+
+        });
+
+        if (showAll) {
+            $('tr').show();
+        }
+
+    });
+
+    // Filter logic #5 (Type)
+    $("#type-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+            }
+
+        });
+
+        if (showAll) {
+            $('tr').show();
+        }
+
+    });
+
+    // Filter logic #6 (Year)
+    $("#year-filter :input:checkbox").change(function () {
+
         var showAll = true;
         
         $('tr').not('.first').hide();
