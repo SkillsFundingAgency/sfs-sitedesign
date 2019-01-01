@@ -41,11 +41,12 @@
                 </div>
                 {% endif %}
 
+                <h1 class="heading-xlarge">Download your documents</h1>
                 <!-- Only display this content within the div when the paragraph is required (conditionally) -->
-                <!-- <div class="form-group"> -->
+                <!-- <div class="form-group">
                     <h1 class="heading-xlarge">Download your documents</h1>
-                    <!-- <p>Any documents you receive will show here.</p> -->
-                <!-- </div> -->
+                    <p>Any documents you receive will show here.</p>
+                </div> -->
     
                 <div class="pager-top">
     
@@ -60,96 +61,91 @@
                         <br>
 
                         <div>
-                            <ul>
-                                <li>
-                                    <fieldset class="filter">
-                                        <legend class="visuallyhidden">Filter by status</legend>
-                
-                                        <div class="js-filter-collapsible-collections statusFilter">
-                                            <section id="status-filter" class="js-filter-collapsible js-open">
-                                                <input type="hidden" name="queryFilterOpenStatus" id="queryFilterOpenStatus" value="True">
-                                                <header class="js-filter-collapsible-header">
-                                                    <h3 id="status" class="filters-headings heading-small">Filter by status</h3>
-                                                </header>
+                            <fieldset class="filter">
+                                <legend class="visuallyhidden">Filter by status</legend>
+        
+                                <div class="js-filter-collapsible-collections statusFilter">
+                                    <section id="status-filter" class="js-filter-collapsible js-open">
+                                        <input type="hidden" name="queryFilterOpenStatus" id="queryFilterOpenStatus" value="True">
+                                        <header class="js-filter-collapsible-header">
+                                            <h3 id="status" class="filters-headings heading-small">Filter by status</h3>
+                                        </header>
 
-                                                <div class="js-filter-collapsible-content">
-                                                    <section class="toggled-adult-funding-content group">
-                                                        <ul>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusNew" rel="New" name="queryFilterStatus" type="checkbox" value="New">
-                                                                <label class="block" for="queryFilterStatusNew">
-                                                                    New ({% if paginationRequired %}18{% else %}2{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterStatusDownloaded" rel="Downloaded" name="queryFilterStatus" type="checkbox" value="Downloaded">
-                                                                <label class="block" for="queryFilterStatusDownloaded">
-                                                                    Downloaded ({% if paginationRequired %}36{% else %}4{% endif %})
-                                                                </label>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                </div>
-
+                                        <div class="js-filter-collapsible-content">
+                                            <section class="toggled-adult-funding-content group">
+                                                <ul>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterStatusNew" rel="New" name="queryFilterStatus" type="checkbox" value="New">
+                                                        <label class="block" for="queryFilterStatusNew">
+                                                            New ({% if paginationRequired %}18{% else %}2{% endif %})
+                                                        </label>
+                                                    </li>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterStatusDownloaded" rel="Downloaded" name="queryFilterStatus" type="checkbox" value="Downloaded">
+                                                        <label class="block" for="queryFilterStatusDownloaded">
+                                                            Downloaded ({% if paginationRequired %}36{% else %}4{% endif %})
+                                                        </label>
+                                                    </li>
+                                                </ul>
                                             </section>
                                         </div>
 
-                                    </fieldset>
-                                </li>
-                                <li>
-                                    <fieldset class="filter">
-                                        <legend class="visuallyhidden">Filter by document type</legend>
-                
-                                        <div class="js-filter-collapsible-collections documentTypeFilter">
-                                            <section id="document-type-filter" class="js-filter-collapsible js-open">
-                                                <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
-                                                <header class="js-filter-collapsible-header">
-                                                    <h3 id="documentType" class="filters-headings heading-small">Filter by document type</h3>
-                                                </header>
+                                    </section>
+                                </div>
 
-                                                <div class="js-filter-collapsible-content">
-                                                    <section class="toggled-adult-funding-content group">
-                                                        <ul>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
-                                                                <label class="block" for="queryFilterDocumentType01">
-                                                                    16 to 19 reconciliation statement ({% if paginationRequired %}1{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
-                                                                <label class="block" for="queryFilterDocumentType02">
-                                                                    Business case audit evidence return ({% if paginationRequired %}1{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
-                                                                <label class="block" for="queryFilterDocumentType03">
-                                                                    Data sharing protocol ({% if paginationRequired %}1{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
-                                                                <label class="block" for="queryFilterDocumentType04">
-                                                                    Pupil premium return ({% if paginationRequired %}2{% else %}2{% endif %})
-                                                                </label>
-                                                            </li>
-                                                            <li class="gds-multiple-choice multiple-choice">
-                                                                <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
-                                                                <label class="block" for="queryFilterDocumentType05">
-                                                                    School financial value assurance statement ({% if paginationRequired %}1{% else %}1{% endif %})
-                                                                </label>
-                                                            </li>
-                                                        </ul>
-                                                    </section>
-                                                </div>
+                            </fieldset>
+                            <fieldset class="filter">
+                                <legend class="visuallyhidden">Filter by document type</legend>
+        
+                                <div class="js-filter-collapsible-collections documentTypeFilter">
+                                    <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                        <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
+                                        <header class="js-filter-collapsible-header">
+                                            <h3 id="documentType" class="filters-headings heading-small">Filter by document type</h3>
+                                        </header>
 
+                                        <div class="js-filter-collapsible-content">
+                                            <section class="toggled-adult-funding-content group">
+                                                <ul>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                        <label class="block" for="queryFilterDocumentType01">
+                                                            16 to 19 reconciliation statement ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                        </label>
+                                                    </li>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                        <label class="block" for="queryFilterDocumentType02">
+                                                            Business case audit evidence return ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                        </label>
+                                                    </li>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                        <label class="block" for="queryFilterDocumentType03">
+                                                            Data sharing protocol ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                        </label>
+                                                    </li>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
+                                                        <label class="block" for="queryFilterDocumentType04">
+                                                            Pupil premium return ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                        </label>
+                                                    </li>
+                                                    <li class="gds-multiple-choice multiple-choice">
+                                                        <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
+                                                        <label class="block" for="queryFilterDocumentType05">
+                                                            School financial value assurance statement ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                        </label>
+                                                    </li>
+                                                </ul>
                                             </section>
                                         </div>
 
-                                    </fieldset>
-                                </li>
-                            </ul>
+                                    </section>
+                                </div>
+
+                            </fieldset>
+
                         </div>
 
                     </section>
@@ -182,28 +178,31 @@
                             </thead>
                             <!-- 54 RESULTS -->
                             {% if paginationRequired %}
-                            <!-- 25 RESULTS (1-25 OF 54) -->
+                            <!-- SHOWING 1 TO 25 OF 54 DOCUMENTS -->
                             {% if page1 %}
                             
-                            <!-- 25 RESULTS (26-50 OF 54) -->
+                            <!-- SHOWING 26 TO 50 OF 54 DOCUMENTS -->
                             {% elif page2 %}
 
-                            <!-- 4 RESULTS (51-54 OF 54) -->
+                            <!-- SHOWING 51 TO 54 OF 54 DOCUMENTS -->
                             {% elif page3 %}
 
                             {% endif %}
                             <!-- 6 RESULTS -->
                             {% else %}
+                            <!-- SHOWING 1 TO 6 OF 6 DOCUMENTS -->
                             <tbody id="sortable-table-contents">
                                 <tr id="file-01">
                                     <td class="document-checkbox-td sortable-td">
+
                                         <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
-                                            <label for="checkbox-file-01"></label>
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01">
+                                            <label for="checkbox-file-01"><span class="visuallyhidden">Select 2001034_pupilpremiumreturn_v2-20182019.pdf</span></label>
                                         </div>
+
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
-                                        <a href="#">2001034_pupil<wbr>premium<wbr>return_v2-20182019.pdf</a>
+                                        <a href="#">2001034<wbr>_pupil<wbr>premium<wbr>return<wbr>_v2<wbr>-20182019<wbr>.pdf</a>
                                         <br>
                                         10:54am on 12 December 2018
                                     </td>
@@ -216,10 +215,12 @@
                                 </tr>
                                 <tr id="file-02">
                                     <td class="document-checkbox-td sortable-td">
+
                                         <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
-                                            <label for="checkbox-file-02"></label>
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02">
+                                            <label for="checkbox-file-02"><span class="visuallyhidden">Select 2345609_financialvaluestatement_v1-20182019.pdf</span></label>
                                         </div>
+
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
                                         <a href="#">2345609<wbr>_financial<wbr>value<wbr>statement<wbr>_v1<wbr>-20182019<wbr>.pdf</a>
@@ -235,10 +236,12 @@
                                 </tr>
                                 <tr id="file-03">
                                     <td class="document-checkbox-td sortable-td">
+                                        
                                         <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
-                                            <label for="checkbox-file-03"></label>
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03">
+                                            <label for="checkbox-file-03"><span class="visuallyhidden">Select 4166019_pupilpremiumreturn_v1-20182019.docx</span></label>
                                         </div>
+
                                     </td>  
                                     <td class="sortable-td" style="vertical-align: top;">
                                         <a href="#">4166019<wbr>_pupil<wbr>premium<wbr>return<wbr>_v1<wbr>-20182019<wbr>.docx</a>
@@ -256,10 +259,12 @@
                                 </tr>
                                 <tr id="file-04">
                                     <td class="document-checkbox-td sortable-td">
+                                        
                                         <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
-                                            <label for="checkbox-file-04"></label>
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04">
+                                            <label for="checkbox-file-04"><span class="visuallyhidden">Select 4450019_businesscaseauditevidence_v1-20182019.pdf</span></label>
                                         </div>
+
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
                                         <a href="#">4450019<wbr>_business<wbr>case<wbr>audit<wbr>evidence<wbr>_v1<wbr>-20182019<wbr>.pdf </a>
@@ -277,10 +282,12 @@
                                 </tr>
                                 <tr id="file-05">
                                     <td class="document-checkbox-td sortable-td">
+                                        
                                         <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
-                                            <label for="checkbox-file-05"></label>
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05">
+                                            <label for="checkbox-file-05"><span class="visuallyhidden">Select 6465888_16to19statement_v1-20182019.ppt</span></label>
                                         </div>
+
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
                                         <a href="#">6465888<wbr>_16<wbr>to<wbr>19<wbr>statement<wbr>_v1<wbr>-20182019<wbr>.ppt</a>
@@ -298,10 +305,12 @@
                                 </tr>
                                 <tr id="file-06">
                                     <td class="document-checkbox-td sortable-td">
+                                        
                                         <div class="document-checkbox-div multiple-choice">
-                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
-                                            <label for="checkbox-file-06"></label>
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06">
+                                            <label for="checkbox-file-06"><span class="visuallyhidden">Select 7655122_datasharingprotocol_v1-20182019.pdf</span></label>
                                         </div>
+
                                     </td>
                                     <td class="sortable-td" style="vertical-align: top;">
                                         <a href="#">7655122<wbr>_data<wbr>sharing<wbr>protocol<wbr>_v1<wbr>-20182019<wbr>.pdf </a>
@@ -331,12 +340,12 @@
                                         <span class="text-bold">1</span>
                                     </li>
                                     <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                        <a href="download-documents?paginationRequired=true&page2=true">2</a>
                                     </li>
                                     <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                        <a href="download-documents?paginationRequired=true&page3=true">3</a>
                                     </li>
-                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Next</a>
+                                    <a class="pager-next" href="download-documents?paginationRequired=true&page2=true">Next</a>
                                 </ul>                                
                             </div>
             
@@ -351,18 +360,18 @@
 
                             <div class="pager-controls">                               
                                 <ul class="pager-items">
-                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page1=true">Previous</a>
+                                    <a class="pager-next" href="download-documents?paginationRequired=true&page1=true">Previous</a>
                                     &nbsp;&nbsp;
                                     <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                        <a href="download-documents?paginationRequired=true&page1=true">1</a>
                                     </li>
                                     <li>
                                         <span class="text-bold">2</span>
                                     </li>
                                     <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                        <a href="download-documents?paginationRequired=true&page3=true">3</a>
                                     </li>
-                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page3=true">Next</a>
+                                    <a class="pager-next" href="download-documents?paginationRequired=true&page3=true">Next</a>
                                 </ul>
                             </div>
             
@@ -377,13 +386,13 @@
 
                             <div class="pager-controls">                               
                                 <ul class="pager-items">
-                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Previous</a>
+                                    <a class="pager-next" href="download-documents?paginationRequired=true&page2=true">Previous</a>
                                     &nbsp;&nbsp;
                                     <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                        <a href="download-documents?paginationRequired=true&page1=true">1</a>
                                     </li>
                                     <li>
-                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                        <a href="download-documents?paginationRequired=true&page2=true">2</a>
                                     </li>
                                     <li>
                                         <span class="text-bold">3</span>

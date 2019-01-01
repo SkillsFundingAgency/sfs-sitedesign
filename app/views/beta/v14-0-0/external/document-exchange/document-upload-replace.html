@@ -60,6 +60,7 @@
                         <div class="form-block" id="fileUploadPlaceholder">
                             <p>Upload a document</p>
                             <input id="fileInput0" name="fileInput" type="file" class="fileUploads">
+                            <label class="form-label visuallyhidden" for="fileInput0">Upload a document</label>
                         </div>
                         
                     </div>
@@ -84,7 +85,10 @@
                                     <td class="numeric"><a class="" href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">Remove</a></td>
                                 </tr>
                                 <tr style="display: none;">
-                                    <td><input name="fileName" type="text" value="{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}"></td>
+                                    <td>
+                                        <input id="fileName" name="fileName" type="text" value="{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">
+                                        <label class="form-label visuallyhidden" for="fileName">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</label>
+                                    </td>
                                 </tr>
                                 {% endif %}
                             </tbody>
@@ -92,6 +96,7 @@
                     </div>
 
                     <input type="submit" id="goToStep3" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %} class="button" value="Send">
+                    <label class="form-label visuallyhidden" for="goToStep3">Send</label>
                 </div>        
 
                 <div class="form-group" id="removeFileDiv" style="display: none;">
