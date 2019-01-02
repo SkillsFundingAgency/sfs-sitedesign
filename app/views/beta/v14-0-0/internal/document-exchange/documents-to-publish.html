@@ -42,6 +42,13 @@
                     </ul>
                 </div>
                 {% endif %}
+
+                <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+                {% if filterResultsUpdated %}
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h1 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 6 of 6 documents</h1>
+                </div>
+                {% endif %}
     
                 <div class="form-group">
                     <h1 class="heading-xlarge">Publish your documents</h1>
@@ -101,6 +108,27 @@
 
                 <!-- Document list -->
                 <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
+                    
+                    {% if paginationRequired %}
+                    {% if page1 %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 25 of 54 documents</span>
+                    </div>
+                    {% elif page2 %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 26 to 50 of 54 documents</span>
+                    </div>
+                    {% elif page3 %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 51 to 54 of 54 documents</span>
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
+                    </div>
+                    {% endif %}
+                    
                     <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
 
                     <div class="form-group">

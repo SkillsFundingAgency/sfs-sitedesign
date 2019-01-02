@@ -36,6 +36,13 @@
 
             <form method="post" class="form">
 
+                <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+                {% if filterResultsUpdated %}
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h1 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 9 of 9 allocation statements</h1>
+                </div>
+                {% endif %}
+
                 <div class="form-group">
                     <h1 class="heading-xlarge no-margin-top">Allocation statements</h1>
                     <p>If you need a statement in a different format, email <a href="#">pds.mailbox@education.gov.uk</a>.</p>
@@ -121,7 +128,11 @@
                 </div>
 
                 <div class="column-two-thirds">
-                    
+
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 9 of 9 allocation statements</span>
+                    </div>
+
                     <div id="tab1" class="main-table">
                         <ul>
                             <li class="new tab1 tab as-tab 2018 carryin payment-section">

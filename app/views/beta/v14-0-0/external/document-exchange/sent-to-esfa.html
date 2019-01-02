@@ -31,6 +31,12 @@
             </div>
 
             <form method="post" class="form">
+
+                {% if filterResultsUpdated %}
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h1 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 7 of 7 documents</h1>
+                </div>
+                {% endif %}
     
                 <div class="form-group">
                     <h1 class="heading-xlarge">Documents you've sent to ESFA</h1>
@@ -128,6 +134,12 @@
 
                 <!-- Document list -->
                 <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
+
+                    {% if filterResultsUpdated %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <h1 id="filter-results" class="pager-summary">Showing 1 to 7 of 7 documents</h1>
+                    </div>
+                    {% endif %}
 
                     <table>
                         <thead>
