@@ -200,16 +200,6 @@ output:after {
 
 /* General */
 @media (min-width: 641px) {
-    .related {
-		border-top-width: 2px;
-    }
-}
-@media (max-width: 640px) {
-    .related {
-		border: none;
-    }
-}
-@media (min-width: 641px) {
     .heading-medium-global {
         margin-top: 1.875em;
     }
@@ -230,6 +220,30 @@ fieldset.after-error-summary {
 }
 .document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
 	font-size: 16px;
+}
+
+/* Chris Harding (02.01.19) - Addition of styling for the global related (aside) navigation section */
+@media (min-width: 641px) {
+	.related-container {
+		width: 33.33333%;
+	}
+}
+@media (max-width: 640px) {
+	.related-container {
+		width: 100%;
+	}
+}
+.related-container {
+	float: left;
+}
+@media (max-width: 640px) {
+	.related {
+		width: 100%;
+	}
+}
+.related {
+	float: left;
+	border-top-width: 2px;
 }
 
 /* Chris Harding (15.10.18) - Inclusion of the 'introducing a new service' CSS used in the GOV.UK Verify service (https://introduction-slides-pattern.herokuapp.com) */
