@@ -6,10 +6,26 @@
 
 {% block content %}
 
+<style>
+
+    .filter-keyboard-button {
+        display: block;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+    }
+    .filter-keyboard-button a {
+        text-decoration: none;
+    }
+
+</style>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/jquery-1.12.2.js"></script>
 <!-- Added by Aaron to make the filtering work (START) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-<script src="/public/javascripts/as-filters-and-checkboxes.js"></script>
-<!-- Added by Aaron to make the filtering work (END) -->
+<script src="/public/javascripts/{{version}}/as-filters-and-checkboxes.js"></script>
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- JavaScript (END) -->
 
 <main role="main" id="content">
     
@@ -54,14 +70,16 @@
                         <fieldset class="filter">
                             <legend class="visuallyhidden">Filter by type</legend>
                             
-                            <div class="js-filter-collapsible-collections documentTypeFilter">
-                                <section id="document-type-filter" class="js-filter-collapsible js-open">
-                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
-                                    <header class="js-filter-collapsible-header">
-                                        <h2 id="documentType" class="filters-headings heading-small">Filter by document type</h2>
-                                    </header>
+                            <div class="js-filter-collapsible-collections">
+                                <section id="type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-type" value="true">
+                                    <a href="#" class="filter-keyboard-button" type="button">
+                                        <header id="type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by type</h2>
+                                        </header>
+                                    </a>
                                     
-                                    <div class="js-filter-collapsible-content">
+                                    <div id="filter-by-type" class="js-filter-collapsible-content" aria-labelledby="type">
                                         <section class="toggled-adult-funding-content group">
                                             <ul>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -92,15 +110,17 @@
                         </fieldset>
                         <fieldset class="filter">
                             <legend class="visuallyhidden">Filter by year</legend>
-                            
-                            <div class="js-filter-collapsible-collections documentTypeFilter">
+
+                            <div class="js-filter-collapsible-collections">
                                 <section id="year-filter" class="js-filter-collapsible js-open">
-                                    <input type="hidden" name="queryFilterOpenYear" id="queryFilterOpenYear" value="True">
-                                    <header class="js-filter-collapsible-header">
-                                        <h2 id="year" class="filters-headings heading-small">Filter by year</h2>
-                                    </header>
+                                    <input type="hidden" name="queryFilterOpenYear" id="queryFilterOpenYear" aria-expanded="true" aria-controls="filter-by-year" value="true">
+                                    <a href="#" class="filter-keyboard-button" type="button">
+                                        <header id="year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by year</h2>
+                                        </header>
+                                    </a>
                                     
-                                    <div class="js-filter-collapsible-content">
+                                    <div id="filter-by-year" class="js-filter-collapsible-content" aria-labelledby="year">
                                         <section class="toggled-adult-funding-content group">
                                             <ul>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -242,22 +262,5 @@
     </div>
 
 </main>
-
-<!-- JavaScript -->
-<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-<script src="/public/javascripts/lifted/jquery-ui.js"></script>
-<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
-<script src="/public/javascripts/lifted/application.js"></script>
-<script src="/public/javascripts/lifted/bind.js"></script>
-<script src="/public/javascripts/lifted/details.polyfill.js"></script>
-<script src="/public/javascripts/lifted/govuk-template.js"></script>
-<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
-<script src="/public/javascripts/lifted/selection-buttons.js"></script>
-<script src="/public/javascripts/lifted/pds.js"></script>
-
-<!-- Filters for the document list -->
-<script src="/public/javascripts/filters-and-checkboxes.js"></script>
-<!-- Sorting for the document list -->
-<script src="/public/javascripts/sorting-fileshare.js"></script>
 
 {% endblock %}

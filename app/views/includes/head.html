@@ -1,4 +1,15 @@
+<!-- Static global CSS (Do NOT change these GDS styles) - START -->
 <link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
 <link href="/public/stylesheets/accordion.css" media="screen" rel="stylesheet" type="text/css" />
-<link href="/public/stylesheets/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
 <link href="/public/kit-icons/icons.css" media="screen" rel="stylesheet" type="text/css" />
+<!-- Static global CSS (Do NOT change these GDS styles) - END -->
+
+<!-- Changeable Custom CSS (Add all variable CSS here) - START -->
+{% if version == 'beta/v13-0-0' %}
+<link href="/public/stylesheets/{{version}}/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
+{% elif version == 'beta/v14-0-0' %}
+<link href="/public/stylesheets/{{version}}/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
+{% else %}
+<link href="/public/stylesheets/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
+{% endif %}
+<!-- Changeable Custom CSS (Add all variable CSS here) - END -->
