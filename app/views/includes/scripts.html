@@ -8,7 +8,9 @@
 <script>
 	
 	if ('addEventListener' in document && document.querySelectorAll) {
+		
 		document.addEventListener('DOMContentLoaded', function() {
+			
 			var accordions = document.querySelectorAll('.accordion');
 
 			for (var i = accordions.length - 1; i >= 0; i--) {
@@ -19,8 +21,11 @@
 	}
 
 	$(document).ready(function() {
+		
 		$('.confirmation-internal .button').click(function() {
+			
 			var choice = $('input[name=radio-inline-group]:checked').val();
+			
 			if (choice == "Yes") {
 				window.location.href = 'documents-to-review-published-remove-confirmation.html';
 				return false;
@@ -29,30 +34,41 @@
 				window.location.href = 'documents-to-review.html';
 				return false;
 			}
+
 		});
+
 		$('.confirmation-review .button').click(function() {
+			
 			var choice = $('input[name=radio-inline-group]:checked').val();
+			
 			if (choice == "Yes") {
 				window.location.href = 'documents-to-review-remove-confirmation.html';
 			}
 			else {
 				window.location.href = 'documents-to-review.html';
 			}
+
 		});
 
-      var elem = document.getElementById("myBar"); 
-    var width = 0;
-    var id = setInterval(frame, 0);
-    function frame() {
-        if (width >= 100) {
-            clearInterval(id);
-        } else {
-            width++; 
-			elem.style.width = width + '%'; 
-			$('#progress span').html(width * 1 + '%');
-        }
-    }
-	}); 
+		var elem = document.getElementById("myBar"); 
+		var width = 0;
+		var id = setInterval(frame, 0);
+		
+		function frame() {
+			
+			if (width >= 100) {
+				clearInterval(id);
+			}
+			else {
+				width++; 
+				elem.style.width = width + '%'; 
+				$('#progress span').html(width * 1 + '%');
+			}
+			
+		}
+	
+	});
+
 </script>
 {% if useAutoStoreData %}
 <!-- <script src="/public/javascripts/auto-store-data.js"></script> -->

@@ -5,7 +5,7 @@
  * **********/
 
  /* iFrame CSS (Site Map) */
-@media (max-width: 431px) {
+ @media (max-width: 431px) {
 	.next a:before {
 		background: url('arrow-sprite.png') no-repeat -80px -7px;
 		background-position-x: right;
@@ -220,30 +220,6 @@ fieldset.after-error-summary {
 }
 .document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
 	font-size: 16px;
-}
-
-/* Chris Harding (02.01.19) - Addition of styling for the global related (aside) navigation section */
-@media (min-width: 641px) {
-	.related-container {
-		width: 33.33333%;
-	}
-}
-@media (max-width: 640px) {
-	.related-container {
-		width: 100%;
-	}
-}
-.related-container {
-	float: left;
-}
-@media (max-width: 640px) {
-	.related {
-		width: 100%;
-	}
-}
-.related {
-	float: left;
-	border-top-width: 2px;
 }
 
 /* Chris Harding (15.10.18) - Inclusion of the 'introducing a new service' CSS used in the GOV.UK Verify service (https://introduction-slides-pattern.herokuapp.com) */
@@ -490,32 +466,21 @@ a.dashboard-links {
 		height: 88px;
 	}
 }
-.alert {
-	font-size: 20px;
-	/* font-weight: bold; */
+.alert-name-green {
+    display: block;
+	background-color: #85994b;
+	margin-top: 5px;
+    padding: 7px 15px;
 }
 .alert-name-red {
-	display: block;
-	/* govuk-colour("red") */
+    display: block;
 	background-color: #b10e1e;
 	margin-top: 5px;
     padding: 7px 15px;
 }
 .alert-name-grey {
 	display: block;
-	/* govuk-colour("light-purple") */
-	/* background-color: #6f72af; */
-	/* govuk-colour("blue") */
-	background-color: #005ea5;
-	margin-top: 5px;
-	padding: 7px 15px;
-}
-.alert-name-green {
-	display: block;
-	/* govuk-colour("light-green") */
-	/* background-color: #85994b; */
-	border: 3px solid #85994b;
-	color: #0b0c0c;
+	background-color: rgb(111, 114, 175);
 	margin-top: 5px;
 	padding: 7px 15px;
 }
@@ -539,7 +504,7 @@ a.dashboard-links {
 .filler legend {
 	display: none;
 }
-.filter h2 {
+.filter h3 {
 	font-weight: 700;
 	font-size: 19px;
 	clear: both;
@@ -553,7 +518,7 @@ a.dashboard-links {
 	float: none;
 	position: relative;
 }
-.js-filter-collapsible .js-filter-collapsible-header h2 {
+.js-filter-collapsible .js-filter-collapsible-header h3 {
 	position: relative;
 	clear: both;
 	box-sizing: border-box;
@@ -570,17 +535,17 @@ a.dashboard-links {
 	background-size: 32px 50px;
 	clear: both
 }
-.js-filter-collapsible.js-open .js-filter-collapsible-header h2 {
+.js-filter-collapsible.js-open .js-filter-collapsible-header h3 {
 	background-position: 100% 8px;
 }
 .js-filter-collapsible.js-open .js-collapsible-hide-when-open {
 	display: none;
 }
-.js-filter-collapsible .js-filter-collapsible-header h2 {
+.js-filter-collapsible .js-filter-collapsible-header h3 {
 	color: #0b0c0c;
 	background-color: #dee0e2;
 }
-.js-filter-collapsible .js-filter-collapsible-header h2:hover {
+.js-filter-collapsible .js-filter-collapsible-header h3:hover {
 	color: #0b0c0c;
 	background-color: #bfc1c3;
 }
@@ -927,13 +892,13 @@ a.tab-header .hod-chevron-down:first-child {
 .table-with-border-bottom {
 	border-bottom: 1px solid #bfc1c3;
 }
+.related {
+	border-top-width: 2px;
+}
 .form-download {
 	display: block;
 	font-weight: 600;
 	background: url('/public/images/icon-file-download.png') no-repeat scroll 0 0;
 	min-height: 2.5em;
 	padding: 0 0 0 2.5em;
-}
-.non-bold {
-	font-weight: normal;
 }

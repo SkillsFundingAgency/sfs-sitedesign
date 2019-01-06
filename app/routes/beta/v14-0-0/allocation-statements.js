@@ -11,8 +11,10 @@ module.exports = function(router) {
 	router.get('/' + version + '/allocation-statements/adults/start', function (req, res) {
 		
 		req.session.disclaimerAccepted = "No";
-		
-		res.render(version + '/start');
+
+		res.render(version + '/start', {
+			'version' : version
+		});
 	});
 	router.post('/' + version + '/allocation-statements/adults/start', function (req, res) {		
 		res.redirect('/' + version + '/allocation-statements/adults/idams');
@@ -20,7 +22,9 @@ module.exports = function(router) {
 
 	// IDAMS
 	router.get('/' + version + '/allocation-statements/adults/idams', function (req, res) {
-		res.render(version + '/idams');
+		res.render(version + '/idams', {
+			'version' : version
+		});
 	});
 	router.post('/' + version + '/allocation-statements/adults/idams', function (req, res) {		
 		res.redirect('/' + version + '/allocation-statements/adults/dashboard');
@@ -32,6 +36,7 @@ module.exports = function(router) {
 		req.session.idams = "dashboard";
 		
 		res.render(version + '/allocation-statements/dashboard', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion
@@ -86,6 +91,7 @@ module.exports = function(router) {
 		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/allocation-statement-list', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion
@@ -98,6 +104,7 @@ module.exports = function(router) {
 		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/carry-in-apprenticeship-details', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion
@@ -110,6 +117,7 @@ module.exports = function(router) {
 		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/adult-education-budget-details-v2', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion
@@ -122,6 +130,7 @@ module.exports = function(router) {
 		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/adult-education-budget-details-v1', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion
@@ -134,6 +143,7 @@ module.exports = function(router) {
 		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/advanced-learner-loan-details-v2', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion
@@ -146,6 +156,7 @@ module.exports = function(router) {
 		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/advanced-learner-loan-details-v1', {
+			'version' : version,
 			'idams' : req.session.idams,
 			// 'disclaimerAccepted' : req.session.disclaimerAccepted,
 			// 'disclaimerVersion' : disclaimerVersion

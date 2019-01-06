@@ -8,7 +8,9 @@ module.exports = function(router) {
 
 	// Start
 	router.get('/' + version + '/external/document-exchange/start', function (req, res) {
-		res.render(version + '/start');
+		res.render(version + '/start', {
+			'version' : version
+		});
 	});
 	router.post('/' + version + '/external/document-exchange/start', function (req, res) {		
 		res.redirect('/' + version + '/external/document-exchange/idams');
@@ -16,7 +18,9 @@ module.exports = function(router) {
 
 	// IDAMS
 	router.get('/' + version + '/external/document-exchange/idams', function (req, res) {
-		res.render(version + '/idams');
+		res.render(version + '/idams', {
+			'version' : version
+		});
 	});
 	router.post('/' + version + '/external/document-exchange/idams', function (req, res) {		
 		res.redirect('/' + version + '/external/document-exchange/dashboard');
@@ -28,6 +32,7 @@ module.exports = function(router) {
 		req.session.idams = "dashboard";
 		
 		res.render(version + '/external/dashboard', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -38,6 +43,7 @@ module.exports = function(router) {
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/home', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -48,6 +54,7 @@ module.exports = function(router) {
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/received-from-esfa', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -63,6 +70,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		
 		res.render(version + '/external/document-exchange/sent-to-esfa', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -78,6 +86,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		
 		res.render(version + '/external/document-exchange/document-upload-file-type', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
@@ -111,6 +120,7 @@ module.exports = function(router) {
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
@@ -134,6 +144,7 @@ module.exports = function(router) {
 		}
 		
 		res.render(version + '/external/document-exchange/document-upload-remove', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'uploadedDocumentName' : req.session.uploadedDocumentName
@@ -170,6 +181,7 @@ module.exports = function(router) {
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload-complete', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'fileName' : req.session.fileName
 		});
@@ -194,6 +206,7 @@ module.exports = function(router) {
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload-replace', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
@@ -217,6 +230,7 @@ module.exports = function(router) {
 		}
 		
 		res.render(version + '/external/document-exchange/document-upload-replace-remove', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'uploadedDocumentName' : req.session.uploadedDocumentName
@@ -253,6 +267,7 @@ module.exports = function(router) {
 		req.session.idams = "external";
 		
 		res.render(version + '/external/document-exchange/document-upload-replace-complete', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'fileName' : req.session.fileName
 		});
@@ -273,7 +288,9 @@ module.exports = function(router) {
 
 	// Start
 	router.get('/' + version + '/internal/document-exchange/start', function (req, res) {
-		res.render(version + '/start');
+		res.render(version + '/start', {
+			'version' : version
+		});
 	});
 	router.post('/' + version + '/internal/document-exchange/start', function (req, res) {		
 		res.redirect('/' + version + '/internal/document-exchange/idams');
@@ -281,7 +298,9 @@ module.exports = function(router) {
 
 	// IDAMS
 	router.get('/' + version + '/internal/document-exchange/idams', function (req, res) {
-		res.render(version + '/idams');
+		res.render(version + '/idams', {
+			'version' : version
+		});
 	});
 	router.post('/' + version + '/internal/document-exchange/idams', function (req, res) {		
 		res.redirect('/' + version + '/internal/document-exchange/dashboard');
@@ -293,6 +312,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/dashboard', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -303,6 +323,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/home', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -313,6 +334,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/file-share', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -323,6 +345,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-to-publish', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -341,6 +364,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-to-publish-confirm', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
@@ -368,6 +392,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-to-publish-confirmation', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -381,6 +406,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-to-publish-remove-confirm', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
@@ -408,6 +434,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-to-review', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -423,6 +450,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-to-review-remove-confirm', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
@@ -450,6 +478,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/documents-removed-confirmation', {
+			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
@@ -463,6 +492,7 @@ module.exports = function(router) {
 		req.session.idams = "internal";
 		
 		res.render(version + '/internal/document-exchange/download-documents', {
+			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
