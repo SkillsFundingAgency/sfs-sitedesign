@@ -6,20 +6,6 @@
 
 {% block content %}
 
-<style>
-
-    .filter-keyboard-button {
-        display: block;
-        text-decoration: none;
-        width: 100%;
-        height: 100%;
-    }
-    .filter-keyboard-button a {
-        text-decoration: none;
-    }
-
-</style>
-
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/jquery-1.12.2.js"></script>
 <!-- Added by Aaron to make the filtering work (START) -->
@@ -72,8 +58,8 @@
                             
                             <div class="js-filter-collapsible-collections">
                                 <section id="type-filter" class="js-filter-collapsible js-open">
-                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-type" value="true">
-                                    <a href="#" class="filter-keyboard-button" type="button">
+                                    <input type="hidden" name="queryFilterOpenType" id="queryFilterOpenType" aria-expanded="true" aria-controls="filter-by-type" value="true">
+                                    <a href="#" id="filter-keyboard-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-type">
                                         <header id="type" class="js-filter-collapsible-header">
                                             <h2 class="filters-headings heading-small">Filter by type</h2>
                                         </header>
@@ -83,19 +69,19 @@
                                         <section class="toggled-adult-funding-content group">
                                             <ul>
                                                 <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="filter-adult" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <input id="filter-adult" rel="01" name="queryFilterType" type="checkbox" value="01">
                                                     <label class="block" for="filter-adult">
                                                         Adult education budget (2)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="filter-loans" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <input id="filter-loans" rel="02" name="queryFilterType" type="checkbox" value="02">
                                                     <label class="block" for="filter-loans">
                                                         Advanced learner loans (2)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="filter-carryin" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                    <input id="filter-carryin" rel="03" name="queryFilterType" type="checkbox" value="03">
                                                     <label class="block" for="filter-carryin">
                                                         Carry in apprenticeships (1)
                                                     </label>
@@ -114,7 +100,7 @@
                             <div class="js-filter-collapsible-collections">
                                 <section id="year-filter" class="js-filter-collapsible js-open">
                                     <input type="hidden" name="queryFilterOpenYear" id="queryFilterOpenYear" aria-expanded="true" aria-controls="filter-by-year" value="true">
-                                    <a href="#" class="filter-keyboard-button" type="button">
+                                    <a href="#" id="filter-keyboard-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-year">
                                         <header id="year" class="js-filter-collapsible-header">
                                             <h2 class="filters-headings heading-small">Filter by year</h2>
                                         </header>
