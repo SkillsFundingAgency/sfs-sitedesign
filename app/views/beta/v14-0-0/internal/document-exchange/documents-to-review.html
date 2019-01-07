@@ -68,59 +68,58 @@
     
                 </div>
 
-                <div class="column-filter-one-third column-third minus-25px-margin-top">
-                    <section class="filters">
-                        <br>
-
-                        <div>
-                            <fieldset class="filter">
-                                <legend class="visuallyhidden">Filter by document name error</legend>
-        
-                                <div class="js-filter-collapsible-collections errorFilter">
-                                    <section id="document-name-error-filter" class="js-filter-collapsible js-open">
-                                        <input type="hidden" name="queryFilterOpenError" id="queryFilterOpenError" value="True">
-                                        <header class="js-filter-collapsible-header">
-                                            <h2 id="file-name-error" class="filters-headings heading-small">Filter by document name error</h2>
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document name error</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-name-error-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentNameError" id="queryFilterOpenDocumentNameError" aria-expanded="true" aria-controls="filter-by-document-name-error" value="true">
+                                    <a href="#" id="filter-keyboard-document-name-error" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-name-error">
+                                        <header id="document-name-error" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document name error</h2>
                                         </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-name-error" class="js-filter-collapsible-content" aria-labelledby="document-name-error">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterErrorType01" rel="01" name="queryFilterErrorType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterErrorType01">
+                                                        Academic year is not a valid format ({% if paginationRequired %}4{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterErrorType02" rel="02" name="queryFilterErrorType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterErrorType02">
+                                                        Document type code is not a valid format ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterErrorType03" rel="03" name="queryFilterErrorType" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterErrorType03">
+                                                        UKPRN does not contain 8 numbers ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterErrorType04" rel="04" name="queryFilterErrorType" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterErrorType04">
+                                                        UKPRN is not recognised in the system ({% if paginationRequired %}4{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
 
-                                        <div class="js-filter-collapsible-content">
-                                            <section class="toggled-adult-funding-content group">
-                                                <ul>
-                                                    <li class="gds-multiple-choice multiple-choice">
-                                                        <input id="queryFilterErrorType01" rel="01" name="queryFilterErrorType" type="checkbox" value="01">
-                                                        <label class="block" for="queryFilterErrorType01">
-                                                            Academic year is not a valid format ({% if paginationRequired %}4{% else %}4{% endif %})
-                                                        </label>
-                                                    </li>
-                                                    <li class="gds-multiple-choice multiple-choice">
-                                                        <input id="queryFilterErrorType02" rel="02" name="queryFilterErrorType" type="checkbox" value="02">
-                                                        <label class="block" for="queryFilterErrorType02">
-                                                            Document type code is not a valid format ({% if paginationRequired %}2{% else %}2{% endif %})
-                                                        </label>
-                                                    </li>
-                                                    <li class="gds-multiple-choice multiple-choice">
-                                                        <input id="queryFilterErrorType03" rel="03" name="queryFilterErrorType" type="checkbox" value="03">
-                                                        <label class="block" for="queryFilterErrorType03">
-                                                            UKPRN does not contain 8 numbers ({% if paginationRequired %}2{% else %}2{% endif %})
-                                                        </label>
-                                                    </li>
-                                                    <li class="gds-multiple-choice multiple-choice">
-                                                        <input id="queryFilterErrorType04" rel="04" name="queryFilterErrorType" type="checkbox" value="04">
-                                                        <label class="block" for="queryFilterErrorType04">
-                                                            UKPRN is not recognised in the system ({% if paginationRequired %}4{% else %}4{% endif %})
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                            </section>
-                                        </div>
+                                </section>
+                            </div>
 
-                                    </section>
-                                </div>
+                        </fieldset>
+                    </div>
 
-                            </fieldset>
-                        </div>
-
-                    </section>
                 </div>
 
                 <!-- Document list -->
@@ -546,7 +545,7 @@
 <script src="/public/javascripts/lifted/govuk-template.js"></script>
 <script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
 <script src="/public/javascripts/lifted/selection-buttons.js"></script>
-<script src="/public/javascripts/lifted/pds.js"></script>
+<!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
 
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>

@@ -63,47 +63,46 @@
     
                 </div>
 
-                <div class="column-filter-one-third column-third minus-25px-margin-top">
-                    <section class="filters">
-                        <br>
-
-                        <div>
-                            <fieldset class="filter">
-                                <legend class="visuallyhidden">Filter by document type</legend>
-        
-                                <div class="js-filter-collapsible-collections documentTypeFilter">
-                                    <section id="document-type-filter" class="js-filter-collapsible js-open">
-                                        <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
-                                        <header class="js-filter-collapsible-header">
-                                            <h2 id="documentType" class="filters-headings heading-small">Filter by document type</h2>
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
                                         </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Allocation calculation toolkit ({% if paginationRequired %}6{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        Business case template ({% if paginationRequired %}48{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
 
-                                        <div class="js-filter-collapsible-content">
-                                            <section class="toggled-adult-funding-content group">
-                                                <ul>
-                                                    <li class="gds-multiple-choice multiple-choice">
-                                                        <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
-                                                        <label class="block" for="queryFilterDocumentType01">
-                                                            Allocation calculation toolkit ({% if paginationRequired %}6{% else %}2{% endif %})
-                                                        </label>
-                                                    </li>
-                                                    <li class="gds-multiple-choice multiple-choice">
-                                                        <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
-                                                        <label class="block" for="queryFilterDocumentType02">
-                                                            Business case template ({% if paginationRequired %}48{% else %}4{% endif %})
-                                                        </label>
-                                                    </li>
-                                                </ul>
-                                            </section>
-                                        </div>
+                                </section>
+                            </div>
 
-                                    </section>
-                                </div>
+                        </fieldset>
+                    </div>
 
-                            </fieldset>
-                        </div>
-
-                    </section>
                 </div> 
 
                 <!-- Document list -->
@@ -1593,7 +1592,7 @@
 <script src="/public/javascripts/lifted/govuk-template.js"></script>
 <script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
 <script src="/public/javascripts/lifted/selection-buttons.js"></script>
-<script src="/public/javascripts/lifted/pds.js"></script>
+<!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
 
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>

@@ -22,67 +22,9 @@ $(document).ready(function () {
         $("#queryFilterStatusError").trigger("click");
     });
 
-    // Filter #1 - Toggles content based on user clicking the 'Open all/Close all' link
-    // LEGACY
-    (function() {
-
-        var $container = $(".js-collapsible-collections");
-
-        if ($container) {
-           
-            var $sections = $container.find(".js-collapsible");
-            var $toggleContainer = $("<div class='js-collapsible-toggle'/>");
-            var $openAll = $("<a aria-hidden='true' href='#'>Open all</a>");
-            var $closeAll = $("<a aria-hidden='true' href='#'>Close all</a>");
-
-            $container.prepend($toggleContainer);
-            $toggleContainer.prepend($closeAll);
-            $toggleContainer.prepend($openAll);
-
-            $toggleContainer.enableToggles = function () {
-                $openAll.toggleClass('disabled', $sections.children(".js-collapsible-content:hidden").length === 0);
-                $closeAll.toggleClass('disabled', $sections.children(".js-collapsible-content:visible").length === 0);
-            };
-
-            $openAll.click(function(event) {
-                event.preventDefault();
-                $sections.find(".js-collapsible-content").show();
-                $sections.addClass("js-open");
-                $toggleContainer.enableToggles();
-            });
-
-            $closeAll.click(function(event) {
-                event.preventDefault();
-                $sections.find(".js-collapsible-content").hide();
-                $sections.removeClass("js-open");
-                $toggleContainer.enableToggles();
-            });
-
-            $sections.each(function () {
-                
-                var $section = $(this);
-
-                $section.toggleContent = function () {
-                    $section.find(".js-collapsible-content").toggle();
-                    $section.toggleClass("js-open");
-                    $toggleContainer.enableToggles();
-                };
-
-                $section.find("header")
-                    .addClass("js-collapsible-header")
-
-                    .click(function () {
-                        $section.toggleContent();
-                    });
-            });
-
-            $closeAll.click();
-        }
-
-    })();
-
-    // Filter #2 - Toggles content based on user clicking grey filter sections
-    // DEFAULT
+    // Open/close ALL filter sections - Toggles content based on user clicking grey filter sections
+    // GLOBAL
+    // ACTION: '.click'
     (function () {
 
         var $container = $(".js-filter-collapsible-collections");
@@ -99,15 +41,25 @@ $(document).ready(function () {
                     
                     $section.find(".js-filter-collapsible-content").toggle();
                     
-                    var $open = $section.find("input[type=hidden]");
+                    var $openInput = $section.find("input[type=hidden]");
+                    var $openURL = $section.find("a[type=button]");
 
-                    if ($open.val() === "true") {
-                        $open.val("false");
-                        $open.attr("aria-expanded","false");
+                    // Update ARIA information on hidden input field
+                    if ($openInput.val() === "true") {
+                        $openInput.val("false");
+                        $openInput.attr("aria-expanded","false");
                     }
                     else {
-                        $open.val("true");
-                        $open.attr("aria-expanded","true");
+                        $openInput.val("true");
+                        $openInput.attr("aria-expanded","true");
+                    }
+
+                    // Update ARIA information on the URL
+                    if ($openURL.attr("aria-expanded") === "true") {
+                        $openURL.attr("aria-expanded","false");
+                    }
+                    else {
+                        $openURL.attr("aria-expanded","true");
                     }
 
                     $section.toggleClass("js-open");
@@ -123,11 +75,15 @@ $(document).ready(function () {
                 });
 
                 // TRIGGER 2 - 'keyup'
-                $(".filter-keyboard-button").keyup(function(event) {
+                /*
+                $(".filter-keyboard").keyup(function(event) {
+                    
                     if (event.keyCode === 13) {
                         $section.toggleContent();
                     }
+
                 });
+                */
 
             });
             $sections
@@ -144,7 +100,73 @@ $(document).ready(function () {
 
     })();
 
-    // Filter logic #1 (Academic Year)
+    // Filter #1 (Academic Year) - Toggles content based on user clicking the 'Open all/Close all' link
+
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-academic-year").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#academic-year-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+
+    });
+    // Filter logic
     $("#academic-year-filter :input:checkbox").change(function () {
         
         var showAll = true;
@@ -169,7 +191,73 @@ $(document).ready(function () {
 
     });
 
-    // Filter logic #2 (Document Name Error)
+    // Filter #2 (Document Name Error) - Toggles content based on user clicking the 'Open all/Close all' link
+
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-document-name-error").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#document-name-error-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+
+    });
+    // Filter logic
     $("#document-name-error-filter :input:checkbox").change(function () {
 
         var showAll = true;
@@ -192,9 +280,76 @@ $(document).ready(function () {
             $('tr').show();
         }
 
-    });
+    });    
 
-    // Filter logic #3 (Document Type)
+
+    // Filter #3 (Document Type) - Toggles content based on user clicking the 'Open all/Close all' link
+    
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-document-type").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#document-type-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+    
+    });
+    // Filter logic
     $("#document-type-filter :input:checkbox").change(function () {
 
         var showAll = true;
@@ -217,9 +372,76 @@ $(document).ready(function () {
             $('tr').show();
         }
 
-    });
+    }); 
 
-    // Filter logic #4 (Status)
+
+    // Filter #4 (Status) - Toggles content based on user clicking the 'Open all/Close all' link
+    
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-status").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#status-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+    
+    });
+    // Filter logic
     $("#status-filter :input:checkbox").change(function () {
 
         var showAll = true;
@@ -244,7 +466,74 @@ $(document).ready(function () {
 
     });
 
-    // Filter logic #5 (Type)
+
+    // Filter #5 (Type) - Toggles content based on user clicking the 'Open all/Close all' link
+    
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-type").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#type-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+    
+    });
+    // Filter logic
     $("#type-filter :input:checkbox").change(function () {
 
         var showAll = true;
@@ -269,7 +558,73 @@ $(document).ready(function () {
 
     });
 
-    // Filter logic #6 (Year)
+    // Filter #6 (Year) - Toggles content based on user clicking the 'Open all/Close all' link
+    
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-year").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#year-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+    
+    });
+    // Filter logic
     $("#year-filter :input:checkbox").change(function () {
 
         var showAll = true;
