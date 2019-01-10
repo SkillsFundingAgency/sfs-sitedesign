@@ -355,6 +355,51 @@ module.exports = function(router) {
 		});
 	});
 
+	// Choose your Organisation
+	router.get('/' + version + '/external/parent/document-exchange/choose-organisation', function (req, res) {
+		
+		req.session.idams = "external";
+
+		// Reset all session variables for document upload (START)
+		req.session.uploadedDocumentStatus = "";
+		req.session.uploadedDocumentName = "";
+		req.session.organisationType = "";
+		
+		res.render(version + '/external/parent/document-exchange/choose-organisation', {
+			'version' : version,
+			'idams' : req.session.idams,
+			'error' : req.query.error,
+			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
+			'uploadedDocumentName' : req.session.uploadedDocumentName,
+			'organisationType' : req.session.organisationType
+		});
+	});
+	router.post('/' + version + '/external/parent/document-exchange/choose-organisation', function (req, res) {		
+		
+		req.session.organisationType = req.body.organisationType;
+		var organisationType = req.session.organisationType;
+
+		// Make sure the user chooses an option
+		if (organisationType == "Bridhighouse Council") {
+
+			//req.session.sendForm = "Parent";
+
+			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
+		}
+
+		else if (organisationType == "A specific school") {
+			res.redirect('/' + version + '/external/parent/document-exchange/which-academy-or-school');
+		}
+
+		else {
+			res.redirect('/' + version + '/external/parent/document-exchange/choose-organisation?error=true');
+		}
+
+
+
+		
+	});
+
 	// Document Upload File Type
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {
 		
