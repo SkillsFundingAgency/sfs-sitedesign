@@ -25,6 +25,19 @@
                     <ol>
                         <li><a href="../../../external/parent/document-exchange/dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
+                        <li><a href="choose-organisation">
+                            {% if sendFrom == 'Parent' %}
+                                {% if parent == 'LA' %}
+                                Send from Bridhighhouse Council
+                                {% elif parent == 'MAT' %}
+                                Send from The Bill Shoggins Academy Trust
+                                {% endif %}
+                            {% elif sendFrom == 'Child' %}
+                            Send from Academies and Schools
+                            {% else %}
+                            Send from [LA/MAT or Academies and Schools]
+                            {% endif %}
+                        </a></li>
                         <li>Send your document</li>
                     </ol>
                 </nav>
@@ -103,10 +116,6 @@
                 <div class="form-group">
                     <button class="button">Continue</button>
                 </div>
-
-                <!-- <div class="form-group">
-                    <a href="javascript: history.go(-1)">Cancel and go back</a>
-                </div> -->
         
             </form>
         

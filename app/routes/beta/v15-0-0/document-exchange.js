@@ -310,39 +310,46 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/parent/document-exchange/dashboard', function (req, res) {
 		
 		req.session.idams = "dashboard";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/dashboard', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'parent' : req.session.parent
 		});
 	});
 
 	// Document Exchange (Home)
 	router.get('/' + version + '/external/parent/document-exchange/home', function (req, res) {
 		
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/home', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'parent' : req.session.parent
 		});
 	});
 
 	// Received from ESFA
 	router.get('/' + version + '/external/parent/document-exchange/received-from-esfa', function (req, res) {
 		
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'parent' : req.session.parent
 		});
 	});
 
 	// Sent to ESFA
 	router.get('/' + version + '/external/parent/document-exchange/sent-to-esfa', function (req, res) {
 		
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
@@ -351,14 +358,16 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/parent/document-exchange/sent-to-esfa', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'parent' : req.session.parent
 		});
 	});
 
 	// Choose your Organisation
 	router.get('/' + version + '/external/parent/document-exchange/choose-organisation', function (req, res) {
 		
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
@@ -368,6 +377,7 @@ module.exports = function(router) {
 		res.render(version + '/external/parent/document-exchange/choose-organisation', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent ,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
@@ -379,31 +389,57 @@ module.exports = function(router) {
 		req.session.organisationType = req.body.organisationType;
 		var organisationType = req.session.organisationType;
 
-		// Make sure the user chooses an option
 		if (organisationType == "Bridhighouse Council") {
 
-			//req.session.sendForm = "Parent";
+			req.session.sendFrom = "Parent";
 
 			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}
-
 		else if (organisationType == "A specific school") {
 			res.redirect('/' + version + '/external/parent/document-exchange/which-academy-or-school');
 		}
-
+		// Make sure the user chooses an option
 		else {
 			res.redirect('/' + version + '/external/parent/document-exchange/choose-organisation?error=true');
 		}
+		
+	});
 
+	// Select academy or school
+	router.get('/' + version + '/external/parent/document-exchange/which-academy-or-school', function (req, res) {
+		
+		req.session.idams = "MAT";
 
+		res.render(version + '/external/parent/document-exchange/which-academy-or-school', {
+			'version' : version,
+			'idams' : req.session.idams,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/external/parent/document-exchange/which-academy-or-school', function (req, res) {		
+		
+		req.session.academyOrSchoolName = req.body.academyOrSchoolName;
+		var academyOrSchoolName = req.session.academyOrSchoolName;
 
+		// Make sure the user chooses an option
+		if (academyOrSchoolName == undefined) {
+			res.redirect('/' + version + '/external/parent/document-exchange/which-academy-or-school?error=true');
+		}
+		// Success
+		else {
+			
+			req.session.sendFrom = "Child";
+			
+			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
+		}
 		
 	});
 
 	// Document Upload File Type
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {
 		
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
@@ -413,6 +449,8 @@ module.exports = function(router) {
 		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
@@ -442,11 +480,14 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
 		req.session.fileType = req.session.fileType || "";
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType
@@ -462,7 +503,8 @@ module.exports = function(router) {
 	// Document Upload - Remove Document
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-remove', function (req, res) {
 	
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -471,6 +513,8 @@ module.exports = function(router) {
 		res.render(version + '/external/parent/document-exchange/document-upload-remove', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'error' : req.query.error,
 			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
@@ -503,11 +547,14 @@ module.exports = function(router) {
 	// Document Upload Complete
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {
 	
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-complete', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'fileName' : req.session.fileName
 		});
 	});
@@ -528,11 +575,14 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
 		req.session.fileType = req.session.fileType || "";
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-replace', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType
@@ -548,7 +598,8 @@ module.exports = function(router) {
 	// Document Upload - Remove Document (Replace)
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-remove', function (req, res) {
 
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -557,6 +608,8 @@ module.exports = function(router) {
 		res.render(version + '/external/parent/document-exchange/document-upload-replace-remove', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'error' : req.query.error,
 			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
@@ -589,11 +642,14 @@ module.exports = function(router) {
 	// Document Upload Complete (Replace)
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-complete', function (req, res) {
 
-		req.session.idams = "external";
+		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-replace-complete', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
+			'sendFrom' : req.session.sendFrom,
 			'fileName' : req.session.fileName
 		});
 	});
