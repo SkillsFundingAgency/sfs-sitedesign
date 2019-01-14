@@ -25,6 +25,19 @@
                     <ol>
                         <li><a href="../../../external/parent/document-exchange/dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
+                        <li><a href="choose-organisation">
+                            {% if sendFrom == 'Parent' %}
+                                {% if parent == 'LA' %}
+                                Send from Bridhighhouse Council
+                                {% elif parent == 'MAT' %}
+                                Send from Bill Shoggins Academy Trust
+                                {% endif %}
+                            {% elif sendFrom == 'Child' %}
+                            Send from Academy or School
+                            {% else %}
+                            Send from [LA/MAT or Academies and Schools]
+                            {% endif %}
+                        </a></li>
                         <li><a href="document-upload-replace">Replace your document</a></li>
                         <li>Remove a document</li>
                     </ol>

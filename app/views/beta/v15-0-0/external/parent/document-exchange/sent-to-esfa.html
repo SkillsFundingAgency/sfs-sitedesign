@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr>
+    {% if error %}Error: {% endif %}Documents you've sent to ESFA
 {% endblock %}
 
 {% block content %}
@@ -47,6 +47,53 @@
                 <div class="column-filter-one-third column-third">
                     
                     <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by organisation</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="organisation-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenOrganisation" id="queryFilterOpenOrganisation" aria-expanded="true" aria-controls="filter-by-organisation" value="true">
+                                    <a href="#" id="filter-keyboard-organisation" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-organisation">
+                                        <header id="organisation" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by organisation</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
+                                                    <label class="block" for="queryFilterOrganisationParent">
+                                                        Bill Shoggins Academy Trust ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
+                                                    <label class="block" for="queryFilterOrganisationChild01">
+                                                        Frog Field Primary School ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
+                                                    <label class="block" for="queryFilterOrganisationChild02">
+                                                        Meredith Azera Academy ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
+                                                    <label class="block" for="queryFilterOrganisationChild03">
+                                                        Ryckborst Academy of Excellence ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
                         <fieldset class="filter">
                             <legend class="visuallyhidden">Filter by document type</legend>
                             
@@ -136,7 +183,21 @@
                 <!-- Document list -->
                 <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
 
-                    {% if filterResultsUpdated %}
+                    {% if paginationRequired %}
+                    {% if page1 %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 25 of 54 documents</span>
+                    </div>
+                    {% elif page2 %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 26 to 50 of 54 documents</span>
+                    </div>
+                    {% elif page3 %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 51 to 54 of 54 documents</span>
+                    </div>
+                    {% endif %}
+                    {% else %}
                     <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
                         <span id="filter-results" class="pager-summary">Showing 1 to 7 of 7 documents</span>
                     </div>

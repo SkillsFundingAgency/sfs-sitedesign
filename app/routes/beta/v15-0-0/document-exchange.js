@@ -395,7 +395,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}
-		else if (organisationType == "A specific school") {
+		else if (organisationType == "Academy or School") {
 			res.redirect('/' + version + '/external/parent/document-exchange/which-academy-or-school');
 		}
 		// Make sure the user chooses an option
