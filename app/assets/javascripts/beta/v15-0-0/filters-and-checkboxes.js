@@ -372,10 +372,100 @@ $(document).ready(function () {
             $('tr').show();
         }
 
-    }); 
+    });
 
+    // Filter #4 (Organisation) - Toggles content based on user clicking the 'Open all/Close all' link
+    
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-organisation").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
 
-    // Filter #4 (Status) - Toggles content based on user clicking the 'Open all/Close all' link
+            if ($container) {
+                
+                var $sections = $container.find("#organisation-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+    
+    });
+    // Filter logic
+    $("#organisation-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+            }
+
+        });
+
+        if (showAll) {
+            $('tr').show();
+        }
+
+    });
+
+    // Filter #5 (Status) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'
@@ -467,7 +557,7 @@ $(document).ready(function () {
     });
 
 
-    // Filter #5 (Type) - Toggles content based on user clicking the 'Open all/Close all' link
+    // Filter #6 (Type) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'
@@ -558,7 +648,7 @@ $(document).ready(function () {
 
     });
 
-    // Filter #6 (Year) - Toggles content based on user clicking the 'Open all/Close all' link
+    // Filter #7 (Year) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'
