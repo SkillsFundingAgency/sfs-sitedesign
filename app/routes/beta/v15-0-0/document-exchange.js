@@ -363,8 +363,8 @@ module.exports = function(router) {
 		});
 	});
 
-	// Choose your Organisation
-	router.get('/' + version + '/external/parent/document-exchange/choose-organisation', function (req, res) {
+	// Select an organisation
+	router.get('/' + version + '/external/parent/document-exchange/select-organisation', function (req, res) {
 		
 		req.session.idams = "MAT";
 		req.session.parent = "MAT";
@@ -374,61 +374,72 @@ module.exports = function(router) {
 		req.session.uploadedDocumentName = "";
 		req.session.organisationType = "";
 		
-		res.render(version + '/external/parent/document-exchange/choose-organisation', {
+		res.render(version + '/external/parent/document-exchange/select-organisation', {
 			'version' : version,
 			'idams' : req.session.idams,
-			'parent' : req.session.parent ,
+			'parent' : req.session.parent,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'organisationType' : req.session.organisationType
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/choose-organisation', function (req, res) {		
+	router.post('/' + version + '/external/parent/document-exchange/select-organisation', function (req, res) {		
 		
 		req.session.organisationType = req.body.organisationType;
 		var organisationType = req.session.organisationType;
 
-		if (organisationType == "Bridhighouse Council") {
+		if (organisationType == "Parent") {
 
-			req.session.sendFrom = "Parent";
+			// Check to see whether the parent is LA or MAT (so we can set the correct dummy content)
+			if (req.session.parent == "LA") {
+				req.session.sendFrom = "Bridhighouse Council";
+			}
+			else if (req.session.parent == "MAT") {
+				req.session.sendFrom = "Bill Shoggins Academy Trust";
+			}
+			else {
+				req.session.sendFrom = "LA/MAT name";
+			}
 
 			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}
-		else if (organisationType == "Academy or School") {
-			res.redirect('/' + version + '/external/parent/document-exchange/which-academy-or-school');
+		else if (organisationType == "Child") {
+			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/external/parent/document-exchange/choose-organisation?error=true');
+			res.redirect('/' + version + '/external/parent/document-exchange/select-organisation?error=true');
 		}
 		
 	});
 
-	// Select academy or school
-	router.get('/' + version + '/external/parent/document-exchange/which-academy-or-school', function (req, res) {
+	// Select an academy or school
+	router.get('/' + version + '/external/parent/document-exchange/select-academy-or-school', function (req, res) {
 		
 		req.session.idams = "MAT";
+		req.session.parent = "MAT";
 
-		res.render(version + '/external/parent/document-exchange/which-academy-or-school', {
+		res.render(version + '/external/parent/document-exchange/select-academy-or-school', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'parent' : req.session.parent,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/which-academy-or-school', function (req, res) {		
+	router.post('/' + version + '/external/parent/document-exchange/select-academy-or-school', function (req, res) {		
 		
 		req.session.academyOrSchoolName = req.body.academyOrSchoolName;
 		var academyOrSchoolName = req.session.academyOrSchoolName;
 
 		// Make sure the user chooses an option
 		if (academyOrSchoolName == undefined) {
-			res.redirect('/' + version + '/external/parent/document-exchange/which-academy-or-school?error=true');
+			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?error=true');
 		}
 		// Success
 		else {
 			
-			req.session.sendFrom = "Child";
+			req.session.sendFrom = academyOrSchoolName;
 			
 			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}

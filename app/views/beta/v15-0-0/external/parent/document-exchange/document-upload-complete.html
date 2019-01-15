@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    You've sent a document
+    You've sent a document for {% if sendFrom %}{{sendFrom}}{% else %}[[LA/MAT or academy/school name]]{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -25,8 +25,8 @@
                 <div class="form-group">
                 
                     <div class="govuk-box-highlight">
-                        <h1 class="bold-xlarge">You've sent a document</h1>
-                        <p class="font-medium">'{{fileName}}'</p>
+                        <h1 class="bold-xlarge">You've sent a document for {% if sendFrom %}{{sendFrom}}{% else %}[[LA/MAT or academy/school name]]{% endif %}</h1>
+                        <p class="font-medium">The document you sent to ESFA is: '{% if fileName %}{{fileName}}{% else %}[[file name]]{% endif %}'</p>
                     </div>
 
                 </div>
@@ -35,7 +35,7 @@
                     <h2 class="heading-medium">What happens next</h2>
                     <p>We’ll send you an email to confirm that we’ve received your document.</p>
                     <p>It may take a few minutes for your document to show on <a href="sent-to-esfa">the list of documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></a>.</p>
-                    <p>You can also <a href="document-upload-file-type">send another document</a>.</p>
+                    <p>You can also <a href="document-upload-file-type">send another document</a> for another {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}academy or school{% endif %}.</p>
                 </div>
 
                 <div class="actions">
