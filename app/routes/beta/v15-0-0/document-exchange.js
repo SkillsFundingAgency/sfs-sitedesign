@@ -6,6 +6,14 @@ module.exports = function(router) {
 	 * EXTERNAL USERS CHILD VIEW (SCHOOL & SINGLE ACADEMY)
 	 * **********/
 
+	// GLOBAL (Child) - Set global variables for all pages in the '/child/' folder
+	router.get('/' + version + '/external/child/*', function (req, res, next) {	
+		
+		req.session.parent = "Child";
+
+		next();
+	});
+	
 	// Start
 	router.get('/' + version + '/external/child/document-exchange/start', function (req, res) {
 		res.render(version + '/start', {
@@ -33,7 +41,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/dashboard', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'parent' : req.session.parent
 		});
 	});
 
@@ -424,7 +433,11 @@ module.exports = function(router) {
 			'version' : version,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
-			'error' : req.query.error
+			'error' : req.query.error,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 	router.post('/' + version + '/external/parent/document-exchange/select-academy-or-school', function (req, res) {		
