@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} do you want to send a document for?
+    {% if error %}Error: {% endif %}Select {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} do you want to send a document for?
 {% endblock %}
 
 {% block content %}
@@ -108,14 +108,14 @@
                                     </div>
 
                                     <div class="search-submit">
-                                        <button class="button" type="submit" id="searchClientsSubmit" name="searchClientsSubmit" value="Search clients">Search clients</button>
+                                        <button class="button" type="submit" id="searchClientsSubmit" name="searchClientsSubmit" value="{% if parent == 'MAT' %}Search for an academy in the Bill Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Bridhighhouse{% endif %}">{% if parent == 'MAT' %}Search for an academy in the Bill Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Bridhighhouse{% endif %}</button>
                                     </div>
 
                                 </div>
 
                                 <div class="form-group">
-                                    <a href="select-academy-or-school">Clear search</a>
-                                    <!-- <a href="select-academy-or-school">Clear search and selection</a> -->
+                                    <a href="select-academy-or-school?paginationRequired=true&page1=true" id="clearSearchAndSelection">Clear search</a>
+                                    <!-- <a href="select-academy-or-school?paginationRequired=true&page1=true" id="clearSearchAndSelection">Clear search and selection</a> -->
                                 </div>
 
                             </fieldset>
@@ -617,6 +617,17 @@
 </main>
 
 <!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/lifted/jquery-ui.js"></script>
+<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
+<script src="/public/javascripts/lifted/application.js"></script>
+<script src="/public/javascripts/lifted/bind.js"></script>
+<script src="/public/javascripts/lifted/details.polyfill.js"></script>
+<script src="/public/javascripts/lifted/govuk-template.js"></script>
+<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
+<script src="/public/javascripts/lifted/selection-buttons.js"></script>
+<!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
+
 <!-- Dynamic search against all radion buttons (academies or schools) -->
 <script src="/public/javascripts/{{version}}/search-radio-buttons.js"></script>
 <!-- JavaScript (END) -->
