@@ -51,6 +51,17 @@ module.exports = function(router) {
 		});
 	});
 
+	// 16 to 18 traineeships for 2018 to 2019
+	router.get('/' + version + '/allocation-statements/adults/16-to-18-traineeships', function (req, res) {
+
+		req.session.idams = "traineeships";
+		
+		res.render(version + '/allocation-statements/adults/16-to-18-traineeships', {
+			'version' : version,
+			'idams' : req.session.idams
+		});
+	});
+
 	// Carry-in apprenticeship for 2018 to 2019
 	router.get('/' + version + '/allocation-statements/adults/carry-in-apprenticeship-details', function (req, res) {
 
