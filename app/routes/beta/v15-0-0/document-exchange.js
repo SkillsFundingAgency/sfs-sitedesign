@@ -308,21 +308,49 @@ module.exports = function(router) {
 	// IDAMS
 	router.get('/' + version + '/external/parent/document-exchange/idams', function (req, res) {
 		res.render(version + '/idams', {
-			'version' : version
+			'version' : version,
+			'error' : req.query.error
 		});
 	});
 	router.post('/' + version + '/external/parent/document-exchange/idams', function (req, res) {		
-		res.redirect('/' + version + '/external/parent/document-exchange/dashboard');
+		
+		req.session.userID = req.body.id;
+		var userID = req.session.userID;
+
+		// User is signing in as a Local Authority (LA)
+		if (userID == "la") {
+
+			req.session.idams = "LA";
+			req.session.parent = "LA";
+
+			res.redirect('/' + version + '/external/parent/document-exchange/dashboard');
+		}
+		// User is signing in as a Multi Academy Trust (MAT)
+		else if (userID == "mat") {
+			
+			req.session.idams = "MAT";
+			req.session.parent = "MAT";
+
+			res.redirect('/' + version + '/external/parent/document-exchange/dashboard');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/external/parent/document-exchange/idams?error=true');
+		}
+		
 	});
 
 	// Dashboard
 	router.get('/' + version + '/external/parent/document-exchange/dashboard', function (req, res) {
 		
-		req.session.idams = "dashboard";
-		req.session.parent = "MAT";
+		req.session.dashboard = "Yes";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/external/dashboard', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent
 		});
@@ -331,11 +359,14 @@ module.exports = function(router) {
 	// Document Exchange (Home)
 	router.get('/' + version + '/external/parent/document-exchange/home', function (req, res) {
 		
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/home', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent
 		});
@@ -344,11 +375,14 @@ module.exports = function(router) {
 	// Received from ESFA
 	router.get('/' + version + '/external/parent/document-exchange/received-from-esfa', function (req, res) {
 		
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent
 		});
@@ -357,9 +391,10 @@ module.exports = function(router) {
 	// Sent to ESFA
 	router.get('/' + version + '/external/parent/document-exchange/sent-to-esfa', function (req, res) {
 		
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
-
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
@@ -367,6 +402,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/parent/document-exchange/sent-to-esfa', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent
 		});
@@ -375,9 +411,10 @@ module.exports = function(router) {
 	// Select an organisation
 	router.get('/' + version + '/external/parent/document-exchange/select-organisation', function (req, res) {
 		
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
-
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
@@ -385,6 +422,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/parent/document-exchange/select-organisation', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'error' : req.query.error,
@@ -414,7 +452,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}
 		else if (organisationType == "Child") {
-			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school');
+			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
 		}
 		// Make sure the user chooses an option
 		else {
@@ -426,11 +464,14 @@ module.exports = function(router) {
 	// Select an academy or school
 	router.get('/' + version + '/external/parent/document-exchange/select-academy-or-school', function (req, res) {
 		
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 
 		res.render(version + '/external/parent/document-exchange/select-academy-or-school', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'error' : req.query.error,
@@ -447,7 +488,7 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (academyOrSchoolName == undefined) {
-			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?error=true');
+			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true&error=true');
 		}
 		// Success
 		else {
@@ -462,9 +503,10 @@ module.exports = function(router) {
 	// Document Upload File Type
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {
 		
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
-
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
@@ -472,6 +514,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
@@ -500,15 +543,18 @@ module.exports = function(router) {
 	// Document Upload
 	router.get('/' + version + '/external/parent/document-exchange/document-upload', function (req, res) {
 
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		// Set the session variable if is does not exist
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
 		req.session.fileType = req.session.fileType || "";
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
@@ -527,8 +573,10 @@ module.exports = function(router) {
 	// Document Upload - Remove Document
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-remove', function (req, res) {
 	
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -536,6 +584,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-remove', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
@@ -571,11 +620,14 @@ module.exports = function(router) {
 	// Document Upload Complete
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {
 	
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-complete', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
@@ -595,15 +647,18 @@ module.exports = function(router) {
 	// Document Upload (Replace)
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace', function (req, res) {
 
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		// Set the session variable if is does not exist
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
 		req.session.fileType = req.session.fileType || "";
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-replace', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
@@ -622,8 +677,10 @@ module.exports = function(router) {
 	// Document Upload - Remove Document (Replace)
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-remove', function (req, res) {
 
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -631,6 +688,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-replace-remove', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
@@ -666,11 +724,14 @@ module.exports = function(router) {
 	// Document Upload Complete (Replace)
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-complete', function (req, res) {
 
-		req.session.idams = "MAT";
-		req.session.parent = "MAT";
+		// Only set the session variable if it does not exist
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-replace-complete', {
 			'version' : version,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,

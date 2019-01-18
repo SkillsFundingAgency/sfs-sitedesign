@@ -20,5 +20,4 @@ $(document).ready(function () {
 // jQuery (END)
 
 // JavaScript (START)
-
 // JavaScript (END)
