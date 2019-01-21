@@ -440,10 +440,10 @@ module.exports = function(router) {
 
 			// Check to see whether the parent is LA or MAT (so we can set the correct dummy content)
 			if (req.session.parent == "LA") {
-				req.session.sendFrom = "Bridhighouse Council";
+				req.session.sendFrom = "Redhill Council";
 			}
 			else if (req.session.parent == "MAT") {
-				req.session.sendFrom = "Bill Shoggins Academy Trust";
+				req.session.sendFrom = "Rupert Shoggins Academy Trust";
 			}
 			else {
 				req.session.sendFrom = "LA/MAT name";
