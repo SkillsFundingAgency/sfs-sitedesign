@@ -32,6 +32,15 @@
 
             <form method="post" class="form">
 
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li class="non-linked-error">Select the documents that you want to download</li>
+                    </ul>
+                </div>
+                {% endif %}
+
                 {% if filterResultsUpdated %}
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 7 of 7 documents</h2>
@@ -44,144 +53,191 @@
                     <!-- <p><a href="document-upload-file-type">Send a document</a></p> -->
                 </div>
                 
-                <div class="form-group">
-
-                    <!-- New accordion section to display/hide filters (START) -->
-                    <div class="accordion">
-
-                        <div class="accordion-section">
-
-                            <div class="accordion-section-header">
-                                <h2 class="heading-medium">Filters</h2>
-                            </div>
-
-                            <div class="accordion-section-body">
-
-                                <div class="filter-content-container form-group">
-
-                                    <div id="filterSection">
-
-                                        <!-- Filter Part 1: DROPDOWN (START) -->
-                                        <div class="column-one-third">
-
-                                            <div class="listbox-area">
-                                                <span id="exp_elem" class="govuk-label">Filter by:</span>
-                                                
-                                                <div class="form-group">
-
-                                                    <div id="exp_wrapper">
-                                                        <button aria-haspopup="listbox" aria-labelledby="exp_elem exp_button" id="exp_button">All documents</button>
-                                                        <ul id="exp_elem_list" tabindex="-1" role="listbox" aria-labelledby="exp_elem" class="hidden" aria-activedescendant="exp_elem_Al">
-                                                            <li id="exp_elem_Al" role="option" data-filter="any" aria-selected="true" class="focused">All documents</li>
-                                                            <li id="exp_elem_Pu" role="option" data-filter="Academic year">Academic year</li>
-                                                            <li id="exp_elem_Am" role="option" data-filter="Document type">Document type</li>
-                                                            <li id="exp_elem_Pv" role="option" data-filter="Organisation">Organisation</li>
-                                                            <li id="exp_elem_Pv" role="option" data-filter="Status">Status</li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-                                        <!-- Filter Part 1: DROPDOWN (END) -->
-
-                                        <!-- Filter Part 2: SEARCH (START) -->
-                                        <div class="column-two-thirds">
-                                            
-                                            <div class="search-table search-section">
-                                                <fieldset>
-                                        
-                                                    <div class="form-group search-field search-field-darker">
-                                                        <input type="hidden" name="clientsFilter" value="new">
-
-                                                        <div class="search-input search-input-with-button">
-                                                            <label class="label" for="searchClients">
-                                                            <!-- Client reference -->
-                                                            <br>
-                                                            <span class="visuallyhidden">Search for a document by your chosen filter type</span>
-                                                            </label>
-
-                                                            <div class="autocomplete__parent_wrapper">
-
-                                                                <div class="autocomplete__wrapper">
-
-                                                                    <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px 0px 0px 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-                                                                        <span>No search results.</span>
-                                                                        <span>,,</span>
-                                                                    </div>
-
-                                                                    <p id="search-default-value" class="hidden"></p>
-                                                                    
-                                                                    <div class="autocomplete__parent_wrapper">
-                                                                        
-                                                                        <div class="autocomplete__wrapper">
-                                                                            
-                                                                            <div aria-atomic="true" aria-live="polite" role="status" style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; margin-bottom: -1px; margin-right: -1px; overflow: hidden; padding: 0px; position: absolute; white-space: nowrap; width: 1px;">
-                                                                                <span>No search results.</span><span>,,</span>
-                                                                            </div>
-                                                                            
-                                                                            <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="searchClients" name="searchClients" placeholder="Search for a document by your chosen filter type" role="combobox" type="text">
-                                                                            <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox"></ul>
-                                                                        </div>
-                                                                    
-                                                                    </div>
-                                                                    
-                                                                    <input aria-owns="searchClients__listbox" autocomplete="off" class="autocomplete__input" id="searchClients-old" name="" placeholder="Search for a document by your chosen filter type" role="combobox" type="text" value="" style="display: none;">
-                                                                    <ul class="autocomplete__menu autocomplete__menu--overlay autocomplete__menu--hidden" id="searchClients__listbox" role="listbox">
-                                                                    </ul>
-
-                                                                </div>
-
-                                                            </div>
-
-                                                            <input class="form-control form-control-3-4" name="" id="searchClients-old" type="text" value="" style="display: none;">
-                                                    
-                                                        </div>
-
-                                                        <div class="search-submit">
-                                                            <button class="button" type="submit" id="searchClientsSubmit" name="searchClientsSubmit" value="Search clients">Search clients</button>
-                                                        </div>
-
-                                                    </div>
-
-                                                </fieldset>
-                                            </div>
-                                            
-                                        </div>
-                                        <!-- Filter Part 2: SEARCH (END) -->
-
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by organisation</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="organisation-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenOrganisation" id="queryFilterOpenOrganisation" aria-expanded="true" aria-controls="filter-by-organisation" value="true">
+                                    <a href="#" id="filter-keyboard-organisation" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-organisation">
+                                        <header id="organisation" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by organisation</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <!-- <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
+                                                    <label class="block" for="queryFilterOrganisationChild01">
+                                                        {% if parent == 'MAT' %}Coundon Court Academy{% elif parent == 'LA' %}Blossomfield Infants' School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
+                                                    <label class="block" for="queryFilterOrganisationChild02">
+                                                        {% if parent == 'MAT' %}Ernesford Grange Community Academy{% elif parent == 'LA' %}Christ The King RC Infants' School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li> -->
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
+                                                    <label class="block" for="queryFilterOrganisationChild03">
+                                                        {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <!-- <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild04" rel="Child04" name="queryFilterOrganisation" type="checkbox" value="Child04">
+                                                    <label class="block" for="queryFilterOrganisationChild04">
+                                                        {% if parent == 'MAT' %}Grace Academy{% elif parent == 'LA' %}Heart of England School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild05" rel="Child05" name="queryFilterOrganisation" type="checkbox" value="Child05">
+                                                    <label class="block" for="queryFilterOrganisationChild05">
+                                                        {% if parent == 'MAT' %}Hill Farm Academy{% elif parent == 'LA' %}Knowle CE Primary School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li> -->
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild06" rel="Child06" name="queryFilterOrganisation" type="checkbox" value="Child06">
+                                                    <label class="block" for="queryFilterOrganisationChild06">
+                                                        {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle Primary School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <!-- <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild07" rel="Child07" name="queryFilterOrganisation" type="checkbox" value="Child07">
+                                                    <label class="block" for="queryFilterOrganisationChild07">
+                                                        {% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Sharmans Cross Junior School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li> -->
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
+                                                    <label class="block" for="queryFilterOrganisationParent">
+                                                        {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council{% else %}[[LA/MAT name]]{% endif %} ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild08" rel="Child08" name="queryFilterOrganisation" type="checkbox" value="Child08">
+                                                    <label class="block" for="queryFilterOrganisationChild08">
+                                                        {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <!-- <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild09" rel="Child09" name="queryFilterOrganisation" type="checkbox" value="Child09">
+                                                    <label class="block" for="queryFilterOrganisationChild09">
+                                                        {% if parent == 'MAT' %}St Jerome's CE Academy{% elif parent == 'LA' %}Windy Arbor Junior and Infant School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild10" rel="Child10" name="queryFilterOrganisation" type="checkbox" value="Child10">
+                                                    <label class="block" for="queryFilterOrganisationChild10">
+                                                        {% if parent == 'MAT' %}Woodlands Academy{% elif parent == 'LA' %}Whoberley Hall Primary School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
+                                                    </label>
+                                                </li> -->
+                                            </ul>
+                                        </section>
                                     </div>
 
-                                    <!-- Add (clone) a new filter section -->
-                                    <div id="insertBeforeReference" class="column-full">
-                                        <a href="#" onclick="cloneFilterSection()">+ Add another filter</a>
-                                    </div>
-
-                                </div>
-
+                                </section>
                             </div>
 
-                        </div>
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Business case ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        Business case audit evidence ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterDocumentType03">
+                                                        Financial report ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterDocumentType04">
+                                                        Infrastructure return ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
 
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by academic year</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academic-year-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterAcademicYear" id="queryFilterAcademicYear" aria-expanded="true" aria-controls="filter-by-academic-year" value="true">
+                                    <a href="#" id="filter-keyboard-academic-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academic-year">
+                                        <header id="academic-year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by academic year</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-academic-year" class="js-filter-collapsible-content" aria-labelledby="academic-year">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
+                                                    <label class="block" for="queryFilterAcademicYear20182019">
+                                                        2018 to 2019 ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
+                                                    <label class="block" for="queryFilterAcademicYear20172018">
+                                                        2017 to 2018 ({% if pagingRequired %}?{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
                     </div>
-                    <!-- New accordion section to display/hide filters (END) -->
 
                 </div>
 
                 <!-- Document list -->
-                <div id="document-list" class="document-list">
-                    {% if paginationRequired %}
-                    {% if page1 %}
-                    <h2 class="heading-medium">Showing 1 to 25 of 54 documents</h2>
-                    {% elif page2 %}
-                    <h2 class="heading-medium">Showing 26 to 50 of 54 documents</h2>
-                    {% elif page3 %}
-                    <h2 class="heading-medium">Showing 51 to 54 of 54 documents</h2>
-                    {% endif %}
-                    {% else %}
-                    <h2 class="heading-medium">Showing 1 to 7 of 7 documents</h2>
+                <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
+
+                    {% if filterResultsUpdated %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 7 of 7 documents</span>
+                    </div>
                     {% endif %}
 
                     <table>
@@ -236,7 +292,7 @@
                                 <td class="01" rel="01" style="vertical-align: top;">
                                     Business case
                                 </td>
-                                <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                <td class="Child06" rel="Child06" style="vertical-align: top;">
                                     {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle Primary School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <!-- <td style="vertical-align: top;">
@@ -261,7 +317,7 @@
                                 <td class="02" rel="02" style="vertical-align: top;">
                                     Business case audit evidence
                                 </td>
-                                <td class="Child01" rel="Child01" style="vertical-align: top;">
+                                <td class="Child03" rel="Child03" style="vertical-align: top;">
                                     {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <!-- <td style="vertical-align: top;">
@@ -301,7 +357,7 @@
                                 <td class="01" rel="01" style="vertical-align: top;">
                                     Business case
                                 </td>
-                                <td class="Child03" rel="Child03" style="vertical-align: top;">
+                                <td class="Child08" rel="Child08" style="vertical-align: top;">
                                     {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <!-- <td style="vertical-align: top;">
@@ -321,7 +377,7 @@
                                 <td class="02" rel="02" style="vertical-align: top;">
                                     Business case audit evidence
                                 </td>
-                                <td class="Child01" rel="Child01" style="vertical-align: top;">
+                                <td class="Child03" rel="Child03" style="vertical-align: top;">
                                     {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <!-- <td style="vertical-align: top;">
@@ -341,7 +397,7 @@
                                 <td class="04" rel="04" style="vertical-align: top;">
                                     Infrastructure return
                                 </td>
-                                <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                <td class="Child06" rel="Child06" style="vertical-align: top;">
                                     {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle Primary School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <!-- <td style="vertical-align: top;">
@@ -356,111 +412,109 @@
                         {% endif %}
                     </table>
 
-                    <div class="form-group">
-                        {% if paginationRequired %}
-                        {% if page1 %}
-                        <div class="pager">
+                    {% if paginationRequired %}
+                    {% if page1 %}
+                    <div class="pager">
 
-                            <div class="pager-controls">
-                                <ul class="pager-items">
-                                    <li>
-                                        <span class="text-bold">1</span>
-                                    </li>
-                                    <li>
-                                        <span class="visuallyhidden">Page </span>
-                                        <a href="sent-to-esfa?paginationRequired=true&page2=true">2</a>
-                                        <span class="visuallyhidden"> of 3</span>
-                                    </li>
-                                    <li>
-                                        <span class="visuallyhidden">Page </span>
-                                        <a href="sent-to-esfa?paginationRequired=true&page3=true">3</a>
-                                        <span class="visuallyhidden"> of 3</span>
-                                    </li>
-                                    <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page2=true">Next</a>
-                                    <span class="visuallyhidden"> page</span>
-                                </ul>                                
-                            </div>
-            
-                            <div class="pager-summary">
-                                Showing 1 to 25 of 54 documents
-                                <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
-                            </div>
-            
+                        <div class="pager-controls">
+                            <ul class="pager-items">
+                                <li>
+                                    <span class="text-bold">1</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page2=true">2</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page3=true">3</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page2=true">Next</a>
+                                <span class="visuallyhidden"> page</span>
+                            </ul>                                
                         </div>
-                        {% elif page2 %}
-                        <div class="pager">
-
-                            <div class="pager-controls">                               
-                                <ul class="pager-items">
-                                    <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page1=true">Previous</a>
-                                    <span class="visuallyhidden"> page</span>
-                                    &nbsp;&nbsp;
-                                    <li>
-                                        <span class="visuallyhidden">Page </span>
-                                        <a href="sent-to-esfa?paginationRequired=true&page1=true">1</a>
-                                        <span class="visuallyhidden"> of 3</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-bold">2</span>
-                                    </li>
-                                    <li>
-                                        <span class="visuallyhidden">Page </span>
-                                        <a href="sent-to-esfa?paginationRequired=true&page3=true">3</a>
-                                        <span class="visuallyhidden"> of 3</span>
-                                    </li>
-                                    <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page3=true">Next</a>
-                                    <span class="visuallyhidden"> page</span>
-                                </ul>
-                            </div>
-            
-                            <div class="pager-summary">
-                                Showing 26 to 50 of 54 documents
-                                <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
-                            </div>
-            
+        
+                        <div class="pager-summary">
+                            Showing 1 to 25 of 54 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
                         </div>
-                        {% elif page3 %}
-                        <div class="pager">
-
-                            <div class="pager-controls">                               
-                                <ul class="pager-items">
-                                    <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page2=true">Previous</a>
-                                    <span class="visuallyhidden"> page</span>
-                                    &nbsp;&nbsp;
-                                    <li>
-                                        <span class="visuallyhidden">Page </span>
-                                        <a href="sent-to-esfa?paginationRequired=true&page1=true">1</a>
-                                        <span class="visuallyhidden"> of 3</span>
-                                    </li>
-                                    <li>
-                                        <span class="visuallyhidden">Page </span>
-                                        <a href="sent-to-esfa?paginationRequired=true&page2=true">2</a>
-                                        <span class="visuallyhidden"> of 3</span>
-                                    </li>
-                                    <li>
-                                        <span class="text-bold">3</span>
-                                    </li>
-                                </ul>
-                            </div>
-            
-                            <div class="pager-summary">
-                                Showing 51 to 54 of 54 documents
-                                <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
-                            </div>
-            
-                        </div>
-                        {% endif %}
-                        {% else %}
-                        <div class="pager">
-            
-                            <div class="pager-summary">
-                                Showing 1 to 7 of 7 documents
-                                <!-- <span id="totalDocumentCount" style="display: none;">7</span> -->
-                            </div>
-            
-                        </div>
-                        {% endif %}
+        
                     </div>
+                    {% elif page2 %}
+                    <div class="pager">
+
+                        <div class="pager-controls">                               
+                            <ul class="pager-items">
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page1=true">Previous</a>
+                                <span class="visuallyhidden"> page</span>
+                                &nbsp;&nbsp;
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page1=true">1</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="text-bold">2</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page3=true">3</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page3=true">Next</a>
+                                <span class="visuallyhidden"> page</span>
+                            </ul>
+                        </div>
+        
+                        <div class="pager-summary">
+                            Showing 26 to 50 of 54 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
+                        </div>
+        
+                    </div>
+                    {% elif page3 %}
+                    <div class="pager">
+
+                        <div class="pager-controls">                               
+                            <ul class="pager-items">
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page2=true">Previous</a>
+                                <span class="visuallyhidden"> page</span>
+                                &nbsp;&nbsp;
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page1=true">1</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page2=true">2</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="text-bold">3</span>
+                                </li>
+                            </ul>
+                        </div>
+        
+                        <div class="pager-summary">
+                            Showing 51 to 54 of 54 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
+                        </div>
+        
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="pager">
+        
+                        <div class="pager-summary">
+                            Showing 1 to 7 of 7 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">7</span> -->
+                        </div>
+        
+                    </div>
+                    {% endif %}
 
                     <div class="form-group direction-rtl">
                         <a class="app-c-back-to-top dont-print" href="#content">
@@ -492,19 +546,7 @@
 <script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
 <script src="/public/javascripts/lifted/selection-buttons.js"></script>
 <!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
-<script>
-        
-    function cloneFilterSection() {
-        
-        var myFilter = document.getElementById("filterSection");
-        var clone = myFilter.cloneNode(true);
-        // var insertBeforeReference = document.getElementById("insertBeforeReference");
-    
-        document.body.appendChild(clone);
-        // document.body.insertBefore(clone, insertBeforeReference);
-    }
 
-</script>
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
 <!-- Sorting for the document list -->
