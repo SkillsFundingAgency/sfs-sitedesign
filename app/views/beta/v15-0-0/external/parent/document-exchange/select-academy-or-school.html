@@ -73,7 +73,7 @@
             <!-- Radio button SEARCH (END) -->
                         
             <div class="form-group">
-                <p class="hidden" data-clear-filter><a href="#">Clear search</a></p>
+                <p class="hidden" data-clear-filter><a href="select-academy-or-school?paginationRequired=true&page1=true" id="clearSearchAndSelection">Clear search</a></p>
             </div>
 
             {% if parent == 'MAT' %}
@@ -88,8 +88,13 @@
                     <legend class="visuallyhidden">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</legend>
 
                     <!-- NON JS CHECKBOXES -->
-                    <div class="form-group" data-non-js-checkboxes>
+                    <div class="form-group {% if error %}form-group-error{% endif %}" data-non-js-checkboxes>
+                        {% if error %}
+                        <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</span>
+                        {% endif %}
                         
+                        <!-- SHOWING 1 TO 25 OF 60 DOCUMENTS -->
+                        {% if page1 %}
                         <div class="searchable-radio multiple-choice">
                             <input id="radio-1" name="academyOrSchoolName" type="radio" data-search-value="{% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Admiral Lord Nelson School{% else %}[[Academy or school name]]{% endif %} (10187887)" value="{% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Admiral Lord Nelson School{% else %}[[Academy or school name]]{% endif %}">
                             <label for="radio-1">{% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Admiral Lord Nelson School{% else %}[[Academy or school name]]{% endif %} (10187887)</label>
@@ -215,6 +220,7 @@
                             <label for="radio-25">{% if parent == 'MAT' %}Leamington Hastings Church of England Academy{% elif parent == 'LA' %}Madani Primary School{% else %}[[Academy or school name]]{% endif %} (10563737)</label>
                         </div>
                         <!-- SHOWING 26 TO 50 OF 60 DOCUMENTS -->
+                        {% elif page2 %}
                         <div class="searchable-radio multiple-choice">
                             <input id="radio-26" name="academyOrSchoolName" type="radio" data-search-value="{% if parent == 'MAT' %}Leigh Church of England Academy{% elif parent == 'LA' %}Manadon Vale Primary School{% else %}[[Academy or school name]]{% endif %} (10196821)" value="{% if parent == 'MAT' %}Leigh Church of England Academy{% elif parent == 'LA' %}Manadon Vale Primary School{% else %}[[Academy or school name]]{% endif %}">
                             <label for="radio-26">{% if parent == 'MAT' %}Leigh Church of England Academy{% elif parent == 'LA' %}Manadon Vale Primary School{% else %}[[Academy or school name]]{% endif %} (10196821)</label>
@@ -340,6 +346,7 @@
                             <label for="radio-50">{% if parent == 'MAT' %}Stretton Church of England Academy{% elif parent == 'LA' %}Trafalgar School{% else %}[[Academy or school name]]{% endif %} (10507116)</label>
                         </div>
                         <!-- SHOWING 51 TO 54 OF 60 DOCUMENTS -->
+                        {% elif page3 %}
                         <div class="searchable-radio multiple-choice">
                             <input id="radio-51" name="academyOrSchoolName" type="radio" data-search-value="{% if parent == 'MAT' %}Studley St Mary's Church of England Academy{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %} (10078198)" value="{% if parent == 'MAT' %}Studley St Mary's Church of England Academy{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %}">
                             <label for="radio-51">{% if parent == 'MAT' %}Studley St Mary's Church of England Academy{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %} (10078198)</label>
@@ -389,11 +396,15 @@
                             <input id="radio-60" name="academyOrSchoolName" type="radio" data-search-value="{% if parent == 'MAT' %}Woodlands Academy{% elif parent == 'LA' %}Yealmpstone Farm Primary School{% else %}[[Academy or school name]]{% endif %} (10573734)" value="{% if parent == 'MAT' %}Woodlands Academy{% elif parent == 'LA' %}Yealmpstone Farm Primary School{% else %}[[Academy or school name]]{% endif %}">
                             <label for="radio-60">{% if parent == 'MAT' %}Woodlands Academy{% elif parent == 'LA' %}Yealmpstone Farm Primary School{% else %}[[Academy or school name]]{% endif %} (10573734)</label>
                         </div>
+                        {% endif %}
 
                     </div>
             
                     <!-- JS CHECKBOXES -->
-                    <div class="form-group hidden" hidden aria-hidden="true" data-checkboxes>
+                    <div class="form-group {% if error %}form-group-error{% endif %} hidden" hidden aria-hidden="true" data-checkboxes>
+                        {% if error %}
+                        <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</span>
+                        {% endif %}
 
                         <div class="searchable-radio multiple-choice">
                             <input id="radio-1" name="academyOrSchoolName" type="radio" data-search-value="{% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Admiral Lord Nelson School{% else %}[[Academy or school name]]{% endif %} (10187887)" value="{% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Admiral Lord Nelson School{% else %}[[Academy or school name]]{% endif %}">
@@ -697,43 +708,158 @@
 
                     </div>
             
-                </fieldset>
+                    <div class="form-group">
+
+                        <!-- NON JS PAGING -->
+                        {% if paginationRequired %}
+                        {% if page1 %}
+                        <div class="pager" data-non-js-paging>
+                                
+                            <div class="pager-controls">
+                                <ul class="pager-items">
+                                    <li>
+                                        <span class="text-bold">1</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="select-academy-or-school?paginationRequired=true&page2=true">2</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="select-academy-or-school?paginationRequired=true&page3=true">3</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <a class="pager-next" href="select-academy-or-school?paginationRequired=true&page2=true">Next</a>
+                                    <span class="visuallyhidden"> page</span>
+                                </ul>                                
+                            </div>
             
-                <!-- NON JS PAGING -->		
-                <div class="pager" style="margin-top: 0" data-non-js-paging>
-                
-                    <div class="pager-controls" >
-                        <ul class="pager-items">
-                            <li>1</li>
-                            <li><a href="add-team-members-to-client?activePage=2">2</a></li>
-                            <li><a href="add-team-members-to-client?activePage=3">3</a></li>
-                            <li><a href="add-team-members-to-client?activePage=4">4</a></li>
-                            <li><a href="add-team-members-to-client?activePage=5">5</a></li>
-                        </ul>
-                        <a class="pager-next" href="add-team-members-to-client?activePage=2">Next</a>
+                            <div class="pager-summary">
+                                Showing 1 to 25 of 54 {% if parent == 'MAT' %}academies{% elif parent == 'LA' %}schools{% else %}[[academies or schools]]{% endif %}
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page2 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="select-academy-or-school?paginationRequired=true&page1=true">Previous</a>
+                                    <span class="visuallyhidden"> page</span>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="select-academy-or-school?paginationRequired=true&page1=true">1</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">2</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="select-academy-or-school?paginationRequired=true&page3=true">3</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <a class="pager-next" href="select-academy-or-school?paginationRequired=true&page3=true">Next</a>
+                                    <span class="visuallyhidden"> page</span>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 26 to 50 of 54 {% if parent == 'MAT' %}academies{% elif parent == 'LA' %}schools{% else %}[[academies or schools]]{% endif %}
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page3 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="select-academy-or-school?paginationRequired=true&page2=true">Previous</a>
+                                    <span class="visuallyhidden"> page</span>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="select-academy-or-school?paginationRequired=true&page1=true">1</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="select-academy-or-school?paginationRequired=true&page2=true">2</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 51 to 54 of 54 {% if parent == 'MAT' %}academies{% elif parent == 'LA' %}schools{% else %}[[academies or schools]]{% endif %}
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <div class="pager">
+            
+                            <div class="pager-summary">
+                                Showing 1 to 10 of 10 {% if parent == 'MAT' %}academies{% elif parent == 'LA' %}schools{% else %}[[academies or schools]]{% endif %}
+                                <span id="totalDocumentCount" style="display: none;">4</span>
+                            </div>
+            
+                        </div>
+                        {% endif %}		
+                        <!-- <div class="pager" style="margin-top: 0" data-non-js-paging>
+                        
+                            <div class="pager-controls" >
+                                <ul class="pager-items">
+                                    <li>1</li>
+                                    <li><a href="add-team-members-to-client?activePage=2">2</a></li>
+                                    <li><a href="add-team-members-to-client?activePage=3">3</a></li>
+                                    <li><a href="add-team-members-to-client?activePage=4">4</a></li>
+                                    <li><a href="add-team-members-to-client?activePage=5">5</a></li>
+                                </ul>
+                                <a class="pager-next" href="add-team-members-to-client?activePage=2">Next</a>
+                            </div>
+
+                            <div class="pager-summary">Showing 1 - 25 of 60 team members</div>
+                            
+                        </div> -->
+                        <!--JS PAGING-->
+                        <div class="pager hidden" hidden aria-hidden="true" style="margin-top:0" data-paging>
+                        
+                            <div class="pager-controls">
+                                <a class="pager-prev" href="#">Previous</a>
+                                <ul class="pager-items"></ul>
+                                <a class="pager-next" href="#">Next</a>
+                            </div>
+
+                            <div class="pager-summary">
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div class="pager-summary">Showing 1 - 25 of 60 team members</div>
-                    
-                </div>
-
-                <!--JS PAGING-->
-                <div class="pager hidden" hidden aria-hidden="true" style="margin-top:0" data-paging>
-                
-                    <div class="pager-controls">
-                        <a class="pager-prev" href="#">Previous</a>
-                        <ul class="pager-items"></ul>
-                        <a class="pager-next" href="#">Next</a>
+                    <div class="form-group">
+                        <input class="button" type="submit" value="Continue">
                     </div>
 
-                    <div class="pager-summary">
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
                     </div>
 
-                </div>
-
-                <div class="form-group">
-                    <input class="button" type="submit" value="Continue">
-                </div>
+                </fieldset>
 
             </form>
             {% else %}
