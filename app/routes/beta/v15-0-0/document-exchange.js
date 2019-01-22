@@ -24,9 +24,8 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/external/child/document-exchange/idams');
 	});
 
-	// Roles Permissions
+	// User roles and permissions
 	router.get('/' + version + '/external/child/document-exchange/roles-permissions', function (req, res) {
-
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});
@@ -313,9 +312,8 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/external/parent/document-exchange/idams');
 	});
 
-	// Roles Permissions
+	// User roles and permissions
 	router.get('/' + version + '/external/parent/document-exchange/roles-permissions', function (req, res) {
-
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});
@@ -400,7 +398,11 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'parent' : req.session.parent
+			'parent' : req.session.parent,
+			'error' : req.query.error,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2
 		});
 	});
 
@@ -778,9 +780,8 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/internal/document-exchange/idams');
 	});
 
-	// Roles Permissions
+	// User roles and permissions
 	router.get('/' + version + '/internal/document-exchange/roles-permissions', function (req, res) {
-
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});

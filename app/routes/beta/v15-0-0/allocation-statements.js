@@ -8,7 +8,6 @@ module.exports = function(router) {
 
 	// GOV.UK Entry Point
 	router.get('/' + version + '/allocation-statements/adults/start', function (req, res) {
-
 		res.render(version + '/start', {
 			'version' : version
 		});
@@ -17,9 +16,8 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/allocation-statements/adults/idams');
 	});
 
-	// Routes Permissions 
+	// User roles and permissions 
 	router.get('/' + version + '/allocation-statements/adults/roles-permissions', function (req, res) {
-
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});
@@ -60,7 +58,7 @@ module.exports = function(router) {
 	// 16 to 18 traineeships for 2018 to 2019
 	router.get('/' + version + '/allocation-statements/adults/16-to-18-traineeships', function (req, res) {
 
-		req.session.idams = "traineeships";
+		req.session.idams = "adults";
 		
 		res.render(version + '/allocation-statements/adults/16-to-18-traineeships', {
 			'version' : version,
