@@ -8,8 +8,6 @@ module.exports = function(router) {
 
 	// GOV.UK Entry Point
 	router.get('/' + version + '/allocation-statements/adults/start', function (req, res) {
-		
-		req.session.disclaimerAccepted = "No";
 
 		res.render(version + '/start', {
 			'version' : version
@@ -17,6 +15,14 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/allocation-statements/adults/start', function (req, res) {		
 		res.redirect('/' + version + '/allocation-statements/adults/idams');
+	});
+
+	// Routes Permissions 
+	router.get('/' + version + '/allocation-statements/adults/roles-permissions', function (req, res) {
+
+		res.render(version + '/roles-permissions', {
+			'version' : version
+		});
 	});
 
 	// IDAMS

@@ -24,6 +24,14 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/external/child/document-exchange/idams');
 	});
 
+	// Roles Permissions
+	router.get('/' + version + '/external/child/document-exchange/roles-permissions', function (req, res) {
+
+		res.render(version + '/roles-permissions', {
+			'version' : version
+		});
+	});
+
 	// IDAMS
 	router.get('/' + version + '/external/child/document-exchange/idams', function (req, res) {
 		res.render(version + '/idams', {
@@ -303,6 +311,14 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/external/parent/document-exchange/start', function (req, res) {		
 		res.redirect('/' + version + '/external/parent/document-exchange/idams');
+	});
+
+	// Roles Permissions
+	router.get('/' + version + '/external/parent/document-exchange/roles-permissions', function (req, res) {
+
+		res.render(version + '/roles-permissions', {
+			'version' : version
+		});
 	});
 
 	// IDAMS
@@ -760,6 +776,14 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/internal/document-exchange/start', function (req, res) {		
 		res.redirect('/' + version + '/internal/document-exchange/idams');
+	});
+
+	// Roles Permissions
+	router.get('/' + version + '/internal/document-exchange/roles-permissions', function (req, res) {
+
+		res.render(version + '/roles-permissions', {
+			'version' : version
+		});
 	});
 
 	// IDAMS
