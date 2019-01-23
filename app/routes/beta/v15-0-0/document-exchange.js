@@ -529,6 +529,11 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
+
+		// If the parent is LA set the sendFrom variable (so we can set the correct dummy content)
+		if (req.session.parent == "LA") {
+			req.session.sendFrom = "Redhill Council";
+		}
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
