@@ -454,23 +454,45 @@ module.exports = function(router) {
 		req.session.organisationType = req.body.organisationType;
 		var organisationType = req.session.organisationType;
 
-		if (organisationType == "Parent") {
+		if (organisationType == "01") {
 
 			// Check to see whether the parent is LA or MAT (so we can set the correct dummy content)
 			if (req.session.parent == "LA") {
-				req.session.sendFrom = "Redhill Council";
+
+				req.session.sendFrom = "Redhill Council (10770003)";
+				
+				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 			}
 			else if (req.session.parent == "MAT") {
+
 				req.session.sendFrom = "Rupert Shoggins Academy Trust";
+
+				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 			}
 			else {
+
 				req.session.sendFrom = "LA/MAT name";
+
+				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 			}
 
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}
-		else if (organisationType == "Child") {
-			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
+		else if (organisationType == "02") {
+
+			// Check to see whether the parent is LA or MAT (so we can set the correct dummy content)
+			if (req.session.parent == "LA") {
+				
+				req.session.sendFrom = "Redhill Council (491)";
+
+				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
+			}
+			else if (req.session.parent == "MAT") {				
+				res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
+			}
+			else {				
+				res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
+			}
+
 		}
 		// Make sure the user chooses an option
 		else {
@@ -529,11 +551,6 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
-
-		// If the parent is LA set the sendFrom variable (so we can set the correct dummy content)
-		if (req.session.parent == "LA") {
-			req.session.sendFrom = "Redhill Council";
-		}
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
