@@ -328,7 +328,7 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/external/parent/document-exchange/idams', function (req, res) {		
 		
-		req.session.userID = req.body.id;
+		req.session.userID = req.body.id.toLowerCase();
 		var userID = req.session.userID;
 
 		// User is signing in as a Local Authority (LA)
