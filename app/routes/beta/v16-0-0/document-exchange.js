@@ -84,6 +84,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
+		req.session.fileTypeVersion = "";
 		
 		res.render(version + '/external/child/document-exchange/sent-to-esfa', {
 			'version' : version,
@@ -100,6 +101,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
+		req.session.fileTypeVersion = "";
 		
 		res.render(version + '/external/child/document-exchange/document-upload-file-type', {
 			'version' : version,
@@ -112,8 +114,20 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/external/child/document-exchange/document-upload-file-type', function (req, res) {		
 		
+		// Set the chosen document type as a session variable
 		req.session.fileType = req.body.fileType;
 		var fileType = req.session.fileType;
+
+		// Set the version for any new document users send to the ESFA (based on what they have already sent)
+		if (fileType == "Business case") {
+			req.session.fileTypeVersion = "3";
+		}
+		else if (fileType == "Business case audit evidence") {
+			req.session.fileTypeVersion = "2";
+		}
+		else {
+			req.session.fileTypeVersion = "1";
+		}
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
@@ -129,18 +143,21 @@ module.exports = function(router) {
 	// Document Upload
 	router.get('/' + version + '/external/child/document-exchange/document-upload', function (req, res) {
 
+		req.session.idams = "external";
+
 		// Set the session variable if is does not exist
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
 		req.session.fileType = req.session.fileType || "";
-		req.session.idams = "external";
+		req.session.fileTypeVersion = req.session.fileTypeVersion || "";
 		
 		res.render(version + '/external/child/document-exchange/document-upload', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType
+			'fileType' : req.session.fileType,
+			'fileTypeVersion' : req.session.fileTypeVersion
 		});		
 	});
 	router.post('/' + version + '/external/child/document-exchange/document-upload', function (req, res) {		
@@ -417,6 +434,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
+		req.session.fileTypeVersion = "";
 		
 		res.render(version + '/external/parent/document-exchange/sent-to-esfa', {
 			'version' : version,
@@ -551,6 +569,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
+		req.session.fileTypeVersion = "";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
@@ -564,10 +583,22 @@ module.exports = function(router) {
 			'fileType' : req.session.fileType
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {		
-		
+	router.post('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {
+
+		// Set the chosen document type as a session variable
 		req.session.fileType = req.body.fileType;
 		var fileType = req.session.fileType;
+
+		// Set the version for any new document users send to the ESFA (based on what they have already sent)
+		if (fileType == "Business case") {
+			req.session.fileTypeVersion = "3";
+		}
+		else if (fileType == "Business case audit evidence") {
+			req.session.fileTypeVersion = "2";
+		}
+		else {
+			req.session.fileTypeVersion = "1";
+		}
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
@@ -591,6 +622,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
 		req.session.fileType = req.session.fileType || "";
+		req.session.fileTypeVersion = req.session.fileTypeVersion || "";
 		
 		res.render(version + '/external/parent/document-exchange/document-upload', {
 			'version' : version,
@@ -600,7 +632,8 @@ module.exports = function(router) {
 			'sendFrom' : req.session.sendFrom,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType
+			'fileType' : req.session.fileType,
+			'fileTypeVersion' : req.session.fileTypeVersion
 		});		
 	});
 	router.post('/' + version + '/external/parent/document-exchange/document-upload', function (req, res) {		
