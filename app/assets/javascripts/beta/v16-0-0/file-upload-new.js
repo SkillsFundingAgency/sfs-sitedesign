@@ -120,13 +120,14 @@
                 
                 var upload = $("#fileInput" + i)[0];
                 var fileType = $("#fileType").text();
+                var fileTypeVersion = $("#fileTypeVersion").text();
 
                 if (upload.files.length === 0) continue;                        
                 sb.push(
                     "<tr>" +
                         "<td><a href='#'>" + upload.files[0].name + "</a></td>" +
                         "<td>" + fileType + "</td>" +
-                        "<td>1</td>" +
+                        "<td>" + fileTypeVersion + "</td>" +
                         "<td class='numeric'><a class='' id='" + i + "' href='document-upload-remove?uploadedDocumentName=" + upload.files[0].name + "'>Remove</a></td>" +
                     "</tr>" +
                     "<tr style='display:none;'>" +

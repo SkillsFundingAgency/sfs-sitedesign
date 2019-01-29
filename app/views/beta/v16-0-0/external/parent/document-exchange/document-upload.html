@@ -83,7 +83,7 @@
                                 <tr>
                                     <td><a href="#">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></td>
                                     <td>{% if fileType %}{{fileType}}{% else %}[FILE TYPE]{% endif %}</td>
-                                    <td>1</td>
+                                    <td>{% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[1]{% endif %}</td>
                                     <td class="numeric"><a class="" href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">Remove</a></td>
                                 </tr>
                                 <tr style="display: none;">
@@ -111,7 +111,8 @@
 
                 <div style="display: none;" id="hiddenFormEles">
                     <!-- File uploads will get sent here + radio button selections -->
-                    <p id="fileType">{% if fileType %}{{fileType}}{% endif %}</p>
+                    <p id="fileType">{% if fileType %}{{fileType}}{% else %}[DOCUMENT TYPE]{% endif %}</p>
+                    <p id="fileTypeVersion">{% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[VERSION]{% endif %}</p>
                 </div>
 
             </form>
