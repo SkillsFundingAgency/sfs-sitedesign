@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Documents sent to ESFA
+    {% if error %}Error: {% endif %}Documents you've sent to ESFA
 {% endblock %}
 
 {% block content %}
@@ -23,9 +23,9 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
-                        <li><a href="../../../external/parent/document-exchange/dashboard">Home</a></li>
+                        <li><a href="../../../external/child/document-exchange/dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
-                        <li>Documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></li>
+                        <li>Documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></li>
                     </ol>
                 </nav>
             </div>
@@ -39,110 +39,14 @@
                 {% endif %}
     
                 <div class="form-group">
-                    <h1 class="heading-xlarge">Documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
+                    <h1 class="heading-xlarge">Documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
                     <p>If you’ve just sent a document, it can take a few minutes to show here.</p>
+                    <!-- <p><a href="document-upload-file-type">Send a document</a></p> -->
                 </div>
                 
                 <div class="column-filter-one-third column-third">
                     
                     <div>
-                        <fieldset class="filter">
-                            <legend class="visuallyhidden">Filter by organisation</legend>
-                            
-                            <div class="js-filter-collapsible-collections">
-                                <section id="organisation-filter" class="js-filter-collapsible js-open">
-                                    <input type="hidden" name="queryFilterOpenOrganisation" id="queryFilterOpenOrganisation" aria-expanded="true" aria-controls="filter-by-organisation" value="true">
-                                    <a href="#" id="filter-keyboard-organisation" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-organisation">
-                                        <header id="organisation" class="js-filter-collapsible-header">
-                                            <h2 class="filters-headings heading-small">Filter by organisation</h2>
-                                        </header>
-                                    </a>
-                                    
-                                    <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
-                                        <section class="toggled-adult-funding-content group">
-                                            <ul>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
-                                                    <label class="block" for="queryFilterOrganisationChild01">
-                                                        {% if parent == 'MAT' %}Coundon Court Academy{% elif parent == 'LA' %}Blossomfield Infants' School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li>
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
-                                                    <label class="block" for="queryFilterOrganisationChild02">
-                                                        {% if parent == 'MAT' %}Ernesford Grange Community Academy{% elif parent == 'LA' %}Christ The King RC Infants' School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li> -->
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
-                                                    <label class="block" for="queryFilterOrganisationChild03">
-                                                        {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}2{% endif %})
-                                                    </label>
-                                                </li>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild04" rel="Child04" name="queryFilterOrganisation" type="checkbox" value="Child04">
-                                                    <label class="block" for="queryFilterOrganisationChild04">
-                                                        {% if parent == 'MAT' %}Grace Academy{% elif parent == 'LA' %}Heart of England School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li>
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild05" rel="Child05" name="queryFilterOrganisation" type="checkbox" value="Child05">
-                                                    <label class="block" for="queryFilterOrganisationChild05">
-                                                        {% if parent == 'MAT' %}Hill Farm Academy{% elif parent == 'LA' %}Knowle CE School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li> -->
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild06" rel="Child06" name="queryFilterOrganisation" type="checkbox" value="Child06">
-                                                    <label class="block" for="queryFilterOrganisationChild06">
-                                                        {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
-                                                    </label>
-                                                </li>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild07" rel="Child07" name="queryFilterOrganisation" type="checkbox" value="Child07">
-                                                    <label class="block" for="queryFilterOrganisationChild07">
-                                                        {% if parent == 'MAT' %}Radford Academy{% elif parent == 'LA' %}Sharmans Cross Junior School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li> -->
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationParent01" rel="Parent01" name="queryFilterOrganisation" type="checkbox" value="Parent01">
-                                                    <label class="block" for="queryFilterOrganisationParent01">
-                                                        {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003 {% else %}[[LA/MAT name]]{% endif %} ({% if pagingRequired %}?{% else %}1{% endif %})
-                                                    </label>
-                                                </li>
-                                                {% if parent == 'LA' %}
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationParent02" rel="Parent02" name="queryFilterOrganisation" type="checkbox" value="Parent02">
-                                                    <label class="block" for="queryFilterOrganisationParent02">
-                                                        Redhill Council: 491 ({% if pagingRequired %}?{% else %}1{% endif %})
-                                                    </label>
-                                                </li>
-                                                {% endif %}
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild08" rel="Child08" name="queryFilterOrganisation" type="checkbox" value="Child08">
-                                                    <label class="block" for="queryFilterOrganisationChild08">
-                                                        {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}1{% endif %})
-                                                    </label>
-                                                </li>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild09" rel="Child09" name="queryFilterOrganisation" type="checkbox" value="Child09">
-                                                    <label class="block" for="queryFilterOrganisationChild09">
-                                                        {% if parent == 'MAT' %}St Jerome's CE Academy{% elif parent == 'LA' %}Windy Arbor Junior and Infant School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li>
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild10" rel="Child10" name="queryFilterOrganisation" type="checkbox" value="Child10">
-                                                    <label class="block" for="queryFilterOrganisationChild10">
-                                                        {% if parent == 'MAT' %}Woodlands Academy{% elif parent == 'LA' %}Whoberley Hall School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}0{% endif %})
-                                                    </label>
-                                                </li> -->
-                                            </ul>
-                                        </section>
-                                    </div>
-
-                                </section>
-                            </div>
-
-                        </fieldset>
                         <fieldset class="filter">
                             <legend class="visuallyhidden">Filter by document type</legend>
                             
@@ -173,7 +77,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
                                                     <label class="block" for="queryFilterDocumentType03">
-                                                        Financial report ({% if parent == 'MAT' %}{% if pagingRequired %}?{% else %}1{% endif %}{% elif parent == 'LA' %}{% if pagingRequired %}?{% else %}2{% endif %}{% else %}{% if pagingRequired %}?{% else %}1{% endif %}{% endif %})
+                                                        Financial report ({% if pagingRequired %}?{% else %}1{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -214,7 +118,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 ({% if parent == 'MAT' %}{% if pagingRequired %}?{% else %}4{% endif %}{% elif parent == 'LA' %}{% if pagingRequired %}?{% else %}5{% endif %}{% else %}{% if pagingRequired %}?{% else %}4{% endif %}{% endif %})
+                                                        2017 to 2018 ({% if pagingRequired %}?{% else %}4{% endif %})
                                                     </label>
                                                 </li>
                                             </ul>
@@ -243,10 +147,7 @@
                             <tr class="first">
                                 <th>
                                     Document name
-                                </th>
-                                <th>
-                                    Organisation
-                                </th> 
+                                </th>                                
                                 <th>
                                     Document type
                                 </th>
@@ -287,14 +188,12 @@
                                     <br>
                                     Sent by J Jones at 5:44pm on 23 September 2018
                                 </td>
-                                <td class="Child06" rel="Child06" style="vertical-align: top;">
-                                    {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
-                                </td>
                                 <td class="01" rel="01" style="vertical-align: top;">
                                     Business case
                                 </td>
                                 <!-- <td style="vertical-align: top;">
                                     2
+                                    <br>
                                     <br>
                                     <br>
                                     <br>
@@ -311,9 +210,6 @@
                                     <a href="#">Business case audit evidence.pdf</a>
                                     <br>
                                     Sent by J Jones at 11:29am on 8 October 2018
-                                </td>
-                                <td class="Child03" rel="Child03" style="vertical-align: top;">
-                                    {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <td class="02" rel="02" style="vertical-align: top;">
                                     Business case audit evidence
@@ -332,9 +228,6 @@
                                     <br>
                                     Sent by J Jones at 2:33pm on 23 March 2018
                                 </td>
-                                <td class="Parent01" rel="Parent01" style="vertical-align: top;">
-                                    {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003{% else %}[[LA/MAT name]]{% endif %}
-                                </td>
                                 <td class="03" rel="03" style="vertical-align: top;">
                                     Financial report
                                 </td>
@@ -346,36 +239,11 @@
                                     2017 to 2018
                                 </td>
                             </tr>
-                            {% if parent == 'LA' %}
-                            <tr>
-                                <td style="vertical-align: top;">
-                                    <a href="#">Financial Report (2018-2019).xls</a>
-                                    <br>
-                                    Sent by J Jones at 2:27pm on 23 March 2018
-                                </td>
-                                <td class="Parent02" rel="Parent02" style="vertical-align: top;">
-                                    Redhill Council: 491
-                                </td>
-                                <td class="03" rel="03" style="vertical-align: top;">
-                                    Financial report
-                                </td>
-                                <!-- <td style="vertical-align: top;">
-                                    1
-                                </td> -->
-                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
-                                <td style="display: none;" class="2017-2018" rel="2017-2018">
-                                    2017 to 2018
-                                </td>
-                            </tr>
-                            {% endif %}
                             <tr>
                                 <td style="vertical-align: top;">
                                     <a href="#">Business Case (2017-2018).xls</a>
                                     <br>
                                     Sent by J Jones at 3:03am on 5 October 2017
-                                </td>
-                                <td class="Child08" rel="Child08" style="vertical-align: top;">
-                                    {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <td class="01" rel="01" style="vertical-align: top;">
                                     Business case
@@ -394,9 +262,6 @@
                                     <br>
                                     Sent by J Jones at 3:09am on 5 October 2017
                                 </td>
-                                <td class="Child03" rel="Child03" style="vertical-align: top;">
-                                    {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
-                                </td>
                                 <td class="02" rel="02" style="vertical-align: top;">
                                     Business case audit evidence
                                 </td>
@@ -413,9 +278,6 @@
                                     <a href="#">Infrastructure Return (2017-2018).xls</a>
                                     <br>
                                     Sent by J Jones at 10:21am on 13 September 2017
-                                </td>
-                                <td class="Child06" rel="Child06" style="vertical-align: top;">
-                                    {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
                                 </td>
                                 <td class="04" rel="04" style="vertical-align: top;">
                                     Infrastructure return
@@ -529,16 +391,8 @@
                     <div class="pager">
         
                         <div class="pager-summary">
-                            {% if parent == 'MAT' %}
                             Showing 1 to 7 of 7 documents
                             <!-- <span id="totalDocumentCount" style="display: none;">7</span> -->
-                            {% elif parent == 'LA' %}
-                            Showing 1 to 8 of 8 documents
-                            <!-- <span id="totalDocumentCount" style="display: none;">8</span> -->
-                            {% else %}
-                            Showing 1 to 7 of 7 documents
-                            <!-- <span id="totalDocumentCount" style="display: none;">7</span> -->
-                            {% endif %}
                         </div>
         
                     </div>
@@ -563,7 +417,7 @@
 
 </main>
 
-<!-- JavaScript (START) -->
+<!-- JavaScript -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
 <script src="/public/javascripts/lifted/jquery-ui.js"></script>
 <script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
@@ -579,6 +433,5 @@
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
 <!-- Sorting for the document list -->
 <script src="/public/javascripts/{{version}}/sorting-fileshare.js"></script>
-<!-- JavaScript (END) -->
 
 {% endblock %}
