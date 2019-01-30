@@ -40,16 +40,19 @@
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                     <ul class="error-summary-list">
-                        <li><a href="#documentType">Select the organisation you want to send a document for</a></li>
+                        <li><a href="#organisation">Select the organisation you want to send a document for</a></li>
                     </ul>
                 </div>
                 {% endif %}
 
                 <fieldset class="{% if error %}after-error-summary{% endif %}">
-                    <legend id="documentType">
-                        <h1 class="heading-xlarge">Which organisation do you want to send a document for?</h1>
-                    </legend>
-
+                    
+                    <div>
+                        <legend id="organisation">
+                            <h1 class="heading-xlarge">Which organisation do you want to send a document for?</h1>
+                        </legend>
+                    </div>
+            
                     <div class="form-group {% if error %}form-group-error{% endif %}">
                         {% if error %}
                         <span class="error-message">Select the organisation you want to send a document for</span>
@@ -64,9 +67,9 @@
                             <input id="radio-2" type="radio" name="organisationType" value="02">
                             <label for="radio-2">{% if parent == 'MAT' %}A specific academy{% elif parent == 'LA' %}Redhill Council (491){% else %}[[A specific academy or school]]{% endif %}</label>
                         </div>
-
+            
                     </div>
-
+            
                 </fieldset>
 
                 <div class="form-group">

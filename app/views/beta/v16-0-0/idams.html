@@ -18,41 +18,37 @@
 				<div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
 					<h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
 					<ul class="error-summary-list">
-						<li><a href="#signIn">Please enter your user ID or email address and your password</a></li>
+						<li><a href="#id">Please enter your user ID or email address</a></li>
+						<li><a href="#password">Please enter your password</a></li>
 					</ul>
 				</div>
 				{% endif %}
 
-				<fieldset class="{% if error %}after-error-summary{% endif %}">
-					<legend id="signIn">
-						<h1 class="heading-xlarge">Sign in</h1>
-					</legend>
+				<h1 class="heading-xlarge">Sign in</h1>
 
-					<div class="form-group">
+				<div class="form-group">
 
-						<div class="form-group {% if error %}form-group-error{% endif %}">
-							<label class="form-label" for="id">User ID or email address</label>
-							{% if error %}
-							<span class="error-message">Please enter your user ID or email address</span>
-							{% endif %}
-							<input class="form-control form-control-2-3 {% if error %}form-control-error{% endif %}" id="id" name="id" type="text">
-						</div>
-
-						<div class="form-group {% if error %}form-group-error{% endif %}">
-							<label class="form-label" for="password">Password</label>
-							{% if error %}
-							<span class="error-message">Please enter your password</span>
-							{% endif %}
-							<input class="form-control form-control-2-3 {% if error %}form-control-error{% endif %}" id="password" name="password" type="password">
-						</div>
-					
-						<div class="form-group">
-							<button class="button">Sign in</button>
-						</div>
-
+					<div class="form-group {% if error %}form-group-error{% endif %}">
+						<label class="form-label" for="id">User ID or email address</label>
+						{% if error %}
+						<span class="error-message">Please enter your user ID or email address</span>
+						{% endif %}
+						<input class="form-control form-control-2-3 {% if error %}form-control-error{% endif %}" id="id" name="id" type="text">
 					</div>
 
-				</fieldset>
+					<div class="form-group {% if error %}form-group-error{% endif %}">
+						<label class="form-label" for="password">Password</label>
+						{% if error %}
+						<span class="error-message">Please enter your password</span>
+						{% endif %}
+						<input class="form-control form-control-2-3 {% if error %}form-control-error{% endif %}" id="password" name="password" type="password">
+					</div>
+				
+					<div class="form-group">
+						<button class="button">Sign in</button>
+					</div>
+
+				</div>
 
 				<div class="form-group">
 					<h2 class="heading-medium">Problems signing in?</h2>

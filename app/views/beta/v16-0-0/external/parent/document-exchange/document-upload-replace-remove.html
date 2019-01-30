@@ -48,10 +48,13 @@
                 {% endif %}
 
                 <fieldset class="inline {% if error %}after-error-summary{% endif %}">
-                    <legend id="removeUploadedDocument">
-                        <h1 class="heading-xlarge">Are you sure you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}?</h1>
-                    </legend>
-
+                    
+                    <div>
+                        <legend id="removeUploadedDocument">
+                            <h1 class="heading-xlarge">Are you sure you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}?</h1>
+                        </legend>
+                    </div>
+            
                     <div class="form-group {% if error %}form-group-error{% endif %}">
                         {% if error %}
                         <span class="error-message">Select yes if you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</span>
@@ -66,9 +69,9 @@
                             <input id="radio-2" type="radio" name="deleteDocument" value="No">
                             <label for="radio-2">No</label>
                         </div>
-
+            
                     </div>
-
+            
                 </fieldset>
 
                 <div class="form-group">
