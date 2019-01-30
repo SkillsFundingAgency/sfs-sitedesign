@@ -43,22 +43,21 @@
                 </ul>
             </div>
             {% endif %}
-            
+
             <!-- 60 RESULTS -->
             {% if paginationRequired %}
             <!-- Radio button SEARCH (START) -->
             <form action="add-team-members-to-client" method="GET">
 
                 <fieldset class="{% if error %}after-error-summary{% endif %}">
-                    <legend id="academyOrSchool">
-                        <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</h1>
-                    </legend>
+                    <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</h1>
+                    <legend id="academyOrSchool" class="visuallyhidden">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</legend>
                     
-                    <div style="margin-bottom: 1em" class="search-field search-field-darker" data-checkbox-search-filter >
+                    <div style="margin-bottom: 1em;" class="search-field search-field-darker" data-checkbox-search-filter>
                         
                         <div class="search-input search-input-with-button" >
                             <label class="form-label" for="searchUsers">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</label>
-                            <input autocomplete="off" class="form-control" name="searchUsers" id="searchUsers" type="text" value=""/>
+                            <input autocomplete="off" class="form-control" name="searchUsers" id="searchUsers" type="text" value="" />
                         </div>
 
                         <div class="search-submit">
@@ -866,11 +865,17 @@
             <form method="post" class="form">
 
                 <fieldset class="{% if error %}after-error-summary{% endif %}">
-                    <legend id="academyOrSchool">
-                        <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</h1>
-                    </legend>
-
-                    <div class="form-group">
+                
+                    <div>
+                        <legend id="academyOrSchool">
+                            <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</h1>
+                        </legend>
+                    </div>
+            
+                    <div class="form-group {% if error %}form-group-error{% endif %}">
+                        {% if error %}
+                        <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</span>
+                        {% endif %}
 
                         <!-- 10 RESULTS -->
                         <!-- SHOWING 1 TO 10 OF 10 DOCUMENTS -->
@@ -923,14 +928,14 @@
                             <input id="radio-10" name="academyOrSchoolName" type="radio" data-search-value="{% if parent == 'MAT' %}Coundon Court Academy{% elif parent == 'LA' %}Copnor Primary School{% else %}[[Academy or school name]]{% endif %} (10649565)" value="{% if parent == 'MAT' %}Coundon Court Academy{% elif parent == 'LA' %}Copnor Primary School{% else %}[[Academy or school name]]{% endif %}">
                             <label for="radio-10">{% if parent == 'MAT' %}Coundon Court Academy{% elif parent == 'LA' %}Copnor Primary School{% else %}[[Academy or school name]]{% endif %} (10649565)</label>
                         </div>
-
+            
                     </div>
-
-                    <div class="form-group">
-                        <button class="button">Continue</button>
-                    </div>
-
+            
                 </fieldset>
+
+                <div class="form-group">
+                    <button class="button">Continue</button>
+                </div>
 
             </form>
             {% endif %}
