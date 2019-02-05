@@ -280,7 +280,8 @@
                 <!-- Document list -->
                 <div class="column-document-list-two-thirds column-two-thirds document-list">
                     <fieldset>
-                        <legend id="document-list" class="visuallyhidden">Document list</legend>
+                        <legend id="document-list" class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
+
                         {% if paginationRequired %}
                         {% if page1 %}
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
@@ -301,19 +302,23 @@
                         </div>
                         {% endif %}
 
-                        <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <table>
+                                <caption class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
                                 <thead>
                                     <tr class="first">
                                         <th>
+
                                             <div style="display: none;" class="document-checkbox-div multiple-choice">
                                                 <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
                                                 <label for="document-checkbox">Select/deselect all documents</label>
                                             </div>
+
+                                            <span class="visuallyhidden">Select/deselect this document</span>
                                         </th>
-                                        <th class="">
+                                        <th>
                                             <span class="tab-header-no-sort">Document name</span>
                                         </th>
                                         <th>
