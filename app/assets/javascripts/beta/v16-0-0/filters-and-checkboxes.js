@@ -761,6 +761,7 @@ function selectAll(divid) {
         }
 
         document.getElementById("documentsSelectedText").innerHTML = totalDocumentCount + " documents selected";
+        document.getElementById("selectAllTrigger").innerHTML = "Deselect all documents";
 
     }
     else {
@@ -775,6 +776,7 @@ function selectAll(divid) {
         }
 
         document.getElementById("documentsSelectedText").innerHTML = "0 documents selected";
+        document.getElementById("selectAllTrigger").innerHTML = "Select all documents";
 
     }
 
