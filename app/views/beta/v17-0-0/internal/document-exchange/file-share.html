@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    68 files have synchronised to your file share
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>File share documents</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+
+            <form method="post" class="form">
+    
+                <h1 class="heading-xlarge">
+                    <!-- <span class="heading-secondary">Casterbridge College</span>
+                    <span class="heading-secondary">UKPRN: 12345678</span> -->
+                    There are 68 documents in your file share
+                    <!-- There are no documents in your file share -->
+                </h1>
+                <!-- <p>If you want to publish any documents, you need to add them to your file share.</p> -->
+                <p>You can <a href="documents-to-publish?paginationRequired=true&page1=true">publish 54 documents</a>.</p>
+                <p>You need to <a href="documents-to-review">review 14 documents</a>.</p>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
