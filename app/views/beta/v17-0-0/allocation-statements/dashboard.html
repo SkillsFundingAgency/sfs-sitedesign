@@ -23,26 +23,29 @@
 
             <section>
 
+                <!-- Custom view of tiles when user DOES have a need to view the apprenticeship service -->
+                {% if apprenticeshipServiceAccess %}
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a href="#" id="apprenticeships" class="dashboard-links">
+                        <a id="apprenticeships" class="dashboard-links" href="#">
                             <span id="apprenticeship-service" class="service-name">Apprenticeship service</span>
-                            <span id="apprenticeship-alert" class="alert alert-name-grey">Request permission to access</span>
+                            <span id="contract-alert" class="alert alert-name-green">Visit service</span>
                         </a>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a href="#" id="contracts" class="dashboard-links">
+                        <a id="contracts" class="dashboard-links" href="#">
                             <span id="contracts-service" class="service-name">Contracts and agreements</span>
+                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new contracts to view</span> -->
                             <span id="contract-alert" class="alert alert-name-green">View contracts</span>
                         </a>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a href="#" id="ageReports" class="dashboard-links">
+                        <a id="ageReports" class="dashboard-links">
                             <span id="age-service" class="service-name">Apprenticeship grant for employers</span>
-                            <span id="age-alert" class="alert alert-name-grey">Service unavailable</span>
+                            <span id="contract-alert" class="alert alert-name-green">Visit service</span>
                         </a>
                     </div>
 
@@ -51,13 +54,52 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a href="allocation-statement-list" id="allocations" class="dashboard-links">
-                            <span id="allocations-service" class="service-name">Allocation statements</span>
-                            <span id="allocation-alert" class="alert alert-name-red">4 new alerts to review</span>
+                        <a id="adultFundingAllocation" class="dashboard-links" href="allocation-statement-list">
+                            <span id="subcontractor-declaration-service" class="service-name">Allocation statements</span>
+                            <span id="allocation-alert" class="alert alert-name-red">2 new statements to view</span>
+                            <!-- <span id="contract-alert" class="alert alert-name-green">View statements</span> -->
+                        </a>
+                    </div>
+
+                    <div class="column-third margin-top">
+                        <a id="allocations" class="dashboard-links" href="#">
+                            <span id="allocations-service" class="service-name">Document exchange</span>
+                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new documents to view</span> -->
+                            <span id="contract-alert" class="alert alert-name-green">View documents</span>
                         </a>
                     </div>
 
                 </div>
+                <!-- Standard view of tiles when user DOES NOT have a need to view the apprenticeship service (DEFAULT VIEW) -->
+                {% else %}
+                <div class="grid-row">
+
+                    <div class="column-third margin-top">
+                        <a id="adultFundingAllocation" class="dashboard-links" href="allocation-statement-list">
+                            <span id="subcontractor-declaration-service" class="service-name">Allocation statements</span>
+                            <span id="allocation-alert" class="alert alert-name-red">2 new statements to view</span>
+                            <!-- <span id="contract-alert" class="alert alert-name-green">View statements</span> -->
+                        </a>
+                    </div>
+
+                    <div class="column-third margin-top">
+                        <a id="contracts" class="dashboard-links" href="#">
+                            <span id="contracts-service" class="service-name">Contracts and agreements</span>
+                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new contracts to view</span> -->
+                            <span id="contract-alert" class="alert alert-name-green">View contracts</span>
+                        </a>
+                    </div>
+
+                    <div class="column-third margin-top">
+                        <a id="allocations" class="dashboard-links" href="#">
+                            <span id="allocations-service" class="service-name">Document exchange</span>
+                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new documents to view</span> -->
+                            <span id="contract-alert" class="alert alert-name-green">View documents</span>
+                        </a>
+                    </div>
+
+                </div>
+                {% endif %}
 
                 <br>
 
