@@ -154,6 +154,7 @@ module.exports = function(router) {
 		res.render(version + '/external/child/document-exchange/document-upload', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType,
@@ -241,6 +242,7 @@ module.exports = function(router) {
 		res.render(version + '/external/child/document-exchange/document-upload-replace', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType
@@ -628,6 +630,7 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
+			'error' : req.query.error,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
@@ -733,6 +736,7 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
+			'error' : req.query.error,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
