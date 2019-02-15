@@ -395,26 +395,27 @@ fieldset.after-error-summary {
 	border-left-color: #005ea5;
 }
 
-/* Chris Harding (19.10.18) - Account Management (IDAMS) navigation bar */
-.account-master {
-	border-bottom: 1px solid #bfc1c3;
-	font-size: 16px;
-}
+/* Chris Harding (15.02.19) - Account Management (IDAMS) navigation bar */
 .account-details {
+	border-bottom: 1px solid #bfc1c3;
+	font-size: 14px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
-.account-div {
-	text-align: right;
+@media (min-width: 641px) {
+	.account-details {
+		font-size: 16px;
+	}
 }
 .account-name {
+	font-size: 14px;
 	float: left;
 	margin: 0px;
 	padding: 0px;
 }
-@media (max-width: 641px) {
+@media (min-width: 641px) {
 	.account-name {
-		display: none;
+		font-size: 16px;
 	}
 }
 .name {
@@ -422,11 +423,34 @@ fieldset.after-error-summary {
 	padding: 0px;
 }
 .account-features {
+	clear: left;
+	text-align: inherit;
 	margin: 0px;
-	padding: 0px;
+	padding-top: 10px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+}
+@media (min-width: 641px) {
+	.account-features {
+		clear: none;
+		text-align: right;
+		padding: 0px;
+	}
 }
 .account-link {
-	margin-left: 10px;
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+@media (min-width: 641px) {
+	.account-link {
+		margin-top: 0px;
+		margin-right: 0px;
+		margin-bottom: 0px;
+		margin-left: 10px;
+	}
 }
 
 /* Chris Harding (22.10.18) - Styling for the chosen (now global) tile dashboard design */
