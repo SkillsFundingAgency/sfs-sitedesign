@@ -36,7 +36,8 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
     // Show JS checkboxes
     showOrHideElement(_checkboxesContainer, "show")
 
-    var _checkboxes = _checkboxesContainer.find("input[type='radio']")
+    // var _checkboxes = _checkboxesContainer.find("input[type='radio']")
+    var _checkboxes = _checkboxesContainer.find("tbody>tr")
     var _checkboxesTickedCount = 0
 
     // Store tickedcheckboxes in local storage
@@ -220,7 +221,7 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
             // _checkboxes.closest("div.searchable-radio").show()
             // _checkboxes.data("matches-search") = true
             _checkboxes.data("matches-search", true)
-            showOrHideElement(_checkboxes.closest("div.searchable-radio"), "show", true)
+            showOrHideElement(_checkboxes.closest("tr.searchable-radio"), "show", true)
             // _checkboxes.closest("div.searchable-radio").show()
             var _value = _search.val()
             var _valueUpper = _value.toUpperCase().trim()
@@ -307,7 +308,7 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
                 _displayedCount++
             }
             if ((_this.data("matches-search") == true) && ((_displayedCount > _pagingCalc1) && (_displayedCount <= _pagingCalc2))) {
-                showOrHideElement(_this.closest("div.searchable-radio"), "show", true)
+                showOrHideElement(_this.closest("tr.searchable-radio"), "show", true)
                 if (_pagingFirstItemIndexDone == false) {
                     _pagingFirstItemIndex = _displayedCount
                     _pagingFirstItemIndexDone = true
@@ -317,7 +318,7 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
                 }			
             }
             else {
-                showOrHideElement(_this.closest("div.searchable-radio"), "hide", true)
+                showOrHideElement(_this.closest("tr.searchable-radio"), "hide", true)
             }
         });
 
