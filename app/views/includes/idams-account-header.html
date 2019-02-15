@@ -4,23 +4,23 @@
 
         <div class="account-details">
 
+            {% if dashboard == 'Yes' or idams == 'dashboard' or idams == 'internal' %}
+            <!-- Do not display this section since it is not needed -->
+            {% else %}
             <div class="account-name">
                 <span class="name">
-                    {% if dashboard == 'Yes' %}
-                    <!-- We do not want to display this IDAMS information on the dashboard -->
+                    {% if idams == 'external' or idams == 'adults' %}
+                    Casterbridge College (UKPRN: 12345678)
+                    {% elif idams == 'LA' %}
+                    Redhill Council
+                    {% elif idams == 'MAT' %}
+                    Rupert Shoggins Academy Trust
                     {% else %}
-                        {% if idams == 'external' or idams == 'adults' %}
-                        Casterbridge College (UKPRN: 12345678)
-                        {% elif idams == 'LA' %}
-                        Redhill Council
-                        {% elif idams == 'MAT' %}
-                        Rupert Shoggins Academy Trust
-                        {% else %}
-                        <!-- Display no name for anything else declared -->
-                        {% endif %}
+                    [ORGANISATION NAME] (UKPRN: [UKPRN])
                     {% endif %}
                 </span>
             </div>
+            {% endif %}
 
             <div class="account-features">
                 <span class="account-link"><a href="#">Settings</a></span>
