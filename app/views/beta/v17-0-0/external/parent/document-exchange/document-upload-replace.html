@@ -43,6 +43,15 @@
         <div class="column-two-thirds">
 
             <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#fileInput0">Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format</a></li>
+                    </ul>
+                </div>
+                {% endif %}
                 
                 <h1 id="originalHeading1" class="heading-xlarge">
                     <!-- <span class="heading-secondary">Casterbridge College</span>
