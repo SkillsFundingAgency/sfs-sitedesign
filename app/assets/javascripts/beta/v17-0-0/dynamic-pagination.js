@@ -1,94 +1,31 @@
-function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,itemTypeLabel,itemTypeLabelPlural) {
 
-    var testCount = 0;
 
-    //
-    // Data attr elements already in HTML
-    //
+/**********
+ * DYNAMIC PAGINATION (JavaScript)
+ * **********/
 
-        // - non-js-checkboxes
-        // - checkboxes
+function dynamicPagination(totalListCount,clearLocalStorage,itemsPerPage,itemTypeLabel,itemTypeLabelPlural) {
 
-        // - non-js-paging
-        // - paging
-
-        // - selected-items-message
-        // - select-all-link
-
-        // - checkbox-search-filter
-
-        // - clear-filter
-        // - clear-filter-non-js
-
-        // - filtered-message
-
-    // Non-js paging and checkboxes
+    // Hide non JS paging and checkboxes (since not needed when this file loads)
     var _checkboxesContainerNonJS = jQuery("[data-non-js-checkboxes]")
     _checkboxesContainerNonJS.remove()
     var _pagingNonJS = jQuery("[data-non-js-paging]")
     _pagingNonJS.remove()
     
-    var _paging = jQuery("[data-paging]")
     // Show JS paging
+    var _paging = jQuery("[data-paging]")
     showOrHideElement(_paging, "show")
 
     var _checkboxesContainer = jQuery("[data-checkboxes]")
     // Show JS checkboxes
     showOrHideElement(_checkboxesContainer, "show")
 
-    // var _checkboxes = _checkboxesContainer.find("input[type='radio']")
     var _checkboxes = _checkboxesContainer.find("tbody>tr")
-    var _checkboxesTickedCount = 0
 
-    // Store tickedcheckboxes in local storage
+    // Store filter checkboxes selected in local JSON storage
     if (clearLocalStorage == true) {
         localStorage.setItem("tickedCheckboxes", JSON.stringify({}));
     }
-    var tickedCheckboxes = JSON.parse(localStorage.getItem('tickedCheckboxes')) || {};
-    jQuery(document).on(
-        'change',
-        _checkboxes,
-        function() {
-            // Update local storage ticked object
-            _checkboxesTickedCount = 0	
-            _checkboxes.each(function() {
-                if (this.checked) {
-                    _checkboxesTickedCount++
-                    tickedCheckboxes[this.id] = true;
-                }
-                else {
-                    delete tickedCheckboxes[this.id]; 
-                }
-            });
-            localStorage.setItem("tickedCheckboxes", JSON.stringify(tickedCheckboxes));
-            updateMessage()
-        }
-    );
-    // Set checkboxes to be unticked on load (bug with caching selected class from old checkboxes)
-    _checkboxes.each(function() {
-        jQuery(this).prop('checked', false);
-        jQuery(this).closest("div.searchable-radio").removeClass("selected")
-    });
-    // Set checkboxes to be ticked on load if value in tickedCheckboxes localStorage
-    jQuery.each(tickedCheckboxes, function(key, value) {
-        _checkboxesTickedCount++
-        jQuery("#" + key).prop('checked', true);
-        jQuery("#" + key).closest("div.searchable-radio").addClass("selected")
-    });
-
-    // Count message element
-    var _countMessage = jQuery("[data-selected-items-message]");
-    function updateMessage() {       
-        // _countMessage.text(_checkboxesTickedCount + " of " + totalCheckboxesCount + " " + itemTypeLabelPlural + " selected")
-        var _itemTypeLabel = _checkboxesTickedCount != 1 ? itemTypeLabelPlural : itemTypeLabel
-        if (_checkboxesTickedCount == totalCheckboxesCount) {
-            _countMessage.text("All " + itemTypeLabelPlural + " selected")
-        }
-        else {
-            _countMessage.text(_checkboxesTickedCount + " " + _itemTypeLabel + " selected")
-        }
-    }
-    updateMessage()
 
     // Select all link
     var _selectAllLinkContainer = jQuery("[data-select-all-link]")
@@ -100,27 +37,22 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
             event.preventDefault();
             // If all ticked then untick them all, else tick them all
             if (jQuery("[data-checkboxes]").find("input[type='radio']:checked").length == _checkboxes.length) {
-                _checkboxes.prop('checked', false).closest("div.searchable-radio").removeClass("selected");
+                _checkboxes.prop('checked', false).closest("div.searchable-table-row").removeClass("selected");
             }
             else {
-                _checkboxes.prop('checked', true).closest("div.searchable-radio").addClass("selected");
+                _checkboxes.prop('checked', true).closest("div.searchable-table-row").addClass("selected");
             }
             _checkboxes.trigger("change")
         }
     )
 
-    //
-    //
-    // AS YOU TYPE SEARCH
-    //
-    //
-
-    // Set Localstorage defaults
+    // Set local JSON storage defaults
     if (clearLocalStorage == true) {
         localStorage.setItem("searchTerm", JSON.stringify(""));
-        localStorage.setItem("filteredCount", JSON.stringify(totalCheckboxesCount));
+        localStorage.setItem("filteredCount", JSON.stringify(totalListCount));
         localStorage.setItem("activePage", JSON.stringify(""));
     }
+
     var searchTerm = JSON.parse(localStorage.getItem('searchTerm')) || "";
 
     // Find search box
@@ -144,11 +76,11 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
             showOrHideElement($countMessage, "hide")
         }
     )
-    // Remove non-js clear filter link
+    // Remove non JS clear filter link
     jQuery("[data-clear-filter-non-js]").remove()
 
     // Set total count
-    var _totalCount = totalCheckboxesCount
+    var _totalCount = totalListCount
     var _filteredCount = _totalCount
     var $countMessage = jQuery("[data-filtered-message]")
     showOrHideElement($countMessage, "hide")
@@ -159,13 +91,17 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
     var _matchText = ""	
 
     function filterCheckboxes(value) {
+
         var _valueUpper = value.toUpperCase().trim()
         localStorage.setItem("searchTerm", JSON.stringify(value));
         var _results = false
+
         _checkboxes.each(function(index) {
+            
             var _this = jQuery(this),
-                _thisName = _this.data("search-value")
-                _thisNameUpper = _thisName.toUpperCase().trim()
+            _thisName = _this.data("search-value")
+            _thisNameUpper = _thisName.toUpperCase().trim()
+            
             if (_thisNameUpper.indexOf(_valueUpper) != -1) {
                 // Match
                 _this.data("matches-search", true)
@@ -175,11 +111,13 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
                 // No match
                 _filteredCount--
                 _this.data("matches-search", false)
-                // _this.closest("div.searchable-radio").hide()
+                // _this.closest("div.searchable-table-row").hide()
             }
+
         });
         // doPaging()
         localStorage.setItem("filteredCount", JSON.stringify(_filteredCount));
+        
         if (_filteredCount == 1) {
             _itemLabel = itemTypeLabel
             _matchText = "matches"
@@ -188,6 +126,7 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
             _itemLabel = itemTypeLabelPlural
             _matchText = "matches"
         }
+        
         // _filteredMessageText = _filteredCount + " " + _itemLabel  + " " + _matchText + " your search of \"" + value + "\""
         _filteredMessageText = _filteredCount + " " + _matchText + " for \"" + value + "\""
         $countMessage.text(_filteredMessageText)
@@ -195,13 +134,15 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
         showOrHideElement($countMessage, (_filteredCount == 0) ? "show" : "hide")
         return _filteredCount
     }
+
     // Search box checks on load
     _search.val(searchTerm)
     var _valueUpper = searchTerm.toUpperCase().trim()
+    
     if (_valueUpper.length != 0) {
         _filteredCount = filterCheckboxes(searchTerm)
         showOrHideElement(_clearFilter, "show")
-        // showOrHideElement(_selectAllLinkContainer, (_filteredCount < totalCheckboxesCount) ? "hide" : "show")
+        // showOrHideElement(_selectAllLinkContainer, (_filteredCount < totalListCount) ? "hide" : "show")
         showOrHideElement(_selectAllLinkContainer, "hide")
     }
     else {
@@ -212,33 +153,36 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
         showOrHideElement(_clearFilter, "hide")
         showOrHideElement(_selectAllLinkContainer, "show")
     }
+
     _search.on(
         "input",
         function(event) {
             _filteredCount = _totalCount
             $countMessage.text(_messageText)
             // _noResultsMessage.remove()
-            // _checkboxes.closest("div.searchable-radio").show()
+            // _checkboxes.closest("div.searchable-table-row").show()
             // _checkboxes.data("matches-search") = true
             _checkboxes.data("matches-search", true)
-            showOrHideElement(_checkboxes.closest("tr.searchable-radio"), "show", true)
-            // _checkboxes.closest("div.searchable-radio").show()
+            showOrHideElement(_checkboxes.closest("tr.searchable-table-row"), "show", true)
+            // _checkboxes.closest("div.searchable-table-row").show()
             var _value = _search.val()
             var _valueUpper = _value.toUpperCase().trim()
+            
             if (_valueUpper.length != 0) {
                 _filteredCount = filterCheckboxes(_value)
                 showOrHideElement(_clearFilter, "show")
-                // showOrHideElement(_selectAllLinkContainer, (_filteredCount < totalCheckboxesCount) ? "hide" : "show")
+                // showOrHideElement(_selectAllLinkContainer, (_filteredCount < totalListCount) ? "hide" : "show")
                 showOrHideElement(_selectAllLinkContainer, "hide")
             }
             else {
                 localStorage.setItem("searchTerm", JSON.stringify(""));
-                localStorage.setItem("filteredCount", JSON.stringify(totalCheckboxesCount));
+                localStorage.setItem("filteredCount", JSON.stringify(totalListCount));
                 $countMessage.text(_messageText)
                 showOrHideElement($countMessage, "hide")
                 showOrHideElement(_clearFilter, "hide")
                 showOrHideElement(_selectAllLinkContainer, "show")
             }
+
             doPaging(true)
         }
     )
@@ -258,17 +202,21 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
         if (reset) {
             _activePage = 1
         }
+
         _paging.data("page-number", _activePage)
         localStorage.setItem("activePage", JSON.stringify(_activePage));
         
         var _lastPage = false
         var _firstPage = false
+       
         if (_activePage == _pageCount) {
             _lastPage = true
         }
+
         if (_activePage == 1) {
             _firstPage = true
         }
+
         // FIRST AND LAST ITEM RANGE
         var _pagingFirstItemIndex = 1
         var _pagingLastItemIndex = itemsPerPage
@@ -276,8 +224,11 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
         var _middlePage = 3
         var _startPageNumRange = 1     
         var _endPageNumRange = _pageCountToDisplay
+        
         if (_pageCount > _pageCountToDisplay) {
+            
             if (_activePage > _middlePage) {     
+                
                 if (_activePage < (_pageCount - 1)) {    
                     _startPageNumRange = _activePage - 2
                     _endPageNumRange = _activePage + 2
@@ -289,8 +240,11 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
                     _startPageNumRange = _activePage - _distanceToLeft
                     _endPageNumRange = _activePage + _distanceToEnd
                 }
+
             }
+
         }
+
         //
         // setupPagingData END
         //
@@ -303,23 +257,30 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
         var _displayedCount = 0
         var _pagingFirstItemIndexDone = false
         _checkboxes.each(function(index) {
+            
             var _this = jQuery(this)
+            
             if (_this.data("matches-search") == true) {
                 _displayedCount++
             }
+
             if ((_this.data("matches-search") == true) && ((_displayedCount > _pagingCalc1) && (_displayedCount <= _pagingCalc2))) {
-                showOrHideElement(_this.closest("tr.searchable-radio"), "show", true)
+                showOrHideElement(_this.closest("tr.searchable-table-row"), "show", true)
+                
                 if (_pagingFirstItemIndexDone == false) {
                     _pagingFirstItemIndex = _displayedCount
                     _pagingFirstItemIndexDone = true
                 }
+
                 if (_displayedCount <= _pagingCalc2) {
                     _pagingLastItemIndex = _displayedCount
-                }			
+                }
+
             }
             else {
-                showOrHideElement(_this.closest("tr.searchable-radio"), "hide", true)
+                showOrHideElement(_this.closest("tr.searchable-table-row"), "hide", true)
             }
+
         });
 
         //
@@ -356,8 +317,11 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
         // Page numbers
         _pageNumList = _paging.find(".pager-items")
         _pageNumList.empty()
+        
         for (i = 1; i < _pageCount+1; i++) {
+            
             var _pageNumber = i
+            
             if (i >= _startPageNumRange && i <= _endPageNumRange) {
                 var _thisPageItem = jQuery('<li/>')
                     _thisPageLink = jQuery("<a href='#' >" + _pageNumber + "</a>")	
@@ -374,12 +338,14 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
                         doPaging(false)
                     }
                 )
+
                 if (i != _activePage) {
                     _thisPageItem.append(_thisPageLink)
                 }
                 else {
                     _thisPageItem.text(_pageNumber)
                 }
+
             }
             _pageNumList.append(_thisPageItem)
         }
@@ -396,25 +362,32 @@ function checkboxEditing(totalCheckboxesCount,clearLocalStorage,itemsPerPage,ite
 
     // Show/Hide
     function showOrHideElement(_this, showOrHide, inlineShowHide) {
+        
         inlineShowHide = inlineShowHide || false 
+        
         if (showOrHide == "show") {
+            
             // If show
             if (inlineShowHide) {
                 _this.show()
             }
+
             _this.removeClass("hidden")
             _this.attr("aria-hidden", false)
             _this.removeAttr("hidden")
         }
         else {
+            
             // If hide
             if (inlineShowHide) {
                 _this.hide()
-            }					
+            }
+
             _this.addClass("hidden")
             _this.attr("aria-hidden", true)
             _this.attr("hidden", true)
         }
+
     }
 
 }

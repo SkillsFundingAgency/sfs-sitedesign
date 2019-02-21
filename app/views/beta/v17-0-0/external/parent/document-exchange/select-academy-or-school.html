@@ -88,7 +88,7 @@
                 <fieldset>
                     <legend class="visuallyhidden">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</legend>
 
-                    <!-- NON JS CHECKBOXES -->
+                    <!-- NON JS CHECKBOXES (START) -->
                     <div class="form-group {% if error %}form-group-error{% endif %}" data-non-js-checkboxes>
                         {% if error %}
                         <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</span>
@@ -400,8 +400,9 @@
                         {% endif %}
 
                     </div>
+                    <!-- NON JS CHECKBOXES (END) -->
             
-                    <!-- JS CHECKBOXES -->
+                    <!-- JS CHECKBOXES (START) -->
                     <div class="form-group {% if error %}form-group-error{% endif %} hidden" hidden aria-hidden="true" data-checkboxes>
                         {% if error %}
                         <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[[academy or school]]{% endif %} you want to send a document for</span>
@@ -708,10 +709,11 @@
                         </div>
 
                     </div>
+                    <!-- JS CHECKBOXES (END) -->
             
                     <div class="form-group">
 
-                        <!-- NON JS PAGING -->
+                        <!-- NON JS PAGING (START) -->
                         {% if paginationRequired %}
                         {% if page1 %}
                         <div class="pager" data-non-js-paging>
@@ -814,7 +816,9 @@
                             </div>
             
                         </div>
-                        {% endif %}		
+                        {% endif %}
+                        <!-- NON JS PAGING (START) -->
+
                         <!-- <div class="pager" style="margin-top: 0" data-non-js-paging>
                         
                             <div class="pager-controls" >
@@ -831,7 +835,8 @@
                             <div class="pager-summary">Showing 1 - 25 of 60 team members</div>
                             
                         </div> -->
-                        <!--JS PAGING-->
+
+                        <!-- JS PAGING (START) -->
                         <div class="pager hidden" hidden aria-hidden="true" style="margin-top:0" data-paging>
                         
                             <div class="pager-controls">
@@ -844,6 +849,7 @@
                             </div>
 
                         </div>
+                        <!-- JS PAGING (END) -->
 
                     </div>
 

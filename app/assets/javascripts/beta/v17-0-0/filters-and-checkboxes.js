@@ -172,6 +172,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -181,12 +186,48 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
     });
@@ -263,6 +304,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -272,15 +318,51 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
-    });    
+    });  
 
 
     // Filter #3 (Document Type) - Toggles content based on user clicking the 'Open all/Close all' link
@@ -355,6 +437,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -364,12 +451,48 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
     });
@@ -446,6 +569,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -455,12 +583,48 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
     });
@@ -537,6 +701,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -546,12 +715,48 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
     });
@@ -629,6 +834,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -638,12 +848,48 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
     });
@@ -720,6 +966,11 @@ $(document).ready(function () {
         var showAll = true;
         
         $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
         $('input[type=checkbox]').each(function () {
             
             if ($(this)[0].checked) {
@@ -729,12 +980,48 @@ $(document).ready(function () {
                 var value = $(this).val();
 
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
             }
 
         });
 
+        // If no checkbox filters are ticked, then restore the default page list of items
         if (showAll) {
-            $('tr').show();
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
         }
 
     });
