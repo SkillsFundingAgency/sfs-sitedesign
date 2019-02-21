@@ -412,6 +412,18 @@ module.exports = function(router) {
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
+		var totalListCount;
+
+		// Dynamically work out the JavaScript variables to pass to the client side
+		if (req.session.parent == "MAT") {
+			totalListCount = 30;
+		}
+		else if (req.session.parent == "LA") {
+			totalListCount = 32;
+		}
+		else {
+			totalListCount = 30;
+		}
 		
 		res.render(version + '/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
@@ -421,7 +433,13 @@ module.exports = function(router) {
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
-			'page2' : req.query.page2
+			'page2' : req.query.page2,
+			'page3' : req.query.page3,
+			'totalListCount' : totalListCount,
+			'clearLocalStorage' : true,
+			'itemsPerPage' : 10,
+			'itemTypeLabel' : "document",
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 
@@ -901,7 +919,15 @@ module.exports = function(router) {
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
-			'page3' : req.query.page3
+			'page3' : req.query.page3,
+			'page4' : req.query.page4,
+			'page5' : req.query.page5,
+			'page6' : req.query.page6,
+			'totalListCount' : 54,
+			'clearLocalStorage' : true,
+			'itemsPerPage' : 10,
+			'itemTypeLabel' : "document",
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 	router.post('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
@@ -990,7 +1016,11 @@ module.exports = function(router) {
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
-			'page3' : req.query.page3
+			'totalListCount' : 12,
+			'clearLocalStorage' : true,
+			'itemsPerPage' : 10,
+			'itemTypeLabel' : "document",
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 
@@ -1048,7 +1078,11 @@ module.exports = function(router) {
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
-			'page3' : req.query.page3
+			'totalListCount' : 12,
+			'clearLocalStorage' : true,
+			'itemsPerPage' : 10,
+			'itemTypeLabel' : "document",
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 

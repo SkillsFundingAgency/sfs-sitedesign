@@ -20,7 +20,7 @@
         
         <div class="column-full">
 
-            <div id="global-breadcrumb" class="breadcrumbs">
+            <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
                         <li><a href="../../../external/child/document-exchange/dashboard">Home</a></li>
@@ -65,19 +65,19 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case template ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                        Business case template (2)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        Business case audit evidence template ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                        Business case audit evidence template (1)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
                                                     <label class="block" for="queryFilterDocumentType03">
-                                                        Data sharing protocols ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                        Data sharing protocols (1)
                                                     </label>
                                                 </li>
                                             </ul>
@@ -106,13 +106,13 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                        2018 to 2019 (2)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                        2017 to 2018 (2)
                                                     </label>
                                                 </li>
                                             </ul>
@@ -128,13 +128,13 @@
                 </div>
 
                 <!-- Document list -->
-                <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
-                    {% if filterResultsUpdated %}
                     <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
                         <span id="filter-results" class="pager-summary">Showing 1 to 4 of 4 documents</span>
                     </div>
-                    {% endif %}
 
                     <table>
                         <caption class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
@@ -230,110 +230,14 @@
                         </tbody>
                         {% endif %}
                     </table>
-
-                    {% if paginationRequired %}
-                    {% if page1 %}
-                    <div class="pager">
-
-                        <div class="pager-controls">
-                            <ul class="pager-items">
-                                <li>
-                                    <span class="text-bold">1</span>
-                                </li>
-                                <li>
-                                    <span class="visuallyhidden">Page </span>
-                                    <a href="received-from-esfa?paginationRequired=true&page2=true">2</a>
-                                    <span class="visuallyhidden"> of 3</span>
-                                </li>
-                                <li>
-                                    <span class="visuallyhidden">Page </span>
-                                    <a href="received-from-esfa?paginationRequired=true&page3=true">3</a>
-                                    <span class="visuallyhidden"> of 3</span>
-                                </li>
-                                <a class="pager-next" href="received-from-esfa?paginationRequired=true&page2=true">Next</a>
-                                <span class="visuallyhidden"> page</span>
-                            </ul>                                
-                        </div>
-        
-                        <div class="pager-summary">
-                            Showing 1 to 25 of 54 documents
-                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
-                        </div>
-        
-                    </div>
-                    {% elif page2 %}
-                    <div class="pager">
-
-                        <div class="pager-controls">                               
-                            <ul class="pager-items">
-                                <a class="pager-next" href="received-from-esfa?paginationRequired=true&page1=true">Previous</a>
-                                <span class="visuallyhidden"> page</span>
-                                &nbsp;&nbsp;
-                                <li>
-                                    <span class="visuallyhidden">Page </span>
-                                    <a href="received-from-esfa?paginationRequired=true&page1=true">1</a>
-                                    <span class="visuallyhidden"> of 3</span>
-                                </li>
-                                <li>
-                                    <span class="text-bold">2</span>
-                                </li>
-                                <li>
-                                    <span class="visuallyhidden">Page </span>
-                                    <a href="received-from-esfa?paginationRequired=true&page3=true">3</a>
-                                    <span class="visuallyhidden"> of 3</span>
-                                </li>
-                                <a class="pager-next" href="received-from-esfa?paginationRequired=true&page3=true">Next</a>
-                                <span class="visuallyhidden"> page</span>
-                            </ul>
-                        </div>
-        
-                        <div class="pager-summary">
-                            Showing 26 to 50 of 54 documents
-                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
-                        </div>
-        
-                    </div>
-                    {% elif page3 %}
-                    <div class="pager">
-
-                        <div class="pager-controls">                               
-                            <ul class="pager-items">
-                                <a class="pager-next" href="received-from-esfa?paginationRequired=true&page2=true">Previous</a>
-                                <span class="visuallyhidden"> page</span>
-                                &nbsp;&nbsp;
-                                <li>
-                                    <span class="visuallyhidden">Page </span>
-                                    <a href="received-from-esfa?paginationRequired=true&page1=true">1</a>
-                                    <span class="visuallyhidden"> of 3</span>
-                                </li>
-                                <li>
-                                    <span class="visuallyhidden">Page </span>
-                                    <a href="received-from-esfa?paginationRequired=true&page2=true">2</a>
-                                    <span class="visuallyhidden"> of 3</span>
-                                </li>
-                                <li>
-                                    <span class="text-bold">3</span>
-                                </li>
-                            </ul>
-                        </div>
-        
-                        <div class="pager-summary">
-                            Showing 51 to 54 of 54 documents
-                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
-                        </div>
-        
-                    </div>
-                    {% endif %}
-                    {% else %}
+                    
                     <div class="pager">
         
                         <div class="pager-summary">
                             Showing 1 to 4 of 4 documents
-                            <!-- <span id="totalDocumentCount" style="display: none;">4</span> -->
                         </div>
         
                     </div>
-                    {% endif %}
 
                     <div class="form-group direction-rtl">
                         <a class="app-c-back-to-top dont-print" href="#content">
@@ -354,21 +258,10 @@
 
 </main>
 
-<!-- JavaScript -->
+<!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-<script src="/public/javascripts/lifted/jquery-ui.js"></script>
-<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
-<script src="/public/javascripts/lifted/application.js"></script>
-<script src="/public/javascripts/lifted/bind.js"></script>
-<script src="/public/javascripts/lifted/details.polyfill.js"></script>
-<script src="/public/javascripts/lifted/govuk-template.js"></script>
-<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
-<script src="/public/javascripts/lifted/selection-buttons.js"></script>
-<!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
-
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
-<!-- Sorting for the document list -->
-<script src="/public/javascripts/{{version}}/sorting-fileshare.js"></script>
+<!-- JavaScript (END) -->
 
 {% endblock %}
