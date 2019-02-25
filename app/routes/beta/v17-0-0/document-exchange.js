@@ -373,6 +373,18 @@ module.exports = function(router) {
 		
 	});
 
+	// Alternative content for no tiles
+	router.get('/' + version + '/error-pages/alternative-content', function (req, res) {
+
+		res.render(version + '/error-pages/alternative-content', {
+			'version' : version,
+			'alternativeContentRequired' : req.query.alternativeContentRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3,
+		});
+	});
+
 	// Dashboard
 	router.get('/' + version + '/external/parent/document-exchange/dashboard', function (req, res) {
 		
