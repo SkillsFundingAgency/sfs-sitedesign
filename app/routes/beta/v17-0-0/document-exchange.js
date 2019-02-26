@@ -348,8 +348,21 @@ module.exports = function(router) {
 	router.post('/' + version + '/external/parent/document-exchange/idams', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
-		req.session.receivedDocument = "Yes";
-		req.session.sentDocument = "No";
+		req.session.receivedDocuments = "Yes";
+		req.session.sentDocuments = "No";
+		req.session.documentReceived1 = "New";
+		req.session.documentReceived2 = "New";
+		req.session.documentReceived3 = "New";
+		req.session.documentReceived4 = "New";
+		req.session.documentReceived5 = "New";
+		req.session.documentReceived6 = "New";
+		req.session.documentReceived7 = "New";
+		req.session.documentReceived8 = "New";
+		req.session.documentReceived9 = "New";
+		req.session.documentReceived10 = "New";
+		req.session.documentReceived11 = "New";
+		req.session.documentReceived12 = "New";
+		req.session.documentReceived13 = "New";
 
 		req.session.userID = req.body.id.toLowerCase();
 		var userID = req.session.userID;
@@ -390,8 +403,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
-			'receivedDocument' : req.session.receivedDocument,
-			'sentDocument' : req.session.sentDocument
+			'receivedDocuments' : req.session.receivedDocuments,
+			'sentDocuments' : req.session.sentDocuments
 		});
 	});
 
@@ -408,8 +421,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
-			'receivedDocument' : req.session.receivedDocument,
-			'sentDocument' : req.session.sentDocument
+			'receivedDocuments' : req.session.receivedDocuments,
+			'sentDocuments' : req.session.sentDocuments
 		});
 	});
 
@@ -420,13 +433,126 @@ module.exports = function(router) {
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
-		var totalListCount;
+
+		/***
+		*	So we can update the individual labels for each of the NEW documents received from the ESFA
+		*   INDIVIDUAL
+		***/
+		// Once downloaded hide NEW document received #1
+		if (req.query.documentReceived1 == "Downloaded") {
+			req.session.documentReceived1 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #2
+		else if (req.query.documentReceived2 == "Downloaded") {
+			req.session.documentReceived2 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #3
+		else if (req.query.documentReceived3 == "Downloaded") {
+			req.session.documentReceived3 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #4
+		else if (req.query.documentReceived4 == "Downloaded") {
+			req.session.documentReceived4 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #5
+		else if (req.query.documentReceived5 == "Downloaded") {
+			req.session.documentReceived5 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #6
+		else if (req.query.documentReceived6 == "Downloaded") {
+			req.session.documentReceived6 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #7
+		else if (req.query.documentReceived7 == "Downloaded") {
+			req.session.documentReceived7 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #8
+		else if (req.query.documentReceived8 == "Downloaded") {
+			req.session.documentReceived8 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #9
+		else if (req.query.documentReceived9 == "Downloaded") {
+			req.session.documentReceived9 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #10
+		else if (req.query.documentReceived10 == "Downloaded") {
+			req.session.documentReceived10 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #11
+		else if (req.query.documentReceived11 == "Downloaded") {
+			req.session.documentReceived11 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #12
+		else if (req.query.documentReceived12 == "Downloaded") {
+			req.session.documentReceived12 = "Downloaded";
+		}
+		// Once downloaded hide NEW document received #13
+		else if (req.query.documentReceived13 == "Downloaded") {
+			req.session.documentReceived13 = "Downloaded";
+		}
+
+		/***
+		*	So we can update the ALL labels in bulk for the NEW documents received from the ESFA
+		*   BULK (ALL)
+		***/
+		if (req.query.alldocumentsReceived == "Downloaded") {
+			// Turn off global labels for ALL NEW received documents
+			req.session.receivedDocuments = "No";
+			req.session.documentReceived1 = "Downloaded";
+			req.session.documentReceived2 = "Downloaded";
+			req.session.documentReceived3 = "Downloaded";
+			req.session.documentReceived4 = "Downloaded";
+			req.session.documentReceived5 = "Downloaded";
+			req.session.documentReceived6 = "Downloaded";
+			req.session.documentReceived7 = "Downloaded";
+			req.session.documentReceived8 = "Downloaded";
+			req.session.documentReceived9 = "Downloaded";
+			req.session.documentReceived10 = "Downloaded";
+			req.session.documentReceived11 = "Downloaded";
+			req.session.documentReceived12 = "Downloaded";
+			req.session.documentReceived13 = "Downloaded";
+		}
+
+		// We finally need to turn off the GLOBAL labels for NEW received documents for all of the journey
+		if (req.session.parent == "MAT") {
+
+			// Now check whether all NEW documents received (2 for MATs) have been downloaded...
+			if (req.session.documentReceived1 == "Downloaded" && req.session.documentReceived2 == "Downloaded") {
+				// Turn off global labels for ALL NEW received documents
+				req.session.receivedDocuments = "No";
+			}
+			
+		}
+		else if (req.session.parent == "LA") {
+
+			// Now check whether all NEW documents received (13 for LAs) have been downloaded...
+			if (req.session.documentReceived1 == "Downloaded" && req.session.documentReceived2 == "Downloaded" && req.session.documentReceived3 == "Downloaded" && req.session.documentReceived4 == "Downloaded" && req.session.documentReceived5 == "Downloaded" && req.session.documentReceived6 == "Downloaded" && req.session.documentReceived7 == "Downloaded" && req.session.documentReceived8 == "Downloaded" && req.session.documentReceived9 == "Downloaded" && req.session.documentReceived10 == "Downloaded" && req.session.documentReceived11 == "Downloaded" && req.session.documentReceived12 == "Downloaded" && req.session.documentReceived13 == "Downloaded") {
+				// Turn off global labels for ALL NEW received documents
+				req.session.receivedDocuments = "No";
+			}
+
+		}
 		
 		res.render(version + '/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
+			'receivedDocuments' : req.session.receivedDocuments,
+			'documentReceived1' : req.session.documentReceived1,
+			'documentReceived2' : req.session.documentReceived2,
+			'documentReceived3' : req.session.documentReceived3,
+			'documentReceived4' : req.session.documentReceived4,
+			'documentReceived5' : req.session.documentReceived5,
+			'documentReceived6' : req.session.documentReceived6,
+			'documentReceived7' : req.session.documentReceived7,
+			'documentReceived8' : req.session.documentReceived8,
+			'documentReceived9' : req.session.documentReceived9,
+			'documentReceived10' : req.session.documentReceived10,
+			'documentReceived11' : req.session.documentReceived11,
+			'documentReceived12' : req.session.documentReceived12,
+			'documentReceived13' : req.session.documentReceived13,
+			'alldocumentsReceived' : req.session.alldocumentsReceived,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
@@ -458,7 +584,7 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
-			'sentDocument' : req.session.sentDocument
+			'sentDocuments' : req.session.sentDocuments
 		});
 	});
 
@@ -700,7 +826,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
-		req.session.sentDocument = "Yes";
+		req.session.sentDocuments = "Yes";
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -808,7 +934,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-complete', function (req, res) {
 
 		// USABILITY TESTING ONLY
-		req.session.sentDocument = "Yes";
+		req.session.sentDocuments = "Yes";
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";

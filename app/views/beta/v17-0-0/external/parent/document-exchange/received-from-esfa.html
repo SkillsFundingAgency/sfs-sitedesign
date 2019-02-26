@@ -507,7 +507,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             9:20am on 27 February 2019
@@ -535,7 +535,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             11:23am on 26 February 2019
@@ -1448,7 +1448,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-paymentschedule.xlsx" title="Download paymentschedule.xls" download>payment<wbr>schedule<wbr>.xls</a>
                                             <br>
                                             <strong class="govuk-tag govuk-bgred">NEW</strong>
@@ -1478,7 +1478,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             <strong class="govuk-tag govuk-bgred">NEW</strong>
@@ -1606,8 +1606,8 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a class="document1" href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             9:20am on 27 February 2019
                                         </td>
@@ -1617,9 +1617,21 @@
                                         <td class="sortable-td 03" rel="03" style="vertical-align: top;">
                                             Business case
                                         </td>
+                                        {% if documentReceived1 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived1 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -1634,8 +1646,8 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a class="document2" href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             11:23am on 26 February 2019
                                         </td>
@@ -1645,9 +1657,21 @@
                                         <td class="sortable-td 03" rel="03" style="vertical-align: top;">
                                             Business case
                                         </td>
+                                        {% if documentReceived2 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived2 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -2631,7 +2655,7 @@
                         </div>
 
                         <div class="form-group">
-                            <a class="button" href="../../../../../../public/documents/document-exchange/mat/rupertshogginsacademytrust-receiveddocuments.zip" role="button" title="Download selected documents" download>Download selected documents</a>
+                            <a class="button alldocumentsReceived" href="../../../../../../public/documents/document-exchange/mat/rupertshogginsacademytrust-receiveddocuments.zip" role="button" title="Download selected documents" download>Download selected documents</a>
                         </div>
 
                         <div class="form-group direction-rtl">
@@ -3096,7 +3120,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/la/heartofenglandschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             9:20am on 27 February 2019
@@ -3124,7 +3148,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/la/tudorgrangeschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             11:23am on 26 February 2019
@@ -4015,7 +4039,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/la/redhillcouncil-datasharingprotocol.pdf" title="Download datasharingprotocol.pdf" download>data<wbr>sharing<wbr>protocol<wbr>.pdf</a>
                                             <br>
                                             9:20am on 27 February 2019
@@ -4201,8 +4225,8 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/heartofenglandschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a class="document1" href="../../../../../../public/documents/document-exchange/la/heartofenglandschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             9:20am on 27 February 2019
                                         </td>
@@ -4212,9 +4236,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived1 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived1 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4229,8 +4265,8 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/tudorgrangeschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a class="document2" href="../../../../../../public/documents/document-exchange/la/tudorgrangeschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             11:23am on 26 February 2019
                                         </td>
@@ -4240,9 +4276,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived2 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived2 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4258,7 +4306,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/cannbridgesixthform-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document3" href="../../../../../../public/documents/document-exchange/la/cannbridgesixthform-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             9:05am on 16 January 2019
                                         </td>
@@ -4268,9 +4316,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived3 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived3 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4286,7 +4346,7 @@
 
                                         </td>
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/redhillcouncil-summarystatement.pdf" title="Download summarystatement.pdf" download>summary<wbr>statement<wbr>.pdf</a>
+                                            <a class="document4" href="../../../../../../public/documents/document-exchange/la/redhillcouncil-summarystatement.pdf" title="Download summarystatement.pdf" download>summary<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             12:14pm on 9 January 2019
                                         </td>
@@ -4296,9 +4356,21 @@
                                         <td class="sortable-td 08" rel="08" style="vertical-align: top;">
                                             Summary statement
                                         </td>
+                                        {% if documentReceived4 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived4 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4314,7 +4386,7 @@
 
                                         </td>
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/newbridgeschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document5" href="../../../../../../public/documents/document-exchange/la/newbridgeschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             10:09am on 9 January 2019
                                         </td>
@@ -4324,9 +4396,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived5 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived5 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4342,7 +4426,7 @@
 
                                         </td>
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/redhillcouncil-act.xlsx" title="Download actfile.xls" download>act<wbr>file<wbr>.xls</a>
+                                            <a class="document6" href="../../../../../../public/documents/document-exchange/la/redhillcouncil-act.xlsx" title="Download actfile.xls" download>act<wbr>file<wbr>.xls</a>
                                             <br>
                                             5:41pm on 8 January 2019
                                         </td>
@@ -4352,9 +4436,21 @@
                                         <td class="sortable-td 01" rel="01" style="vertical-align: top;">
                                             Allocations calculation toolkit
                                         </td>
+                                        {% if documentReceived6 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived6 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4370,7 +4466,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/foxfordschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document7" href="../../../../../../public/documents/document-exchange/la/foxfordschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             10:46am on 7 January 2019
                                         </td>
@@ -4380,9 +4476,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived7 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived7 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4398,7 +4506,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/eggbucklandcommunityschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document8" href="../../../../../../public/documents/document-exchange/la/eggbucklandcommunityschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             10:46am on 7 January 2019
                                         </td>
@@ -4408,9 +4516,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived8 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived8 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4426,7 +4546,7 @@
 
                                         </td>
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/madanischool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document9" href="../../../../../../public/documents/document-exchange/la/madanischool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             10:46am on 7 January 2019
                                         </td>
@@ -4436,9 +4556,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived9 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived9 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4454,7 +4586,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/foxfordschool-act.xlsx" title="Download actfile.xls" download>act<wbr>file<wbr>.xls</a>
+                                            <a class="document10" href="../../../../../../public/documents/document-exchange/la/foxfordschool-act.xlsx" title="Download actfile.xls" download>act<wbr>file<wbr>.xls</a>
                                             <br>
                                             10:45am on 7 January 2019
                                         </td>
@@ -4464,9 +4596,21 @@
                                         <td class="sortable-td 01" rel="01" style="vertical-align: top;">
                                             Allocations calculation toolkit
                                         </td>
+                                        {% if documentReceived10 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived10 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4482,7 +4626,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/tudorgrangeschool-act.xlsx" title="Download actfile.xls" download>act<wbr>file<wbr>.xls</a>
+                                            <a class="document11" href="../../../../../../public/documents/document-exchange/la/tudorgrangeschool-act.xlsx" title="Download actfile.xls" download>act<wbr>file<wbr>.xls</a>
                                             <br>
                                             4:55pm on 6 January 2019
                                         </td>
@@ -4492,9 +4636,21 @@
                                         <td class="sortable-td 01" rel="01" style="vertical-align: top;">
                                             Allocations calculation toolkit
                                         </td>
+                                        {% if documentReceived11 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived11 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4510,7 +4666,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/westhalsteadsixthform-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document12" href="../../../../../../public/documents/document-exchange/la/westhalsteadsixthform-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             4:55pm on 6 January 2019
                                         </td>
@@ -4520,9 +4676,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived12 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived12 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -4538,7 +4706,7 @@
 
                                         </td>  
                                         <td class="sortable-td" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/la/sirfrankwhittleschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
+                                            <a class="document13" href="../../../../../../public/documents/document-exchange/la/sirfrankwhittleschool-revenuefundingstatement.pdf" title="Download revenuefundingstatement.pdf" download>revenue<wbr>funding<wbr>statement<wbr>.pdf</a>
                                             <br>
                                             4:54pm on 6 January 2019
                                         </td>
@@ -4548,9 +4716,21 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
+                                        {% if documentReceived13 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived13 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -5204,7 +5384,7 @@
                         </div>
 
                         <div class="form-group">
-                            <a class="button" href="../../../../../../public/documents/document-exchange/la/redhillcouncil-receiveddocuments.zip" role="button" title="Download selected documents" download>Download selected documents</a>
+                            <a class="button alldocumentsReceived" href="../../../../../../public/documents/document-exchange/la/redhillcouncil-receiveddocuments.zip" role="button" title="Download selected documents" download>Download selected documents</a>
                         </div>
 
                         <div class="form-group direction-rtl">
@@ -5665,7 +5845,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             9:20am on 27 February 2019
@@ -5693,7 +5873,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             11:23am on 26 February 2019
@@ -6606,7 +6786,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-paymentschedule.xlsx" title="Download paymentschedule.xls" download>payment<wbr>schedule<wbr>.xls</a>
                                             <br>
                                             <strong class="govuk-tag govuk-bgred">NEW</strong>
@@ -6636,7 +6816,7 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <td class="sortable-td" style="vertical-align: top;">
                                             <a href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             <strong class="govuk-tag govuk-bgred">NEW</strong>
@@ -6764,8 +6944,8 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a class="document1" href="../../../../../../public/documents/document-exchange/mat/helpingmeandyouacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             9:20am on 27 February 2019
                                         </td>
@@ -6775,9 +6955,21 @@
                                         <td class="sortable-td 03" rel="03" style="vertical-align: top;">
                                             Business case
                                         </td>
+                                        {% if documentReceived1 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived1 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -6792,8 +6984,8 @@
                                             </div>
 
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <a href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a class="document2" href="../../../../../../public/documents/document-exchange/mat/molecatchacademy-businesscasetemplate.xlsx" title="Download businesscase.xls" download>business<wbr>case<wbr>.xls</a>
                                             <br>
                                             11:23am on 26 February 2019
                                         </td>
@@ -6803,9 +6995,21 @@
                                         <td class="sortable-td 03" rel="03" style="vertical-align: top;">
                                             Business case
                                         </td>
+                                        {% if documentReceived2 == 'New' %}
                                         <td class="sortable-td New" rel="New" style="vertical-align: top;">
                                             <strong class="govuk-tag govuk-bgred">New</strong>
                                         </td>
+                                        {% elif documentReceived2 == 'Downloaded' %}
+                                        <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Downloaded</strong>
+                                            <br>
+                                            <span>J Jones at 9:40am on 27 February 2019</span>
+                                        </td>
+                                        {% else %}
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        </td>
+                                        {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
                                             2018-2019
@@ -7789,7 +7993,7 @@
                         </div>
 
                         <div class="form-group">
-                            <a class="button" href="../../../../../../public/documents/document-exchange/mat/rupertshogginsacademytrust-receiveddocuments.zip" role="button" title="Download selected documents" download>Download selected documents</a>
+                            <a class="button alldocumentsReceived" href="../../../../../../public/documents/document-exchange/mat/rupertshogginsacademytrust-receiveddocuments.zip" role="button" title="Download selected documents" download>Download selected documents</a>
                         </div>
 
                         <div class="form-group direction-rtl">
@@ -7838,6 +8042,8 @@
 <script src="/public/javascripts/{{version}}/dynamic-pagination.js"></script>
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Update labels -->
+<script src="/public/javascripts/{{version}}/update-labels.js"></script>
 <!-- JavaScript (END) -->
 
 {% endblock %}
