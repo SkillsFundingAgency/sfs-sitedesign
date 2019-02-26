@@ -577,13 +577,29 @@ module.exports = function(router) {
 		// Set the chosen document type as a session variable
 		req.session.fileType = req.body.fileType;
 		var fileType = req.session.fileType;
+		
+		// USABILITY TESTING ONLY
+		if (req.session.sendFrom == "Rupert Shoggins Academy Trust") {
+			
+			// Set the correct document version for this document type only (based on what they have already sent)
+			if (fileType == "RPA certificate") {
+				req.session.fileTypeVersion = "2";
+			}
+			else {
+				req.session.fileTypeVersion = "1";
+			}
 
-		// Set the version for any new document users send to the ESFA (based on what they have already sent)
-		if (fileType == "Business case") {
-			req.session.fileTypeVersion = "3";
 		}
-		else if (fileType == "Business case audit evidence") {
-			req.session.fileTypeVersion = "2";
+		else if (req.session.sendFrom == "Redhill Council") {
+			
+			// Set the correct document version for this document type only (based on what they have already sent)
+			if (fileType == "Data sharing protocol") {
+				req.session.fileTypeVersion = "2";
+			}
+			else {
+				req.session.fileTypeVersion = "1";
+			}
+
 		}
 		else {
 			req.session.fileTypeVersion = "1";
