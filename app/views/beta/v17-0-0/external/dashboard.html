@@ -102,7 +102,33 @@
                     <div class="column-third margin-top">
                         <a id="allocations" class="dashboard-links" href="home">
                             <span id="allocations-service" class="service-name">Document exchange</span>
-                            <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                            {% if receivedDocument == 'Yes' and sentDocument == 'Yes' %}
+                                {% if parent == 'MAT' %}
+                                <span id="allocation-alert" class="alert alert-name-red">4 new documents</span>
+                                {% elif parent == 'LA' %}
+                                <span id="allocation-alert" class="alert alert-name-red">14 new documents</span>
+                                {% else %}
+                                <span id="allocation-alert" class="alert alert-name-red">4 new documents</span>
+                                {% endif %}
+                            {% elif receivedDocument == 'Yes' %}
+                                {% if parent == 'MAT' %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% elif parent == 'LA' %}
+                                <span id="allocation-alert" class="alert alert-name-red">13 new documents</span>
+                                {% else %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% endif %}
+                            {% elif sentDocument == 'Yes' %}
+                                {% if parent == 'MAT' %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% elif parent == 'LA' %}
+                                <span id="allocation-alert" class="alert alert-name-red">1 new documents</span>
+                                {% else %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% endif %}
+                            {% else %}
+                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span>
+                            {% endif %}
                             <!-- <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span> -->
                         </a>
                     </div>

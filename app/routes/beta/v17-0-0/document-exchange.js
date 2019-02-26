@@ -349,6 +349,7 @@ module.exports = function(router) {
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocument = "Yes";
+		req.session.sentDocument = "No";
 
 		req.session.userID = req.body.id.toLowerCase();
 		var userID = req.session.userID;
@@ -388,7 +389,9 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'parent' : req.session.parent
+			'parent' : req.session.parent,
+			'receivedDocument' : req.session.receivedDocument,
+			'sentDocument' : req.session.sentDocument
 		});
 	});
 
@@ -412,9 +415,6 @@ module.exports = function(router) {
 
 	// Received from ESFA
 	router.get('/' + version + '/external/parent/document-exchange/received-from-esfa', function (req, res) {
-		
-		// USABILITY TESTING ONLY
-		req.session.receivedDocument = "No";
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
