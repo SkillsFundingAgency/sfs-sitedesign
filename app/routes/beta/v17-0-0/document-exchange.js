@@ -347,6 +347,9 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/external/parent/document-exchange/idams', function (req, res) {		
 		
+		// USABILITY TESTING ONLY
+		req.session.receivedDocument = "Yes";
+
 		req.session.userID = req.body.id.toLowerCase();
 		var userID = req.session.userID;
 
@@ -371,18 +374,6 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/external/parent/document-exchange/idams?error=true');
 		}
 		
-	});
-
-	// Alternative content for no tiles
-	router.get('/' + version + '/error-pages/alternative-content', function (req, res) {
-
-		res.render(version + '/error-pages/alternative-content', {
-			'version' : version,
-			'alternativeContentRequired' : req.query.alternativeContentRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2,
-			'page3' : req.query.page3,
-		});
 	});
 
 	// Dashboard
@@ -413,29 +404,23 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'parent' : req.session.parent
+			'parent' : req.session.parent,
+			'receivedDocument' : req.session.receivedDocument,
+			'sentDocument' : req.session.sentDocument
 		});
 	});
 
 	// Received from ESFA
 	router.get('/' + version + '/external/parent/document-exchange/received-from-esfa', function (req, res) {
 		
+		// USABILITY TESTING ONLY
+		req.session.receivedDocument = "No";
+
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		var totalListCount;
-
-		// Dynamically work out the JavaScript variables to pass to the client side
-		if (req.session.parent == "MAT") {
-			totalListCount = 30;
-		}
-		else if (req.session.parent == "LA") {
-			totalListCount = 32;
-		}
-		else {
-			totalListCount = 30;
-		}
 		
 		res.render(version + '/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
@@ -447,7 +432,7 @@ module.exports = function(router) {
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
 			'page3' : req.query.page3,
-			'totalListCount' : totalListCount,
+			'totalListCount' : 30,
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
@@ -457,7 +442,7 @@ module.exports = function(router) {
 
 	// Sent to ESFA
 	router.get('/' + version + '/external/parent/document-exchange/sent-to-esfa', function (req, res) {
-		
+
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
@@ -472,7 +457,8 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'parent' : req.session.parent
+			'parent' : req.session.parent,
+			'sentDocument' : req.session.sentDocument
 		});
 	});
 
@@ -486,7 +472,6 @@ module.exports = function(router) {
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
-		req.session.organisationType = "";
 		
 		res.render(version + '/external/parent/document-exchange/select-organisation', {
 			'version' : version,
@@ -495,54 +480,21 @@ module.exports = function(router) {
 			'parent' : req.session.parent,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
-			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'organisationType' : req.session.organisationType
+			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
 	router.post('/' + version + '/external/parent/document-exchange/select-organisation', function (req, res) {		
 		
-		req.session.organisationType = req.body.organisationType;
-		var organisationType = req.session.organisationType;
+		var organisationType = req.body.organisationType;
 
-		if (organisationType == "01") {
+		if (organisationType == "Rupert Shoggins Academy Trust") {
 
-			// Check to see whether the parent is LA or MAT (so we can set the correct dummy content)
-			if (req.session.parent == "LA") {
+			req.session.sendFrom = organisationType;
 
-				req.session.sendFrom = "Redhill Council (10770003)";
-				
-				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
-			}
-			else if (req.session.parent == "MAT") {
-
-				req.session.sendFrom = "Rupert Shoggins Academy Trust";
-
-				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
-			}
-			else {
-
-				req.session.sendFrom = "LA/MAT name";
-
-				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
-			}
-
+			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
 		}
-		else if (organisationType == "02") {
-
-			// Check to see whether the parent is LA or MAT (so we can set the correct dummy content)
-			if (req.session.parent == "LA") {
-				
-				req.session.sendFrom = "Redhill Council (491)";
-
-				res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
-			}
-			else if (req.session.parent == "MAT") {				
-				res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
-			}
-			else {				
-				res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
-			}
-
+		else if (organisationType == "A specific academy") {
+			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
 		}
 		// Make sure the user chooses an option
 		else {
@@ -602,6 +554,11 @@ module.exports = function(router) {
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
+
+		// Set the sendFrom variable for the LA since it will always be from just the LA
+		if (req.session.parent == "LA") {
+			req.session.sendFrom = "Redhill Council";
+		}
 		
 		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
@@ -726,6 +683,9 @@ module.exports = function(router) {
 	// Document Upload Complete
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {
 	
+		// USABILITY TESTING ONLY
+		req.session.sentDocument = "Yes";
+
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
@@ -830,6 +790,9 @@ module.exports = function(router) {
 
 	// Document Upload Complete (Replace)
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-complete', function (req, res) {
+
+		// USABILITY TESTING ONLY
+		req.session.sentDocument = "Yes";
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";

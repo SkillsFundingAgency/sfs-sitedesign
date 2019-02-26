@@ -34,14 +34,16 @@
 
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
-                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 7 of 7 documents</h2>
+                    <h2 id="filter-results-updated" class="pager-summary">{% if parent == 'MAT' %}Results updated, now showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents{% elif parent == 'LA' %}Results updated, now showing 1 to {% if sentDocument == 'Yes' %}10{% else %}8{% endif %} of {% if sentDocument == 'Yes' %}10{% else %}8{% endif %} documents{% else %}Results updated, now showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents{% endif %}</h2>
                 </div>
     
                 <div class="form-group">
                     <h1 class="heading-xlarge">Documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
                     <p>If you’ve just sent a document, it can take a few minutes to show here.</p>
                 </div>
-                
+
+                <!-- MATs - Dynamic content (START) -->
+                {% if parent == 'MAT' %}
                 <div class="column-filter-one-third column-third">
                     
                     <div>
@@ -60,80 +62,30 @@
                                     <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
                                         <section class="toggled-adult-funding-content group">
                                             <ul>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
+                                                <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
                                                     <label class="block" for="queryFilterOrganisationChild01">
-                                                        {% if parent == 'MAT' %}Coundon Court Academy{% elif parent == 'LA' %}Blossomfield Infants' School{% else %}[[Academy or school name]]{% endif %} (0)
+                                                        Frog Field Academy (1)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
                                                     <label class="block" for="queryFilterOrganisationChild02">
-                                                        {% if parent == 'MAT' %}Ernesford Grange Community Academy{% elif parent == 'LA' %}Christ The King RC Infants' School{% else %}[[Academy or school name]]{% endif %} (0)
+                                                        Mole Catch Academy ({% if sentDocument == 'Yes' %}2{% else %}1{% endif %})
                                                     </label>
-                                                </li> -->
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
+                                                    <label class="block" for="queryFilterOrganisationParent">
+                                                        Rupert Shoggins Academy Trust ({% if sentDocument == 'Yes' %}5{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
                                                     <label class="block" for="queryFilterOrganisationChild03">
-                                                        {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %} (2)
+                                                        Ryckborst Academy of Justice (1)
                                                     </label>
                                                 </li>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild04" rel="Child04" name="queryFilterOrganisation" type="checkbox" value="Child04">
-                                                    <label class="block" for="queryFilterOrganisationChild04">
-                                                        {% if parent == 'MAT' %}Grace Academy{% elif parent == 'LA' %}Heart of England School{% else %}[[Academy or school name]]{% endif %} (0)
-                                                    </label>
-                                                </li>
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild05" rel="Child05" name="queryFilterOrganisation" type="checkbox" value="Child05">
-                                                    <label class="block" for="queryFilterOrganisationChild05">
-                                                        {% if parent == 'MAT' %}Hill Farm Academy{% elif parent == 'LA' %}Knowle CE School{% else %}[[Academy or school name]]{% endif %} (0)
-                                                    </label>
-                                                </li> -->
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild06" rel="Child06" name="queryFilterOrganisation" type="checkbox" value="Child06">
-                                                    <label class="block" for="queryFilterOrganisationChild06">
-                                                        {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %} (3)
-                                                    </label>
-                                                </li>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild07" rel="Child07" name="queryFilterOrganisation" type="checkbox" value="Child07">
-                                                    <label class="block" for="queryFilterOrganisationChild07">
-                                                        {% if parent == 'MAT' %}Radford Academy{% elif parent == 'LA' %}Sharmans Cross Junior School{% else %}[[Academy or school name]]{% endif %} (0)
-                                                    </label>
-                                                </li> -->
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationParent01" rel="Parent01" name="queryFilterOrganisation" type="checkbox" value="Parent01">
-                                                    <label class="block" for="queryFilterOrganisationParent01">
-                                                        {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003 {% else %}[[LA/MAT name]]{% endif %} (1)
-                                                    </label>
-                                                </li>
-                                                {% if parent == 'LA' %}
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationParent02" rel="Parent02" name="queryFilterOrganisation" type="checkbox" value="Parent02">
-                                                    <label class="block" for="queryFilterOrganisationParent02">
-                                                        Redhill Council: 491 (1)
-                                                    </label>
-                                                </li>
-                                                {% endif %}
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild08" rel="Child08" name="queryFilterOrganisation" type="checkbox" value="Child08">
-                                                    <label class="block" for="queryFilterOrganisationChild08">
-                                                        {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %} (1)
-                                                    </label>
-                                                </li>
-                                                <!-- <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild09" rel="Child09" name="queryFilterOrganisation" type="checkbox" value="Child09">
-                                                    <label class="block" for="queryFilterOrganisationChild09">
-                                                        {% if parent == 'MAT' %}St Jerome's CE Academy{% elif parent == 'LA' %}Windy Arbor Junior and Infant School{% else %}[[Academy or school name]]{% endif %} (0)
-                                                    </label>
-                                                </li>
-                                                <li class="gds-multiple-choice multiple-choice">
-                                                    <input id="queryFilterOrganisationChild10" rel="Child10" name="queryFilterOrganisation" type="checkbox" value="Child10">
-                                                    <label class="block" for="queryFilterOrganisationChild10">
-                                                        {% if parent == 'MAT' %}Woodlands Academy{% elif parent == 'LA' %}Whoberley Hall School{% else %}[[Academy or school name]]{% endif %} (0)
-                                                    </label>
-                                                </li> -->
                                             </ul>
                                         </section>
                                     </div>
@@ -160,24 +112,438 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case (3)
+                                                        Business case (2)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        Business case audit evidence (2)
+                                                        RPA Certificate ({% if sentDocument == 'Yes' %}7{% else %}5{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by academic year</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academic-year-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterAcademicYear" id="queryFilterAcademicYear" aria-expanded="true" aria-controls="filter-by-academic-year" value="true">
+                                    <a href="#" id="filter-keyboard-academic-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academic-year">
+                                        <header id="academic-year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by academic year</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-academic-year" class="js-filter-collapsible-content" aria-labelledby="academic-year">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
+                                                    <label class="block" for="queryFilterAcademicYear20182019">
+                                                        2018 to 2019 ({% if sentDocument == 'Yes' %}4{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
+                                                    <label class="block" for="queryFilterAcademicYear20172018">
+                                                        2017 to 2018 (5)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Document list -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents</span>
+                        </div>
+
+                        <table>
+                            <caption class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
+                            <thead>
+                                <tr class="first">
+                                    <th>
+                                        Document name
+                                    </th>
+                                    <th>
+                                        Organisation
+                                    </th> 
+                                    <th>
+                                        Document type
+                                    </th>
+                                    <th>
+                                        Version
+                                    </th>
+                                    <!-- Hidden column header for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <th style="display: none;">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
+                            <tbody>
+                                {% if sentDocument == 'Yes' %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Mole Catch Academy) for 2018-2019.pdf</a>
+                                        <br>
+                                        <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                        <br>
+                                        Sent by J Jones at 11:32am on 8 October 2018
+                                    </td>
+                                    <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                        Mole Catch Academy
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% if sentDocument == 'Yes' %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf</a>
+                                        <br>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
+                                        <br>
+                                        Sent by J Jones at 11:17am on 8 October 2018
+                                        <br>
+                                        <br>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        2
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (xls)">Business Case (2018-2019).xls</a>
+                                        <br>
+                                        Sent by J Jones at 9:23am on 6 October 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (xls)">Business Case (2018-2019).xls</a>
+                                        <br>
+                                        Sent by J Jones at 9:23am on 6 October 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Frog Field Academy) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 10:09am on 16 March 2018
+                                    </td>
+                                    <td class="Child01" rel="Child01" style="vertical-align: top;">
+                                        Frog Field Academy
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017-2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Ryckborst Academy of Justice) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 9:53am on 16 March 2018
+                                    </td>
+                                    <td class="Child03" rel="Child03" style="vertical-align: top;">
+                                        Ryckborst Academy of Justice
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Mole Catch Academy) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 9:47am on 16 March 2018
+                                    </td>
+                                    <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                        Mole Catch Academy
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Business Case (2017-2018).xls</a>
+                                        <br>
+                                        Sent by J Jones at 11:22am on 5 December 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Mole Catch Academy) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 2:01pm on 12 October 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+
+                    <div class="pager">
+        
+                        <div class="pager-summary">
+                            Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents
+                        </div>
+        
+                    </div>
+
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
+                    </div>
+
+                </div>
+                <!-- MATs - Dynamic content (END) -->
+
+                <!-- LAs - Dynamic content (START) -->
+                {% elif parent == 'LA' %}
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by organisation</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="organisation-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenOrganisation" id="queryFilterOpenOrganisation" aria-expanded="true" aria-controls="filter-by-organisation" value="true">
+                                    <a href="#" id="filter-keyboard-organisation" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-organisation">
+                                        <header id="organisation" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by organisation</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
+                                                    <label class="block" for="queryFilterOrganisationChild01">
+                                                        Foxford School (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
+                                                    <label class="block" for="queryFilterOrganisationChild02">
+                                                        Sir Frank Whittle School (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent01" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
+                                                    <label class="block" for="queryFilterOrganisationParent01">
+                                                        Redhill Council ({% if sentDocument == 'Yes' %}7{% else %}6{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
+                                                    <label class="block" for="queryFilterOrganisationChild03">
+                                                        Tudor Grange School (1)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Business case template (4)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        CFO 16-19 LA grant assurance (1)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
                                                     <label class="block" for="queryFilterDocumentType03">
-                                                        Financial report ({% if parent == 'MAT' %}1{% elif parent == 'LA' %}2{% else %}1{% endif %})
+                                                        CFO post 16 LA grant assurance (1)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
                                                     <label class="block" for="queryFilterDocumentType04">
+                                                        Data sharing protocols ({% if sentDocument == 'Yes' %}2{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
+                                                    <label class="block" for="queryFilterDocumentType05">
+                                                        DSG CFO statement of assurance (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType06" rel="06" name="queryFilterDocumentType" type="checkbox" value="06">
+                                                    <label class="block" for="queryFilterDocumentType06">
                                                         Infrastructure return (1)
                                                     </label>
                                                 </li>
@@ -207,13 +573,13 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 (3)
+                                                        2018 to 2019 ({% if sentDocument == 'Yes' %}4{% else %}3{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 ({% if parent == 'MAT' %}4{% elif parent == 'LA' %}5{% else %}4{% endif %})
+                                                        2017 to 2018 (6)
                                                     </label>
                                                 </li>
                                             </ul>
@@ -234,7 +600,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to 7 of 7 documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} of {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} documents</span>
                         </div>
 
                         <table>
@@ -250,43 +616,46 @@
                                     <th>
                                         Document type
                                     </th>
-                                    <!-- <th>
+                                    <th>
                                         Version
-                                    </th> -->
+                                    </th>
                                     <!-- Hidden column header for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <th style="display: none;">
                                     </th>
                                 </tr>
                             </thead>
-                            <!-- 7 RESULTS -->
+                            <!-- {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} RESULTS -->
                             <tbody>
+                                {% if sentDocument == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Business case (2018-2019) v2.xls</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Data Sharing Protocols (2018-2019) v2.xls</a>
                                         <br>
                                         <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by J Jones at 11:17am on 8 October 2018
                                         <br>
                                         <br>
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Business case (2018-2019).xls</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Data Sharing Protocols (2018-2019).xls</a>
                                         <br>
                                         Sent by J Jones at 5:44pm on 23 September 2018
                                     </td>
-                                    <td class="Child06" rel="Child06" style="vertical-align: top;">
-                                        {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
                                     </td>
-                                    <td class="01" rel="01" style="vertical-align: top;">
-                                        Business case
+                                    <td class="04" rel="04" style="vertical-align: top;">
+                                        Data sharing protocols
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         2
                                         <br>
                                         <br>
                                         <br>
                                         <br>
+                                        <br>
+                                        <br>
                                         1
-                                    </td> -->
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
                                         2018-2019
@@ -294,19 +663,19 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Business case audit evidence.pdf</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Business Case Template (2018-2019).pdf</a>
                                         <br>
-                                        Sent by J Jones at 11:29am on 8 October 2018
+                                        Sent by J Jones at 9:59am on 7 October 2018
                                     </td>
                                     <td class="Child03" rel="Child03" style="vertical-align: top;">
-                                        {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
+                                        Tudor Grange School
                                     </td>
-                                    <td class="02" rel="02" style="vertical-align: top;">
-                                        Business case audit evidence
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case template
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         1
-                                    </td> -->
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
                                         2018-2019
@@ -314,61 +683,101 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Financial Report (2017-2018).xls</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Business Case Template (2018-2019).pdf</a>
                                         <br>
-                                        Sent by J Jones at 2:33pm on 23 March 2018
+                                        Sent by J Jones at 5:02pm on 2 October 2018
                                     </td>
-                                    <td class="Parent01" rel="Parent01" style="vertical-align: top;">
-                                        {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003{% else %}[[LA/MAT name]]{% endif %}
+                                    <td class="Child01" rel="Child01" style="vertical-align: top;">
+                                        Foxford School
                                     </td>
-                                    <td class="03" rel="03" style="vertical-align: top;">
-                                        Financial report
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case template
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         1
-                                    </td> -->
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
-                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
-                                        2017 to 2018
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
                                     </td>
                                 </tr>
-                                {% if parent == 'LA' %}
+                                {% else %}
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Financial Report (2017-2018).xls</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Business Case Template (2018-2019).pdf</a>
                                         <br>
-                                        Sent by J Jones at 2:27pm on 23 March 2018
+                                        Sent by J Jones at 9:59am on 7 October 2018
                                     </td>
-                                    <td class="Parent02" rel="Parent02" style="vertical-align: top;">
-                                        Redhill Council: 491
+                                    <td class="Child03" rel="Child03" style="vertical-align: top;">
+                                        Tudor Grange School
                                     </td>
-                                    <td class="03" rel="03" style="vertical-align: top;">
-                                        Financial report
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case template
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         1
-                                    </td> -->
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
-                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
-                                        2017 to 2018
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Business Case Template (2018-2019).pdf</a>
+                                        <br>
+                                        Sent by J Jones at 5:02pm on 2 October 2018
+                                    </td>
+                                    <td class="Child01" rel="Child01" style="vertical-align: top;">
+                                        Foxford School
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case template
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Data Sharing Protocols (2018-2019).xls</a>
+                                        <br>
+                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
+                                    </td>
+                                    <td class="04" rel="04" style="vertical-align: top;">
+                                        Data sharing protocols
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
                                     </td>
                                 </tr>
                                 {% endif %}
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Business Case (2017-2018).xls</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Business Case Template (2017-2018) as LP.xls</a>
                                         <br>
-                                        Sent by J Jones at 3:03am on 5 October 2017
+                                        Sent by J Jones at 2:33pm on 23 March 2018
                                     </td>
-                                    <td class="Child08" rel="Child08" style="vertical-align: top;">
-                                        {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Tudor Grange Secondary School{% else %}[[Academy or school name]]{% endif %}
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
                                     </td>
                                     <td class="01" rel="01" style="vertical-align: top;">
-                                        Business case
+                                        Business case template
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         1
-                                    </td> -->
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2017-2018" rel="2017-2018">
                                         2017 to 2018
@@ -376,19 +785,39 @@
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">
-                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Business case audit evidence.pdf</a>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">DSG CFO SoA (2017-2018).xls</a>
+                                        <br>
+                                        Sent by J Jones at 3:03am on 5 October 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
+                                    </td>
+                                    <td class="05" rel="05" style="vertical-align: top;">
+                                        DSG CFO statement of assurance
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">Infrastructure Return (2017-2018).pdf</a>
                                         <br>
                                         Sent by J Jones at 3:09am on 5 October 2017
                                     </td>
-                                    <td class="Child03" rel="Child03" style="vertical-align: top;">
-                                        {% if parent == 'MAT' %}Frog Field Academy {% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
                                     </td>
-                                    <td class="02" rel="02" style="vertical-align: top;">
-                                        Business case audit evidence
+                                    <td class="06" rel="06" style="vertical-align: top;">
+                                        Infrastructure return
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         1
-                                    </td> -->
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2017-2018" rel="2017-2018">
                                         2017 to 2018
@@ -400,15 +829,55 @@
                                         <br>
                                         Sent by J Jones at 10:21am on 13 September 2017
                                     </td>
-                                    <td class="Child06" rel="Child06" style="vertical-align: top;">
-                                        {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
+                                    <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                        Sir Frank Whittle School
                                     </td>
-                                    <td class="04" rel="04" style="vertical-align: top;">
-                                        Infrastructure return
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case template
                                     </td>
-                                    <!-- <td style="vertical-align: top;">
+                                    <td style="vertical-align: top;">
                                         1
-                                    </td> -->
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">CFO (POST 16) Grant for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 8:58am on 17 September 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
+                                    </td>
+                                    <td class="03" rel="03" style="vertical-align: top;">
+                                        CFO post 16 LA grant assurance
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">CFO (16-19) Grant for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 7:31am on 17 September 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Redhill Council
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        CFO 16-19 LA grant assurance
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2017-2018" rel="2017-2018">
                                         2017 to 2018
@@ -421,13 +890,7 @@
                     <div class="pager">
         
                         <div class="pager-summary">
-                            {% if parent == 'MAT' %}
-                            Showing 1 to 7 of 7 documents
-                            {% elif parent == 'LA' %}
-                            Showing 1 to 8 of 8 documents
-                            {% else %}
-                            Showing 1 to 7 of 7 documents
-                            {% endif %}
+                            Showing 1 to {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} of {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} documents
                         </div>
         
                     </div>
@@ -442,6 +905,407 @@
                     </div>
 
                 </div>
+                <!-- LAs - Dynamic content (END) -->
+                {% else %}
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by organisation</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="organisation-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenOrganisation" id="queryFilterOpenOrganisation" aria-expanded="true" aria-controls="filter-by-organisation" value="true">
+                                    <a href="#" id="filter-keyboard-organisation" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-organisation">
+                                        <header id="organisation" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by organisation</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
+                                                    <label class="block" for="queryFilterOrganisationChild01">
+                                                        Frog Field Academy (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
+                                                    <label class="block" for="queryFilterOrganisationChild02">
+                                                        Mole Catch Academy ({% if sentDocument == 'Yes' %}2{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
+                                                    <label class="block" for="queryFilterOrganisationParent">
+                                                        Rupert Shoggins Academy Trust ({% if sentDocument == 'Yes' %}5{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
+                                                    <label class="block" for="queryFilterOrganisationChild03">
+                                                        Ryckborst Academy of Justice (1)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Business case (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        RPA Certificate ({% if sentDocument == 'Yes' %}7{% else %}5{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by academic year</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academic-year-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterAcademicYear" id="queryFilterAcademicYear" aria-expanded="true" aria-controls="filter-by-academic-year" value="true">
+                                    <a href="#" id="filter-keyboard-academic-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academic-year">
+                                        <header id="academic-year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by academic year</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-academic-year" class="js-filter-collapsible-content" aria-labelledby="academic-year">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
+                                                    <label class="block" for="queryFilterAcademicYear20182019">
+                                                        2018 to 2019 ({% if sentDocument == 'Yes' %}4{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
+                                                    <label class="block" for="queryFilterAcademicYear20172018">
+                                                        2017 to 2018 (5)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Document list -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents</span>
+                        </div>
+
+                        <table>
+                            <caption class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
+                            <thead>
+                                <tr class="first">
+                                    <th>
+                                        Document name
+                                    </th>
+                                    <th>
+                                        Organisation
+                                    </th> 
+                                    <th>
+                                        Document type
+                                    </th>
+                                    <th>
+                                        Version
+                                    </th>
+                                    <!-- Hidden column header for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <th style="display: none;">
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
+                            <tbody>
+                                {% if sentDocument == 'Yes' %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Mole Catch Academy) for 2018-2019.pdf</a>
+                                        <br>
+                                        <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                        <br>
+                                        Sent by J Jones at 11:32am on 8 October 2018
+                                    </td>
+                                    <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                        Mole Catch Academy
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                {% if sentDocument == 'Yes' %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf</a>
+                                        <br>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
+                                        <br>
+                                        Sent by J Jones at 11:17am on 8 October 2018
+                                        <br>
+                                        <br>
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        2
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (xls)">Business Case (2018-2019).xls</a>
+                                        <br>
+                                        Sent by J Jones at 9:23am on 6 October 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                {% else %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (xls)">Business Case (2018-2019).xls</a>
+                                        <br>
+                                        Sent by J Jones at 9:23am on 6 October 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                        2018-2019
+                                    </td>
+                                </tr>
+                                {% endif %}
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Frog Field Academy) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 10:09am on 16 March 2018
+                                    </td>
+                                    <td class="Child01" rel="Child01" style="vertical-align: top;">
+                                        Frog Field Academy
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017-2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Ryckborst Academy of Justice) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 9:53am on 16 March 2018
+                                    </td>
+                                    <td class="Child03" rel="Child03" style="vertical-align: top;">
+                                        Ryckborst Academy of Justice
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Mole Catch Academy) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 9:47am on 16 March 2018
+                                    </td>
+                                    <td class="Child02" rel="Child02" style="vertical-align: top;">
+                                        Mole Catch Academy
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Business Case (2017-2018).xls</a>
+                                        <br>
+                                        Sent by J Jones at 11:22am on 5 December 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="01" rel="01" style="vertical-align: top;">
+                                        Business case
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="vertical-align: top;">
+                                        <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA Certificate (Mole Catch Academy) for 2017-2018.pdf</a>
+                                        <br>
+                                        Sent by J Jones at 2:01pm on 12 October 2017
+                                    </td>
+                                    <td class="Parent" rel="Parent" style="vertical-align: top;">
+                                        Rupert Shoggins Academy Trust
+                                    </td>
+                                    <td class="02" rel="02" style="vertical-align: top;">
+                                        RPA Certificate
+                                    </td>
+                                    <td style="vertical-align: top;">
+                                        1
+                                    </td>
+                                    <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                    <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                        2017 to 2018
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+
+                    <div class="pager">
+        
+                        <div class="pager-summary">
+                            Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents
+                        </div>
+        
+                    </div>
+
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
+                    </div>
+
+                </div>
+                {% endif %}
 
             </form>
 
