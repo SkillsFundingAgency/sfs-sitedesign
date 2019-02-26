@@ -34,7 +34,7 @@
 
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
-                    <h2 id="filter-results-updated" class="pager-summary">{% if parent == 'MAT' %}Results updated, now showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents{% elif parent == 'LA' %}Results updated, now showing 1 to {% if sentDocument == 'Yes' %}10{% else %}8{% endif %} of {% if sentDocument == 'Yes' %}10{% else %}8{% endif %} documents{% else %}Results updated, now showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents{% endif %}</h2>
+                    <h2 id="filter-results-updated" class="pager-summary">{% if parent == 'MAT' %}Results updated, now showing 1 to {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} documents{% elif parent == 'LA' %}Results updated, now showing 1 to {% if sentDocuments == 'Yes' %}10{% else %}8{% endif %} of {% if sentDocuments == 'Yes' %}10{% else %}8{% endif %} documents{% else %}Results updated, now showing 1 to {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} documents{% endif %}</h2>
                 </div>
     
                 <div class="form-group">
@@ -71,13 +71,13 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
                                                     <label class="block" for="queryFilterOrganisationChild02">
-                                                        Mole Catch Academy ({% if sentDocument == 'Yes' %}2{% else %}1{% endif %})
+                                                        Mole Catch Academy ({% if sentDocuments == 'Yes' %}2{% else %}1{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
                                                     <label class="block" for="queryFilterOrganisationParent">
-                                                        Rupert Shoggins Academy Trust ({% if sentDocument == 'Yes' %}5{% else %}4{% endif %})
+                                                        Rupert Shoggins Academy Trust ({% if sentDocuments == 'Yes' %}5{% else %}4{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -118,7 +118,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        RPA certificate ({% if sentDocument == 'Yes' %}7{% else %}5{% endif %})
+                                                        RPA certificate ({% if sentDocuments == 'Yes' %}7{% else %}5{% endif %})
                                                     </label>
                                                 </li>
                                             </ul>
@@ -147,7 +147,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if sentDocument == 'Yes' %}4{% else %}2{% endif %})
+                                                        2018 to 2019 ({% if sentDocuments == 'Yes' %}4{% else %}2{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -174,7 +174,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} documents</span>
                         </div>
 
                         <table>
@@ -198,9 +198,9 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <!-- {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
+                            <!-- {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
                             <tbody>
-                                {% if sentDocument == 'Yes' %}
+                                {% if sentDocuments == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf</a>
@@ -426,7 +426,7 @@
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents
+                            Showing 1 to {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} documents
                         </div>
         
                     </div>
@@ -478,7 +478,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationParent01" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
                                                     <label class="block" for="queryFilterOrganisationParent01">
-                                                        Redhill Council ({% if sentDocument == 'Yes' %}7{% else %}6{% endif %})
+                                                        Redhill Council ({% if sentDocuments == 'Yes' %}7{% else %}6{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -531,7 +531,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
                                                     <label class="block" for="queryFilterDocumentType04">
-                                                        Data sharing protocol ({% if sentDocument == 'Yes' %}2{% else %}1{% endif %})
+                                                        Data sharing protocol ({% if sentDocuments == 'Yes' %}2{% else %}1{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -572,7 +572,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if sentDocument == 'Yes' %}4{% else %}3{% endif %})
+                                                        2018 to 2019 ({% if sentDocuments == 'Yes' %}4{% else %}3{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -599,7 +599,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} of {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocuments == 'Yes' %}10{% else %}9{% endif %} of {% if sentDocuments == 'Yes' %}10{% else %}9{% endif %} documents</span>
                         </div>
 
                         <table>
@@ -623,9 +623,9 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <!-- {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} RESULTS -->
+                            <!-- {% if sentDocuments == 'Yes' %}10{% else %}9{% endif %} RESULTS -->
                             <tbody>
-                                {% if sentDocument == 'Yes' %}
+                                {% if sentDocuments == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">Data Sharing Protocol (2018-2019) v2.xls</a>
@@ -889,7 +889,7 @@
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} of {% if sentDocument == 'Yes' %}10{% else %}9{% endif %} documents
+                            Showing 1 to {% if sentDocuments == 'Yes' %}10{% else %}9{% endif %} of {% if sentDocuments == 'Yes' %}10{% else %}9{% endif %} documents
                         </div>
         
                     </div>
@@ -933,13 +933,13 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
                                                     <label class="block" for="queryFilterOrganisationChild02">
-                                                        Mole Catch Academy ({% if sentDocument == 'Yes' %}2{% else %}1{% endif %})
+                                                        Mole Catch Academy ({% if sentDocuments == 'Yes' %}2{% else %}1{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
                                                     <label class="block" for="queryFilterOrganisationParent">
-                                                        Rupert Shoggins Academy Trust ({% if sentDocument == 'Yes' %}5{% else %}4{% endif %})
+                                                        Rupert Shoggins Academy Trust ({% if sentDocuments == 'Yes' %}5{% else %}4{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -980,7 +980,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        RPA certificate ({% if sentDocument == 'Yes' %}7{% else %}5{% endif %})
+                                                        RPA certificate ({% if sentDocuments == 'Yes' %}7{% else %}5{% endif %})
                                                     </label>
                                                 </li>
                                             </ul>
@@ -1009,7 +1009,7 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if sentDocument == 'Yes' %}4{% else %}2{% endif %})
+                                                        2018 to 2019 ({% if sentDocuments == 'Yes' %}4{% else %}2{% endif %})
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -1036,7 +1036,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} documents</span>
                         </div>
 
                         <table>
@@ -1060,9 +1060,9 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <!-- {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
+                            <!-- {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
                             <tbody>
-                                {% if sentDocument == 'Yes' %}
+                                {% if sentDocuments == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA certificate (Mole Catch Academy) for 2018-2019.pdf</a>
@@ -1086,7 +1086,7 @@
                                     </td>
                                 </tr>
                                 {% endif %}
-                                {% if sentDocument == 'Yes' %}
+                                {% if sentDocuments == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf</a>
@@ -1289,7 +1289,7 @@
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocument == 'Yes' %}9{% else %}7{% endif %} documents
+                            Showing 1 to {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} of {% if sentDocuments == 'Yes' %}9{% else %}7{% endif %} documents
                         </div>
         
                     </div>
