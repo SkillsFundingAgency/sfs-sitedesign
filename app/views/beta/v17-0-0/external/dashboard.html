@@ -36,17 +36,10 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="apprenticeships" class="dashboard-links" href="#">
-                            <span id="apprenticeship-service" class="service-name">Apprenticeship service</span>
-                            <span id="contract-alert" class="alert alert-name-green">Go to apprenticeship service</span>
-                        </a>
-                    </div>
-
-                    <div class="column-third margin-top">
-                        <a id="contracts" class="dashboard-links" href="#">
-                            <span id="contracts-service" class="service-name">Contracts and agreements</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new contracts</span> -->
-                            <span id="contract-alert" class="alert alert-name-green">View contracts</span>
+                        <a id="adultFundingAllocation" class="dashboard-links" href="#">
+                            <span id="subcontractor-declaration-service" class="service-name">Allocation statements</span>
+                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new statements</span> -->
+                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View statements</span>
                         </a>
                     </div>
 
@@ -57,23 +50,56 @@
                             <span id="contract-alert" class="alert alert-name-green">View grants</span>
                         </a>
                     </div>
+                    
+                    <div class="column-third margin-top">
+                        <a id="apprenticeships" class="dashboard-links" href="#">
+                            <span id="apprenticeship-service" class="service-name">Apprenticeship service</span>
+                            <span id="contract-alert" class="alert alert-name-green">Go to apprenticeship service</span>
+                        </a>
+                    </div>
 
                 </div>
 
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="adultFundingAllocation" class="dashboard-links" href="#">
-                            <span id="subcontractor-declaration-service" class="service-name">Allocation statements</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new statements</span> -->
-                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View statements</span>
+                        <a id="contracts" class="dashboard-links" href="#">
+                            <span id="contracts-service" class="service-name">Contracts and agreements</span>
+                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new contracts</span> -->
+                            <span id="contract-alert" class="alert alert-name-green">View contracts</span>
                         </a>
                     </div>
 
                     <div class="column-third margin-top">
                         <a id="allocations" class="dashboard-links" href="home">
                             <span id="allocations-service" class="service-name">Document exchange</span>
-                            <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                            {% if receivedDocuments == 'Yes' and sentDocuments == 'Yes' %}
+                                {% if parent == 'MAT' %}
+                                <span id="allocation-alert" class="alert alert-name-red">4 new documents</span>
+                                {% elif parent == 'LA' %}
+                                <span id="allocation-alert" class="alert alert-name-red">14 new documents</span>
+                                {% else %}
+                                <span id="allocation-alert" class="alert alert-name-red">4 new documents</span>
+                                {% endif %}
+                            {% elif receivedDocuments == 'Yes' %}
+                                {% if parent == 'MAT' %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% elif parent == 'LA' %}
+                                <span id="allocation-alert" class="alert alert-name-red">13 new documents</span>
+                                {% else %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% endif %}
+                            {% elif sentDocuments == 'Yes' %}
+                                {% if parent == 'MAT' %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% elif parent == 'LA' %}
+                                <span id="allocation-alert" class="alert alert-name-red">1 new documents</span>
+                                {% else %}
+                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                {% endif %}
+                            {% else %}
+                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span>
+                            {% endif %}
                             <!-- <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span> -->
                         </a>
                     </div>
