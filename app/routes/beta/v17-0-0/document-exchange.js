@@ -38,6 +38,10 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/external/child/document-exchange/idams', function (req, res) {		
+		
+		// USABILITY TESTING ONLY
+		req.session.receivedDocuments = "Yes";
+		
 		res.redirect('/' + version + '/external/child/document-exchange/dashboard');
 	});
 
@@ -49,7 +53,9 @@ module.exports = function(router) {
 		res.render(version + '/external/dashboard', {
 			'version' : version,
 			'idams' : req.session.idams,
-			'parent' : req.session.parent
+			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
+			'parent' : req.session.parent,
+			'receivedDocuments' : req.session.receivedDocuments
 		});
 	});
 
@@ -402,6 +408,7 @@ module.exports = function(router) {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
+			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
 			'parent' : req.session.parent,
 			'receivedDocuments' : req.session.receivedDocuments,
 			'sentDocuments' : req.session.sentDocuments

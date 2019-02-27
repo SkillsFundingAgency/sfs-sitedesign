@@ -40,7 +40,8 @@ module.exports = function(router) {
 		
 		res.render(version + '/allocation-statements/dashboard', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess
 		});
 	});
 
