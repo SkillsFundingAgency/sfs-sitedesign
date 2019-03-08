@@ -6,14 +6,25 @@ module.exports = function(router) {
 	 * ERROR PAGES
 	 * **********/
 	
-	// Show to the users when they are not able to view any of the service features
+	// TEMPORARY - Show to users when they are not able to go directly to the apprenticeship service
+	router.get('/' + version + '/error-pages/no-apprenticeship-service', function (req, res) {
+		res.render(version + '/error-pages/no-apprenticeship-service', {
+			'version' : version,
+			'alternativeContentRequired' : req.query.alternativeContentRequired,
+			'reason1' : req.query.reason1,
+			'reason2' : req.query.reason2,
+			'reason3' : req.query.reason3
+		});
+	});
+
+	// Show to users when they are not able to view any of the service features (tiles)
 	router.get('/' + version + '/error-pages/no-features-available', function (req, res) {
 		res.render(version + '/error-pages/no-features-available', {
 			'version' : version,
 			'alternativeContentRequired' : req.query.alternativeContentRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2,
-			'page3' : req.query.page3
+			'reason1' : req.query.reason1,
+			'reason2' : req.query.reason2,
+			'reason3' : req.query.reason3
 		});
 	});
 
