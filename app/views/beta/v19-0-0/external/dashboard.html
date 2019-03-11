@@ -16,13 +16,16 @@
         
         <div class="column-full">
             <h1 class="heading-xlarge">
-                {% if parent == 'Child' %}
-                <span class="heading-secondary">Casterbridge College</span>
-                <span class="heading-secondary">UKPRN: 12345678</span>
-                {% elif parent == 'LA' %}
+                {% if parent == 'LA' %}
                 <span class="heading-secondary">Redhill Council</span>
                 {% elif parent == 'MAT' %}
                 <span class="heading-secondary">Rupert Shoggins Academy Trust</span>
+                {% elif child == 'TP' %}
+                <span class="heading-secondary">Redhill Council</span>
+                <span class="heading-secondary">UKPRN: 87654321</span>
+                {% elif child == 'other' %}
+                <span class="heading-secondary">Casterbridge College</span>
+                <span class="heading-secondary">UKPRN: 12345678</span>
                 {% else %}
                 <span class="heading-secondary">[[LA or MAT name]]</span>
                 {% endif %}
