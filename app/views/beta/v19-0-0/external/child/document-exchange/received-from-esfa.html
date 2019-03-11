@@ -44,6 +44,224 @@
                     <p>If you need a document in a different format, email <a href="#">pds.mailbox@education.gov.uk</a>.</p>
                 </div>
                 
+                <!-- TPs - Dynamic content (START) -->
+                {% if child == 'TP' %}
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Allocations calculation toolkit (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        Business case (2)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by academic year</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academic-year-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterAcademicYear" id="queryFilterAcademicYear" aria-expanded="true" aria-controls="filter-by-academic-year" value="true">
+                                    <a href="#" id="filter-keyboard-academic-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academic-year">
+                                        <header id="academic-year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by academic year</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-academic-year" class="js-filter-collapsible-content" aria-labelledby="academic-year">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
+                                                    <label class="block" for="queryFilterAcademicYear20182019">
+                                                        2018 to 2019 (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
+                                                    <label class="block" for="queryFilterAcademicYear20172018">
+                                                        2017 to 2018 (2)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Document list -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
+
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 4 of 4 documents</span>
+                    </div>
+
+                    <table>
+                        <caption class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
+                        <thead>
+                            <tr class="first">
+                                <th>
+                                    Document name
+                                </th>                                
+                                <th>
+                                    Document type
+                                </th>
+                                <!-- Hidden column header for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <th style="display: none;">
+                                </th>
+                            </tr>
+                        </thead>
+                        <!-- 54 RESULTS -->
+                        {% if paginationRequired %}
+                        <!-- SHOWING 1 TO 25 OF 54 DOCUMENTS -->
+                        {% if page1 %}
+
+                        <!-- SHOWING 26 TO 50 OF 54 DOCUMENTS -->
+                        {% elif page2 %}
+
+                        <!-- SHOWING 51 TO 54 OF 54 DOCUMENTS -->
+                        {% elif page3 %}
+
+                        {% endif %}
+                        <!-- 4 RESULTS -->
+                        {% else %}
+                        <!-- SHOWING 1 TO 4 OF 4 DOCUMENTS -->
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a class="document1" href="../../../../../../public/documents/document-exchange/tp/redhillcouncil-actfile.xlsx" target="_blank" title="Open actfile.xlsx (opens in a new tab)">act<wbr>file<wbr>.xlsx</a>
+                                    <br>
+                                    {% if documentReceived1 == 'New' %}
+                                    <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                    <br>
+                                    {% elif documentReceived1 == 'Downloaded' %}
+                                    
+                                    {% else %}
+                                    <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                    <br>
+                                    {% endif %}
+                                    9:20am on 13 March 2019
+                                </td>
+                                <td class="01" rel="01" style="vertical-align: top;">
+                                    Allocations calculation toolkit
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                    2018-2019
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a class="document2" href="../../../../../../public/documents/document-exchange/tp/redhillcouncil-businesscase.pdf" target="_blank" title="Open businesscase.pdf (opens in a new tab)">business<wbr>case<wbr>.pdf</a>
+                                    <br>
+                                    {% if documentReceived2 == 'New' %}
+                                    <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                    <br>
+                                    {% elif documentReceived2 == 'Downloaded' %}
+                                    
+                                    {% else %}
+                                    <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                    <br>
+                                    {% endif %}
+                                    9:18am on 13 March 2019
+                                </td>
+                                <td class="02" rel="02" style="vertical-align: top;">
+                                    Business case
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                    2018-2019
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#" target="_blank" title="Open actfile.xlsx (opens in a new tab)">act<wbr>file<wbr>.xlsx</a>
+                                    <br>
+                                    3:54pm on 18 April 2018
+                                </td>
+                                <td class="01" rel="01" style="vertical-align: top;">
+                                    Allocations calculation toolkit
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                    2017-2018
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#" target="_blank" title="Open businesscase.pdf (opens in a new tab)">business<wbr>case<wbr>.pdf</a>
+                                    <br>
+                                    11:31am on 2 March 2018
+                                </td>
+                                <td class="02" rel="02" style="vertical-align: top;">
+                                    Business case
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                    2017-2018
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endif %}
+                    </table>
+                    
+                    <div class="pager">
+        
+                        <div class="pager-summary">
+                            Showing 1 to 4 of 4 documents
+                        </div>
+        
+                    </div>
+
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
+                    </div>
+
+                </div>
+                <!-- TPs - Dynamic content (END) -->
+
+                {% else %}
                 <div class="column-filter-one-third column-third">
                     
                     <div>
@@ -169,10 +387,17 @@
                         <tbody>
                             <tr>
                                 <td style="vertical-align: top;">
-                                    <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">businesscase<wbr>auditevidence<wbr>template<wbr>.pdf</a>
+                                    <a class="document1" href="../../../../../../public/documents/document-exchange/other/casterbridgecollege-businesscaseauditevidencetemplate.pdf" target="_blank" title="Open businesscaseauditevidencetemplate.pdf (opens in a new tab)">business<wbr>case<wbr>audit<wbr>evidence<wbr>template<wbr>.pdf</a>
                                     <br>
+                                    {% if documentReceived1 == 'New' %}
                                     <strong class="govuk-tag govuk-bgred">NEW</strong>
                                     <br>
+                                    {% elif documentReceived1 == 'Downloaded' %}
+                                    
+                                    {% else %}
+                                    <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                    <br>
+                                    {% endif %}
                                     9:20am on 14 November 2018
                                 </td>
                                 <td class="02" rel="02" style="vertical-align: top;">
@@ -185,10 +410,17 @@
                             </tr>
                             <tr>
                                 <td style="vertical-align: top;">
-                                    <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">businesscase<wbr>template<wbr>.pdf</a>
+                                    <a class="document2" href="../../../../../../public/documents/document-exchange/other/casterbridgecollege-businesscasetemplate.pdf" target="_blank" title="Open businesscasetemplate.pdf (opens in a new tab)">business<wbr>case<wbr>template<wbr>.pdf</a>
                                     <br>
+                                    {% if documentReceived2 == 'New' %}
                                     <strong class="govuk-tag govuk-bgred">NEW</strong>
                                     <br>
+                                    {% elif documentReceived2 == 'Downloaded' %}
+                                    
+                                    {% else %}
+                                    <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                    <br>
+                                    {% endif %}
                                     9:05am on 13 November 2018 
                                 </td>
                                 <td class="01" rel="01" style="vertical-align: top;">
@@ -201,7 +433,7 @@
                             </tr>
                             <tr>
                                 <td style="vertical-align: top;">
-                                    <a href="#" title="Download [[DOCUMENT NAME]] (PDF)">businesscase<wbr>template<wbr>.pdf </a>
+                                    <a href="#" target="_blank" title="Open businesscasetemplate.pdf (opens in a new tab)">business<wbr>case<wbr>template<wbr>.pdf </a>
                                     <br>
                                     10:13am on 1 October 2017
                                 </td>
@@ -215,7 +447,7 @@
                             </tr>
                             <tr>
                                 <td style="vertical-align: top;">
-                                    <a href="#" title="Download [[DOCUMENT NAME]] (XLS)">datasharing<wbr>protocols<wbr>.xls</a>
+                                    <a href="#" title="Open datasharingprotocol.xlsx (opens in a new tab)">data<wbr>sharing<wbr>protocol<wbr>.xlsx</a>
                                     <br>
                                     4:48am on 28 September 2017
                                 </td>
@@ -249,6 +481,7 @@
                     </div>
 
                 </div>
+                {% endif %}
 
             </form>
 
@@ -262,6 +495,8 @@
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Update labels -->
+<script src="/public/javascripts/{{version}}/update-labels.js"></script>
 <!-- JavaScript (END) -->
 
 {% endblock %}
