@@ -34,9 +34,10 @@ module.exports = function(router) {
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
-		req.session.sentDocuments = "No";
 		req.session.documentReceived1 = "New";
 		req.session.documentReceived2 = "New";
+		req.session.documentSent1 = "No";
+		req.session.documentSent2 = "No";
 		req.session.userID = req.body.id.toLowerCase();
 		var userID = req.session.userID;
 
@@ -115,7 +116,7 @@ module.exports = function(router) {
 			req.session.documentReceived1 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #2
-		else if (req.query.documentReceived2 == "Downloaded") {
+		if (req.query.documentReceived2 == "Downloaded") {
 			req.session.documentReceived2 = "Downloaded";
 		}
 
@@ -155,7 +156,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
-			'sentDocuments' : req.session.sentDocuments
+			'documentSent1' : req.session.documentSent1,
+			'documentSent2' : req.session.documentSent2
 		});
 	});
 
@@ -293,7 +295,13 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/child/document-exchange/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
-		req.session.sentDocuments = "Yes";
+		if (req.session.fileType == "Business case" || req.session.fileType == "Business case template") {
+			req.session.documentSent1 = "Yes";
+		}
+		else if (req.session.fileType == "Business case audit evidence return") {
+			req.session.documentSent2 = "Yes";
+		}
+
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "other";
@@ -349,7 +357,6 @@ module.exports = function(router) {
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
-		req.session.sentDocuments = "No";
 		req.session.documentReceived1 = "New";
 		req.session.documentReceived2 = "New";
 		req.session.documentReceived3 = "New";
@@ -363,6 +370,8 @@ module.exports = function(router) {
 		req.session.documentReceived11 = "New";
 		req.session.documentReceived12 = "New";
 		req.session.documentReceived13 = "New";
+		req.session.documentSent1 = "No";
+		req.session.documentSent2 = "No";
 		req.session.userID = req.body.id.toLowerCase();
 		var userID = req.session.userID;
 
@@ -403,8 +412,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
 			'parent' : req.session.parent,
-			'receivedDocuments' : req.session.receivedDocuments,
-			'sentDocuments' : req.session.sentDocuments
+			'receivedDocuments' : req.session.receivedDocuments
 		});
 	});
 
@@ -442,51 +450,51 @@ module.exports = function(router) {
 			req.session.documentReceived1 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #2
-		else if (req.query.documentReceived2 == "Downloaded") {
+		if (req.query.documentReceived2 == "Downloaded") {
 			req.session.documentReceived2 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #3
-		else if (req.query.documentReceived3 == "Downloaded") {
+		if (req.query.documentReceived3 == "Downloaded") {
 			req.session.documentReceived3 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #4
-		else if (req.query.documentReceived4 == "Downloaded") {
+		if (req.query.documentReceived4 == "Downloaded") {
 			req.session.documentReceived4 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #5
-		else if (req.query.documentReceived5 == "Downloaded") {
+		if (req.query.documentReceived5 == "Downloaded") {
 			req.session.documentReceived5 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #6
-		else if (req.query.documentReceived6 == "Downloaded") {
+		if (req.query.documentReceived6 == "Downloaded") {
 			req.session.documentReceived6 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #7
-		else if (req.query.documentReceived7 == "Downloaded") {
+		if (req.query.documentReceived7 == "Downloaded") {
 			req.session.documentReceived7 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #8
-		else if (req.query.documentReceived8 == "Downloaded") {
+		if (req.query.documentReceived8 == "Downloaded") {
 			req.session.documentReceived8 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #9
-		else if (req.query.documentReceived9 == "Downloaded") {
+		if (req.query.documentReceived9 == "Downloaded") {
 			req.session.documentReceived9 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #10
-		else if (req.query.documentReceived10 == "Downloaded") {
+		if (req.query.documentReceived10 == "Downloaded") {
 			req.session.documentReceived10 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #11
-		else if (req.query.documentReceived11 == "Downloaded") {
+		if (req.query.documentReceived11 == "Downloaded") {
 			req.session.documentReceived11 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #12
-		else if (req.query.documentReceived12 == "Downloaded") {
+		if (req.query.documentReceived12 == "Downloaded") {
 			req.session.documentReceived12 = "Downloaded";
 		}
 		// Once downloaded hide NEW document received #13
-		else if (req.query.documentReceived13 == "Downloaded") {
+		if (req.query.documentReceived13 == "Downloaded") {
 			req.session.documentReceived13 = "Downloaded";
 		}
 
@@ -583,7 +591,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
-			'sentDocuments' : req.session.sentDocuments
+			'documentSent1' : req.session.documentSent1,
+			'documentSent2' : req.session.documentSent2
 		});
 	});
 
@@ -825,7 +834,13 @@ module.exports = function(router) {
 	router.get('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
-		req.session.sentDocuments = "Yes";
+		if (req.session.fileType == "RPA certificate" || req.session.fileType == "Data sharing protocol") {
+			req.session.documentSent1 = "Yes";
+		}
+		else if (req.session.fileType == "Infrastructure template") {
+			req.session.documentSent2 = "Yes";
+		}
+
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
@@ -841,113 +856,6 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {		
-		
-		// Reset all session variables for document upload (END)
-		req.session.uploadedDocumentStatus = "";
-		req.session.uploadedDocumentName = "";
-		req.session.fileType = "";
-		
-		res.redirect('/' + version + '/external/parent/document-exchange/home');
-	});
-
-	// Document Upload (Replace)
-	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.idams = req.session.idams || "MAT";
-		req.session.parent = req.session.parent || "MAT";
-		// Set the session variable if is does not exist
-		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
-		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
-		req.session.fileType = req.session.fileType || "";
-		
-		res.render(version + '/external/parent/document-exchange/document-upload-replace', {
-			'version' : version,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'error' : req.query.error,
-			'parent' : req.session.parent,
-			'sendFrom' : req.session.sendFrom,
-			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
-			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType
-		});		
-	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-replace', function (req, res) {		
-
-		req.session.fileName = req.body.fileName;
-		
-		res.redirect('/' + version + '/external/parent/document-exchange/document-upload-replace-complete');
-	});
-
-	// Document Upload - Remove Document (Replace)
-	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-remove', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.idams = req.session.idams || "MAT";
-		req.session.parent = req.session.parent || "MAT";
-
-		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
-			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
-		}
-		
-		res.render(version + '/external/parent/document-exchange/document-upload-replace-remove', {
-			'version' : version,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'parent' : req.session.parent,
-			'sendFrom' : req.session.sendFrom,
-			'error' : req.query.error,
-			'uploadedDocumentName' : req.session.uploadedDocumentName
-		});
-	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-replace-remove', function (req, res) {
-		
-		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
-			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
-		}
-
-		var deleteDocument = req.body.deleteDocument;
-
-		if (deleteDocument == "Yes") {
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-replace');
-		}
-		else if (deleteDocument == "No") {
-
-			// Tell the next page to show the last uploaded document information
-			req.session.uploadedDocumentStatus = "Show";
-
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-replace');
-		}
-		// Make sure the user chooses an option
-		else {
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-replace-remove?error=true');
-		}
-		
-	});
-
-	// Document Upload Complete (Replace)
-	router.get('/' + version + '/external/parent/document-exchange/document-upload-replace-complete', function (req, res) {
-
-		// USABILITY TESTING ONLY
-		req.session.sentDocuments = "Yes";
-		// Only set the session variable if it does not exist
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.idams = req.session.idams || "MAT";
-		req.session.parent = req.session.parent || "MAT";
-		
-		res.render(version + '/external/parent/document-exchange/document-upload-replace-complete', {
-			'version' : version,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'parent' : req.session.parent,
-			'sendFrom' : req.session.sendFrom,
-			'fileName' : req.session.fileName
-		});
-	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-replace-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
 		req.session.uploadedDocumentStatus = "";
