@@ -7,6 +7,9 @@
 // jQuery (START)
 $(document).ready(function () {
     
+    var currentURL = window.location.href;
+    var doesThisContainQuery = currentURL.includes("?");
+
     /***
     *	So we can update the individual labels for each of the NEW documents received from the ESFA
     *   INDIVIDUAL
@@ -15,14 +18,13 @@ $(document).ready(function () {
     // NEW document received #1
     $(".document1").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived1=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived1=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived1=Downloaded";
+            currentURL = currentURL + "?documentReceived1=Downloaded";
+            window.location.replace(currentURL);
         }
         
     });
@@ -30,14 +32,13 @@ $(document).ready(function () {
     // NEW document received #2
     $(".document2").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived2=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived2=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived2=Downloaded";
+            currentURL = currentURL + "?documentReceived2=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -45,14 +46,13 @@ $(document).ready(function () {
     // NEW document received #3
     $(".document3").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived3=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived3=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived3=Downloaded";
+            currentURL = currentURL + "?documentReceived3=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -60,14 +60,13 @@ $(document).ready(function () {
     // NEW document received #4
     $(".document4").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived4=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived4=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived4=Downloaded";
+            currentURL = currentURL + "?documentReceived4=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -75,14 +74,13 @@ $(document).ready(function () {
     // NEW document received #5
     $(".document5").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived5=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived5=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived5=Downloaded";
+            currentURL = currentURL + "?documentReceived5=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -90,14 +88,13 @@ $(document).ready(function () {
     // NEW document received #6
     $(".document6").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived6=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived6=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived6=Downloaded";
+            currentURL = currentURL + "?documentReceived6=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -105,14 +102,13 @@ $(document).ready(function () {
     // NEW document received #7
     $(".document7").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived7=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived7=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived7=Downloaded";
+            currentURL = currentURL + "?documentReceived7=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -120,14 +116,13 @@ $(document).ready(function () {
     // NEW document received #8
     $(".document8").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived8=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived8=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived8=Downloaded";
+            currentURL = currentURL + "?documentReceived8=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -135,14 +130,13 @@ $(document).ready(function () {
     // NEW document received #9
     $(".document9").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived9=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived9=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived9=Downloaded";
+            currentURL = currentURL + "?documentReceived9=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -150,14 +144,13 @@ $(document).ready(function () {
     // NEW document received #10
     $(".document10").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived10=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived10=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived10=Downloaded";
+            currentURL = currentURL + "?documentReceived10=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -165,14 +158,13 @@ $(document).ready(function () {
     // NEW document received #11
     $(".document11").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived11=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived11=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived11=Downloaded";
+            currentURL = currentURL + "?documentReceived11=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -180,14 +172,13 @@ $(document).ready(function () {
     // NEW document received #12
     $(".document12").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived12=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived12=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived12=Downloaded";
+            currentURL = currentURL + "?documentReceived12=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -195,14 +186,13 @@ $(document).ready(function () {
     // NEW document received #13
     $(".document13").click(function() {
 
-        var currentURL = window.location.href;
-        var doesThisContainQ = currentURL.includes("q");
-
-        if (doesThisContainQ == true) {
-            window.location = window.location.href + "&documentReceived13=Downloaded";
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&documentReceived13=Downloaded";
+            window.location.replace(currentURL);
         }
         else {
-            window.location = window.location.href + "?documentReceived13=Downloaded";
+            currentURL = currentURL + "?documentReceived13=Downloaded";
+            window.location.replace(currentURL);
         }
 
     });
@@ -214,7 +204,16 @@ $(document).ready(function () {
 
     // ALL NEW documents received (BULK)
     $(".alldocumentsReceived").click(function() {
-        window.location = "received-from-esfa?paginationRequired=true&page1=true&alldocumentsReceived=Downloaded";
+        
+        if (doesThisContainQuery == true) {
+            currentURL = currentURL + "&alldocumentsReceived=Downloaded";
+            window.location.replace(currentURL);
+        }
+        else {
+            currentURL = currentURL + "?alldocumentsReceived=Downloaded";
+            window.location.replace(currentURL);
+        } 
+        
     });
 
 });
