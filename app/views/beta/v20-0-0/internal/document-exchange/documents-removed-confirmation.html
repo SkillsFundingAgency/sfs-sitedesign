@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    You've removed 4 documents
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <form method="post" class="form">
+
+                <div class="form-group">
+                
+                    <div class="govuk-box-highlight">
+                        <h1 class="bold-xlarge">You’ve removed 4 documents</h1>
+                        <!-- <h1 class="bold-xlarge">You’ve removed 1 document</h1> -->
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <!-- <p>The document you’ve removed is 10056867_10041_201819.pdf.</p> -->
+                    <p>The documents you’ve removed are:</p>
+                    <ul class="list list-bullet">
+                        <li>10056867_10041_201819.pdf</li>
+                        <li>10006473_10041_201819.pdf</li>
+                        <li>10006943_10041_201819.pdf</li>
+                        <li>10006622_10041_201819.pdf</li>
+                    </ul>                
+                </div>
+
+                <!-- <div class="form-group">
+                    <h2 class="heading-medium">What happens next</h2>
+                    <p>You can <a href="documents-to-review">review your other documents</a>.</p>
+                </div> -->
+
+                <div class="form-group">
+                    <button class="button">Finish</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
