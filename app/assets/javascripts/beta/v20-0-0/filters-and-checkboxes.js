@@ -1048,10 +1048,8 @@ function selectAll(divid) {
         }
 
         document.getElementById("documentsSelectedText").innerHTML = totalDocumentCount + " documents selected";
-        document.getElementById("selectAllTrigger").href = "#downloadSelectedDocumentsButton";
         document.getElementById("selectAllTrigger").innerHTML = "Deselect all documents";
         document.getElementById("selectAllLabel").innerHTML = "Deselect all documents";
-        location.hash = "#downloadSelectedDocumentsButton";
     }
     else {
 
@@ -1065,10 +1063,8 @@ function selectAll(divid) {
         }
 
         document.getElementById("documentsSelectedText").innerHTML = "0 documents selected";
-        document.getElementById("selectAllTrigger").href = "#";
         document.getElementById("selectAllTrigger").innerHTML = "Select all documents";
         document.getElementById("selectAllLabel").innerHTML = "Select all documents";
-        location.hash = "#";
     }
 
 }

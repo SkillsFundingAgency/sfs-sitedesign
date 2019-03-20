@@ -4,6 +4,20 @@
     {% if error %}Error: {% endif %}Documents received from ESFA
 {% endblock %}
 
+<!-- Hotjar Tracking Code for https://esfstest.herokuapp.com -->
+<script>
+    
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:446883,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+
+</script>
+
 {% block content %}
 
 <main role="main" id="content">
@@ -459,7 +473,9 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to 10 of 30 documents</span>
                         </div>
 
-                        <p><a href="#downloadSelectedDocumentsButton" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+
+
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -2696,7 +2712,13 @@
                                                 <li class="gds-multiple-choice multiple-choice">
                                                     <input id="queryFilterStatusNew" rel="New" name="queryFilterStatus" type="checkbox" value="New">
                                                     <label class="block" for="queryFilterStatusNew">
-                                                        New (13)
+                                                        New (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterStatusReceived" rel="Received" name="queryFilterStatus" type="checkbox" value="Received">
+                                                    <label class="block" for="queryFilterStatusReceived">
+                                                        Received (11)
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice">
@@ -3075,7 +3097,7 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to 10 of 30 documents</span>
                         </div>
 
-                        <p><a href="#downloadSelectedDocumentsButton" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -3131,8 +3153,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3159,8 +3181,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3187,8 +3209,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3243,8 +3265,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3299,8 +3321,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3327,8 +3349,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3355,8 +3377,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3383,8 +3405,8 @@
                                         <td class="sortable-td 01" rel="01" style="vertical-align: top;">
                                             Allocations calculation toolkit
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3415,8 +3437,8 @@
                                         <td class="sortable-td 01" rel="01" style="vertical-align: top;">
                                             Allocations calculation toolkit
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3443,8 +3465,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -3471,8 +3493,8 @@
                                         <td class="sortable-td 07" rel="07" style="vertical-align: top;">
                                             Revenue funding statement
                                         </td>
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                         <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -4237,8 +4259,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived1 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived1 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4247,8 +4269,8 @@
                                             <span>C Eastwood at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4277,8 +4299,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived2 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived2 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4287,8 +4309,8 @@
                                             <span>H Windsor at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4317,8 +4339,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived3 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived3 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4327,8 +4349,8 @@
                                             <span>B Hartley at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4397,8 +4419,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived5 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived5 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4407,8 +4429,8 @@
                                             <span>T Smith at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4477,8 +4499,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived7 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived7 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4487,8 +4509,8 @@
                                             <span>S Vai at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4517,8 +4539,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived8 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived8 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4527,8 +4549,8 @@
                                             <span>A Rose at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4557,8 +4579,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived9 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived9 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4567,8 +4589,8 @@
                                             <span>K Wilde at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4597,8 +4619,8 @@
                                             Allocations calculation toolkit
                                         </td>
                                         {% if documentReceived10 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived10 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4607,8 +4629,8 @@
                                             <span>S Vai at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4637,8 +4659,8 @@
                                             Allocations calculation toolkit
                                         </td>
                                         {% if documentReceived11 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived11 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4647,8 +4669,8 @@
                                             <span>H Windsor at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4677,8 +4699,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived12 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived12 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4687,8 +4709,8 @@
                                             <span>H Grade at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -4717,8 +4739,8 @@
                                             Revenue funding statement
                                         </td>
                                         {% if documentReceived13 == 'New' %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% elif documentReceived13 == 'Downloaded' %}
                                         <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
@@ -4727,8 +4749,8 @@
                                             <span>H Whittle at 9:40am on 27 February 2019</span>
                                         </td>
                                         {% else %}
-                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
-                                            <strong class="govuk-tag govuk-bgred">New</strong>
+                                        <td class="sortable-td Received" rel="Received" style="vertical-align: top;">
+                                            <strong class="govuk-tag">Received</strong>
                                         </td>
                                         {% endif %}
                                         <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
@@ -5797,7 +5819,7 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to 10 of 30 documents</span>
                         </div>
 
-                        <p><a href="#downloadSelectedDocumentsButton" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
