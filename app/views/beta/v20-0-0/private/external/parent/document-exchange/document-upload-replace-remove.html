@@ -1,0 +1,94 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Are you sure you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}?
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../../private/external/parent/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        {% if parent == 'MAT' %}
+                        <li><a href="select-organisation">Select an organisation</a></li>
+                        {% elif parent == 'LA' %}
+                        {% else %}
+                        <li><a href="select-organisation">Select an organisation</a></li>
+                        {% endif %}
+                        <li><a href="document-upload-replace">Replace your document</a></li>
+                        <li>Remove a document</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+  
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#removeUploadedDocument">Select yes if you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+
+                <fieldset class="inline {% if error %}after-error-summary{% endif %}">
+                    
+                    <div>
+                        <legend id="removeUploadedDocument">
+                            <h1 class="heading-xlarge">Are you sure you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}?</h1>
+                        </legend>
+                    </div>
+            
+                    <div class="form-group {% if error %}form-group-error{% endif %}">
+                        {% if error %}
+                        <span class="error-message">Select yes if you want to remove {% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</span>
+                        {% endif %}
+
+                        <div class="multiple-choice">
+                            <input id="radio-1" type="radio" name="deleteDocument" value="Yes">
+                            <label for="radio-1">Yes</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="deleteDocument" value="No">
+                            <label for="radio-2">No</label>
+                        </div>
+            
+                    </div>
+            
+                </fieldset>
+
+                <div class="form-group">
+                    <button class="button">Continue</button>
+                </div>
+        
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
