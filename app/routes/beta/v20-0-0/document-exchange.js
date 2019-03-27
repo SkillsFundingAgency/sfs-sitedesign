@@ -7,30 +7,30 @@ module.exports = function(router) {
 	 * **********/
 	
 	// Start
-	router.get('/' + version + '/external/child/document-exchange/start', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/external/child/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/external/child/document-exchange/idams');
+	router.post('/' + version + '/private/external/child/document-exchange/start', function (req, res) {		
+		res.redirect('/' + version + '/private/external/child/document-exchange/idams');
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/external/child/document-exchange/roles-permissions', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/roles-permissions', function (req, res) {
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});
 	});
 
 	// IDAMS
-	router.get('/' + version + '/external/child/document-exchange/idams', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/idams', function (req, res) {
 		res.render(version + '/idams', {
 			'version' : version,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/external/child/document-exchange/idams', function (req, res) {		
+	router.post('/' + version + '/private/external/child/document-exchange/idams', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
@@ -47,7 +47,7 @@ module.exports = function(router) {
 			req.session.idams = "TP";
 			req.session.child = "TP";
 
-			res.redirect('/' + version + '/external/child/document-exchange/dashboard');
+			res.redirect('/' + version + '/private/external/child/document-exchange/dashboard');
 		}
 		// User is signing in as any other valid child education institution
 		else if (userID == "academy" || userID == "college" || userID == "school" || userID == "sixth form") {
@@ -55,24 +55,24 @@ module.exports = function(router) {
 			req.session.idams = "other";
 			req.session.child = "other";
 
-			res.redirect('/' + version + '/external/child/document-exchange/dashboard');
+			res.redirect('/' + version + '/private/external/child/document-exchange/dashboard');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/external/child/document-exchange/idams?error=true');
+			res.redirect('/' + version + '/private/external/child/document-exchange/idams?error=true');
 		}
 		
 	});
 
 	// Dashboard
-	router.get('/' + version + '/external/child/document-exchange/dashboard', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/dashboard', function (req, res) {
 	
 		req.session.dashboard = "Yes";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
 		
-		res.render(version + '/external/dashboard', {
+		res.render(version + '/private/external/dashboard', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -83,14 +83,14 @@ module.exports = function(router) {
 	});
 
 	// Document Exchange (Home)
-	router.get('/' + version + '/external/child/document-exchange/home', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/home', function (req, res) {
 		
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
 		
-		res.render(version + '/external/child/document-exchange/home', {
+		res.render(version + '/private/external/child/document-exchange/home', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -100,7 +100,7 @@ module.exports = function(router) {
 	});
 
 	// Received from ESFA
-	router.get('/' + version + '/external/child/document-exchange/received-from-esfa', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/received-from-esfa', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -127,7 +127,7 @@ module.exports = function(router) {
 			req.session.receivedDocuments = "No";
 		}
 		
-		res.render(version + '/external/child/document-exchange/received-from-esfa', {
+		res.render(version + '/private/external/child/document-exchange/received-from-esfa', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -139,7 +139,7 @@ module.exports = function(router) {
 	});
 
 	// Sent to ESFA
-	router.get('/' + version + '/external/child/document-exchange/sent-to-esfa', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/sent-to-esfa', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -151,7 +151,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
-		res.render(version + '/external/child/document-exchange/sent-to-esfa', {
+		res.render(version + '/private/external/child/document-exchange/sent-to-esfa', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -162,7 +162,7 @@ module.exports = function(router) {
 	});
 
 	// Document Upload File Type
-	router.get('/' + version + '/external/child/document-exchange/document-upload-file-type', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/document-upload-file-type', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -174,7 +174,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
-		res.render(version + '/external/child/document-exchange/document-upload-file-type', {
+		res.render(version + '/private/external/child/document-exchange/document-upload-file-type', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -185,7 +185,7 @@ module.exports = function(router) {
 			'fileType' : req.session.fileType
 		});
 	});
-	router.post('/' + version + '/external/child/document-exchange/document-upload-file-type', function (req, res) {		
+	router.post('/' + version + '/private/external/child/document-exchange/document-upload-file-type', function (req, res) {		
 		
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
@@ -204,17 +204,17 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
-			res.redirect('/' + version + '/external/child/document-exchange/document-upload-file-type?error=true');
+			res.redirect('/' + version + '/private/external/child/document-exchange/document-upload-file-type?error=true');
 		}
 		// Success
 		else {
-			res.redirect('/' + version + '/external/child/document-exchange/document-upload');
+			res.redirect('/' + version + '/private/external/child/document-exchange/document-upload');
 		}
 		
 	});
 
 	// Document Upload
-	router.get('/' + version + '/external/child/document-exchange/document-upload', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/document-upload', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -226,7 +226,7 @@ module.exports = function(router) {
 		req.session.fileType = req.session.fileType || "";
 		req.session.fileTypeVersion = req.session.fileTypeVersion || "";
 		
-		res.render(version + '/external/child/document-exchange/document-upload', {
+		res.render(version + '/private/external/child/document-exchange/document-upload', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -238,15 +238,15 @@ module.exports = function(router) {
 			'fileTypeVersion' : req.session.fileTypeVersion
 		});		
 	});
-	router.post('/' + version + '/external/child/document-exchange/document-upload', function (req, res) {		
+	router.post('/' + version + '/private/external/child/document-exchange/document-upload', function (req, res) {		
 
 		req.session.fileName = req.body.fileName;
 		
-		res.redirect('/' + version + '/external/child/document-exchange/document-upload-complete');
+		res.redirect('/' + version + '/private/external/child/document-exchange/document-upload-complete');
 	});
 
 	// Document Upload - Remove Document
-	router.get('/' + version + '/external/child/document-exchange/document-upload-remove', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/document-upload-remove', function (req, res) {
 	
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -257,7 +257,7 @@ module.exports = function(router) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
 		}
 		
-		res.render(version + '/external/child/document-exchange/document-upload-remove', {
+		res.render(version + '/private/external/child/document-exchange/document-upload-remove', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -266,7 +266,7 @@ module.exports = function(router) {
 			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
-	router.post('/' + version + '/external/child/document-exchange/document-upload-remove', function (req, res) {
+	router.post('/' + version + '/private/external/child/document-exchange/document-upload-remove', function (req, res) {
 		
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -275,24 +275,24 @@ module.exports = function(router) {
 		var deleteDocument = req.body.deleteDocument;
 
 		if (deleteDocument == "Yes") {
-			res.redirect('/' + version + '/external/child/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/private/external/child/document-exchange/document-upload-file-type');
 		}
 		else if (deleteDocument == "No") {
 
 			// Tell the next page to show the last uploaded document information
 			req.session.uploadedDocumentStatus = "Show";
 
-			res.redirect('/' + version + '/external/child/document-exchange/document-upload');
+			res.redirect('/' + version + '/private/external/child/document-exchange/document-upload');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/external/child/document-exchange/document-upload-remove?error=true');
+			res.redirect('/' + version + '/private/external/child/document-exchange/document-upload-remove?error=true');
 		}
 		
 	});
 
 	// Document Upload Complete
-	router.get('/' + version + '/external/child/document-exchange/document-upload-complete', function (req, res) {
+	router.get('/' + version + '/private/external/child/document-exchange/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
 		if (req.session.fileType == "Business case" || req.session.fileType == "Business case template") {
@@ -307,7 +307,7 @@ module.exports = function(router) {
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
 		
-		res.render(version + '/external/child/document-exchange/document-upload-complete', {
+		res.render(version + '/private/external/child/document-exchange/document-upload-complete', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -315,14 +315,14 @@ module.exports = function(router) {
 			'fileName' : req.session.fileName
 		});
 	});
-	router.post('/' + version + '/external/child/document-exchange/document-upload-complete', function (req, res) {		
+	router.post('/' + version + '/private/external/child/document-exchange/document-upload-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		
-		res.redirect('/' + version + '/external/child/document-exchange/home');
+		res.redirect('/' + version + '/private/external/child/document-exchange/home');
 	});
 
 	/**********
@@ -330,30 +330,30 @@ module.exports = function(router) {
 	 * **********/
 
 	// Start
-	router.get('/' + version + '/external/parent/document-exchange/start', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/external/parent/document-exchange/idams');
+	router.post('/' + version + '/private/external/parent/document-exchange/start', function (req, res) {		
+		res.redirect('/' + version + '/private/external/parent/document-exchange/idams');
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/external/parent/document-exchange/roles-permissions', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/roles-permissions', function (req, res) {
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});
 	});
 
 	// IDAMS
-	router.get('/' + version + '/external/parent/document-exchange/idams', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/idams', function (req, res) {
 		res.render(version + '/idams', {
 			'version' : version,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/idams', function (req, res) {		
+	router.post('/' + version + '/private/external/parent/document-exchange/idams', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
@@ -381,7 +381,7 @@ module.exports = function(router) {
 			req.session.idams = "LA";
 			req.session.parent = "LA";
 
-			res.redirect('/' + version + '/external/parent/document-exchange/dashboard');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/dashboard');
 		}
 		// User is signing in as a Multi Academy Trust (MAT)
 		else if (userID == "mat") {
@@ -389,24 +389,24 @@ module.exports = function(router) {
 			req.session.idams = "MAT";
 			req.session.parent = "MAT";
 
-			res.redirect('/' + version + '/external/parent/document-exchange/dashboard');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/dashboard');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/external/parent/document-exchange/idams?error=true');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/idams?error=true');
 		}
 		
 	});
 
 	// Dashboard
-	router.get('/' + version + '/external/parent/document-exchange/dashboard', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/dashboard', function (req, res) {
 		
 		req.session.dashboard = "Yes";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		
-		res.render(version + '/external/dashboard', {
+		res.render(version + '/private/external/dashboard', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -417,14 +417,14 @@ module.exports = function(router) {
 	});
 
 	// Document Exchange (Home)
-	router.get('/' + version + '/external/parent/document-exchange/home', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/home', function (req, res) {
 		
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		
-		res.render(version + '/external/parent/document-exchange/home', {
+		res.render(version + '/private/external/parent/document-exchange/home', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -434,7 +434,7 @@ module.exports = function(router) {
 	});
 
 	// Received from ESFA
-	router.get('/' + version + '/external/parent/document-exchange/received-from-esfa', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/received-from-esfa', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -540,7 +540,7 @@ module.exports = function(router) {
 
 		}
 		
-		res.render(version + '/external/parent/document-exchange/received-from-esfa', {
+		res.render(version + '/private/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -574,7 +574,7 @@ module.exports = function(router) {
 	});
 
 	// Sent to ESFA
-	router.get('/' + version + '/external/parent/document-exchange/sent-to-esfa', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/sent-to-esfa', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -586,7 +586,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
-		res.render(version + '/external/parent/document-exchange/sent-to-esfa', {
+		res.render(version + '/private/external/parent/document-exchange/sent-to-esfa', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -597,7 +597,7 @@ module.exports = function(router) {
 	});
 
 	// Select an organisation
-	router.get('/' + version + '/external/parent/document-exchange/select-organisation', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/select-organisation', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -607,7 +607,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		
-		res.render(version + '/external/parent/document-exchange/select-organisation', {
+		res.render(version + '/private/external/parent/document-exchange/select-organisation', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -617,7 +617,7 @@ module.exports = function(router) {
 			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/select-organisation', function (req, res) {		
+	router.post('/' + version + '/private/external/parent/document-exchange/select-organisation', function (req, res) {		
 		
 		var organisationType = req.body.organisationType;
 
@@ -625,27 +625,27 @@ module.exports = function(router) {
 
 			req.session.sendFrom = organisationType;
 
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload-file-type');
 		}
 		else if (organisationType == "A specific academy") {
-			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/external/parent/document-exchange/select-organisation?error=true');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/select-organisation?error=true');
 		}
 		
 	});
 
 	// Select an academy or school
-	router.get('/' + version + '/external/parent/document-exchange/select-academy-or-school', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/select-academy-or-school', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 
-		res.render(version + '/external/parent/document-exchange/select-academy-or-school', {
+		res.render(version + '/private/external/parent/document-exchange/select-academy-or-school', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -657,27 +657,27 @@ module.exports = function(router) {
 			'page3' : req.query.page3
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/select-academy-or-school', function (req, res) {		
+	router.post('/' + version + '/private/external/parent/document-exchange/select-academy-or-school', function (req, res) {		
 		
 		req.session.academyOrSchoolName = req.body.academyOrSchoolName;
 		var academyOrSchoolName = req.session.academyOrSchoolName;
 
 		// Make sure the user chooses an option
 		if (academyOrSchoolName == undefined) {
-			res.redirect('/' + version + '/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true&error=true');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true&error=true');
 		}
 		// Success
 		else {
 			
 			req.session.sendFrom = academyOrSchoolName;
 			
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload-file-type');
 		}
 		
 	});
 
 	// Document Upload File Type
-	router.get('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/document-upload-file-type', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -694,7 +694,7 @@ module.exports = function(router) {
 			req.session.sendFrom = "Redhill Council";
 		}
 		
-		res.render(version + '/external/parent/document-exchange/document-upload-file-type', {
+		res.render(version + '/private/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -706,7 +706,7 @@ module.exports = function(router) {
 			'fileType' : req.session.fileType
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-file-type', function (req, res) {
+	router.post('/' + version + '/private/external/parent/document-exchange/document-upload-file-type', function (req, res) {
 
 		// Set the chosen document type as a session variable
 		req.session.fileType = req.body.fileType;
@@ -741,17 +741,17 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type?error=true');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload-file-type?error=true');
 		}
 		// Success
 		else {
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload');
 		}
 		
 	});
 
 	// Document Upload
-	router.get('/' + version + '/external/parent/document-exchange/document-upload', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/document-upload', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -763,7 +763,7 @@ module.exports = function(router) {
 		req.session.fileType = req.session.fileType || "";
 		req.session.fileTypeVersion = req.session.fileTypeVersion || "";
 		
-		res.render(version + '/external/parent/document-exchange/document-upload', {
+		res.render(version + '/private/external/parent/document-exchange/document-upload', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -776,15 +776,15 @@ module.exports = function(router) {
 			'fileTypeVersion' : req.session.fileTypeVersion
 		});		
 	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload', function (req, res) {		
+	router.post('/' + version + '/private/external/parent/document-exchange/document-upload', function (req, res) {		
 
 		req.session.fileName = req.body.fileName;
 		
-		res.redirect('/' + version + '/external/parent/document-exchange/document-upload-complete');
+		res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload-complete');
 	});
 
 	// Document Upload - Remove Document
-	router.get('/' + version + '/external/parent/document-exchange/document-upload-remove', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/document-upload-remove', function (req, res) {
 	
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -795,7 +795,7 @@ module.exports = function(router) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
 		}
 		
-		res.render(version + '/external/parent/document-exchange/document-upload-remove', {
+		res.render(version + '/private/external/parent/document-exchange/document-upload-remove', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -805,7 +805,7 @@ module.exports = function(router) {
 			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-remove', function (req, res) {
+	router.post('/' + version + '/private/external/parent/document-exchange/document-upload-remove', function (req, res) {
 		
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -814,24 +814,24 @@ module.exports = function(router) {
 		var deleteDocument = req.body.deleteDocument;
 
 		if (deleteDocument == "Yes") {
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload-file-type');
 		}
 		else if (deleteDocument == "No") {
 
 			// Tell the next page to show the last uploaded document information
 			req.session.uploadedDocumentStatus = "Show";
 
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/external/parent/document-exchange/document-upload-remove?error=true');
+			res.redirect('/' + version + '/private/external/parent/document-exchange/document-upload-remove?error=true');
 		}
 		
 	});
 
 	// Document Upload Complete
-	router.get('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {
+	router.get('/' + version + '/private/external/parent/document-exchange/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
 		if (req.session.fileType == "RPA certificate" || req.session.fileType == "Data sharing protocol") {
@@ -846,7 +846,7 @@ module.exports = function(router) {
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		
-		res.render(version + '/external/parent/document-exchange/document-upload-complete', {
+		res.render(version + '/private/external/parent/document-exchange/document-upload-complete', {
 			'version' : version,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
@@ -855,14 +855,14 @@ module.exports = function(router) {
 			'fileName' : req.session.fileName
 		});
 	});
-	router.post('/' + version + '/external/parent/document-exchange/document-upload-complete', function (req, res) {		
+	router.post('/' + version + '/private/external/parent/document-exchange/document-upload-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		
-		res.redirect('/' + version + '/external/parent/document-exchange/home');
+		res.redirect('/' + version + '/private/external/parent/document-exchange/home');
 	});
 
 	/**********
@@ -870,71 +870,71 @@ module.exports = function(router) {
 	 * **********/
 
 	// Start
-	router.get('/' + version + '/internal/document-exchange/start', function (req, res) {
+	router.get('/' + version + '/private/internal/document-exchange/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/idams');
+	router.post('/' + version + '/private/internal/document-exchange/start', function (req, res) {		
+		res.redirect('/' + version + '/private/internal/document-exchange/idams');
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/internal/document-exchange/roles-permissions', function (req, res) {
+	router.get('/' + version + '/private/internal/document-exchange/roles-permissions', function (req, res) {
 		res.render(version + '/roles-permissions', {
 			'version' : version
 		});
 	});
 
 	// IDAMS
-	router.get('/' + version + '/internal/document-exchange/idams', function (req, res) {
+	router.get('/' + version + '/private/internal/document-exchange/idams', function (req, res) {
 		res.render(version + '/idams', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/idams', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/dashboard');
+	router.post('/' + version + '/private/internal/document-exchange/idams', function (req, res) {		
+		res.redirect('/' + version + '/private/internal/document-exchange/dashboard');
 	});
 
 	// Dashboard
-	router.get('/' + version + '/internal/document-exchange/dashboard', function (req, res) {
+	router.get('/' + version + '/private/internal/document-exchange/dashboard', function (req, res) {
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/dashboard', {
+		res.render(version + '/private/internal/dashboard', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
 
 	// Document Exchange (Home)
-	router.get('/' + version + '/internal/document-exchange/home', function (req, res) {
+	router.get('/' + version + '/private/internal/document-exchange/home', function (req, res) {
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/home', {
+		res.render(version + '/private/internal/document-exchange/home', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
 
 	// File Share
-	router.get('/' + version + '/internal/document-exchange/file-share', function (req, res) {
+	router.get('/' + version + '/private/internal/document-exchange/file-share', function (req, res) {
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/file-share', {
+		res.render(version + '/private/internal/document-exchange/file-share', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
 
 	// Documents to Publish
-	router.get('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-to-publish', function (req, res) {		
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-publish', {
+		res.render(version + '/private/internal/document-exchange/documents-to-publish', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
@@ -952,86 +952,86 @@ module.exports = function(router) {
 			'itemTypeLabelPlural' : "documents"
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-publish', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirm');
+	router.post('/' + version + '/private/internal/document-exchange/documents-to-publish', function (req, res) {		
+		res.redirect('/' + version + '/private/internal/document-exchange/documents-to-publish-confirm');
 	});
 
 	// Documents to Publish (Are you sure?)
-	router.get('/' + version + '/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
 	
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-publish-confirm', {
+		res.render(version + '/private/internal/document-exchange/documents-to-publish-confirm', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
+	router.post('/' + version + '/private/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
 
 		var publishConfirm = req.body.publishConfirm;
 		
 		if (publishConfirm == "Yes") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirmation');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-publish-confirmation');
 		}
 		else if (publishConfirm == "No") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish?paginationRequired=true&page1=true');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-publish?paginationRequired=true&page1=true');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-confirm?error=true');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-publish-confirm?error=true');
 		}
 		
 	});
 
 	// Documents to Publish (Confirmation)
-	router.get('/' + version + '/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
 
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-publish-confirmation', {
+		res.render(version + '/private/internal/document-exchange/documents-to-publish-confirmation', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/file-share');
+	router.post('/' + version + '/private/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
+		res.redirect('/' + version + '/private/internal/document-exchange/file-share');
 	});
 
 	// Documents to Publish > Remove (Are you sure?)
-	router.get('/' + version + '/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
 	
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-publish-remove-confirm', {
+		res.render(version + '/private/internal/document-exchange/documents-to-publish-remove-confirm', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
+	router.post('/' + version + '/private/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
 
 		var removeConfirm = req.body.removeConfirm;
 		
 		if (removeConfirm == "Yes") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-removed-confirmation');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-removed-confirmation');
 		}
 		else if (removeConfirm == "No") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish?paginationRequired=true&page1=true');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-publish?paginationRequired=true&page1=true');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-publish-remove-confirm?error=true');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-publish-remove-confirm?error=true');
 		}
 		
 	});
 	
 	// Documents to Review
-	router.get('/' + version + '/internal/document-exchange/documents-to-review', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-to-review', function (req, res) {		
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-review', {
+		res.render(version + '/private/internal/document-exchange/documents-to-review', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
@@ -1047,53 +1047,53 @@ module.exports = function(router) {
 	});
 
 	// Documents to Review > Remove (Are you sure?)
-	router.get('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-to-review-remove-confirm', {
+		res.render(version + '/private/internal/document-exchange/documents-to-review-remove-confirm', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
+	router.post('/' + version + '/private/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
 
 		var removeConfirm = req.body.removeConfirm;
 		
 		if (removeConfirm == "Yes") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-removed-confirmation');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-removed-confirmation');
 		}
 		else if (removeConfirm == "No") {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-review');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-review');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/internal/document-exchange/documents-to-review-remove-confirm?error=true');
+			res.redirect('/' + version + '/private/internal/document-exchange/documents-to-review-remove-confirm?error=true');
 		}
 		
 	});
 
 	// Documents Removed (Remove Confirmation)
-	router.get('/' + version + '/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
 
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/documents-removed-confirmation', {
+		res.render(version + '/private/internal/document-exchange/documents-removed-confirmation', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
-	router.post('/' + version + '/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
-		res.redirect('/' + version + '/internal/document-exchange/file-share');
+	router.post('/' + version + '/private/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
+		res.redirect('/' + version + '/private/internal/document-exchange/file-share');
 	});
 
 	// Download Documents
-	router.get('/' + version + '/internal/document-exchange/download-documents', function (req, res) {		
+	router.get('/' + version + '/private/internal/document-exchange/download-documents', function (req, res) {		
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/internal/document-exchange/download-documents', {
+		res.render(version + '/private/internal/document-exchange/download-documents', {
 			'version' : version,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
