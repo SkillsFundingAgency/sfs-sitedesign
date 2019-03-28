@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Search results
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../not-signed-in/pe-and-sport/start">Manage your education and skills funding</a></li>
+                        <li><a href="start">PE and sport premium allocations for 2018 to 2019</a></li>
+                        <li><a href="search-or-download">Find an organisation</a></li>
+                        <li>Search results</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+            
+            <form method="post" class="form">
+
+                <div class="form-group">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
+                        Search results
+                    </h1>
+                    <h2 class="heading-medium">No results for '{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</h2>
+                    <p>This is because:</p>
+                    <ul class="list list-bullet">
+                        <li>there is no PE and sport premium allocation</li>
+                        <li>of misspelling, try a different spelling in the <a href="search-or-download?editSearchTerm=true">search field</a></li>
+                    </ul>
+                </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
