@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Find an organisation
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../not-signed-in/pe-and-sport/start">Manage your education and skills funding</a></li>
+                        <li><a href="start">PE and sport premium allocations for 2018 to 2019</a></li>
+                        <li>Find an organisation</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+            
+            <form method="post" class="form">
+
+                <fieldset class="form-group">
+                    <legend>
+                        <h1 class="heading-xlarge">
+                            <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
+                            Find an organisation
+                        </h1>
+                        <p class="lede">Search for a school, academy or local authority to see the funding they've been allocated.</p>
+                    </legend>
+            
+                    <div class="form-group">
+
+                        <div class="multiple-choice" data-target="nameOrLAENumberSection">
+                            <input id="radio-1" type="radio" name="searchOrDownload" value="School or academy name or local authority establishment number">
+                            <label for="radio-1">School or academy name or local authority establishment number</label>
+                        </div>
+
+                        <!-- Hidden section for searching by school/academy name or LAE number (START) -->
+                        <div class="panel panel-border-narrow js-hidden" id="nameOrLAENumberSection">
+                            <label class="form-label form-hint" for="nameOrLAENumber">For example, Lickhill Primary School or 3832470</label>
+                            <input class="form-control" name="nameOrLAENumber" type="text" id="nameOrLAENumber">
+                        </div>
+                        <!-- Hidden section for searching by school/academy name or LAE number (END) -->
+
+                        <div class="multiple-choice" data-target="nameOrCodeSection">
+                            <input id="radio-2" type="radio" name="searchOrDownload" value="Local authority name or code">
+                            <label for="radio-2">Local authority name or code</label>
+                        </div>
+
+                        <!-- Hidden section for searching by LA name or code (START) -->
+                        <div class="panel panel-border-narrow js-hidden" id="nameOrCodeSection">
+                            <label class="form-label form-hint" for="nameOrCode">For example, Camden or 202</label>
+                            <input class="form-control" name="nameOrCode" type="text" id="nameOrCode">
+                        </div>
+                        <!-- Hidden section for searching by LA name or code (END) -->
+            
+                    </div>
+            
+                </fieldset>
+
+                <div class="form-group">
+                    <h2 class="heading-medium">Download all the PE and sport premium allocations</h2>
+                    <p>The allocations are available as ODS and XLSX files. Email <a href="#">pds.mailbox@education.gov.uk</a> to ask for a different format.</p>
+                    <section class="attachment embedded">
+                        
+                        <div class="form-download-container">
+                            <p><a href="../../../../../../../public/documents/?" class="form-download" title="PE and sport premium allocations 2018 to 2019 (ODS, 625KB)" download>PE and sport premium allocations 2018 to 2019 (ODS, 625KB)</a></p>
+                        </div>
+
+                        <div class="form-download-container">
+                            <p><a href="../../../../../../../public/documents/?" class="form-download" title="PE and sport premium allocations 2018 to 2019 (XLSX, 732KB)" download>PE and sport premium allocations 2018 to 2019 (XLSX, 732KB)</a></p>
+                        </div>
+    
+                    </section>
+                </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

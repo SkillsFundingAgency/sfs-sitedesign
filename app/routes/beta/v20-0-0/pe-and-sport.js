@@ -1,4 +1,4 @@
-module.exports = function(router) {
+ module.exports = function(router) {
 
 	var version = 'beta/v20-0-0';
 
@@ -7,34 +7,31 @@ module.exports = function(router) {
 	 * **********/
 
 	// Start
-	router.get('/' + version + '/public/pe-and-sport/start', function (req, res) {		
+	router.get('/' + version + '/not-signed-in/pe-and-sport/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
 			'peAndSport' : "true"
 		});
 	});
-	router.post('/' + version + '/public/pe-and-sport/start', function (req, res) {		
-		res.redirect('/' + version + '/public/pe-and-sport/start');
+	router.post('/' + version + '/not-signed-in/pe-and-sport/start', function (req, res) {		
+		res.redirect('/' + version + '/not-signed-in/pe-and-sport/start');
 	});
 	
 	// PE and Sport (Start)
-	router.get('/' + version + '/public/pe-and-sport/2018-to-2019/start', function (req, res) {
-		res.render(version + '/public/pe-and-sport/2018-to-2019/start', {
+	router.get('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/start', function (req, res) {
+		res.render(version + '/not-signed-in/pe-and-sport/2018-to-2019/start', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/public/pe-and-sport/2018-to-2019/start', function (req, res) {		
-		res.redirect('/' + version + '/public/pe-and-sport/2018-to-2019/search-or-download');
+	router.post('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/start', function (req, res) {		
+		res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/search-or-download');
 	});
 
 	// Search or download
-	router.get('/' + version + '/public/pe-and-sport/2018-to-2019/search-or-download', function (req, res) {
-		res.render(version + '/public/pe-and-sport/2018-to-2019/search-or-download', {
+	router.get('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/search-or-download', function (req, res) {
+		res.render(version + '/not-signed-in/pe-and-sport/2018-to-2019/search-or-download', {
 			'version' : version
 		});
-	});
-	router.post('/' + version + '/public/pe-and-sport/2018-to-2019/search-or-download', function (req, res) {		
-		res.redirect('/' + version + '/public/pe-and-sport/2018-to-2019/?');
 	});
 
 }
