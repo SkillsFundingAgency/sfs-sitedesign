@@ -1,4 +1,4 @@
- module.exports = function(router) {
+module.exports = function(router) {
 
 	var version = 'beta/v20-0-0';
 
