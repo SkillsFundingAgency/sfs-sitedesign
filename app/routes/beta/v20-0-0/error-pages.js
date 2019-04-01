@@ -3,7 +3,7 @@ module.exports = function(router) {
 	var version = 'beta/v20-0-0';
 
 	/**********
-	 * ERROR PAGES
+	 * ERROR PAGES (GLOBAL)
 	 * **********/
 	
 	// TEMPORARY - Show to users when they are not able to go directly to the apprenticeship service
