@@ -26,17 +26,362 @@
                     </ol>
                 </nav>
             </div>
-
-        </div>
-
-        <div class="column-two-thirds">
             
             <form method="post" class="form">
+
+                {% if searchScope == 'Child' %}
+                <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 8 of 8 schools</h2>
+                </div> 
+                {% else %}
+
+                {% endif %}
 
                 <h1 class="heading-xlarge">
                     <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
                     Did you mean
                 </h1>
+
+                {% if searchScope == 'Child' %}
+                <!-- Schools - Dynamic content (START) -->
+                {% if searchTerm == 'London' or searchTerm == 'london' %}
+                <!-- PAGINATION ON (search term on "london" or "London" with > 25 results) -->
+
+                {% else %}
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by local authority</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                    <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                        <header id="local-authority-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by local authority</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType01" name="queryFilterLocalAuthority" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterLocalAuthorityType01">
+                                                        Barnet (5)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType02" name="queryFilterLocalAuthority" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterLocalAuthorityType02">
+                                                        North Lincolnshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType03" name="queryFilterLocalAuthority" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterLocalAuthorityType03">
+                                                        Surrey (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType04" name="queryFilterLocalAuthority" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterLocalAuthorityType04">
+                                                        Tower Hamlets (1)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (3)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (5)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Did you mean</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 8 of 8 documents</span>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="lede">Search results for <span class="bold">'{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</span></p>
+                            <p>We found 8 schools. Did you mean:</p>
+
+                            <div class="form-block sectionContent 03 Maintained">
+                                <a href="#">Barnett Wood Infant School (Ashtead, KT21 2DF)</a>
+                            </div>
+        
+                            <div class="form-block sectionContent 04 Maintained">
+                                <a href="#">Canon Barnett Primary School (London, E1 7RQ)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="#">East Barnet School (Barnet, EN4 8PU)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Maintained">
+                                <a href="#">Friern Barnet School (London, N11 3LS)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="#">Queen Elizabeth's School, Barnet (Barnet, EN5 4DQ)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 02 Maintained">
+                                <a href="#">St Barnabas CofE Primary School, Barnetby (Barnetby, DN38 6JD)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Maintained">
+                                <a href="search-result">St Mary's CofE Primary School, East Barnet (Barnet, EN4 8SR)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="#">The Henrietta Barnett School (London, NW11 7BN)</a>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
+                <!-- Schools - Dynamic content (END) -->
+                {% endif %}
+                {% elif searchScope == 'Parent' %}
+                <!-- LAs - Dynamic content (START) -->
+                <!-- Potential matches to search term -->
+                <div class="form-group">
+                    <p class="lede">Search results for <span class="bold">'{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</span></p>
+                    <p>We found 10 local authorities. Did you mean:</p>
+
+                    <div class="form-block">
+                        <a href="#">Caerphilly</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Calderdale</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Cambridgeshire</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="search-result">Camden</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Cardiff</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Carmarthenshire</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Doncaster</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Lancashire</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Newcastle upon Tyne</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="#">Redcar and Cleveland</a>
+                    </div>
+
+                </div>
+                <!-- LAs - Dynamic content (END) -->
+                {% else %}
+                <!-- DEFAULT VIEW - when all session variables fail (START) -->
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by local authority</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                    <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                        <header id="local-authority-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by local authority</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType01" name="queryFilterLocalAuthority" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterLocalAuthorityType01">
+                                                        Barnet (5)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType02" name="queryFilterLocalAuthority" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterLocalAuthorityType02">
+                                                        North Lincolnshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType03" name="queryFilterLocalAuthority" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterLocalAuthorityType03">
+                                                        Surrey (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType04" name="queryFilterLocalAuthority" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterLocalAuthorityType04">
+                                                        Tower Hamlets (1)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (3)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (5)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Did you mean</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 8 of 8 documents</span>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="lede">Search results for <span class="bold">'{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</span></p>
+                            <p>We found 8 schools. Did you mean:</p>
+
+                            <div class="form-block sectionContent 03 Maintained">
+                                <a href="#">Barnett Wood Infant School (Ashtead, KT21 2DF)</a>
+                            </div>
+        
+                            <div class="form-block sectionContent 04 Maintained">
+                                <a href="#">Canon Barnett Primary School (London, E1 7RQ)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="#">East Barnet School (Barnet, EN4 8PU)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Maintained">
+                                <a href="#">Friern Barnet School (London, N11 3LS)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="#">Queen Elizabeth's School, Barnet (Barnet, EN5 4DQ)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 02 Maintained">
+                                <a href="#">St Barnabas CofE Primary School, Barnetby (Barnetby, DN38 6JD)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Maintained">
+                                <a href="search-result">St Mary's CofE Primary School, East Barnet (Barnet, EN4 8SR)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="#">The Henrietta Barnett School (London, NW11 7BN)</a>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
+                <!-- DEFAULT VIEW - when all session variables fail (END) -->
+                {% endif %}
 
             </form>
         
@@ -45,5 +390,11 @@
     </div>
 
 </main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- JavaScript (END) -->
 
 {% endblock %}

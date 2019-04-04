@@ -42,6 +42,7 @@ module.exports = function(router) {
 		
 		if (searchOn == "School or academy name or local authority establishment number") {
 			
+			req.session.searchScope = "Child";
 			req.session.searchTerm = nameOrLAENumber;
 
 			// Added so we can see an error page (search term which returns zero results)
@@ -49,12 +50,13 @@ module.exports = function(router) {
 				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/no-results');
 			}
 			else {
-				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/name-or-lae-number');
+				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean');
 			}
 			
 		}
 		else if (searchOn == "Local authority name or code") {
 
+			req.session.searchScope = "Parent";
 			req.session.searchTerm = nameOrCode;
 
 			// Added so we can see an error page (search term which returns zero results)
@@ -62,7 +64,7 @@ module.exports = function(router) {
 				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/no-results');
 			}
 			else {
-				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/name-or-code');
+				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean');
 			}			
 			
 		}
@@ -70,6 +72,24 @@ module.exports = function(router) {
 		else {
 			res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/search-or-download?error=true');
 		}
+
+		// Did you mean (e.g. when there are multiple search results)
+		router.get('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean', function (req, res) {
+			res.render(version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean', {
+				'version' : version,
+				'searchScope' : req.session.searchScope,
+				'searchTerm' : req.session.searchTerm
+			});
+		});
+
+		// Search result (e.g. when 1 unique result found)
+		router.get('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/search-result', function (req, res) {
+			res.render(version + '/not-signed-in/pe-and-sport/2018-to-2019/search-result', {
+				'version' : version,
+				'searchScope' : req.session.searchScope,
+				'searchTerm' : req.session.searchTerm
+			});
+		});
 		
 	});
 

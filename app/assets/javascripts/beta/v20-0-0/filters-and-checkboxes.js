@@ -497,7 +497,529 @@ $(document).ready(function () {
 
     });
 
-    // Filter #4 (Organisation) - Toggles content based on user clicking the 'Open all/Close all' link
+    // Filter #4 (Local Authority) - Toggles content based on user clicking the 'Open all/Close all' link
+
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-local-authority").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#local-authority-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+
+    });
+    // Filter logic
+    $("#local-authority-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
+            }
+
+        });
+
+        // If no checkbox filters are ticked, then restore the default page list of items
+        if (showAll) {
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
+        }
+
+    });
+
+    // Filter #5 (Local Authority - Link) - Toggles content based on user clicking the 'Open all/Close all' link
+
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-local-authority-link").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#local-authority-link-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+
+    });
+    // Filter logic
+    $("#local-authority-link-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        var checked = $("#filterContent :checkbox:checked");
+        
+        // Do this everytime a checkbox filter is selected
+        $('.sectionContent').hide();
+        $('.sectionContent').addClass("hidden");
+        $('.sectionContent').attr("aria-hidden", true);
+        $('.sectionContent').attr("hidden");
+
+        if (checked.length) {
+
+            showAll = false;
+
+            checked.each(function() {
+                $("." + $(this).val()).show();
+                $("." + $(this).val()).removeClass("hidden");
+                $("." + $(this).val()).attr("aria-hidden", false);
+                $("." + $(this).val()).removeAttr("hidden");
+            });
+        }
+
+        // If no checkbox filters are ticked, then restore the default page list of items
+        if (showAll) {
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('.sectionContent').show();
+                $('.sectionContent').removeClass("hidden");
+                $('.sectionContent').attr("aria-hidden", false);
+                $('.sectionContent').removeAttr("hidden");
+            }
+
+        }
+
+    });
+
+    // Filter #6 (Establishment Type) - Toggles content based on user clicking the 'Open all/Close all' link
+
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-establishment-type").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#establishment-type-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+
+    });
+    // Filter logic
+    $("#establishment-type-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        
+        $('tr').not('.first').hide();
+        $('tr').not('.first').addClass("hidden");
+        $('tr').not('.first').attr("aria-hidden", true);
+        $('tr').not('.first').attr("hidden");
+
+        // Do this everytime a checkbox filter is selected
+        $('input[type=checkbox]').each(function () {
+            
+            if ($(this)[0].checked) {
+                
+                showAll = false;
+                var status = $(this).attr('rel');
+                var value = $(this).val();
+
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').show();
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
+                $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
+            }
+
+        });
+
+        // If no checkbox filters are ticked, then restore the default page list of items
+        if (showAll) {
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('tr').show();
+                $('tr').removeClass("hidden");
+                $('tr').attr("aria-hidden", false);
+                $('tr').removeAttr("hidden");
+            }
+
+        }
+
+    });
+
+    // Filter #7 (Establishment Type - Link) - Toggles content based on user clicking the 'Open all/Close all' link
+
+    // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
+    // ACTION: '.keyup'
+    $("#filter-keyboard-establishment-type-link").keyup(function(event) {
+        
+        if (event.keyCode === 13) {
+            
+            var $container = $(".js-filter-collapsible-collections");
+
+            if ($container) {
+                
+                var $sections = $container.find("#establishment-type-link-filter");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header")
+                    .addClass("js-filter-collapsible-header")
+                    $section.toggleContent();
+
+                });
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
+            
+        }
+
+    });
+    // Filter logic
+    $("#establishment-type-link-filter :input:checkbox").change(function () {
+
+        var showAll = true;
+        var checked = $("#filterContent :checkbox:checked");
+        
+        // Do this everytime a checkbox filter is selected
+        $('.sectionContent').hide();
+        $('.sectionContent').addClass("hidden");
+        $('.sectionContent').attr("aria-hidden", true);
+        $('.sectionContent').attr("hidden");
+
+        if (checked.length) {
+
+            showAll = false;
+
+            checked.each(function() {
+                $("." + $(this).val()).show();
+                $("." + $(this).val()).removeClass("hidden");
+                $("." + $(this).val()).attr("aria-hidden", false);
+                $("." + $(this).val()).removeAttr("hidden");
+            });
+        }
+
+        // If no checkbox filters are ticked, then restore the default page list of items
+        if (showAll) {
+
+            var dynamicPaginationForPage = $("#dynamicPaginationForPage").text();
+            var totalListCount = $("#totalDocumentCount").text();
+            var clearLocalStorage = $("#clearLocalStorage").text();
+            var itemsPerPage = $("#itemsPerPage").text();
+            var itemTypeLabel = $("#itemTypeLabel").text();
+            var itemTypeLabelPlural = $("#itemTypeLabelPlural").text();
+
+            // If dynamic pagination is activated for the page...
+            if (dynamicPaginationForPage) {
+
+                // If there are no checkboxes selected run the JavaScript paging on the page
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    totalListCount,
+                    // Boolean whether to clear down the session data or not
+                    clearLocalStorage,
+                    // How many items to show per page
+                    itemsPerPage,
+                    itemTypeLabel,
+                    itemTypeLabelPlural
+                );
+
+            }
+            // Otherwise...
+            else {
+                $('.sectionContent').show();
+                $('.sectionContent').removeClass("hidden");
+                $('.sectionContent').attr("aria-hidden", false);
+                $('.sectionContent').removeAttr("hidden");
+            }
+
+        }
+
+    });
+
+    // Filter #8 (Organisation) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'
@@ -629,7 +1151,7 @@ $(document).ready(function () {
 
     });
 
-    // Filter #5 (Status) - Toggles content based on user clicking the 'Open all/Close all' link
+    // Filter #9 (Status) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'
@@ -762,7 +1284,7 @@ $(document).ready(function () {
     });
 
 
-    // Filter #6 (Type) - Toggles content based on user clicking the 'Open all/Close all' link
+    // Filter #10 (Type) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'
@@ -894,7 +1416,7 @@ $(document).ready(function () {
 
     });
 
-    // Filter #7 (Year) - Toggles content based on user clicking the 'Open all/Close all' link
+    // Filter #11 (Year) - Toggles content based on user clicking the 'Open all/Close all' link
     
     // Open/close ALL filter sections - Toggles content based on user pressing the 'return' key within grey filter sections
     // ACTION: '.keyup'

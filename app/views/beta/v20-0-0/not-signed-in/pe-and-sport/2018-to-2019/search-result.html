@@ -1,0 +1,550 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Search result
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../not-signed-in/pe-and-sport/start">Manage your education and skills funding</a></li>
+                        <li><a href="start">PE and sport premium allocations for 2018 to 2019</a></li>
+                        <li><a href="search-or-download">Find an organisation</a></li>
+                        <li><a href="did-you-mean">Did you mean</a></li>
+                        <li>Search result</li>
+                    </ol>
+                </nav>
+            </div>
+
+            {% if searchScope == 'Parent' %}
+            <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+            <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 25 of 47 schools</h2>
+            </div> 
+            {% else %}
+
+            {% endif %}
+            
+            <h1 class="heading-xlarge">
+                <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
+                Search result
+            </h1>
+
+        </div> 
+
+        {% if searchScope == 'Child' %}
+        <!-- Schools - Dynamic content (START) -->
+        <div class="column-two-thirds">
+            <p class="lede">Search result for <span class="bold">'St Mary's CofE Primary School, East Barnet'</span></p>
+        </div>
+
+        <div class="column-one-third">
+            <p><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods">Download search result (ODS, 5KB)</a></p>
+        </div>
+
+        <div class="column-full">
+
+            <form method="post" class="form">
+
+                <div class="form-group document-list">
+                    <table>
+                        <caption class="visuallyhidden">Search result for 'St Mary's CofE Primary School, East Barnet'</caption>
+                        <thead>
+                            <tr>
+                                <th>
+                                    Local authority code
+                                </th>                                
+                                <th>
+                                    Local authority name
+                                </th>
+                                <th>
+                                    Local authority establishment number (at Sep 2018)
+                                </th>                                
+                                <th>
+                                    School name (at Sep 2018)
+                                </th>
+                                <th>
+                                    Total allocation
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>302</td>
+                                <td>Barnet</td>
+                                <td>3023312</td>
+                                <td>St Mary's CofE Primary School, East Barnet</td>
+                                <td>£17,810</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </form>
+        
+        </div>
+        <!-- Schools - Dynamic content (END) -->
+        {% elif searchScope == 'Parent' %}
+        <!-- LAs - Dynamic content (START) -->
+        <form method="post" class="form">
+        
+            <div class="column-filter-one-third column-third">
+                        
+                <div>
+                    <fieldset class="filter">
+                        <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                        <div class="js-filter-collapsible-collections">
+                            <section id="establishment-type-filter" class="js-filter-collapsible js-open">
+                                <input type="hidden" name="queryFilterOpenEstablishmentType" id="queryFilterOpenEstablishmentType" aria-expanded="true" aria-controls="filter-by-establishment-type" value="true">
+                                <a href="#" id="filter-keyboard-establishment-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type">
+                                    <header id="establishment-type" class="js-filter-collapsible-header">
+                                        <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                    </header>
+                                </a>
+                                
+                                <div id="filter-by-establishment-type" class="js-filter-collapsible-content" aria-labelledby="establishment-type">
+                                    <section class="toggled-adult-funding-content group">
+                                        <ul>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterEstablishmentTypeAcademy" rel="Academy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                    Academy (3)
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterEstablishmentTypeMaintainedSchool" rel="Maintained School" name="queryFilterEstablishmentType" type="checkbox" value="Maintained School">
+                                                <label class="block" for="queryFilterEstablishmentTypeMaintainedSchool">
+                                                    Maintained school (44)
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+
+                            </section>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+            </div>
+
+            <!-- Schools list that sit under the LA -->
+            <div class="column-document-list-two-thirds column-two-thirds document-list">
+                <fieldset>
+                    <legend id="document-list" class="visuallyhidden">Search results</legend>
+
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 25 of 47 schools</span>
+                    </div>
+
+                    <div class="column-two-thirds">
+                        <p class="lede">Search results for <span class="bold">'Camden'</span></p>
+                        <p>We found 47 schools</p>
+                    </div>
+            
+                    <div class="column-one-third">
+                        <p><a href="/public/documents/pe-and-sport/PeAndSportsSearchResultsLA.ods">Download search result (ODS, 7KB)</a></p>
+                    </div>
+
+                    <div class="form-group document-list">
+                        <table>
+                            <caption class="visuallyhidden">Search result for 'St Mary's CofE Primary School, East Barnet'</caption>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Local authority code
+                                    </th>                                
+                                    <th>
+                                        Local authority name
+                                    </th>
+                                    <th>
+                                        Local authority establishment number (at Sep 2018)
+                                    </th>                                
+                                    <th>
+                                        School name (at Sep 2018)
+                                    </th>
+                                    <th>
+                                        Total allocation
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                                <tr>
+                                    <td>302</td>
+                                    <td>Barnet</td>
+                                    <td>3023312</td>
+                                    <td>St Mary's CofE Primary School, East Barnet</td>
+                                    <td>£17,810</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
+                    </div>
+
+                </fieldset>
+
+            </div>
+
+        </form>
+        <!-- LAs - Dynamic content (START) -->
+        {% else %}
+        <!-- DEFAULT VIEW - when all session variables fail (START) -->
+
+        <!-- DEFAULT VIEW - when all session variables fail (END) -->
+        {% endif %}
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
