@@ -74,7 +74,7 @@ module.exports = function(router) {
 		}
 
 		// Did you mean (e.g. when there are multiple search results)
-		router.get('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean', function (req, res) {
+		router.get('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean', function (req, res) {			
 			res.render(version + '/not-signed-in/pe-and-sport/2018-to-2019/did-you-mean', {
 				'version' : version,
 				'searchScope' : req.session.searchScope,
