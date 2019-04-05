@@ -34,8 +34,6 @@
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 8 of 8 schools</h2>
                 </div> 
-                {% else %}
-
                 {% endif %}
 
                 <h1 class="heading-xlarge">
@@ -47,7 +45,7 @@
                 <!-- Schools - Dynamic content (START) -->
                 {% if searchTerm == 'London' or searchTerm == 'london' %}
                 <!-- PAGINATION ON (search term on "london" or "London" with > 25 results) -->
-
+                <!-- TO DO: Add the pagination design once agreed with team -->
                 {% else %}
                 <div id="filterContent" class="column-filter-one-third column-third ">
                     
@@ -148,7 +146,7 @@
                         </div>
 
                         <div class="form-group">
-                            <p class="lede">Search results for <span class="bold">'{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</span></p>
+                            <p class="lede">Search results for <span class="bold">'{{searchTerm}}'</span></p>
                             <p>We found 8 schools. Did you mean:</p>
 
                             <div class="form-block sectionContent 03 Maintained">
@@ -194,7 +192,7 @@
                 <!-- LAs - Dynamic content (START) -->
                 <!-- Potential matches to search term -->
                 <div class="form-group">
-                    <p class="lede">Search results for <span class="bold">'{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</span></p>
+                    <p class="lede">Search results for <span class="bold">'{{searchTerm}}'</span></p>
                     <p>We found 10 local authorities. Did you mean:</p>
 
                     <div class="form-block">
@@ -340,7 +338,7 @@
                         </div>
 
                         <div class="form-group">
-                            <p class="lede">Search results for <span class="bold">'{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</span></p>
+                            <p class="lede">Search results for <span class="bold">'{{searchTerm}}'</span></p>
                             <p>We found 8 schools. Did you mean:</p>
 
                             <div class="form-block sectionContent 03 Maintained">
