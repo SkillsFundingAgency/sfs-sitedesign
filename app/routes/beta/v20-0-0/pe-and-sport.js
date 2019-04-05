@@ -46,7 +46,7 @@ module.exports = function(router) {
 			req.session.searchTerm = nameOrLAENumber;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (nameOrLAENumber == "Foxford School" || nameOrLAENumber == "foxford school" || nameOrLAENumber == "Mole Catch Academy" || nameOrLAENumber == "mole catch academy") {
+			if (nameOrLAENumber == "No Results" || nameOrLAENumber == "no results" || nameOrLAENumber == "Mole Catch Academy" || nameOrLAENumber == "mole catch academy") {
 				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/no-results');
 			}
 			else {
@@ -60,7 +60,7 @@ module.exports = function(router) {
 			req.session.searchTerm = nameOrCode;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (nameOrCode == "Foxford School" || nameOrCode == "foxford school" || nameOrCode == "Mole Catch Academy" || nameOrCode == "mole catch academy") {
+			if (nameOrCode == "No Results" || nameOrCode == "no results" || nameOrCode == "Mole Catch Academy" || nameOrCode == "mole catch academy") {
 				res.redirect('/' + version + '/not-signed-in/pe-and-sport/2018-to-2019/no-results');
 			}
 			else {
