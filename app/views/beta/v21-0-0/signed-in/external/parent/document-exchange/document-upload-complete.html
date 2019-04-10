@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    You've sent a document for {% if sendFrom %}{{sendFrom}}{% else %}[[LA/MAT or academy/school name]]{% endif %}
+    {% if parent == 'MAT' %}You've sent a document for {% if sendFrom %}{{sendFrom}}{% else %}[LA/MAT or academy/school name]{% endif %}{% else %}You've sent a document{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -25,8 +25,13 @@
                 <div class="form-group">
                 
                     <div class="govuk-box-highlight">
-                        <h1 class="bold-xlarge">You've sent a document for {% if sendFrom %}{{sendFrom}}{% else %}[[LA/MAT or academy/school name]]{% endif %}</h1>
-                        <p class="font-medium">The document you sent to ESFA is: '{% if fileName %}{{fileName}}{% else %}[[file name]]{% endif %}'</p>
+                        {% if parent == 'MAT' %}
+                        <h1 class="bold-xlarge">You've sent a document for {% if sendFrom %}{{sendFrom}}{% else %}[LA/MAT or academy/school name]{% endif %}</h1>
+                        <p class="font-medium">The document you sent to ESFA is: '{% if fileName %}{{fileName}}{% else %}[file name]{% endif %}'</p>
+                        {% else %}
+                        <h1 class="bold-xlarge">You've sent a document</h1>
+                        <p class="font-medium">'{% if fileName %}{{fileName}}{% else %}[file name]{% endif %}'</p>
+                        {% endif %}
                     </div>
 
                 </div>
