@@ -18,10 +18,15 @@ $(document).ready(function () {
         // If the user hasn't searched
         if (searchInputValue == "") {
 
-            // Show the hidden link
+            // Show the hidden 'clear search and selection' link
             $(clearFilter).removeClass("hidden");
             $(clearFilter).attr("aria-hidden", false);
             $(clearFilter).removeAttr("hidden");
+
+            // Show the hidden selection heading text
+            $("#selectedChoiceHeading").removeClass("hidden");
+            $("#selectedChoiceHeading").attr("aria-hidden", false);
+            $("#selectedChoiceHeading").removeAttr("hidden");
             
             // Rename the link and associated header 
             $("#clearSearchAndSelection").text("Clear selection");
@@ -34,6 +39,11 @@ $(document).ready(function () {
             $(clearFilter).removeClass("hidden");
             $(clearFilter).attr("aria-hidden", false);
             $(clearFilter).removeAttr("hidden");
+
+            // Show the hidden selection heading text
+            $("#selectedChoiceHeading").removeClass("hidden");
+            $("#selectedChoiceHeading").attr("aria-hidden", false);
+            $("#selectedChoiceHeading").removeAttr("hidden");
             
             // Rename the link and associated header 
             $("#clearSearchAndSelection").text("Clear search and selection");
