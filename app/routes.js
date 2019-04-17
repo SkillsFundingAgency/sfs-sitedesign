@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
 require('./routes/beta/v22-0-0/allocation-statements.js')(router);
 require('./routes/beta/v22-0-0/document-exchange.js')(router);
 require('./routes/beta/v22-0-0/error-pages.js')(router);
-require('./routes/beta/v22-0-0/pe-and-sport.js')(router);
+require('./routes/beta/v22-0-0/single-funding-statement.js')(router);
 // beta-v21-0-0
 require('./routes/beta/v21-0-0/allocation-statements.js')(router);
 require('./routes/beta/v21-0-0/document-exchange.js')(router);
