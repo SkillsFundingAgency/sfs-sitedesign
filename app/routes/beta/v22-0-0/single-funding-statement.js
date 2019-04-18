@@ -38,11 +38,11 @@ module.exports = function(router) {
 	router.post('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation', function (req, res) {
 		
 		var searchOn = req.body.searchScope;
-		var schoolOrAcademy = req.body.schoolOrAcademy;
-		var mat = req.body.mat;
-		var la = req.body.la;
+		var schoolOrAcademy = req.body.schoolOrAcademySearch;
+		var mat = req.body.matSearch;
+		var la = req.body.laSearch;
 		
-		if (searchOn == "School or academy name or local authority establishment number") {
+		if (searchOn == "Child") {
 			
 			req.session.searchScope = "Child";
 			req.session.searchTerm = schoolOrAcademy;
@@ -56,13 +56,13 @@ module.exports = function(router) {
 			}
 			
 		}
-		else if (searchOn == "Local authority name or code") {
+		else if (searchOn == "MAT") {
 
-			req.session.searchScope = "Parent";
-			req.session.searchTerm = nameOrCode;
+			req.session.searchScope = "MAT";
+			req.session.searchTerm = mat;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (nameOrCode == "No Results" || nameOrCode == "no results" || nameOrCode == "Mole Catch Academy" || nameOrCode == "mole catch academy") {
+			if (mat == "No Results" || mat == "no results" || mat == "Mole Catch Academy" || mat == "mole catch academy") {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
 			}
 			else {
@@ -70,10 +70,27 @@ module.exports = function(router) {
 			}			
 			
 		}
+		else if (searchOn == "LA") {
+
+			req.session.searchScope = "LA";
+			req.session.searchTerm = la;
+
+			// Added so we can see an error page (search term which returns zero results)
+			if (la == "No Results" || la == "no results" || la == "Mole Catch Academy" || la == "mole catch academy") {
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
+			}
+			else {
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean');
+			}			
+			
+		}
+		// We don't need an 'else' statement here since users must always click a radio button before searching
 		// Make sure the user chooses an option
+		/*
 		else {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation?error=true');
 		}
+		*/
 		
 	});
 
