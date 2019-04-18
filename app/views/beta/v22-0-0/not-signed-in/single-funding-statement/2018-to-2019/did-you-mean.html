@@ -19,7 +19,7 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
-                        <li><a href="../../../not-signed-in/pe-and-sport/start">Manage your education and skills funding</a></li>
+                        <li><a href="../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
                         <li><a href="start">Education provider funding allocations for 2018 to 2019</a></li>
                         <li><a href="find-an-organisation">Find an organisation</a></li>
                         <li>Did you mean</li>
@@ -27,25 +27,95 @@
                 </nav>
             </div>
             
-            <form method="post" class="form">
+            <form method="post" class="form">               
 
                 {% if searchScope == 'Child' %}
+                <!-- Schools - Dynamic content (START) -->
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 8 of 8 schools</h2>
                 </div> 
-                {% endif %}
 
-                <h1 class="heading-xlarge">
-                    <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
-                    Did you mean
-                </h1>
+                <div class="form-group">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
+                        Did you mean
+                    </h1>
+                    <p>If a school has converted into an academy, you will see two allocations, one for the school and one for the academy.</p>
+                </div>
 
-                {% if searchScope == 'Child' %}
-                <!-- Schools - Dynamic content (START) -->
                 {% if searchTerm == 'London' or searchTerm == 'london' %}
                 <!-- PAGINATION ON (search term on "london" or "London" with > 25 results) -->
                 <!-- TO DO: Add the pagination design once agreed with team -->
+                {% elif searchTerm == 'Converted' or searchTerm == 'converted' %}
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (1)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Did you mean</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 2 of 2 documents</span>
+                        </div>
+
+                        <div class="form-group">
+                            <p class="lede">Search results for <span class="bold">'{{searchTerm}}'</span></p>
+                            <p>We found 2 schools. Did you mean:</p>
+
+                            <div class="form-block sectionContent Academy">
+                                <a href="search-result">St Mary's CofE Primary School, East Barnet (Barnet, EN4 8SR)</a>
+                            </div>
+
+                            <div class="form-block sectionContent Maintained">
+                                <a href="search-result">St Mary's CofE Primary School, East Barnet (Barnet, EN4 8SR)</a>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
                 {% else %}
                 <div id="filterContent" class="column-filter-one-third column-third ">
                     
@@ -190,6 +260,11 @@
                 {% endif %}
                 {% elif searchScope == 'Parent' %}
                 <!-- LAs - Dynamic content (START) -->
+                <h1 class="heading-xlarge">
+                    <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
+                    Did you mean
+                </h1>
+
                 <!-- Potential matches to search term -->
                 <div class="form-group">
                     <p class="lede">Search results for <span class="bold">'{{searchTerm}}'</span></p>

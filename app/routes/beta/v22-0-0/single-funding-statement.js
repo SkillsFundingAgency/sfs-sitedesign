@@ -37,17 +37,18 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation', function (req, res) {
 		
-		var searchOn = req.body.searchOrDownload;
-		var nameOrLAENumber = req.body.nameOrLAENumber;
-		var nameOrCode = req.body.nameOrCode;
+		var searchOn = req.body.searchScope;
+		var schoolOrAcademy = req.body.schoolOrAcademy;
+		var mat = req.body.mat;
+		var la = req.body.la;
 		
 		if (searchOn == "School or academy name or local authority establishment number") {
 			
 			req.session.searchScope = "Child";
-			req.session.searchTerm = nameOrLAENumber;
+			req.session.searchTerm = schoolOrAcademy;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (nameOrLAENumber == "No Results" || nameOrLAENumber == "no results" || nameOrLAENumber == "Mole Catch Academy" || nameOrLAENumber == "mole catch academy") {
+			if (schoolOrAcademy == "No Results" || schoolOrAcademy == "no results" || schoolOrAcademy == "Mole Catch Academy" || schoolOrAcademy == "mole catch academy") {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
 			}
 			else {
