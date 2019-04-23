@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    PE and sport premium allocation 2018 to 2019
+    PE and sport premium for 2018 to 2019
 {% endblock %}
 
 {% block content %}
@@ -22,8 +22,8 @@
                         <li><a href="../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
                         <li><a href="start">Education provider funding allocations for 2018 to 2019</a></li>
                         <li><a href="../find-an-organisation">Find an organisation</a></li>
-                        <li><a href="../statement"></a>{% if organisation %}{{organisation}}{% else %}[ORGANISATION]{% endif %}</li>
-                        <li>PE and sport premium allocation 2018 to 2019</li>
+                        <li><a href="../statement">{% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}</a></li>
+                        <li>PE and sport premium for 2018 to 2019</li>
                     </ol>
                 </nav>
             </div>
@@ -31,23 +31,23 @@
             {% if searchScope == 'Child' %}
             <!-- Child - Dynamic content (START) -->
             <h1 class="heading-xlarge">
-                <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
-                Search result
+                <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                PE and sport premium for 2018 to 2019
             </h1>
 
             <div class="section-left">
-                <p class="lede">Search result for <span class="bold">'St Mary's CofE Primary School, East Barnet'</span></p>
+                <p class="lede">Showing PE and sport premium funding allocation for <span class="bold">'St Mary's CofE Primary School, East Barnet'</span></p>
             </div>
 
             <div class="section-right">
-                <p><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods" title="Download search result (ODS, 5KB)" download>Download search result (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                <p><a href="/public/documents/pe-and-sport/st-marys-cofe-primary-school.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
             </div>
 
             <form method="post" class="form">
 
                 <div class="form-group document-list">
                     <table>
-                        <caption class="visuallyhidden">Search result for 'St Mary's CofE Primary School, East Barnet'</caption>
+                        <caption class="visuallyhidden">Showing PE and sport premium funding allocation for 'St Mary's CofE Primary School, East Barnet'</caption>
                         <thead>
                             <tr>
                                 <th>
@@ -81,7 +81,11 @@
 
             </form>
             <!-- Child - Dynamic content (END) -->
-            {% elif searchScope == 'MAT' or searchScope == 'LA' %}
+            {% elif searchScope == 'MAT' %}
+            <!-- MATs - Dynamic content (START) -->
+
+            <!-- MATs - Dynamic content (END) -->
+            {% elif searchScope == 'LA' %}
             <!-- LAs - Dynamic content (START) -->
             <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
             <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
@@ -90,8 +94,8 @@
 
             <div class="form-group">
                 <h1 class="heading-xlarge">
-                    <span class="heading-secondary">PE and sport premium allocation 2018 to 2019</span>
-                    Search result
+                    <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                    PE and sport premium for 2018 to 2019
                 </h1>
                 <p>If a school has converted to become an academy you will see two parts to its allocation – one part when it was local authority maintained, and another as an academy.</p>
             </div>
@@ -150,17 +154,17 @@
                         </div>
 
                         <div class="section-left">
-                            <p class="lede">Search results for <span class="bold">'Camden'</span></p>
+                            <p class="lede">Showing PE and sport premium funding allocation for <span class="bold">'Camden'</span></p>
                             <p>We found 48 schools</p>
                         </div>
 
                         <div class="section-right">
-                            <p><a href="/public/documents/pe-and-sport/PeAndSportsSearchResultsLA.ods" title="Download search result (ODS, 7KB)" download>Download search result (<abbr title="Open Document Spreadsheet">ODS</abbr>, 7KB)</a></p>
+                            <p><a href="/public/documents/pe-and-sport/camden.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
                         </div>
 
                         <div class="form-group">
                             <table>
-                                <caption class="visuallyhidden">Search results for 'Camden'</caption>
+                                <caption class="visuallyhidden">Showing PE and sport premium funding allocation for 'Camden'</caption>
                                 <thead>
                                     <tr class="first">
                                         <th>
@@ -539,19 +543,24 @@
             <!-- LAs - Dynamic content (START) -->
             {% else %}
             <!-- DEFAULT VIEW - when all session variables fail (START) -->
+            <h1 class="heading-xlarge">
+                <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                PE and sport premium for 2018 to 2019
+            </h1>
+
             <div class="section-left">
-                <p class="lede">Search result for <span class="bold">'St Mary's CofE Primary School, East Barnet'</span></p>
+                <p class="lede">Showing PE and sport premium funding allocation for <span class="bold">'St Mary's CofE Primary School, East Barnet'</span></p>
             </div>
 
             <div class="section-right">
-                <p><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods" title="Download search result (ODS, 5KB)" download>Download search result (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                <p><a href="/public/documents/pe-and-sport/st-marys-cofe-primary-school.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
             </div>
 
             <form method="post" class="form">
 
                 <div class="form-group document-list">
                     <table>
-                        <caption class="visuallyhidden">Search result for 'St Mary's CofE Primary School, East Barnet'</caption>
+                        <caption class="visuallyhidden">Showing PE and sport premium funding allocation for 'St Mary's CofE Primary School, East Barnet'</caption>
                         <thead>
                             <tr>
                                 <th>
