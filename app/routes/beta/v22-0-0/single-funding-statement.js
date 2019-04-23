@@ -84,13 +84,6 @@ module.exports = function(router) {
 			}			
 			
 		}
-		// We don't need an 'else' statement here since users must always click a radio button before searching
-		// Make sure the user chooses an option
-		/*
-		else {
-			res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation?error=true');
-		}
-		*/
 		
 	});
 
@@ -100,6 +93,14 @@ module.exports = function(router) {
 			'version' : version,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm
+		});
+	});
+
+	// Single funding statement page
+	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement', function (req, res) {			
+		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/statement', {
+			'version' : version,
+			'searchScope' : req.session.searchScope
 		});
 	});
 

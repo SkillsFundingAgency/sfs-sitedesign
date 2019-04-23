@@ -1,0 +1,384 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+    /* Chris Harding (23.04.19) - Single funding statement styling for all financial figures (right floated) */
+    .govuk-accordion__open-all {
+        font-size: 16px !important;
+    }
+    .govuk-accordion__section-button {
+        font-size: 24px;
+    }
+    .govuk-body {
+        font-size: 19px !important;
+    }
+    .funding-margin-bottom {
+        margin-bottom: 20px;
+    }
+    .funding-left-container {
+        float: left;
+        margin: 0px;
+        padding-top: 0px;
+        padding-right: 0px;
+        padding-bottom: 10px;
+        padding-left: 0px;
+    }
+    @media (min-width: 641px) {
+        .funding-left-container {
+            padding: 0px;
+        }
+    }
+    .funding-left-text {
+        margin: 0px;
+        padding: 0px;
+    }
+    .funding-right-container {
+        clear: left;
+        text-align: inherit;
+        margin: 0px;
+    }
+    @media (min-width: 641px) {
+        .funding-right-container {
+            clear: none;
+            text-align: right;
+        }
+    }
+    .funding-right-text {
+        margin-top: 0px;
+        margin-right: 10px;
+        margin-bottom: 0px;
+        margin-left: 0px;
+    }
+    @media (min-width: 641px) {
+        .funding-right-text {
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+            margin-left: 10px;
+        }
+    }
+    .total {
+        font-size: 16px;
+        font-weight: bold;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    @media (min-width: 641px) {
+        .total {
+            font-size: 24px;
+        }
+    }
+
+</style>
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
+                        <li><a href="start">Education provider funding allocations for 2018 to 2019</a></li>
+                        <li><a href="find-an-organisation">Find an organisation</a></li>
+                        <li>{% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}</li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <form method="post" class="form">               
+
+                {% if searchScope == 'Child' %}
+                <!-- Child - Dynamic content (START) -->
+                <div class="form-group">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                        {% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    </h1>
+                </div>
+
+                <!-- Accordion section to display the data within the single funding statement (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    PE and sport premium for 2018 to 2019
+                                </span>
+                            </h2>
+                            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                                £17,810
+                            </div>  
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="pe-and-sport/search-result">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- Accordion section to display the data within the single funding statement (END) -->
+
+                <div class="funding-block total">
+
+                    <div class="funding-left-container">
+                        <span class="funding-left-text">
+                            Total funding allocation
+                        </span>
+                    </div>
+        
+                    <div class="funding-right-container">
+                        <span class="funding-right-text">£17,810</span>
+                    </div>
+        
+                </div>
+                <!-- Child - Dynamic content (END) -->
+                {% elif searchScope == 'MAT' %}
+                <!-- Child - Dynamic content (START) -->
+                <div class="form-group">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                        {% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    </h1>
+                </div>
+
+                <!-- Accordion section to display the data within the single funding statement (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    PE and sport premium for 2018 to 2019
+                                </span>
+                            </h2>
+                            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                                £7,039
+                            </div>  
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="pe-and-sport/search-result">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- Accordion section to display the data within the single funding statement (END) -->
+
+                <div class="funding-block total">
+
+                    <div class="funding-left-container">
+                        <span class="funding-left-text">
+                            Total funding allocation
+                        </span>
+                    </div>
+        
+                    <div class="funding-right-container">
+                        <span class="funding-right-text">£7,039</span>
+                    </div>
+        
+                </div>
+                <!-- Child - Dynamic content (END) -->
+                {% elif searchScope == 'LA' %}
+                <!-- Child - Dynamic content (START) -->
+                <div class="form-group">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                        {% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    </h1>
+                </div>
+
+                <!-- Accordion section to display the data within the single funding statement (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    Dedicated schools grant (DSG) for 2018 to 2019
+                                </span>
+                            </h2>
+                            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                                £172,523
+                            </div>
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <a href="#"><span class="funding-left-text">School block allocation</span></a>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <span class="funding-right-text">£92,738</span>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <a href="#"><span class="funding-left-text">Central schools services (CSS) block allocation</span></a>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <span class="funding-right-text">£32,510</span>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <a href="#"><span class="funding-left-text">Early years block allocation</span></a>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <span class="funding-right-text">£18,233</span>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <a href="#"><span class="funding-left-text">High needs block (including 16 to 23) allocation</span></a>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <span class="funding-right-text">£29,042</span>
+                                </div>
+                    
+                            </div>
+
+                        </div>
+                
+                    </div>
+                
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    PE and sport premium for 2018 to 2019
+                                </span>
+                            </h2>
+                            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                                £848,360
+                            </div>  
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="pe-and-sport/search-result">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- Accordion section to display the data within the single funding statement (END) -->
+
+                <div class="funding-block total">
+
+                    <div class="funding-left-container">
+                        <span class="funding-left-text">
+                            Total funding allocation
+                        </span>
+                    </div>
+        
+                    <div class="funding-right-container">
+                        <span class="funding-right-text">£1,020,883</span>
+                    </div>
+        
+                </div>
+                <!-- Child - Dynamic content (END) -->
+                {% else %}
+                <!-- DEFAULT VIEW - when all session variables fail (START) -->
+                <div class="form-group">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">Education provider funding allocations for 2018 to 2019</span>
+                        {% if searchScope == 'Child' %}St Mary's CofE Primary School, East Barnet{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    </h1>
+                </div>
+
+                <!-- Accordion section to display the data within the single funding statement (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    PE and sport premium for 2018 to 2019
+                                </span>
+                            </h2>
+                            <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-1">
+                                £17,810
+                            </div>  
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="pe-and-sport/search-result">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="/public/documents/pe-and-sport/PeAndSportsSearchResults.ods" title="Download this PE and sport premium allocation (ODS, 5KB)" download>Download this PE and sport premium allocation (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- Accordion section to display the data within the single funding statement (END) -->
+
+                <div class="funding-block total">
+
+                    <div class="funding-left-container">
+                        <span class="funding-left-text">
+                            Total funding allocation
+                        </span>
+                    </div>
+        
+                    <div class="funding-right-container">
+                        <span class="funding-right-text">£17,810</span>
+                    </div>
+        
+                </div>
+                <!-- DEFAULT VIEW - when all session variables fail (END) -->
+                {% endif %}
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
