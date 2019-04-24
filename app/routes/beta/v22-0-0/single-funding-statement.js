@@ -86,7 +86,7 @@ module.exports = function(router) {
 			req.session.searchTerm = la;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (la == "No Results" || la == "no results" || la == "Mole Catch Academy" || la == "mole catch academy") {
+			if (la == "no results" || la == "mole catch academy") {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "Camden")
