@@ -18,7 +18,14 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/not-signed-in/single-funding-statement/start');
 	});
 
-	// Single Funding Statement (Start)
+	// Public funding information (Archive)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/archive', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/archive', {
+			'version' : version
+		});
+	});
+
+	// Public funding information (Start)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/start', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/start', {
 			'version' : version
