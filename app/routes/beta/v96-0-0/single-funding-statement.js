@@ -50,20 +50,33 @@ module.exports = function(router) {
 		var la = req.body.laSearch.toLowerCase();
 		
 		if (searchOn == "Child") {
-			
-			req.session.searchScope = "Child";
-			req.session.searchTerm = schoolOrAcademy;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (schoolOrAcademy == "no results" || schoolOrAcademy == "mole catch academy") {
+			if (schoolOrAcademy == "no results" || schoolOrAcademy == "mole catch academy") {				
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
 			}
-			// Skips the did you mean page and finds a direct match (for "St Mary's CofE Primary School, East Barnet")
+			// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
 			else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys") {
+				
+				req.session.searchScope = "Primary";
+				req.session.searchTerm = schoolOrAcademy;
+				
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement');
+			}
+			// Skips the did you mean page and finds a direct match (for "Regent High School")
+			else if (schoolOrAcademy == "regent" || schoolOrAcademy == "regent high school") {
+				
+				req.session.searchScope = "Secondary";
+				req.session.searchTerm = schoolOrAcademy;
+				
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement');
 			}
 			// Show the did you mean page for anything else
 			else {
+
+				req.session.searchScope = "Primary";
+				req.session.searchTerm = schoolOrAcademy;
+
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean');
 			}
 			
@@ -139,7 +152,7 @@ module.exports = function(router) {
 	 * **********/
 
 	// Full funding allocation (PE and Sport)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/pe-and-sport/full-funding-allocation', function (req, res) {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/pe-and-sport/full-funding-allocation', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/pe-and-sport/full-funding-allocation', {
 			'version' : version,
 			'searchScope' : req.session.searchScope,

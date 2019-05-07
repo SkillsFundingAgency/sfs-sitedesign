@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if searchScope == 'Child' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+    {% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -22,18 +22,18 @@
                         <li><a href="../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
                         <li><a href="start">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</a></li>
                         <li><a href="find-an-organisation">Find an organisation</a></li>
-                        <li>{% if searchScope == 'Child' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}</li>
+                        <li>{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}</li>
                     </ol>
                 </nav>
             </div>
             
             <form method="post" class="form">               
 
-                {% if searchScope == 'Child' %}
-                <!-- Child - Dynamic content (START) -->
+                {% if searchScope == 'Primary' %}
+                <!-- Child (Primary School) - Dynamic content (START) -->
                 <h1 class="heading-xlarge">
                     <span class="heading-secondary">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
-                    {% if searchScope == 'Child' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    St Mary's Kilburn Church of England Primary School
                 </h1>
 
                 <!-- Accordion section to display the data within the single funding statement (START) -->
@@ -61,6 +61,29 @@
                         </div>
                 
                     </div>
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£112,200</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £112,200
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download pupil premium for 2018 to 2019 (ODS, 5KB)" download>Download pupil premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
                 
                 </div>
                 <!-- Accordion section to display the data within the single funding statement (END) -->
@@ -74,22 +97,95 @@
                     </div>
         
                     <div class="funding-right-container">
-                        <span class="funding-right-text">£17,720</span>
+                        <span class="funding-right-text">£129,920</span>
                     </div>
         
                 </div>
-                <!-- Child - Dynamic content (END) -->
-                {% elif searchScope == 'MAT' %}
-                <!-- Child - Dynamic content (START) -->
+                <!-- Child (Primary School) - Dynamic content (END) -->
+                {% elif searchScope == 'Secondary' %}
+                <!-- Child (Secondary School) - Dynamic content (START) -->
                 <h1 class="heading-xlarge">
                     <span class="heading-secondary">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
-                    {% if searchScope == 'Child' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    Regent High School
+                </h1>
+
+                <!-- Accordion section to display the data within the single funding statement (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                    
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£546,975</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £546,975
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download pupil premium for 2018 to 2019 (ODS, 5KB)" download>Download pupil premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Year 7 literacy and numeracy catch-up premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£9,555</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £9,555
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download year 7 literacy and numeracy catch-up premium for 2018 to 2019 (ODS, 5KB)" download>Download year 7 literacy and numeracy catch-up premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- Accordion section to display the data within the single funding statement (END) -->
+
+                <div class="funding-block total">
+
+                    <div class="funding-left-container">
+                        <span class="funding-left-text">
+                            Total funding allocation
+                        </span>
+                    </div>
+        
+                    <div class="funding-right-container">
+                        <span class="funding-right-text">£556,530</span>
+                    </div>
+        
+                </div>
+                <!-- Child (Secondary School) - Dynamic content (END) -->
+                {% elif searchScope == 'MAT' %}
+                <!-- MAT - Dynamic content (START) -->
+                <h1 class="heading-xlarge">
+                    <span class="heading-secondary">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
+                    White Rose Academies Trust
                 </h1>
 
                 <!-- Accordion section to display the data within the single funding statement (START) -->
                 <div class="govuk-accordion" data-module="accordion" id="accordion-default">
                 
-                    <div class="govuk-accordion__section ">
+                    <!-- <div class="govuk-accordion__section ">
                 
                         <div class="govuk-accordion__section-header">
                             <h2 class="govuk-accordion__section-heading">
@@ -110,6 +206,52 @@
                             <p class="govuk-body"><a href="#" title="Download PE and sport premium for 2018 to 2019 (ODS, 5KB)" download>Download PE and sport premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
                         </div>
                 
+                    </div> -->
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,254,303</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £1,254,303
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download pupil premium for 2018 to 2019 (ODS, 5KB)" download>Download pupil premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Year 7 literacy and numeracy catch-up premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£355,901</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £355,901
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download year 7 literacy and numeracy catch-up premium for 2018 to 2019 (ODS, 5KB)" download>Download year 7 literacy and numeracy catch-up premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
                     </div>
                 
                 </div>
@@ -124,16 +266,16 @@
                     </div>
         
                     <div class="funding-right-container">
-                        <span class="funding-right-text">£7,039</span>
+                        <span class="funding-right-text">£1,610,204</span>
                     </div>
         
                 </div>
-                <!-- Child - Dynamic content (END) -->
+                <!-- MAT - Dynamic content (END) -->
                 {% elif searchScope == 'LA' %}
-                <!-- Child - Dynamic content (START) -->
+                <!-- LA - Dynamic content (START) -->
                 <h1 class="heading-xlarge">
                     <span class="heading-secondary">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
-                    {% if searchScope == 'Child' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    Camden
                 </h1>
 
                 <!-- Accordion section to display the data within the single funding statement (START) -->
@@ -235,6 +377,52 @@
                         </div>
                 
                     </div>
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£2,078,279,658</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £2,078,279,658
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download pupil premium for 2018 to 2019 (ODS, 5KB)" download>Download pupil premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Year 7 literacy and numeracy catch-up premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£102,572</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £102,572
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download year 7 literacy and numeracy catch-up premium for 2018 to 2019 (ODS, 5KB)" download>Download year 7 literacy and numeracy catch-up premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
                 
                 </div>
                 <!-- Accordion section to display the data within the single funding statement (END) -->
@@ -248,16 +436,16 @@
                     </div>
         
                     <div class="funding-right-container">
-                        <span class="funding-right-text">£1,020,883</span>
+                        <span class="funding-right-text">£2,079,405,413</span>
                     </div>
         
                 </div>
-                <!-- Child - Dynamic content (END) -->
+                <!-- LA - Dynamic content (END) -->
                 {% else %}
                 <!-- DEFAULT VIEW - when all session variables fail (START) -->
                 <h1 class="heading-xlarge">
                     <span class="heading-secondary">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
-                    {% if searchScope == 'Child' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+                    St Mary's Kilburn Church of England Primary School
                 </h1>
 
                 <!-- Accordion section to display the data within the single funding statement (START) -->
@@ -285,6 +473,29 @@
                         </div>
                 
                     </div>
+
+                    <div class="govuk-accordion__section ">
+                
+                        <div class="govuk-accordion__section-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium for 2018 to 2019</span>
+                                    <span class="govuk-accordion__heading-number-right">£112,200</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary hidden-sub-section" id="accordion-with-summary-sections-summary-1">
+                                £112,200
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                            <p class="govuk-body"><a href="#">View the full funding allocation</a></p>
+                            <p class="govuk-body"><a href="#" title="Download pupil premium for 2018 to 2019 (ODS, 5KB)" download>Download pupil premium for 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a></p>
+                        </div>
+                
+                    </div>
                 
                 </div>
                 <!-- Accordion section to display the data within the single funding statement (END) -->
@@ -298,7 +509,7 @@
                     </div>
         
                     <div class="funding-right-container">
-                        <span class="funding-right-text">£17,720</span>
+                        <span class="funding-right-text">£129,920</span>
                     </div>
         
                 </div>
