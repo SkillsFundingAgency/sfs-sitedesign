@@ -26,23 +26,57 @@ module.exports = function(router) {
 	});
 
 	// Public funding information (Start)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/start', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/start', {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/start', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/start', function (req, res) {		
-		res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation');
+	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {		
+		res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice');
 	});
 
-	// Find an organisation
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation', {
+	// Viewing choice
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/viewing-choice', {
 			'version' : version,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/find-an-organisation', function (req, res) {
+	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice', function (req, res) {		
+		
+		var choice = req.body.choice;
+		req.session.choice = choice;
+
+		if (choice == "Single Funding Statement") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation');	
+		}
+		else if (choice == "Spreadsheet") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice?error=true');
+		}
+		
+	});
+
+	// Download funding allocations (Spreadsheets)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations', {
+			'version' : version,
+			'choice' : req.session.choice
+		});
+	});
+
+	// Find an organisation
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', {
+			'version' : version,
+			'choice' : req.session.choice,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {
 		
 		var searchOn = req.body.searchScope;
 		var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
@@ -53,7 +87,7 @@ module.exports = function(router) {
 
 			// Added so we can see an error page (search term which returns zero results)
 			if (schoolOrAcademy == "no results" || schoolOrAcademy == "mole catch academy") {				
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
 			else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys") {
@@ -61,7 +95,7 @@ module.exports = function(router) {
 				req.session.searchScope = "Primary";
 				req.session.searchTerm = schoolOrAcademy;
 				
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
 			// Skips the did you mean page and finds a direct match (for "Regent High School")
 			else if (schoolOrAcademy == "regent" || schoolOrAcademy == "regent high school") {
@@ -69,7 +103,7 @@ module.exports = function(router) {
 				req.session.searchScope = "Secondary";
 				req.session.searchTerm = schoolOrAcademy;
 				
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
 			// Show the did you mean page for anything else
 			else {
@@ -77,7 +111,7 @@ module.exports = function(router) {
 				req.session.searchScope = "Primary";
 				req.session.searchTerm = schoolOrAcademy;
 
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean');
 			}
 			
 		}
@@ -88,15 +122,15 @@ module.exports = function(router) {
 
 			// Added so we can see an error page (search term which returns zero results)
 			if (mat == "no results" || mat == "mole catch academy") {
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "White Rose Academies Trust")
 			else if (mat == "white rose academies trust") {
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
 			// Show the did you mean page for anything else
 			else {
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean');
 			}			
 			
 		}
@@ -107,15 +141,15 @@ module.exports = function(router) {
 
 			// Added so we can see an error page (search term which returns zero results)
 			if (la == "no results" || la == "mole catch academy") {
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "Camden")
 			else if (la == "camden") {
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
 			// Show the did you mean page for anything else
 			else {
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean');
 			}			
 			
 		}
@@ -123,18 +157,20 @@ module.exports = function(router) {
 	});
 
 	// Did you mean (e.g. when there are multiple search results)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean', function (req, res) {			
-		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/did-you-mean', {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean', function (req, res) {			
+		res.render(version + '/not-signed-in/single-funding-statement/latest/did-you-mean', {
 			'version' : version,
+			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm
 		});
 	});
 
 	// Single funding statement page
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/statement', function (req, res) {			
-		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/statement', {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/statement', function (req, res) {			
+		res.render(version + '/not-signed-in/single-funding-statement/latest/statement', {
 			'version' : version,
+			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope
 		});
 	});
@@ -152,9 +188,10 @@ module.exports = function(router) {
 	 * **********/
 
 	// Full funding allocation (PE and Sport)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/pe-and-sport/full-funding-allocation', function (req, res) {		
-		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/pe-and-sport/full-funding-allocation', {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/full-funding-allocation', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/full-funding-allocation', {
 			'version' : version,
+			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm
 		});
@@ -167,9 +204,10 @@ module.exports = function(router) {
 	 * **********/
 
 	// Display when users enter a search term which returns zero results
-	router.get('/' + version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/2018-to-2019/no-results', {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/no-results', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/no-results', {
 			'version' : version,
+			'choice' : req.session.choice,
 			'searchTerm' : req.session.searchTerm
 		});
 	});
