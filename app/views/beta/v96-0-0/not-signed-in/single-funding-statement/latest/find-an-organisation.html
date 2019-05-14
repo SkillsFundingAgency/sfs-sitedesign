@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Find an organisation
+    View funding by organisation
 {% endblock %}
 
 {% block content %}                   
@@ -20,8 +20,8 @@
                 <nav>
                     <ol>
                         <li><a href="../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
-                        <li><a href="viewing-choice">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations {% if choice == 'Single Funding Statement' %}by organisation{% elif choice == 'Spreadsheet' %}by download{% else %}by organisation{% endif %}</a></li>
-                        <li>Find an organisation</li>
+                        <li><a href="viewing-choice">View latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations {% if choice == 'Single Funding Statement' %}by organisation{% elif choice == 'Spreadsheet' %}by download{% else %}by organisation{% endif %}</a></li>
+                        <li>View funding by organisation</li>
                     </ol>
                 </nav>
             </div>
@@ -35,12 +35,11 @@
                 <fieldset class="form-group">
                     <legend>
                         <h1 class="heading-xlarge">
-                            <span class="heading-secondary">Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
-                            Find an organisation
+                            <span class="heading-secondary">View latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
+                            View funding by organisation
                         </h1>
                     </legend>
-                    <p>Search for a school, academy, local authority or multi-academy trust (<abbr title="Multi Academy Trust">MAT</abbr>) to view their allocated funding.</p>
-                    <p>You can view funding for the following types of school:</p>
+                    <p>Select a school, academy, local authority or multi-academy trust (<abbr title="Multi Academy Trust">MAT</abbr>) to view the latest funding for the financial or academic year.</p>
             
                     <div class="form-group">
 
@@ -70,7 +69,7 @@
 
                         <div class="multiple-choice" data-target="mat">
                             <input id="radio-2" type="radio" name="searchScope" value="MAT">
-                            <label for="radio-2">Multi-academy trust (<abbr title="Multi Academy Trust">MAT</abbr>) name or UK provider reference number (<abbr title="UK Provider Reference Number">UKPRN</abbr>)</label>
+                            <label for="radio-2"><abbr title="Multi Academy Trust">MAT</abbr> name or UK provider reference number (<abbr title="UK Provider Reference Number">UKPRN</abbr>)</label>
                         </div>
 
                         <!-- Hidden section for searching by multi academy trust name or UKPRN (START) -->                        

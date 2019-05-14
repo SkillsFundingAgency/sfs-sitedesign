@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}How would you like to view the funding allocations?
+    {% if error %}Error: {% endif %}Select which ESFA funding you would you like to view
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
                 <nav>
                     <ol>
                         <li><a href="../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
-                        <li>Latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</li>
+                        <li>View latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</li>
                     </ol>
                 </nav>
             </div>
@@ -35,7 +35,7 @@
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                     <ul class="error-summary-list">
-                        <li><a href="#viewingChoice">Select how you would like to view the funding allocations</a></li>
+                        <li><a href="#viewingChoice">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you would you like to view</a></li>
                     </ul>
                 </div>
                 {% endif %}
@@ -44,23 +44,26 @@
                     
                     <div>
                         <legend id="viewingChoice">
-                            <h1 class="heading-xlarge">How would you like to view the funding allocations?</h1>
+                            <h1 class="heading-xlarge">
+                                <span class="heading-secondary">View latest <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding allocations</span>
+                                Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you would you like to view
+                            </h1>
                         </legend>
                     </div>
             
                     <div class="form-group {% if error %}form-group-error{% endif %}">
                         {% if error %}
-                        <span class="error-message">Select how you would like to view the funding allocations</span>
+                        <span class="error-message">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you would you like to view</span>
                         {% endif %}                        
 
                         <div class="multiple-choice">
                             <input id="radio-1" type="radio" name="choice" value="Single Funding Statement">
-                            <label for="radio-1">View by organisation</label>
+                            <label for="radio-1">View funding by organisation</label>
                         </div>
 
                         <div class="multiple-choice">
                             <input id="radio-2" type="radio" name="choice" value="Spreadsheet">
-                            <label for="radio-2">Download funding allocation spreadsheets</label>
+                            <label for="radio-2">View funding by allocation</label>
                         </div>
             
                     </div>
