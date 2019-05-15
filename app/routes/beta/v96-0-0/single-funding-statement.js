@@ -181,6 +181,16 @@ module.exports = function(router) {
 	 * DSG
 	 * **********/
 
+	 // Full funding allocation (DSG: all 4 blocks)
+	 router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation', {
+			'version' : version,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm
+		});
+	});
+
 	/**********
 	 * PUBLIC
 	 * SINGLE FUNDING STATEMENT (2018 TO 2019)
