@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     // Trigger the select all documents in document list rules (see below) via clicking "Select/deselect all team members" link
     $("[toggle_related_items]").click(function () {
-        alert("TEST!");
+        console.log("It works!");
     });
 
 });
