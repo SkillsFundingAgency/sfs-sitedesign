@@ -1,0 +1,430 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    DSG for 2019 to 2020
+{% endblock %}
+
+{% block content %}
+
+<style> 
+.table-with-five-columns_header--numeric {
+    width: 20%;
+    font-weight: normal;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #bfc1c3;
+    text-align: right;
+}
+.table-with-five-columns_header--numeric--bold {
+    width: 20%;
+    font-weight: bold;
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #bfc1c3;
+    text-align: right;
+}
+.table-with-five-columns_cell--numeric {
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #bfc1c3;
+    text-align: right;
+    font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+}
+.table-with-five-columns_cell--numeric--bold {
+    padding: 10px 0 10px 20px;
+    border-bottom: 1px solid #bfc1c3;
+    text-align: right;
+    font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: bold;
+}
+.total-allocation {
+	font-size: x-large;
+    font-weight: bold;
+}
+
+</style>
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../../not-signed-in/single-funding-statement/start">Manage your education and skills funding</a></li>
+                        <li><a href="../viewing-choice">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you’d like to view</a></li>
+                        <li><a href="../find-an-organisation">View funding by organisation</a></li>
+                        {% if didYouMean == 'Yes' %}
+                        <li><a href="../did-you-mean">Did you mean</a></li>
+                        {% endif %}
+                        <li><a href="../statement">{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}St Mary's Kilburn Church of England Primary School{% endif %}</a></li>
+                        <li><abbr title="Dedicated Schools Grant">DSG</abbr> for 2019 to 2020</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h2 class="heading-large">
+                High needs block deductions for direct funding of places by the ESFA 
+            </h2>
+            
+            <br>
+            <br>
+
+            <h3 class="heading-medium">Recoupment Academies (SEN units and Resourced provision)</h3>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Pre-16 SEN Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">April 2018 - August 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">September 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">Occupied Places from Jan 2018 APT</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">SEN places deduction</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Post-16 SEN Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">April 2018- July 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">August 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">SEN places allocation</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Pre-16 AP Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                            <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                            <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                            <th class="table-with-five-columns_header--numeric" scope="col">April 2018- July 2018</th>
+                            <th class="table-with-five-columns_header--numeric" scope="col">August 2018- March 2019</th>
+                            <th class="table-with-five-columns_header--numeric--bold" scope="col">AP places allocation</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                            <td class="table-with-five-columns_cell--numeric"></td>
+                            <td class="table-with-five-columns_cell--numeric">0</td>
+                            <td class="table-with-five-columns_cell--numeric">0</td>
+                            <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                        </tr>
+                    </tbody>
+            </table>         
+            
+            <br>
+            <br>
+
+            <h3 class="heading-medium">Special Academies</h3>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Pre-16 SEN Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">April 2018 - August 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">September 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">SEN places deduction</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Post-16 SEN Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric"  scope="col">April 2018- July 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">August 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">SEN places deduction</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Pre-16 AP Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row ">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">April 2018- August 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">September 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">AP places allocation</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <h3 class="heading-medium">AP Academys</h3>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Pre-16 SEN Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">April 2018 - August 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">September 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">SEN places deduction</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric">0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Pre-16 AP Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row ">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">April 2018- August 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">September 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">AP places allocation</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">2</td>
+                        <td class="table-with-five-columns_cell--numeric">2</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£20,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <h3 class="heading-medium">Maintained mainstream schools</h3>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Post-16 SEN Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric"  scope="col">April 2018- July 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">August 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">SEN places deduction</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">30</td>
+                        <td class="table-with-five-columns_cell--numeric">30</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£180,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <h3 class="heading-medium">Hospital academies</h3>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">Hospital academies funding</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric"  scope="col">April 2018- August 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">September 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">Total Hospital Education</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">£0</td>
+                        <td class="table-with-five-columns_cell--numeric">£0</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£0</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <h3 class="heading-medium">FE and ILP</h3>
+
+            <table class="govuk-table">
+                <caption class="govuk-table__caption heading-small">FE and ILP Places</caption>
+                <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric" scope="col"></th>
+                        <th class="table-with-five-columns_header--numeric"  scope="col">April 2018- July 2018</th>
+                        <th class="table-with-five-columns_header--numeric" scope="col">August 2018- March 2019</th>
+                        <th class="table-with-five-columns_header--numeric--bold" scope="col">Total FE and ILP</th>
+                    </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                        <th class="govuk-table__header" scope="row" style="font-weight: normal">Total</th>
+                        <td class="table-with-five-columns_cell--numeric"></td>
+                        <td class="table-with-five-columns_cell--numeric">244</td>
+                        <td class="table-with-five-columns_cell--numeric">298</td>
+                        <td class="table-with-five-columns_cell--numeric--bold">£168,000,000</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <br>
+            <br>
+
+            <div class="total-allocation-container">
+                                                    
+                <table class="govuk-table table-with-no-borders">
+                    <tr>
+                        <th class="total-allocation">Total allocation:</th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£2,040,000</td>
+                    </tr>
+                </table>
+
+                <details>
+                    <summary>
+                        <span class="summary">Find out more about high needs places allocations</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>For more information on these calculations, you can visit the <a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#high-needs-block" target="external">dedicated schools grant: technical note 2019 to 2020</a>.</p>               
+                    </div>
+
+                </details>
+
+            </div>
+
+            <br>
+            <br>
+
+            <div class="form-block">
+                    <section class="attachment embedded">
+                        
+                        <div class="form-download-container">
+                            <p><a href="/public/documents/allocation-statements/example-statement-breakdown.pdf" class="form-download" title="Download these DSG: high needs block allocation values (PDF, 276KB)" download>Download these <abbr title="Dedicated Schools Grant">DSG</abbr>: high needs block allocation values (<abbr title="Portable Document Format">PDF</abbr>, 276KB)</a></p>
+                            <p>If you need this in a different format, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
+                        </div>
+    
+                    </section>
+                </div>
+
+            <br>
+            <br>
+
+            <h3 class="heading-medium">Previous allocations</h3>
+            <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
+            <h3 class="heading-medium">Guidance</h3>
+            <ul class="list">
+                <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020">Dedicated schools grant: conditions of grant 2019 to 2020</a></li>
+                <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: growth calculations values 2019 to 2020</a></li>
+                <li class="bold-xsmall gem-c-related-navigation__link toggle-wrap">
+                    <a href="#" class="gem-c-related-navigation__toggle" data-controls="toggle_related_items" data-expanded="false" data-toggled-text="Show fewer" role="button" aria-controls="toggle_related_items" aria-expanded="false">More</a>
+                </li>
+                <li class="gem-c-related-navigation__link">
+                    <span id="toggle_related_items" class="gem-c-related-navigation__toggle-more js-hidden" aria-live="polite" role="region" aria-hidden="true">
+                        
+                        <div class="gem-c-related-navigation__hidden-sub-section">
+                            <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--sidebar gem-c-related-navigation__section-link--other" href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: pupil number tool 2019 to 2020</a>
+                        </div>
+
+                        <div class="gem-c-related-navigation__hidden-sub-section-last">
+                            <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--sidebar gem-c-related-navigation__section-link--other" href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020">Dedicated schools grant: technical note 2019 to 2020</a>
+                        </div>
+
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/tabs.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
