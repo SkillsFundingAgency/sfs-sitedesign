@@ -3,8 +3,20 @@ module.exports = function(router) {
 	var version = 'beta/v97-0-0';
 
 	/**********
+	 * GLOBAL
+	 * **********/
+
+	// Ensure that the default public service name is NOT set
+	router.get('/' + version + '/not-signed-in/single-funding-statement/*', function (req, res, next) {				
+		
+		req.session.publicServiceName = "True";
+
+		return next();
+	});
+
+	/**********
 	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT (2018 TO 2019)
+	 * SINGLE FUNDING STATEMENT
 	 * **********/
 
 	// Start
@@ -21,14 +33,16 @@ module.exports = function(router) {
 	// Public funding information (Archive)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/archive', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/archive', {
-			'version' : version
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName
 		});
 	});
 
 	// Public funding information (Start)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/start', {
-			'version' : version
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {		
@@ -39,6 +53,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/viewing-choice', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'error' : req.query.error
 		});
 	});
@@ -64,6 +79,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice
 		});
 	});
@@ -72,6 +88,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'error' : req.query.error
 		});
@@ -175,6 +192,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean', function (req, res) {			
 		res.render(version + '/not-signed-in/single-funding-statement/latest/did-you-mean', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -186,6 +204,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/statement', function (req, res) {			
 		res.render(version + '/not-signed-in/single-funding-statement/latest/statement', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'didYouMean' : req.session.didYouMean
@@ -194,7 +213,7 @@ module.exports = function(router) {
 
 	/**********
 	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT (2018 TO 2019)
+	 * SINGLE FUNDING STATEMENT
 	 * DSG
 	 * **********/
 
@@ -202,6 +221,7 @@ module.exports = function(router) {
 	 router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -211,7 +231,7 @@ module.exports = function(router) {
 
 	/**********
 	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT (2018 TO 2019)
+	 * SINGLE FUNDING STATEMENT
 	 * PE AND SPORT
 	 * **********/
 
@@ -219,6 +239,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/full-funding-allocation', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/full-funding-allocation', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -228,7 +249,7 @@ module.exports = function(router) {
 
 	/**********
 	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT (2018 TO 2019)
+	 * SINGLE FUNDING STATEMENT
 	 * ERROR PAGES
 	 * **********/
 
@@ -236,6 +257,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/no-results', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/no-results', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'searchTerm' : req.session.searchTerm
 		});
