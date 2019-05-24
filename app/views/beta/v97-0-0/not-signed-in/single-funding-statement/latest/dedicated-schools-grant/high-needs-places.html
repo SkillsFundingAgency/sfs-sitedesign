@@ -5,8 +5,7 @@
 {% endblock %}
 
 {% block content %}
-
-<style> 
+<style>
 .table-with-five-columns_header--numeric {
     width: 20%;
     font-weight: normal;
@@ -39,11 +38,24 @@
     -moz-osx-font-smoothing: grayscale;
     font-weight: bold;
 }
-.total-allocation {
-	font-size: x-large;
+.total-allocation-table table, .total-allocation-table th, .total-allocation-table td {
+    border: none;
+    font-size: x-large;
     font-weight: bold;
+    padding: 10px 0 10px 0;
 }
-
+.total-allocation-table--heading {
+    text-align: left;
+}
+.total-allocation-table--amount {
+    text-align: right;
+}
+.total-allocation-container {
+	box-sizing: border-box;
+	float: left;
+	width: 100%;
+	margin-bottom: 40px;
+}
 </style>
 
 <main role="main" id="content">
@@ -352,10 +364,10 @@
 
             <div class="total-allocation-container">
                                                     
-                <table class="govuk-table table-with-no-borders">
+                <table class="total-allocation-table">
                     <tr>
-                        <th class="total-allocation">Total allocation:</th>
-                        <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£2,040,000</td>
+                        <th class="total-allocation-table--heading" >Total allocation:</th>
+                        <td class="total-allocation-table--amount">£2,040,000</td>
                     </tr>
                 </table>
 
@@ -372,22 +384,19 @@
 
             </div>
 
-            <br>
-            <br>
-
             <div class="form-block">
-                    <section class="attachment embedded">
-                        
-                        <div class="form-download-container">
-                            <p><a href="/public/documents/allocation-statements/example-statement-breakdown.pdf" class="form-download" title="Download these DSG: high needs block allocation values (PDF, 276KB)" download>Download these <abbr title="Dedicated Schools Grant">DSG</abbr>: high needs block allocation values (<abbr title="Portable Document Format">PDF</abbr>, 276KB)</a></p>
-                            <p>If you need this in a different format, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
-                        </div>
-    
-                    </section>
-                </div>
 
-            <br>
-            <br>
+                <section class="attachment embedded">
+                    
+                    <div class="form-download-container">
+                        <p><a href="/public/documents/allocation-statements/example-statement-breakdown.pdf" class="form-download" title="Download these DSG: high needs block allocation values (PDF, 276KB)" download>Download these <abbr title="Dedicated Schools Grant">DSG</abbr>: high needs block allocation values (<abbr title="Portable Document Format">PDF</abbr>, 276KB)</a></p>
+                        <p>If you need this in a different format, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
+                    </div>
+
+                </section>
+
+            </div>
+
 
             <h3 class="heading-medium">Previous allocations</h3>
             <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
