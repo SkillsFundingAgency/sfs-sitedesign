@@ -6,6 +6,59 @@
 
 {% block content %}
 
+<style>
+        .table-with-five-columns_header--numeric {
+            width: 20%;
+            font-weight: normal;
+            padding: 10px 0 10px 20px;
+            border-bottom: 1px solid #bfc1c3;
+            text-align: right;
+        }
+        .table-with-five-columns_header--numeric--bold {
+            width: 20%;
+            font-weight: bold;
+            padding: 10px 0 10px 20px;
+            border-bottom: 1px solid #bfc1c3;
+            text-align: right;
+        }
+        .table-with-five-columns_cell--numeric {
+            padding: 10px 0 10px 20px;
+            border-bottom: 1px solid #bfc1c3;
+            text-align: right;
+            font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 400;
+        }
+        .table-with-five-columns_cell--numeric--bold {
+            padding: 10px 0 10px 20px;
+            border-bottom: 1px solid #bfc1c3;
+            text-align: right;
+            font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: bold;
+        }
+        .total-allocation-table table, .total-allocation-table th, .total-allocation-table td {
+            border: none;
+            font-size: x-large;
+            font-weight: bold;
+            padding: 10px 0 10px 0;
+        }
+        .total-allocation-table--heading {
+            text-align: left;
+        }
+        .total-allocation-table--amount {
+            text-align: right;
+        }
+        .total-allocation-container {
+            box-sizing: border-box;
+            float: left;
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        </style>
+
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -37,7 +90,7 @@
             </h1>
 
             <div class="govuk-tabs" data-module="tabs">
-                <h2 class="govuk-tabs__title">Contents</h2>
+                <h3 class="govuk-tabs__title">Contents</h3>
                 <ul class="govuk-tabs__list">
                     <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab govuk-tabs__tab--selected" href="#schools">Schools block</a></li>
                     <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#css"><abbr title="Central School Services">CSS</abbr> block</a></li>
@@ -124,10 +177,10 @@
             
                     <div class="total-allocation-container">
                         <div>
-                            <table class="govuk-table table-with-no-borders">
+                            <table class="total-allocation-table">
                                 <tr>
                                     <th class="total-allocation">Total allocation before deductions:</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£117,596,000</td>
+                                    <td class="total-allocation-table--amount">£117,596,000</td>
                                 </tr>
                             </table> 
                         </div>
@@ -171,10 +224,10 @@
         
                     <div class="total-allocation-container">
                                                     
-                        <table class="govuk-table table-with-no-borders">
+                        <table class="total-allocation-table">
                             <tr>
-                                <th class="total-allocation">Total allocation after deductions:</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£109,152,000</td>
+                                <th class="total-allocation-table--heading">Total allocation after deductions:</th>
+                                <td class="total-allocation-table--amount">£109,152,000</td>
                             </tr>
                         </table>
 
@@ -283,10 +336,10 @@
     
                     <div class="total-allocation-container">
                         
-                        <table class="govuk-table table-with-no-borders">
+                        <table class="total-allocation-table">
                             <tr>
-                                <th class="total-allocation">Total allocation:</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£1,421,000</td>
+                                <th class="total-allocation-table--heading">Total allocation:</th>
+                                <td class="total-allocation-table--amount">£1,421,000</td>
                             </tr>
                         </table>
 
@@ -512,10 +565,10 @@
 
                     <div class="total-allocation-container">
                         
-                        <table class="govuk-table table-with-no-borders">
+                        <table class="total-allocation-table">
                             <tr>
-                                <th class = "total-allocation">Total allocation:</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£17,772,000</td>
+                                <th class = "total-allocation-table--heading">Total allocation:</th>
+                                <td class="total-allocation-table--amount">£17,772,000</td>
                             </tr>
                         </table>
 
@@ -640,10 +693,10 @@
 
                     <div class="total-allocation-container">
                         
-                        <table class="govuk-table table-with-no-borders">
+                        <table class="total-allocation-table">
                             <tr>
-                                <th class="total-allocation">Total allocation:</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric total-allocation">£35,414,000</td>
+                                <th class="total-allocation-table--heading">Total allocation:</th>
+                                <td class="total-allocation-table--amount">£35,414,000</td>
                             </tr>
                         </table>
 
