@@ -6,64 +6,6 @@
 
 {% block content %}
 
-<style>
-        
-    .heading-large-tabs {
-        margin-top: 0px !important;
-    }
-    .table-with-five-columns_header--numeric {
-        width: 20%;
-        font-weight: normal;
-        padding: 10px 0 10px 20px;
-        border-bottom: 1px solid #bfc1c3;
-        text-align: right;
-    }
-    .table-with-five-columns_header--numeric--bold {
-        width: 20%;
-        font-weight: bold;
-        padding: 10px 0 10px 20px;
-        border-bottom: 1px solid #bfc1c3;
-        text-align: right;
-    }
-    .table-with-five-columns_cell--numeric {
-        padding: 10px 0 10px 20px;
-        border-bottom: 1px solid #bfc1c3;
-        text-align: right;
-        font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-weight: 400;
-    }
-    .table-with-five-columns_cell--numeric--bold {
-        padding: 10px 0 10px 20px;
-        border-bottom: 1px solid #bfc1c3;
-        text-align: right;
-        font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        font-weight: bold;
-    }
-    .total-allocation-table table, .total-allocation-table th, .total-allocation-table td {
-        border: none;
-        font-size: x-large;
-        font-weight: bold;
-        padding: 10px 0 10px 0;
-    }
-    .total-allocation-table--heading {
-        text-align: left;
-    }
-    .total-allocation-table--amount {
-        text-align: right;
-    }
-    .total-allocation-container {
-        box-sizing: border-box;
-        float: left;
-        width: 100%;
-        margin-bottom: 40px;
-    }
-
-</style>
-
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -77,10 +19,10 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
-                        <li><a href="../viewing-choice">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you’d like to view</a></li>
+                        <li><a href="../viewing-choice">How would you like to view funding allocations?</a></li>
                         <li><a href="../find-an-organisation">View funding by organisation</a></li>
                         {% if didYouMean == 'Yes' %}
-                        <li><a href="../did-you-mean">Did you mean</a></li>
+                        <li><a href="../did-you-mean">Did you mean?</a></li>
                         {% endif %}
                         <li><a href="../statement">{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}St Mary's Kilburn Church of England Primary School{% endif %}</a></li>
                         <li><abbr title="Dedicated Schools Grant">DSG</abbr> for 2019 to 2020</li>
@@ -105,7 +47,10 @@
 
                 <!-- Schools funding block - (START) -->
                 <section class="govuk-tabs__panel" id="schools">
-                    <h2 class="heading-medium">Funding factors for schools block</h2>
+                    <h2 class="lede heading-large-tabs">
+                        Total funding factors for schools block
+                        <p class="heading-large heading-funding-summary">£109,152,000</p>
+                    </h2>
 
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">Primary schools</caption>
@@ -178,54 +123,46 @@
                             </tr>
                         </tbody>
                     </table>
-
             
                     <div class="total-allocation-container">
-                        <div>
-                            <table class="total-allocation-table">
-                                <tr>
-                                    <th class="total-allocation">Total allocation before deductions</th>
-                                    <td class="total-allocation-table--amount">£117,596,000</td>
-                                </tr>
-                            </table> 
-                        </div>
-                        <div> 
-                            <details>
-                                <summary>
-                                    <span class="summary">How is this total calculated?</span>
-                                </summary>
-                                
-                                <div class="panel panel-border-narrow">
-                                    <p>The primary unit of funding (<abbr title="Primary Unit of Funding">PUF</abbr>) and secondary unit of funding (<abbr title="Secondary Unit of Funding">SUF</abbr>) for each local authority are multiplied by:</p>                           
-                                    <ul class="detail-list-item">
-                                        <li><abbr title="Primary Unit of Funding">PUF</abbr> from the October 2018 school census</li>
-                                        <li><abbr title="Secondary Unit of Funding">SUF</abbr> from the October 2018 school census</li>
-                                    </ul>  
-                                    <p>We then add:</p> 
-                                    <ul class="detail-list-item">
-                                        <li>the actual 2019 to 2020 funding for the premises and mobility factors</li>
-                                        <li>growth funding using the differences between the primary and secondary numbers on roll in the local authority on the October 2017 and October 2018 school censuses</li>
-                                    </ul>
-                                    <p>For more information on these calculations, you can visit the <a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#calculating-2019-to-2020-dsg" target="external">dedicated schools grant: technical note 2019 to 2020</a>.</p>               
-                                </div>
-                            </details>
-                        </div>
-                    </div>
-        
-                    <br>
-                    <br>
-            
-                    <div class="form-block">
-                        <h3 class="heading-medium">Funding deductions</h3>
-                        
-                        <table class="govuk-table">
+                            
+                        <table class="total-allocation-table">
                             <tr>
-                                <th style="font-weight: normal">Deductions to schools block for recoupment<th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£8,444,000</td>
+                                <th class="total-allocation">Total allocation before deductions</th>
+                                <td class="total-allocation-table--amount">£117,596,000</td>
                             </tr>
                         </table>
 
+                        <details>
+                            <summary>
+                                <span class="summary">How is this total calculated?</span>
+                            </summary>
+                            
+                            <div class="panel panel-border-narrow">
+                                <p>The primary unit of funding (<abbr title="Primary Unit of Funding">PUF</abbr>) and secondary unit of funding (<abbr title="Secondary Unit of Funding">SUF</abbr>) for each local authority are multiplied by:</p>                           
+                                <ul class="detail-list-item">
+                                    <li><abbr title="Primary Unit of Funding">PUF</abbr> from the October 2018 school census</li>
+                                    <li><abbr title="Secondary Unit of Funding">SUF</abbr> from the October 2018 school census</li>
+                                </ul>  
+                                <p>We then add:</p> 
+                                <ul class="detail-list-item">
+                                    <li>the actual 2019 to 2020 funding for the premises and mobility factors</li>
+                                    <li>growth funding using the differences between the primary and secondary numbers on roll in the local authority on the October 2017 and October 2018 school censuses</li>
+                                </ul>
+                                <p>For more information on these calculations, you can visit the <a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#calculating-2019-to-2020-dsg" target="external">dedicated schools grant: technical note 2019 to 2020</a>.</p>               
+                            </div>
+
+                        </details>
                     </div>
+                    
+                    <h3 class="heading-small">Funding deductions</h3>
+                    
+                    <table class="govuk-table">
+                        <tr>
+                            <th style="font-weight: normal">Deductions to schools block for recoupment<th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£8,444,000</td>
+                        </tr>
+                    </table>
         
                     <div class="total-allocation-container">
                                                     
@@ -263,9 +200,9 @@
                         </section>
                     </div>
         
-                    <h2 class="heading-medium">Previous allocations</h2>
+                    <!-- <h3 class="heading-medium">Previous allocations</h3> -->
                     <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
-                    <h2 class="heading-medium">Guidance</h2>
+                    <h3 class="heading-medium heading-guidance">Guidance</h3>
                     <ul class="list">
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020">Dedicated schools grant: conditions of grant 2019 to 2020</a></li>
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: growth calculations values 2019 to 2020</a></li>
@@ -291,7 +228,10 @@
 
                 <!-- Central school services (CSS) funding block - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="css">
-                    <h2 class="heading-medium">Funding factors for central school services block (<abbr title="Central School Services Block">CSSB</abbr>)</h2>
+                    <h2 class="lede heading-large-tabs">
+                        Total funding factors for central school services block (<abbr title="Central School Services Block">CSSB</abbr>)
+                        <p class="heading-large heading-funding-summary">£1,421,000</p>
+                    </h2>
                     
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">Central school services</caption>
@@ -377,9 +317,9 @@
                         </section>
                     </div>
 
-                    <h2 class="heading-medium">Previous allocations</h2>
+                    <!-- <h3 class="heading-medium">Previous allocations</h3> -->
                     <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
-                    <h2 class="heading-medium">Guidance</h2>
+                    <h3 class="heading-medium heading-guidance">Guidance</h3>
                     <ul class="list">
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020">Dedicated schools grant: conditions of grant 2019 to 2020</a></li>
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: growth calculations values 2019 to 2020</a></li>
@@ -405,7 +345,10 @@
 
                 <!-- High needs funding block (including 16 to 23) - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="high-needs">
-                    <h2 class="heading-medium">Funding factors for high needs block</h2>
+                    <h2 class="lede heading-large-tabs">
+                        Total funding factors for high needs block
+                        <p class="heading-large heading-funding-summary">£35,414,000</p>
+                    </h2>
                     
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">ACA-weighted basic entitlement</caption>
@@ -503,12 +446,13 @@
                                 <p>If you need this in a different format, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
                             </div>
         
+                            <br>
                         </section>
                     </div>
 
-                    <h2 class="heading-medium">Previous allocations</h2>
+                    <!-- <h3 class="heading-medium">Previous allocations</h3> -->
                     <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
-                    <h2 class="heading-medium">Guidance</h2>
+                    <h3 class="heading-medium heading-guidance">Guidance</h3>
                     <ul class="list">
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020">Dedicated schools grant: conditions of grant 2019 to 2020</a></li>
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: growth calculations values 2019 to 2020</a></li>
@@ -534,9 +478,11 @@
 
                 <!-- High needs deductions funding block - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="high-needs-deductions">
-                    <h2 class="heading-large heading-large-tabs">High needs block deductions for direct funding of places by the ESFA </h2>
+                    <h2 class="lede heading-large-tabs">
+                        Total high needs block deductions for direct funding of places by the ESFA
+                        <p class="heading-large heading-funding-summary">£2,401,000</p>
+                    </h2>
                     
-                    <br>
                     <br>
 
                     <h3 class="heading-medium">Recoupment Academies (SEN units and Resourced provision)</h3>
@@ -608,7 +554,6 @@
                     </table>         
                     
                     <br>
-                    <br>
         
                     <h3 class="heading-medium">Special Academies</h3>
         
@@ -679,7 +624,6 @@
                     </table>
         
                     <br>
-                    <br>
         
                     <h3 class="heading-medium">AP Academys</h3>
         
@@ -728,7 +672,6 @@
                     </table>
         
                     <br>
-                    <br>
         
                     <h3 class="heading-medium">Maintained mainstream schools</h3>
         
@@ -754,7 +697,6 @@
                         </tbody>
                     </table>
         
-                    <br>
                     <br>
         
                     <h3 class="heading-medium">Hospital academies</h3>
@@ -782,7 +724,6 @@
                     </table>
         
                     <br>
-                    <br>
         
                     <h3 class="heading-medium">FE and ILP</h3>
         
@@ -808,7 +749,6 @@
                         </tbody>
                     </table>
         
-                    <br>
                     <br>
         
                     <div class="total-allocation-container">
@@ -842,13 +782,14 @@
                                 <p>If you need this in a different format, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
                             </div>
         
+                            <br>
                         </section>
         
                     </div>
         
-                    <h3 class="heading-medium">Previous allocations</h3>
+                    <!-- <h3 class="heading-medium">Previous allocations</h3> -->
                     <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
-                    <h3 class="heading-medium">Guidance</h3>
+                    <h3 class="heading-medium heading-guidance">Guidance</h3>
                     <ul class="list">
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020">Dedicated schools grant: conditions of grant 2019 to 2020</a></li>
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: growth calculations values 2019 to 2020</a></li>
@@ -874,7 +815,10 @@
 
                 <!-- Early years funding block - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="early-years">
-                    <h2 class="heading-medium">Funding factors for early years block</h2>
+                    <h2 class="lede heading-large-tabs">
+                        Total funding factors for early years block
+                        <p class="heading-large heading-funding-summary">£17,772,000</p>
+                    </h2>
 
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">Universal entitlement for 3 and 4 year olds</caption>
@@ -919,6 +863,8 @@
 
                     </details>
 
+                    <br>
+
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">Additional 15 hours entitlement for eligible working parents of 3 and 4 year olds</caption>
                         <thead class="govuk-table__head">
@@ -962,6 +908,8 @@
 
                     </details>
 
+                    <br>
+
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">2 year old entitlement</caption>
                         <thead class="govuk-table__head">
@@ -1000,10 +948,12 @@
                         </summary>
                         
                         <div class="panel panel-border-narrow">
-                            <p>The total allocation is calculated in the following way:</p>
+                            <p>For more information on these calculations, you can visit the <a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#early-years-block" target="external">dedicated schools grant: technical note 2019 to 2020</a>.</p>
                         </div>
 
                     </details>
+
+                    <br>
 
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small">Other factors</caption>
@@ -1037,6 +987,8 @@
                         </tbody>
                     </table>
 
+                    <br>
+
                     <div class="total-allocation-container">
                         
                         <table class="total-allocation-table">
@@ -1052,7 +1004,7 @@
                             </summary>
                             
                             <div class="panel panel-border-narrow">
-                                <p>The total allocation is calculated in the following way:</p>
+                                <p>For more information on these calculations, you can visit the <a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#early-years-block" target="external">dedicated schools grant: technical note 2019 to 2020</a>.</p>
                             </div>
                         </details>
                     </div>
@@ -1068,12 +1020,13 @@
                                 <p>If you need this in a different format, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
                             </div>
         
+                            <br>
                         </section>
                     </div>
 
-                    <h2 class="heading-medium">Previous allocations</h2>
+                    <!-- <h3 class="heading-medium">Previous allocations</h3> -->
                     <p><a href="download-funding-allocations">View previous versions of this funding allocation</a></p>
-                    <h2 class="heading-medium">Guidance</h2>
+                    <h3 class="heading-medium heading-guidance">Guidance</h3>
                     <ul class="list">
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020">Dedicated schools grant: conditions of grant 2019 to 2020</a></li>
                         <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020">Dedicated schools grant: growth calculations values 2019 to 2020</a></li>
