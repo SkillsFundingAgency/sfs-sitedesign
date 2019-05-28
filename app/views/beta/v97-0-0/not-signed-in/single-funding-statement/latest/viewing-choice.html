@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Select which ESFA funding you’d like to view
+    {% if error %}Error: {% endif %}How would you like to view funding allocations?    
 {% endblock %}
 
 {% block content %}
@@ -22,29 +22,32 @@
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                     <ul class="error-summary-list">
-                        <li><a href="#viewingChoice">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you’d like to view</a></li>
+                        <li><a href="#viewingChoice">Select which funding you’d like to view</a></li>
                     </ul>
                 </div>
                 {% endif %}
 
                 <fieldset class="{% if error %}after-error-summary{% endif %}">    
                     <legend id="viewingChoice">
-                        <h1 class="heading-xlarge">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you’d like to view</h1>
+                        <h1 class="heading-xlarge">How would you like to view funding allocations?</h1>
                     </legend>
+                    <p>This service is a public view which requires no account or sign-in to access.</p>
             
                     <div class="form-group {% if error %}form-group-error{% endif %}">
                         {% if error %}
-                        <span class="error-message">Select which <abbr title="Education and Skills Funding Agency">ESFA</abbr> funding you’d like to view</span>
+                        <span class="error-message">Select which funding you’d like to view</span>
                         {% endif %}                        
 
                         <div class="multiple-choice">
                             <input id="radio-1" type="radio" name="choice" value="Single Funding Statement">
-                            <label for="radio-1">View funding by organisation</label>
+                            <label class="form-label-bold" for="radio-1">View funding by organisation</label>
+                            <span class="form-hint">You can select funding allocations for schools, academies, colleges or local authorities.</span>
                         </div>
 
                         <div class="multiple-choice">
                             <input id="radio-2" type="radio" name="choice" value="Spreadsheet">
-                            <label for="radio-2">View funding by allocation</label>
+                            <label class="form-label-bold" for="radio-2">View allocation by funding type</label>
+                            <span class="form-hint">You can select funding types for dedicated school grant (DSG), PE and sport premium, pupil premium, or year 7 literacy and numeracy catch-up premium.</span>
                         </div>
             
                     </div>
