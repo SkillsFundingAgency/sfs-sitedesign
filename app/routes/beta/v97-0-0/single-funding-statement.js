@@ -66,7 +66,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation');	
 		}
 		else if (choice == "Spreadsheet") {
-			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations');
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation');
 		}
 		// Make sure the user chooses an option
 		else {
@@ -75,9 +75,69 @@ module.exports = function(router) {
 		
 	});
 
-	// Download funding allocations (Spreadsheets)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/latest/download-funding-allocations', {
+	// Which funding allocation
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/which-allocation', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {		
+		
+		var fundingAllocationChoice = req.body.fundingAllocationChoice;
+
+		// Make sure the user chooses an option
+		if (fundingAllocationChoice == "DSG") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding');	
+		}
+		else if (fundingAllocationChoice == "PE and sport") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding');
+		}
+		else if (fundingAllocationChoice == "Pupil premium") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pupil-premium/download-funding');
+		}
+		else if (fundingAllocationChoice == "Year 7") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/year-7-catch-up/download-funding');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation?error=true');
+		}
+		
+	});
+
+	// Download funding allocations (DSG)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice
+		});
+	});
+
+	// Download funding allocations (PE and sport premium)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice
+		});
+	});
+
+	// Download funding allocations (Pupil premium)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pupil-premium/download-funding', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pupil-premium/download-funding', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice
+		});
+	});
+
+	// Download funding allocations (Year 7 literacy and numeracy catch-up premium)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/year-7-catch-up/download-funding', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/year-7-catch-up/download-funding', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice
@@ -89,8 +149,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice,
-			'error' : req.query.error
+			'choice' : req.session.choice
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {
