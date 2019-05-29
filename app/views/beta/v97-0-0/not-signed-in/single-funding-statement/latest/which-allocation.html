@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Which funding allocation would you like to view?   
+    {% if error %}Error: {% endif %}Select a funding type
 {% endblock %}
 
 {% block content %}
@@ -20,7 +20,7 @@
                 <nav>
                     <ol>
                         <li><a href="viewing-choice">How would you like to view funding allocations?</a></li>
-                        <li>Which funding allocation would you like to view?</li>
+                        <li>Select a funding type</li>
                     </ol>
                 </nav>
             </div>
@@ -35,20 +35,20 @@
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                     <ul class="error-summary-list">
-                        <li><a href="#fundingAllocation">Select which funding allocation you'd like to view</a></li>
+                        <li><a href="#fundingAllocation">Select a funding type</a></li>
                     </ul>
                 </div>
                 {% endif %}
 
                 <fieldset class="{% if error %}after-error-summary{% endif %}">    
                     <legend id="fundingAllocation">
-                        <h1 class="heading-xlarge">Which funding allocation would you like to view?</h1>
+                        <h1 class="heading-xlarge">Select a funding type</h1>
                     </legend>
                     <!-- <p>This service is a public view which requires no account or sign-in to access.</p> -->
             
                     <div class="form-group {% if error %}form-group-error{% endif %}">
                         {% if error %}
-                        <span class="error-message">Select which funding allocation you'd like to view</span>
+                        <span class="error-message">Select a funding type</span>
                         {% endif %}                        
 
                         <div class="multiple-choice">
@@ -71,7 +71,7 @@
 
                         <div class="multiple-choice">
                             <input id="radio-4" type="radio" name="fundingAllocationChoice" value="Year 7">
-                            <label for="radio-4">Year 7 literacy and numeracy catch-up premium</label>
+                            <label for="radio-4">Year 7 literacy and numeracy catch up premium</label>
                             <!-- <span class="form-hint">...</span> -->
                         </div>
             
@@ -82,18 +82,18 @@
                 <div class="form-group">
                     <details>
                         <summary>
-                            <span class="summary">I want to view another funding allocation</span>
+                            <span class="summary">I want to select another funding type</span>
                         </summary>
                         
                         <div class="panel panel-border-narrow">
-                            <p>You can view the following publicly available funding allocations within this service:</p>
+                            <!-- <p>You can view the following publicly available funding allocations within this service:</p>
                             <ul class="list list-bullet">
                                 <li>dedicated schools grant (<abbr title="Dedicated Schools Grant">DSG</abbr>)</li>
                                 <li>PE and sport premium</li>
                                 <li>pupil premium</li>
                                 <li>year 7 literacy and numeracy catch up premium</li>
-                            </ul>
-                            <p>If a funding allocation type is not listed, it is not publicly available to view.</p>           <p>Alternatively you can view all other funding allocations in the <a href="../../../not-signed-in/single-funding-statement/start">manage your education and skills funding service</a>.</p>
+                            </ul> -->
+                            <p>If a funding allocation type is not listed, it is not publicly available to view.</p>           <p>Alternatively you can view other funding types by signing in to <a href="../../../not-signed-in/single-funding-statement/start">manage your education and skills funding</a> service.</p>
                         </div>
 
                     </details>
