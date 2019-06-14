@@ -1,5 +1,5 @@
 module.exports = function(router) {
-
+	
 	var version = 'beta/v98-0-0';
 
 	/**********
@@ -67,34 +67,34 @@ module.exports = function(router) {
 		});
 	});
 
-	// Carry-in apprenticeship for 2018 to 2019
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/carry-in-apprenticeship-details', function (req, res) {
+	// Apprenticeship carry-in for 2018 to 2019
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/apprenticeship-carry-in-details', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/carry-in-apprenticeship-details', {
+		res.render(version + '/signed-in/external/child/allocation-statements/adults/apprenticeship-carry-in-details', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
 
-	// Adult Education Budget 2018 to 2019 (v2)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/adult-education-budget-details-v2', function (req, res) {
+	// ESFA adult dducation budget 2018 to 2019 (v2)
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/adult-education-budget-details-v2', {
+		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
 	});
 
-	// Adult Education Budget 2018 to 2019 (v1)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/adult-education-budget-details-v1', function (req, res) {
+	// ESFA adult dducation budget 2018 to 2019 (v1)
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/adult-education-budget-details-v1', {
+		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', {
 			'version' : version,
 			'idams' : req.session.idams
 		});
