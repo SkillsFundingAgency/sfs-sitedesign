@@ -1,0 +1,1094 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Review your document names
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li><a href="file-share">File share documents</a></li>
+                        <li>Review your document names</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#document-list">Select the document names and errors that you want to download</a></li>
+                        <!-- <li><a href="#document-list">Select the documents that you want to remove</a></li> -->
+                    </ul>
+                </div>
+                {% endif %}
+
+                <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 12 of 12 documents</h2>
+                </div>
+    
+                <h1 class="heading-xlarge">Review your document names</h1>
+
+                <div class="form-group">
+                    <ol class="list list-number">
+                        <li>Select a list of document names and errors.</li>
+                        <li>Download these as an Open Document Spreadsheet (<abbr title="Open Document Spreadsheet">ODS</abbr>).</li>
+                        <li>Remove these documents from the table below.</li>
+                        <li>Correct the document names in your local area.</li>
+                        <li>Add the documents back into the file share.</li>
+                    </ol>
+                </div>
+
+                <div class="pager-top">
+    
+                    <div id="documentsSelectedText" class="pager-summary">
+                        0 documents selected
+                    </div>
+    
+                </div>
+
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document name error</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-name-error-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentNameError" id="queryFilterOpenDocumentNameError" aria-expanded="true" aria-controls="filter-by-document-name-error" value="true">
+                                    <a href="#" id="filter-keyboard-document-name-error" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-name-error">
+                                        <header id="document-name-error" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document name error</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-name-error" class="js-filter-collapsible-content" aria-labelledby="document-name-error">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterErrorType01" rel="01" name="queryFilterErrorType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterErrorType01">
+                                                        Academic year is not a valid format ({% if paginationRequired %}4{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterErrorType02" rel="02" name="queryFilterErrorType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterErrorType02">
+                                                        Document type code is not a valid format ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterErrorType03" rel="03" name="queryFilterErrorType" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterErrorType03">
+                                                        UKPRN does not contain 8 numbers ({% if paginationRequired %}2{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterErrorType04" rel="04" name="queryFilterErrorType" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterErrorType04">
+                                                        UKPRN is not recognised in the system ({% if paginationRequired %}4{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterDocumentType01" rel="documentType01" name="queryFilterDocumentType" type="checkbox" value="documentType01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Allocation calculation toolkit ({% if paginationRequired %}6{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterDocumentType02" rel="documentType02" name="queryFilterDocumentType" type="checkbox" value="documentType02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        Business case template ({% if paginationRequired %}6{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Document list -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">List of documents to review</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 10 of 12 documents</span>
+                        </div>
+
+                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+
+                        <div class="form-group">
+                            <!-- NON JS TABLE ROWS (START) -->
+                            {% if paginationRequired %}
+                            <!-- 12 RESULTS -->
+                            <table data-non-js-checkboxes>
+                                <caption class="visuallyhidden">List of documents to review</caption>
+                                <thead>
+                                    <tr class="first">
+                                        <th>
+
+                                            <div style="display: none;" class="document-checkbox-div multiple-choice">
+                                                <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
+                                                <label id="selectAllLabel" for="document-checkbox">Select all documents</label>
+                                            </div>
+
+                                            <span class="visuallyhidden">Select and deselect this document</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Document name</span>
+                                        </th>                                
+                                        <th>
+                                            <span class="tab-header-no-sort">Document name error</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Document type</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                {% if page1 %}
+                                <!-- SHOWING 1 TO 10 OF 12 DOCUMENTS -->
+                                <tbody id="sortable-table-contents">
+                                    <tr id="file-01">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01">
+                                                <label for="checkbox-file-01"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            UKPRN does not contain 8 numbers
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-02">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02">
+                                                <label for="checkbox-file-02"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-03">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03">
+                                                <label for="checkbox-file-03"><span class="visuallyhidden">Select 10056867_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10056867<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:46am on 23 September 2018 -->
+                                        </td>
+
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Document type code is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-04">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04">
+                                                <label for="checkbox-file-04"><span class="visuallyhidden">Select 10006473_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006473<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 12:32pm on 07 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-05">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05">
+                                                <label for="checkbox-file-05"><span class="visuallyhidden">Select 10006622_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006622<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 4:02pm on 01 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-06">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06">
+                                                <label for="checkbox-file-06"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Document type code is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-07">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-07" name="checkbox-file-selection" type="checkbox" value="checkbox-file-07">
+                                                <label for="checkbox-file-07"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">            
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-08">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-08" name="checkbox-file-selection" type="checkbox" value="checkbox-file-08">
+                                                <label for="checkbox-file-08"><span class="visuallyhidden">Select 10056867_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10056867<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:46am on 23 September 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-09">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-09" name="checkbox-file-selection" type="checkbox" value="checkbox-file-09">
+                                                <label for="checkbox-file-09"><span class="visuallyhidden">Select 10006943_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006943<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:02am on 28 September 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-10">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-10" name="checkbox-file-selection" type="checkbox" value="checkbox-file-10">
+                                                <label for="checkbox-file-10"><span class="visuallyhidden">Select 10006622_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006622<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 4:02pm on 01 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% elif page2 %}
+                                <!-- SHOWING 11 TO 12 OF 12 DOCUMENTS -->
+                                <tbody id="sortable-table-contents">
+                                    <tr id="file-11">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-11" name="checkbox-file-selection" type="checkbox" value="checkbox-file-11">
+                                                <label for="checkbox-file-11"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            UKPRN does not contain 8 numbers
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-12">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-12" name="checkbox-file-selection" type="checkbox" value="checkbox-file-12">
+                                                <label for="checkbox-file-12"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endif %}
+                            </table>
+                            {% else %}
+                            <!-- 8 RESULTS -->
+                            <table data-non-js-checkboxes>
+                                <caption class="visuallyhidden">List of documents to review</caption>
+                                <thead>
+                                    <tr class="first">
+                                        <th>
+
+                                            <div style="display: none;" class="document-checkbox-div multiple-choice">
+                                                <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
+                                                <label id="selectAllLabel" for="document-checkbox">Select all documents</label>
+                                            </div>
+
+                                            <span class="visuallyhidden">Select and deselect this document</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Document name</span>
+                                        </th>                                
+                                        <th>
+                                            <span class="tab-header-no-sort">Document name error</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Document type</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sortable-table-contents">
+                                    <tr id="file-01">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01">
+                                                <label for="checkbox-file-01"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            UKPRN does not contain 8 numbers
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-02">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02">
+                                                <label for="checkbox-file-02"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-03">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03">
+                                                <label for="checkbox-file-03"><span class="visuallyhidden">Select 10056867_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10056867<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:46am on 23 September 2018 -->
+                                        </td>
+
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Document type code is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-04">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04">
+                                                <label for="checkbox-file-04"><span class="visuallyhidden">Select 10006473_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006473<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 12:32pm on 07 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-05">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05">
+                                                <label for="checkbox-file-05"><span class="visuallyhidden">Select 10006622_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006622<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 4:02pm on 01 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-06">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06">
+                                                <label for="checkbox-file-06"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Document type code is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr id="file-07">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-07" name="checkbox-file-selection" type="checkbox" value="checkbox-file-07">
+                                                <label for="checkbox-file-07"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">            
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr id="file-08">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-08" name="checkbox-file-selection" type="checkbox" value="checkbox-file-08">
+                                                <label for="checkbox-file-08"><span class="visuallyhidden">Select 10056867_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10056867<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:46am on 23 September 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {% endif %}
+                            <!-- NON JS TABLE ROWS (END) -->
+
+                            <!-- JS TABLE ROWS (START) -->
+                            <!-- 12 RESULTS -->
+                            <table class="hidden" hidden aria-hidden="true" data-checkboxes>
+                                <caption class="visuallyhidden">List of documents to review</caption>
+                                <thead>
+                                    <tr class="first">
+                                        <th>
+
+                                            <div style="display: none;" class="document-checkbox-div multiple-choice">
+                                                <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
+                                                <label id="selectAllLabel" for="document-checkbox">Select all documents</label>
+                                            </div>
+
+                                            <span class="visuallyhidden">Select and deselect this document</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Document name</span>
+                                        </th>                                
+                                        <th>
+                                            <span class="tab-header-no-sort">Document name error</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Document type</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="sortable-table-contents">
+                                    <tr class="searchable-table-row" id="file-01">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01">
+                                                <label for="checkbox-file-01"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            UKPRN does not contain 8 numbers
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-02">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02">
+                                                <label for="checkbox-file-02"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-03">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03">
+                                                <label for="checkbox-file-03"><span class="visuallyhidden">Select 10056867_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10056867<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:46am on 23 September 2018 -->
+                                        </td>
+
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Document type code is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-04">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04">
+                                                <label for="checkbox-file-04"><span class="visuallyhidden">Select 10006473_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006473<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 12:32pm on 07 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-05">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05">
+                                                <label for="checkbox-file-05"><span class="visuallyhidden">Select 10006622_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006622<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 4:02pm on 01 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-06">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06">
+                                                <label for="checkbox-file-06"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Document type code is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-07">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-07" name="checkbox-file-selection" type="checkbox" value="checkbox-file-07">
+                                                <label for="checkbox-file-07"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">            
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-08">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-08" name="checkbox-file-selection" type="checkbox" value="checkbox-file-08">
+                                                <label for="checkbox-file-08"><span class="visuallyhidden">Select 10056867_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10056867<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:46am on 23 September 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-09">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-09" name="checkbox-file-selection" type="checkbox" value="checkbox-file-09">
+                                                <label for="checkbox-file-09"><span class="visuallyhidden">Select 10006943_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006943<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 9:02am on 28 September 2018 -->
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            UKPRN is not recognised in the system
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-10">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-10" name="checkbox-file-selection" type="checkbox" value="checkbox-file-10">
+                                                <label for="checkbox-file-10"><span class="visuallyhidden">Select 10006622_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10006622<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 4:02pm on 01 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-11">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-11" name="checkbox-file-selection" type="checkbox" value="checkbox-file-11">
+                                                <label for="checkbox-file-11"><span class="visuallyhidden">Select 10044577_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10044577<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 10:54am on 02 June 2018 -->
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            UKPRN does not contain 8 numbers
+                                        </td>
+                                        <td class="sortable-td documentType01" rel="documentType01" style="vertical-align: top;">
+                                            Allocation calculation toolkit
+                                        </td>
+                                    </tr>
+                                    <tr class="searchable-table-row" id="file-12">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-12" name="checkbox-file-selection" type="checkbox" value="checkbox-file-12">
+                                                <label for="checkbox-file-12"><span class="visuallyhidden">Select 10043873_10041_201819.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#" title="Download [DOCUMENT NAME] (PDF)">10043873<wbr>_10041<wbr>_201819<wbr>.pdf</a>
+                                            <br>
+                                            <!-- Modified 11:17am on 04 October 2018 -->
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Academic year is not a valid format
+                                        </td>
+                                        <td class="sortable-td documentType02" rel="documentType02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- JS TABLE ROWS (END) -->
+                            
+                            <!-- NON JS PAGING (START) -->
+                            {% if paginationRequired %}
+                            {% if page1 %}
+                            <div class="pager" data-non-js-paging>
+
+                                <div class="pager-controls">
+                                    <ul class="pager-items">
+                                        <li>
+                                            <span class="text-bold">1</span>
+                                        </li>
+                                        <li>
+                                            <span class="visuallyhidden">Page </span>
+                                            <a href="documents-to-review?paginationRequired=true&page2=true">2</a>
+                                            <span class="visuallyhidden"> of 2</span>
+                                        </li>
+                                        <a class="pager-next" href="documents-to-review?paginationRequired=true&page2=true">Next</a>
+                                        <span class="visuallyhidden"> page</span>
+                                    </ul>                                
+                                </div>
+                
+                                <div class="pager-summary">
+                                    Showing 1 to 10 of 12 documents
+                                </div>
+                
+                            </div>
+                            {% elif page2 %}
+                            <div class="pager" data-non-js-paging>
+
+                                <div class="pager-controls">                               
+                                    <ul class="pager-items">
+                                        <a class="pager-next" href="documents-to-review?paginationRequired=true&page1=true">Previous</a>
+                                        <span class="visuallyhidden"> page</span>
+                                        &nbsp;&nbsp;
+                                        <li>
+                                            <span class="visuallyhidden">Page </span>
+                                            <a href="documents-to-review?paginationRequired=true&page1=true">1</a>
+                                            <span class="visuallyhidden"> of 2</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-bold">2</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                
+                                <div class="pager-summary">
+                                    Showing 11 to 12 of 12 documents
+                                </div>
+                
+                            </div>
+                            {% endif %}
+                            {% else %}
+                            <div class="pager">
+                
+                                <div class="pager-summary">
+                                    Showing 1 to 8 of 8 documents
+                                </div>
+                
+                            </div>
+                            {% endif %}
+                            <!-- NON JS PAGING (END) -->
+
+                            <!-- JS PAGING (START) -->
+                            <div class="pager hidden" hidden aria-hidden="true" style="margin-top:0" data-paging>
+                            
+                                <div class="pager-controls">
+                                    <a class="pager-prev" href="#">Previous</a>
+                                    <ul class="pager-items"></ul>
+                                    <a class="pager-next" href="#">Next</a>
+                                </div>
+    
+                                <div class="pager-summary">
+                                </div>
+
+                                <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
+                                <!-- paginationRequired = true or false -->
+                                <span id="dynamicPaginationForPage" style="display: none;">{{paginationRequired}}</span>
+                                <!-- totalListCount -->
+                                <span id="totalDocumentCount" style="display: none;">{{totalListCount}}</span>
+                                <!-- clearLocalStorage -->
+                                <span id="clearLocalStorage" style="display: none;">{{clearLocalStorage}}</span>
+                                <!-- itemsPerPage -->
+                                <span id="itemsPerPage" style="display: none;">{{itemsPerPage}}</span>
+                                <!-- itemTypeLabel -->
+                                <span id="itemTypeLabel" style="display: none;">{{itemTypeLabel}}</span>
+                                <!-- itemTypeLabelPlural -->
+                                <span id="itemTypeLabelPlural" style="display: none;">{{itemTypeLabelPlural}}</span>
+    
+                            </div>
+                            <!-- JS PAGING (END) -->
+
+                        </div>
+
+                        <div class="form-group">
+                            <a class="button" href="../../../../../../public/documents/allocation-statements/example-statement-breakdown.pdf" role="button" title="Download selected document names and errors (ODS)" download>Download selected document names and errors (<abbr title="Open Document Sheet">ODS</abbr>)</a>
+                        </div>
+                        
+                        <div class="form-group">
+                            <a href="documents-to-review-remove-confirm">Remove selected documents</a>
+                        </div>
+
+                        <div class="form-group direction-rtl">
+                            <a class="app-c-back-to-top dont-print" href="#content">
+                                <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                                </svg>
+                                Back to top
+                            </a>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        // Pass these parameters in (below)
+        dynamicPagination(
+            // Total items (totalListCount)
+            {{totalListCount}},
+            // Boolean whether to clear down the session data or not
+            {{clearLocalStorage}},
+            // How many items to show per page
+            {{itemsPerPage}},
+            "{{itemTypeLabel}}",
+            "{{itemTypeLabelPlural}}"
+        );
+
+    });
+    
+</script>
+<!-- Dynamic pagination -->
+<script src="/public/javascripts/{{version}}/dynamic-pagination.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
