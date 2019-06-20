@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Did you mean
+    Search results
 {% endblock %}
 
 {% block content %}
@@ -19,16 +19,16 @@
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
-                        <li><a href="viewing-choice">How would you like to view funding allocations?</a></li>
+                        <li><a href="viewing-choice">Choose how to view funding</a></li>
                         <li><a href="find-an-organisation">View funding by organisation</a></li>
-                        <li>Did you mean</li>
+                        <li>Search results</li>
                     </ol>
                 </nav>
             </div>
             
             <form method="post" class="form">               
 
-                {% if searchScope == 'Child' %}
+                {% if searchScope == 'Primary' %}
                 <!-- Child - Dynamic content (START) -->
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
@@ -36,8 +36,8 @@
                 </div> 
 
                 <div class="form-group">
-                    <h1 class="heading-xlarge">Did you mean</h1>
-                    <p>If a school has converted to become an academy you will see two parts to its allocation – one part when it was local authority maintained, and another as an academy.</p>
+                    <h1 class="heading-xlarge">Search results</h1>
+                    <p>If a school has converted to an academy you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
                 </div>
 
                 {% if searchTerm == 'london' %}
@@ -89,15 +89,14 @@
                 <!-- Potential matches to search term -->
                 <div class="column-document-list-two-thirds column-two-thirds document-list">
                     <fieldset>
-                        <legend id="document-list" class="visuallyhidden">Did you mean</legend>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
                             <span id="filter-results" class="pager-summary">Showing 1 to 2 of 2 documents</span>
                         </div>
 
                         <div class="form-group">
-                            <p class="lede">Search results for <span class="bold">'{{searchTerm}}'</span></p>
-                            <p>We found 2 schools. Did you mean:</p>
+                            <p>Searching on <span class="bold">'{{searchTerm}}'</span> we found 2 schools. Did you mean:</p>
 
                             <div class="form-block sectionContent Academy">
                                 <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
@@ -199,15 +198,14 @@
                 <!-- Potential matches to search term -->
                 <div class="column-document-list-two-thirds column-two-thirds document-list">
                     <fieldset>
-                        <legend id="document-list" class="visuallyhidden">Did you mean</legend>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
                             <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
                         </div>
 
                         <div class="form-group">
-                            <p class="lede">Search results for <span class="bold">'kilburn'</span></p>
-                            <p>We found 6 schools. Did you mean:</p>
+                            <p>Searching on <span class="bold">'kilburn'</span> we found 6 schools. Did you mean:</p>
 
                             <div class="form-block sectionContent 01 Academy">
                                 <a href="statement">Kilburn Grange School (London, NW6 7UJ)</a>
@@ -242,12 +240,11 @@
                 {% endif %}
                 {% elif searchScope == 'MAT' %}
                 <!-- MATs - Dynamic content (START) -->
-                <h1 class="heading-xlarge">Did you mean</h1>
+                <h1 class="heading-xlarge">Search results</h1>
 
                 <!-- Potential matches to search term -->
                 <div class="form-group">
-                    <p class="lede">Search results for <span class="bold">'rose'</span></p>
-                    <p>We found 2 multi-academy trusts. Did you mean:</p>
+                    <p>Searching on <span class="bold">'rose'</span> we found 2 multi-academy trusts. Did you mean:</p>
 
                     <div class="form-block">
                         <a href="statement">The Rosedale Hewens Academy Trust</a>
@@ -261,12 +258,11 @@
                 <!-- MATs - Dynamic content (END) -->
                 {% elif searchScope == 'LA' %}
                 <!-- LAs - Dynamic content (START) -->
-                <h1 class="heading-xlarge">Did you mean</h1>
+                <h1 class="heading-xlarge">Search results</h1>
 
                 <!-- Potential matches to search term -->
                 <div class="form-group">
-                    <p class="lede">Search results for <span class="bold">'ca'</span></p>
-                    <p>We found 10 local authorities. Did you mean:</p>
+                    <p>Searching on <span class="bold">'ca'</span> we found 10 local authorities. Did you mean:</p>
 
                     <div class="form-block">
                         <a href="statement">Caerphilly</a>
@@ -318,8 +314,8 @@
                 </div> 
 
                 <div class="form-group">
-                    <h1 class="heading-xlarge">Did you mean</h1>
-                    <p>If a school has converted to become an academy you will see two parts to its allocation – one part when it was local authority maintained, and another as an academy.</p>
+                    <h1 class="heading-xlarge">Search results</h1>
+                    <p>If a school has converted to an academy you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
                 </div>
 
                 <div id="filterContent" class="column-filter-one-third column-third ">
@@ -408,15 +404,14 @@
                 <!-- Potential matches to search term -->
                 <div class="column-document-list-two-thirds column-two-thirds document-list">
                     <fieldset>
-                        <legend id="document-list" class="visuallyhidden">Did you mean</legend>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
                             <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
                         </div>
 
                         <div class="form-group">
-                            <p class="lede">Search results for <span class="bold">'kilburn'</span></p>
-                            <p>We found 6 schools. Did you mean:</p>
+                            <p>Searching on <span class="bold">'kilburn'</span> we found 6 schools. Did you mean:</p>
 
                             <div class="form-block sectionContent 01 Academy">
                                 <a href="statement">Kilburn Grange School (London, NW6 7UJ)</a>
