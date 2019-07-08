@@ -289,6 +289,18 @@ module.exports = function(router) {
 		});
 	});
 
+	// Allocation history  
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/allocation-history', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/allocation-history', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean
+		});
+	});
+
 	// Full funding allocation (DSG: all 4 blocks) 
 	// PREVIOUS (December)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation-december', function (req, res) {		
