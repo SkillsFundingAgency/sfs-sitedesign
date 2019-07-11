@@ -276,19 +276,6 @@ module.exports = function(router) {
 	 * DSG
 	 * **********/
 
-	 // Full funding allocation (DSG: all 4 blocks)
-	 // CURRENT
-	 router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation', function (req, res) {		
-		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
-		});
-	});
-
 	// Allocation history  
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/allocation-history', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/allocation-history', {
@@ -301,10 +288,23 @@ module.exports = function(router) {
 		});
 	});
 
+	 // Full funding allocation (DSG: all 4 blocks)
+	 // LATEST (27 March 2019)
+	 router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/27-03-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/27-03-2019', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean
+		});
+	});
+
 	// Full funding allocation (DSG: all 4 blocks) 
-	// PREVIOUS (December)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation-december', function (req, res) {		
-		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/full-funding-allocation-december', {
+	// PREVIOUS (17 December 2018)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/17-12-2018', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/17-12-2018', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,

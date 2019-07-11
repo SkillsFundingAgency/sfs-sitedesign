@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Dedicated schools grant (DSG) allocation history 2019 to 2020
+    Allocation history
 {% endblock %}
 
 {% block content %}
@@ -20,9 +20,12 @@
                 <nav>
                     <ol>
                         <li><a href="../viewing-choice">Choose how to view funding</a></li>
-                        <li><a href="../which-allocation">Select a funding type</a></li>
-                        <li><a href="../statement">{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}Camden{% endif %}</a></li>
-                        <li>Publication timetable</li>
+                        <li><a href="../find-an-organisation">View funding by organisation</a></li>
+                        {% if didYouMean == 'Yes' %}
+                        <li><a href="../did-you-mean">Search results</a></li>
+                        {% endif %}
+                        <li><a href="../statement">{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}St Mary's Kilburn Church of England Primary School{% endif %}</a></li>
+                        <li>Allocation history</li>
                     </ol>
                 </nav>
             </div>
@@ -35,62 +38,35 @@
 
                 <div class="form-group">
                     <h1 class="heading-xlarge">
-                        <span class="heading-secondary">Camden</span>
-                        Dedicated schools grant (<abbr title="Dedicated Schools Grant">DSG</abbr>) allocation history 2019 to 2020</h1>
-                    <p class="lede">Find detailed breakdowns of <abbr title="Dedicated Schools Grant">DSG</abbr> for local authorities for financial year 2019 to 2020.</p>
+                        <span class="heading-secondary">Dedicated schools grant (<abbr title="Dedicated Schools Grant">DSG</abbr>) 2019 to 2020</span>
+                        Allocation history
+                    </h1>
+                    <p class="lede">Find detailed breakdowns of the <abbr title="Dedicated Schools Grant">DSG</abbr> for local authorities for financial year 2019 to 2020.</p>
                         
                     <table>
                         <thead>
-                          <tr>
-                            <th class="govuk-!-width-one-quarter">Publication date</th>
-                            <th>Actions by ESFA</th>
-                          </tr>
+                            <tr>
+                                <th class="govuk-!-width-one-quarter">Published date</th>
+                                <th>Action</th>
+                            </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>
-                                    <a href="full-funding-allocation" target="external">27 March 2019</a>
-                                    <p><strong class="govuk-tag govuk-bblue">Latest</strong></p>
-                                </td>
-                                <td><abbr title="Education and Skills Funding Agency">ESFA</abbr> updates <abbr title="dedicated schools grant">DSG</abbr> allocations for recoupment and high needs deductions for academies as at 1 March 2019</td>
+                                <td><a href="27-03-2019">27 March 2019</a><br><strong class="govuk-tag govuk-bblue">Latest</strong></td>
+                                <td><abbr title="Education and Skills Funding Agency">ESFA</abbr> updates <abbr title="dedicated schools grant">DSG</abbr> allocations for recoupment and high needs deductions for academies as at 1 March 2019.</td>
                             </tr>
                             <tr>
-                                <td><a href="full-funding-allocation-december" target="external">17 December 2018</a></td>
-                                <td><abbr title="Education and Skills Funding Agency">ESFA</abbr> announce 	2019 to 2020 schools block, <abbr title="central school services block">CSSB</abbr>, early years block, high needs block, and details of the charges for national copyright licences issued to local authorities</td>
+                                <td><a href="17-12-2018">17 December 2018</a></td>
+                                <td><abbr title="Education and Skills Funding Agency">ESFA</abbr> announce 	2019 to 2020 schools block, <abbr title="central school services block">CSSB</abbr>, early years block, high needs block, and details of the charges for national copyright licences issued to local authorities.</td>
                             </tr>
                         </tbody>
-                      </table>
+                    </table>
 
                 </div>
 
             </form>
         
         </div>
-
-        <!-- <div class="one-third">
-            
-            <div class="related-container">
-            
-                <aside class="related" id="related">
-            
-                    <div class="inner group related-subsection">
-                        <h2 id="parent-subsection">Historic funding allocations</h2>
-        
-                        <nav role="navigation" aria-labelledby="parent-subsection">
-                                                    
-                            <ul class="list">
-                                <li class="related-links"><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2018-to-2019" title="DSG: 2018 to 2019" target="external"><abbr title="Dedicated Schools Grant" target="external">DSG</abbr>: 2018 to 2019</a></li>
-                            </ul>
-
-                        </nav>
-
-                    </div>
-
-                </aside>
-
-            </div>
-
-        </div> -->
 
     </div>
 
