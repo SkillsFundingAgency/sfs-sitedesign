@@ -266,7 +266,8 @@ module.exports = function(router) {
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion
 		});
 	});
 
@@ -297,7 +298,8 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion
 		});
 	});
 
@@ -310,7 +312,8 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion
 		});
 	});
 
