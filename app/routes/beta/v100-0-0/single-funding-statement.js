@@ -324,8 +324,9 @@ module.exports = function(router) {
 	 * **********/
 
 	// Full funding allocation (PE and Sport)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/full-funding-allocation', function (req, res) {		
-		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/full-funding-allocation', {
+	// LATEST (12 April 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/12-04-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/12-04-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
