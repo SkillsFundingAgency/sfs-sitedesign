@@ -847,6 +847,9 @@ $(document).ready(function () {
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').removeClass("hidden");
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').attr("aria-hidden", false);
                 $('td.' + status + '[rel="' + value + '"]').parent('tr').removeAttr("hidden");
+
+                // Update the total funding amount in the heading
+                $(calculateSum);
             }
 
         });
@@ -886,7 +889,33 @@ $(document).ready(function () {
                 $('tr').removeAttr("hidden");
             }
 
+            // Update the total funding amount in the heading
+            $(calculateSum);
+
         }
+
+        // Function to count the totals within the updated funding table
+        function calculateSum() {
+
+            var sum = 0;
+            var convertedSum;
+
+            // Target all <td> with the class (.totalAllocation) which are not hidden
+            $('td.totalAllocation:visible').each(function() {
+                    
+                var value = $(this).text();
+                var number = Number(value.replace(/[^0-9.-]+/g,""));
+
+                // Add only if the value is number
+                if (!isNaN(number) && number.length != 0) {
+                    sum += parseFloat(number);
+                    convertedSum = accounting.formatMoney(sum, { precision: 0 });
+                }
+
+            });
+
+            $('#heading-funding-summary').text(convertedSum);
+        };
 
     });
 
