@@ -323,10 +323,35 @@ module.exports = function(router) {
 	 * PE AND SPORT
 	 * **********/
 
+	// Allocation history  
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/allocation-history', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/allocation-history', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean
+		});
+	});
+
 	// Full funding allocation (PE and Sport)
 	// LATEST (12 April 2019)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/12-04-2019', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/12-04-2019', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean
+		});
+	});
+
+	// Full funding allocation (PE and Sport)
+	// PREVIOUS (5 February 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/5-02-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/5-02-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
