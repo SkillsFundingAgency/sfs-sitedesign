@@ -1,0 +1,450 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Search results
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_alpha.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="viewing-choice">Choose how to view funding</a></li>
+                        <li><a href="find-an-organisation">View funding by organisation</a></li>
+                        <li>Search results</li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <form method="post" class="form">               
+
+                {% if searchScope == 'Primary' %}
+                <!-- Child - Dynamic content (START) -->
+                <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 6 of 6 schools</h2>
+                </div> 
+
+                <div class="form-group">
+                    <h1 class="heading-xlarge">Search results</h1>
+                    <p>If a school has converted to an academy, you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
+                </div>
+
+                {% if searchTerm == 'london' %}
+                <!-- PAGINATION ON (search term on "london" or "London" with > 25 results) -->
+                <!-- TO DO: Add the pagination design once agreed with team -->
+                {% elif searchTerm == 'converted' %}
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (1)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 2 of 2 documents</span>
+                        </div>
+
+                        <div class="form-group">
+                            <p>Searching on <span class="bold">'{{searchTerm}}'</span> we found 2 schools. Did you mean:</p>
+
+                            <div class="form-block sectionContent Academy">
+                                <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent Maintained">
+                                <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
+                {% else %}
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by local authority</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                    <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                        <header id="local-authority-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by local authority</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType01" name="queryFilterLocalAuthority" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterLocalAuthorityType01">
+                                                        Brent (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType02" name="queryFilterLocalAuthority" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterLocalAuthorityType02">
+                                                        Camden (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType03" name="queryFilterLocalAuthority" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterLocalAuthorityType03">
+                                                        Derbyshire (3)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (4)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
+                        </div>
+
+                        <div class="form-group">
+                            <p>Searching on <span class="bold">'kilburn'</span> we found 6 schools. Did you mean:</p>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="statement">Kilburn Grange School (London, NW6 7UJ)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 03 Maintained">
+                                <a href="statement">Kilburn Infant and Nursery School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 03 Academy">
+                                <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 03 Maintained">
+                                <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 02 Maintained">
+                                <a href="statement">St Mary's Kilburn Church of England Primary School (London, NW6 4PG)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Maintained">
+                                <a href="statement">The Kilburn Park School Foundation (London, NW6 5RG)</a>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
+                <!-- Child - Dynamic content (END) -->
+                {% endif %}
+                {% elif searchScope == 'MAT' %}
+                <!-- MATs - Dynamic content (START) -->
+                <h1 class="heading-xlarge">Search results</h1>
+
+                <!-- Potential matches to search term -->
+                <div class="form-group">
+                    <p>Searching on <span class="bold">'rose'</span> we found 2 multi-academy trusts. Did you mean:</p>
+
+                    <div class="form-block">
+                        <a href="statement">The Rosedale Hewens Academy Trust</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">White Rose Academies Trust</a>
+                    </div>
+
+                </div>
+                <!-- MATs - Dynamic content (END) -->
+                {% elif searchScope == 'LA' %}
+                <!-- LAs - Dynamic content (START) -->
+                <h1 class="heading-xlarge">Search results</h1>
+
+                <!-- Potential matches to search term -->
+                <div class="form-group">
+                    <p>Searching on <span class="bold">'ca'</span> we found 7 local authorities. Did you mean:</p>
+
+                    <div class="form-block">
+                        <a href="statement">Calderdale</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">Cambridgeshire</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">Camden</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">Doncaster</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">Lancashire</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">Newcastle upon Tyne</a>
+                    </div>
+
+                    <div class="form-block">
+                        <a href="statement">Redcar and Cleveland</a>
+                    </div>
+
+                </div>
+                <!-- LAs - Dynamic content (END) -->
+                {% else %}
+                <!-- DEFAULT VIEW - when all session variables fail (START) -->
+                <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 6 of 6 schools</h2>
+                </div> 
+
+                <div class="form-group">
+                    <h1 class="heading-xlarge">Search results</h1>
+                    <p>If a school has converted to an academy, you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
+                </div>
+
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by local authority</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                    <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                        <header id="local-authority-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by local authority</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType01" name="queryFilterLocalAuthority" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterLocalAuthorityType01">
+                                                        Brent (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType02" name="queryFilterLocalAuthority" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterLocalAuthorityType02">
+                                                        Camden (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType03" name="queryFilterLocalAuthority" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterLocalAuthorityType03">
+                                                        Derbyshire (3)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (4)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
+                        </div>
+
+                        <div class="form-group">
+                            <p>Searching on <span class="bold">'kilburn'</span> we found 6 schools. Did you mean:</p>
+
+                            <div class="form-block sectionContent 01 Academy">
+                                <a href="statement">Kilburn Grange School (London, NW6 7UJ)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 03 Maintained">
+                                <a href="statement">Kilburn Infant and Nursery School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 03 Academy">
+                                <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 03 Maintained">
+                                <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 02 Maintained">
+                                <a href="statement">St Mary's Kilburn Church of England Primary School (London, NW6 4PG)</a>
+                            </div>
+
+                            <div class="form-block sectionContent 01 Maintained">
+                                <a href="statement">The Kilburn Park School Foundation (London, NW6 5RG)</a>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+
+                </div>
+                <!-- DEFAULT VIEW - when all session variables fail (END) -->
+                {% endif %}
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
