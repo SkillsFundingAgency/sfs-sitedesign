@@ -87,6 +87,7 @@ module.exports = function(router) {
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {		
 		
 		var fundingAllocationChoice = req.body.fundingAllocationChoice;
+		req.session.fundingAllocationChoice = fundingAllocationChoice;		
 
 		// Make sure the user chooses an option
 		if (fundingAllocationChoice == "DSG") {
@@ -96,10 +97,10 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding');
 		}
 		else if (fundingAllocationChoice == "Pupil premium") {
-			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pupil-premium/download-funding');
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
 		}
 		else if (fundingAllocationChoice == "Year 7") {
-			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/year-7-catch-up/download-funding');
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
 		}
 		// Make sure the user chooses an option
 		else {
@@ -126,20 +127,12 @@ module.exports = function(router) {
 		});
 	});
 
-	// Download funding allocations (Pupil premium)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pupil-premium/download-funding', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/latest/pupil-premium/download-funding', {
+	// Funding type unavailble
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice
-		});
-	});
-
-	// Download funding allocations (Year 7 literacy and numeracy catch-up premium)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/year-7-catch-up/download-funding', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/latest/year-7-catch-up/download-funding', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
+			'fundingAllocationChoice' : req.session.fundingAllocationChoice, 
 			'choice' : req.session.choice
 		});
 	});
