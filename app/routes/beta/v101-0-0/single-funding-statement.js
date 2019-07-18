@@ -127,7 +127,7 @@ module.exports = function(router) {
 		});
 	});
 
-	// Funding type unavailble
+	// Funding type unavailable
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable', {
 			'version' : version,
