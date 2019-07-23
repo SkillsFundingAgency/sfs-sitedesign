@@ -99,6 +99,15 @@ module.exports = function(router) {
 		else if (fundingAllocationChoice == "Pupil premium") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
 		}
+		else if (fundingAllocationChoice == "Schools improvement") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
+		}
+		else if (fundingAllocationChoice == "Teachers pay") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
+		}
+		else if (fundingAllocationChoice == "School meal") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
+		}
 		else if (fundingAllocationChoice == "Year 7") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
 		}
