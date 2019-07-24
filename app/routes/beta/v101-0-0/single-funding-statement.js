@@ -161,7 +161,7 @@ module.exports = function(router) {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
-			else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys") {
+			else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys" || schoolOrAcademy == "2023517") {
 				
 				req.session.searchScope = "Primary";
 				req.session.searchTerm = schoolOrAcademy;
@@ -191,6 +191,7 @@ module.exports = function(router) {
 			}
 			
 		}
+		/*
 		else if (searchOn == "MAT") {
 
 			req.session.searchScope = "MAT";
@@ -216,6 +217,7 @@ module.exports = function(router) {
 			}			
 			
 		}
+		*/
 		else if (searchOn == "LA") {
 
 			req.session.searchScope = "LA";
@@ -226,7 +228,7 @@ module.exports = function(router) {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "Camden")
-			else if (la == "camden") {
+			else if (la == "camden" || la == "202") {
 
 				req.session.didYouMean = "No";
 
