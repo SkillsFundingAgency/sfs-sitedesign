@@ -19,7 +19,7 @@ module.exports = function(router) {
 	 * SINGLE FUNDING STATEMENT
 	 * **********/
 
-	// Start
+	// Start page (MyESF)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
@@ -30,15 +30,8 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/not-signed-in/single-funding-statement/start');
 	});
 
-	// Public funding information (Archive)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/archive', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/archive', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName
-		});
-	});
-
-	// Public funding information (Start)
+	// Start page (VYF)
+	// DEFAULT
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/start', {
 			'version' : version,
@@ -49,7 +42,7 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice');
 	});
 
-	// Viewing choice
+	// Choose how to view funding
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/viewing-choice', {
 			'version' : version,
@@ -62,10 +55,10 @@ module.exports = function(router) {
 		var choice = req.body.choice;
 		req.session.choice = choice;
 
-		if (choice == "Single Funding Statement") {
+		if (choice == "Organisation") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation');	
 		}
-		else if (choice == "Spreadsheet") {
+		else if (choice == "National") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation');
 		}
 		// Make sure the user chooses an option
@@ -75,7 +68,7 @@ module.exports = function(router) {
 		
 	});
 
-	// Which funding allocation
+	// Select a funding type
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/which-allocation', {
 			'version' : version,
@@ -158,7 +151,7 @@ module.exports = function(router) {
 		
 		var searchOn = req.body.searchScope;
 		var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
-		var mat = req.body.matSearch.toLowerCase();
+		// var mat = req.body.matSearch.toLowerCase();
 		var la = req.body.laSearch.toLowerCase();
 		
 		if (searchOn == "Child") {
@@ -177,6 +170,7 @@ module.exports = function(router) {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
 			// Skips the did you mean page and finds a direct match (for "Regent High School")
+			/*
 			else if (schoolOrAcademy == "regent" || schoolOrAcademy == "regent high school") {
 				
 				req.session.searchScope = "Secondary";
@@ -185,6 +179,7 @@ module.exports = function(router) {
 				
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
+			*/
 			// Show the did you mean page for anything else
 			else {
 
