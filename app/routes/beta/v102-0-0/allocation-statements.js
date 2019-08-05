@@ -78,25 +78,27 @@ module.exports = function(router) {
 		});
 	});
 
-	// ESFA adult dducation budget 2018 to 2019 (v2)
+	// ESFA adult education budget 2018 to 2019 (v2)
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', function (req, res) {
 
 		req.session.idams = "adults";
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'interimDesign' : req.query.interimDesign 
 		});
 	});
 
-	// ESFA adult dducation budget 2018 to 2019 (v1)
+	// ESFA adult education budget 2018 to 2019 (v1)
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', function (req, res) {
 
 		req.session.idams = "adults";
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', {
 			'version' : version,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'interimDesign' : req.query.interimDesign
 		});
 	});
 
