@@ -68,6 +68,11 @@ module.exports = function(router) {
 		
 	});
 
+	/**********
+	 * PUBLIC
+	 * DOWNLOAD FUNDING 
+	 * **********/
+
 	// Select a funding type
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/which-allocation', {
@@ -76,7 +81,7 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'error' : req.query.error
 		});
-	});
+	}); 
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {		
 		
 		var fundingAllocationChoice = req.body.fundingAllocationChoice;
@@ -87,7 +92,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding');	
 		}
 		else if (fundingAllocationChoice == "PE and sport") {
-			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding');
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020');
 		}
 		else if (fundingAllocationChoice == "Pupil premium") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable');
@@ -111,7 +116,9 @@ module.exports = function(router) {
 		
 	});
 
-	// Download funding allocations (DSG)
+	// Download funding allocations 
+	// DSG
+	// 2019 to 2020
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding', {
 			'version' : version,
@@ -120,12 +127,46 @@ module.exports = function(router) {
 		});
 	});
 
-	// Download funding allocations (PE and sport premium)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding', function (req, res) {
-		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding', {
+	// Download historic allocations 
+	// PE and Sport
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice
+			'choice' : req.session.choice,
+			'error' : req.query.error
+		});
+	}); 
+	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year', function (req, res) {		
+		
+		var yearChoice = req.body.yearChoice;
+		req.session.yearChoice = yearChoice;		
+
+		// Make sure the user chooses an option
+		if (yearChoice == "PE 2018 to 2019") {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019');	
+		}
+		else if (yearChoice == "PE 2017 to 2018") {
+			res.redirect(href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-allocations-for-2017-to-2018");
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year?error=true');
+		}
+		
+	});
+
+	// Download funding allocations 
+	// PE and sport premium 2019 to 2020
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020', {
+			'version' : version,
+		});
+	});
+	// PE and sport premium 2018 to 2019
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', {
+			'version' : version,
 		});
 	});
 
@@ -138,6 +179,7 @@ module.exports = function(router) {
 			'choice' : req.session.choice
 		});
 	});
+
 
 	// Find an organisation
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {		
@@ -335,9 +377,22 @@ module.exports = function(router) {
 	});
 
 	// Full funding allocation (PE and Sport)
-	// LATEST (12 April 2019)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/12-04-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/12-04-2019', {
+	// LATEST (5 October 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-10-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-10-2019', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean
+		});
+	});
+
+	// Full funding allocation (PE and Sport)
+	// PREVIOUS (12 April 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/12-04-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/12-04-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
@@ -349,8 +404,8 @@ module.exports = function(router) {
 
 	// Full funding allocation (PE and Sport)
 	// PREVIOUS (5 February 2019)
-	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/5-02-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/5-02-2019', {
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-02-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-02-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
