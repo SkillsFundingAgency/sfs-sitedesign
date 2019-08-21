@@ -145,7 +145,6 @@ module.exports = function(router) {
 		var yearChoice = req.body.yearChoice;
 		req.session.yearChoice = yearChoice;		
 
-		// Make sure the user chooses an option
 		if (yearChoice == "PE 2018 to 2019") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019');	
 		}
@@ -164,6 +163,8 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice
 		});
 	});
 
@@ -171,6 +172,8 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', {
 			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice
 		});
 	});
 
