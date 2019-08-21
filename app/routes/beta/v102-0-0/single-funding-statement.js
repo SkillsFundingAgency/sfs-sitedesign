@@ -370,7 +370,12 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True',
+			'term2' : 'True',
+			'term3' : 'True',
+			'term4' : 'True'
 		});
 	});
 
@@ -384,7 +389,11 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
-			'toggleVersion' : req.query.toggleVersion
+			'toggleVersion' : req.query.toggleVersion,
+			'glossaryTerms' : 'True',
+			'term1' : 'True',
+			'term3' : 'True',
+			'term4' : 'True'
 		});
 	});
 
@@ -398,7 +407,10 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
-			'toggleVersion' : req.query.toggleVersion
+			'toggleVersion' : req.query.toggleVersion,
+			'glossaryTerms' : 'True',
+			'term1' : 'True',
+			'term3' : 'True'
 		});
 	});
 
@@ -416,7 +428,10 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True',
+			'term2' : 'True'
 		});
 	});
 
@@ -429,7 +444,9 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True'
 		});
 	});
 
@@ -442,7 +459,9 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True'
 		});
 	});
 
@@ -455,7 +474,9 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True'
 		});
 	});
 
@@ -469,7 +490,8 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/glossary-of-terms', function (req, res) {
 		res.render(version + '/not-signed-in/glossary-of-terms', {
 			'version' : version,
-			'publicServiceName' : req.session.publicServiceName
+			'publicServiceName' : req.session.publicServiceName,
+			'glossaryTerms' : 'False'
 		});
 	});
 	
@@ -479,7 +501,9 @@ module.exports = function(router) {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
-			'searchTerm' : req.session.searchTerm
+			'searchTerm' : req.session.searchTerm,
+			'glossaryTerms' : 'True',
+			'term1' : 'True'
 		});
 	});
 
