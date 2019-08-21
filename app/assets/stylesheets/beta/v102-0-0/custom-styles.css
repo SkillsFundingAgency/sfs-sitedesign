@@ -1869,3 +1869,37 @@ a.card__body {
 	display: inline-block;
 	vertical-align: middle;
 }
+
+/* Chris Harding (20.08.19) - Support section for users including the following:
+	a) Dynamic list of terms listed on each page (taken from the master glossary-of-terms.html)
+	b) Link to the master glossary of terms page
+	c) Contact us link
+*/
+.glossary-link  {
+	position: relative;
+	padding-top: 60px;
+}
+.glossary-link summary {
+	font-family: "nta", Arial, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #0b0c0c;
+	line-height: 1.14286;
+	padding-left: 0px 
+
+}
+@media (min-width: 641px) {
+	.glossary-link summary {
+		font-size: 16px;
+		line-height: 1.25;
+	}
+}
+.glossary-link details summary:before {
+	display: none;
+}
+.glossary-link details[open] > summary:before {
+	display: none;
+}
+.glossary-link summary:link, .glossary-link summary:hover, .glossary-link summary:focus, .glossary-link summary:visited {
+	color: #0b0c0c;
+}
