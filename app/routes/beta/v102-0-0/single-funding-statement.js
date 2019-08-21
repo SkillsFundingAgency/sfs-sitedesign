@@ -7,7 +7,7 @@ module.exports = function(router) {
 	 * **********/
 
 	// Ensure that the default public service name is NOT set
-	router.get('/' + version + '/not-signed-in/single-funding-statement/*', function (req, res, next) {				
+	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {				
 		
 		req.session.publicServiceName = "True";
 
@@ -20,6 +20,7 @@ module.exports = function(router) {
 	 * **********/
 
 	// Start page (MyESF)
+	// LEGACY but left in to show what it should look like
 	router.get('/' + version + '/not-signed-in/single-funding-statement/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
@@ -35,7 +36,9 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/start', {
 			'version' : version,
-			'publicServiceName' : req.session.publicServiceName
+			'publicServiceName' : req.session.publicServiceName,
+			'glossaryTerms' : 'True',
+			'term2' : 'True'
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {		
@@ -67,7 +70,7 @@ module.exports = function(router) {
 		}
 		
 	});
-
+	
 	/**********
 	 * PUBLIC
 	 * DOWNLOAD FUNDING 
@@ -163,6 +166,7 @@ module.exports = function(router) {
 			'version' : version,
 		});
 	});
+
 	// PE and sport premium 2018 to 2019
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', function (req, res) {		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', {
@@ -179,7 +183,6 @@ module.exports = function(router) {
 			'choice' : req.session.choice
 		});
 	});
-
 
 	// Find an organisation
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {		
@@ -418,9 +421,17 @@ module.exports = function(router) {
 	/**********
 	 * PUBLIC
 	 * SINGLE FUNDING STATEMENT
-	 * ERROR PAGES
+	 * OTHER PAGES
 	 * **********/
 
+	// Glossary of terms
+	router.get('/' + version + '/not-signed-in/glossary-of-terms', function (req, res) {
+		res.render(version + '/not-signed-in/glossary-of-terms', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName
+		});
+	});
+	
 	// Display when users enter a search term which returns zero results
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/no-results', function (req, res) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/no-results', {

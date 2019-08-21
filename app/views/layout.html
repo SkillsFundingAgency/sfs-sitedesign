@@ -51,6 +51,9 @@
 {% if useAutoStoreData %}
 <ul>
 	<li><a href="/prototype-admin/clear-data">Clear data</a></li>
+	{% if publicServiceName == 'True' %}
+	<li><a href="/{{version}}/not-signed-in/glossary-of-terms">Glossary of terms</a></li>
+	{% endif %}
 	<li><a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">Contact us</a></li>
 	{% if disclaimerAccepted == 'Yes' %}
 	<li><a href="/beta/{{disclaimerVersion}}/allocation-statements/adults/disclaimer-accepted">Disclaimer</a></li>

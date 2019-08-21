@@ -39,3 +39,12 @@ $(document).ready(function () {
 
 });
 // jQuery (END)
+
+// JavaScript (START)
+
+// Global 'Back' link functionality
+function goBack() {
+    window.history.back();
+}
+
+// JavaScript (END)

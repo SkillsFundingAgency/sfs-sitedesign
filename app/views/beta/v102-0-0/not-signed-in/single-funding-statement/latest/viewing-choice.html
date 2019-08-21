@@ -31,7 +31,6 @@
                     <legend id="viewingChoice">
                         <h1 class="heading-xlarge">Choose how to view funding </h1>
                     </legend>
-                    <!-- <p>You do not need an account to view this.</p> -->
             
                     <div class="form-group {% if error %}form-group-error{% endif %}">
                         {% if error %}
@@ -40,15 +39,14 @@
 
                         <div class="multiple-choice">
                             <input id="radio-1" type="radio" name="choice" value="Organisation">
-                            <label class="form-label-bold" for="radio-1">At an organisation level</label>
-                            <!-- <span class="form-hint">Choose an individual school, academy, college, local authority to view the funding it receives.</span> -->
-                            <span class="form-hint">Choose a learning provider or local authority to view the funding it receives.</span>
+                            <label class="form-label-bold" for="radio-1">All the funding an organisation receives</label>
+                            <span class="form-hint">Including local authorities and learning providers.</span>
                         </div>
 
                         <div class="multiple-choice">
                             <input id="radio-2" type="radio" name="choice" value="National">
-                            <label class="form-label-bold" for="radio-2">At a national level</label>
-                            <span class="form-hint">Choose a funding type to find out how it's allocated across England.</span>
+                            <label class="form-label-bold" for="radio-2">How a particular funding type is distributed</label>
+                            <span class="form-hint">View how funding is allocated across England.</span>
                         </div>
             
                     </div>
@@ -58,6 +56,10 @@
                 <div class="form-group">
                     <button class="button">Continue</button>
                 </div>
+
+                <!-- Support section in an expandable link - START -->
+                {% include "includes/support.html" %}
+                <!-- Support section in an expandable link - END -->
 
             </form>
         
