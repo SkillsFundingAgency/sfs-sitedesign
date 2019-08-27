@@ -480,6 +480,21 @@ module.exports = function(router) {
 		});
 	});
 
+	// Full funding allocation (PE and Sport)
+	// HISTORIC FOR PRIMARY (2018 to 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/primary-2018-to-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/primary-2018-to-2019', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True'
+		});
+	});
+
 	/**********
 	 * PUBLIC
 	 * SINGLE FUNDING STATEMENT
