@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Allocation history
+    {% if searchScope == 'Primary' %}Historic funding allocations{% elif searchScope == 'LA' %}Allocation history{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -13,8 +13,58 @@
     <!-- GOV.UK phase banner (Beta) - END -->
 
     <div class="grid-row">
+
+        {% if searchScope == 'Primary' %}
+        <!-- Child (Primary School) - Dynamic content (START) -->               
     
-        <div class="column-full">                
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../viewing-choice">Choose how to view funding</a></li>
+                        <li><a href="../find-an-organisation">View funding by organisation</a></li>
+                        {% if didYouMean == 'Yes' %}
+                        <li><a href="../did-you-mean">Search results</a></li>
+                        {% endif %}
+                        <li><a href="../statement">{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}St Mary's Kilburn Church of England Primary School{% endif %}</a></li>
+                        <li>Historic funding allocations</li>
+                    </ol>
+                </nav>
+            </div>
+
+        <div class="column-full">
+
+            <form method="post" class="form">
+
+                <div class="form-block">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">PE and sport premium</span>
+                        Historic funding allocations
+                    </h1>
+                    <p class="lede">Find breakdowns of PE and sport premium for St Mary's Kilburn Church of England Primary School for each academic year.</p>
+
+
+                    <h2 class="heading-large heading-guidance">2019 to 2020</h2>
+                    <p>To find allocations for this period, go back to the funding statement for <a href="../statement" title="St Mary's Kilburn Church of England Primary School">St Mary's Kilburn Church of England Primary School</a></p>
+
+                    <h2 class="heading-large heading-guidance">2018 to 2019</h2>
+                    <p>To find allocations for this period, go to <a href="funding-breakdown/primary-2018-to-2019" title="PE and sport premium: funding allocations for 2018 to 2019">PE and sport premium: funding allocations for 2018 to 2019</a></p>
+
+                    <h2 class="heading-large heading-guidance">2017 to 2018</h2>
+                    <p>To find allocations for this period, go to <a title="PE and sport premium: funding allocations for 2017 to 2018" href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-allocations-for-2017-to-2018" target="external">PE and sport premium: funding allocations for 2017 to 2018</a>.</p>
+
+                <!-- Support section in an expandable link - START -->
+                {% include "includes/support.html" %}
+                <!-- Support section in an expandable link - END -->
+
+            </form>
+        
+        </div>
+        <!-- Child (Primary School) - Dynamic content (END) -->
+
+        {% elif searchScope == 'LA' %}
+        <!-- LA - Dynamic content (START) -->
+
+            <div class="column-full">                
     
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
@@ -41,7 +91,7 @@
                         <span class="heading-secondary">PE and sport premium</span>
                         Allocation history
                     </h1>
-                    <p class="lede">Find detailed breakdowns of PE and sport premium for local authorities for each academic year.</p>
+                    <p class="lede">Find breakdowns of PE and sport premium for local authorities for each academic year.</p>
                     <h2 class="heading-large heading-guidance">2019 to 2020</h2>
                         
                     <table>
@@ -96,7 +146,8 @@
             </form>
         
         </div>
-
+        <!-- LA - Dynamic content (END) -->
+        {% endif %}
     </div>
 
 </main>
