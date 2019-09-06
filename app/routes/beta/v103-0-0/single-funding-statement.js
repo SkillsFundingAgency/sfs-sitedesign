@@ -154,6 +154,9 @@ module.exports = function(router) {
 		else if (yearChoice == "PE 2017 to 2018") {
 			res.redirect(href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-allocations-for-2017-to-2018");
 		}
+		else if (yearChoice == "PE 2016 to 2017") {
+			res.redirect(href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-conditions-for-2016-to-2017");
+		}
 		// Make sure the user chooses an option
 		else {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year?error=true');
