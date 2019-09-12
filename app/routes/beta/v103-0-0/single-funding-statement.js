@@ -7,7 +7,24 @@ module.exports = function(router) {
 	 * **********/
 
 	// Ensure that the default public service name is NOT set
-	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {				
+	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {	
+			console.log (version);			
+			var deadline = new Date("Sep 30, 2019 15:00:00").getTime();
+			console.log(deadline);
+			var now = new Date().getTime(); 
+			console.log(now);
+			var t = deadline - now; 
+			console.log(t);
+			if (t < 0) {
+				req.session.deadlineElapsed = "true";
+				console.log("t is less than zero");
+			}	
+			else {
+				req.session.deadlineElapsed = "false";
+				console.log("t is more than zero");
+			}
+					
+			console.log(req.session.deadlineElapsed);		
 		
 		req.session.publicServiceName = "True";
 
@@ -24,7 +41,8 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
-			'singleFundingStatement' : "true"
+			'singleFundingStatement' : "true",
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/start', function (req, res) {		
