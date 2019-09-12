@@ -22,6 +22,10 @@ $(document).ready(function () {
     else if (hashURL == "#early-years") {
         $('head').append('<style type="text/css" media="print">#schools { display: none; } #css { display: none; } #high-needs { display: none; } #early-years { display: inherit; }</style>');
     }
+    // Default to the schools block tab when a user hits the parent URL (https://esfstest.herokuapp.com/beta/v104-0-0/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/27-03-2019) directly without a tab or hash (e.g. #schools)
+    else if (hashURL == "") {
+        $('head').append('<style type="text/css" media="print">#schools { display: inherit; } #css { display: none; } #high-needs { display: none; } #early-years { display: none; }</style>');
+    }
 
     // Dynamically update the CSS being applied to the print view of the UI served to the user
     $(".print-trigger").click(function () {
