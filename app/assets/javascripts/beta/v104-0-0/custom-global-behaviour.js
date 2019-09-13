@@ -110,6 +110,15 @@ $(document).ready(function () {
 
     });
 
+    // Global print function
+    $('.print-page').click(function(e){
+        
+        e.preventDefault()
+
+        // If the clicked item is a link then open the print dialogue
+        window.print();        
+    });
+
 });
 // jQuery (END)
 
