@@ -59,6 +59,10 @@ module.exports = function(router) {
 		req.session.choice = choice;
 
 		if (choice == "Organisation") {
+			
+			// Reset an error validation variable before user returns to this page
+			req.session.radio = "";
+			
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation');	
 		}
 		else if (choice == "National") {
@@ -202,7 +206,11 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice
+			'choice' : req.session.choice,
+			'error' : req.query.error,
+			'error1' : req.query.error1,
+			'error2' : req.query.error2,
+			'radio' : req.session.radio
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {
@@ -215,7 +223,7 @@ module.exports = function(router) {
 		if (searchOn == "Child") {
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (schoolOrAcademy == "no results" || schoolOrAcademy == "mole catch academy") {				
+			if (schoolOrAcademy == "no results") {				
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
@@ -227,17 +235,13 @@ module.exports = function(router) {
 				
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
 			}
-			// Skips the did you mean page and finds a direct match (for "Regent High School")
-			/*
-			else if (schoolOrAcademy == "regent" || schoolOrAcademy == "regent high school") {
+			// Show the error validation if a user enters a blank search term (e.g. "")
+			else if (schoolOrAcademy == "") {
 				
-				req.session.searchScope = "Secondary";
-				req.session.searchTerm = schoolOrAcademy;
-				req.session.didYouMean = "No";
+				req.session.radio = "Radio 1";
 				
-				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation?error=true&error1=true');
 			}
-			*/
 			// Show the did you mean page for anything else
 			else {
 
@@ -282,7 +286,7 @@ module.exports = function(router) {
 			req.session.searchTerm = la;
 
 			// Added so we can see an error page (search term which returns zero results)
-			if (la == "no results" || la == "mole catch academy") {
+			if (la == "no results") {
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/no-results');
 			}
 			// Skips the did you mean page and finds a direct match (for "Camden")
@@ -291,6 +295,13 @@ module.exports = function(router) {
 				req.session.didYouMean = "No";
 
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/statement');
+			}
+			// Show the error validation if a user enters a blank search term (e.g. "")
+			else if (la == "") {
+
+				req.session.radio = "Radio 2";
+			
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation?error=true&error2=true');
 			}
 			// Show the did you mean page for anything else
 			else {
@@ -306,6 +317,10 @@ module.exports = function(router) {
 
 	// Did you mean (e.g. when there are multiple search results)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean', function (req, res) {			
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/did-you-mean', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
@@ -515,6 +530,10 @@ module.exports = function(router) {
 	
 	// Display when users enter a search term which returns zero results
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/no-results', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/no-results', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
