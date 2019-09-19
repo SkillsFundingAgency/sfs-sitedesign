@@ -397,9 +397,24 @@ module.exports = function(router) {
 		});
 	});
 
-	 // Full funding allocation (DSG: all 4 blocks)
-	 // LATEST (27 March 2019)
-	 router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/27-03-2019', function (req, res) {		
+	// REDIRECT hook page used to record the tab that the user wants to view on the DSG breakdown page (e.g. schools)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/tab-choice', function (req, res) {		
+		
+		req.session.tab = req.query.tab;
+		// Reset this variable to 0 so we can execute the dynamic tab functionality
+		req.session.reloads = 0;
+		var redirectURL = req.query.redirectURL;
+		
+		res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/' + redirectURL);
+	});
+
+	// Full funding allocation (DSG: all 4 blocks)
+	// LATEST (27 March 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/27-03-2019', function (req, res) {
+		 
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/27-03-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
@@ -411,13 +426,19 @@ module.exports = function(router) {
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
 			'term3' : 'True',
-			'term4' : 'True'
+			'term4' : 'True',
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
 		});
 	});
 
 	// Full funding allocation (DSG: all 4 blocks) 
 	// PREVIOUS (17 December 2018)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/17-12-2018', function (req, res) {		
+		
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/17-12-2018', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
@@ -428,7 +449,9 @@ module.exports = function(router) {
 			'toggleVersion' : req.query.toggleVersion,
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
-			'term3' : 'True'
+			'term3' : 'True',
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
 		});
 	});
 
