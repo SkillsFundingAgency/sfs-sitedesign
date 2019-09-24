@@ -17,8 +17,8 @@ module.exports = function(router) {
 	});
 
 	// User roles and permissions 
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-permissions', function (req, res) {
-		res.render(version + '/roles-permissions', {
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions', function (req, res) {
+		res.render(version + '/roles-and-permissions', {
 			'version' : version
 		});
 	});
@@ -31,6 +31,14 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/idams', function (req, res) {		
 		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+	});
+
+	// DfE sign-in
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in', {
+			'version' : version,
+			'error' : req.query.error
+		});
 	});
 
 	// Dashboard

@@ -6,7 +6,14 @@ module.exports = function(router) {
 	 * ERROR PAGES (GLOBAL)
 	 * **********/
 	
-	// TEMPORARY - Show to users when they are not able to go directly to the apprenticeship service
+	// Show to users when they are not able to view any of the service features (tiles)
+	router.get('/' + version + '/error-pages/access-denied', function (req, res) {
+		res.render(version + '/error-pages/access-denied', {
+			'version' : version
+		});
+	});
+	
+	 // TEMPORARY - Show to users when they are not able to go directly to the apprenticeship service
 	router.get('/' + version + '/error-pages/no-apprenticeship-service', function (req, res) {
 		res.render(version + '/error-pages/no-apprenticeship-service', {
 			'version' : version,
