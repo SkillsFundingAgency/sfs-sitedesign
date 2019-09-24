@@ -8,24 +8,18 @@ module.exports = function(router) {
 
 	// Ensure that the default public service name is NOT set
 	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {	
-			console.log (version);			
-			var deadline = new Date("Sep 30, 2019 15:00:00").getTime();
-			console.log(deadline);
-			var now = new Date().getTime(); 
-			console.log(now);
-			var t = deadline - now; 
-			console.log(t);
-			if (t < 0) {
-				req.session.deadlineElapsed = "true";
-				console.log("t is less than zero");
-			}	
-			else {
-				req.session.deadlineElapsed = "false";
-				console.log("t is more than zero");
-			}
-					
-			console.log(req.session.deadlineElapsed);		
-		
+
+		var deadline = new Date("Sep 24, 2019 12:00:00").getTime();
+		var now = new Date().getTime(); 
+		var t = deadline - now; 
+
+		if (t < 0) {
+			req.session.deadlineElapsed = "true";
+		}	
+		else {
+			req.session.deadlineElapsed = "false";
+		}
+				
 		req.session.publicServiceName = "True";
 
 		return next();
@@ -56,7 +50,8 @@ module.exports = function(router) {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/start', function (req, res) {		
@@ -68,7 +63,8 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/viewing-choice', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'error' : req.query.error
+			'error' : req.query.error,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/viewing-choice', function (req, res) {		
@@ -100,7 +96,8 @@ module.exports = function(router) {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
-			'error' : req.query.error
+			'error' : req.query.error,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	}); 
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation', function (req, res) {		
@@ -147,7 +144,8 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
-			'term3' : 'True'
+			'term3' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -158,7 +156,8 @@ module.exports = function(router) {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
-			'error' : req.query.error
+			'error' : req.query.error,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	}); 
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year', function (req, res) {		
@@ -190,7 +189,8 @@ module.exports = function(router) {
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -201,7 +201,8 @@ module.exports = function(router) {
 			'publicServiceName' : req.session.publicServiceName,
 			'choice' : req.session.choice,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -211,7 +212,8 @@ module.exports = function(router) {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'fundingAllocationChoice' : req.session.fundingAllocationChoice, 
-			'choice' : req.session.choice
+			'choice' : req.session.choice,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -220,7 +222,8 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice
+			'choice' : req.session.choice,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 	router.post('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', function (req, res) {
@@ -330,7 +333,8 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -373,7 +377,8 @@ module.exports = function(router) {
 			'term1' : dynamicTerm1,
 			'term2' : dynamicTerm2,
 			'term3' : dynamicTerm3,
-			'term4' : dynamicTerm4
+			'term4' : dynamicTerm4,
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -396,7 +401,8 @@ module.exports = function(router) {
 			'term1' : 'True',
 			'term2' : 'True',
 			'term3' : 'True',
-			'term4' : 'True'
+			'term4' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -414,7 +420,8 @@ module.exports = function(router) {
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
 			'term3' : 'True',
-			'term4' : 'True'
+			'term4' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -431,7 +438,8 @@ module.exports = function(router) {
 			'toggleVersion' : req.query.toggleVersion,
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
-			'term3' : 'True'
+			'term3' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -452,7 +460,8 @@ module.exports = function(router) {
 			'didYouMean' : req.session.didYouMean,
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
-			'term2' : 'True'
+			'term2' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -467,7 +476,8 @@ module.exports = function(router) {
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -482,7 +492,8 @@ module.exports = function(router) {
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -497,7 +508,8 @@ module.exports = function(router) {
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -512,7 +524,8 @@ module.exports = function(router) {
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
@@ -527,7 +540,8 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/glossary-of-terms', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
-			'glossaryTerms' : 'False'
+			'glossaryTerms' : 'False',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 	
@@ -539,7 +553,8 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchTerm' : req.session.searchTerm,
 			'glossaryTerms' : 'True',
-			'term1' : 'True'
+			'term1' : 'True',
+			'deadlineElapsed' : req.session.deadlineElapsed
 		});
 	});
 
