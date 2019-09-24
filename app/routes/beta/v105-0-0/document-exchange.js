@@ -17,8 +17,8 @@ module.exports = function(router) {
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/child/document-exchange/roles-permissions', function (req, res) {
-		res.render(version + '/roles-permissions', {
+	router.get('/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions', function (req, res) {
+		res.render(version + '/roles-and-permissions', {
 			'version' : version
 		});
 	});
@@ -62,6 +62,14 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/child/document-exchange/idams?error=true');
 		}
 		
+	});
+
+	// DfE sign-in
+	router.get('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in', {
+			'version' : version,
+			'error' : req.query.error
+		});
 	});
 
 	// Dashboard
@@ -340,8 +348,8 @@ module.exports = function(router) {
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/roles-permissions', function (req, res) {
-		res.render(version + '/roles-permissions', {
+	router.get('/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions', function (req, res) {
+		res.render(version + '/roles-and-permissions', {
 			'version' : version
 		});
 	});
@@ -880,8 +888,8 @@ module.exports = function(router) {
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/internal/document-exchange/roles-permissions', function (req, res) {
-		res.render(version + '/roles-permissions', {
+	router.get('/' + version + '/signed-in/internal/document-exchange/roles-and-permissions', function (req, res) {
+		res.render(version + '/roles-and-permissions', {
 			'version' : version
 		});
 	});
