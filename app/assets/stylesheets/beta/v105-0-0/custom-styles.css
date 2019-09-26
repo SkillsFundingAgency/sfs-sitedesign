@@ -215,7 +215,7 @@ output:after {
 .final-column {
 	padding-right: 0px;
 }
-.remove:link, .remove:hover, .remove:focus, .remove:visited {
+.remove:link, .remove:visited, .remove:hover, .remove:active, .remove:focus {
 	background-color: rgb(177, 14, 30)
 }
 .non-linked-error {
@@ -1915,7 +1915,7 @@ a.card__body {
 .glossary-link details[open] > summary:before {
 	display: none;
 }
-.glossary-link summary:link, .glossary-link summary:hover, .glossary-link summary:focus, .glossary-link summary:visited {
+.glossary-link summary:link, .glossary-link summary:visited, .glossary-link summary:hover, .glossary-link summary:active, .glossary-link summary:focus {
 	color: #0b0c0c;
 }
 
@@ -1959,4 +1959,93 @@ a.card__body {
 .decimal {
 	font-size: 16px;
 	line-height: 1.25;
+}
+
+/* Chris Harding (26.09.19) - Styling of a third party (OPEN SOURCE) accessible tooltip and modal which was taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) */
+.modal-link:link, .modal-link:visited, .modal-link:hover, .modal-link:active, .modal-link:focus {
+	color: #0b0c0c;
+}
+#page {
+	width: 960px;
+}
+dialog {
+	display: block;
+}
+.modal {
+	font-family: "nta", Arial, sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	font-size: 16px;
+	line-height: 1.25;
+	-webkit-font-smoothing: antialiased;
+	top: 25%;
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid #000;; 
+	background: #fff;
+	z-index: 667;
+	padding: 1em 2em 1em 2em;
+}
+@media (min-width: 641px) {
+	.modal {
+		font-size: 19px;
+		line-height: 1.31579;
+	}
+}
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #000;
+	opacity: .6;
+	z-index: 666;
+}
+.modal-close {
+	float: right;
+	font-family: "nta", Arial, sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	font-size: 16px;
+	line-height: 1.25;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.2;
+	background: none !important;
+	border: none;
+	padding: 0 !important;
+	color: #069;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.modal-close:link {
+	color: #005ea5;
+}
+.modal-close:visited {
+	color: #4c2c92;
+}
+.modal-close:hover {
+	color: #2b8cc4;
+}
+.modal-close:active {
+	color: #2b8cc4;
+}
+.modal-close:focus {
+	background: #ffbf47 !important;
+}
+@media (min-width: 641px) {
+	.modal-close {
+		font-size: 19px;
+		line-height: 1.31579;
+	}
+}
+#modal-title {
+	margin-top: 1.0em;
+	margin-bottom: 1.0em;
+}
+@media (min-width: 641px) {
+	#modal-title {
+		margin-top: 0.6em;
+		margin-bottom: 0.55556em;
+	}
 }
