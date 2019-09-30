@@ -10,6 +10,8 @@ jQuery(document).ready(function($) {
 
     // init
     var $modals = $('.js-modal'),
+        // Chris Harding (30.09.19) - Due to conflicting GOV.UK Elements CSS we also need to add a ".no-scroll-html" class to the HTML
+        $html = $('html');    
         $body = $('body');
 
     $modals.each(function(index_to_expand) {
@@ -85,6 +87,8 @@ jQuery(document).ready(function($) {
         $modal_code += '</div></div></' + $modal_tag + '>';
 
         $($modal_code).insertAfter($page);
+        // Chris Harding (30.09.19) - Due to conflicting GOV.UK Elements CSS we also need to add a ".no-scroll-html" class to the HTML
+        $html.addClass('no-scroll-html');
         $body.addClass('no-scroll');
 
         $page.attr('aria-hidden', 'true');
@@ -133,6 +137,8 @@ jQuery(document).ready(function($) {
                     $js_modal.addClass($class_element_reverse);
                 }, 1);
                 setTimeout(function() {
+                    // Chris Harding (30.09.19) - Due to conflicting GOV.UK Elements CSS we also need to add a ".no-scroll-html" class to the HTML
+                    $html.removeClass('no-scroll-html');
                     $body.removeClass('no-scroll');
                     $js_modal.remove();
                     $js_modal_overlay.remove();
@@ -144,6 +150,8 @@ jQuery(document).ready(function($) {
                     $js_modal.addClass($class_element);
                 }, timeout);
             } else {
+                // Chris Harding (30.09.19) - Due to conflicting GOV.UK Elements CSS we also need to add a ".no-scroll-html" class to the HTML
+                $html.removeClass('no-scroll-html');
                 $body.removeClass('no-scroll');
                 $js_modal.remove();
                 $js_modal_overlay.remove();
