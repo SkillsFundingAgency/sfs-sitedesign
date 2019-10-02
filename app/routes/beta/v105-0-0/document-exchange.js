@@ -13,7 +13,7 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/document-exchange/idams');
+		res.redirect('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in');
 	});
 
 	// User roles and permissions
@@ -24,13 +24,14 @@ module.exports = function(router) {
 	});
 
 	// IDAMS
-	router.get('/' + version + '/signed-in/external/child/document-exchange/idams', function (req, res) {
-		res.render(version + '/idams', {
+	// LEGACY but left in to show what it should look like
+	router.get('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in', function (req, res) {
+		res.render(version + '/idams/sign-in', {
 			'version' : version,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/idams', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
@@ -59,12 +60,12 @@ module.exports = function(router) {
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/idams?error=true');
+			res.redirect('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in?error=true');
 		}
 		
 	});
 
-	// DfE sign-in
+	// DfE Sign-in
 	router.get('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in', {
 			'version' : version,
@@ -344,7 +345,7 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/parent/document-exchange/idams');
+		res.redirect('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in');
 	});
 
 	// User roles and permissions
@@ -355,13 +356,14 @@ module.exports = function(router) {
 	});
 
 	// IDAMS
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/idams', function (req, res) {
-		res.render(version + '/idams', {
+	// LEGACY but left in to show what it should look like
+	router.get('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in', function (req, res) {
+		res.render(version + '/idams/sign-in', {
 			'version' : version,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/idams', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
@@ -401,7 +403,7 @@ module.exports = function(router) {
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/idams?error=true');
+			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in?error=true');
 		}
 		
 	});
@@ -884,7 +886,7 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/internal/document-exchange/idams');
+		res.redirect('/' + version + '/signed-in/internal/document-exchange/idams/sign-in');
 	});
 
 	// User roles and permissions
@@ -895,12 +897,13 @@ module.exports = function(router) {
 	});
 
 	// IDAMS
-	router.get('/' + version + '/signed-in/internal/document-exchange/idams', function (req, res) {
-		res.render(version + '/idams', {
+	// LEGACY but left in to show what it should look like
+	router.get('/' + version + '/signed-in/internal/document-exchange/idams/sign-in', function (req, res) {
+		res.render(version + '/idams/sign-in', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/signed-in/internal/document-exchange/idams', function (req, res) {		
+	router.post('/' + version + '/signed-in/internal/document-exchange/idams/sign-in', function (req, res) {		
 		res.redirect('/' + version + '/signed-in/internal/document-exchange/dashboard');
 	});
 

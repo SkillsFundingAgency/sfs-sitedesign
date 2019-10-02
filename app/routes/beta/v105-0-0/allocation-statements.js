@@ -13,7 +13,7 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/idams');
+		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in');
 	});
 
 	// User roles and permissions 
@@ -24,21 +24,25 @@ module.exports = function(router) {
 	});
 
 	// IDAMS
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/idams', function (req, res) {
-		res.render(version + '/idams', {
+	// LEGACY but left in to show what it should look like
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/idams/sign-in', function (req, res) {
+		res.render(version + '/idams/sign-in', {
 			'version' : version
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/idams', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/idams/sign-in', function (req, res) {		
 		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
 	});
 
-	// DfE sign-in
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in', function (req, res) {
-		res.render(version + '/dfe-sign-in', {
+	// DfE Sign-in
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'error' : req.query.error
 		});
+	});
+	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
 	});
 
 	// Dashboard
