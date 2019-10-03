@@ -20,8 +20,12 @@
                 <nav>
                     <ol>
                         <li><a href="../../viewing-choice">Choose how to view funding</a></li>
-                        <li><a href="../../which-allocation">Select a funding type</a></li>
-                        <!-- <li><a href="choose-a-year">Historic funding allocations</a></li> -->
+                        <li><a href="../../find-an-organisation">View funding at organisation level</a></li>
+                        {% if didYouMean == 'Yes' %}
+                        <li><a href="../../did-you-mean">Search results</a></li>
+                        {% endif %}
+                        <li><a href="../../statement">{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}</a></li>
+                        <li><a href="../allocation-history">Historic funding allocations</a></li>
                         <li>PE and sport premium for 2018 to 2019</li>
                     </ol>
                 </nav>
@@ -29,7 +33,7 @@
 
         </div>
 
-        <div class="column-two-thirds">
+        <div class="column-full">
 
             <form method="post" class="form">
 
@@ -102,10 +106,11 @@
                     </div>
 
                 </section>
-                <!-- <p>This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation" rel="external" target="external" title="This will open in a new tab or window">OpenDocument</a> format. You may need a different format if you're using assistive technology. <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk">Request an accessible format</a>.</p> -->
-                <h2 class="heading-medium heading-guidance">General PE and sport premium resources</h2>
+                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                <p>You can view latest funding allocations and for previous years on the <a href="../allocation-history">allocation history</a>.</p>
+                <h3 class="heading-medium heading-guidance">General PE and sport premium resources</h3>
                 <ul class="list">
-                    <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019" rel="external" target="external" title="This will open in a new tab or window">PE and sport premium: conditions of grant 2018 to 2019</a></li>
+                    <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019/pe-and-sport-premium-conditions-of-grant-2018-to-2019-local-authorities-and-maintained-schools" rel="external" target="external" title="This will open in a new tab or window">PE and sport premium: conditions of grant 2018 to 2019 (local authorities and maintained schools)</a></li>
                     <li><a href="https://www.gov.uk/guidance/pe-and-sport-premium-for-primary-schools" rel="external" target="external" title="This will open in a new tab or window">PE and sport premium for primary schools</a></li>
                 </ul>
 
@@ -115,42 +120,6 @@
 
             </form>
         
-        </div>
-
-        <div class="one-third">
-            
-            <div class="related-container">
-            
-                <aside class="related" id="related">
-            
-                    <div class="inner group related-subsection">
-                        <h2 id="parent-subsection">Latest funding allocations</h2>
-        
-                        <nav role="navigation" aria-labelledby="parent-subsection">
-                                                    
-                            <ul class="list">
-                                <li class="related-links"><a href="2019-to-2020" title="PE and sport premium: funding allocations for 2019 to 2020">PE and sport premium: funding allocations for 2019 to 2020</a></li>
-                            </ul>
-
-                        </nav>
-
-                        <h2 id="parent-subsection">Historic funding allocations</h2>
-        
-                        <nav role="navigation" aria-labelledby="parent-subsection">
-                            
-                            <ul class="list">
-                                <li class="related-links"><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-allocations-for-2017-to-2018" rel="external" target="external" title="This will open in a new tab or window">PE and sport premium: funding allocations for 2017 to 2018</a></li>
-                                <li class="related-links"><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-funding-conditions-for-2016-to-2017" rel="external" target="external" title="This will open in a new tab or window">PE and sport premium: funding allocations for 2016 to 2017</a></li>
-                            </ul>
-                            
-                        </nav>
-
-                    </div>
-
-                </aside>
-
-            </div>
-
         </div>
 
     </div>
