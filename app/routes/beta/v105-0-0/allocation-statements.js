@@ -42,7 +42,31 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+		
+		req.session.username = req.body.username.toLowerCase();
+		var username = req.session.username;
+		req.session.password = req.body.password.toLowerCase();
+		var password = req.session.password;
+
+		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
+		if (username == "billshoggins" && password == "11111111") {
+			
+			req.session.hasValidRoles = "False";
+			
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+		}
+		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
+		else if (username == "billshoggins" && password == "22222222") {
+
+			req.session.hasValidRoles = "True";
+
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in?error=true');	
+		}
+		
 	});
 
 	// Dashboard

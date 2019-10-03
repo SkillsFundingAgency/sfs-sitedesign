@@ -50,6 +50,7 @@
     <div class="environment-banner">
         <div><strong>ATTENTION!</strong> This is a <strong>Test</strong> version of DfE Sign-in used for testing purposes.</div>
     </div>
+    
 
     <header id="global-header">
         <div class="header-wrapper">
@@ -80,77 +81,86 @@
 
     <main id="content" tabindex="-1">
 
+        
+        <div class="js-back-link"></div>
+        
+
+        
+
+        
+
+        
+        
+
+        <main class="elements-index" id="content" tabindex="-1">
+
+
+
     <div class="grid-row">
-
-        {% if error %}
-        <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
-            <ul class="error-summary-list">
-                <li><a href="#username">Please enter your email address</a></li>
-                <li><a href="#password">Please enter your password</a></li>
-            </ul>
-        </div>
-        {% endif %}
-
         <div class="col-8">
             <h1 class="heading-xlarge">
-                DfE Sign-in
+                Select your organisation
             </h1>
-        </div>
+            <p>You are associated with more than one organisation, please select the one you wish to sign-in with.</p>
+            <form method="post">
+                <input type="hidden" name="_csrf" value="fo62SMjC-irAD75OLLtqPhCG70wdKCzgHHvc" />
+            <div class="form-group">
 
-    </div>
-
-    <div class="row">
-        <div class="col-6">
-            <p>DfE Sign-in is the new way to access some specific education sector services. To use DfE Sign-in you will need to <a href="#">create an account</a>.</p>
-            <!-- <form method="post" id="form-signin" class="form-signin"> -->
-            <form method="post" class="form">
-                <input type="hidden" name="_csrf" value="fM9xb4VS-PR6TVmgzn6Zrb1Me7SOO0x6FAZM" />
-                <input type="hidden" name="clientId" value="services"/>
-                <input type="hidden" name="redirectUri" value="https://signin-test-svc-as.azurewebsites.net:443/auth/cb"/>
                 <fieldset>
-                    <legend class="heading-medium">Sign-in</legend>
-                    <div class="form-group">
-                        <label class="form-label" for="username">Email address</label>
-                        <input class="form-control full-width" id="username" name="username" type="text"  value="">
+                    <legend>
+                        <h1 class="heading-small">Your organisations</h1>
+                    </legend>
+
+                    
+                    <div class="multiple-choice">
+                        <input id="71026A20-C2EA-466C-A327-5DDA33B9B313" type="radio" name="selected-organisation" value="%7B%22id%22%3A%2271026A20-C2EA-466C-A327-5DDA33B9B313%22%2C%22name%22%3A%22Abingdon%20and%20Witney%20College%22%2C%22category%22%3A%7B%22id%22%3A%22001%22%2C%22name%22%3A%22Establishment%22%7D%2C%22type%22%3A%7B%22id%22%3A%2218%22%2C%22name%22%3A%22Further%20Education%22%7D%2C%22urn%22%3A%22130793%22%2C%22uid%22%3Anull%2C%22ukprn%22%3A%2210000055%22%2C%22establishmentNumber%22%3A%228007%22%2C%22status%22%3A%7B%22id%22%3A1%2C%22name%22%3A%22Open%22%7D%2C%22closedOn%22%3Anull%2C%22address%22%3A%22Wootton%20Road%2C%20Abingdon%2C%20Oxfordshire%2C%20OX14%201GG%22%2C%22telephone%22%3A%2201235555585%22%2C%22region%22%3A%7B%22id%22%3A%22J%22%2C%22name%22%3A%22South%20East%22%7D%2C%22localAuthority%22%3A%7B%22id%22%3A%22D1B76C0E-18EA-4279-BA9F-D60C5714FD81%22%2C%22name%22%3A%22Test%20Organisation%20192%22%2C%22code%22%3A%22931%22%7D%2C%22phaseOfEducation%22%3A%7B%22id%22%3A6%2C%22name%22%3A%2216%20plus%22%7D%2C%22statutoryLowAge%22%3A16%2C%22statutoryHighAge%22%3A99%2C%22legacyId%22%3A%223300925%22%2C%22companyRegistrationNumber%22%3Anull%7D">
+                        <label for="71026A20-C2EA-466C-A327-5DDA33B9B313">
+                            <span class="form-label-bold">
+                                Abingdon and Witney College
+                                (Open)
+                            </span>
+                            
+                            <span class="form-hint">
+                                URN: 130793, UKPRN: 10000055
+                            </span>
+                            
+                            
+                                <span class="form-hint">
+                                Wootton Road, Abingdon, Oxfordshire, OX14 1GG
+                            </span>
+                            
+                        </label>
                     </div>
-                    <div class="form-group ">
-                        <label class="form-label" for="password">Password</label>
-                        
-                        <div class="show-password full-width">
-                            <input class="form-control" id="password" name="password" type="password" >
-                        </div>
-                        <p class="form-help"><a href="#">Forgotten your password?</a></p>
+
+                    
+                    <div class="multiple-choice">
+                        <input id="1E324C18-D53E-4BA5-8DF5-29FF01032540" type="radio" name="selected-organisation" value="%7B%22id%22%3A%221E324C18-D53E-4BA5-8DF5-29FF01032540%22%2C%22name%22%3A%22CASTERBRIDGE%20COLLEGE%22%2C%22category%22%3A%7B%22id%22%3A%22001%22%2C%22name%22%3A%22Establishment%22%7D%2C%22urn%22%3Anull%2C%22uid%22%3Anull%2C%22ukprn%22%3A%2212345678%22%2C%22establishmentNumber%22%3Anull%2C%22status%22%3A%7B%22id%22%3A1%2C%22name%22%3A%22Open%22%7D%2C%22closedOn%22%3Anull%2C%22address%22%3Anull%2C%22telephone%22%3Anull%2C%22statutoryLowAge%22%3Anull%2C%22statutoryHighAge%22%3Anull%2C%22legacyId%22%3A%2215%22%2C%22companyRegistrationNumber%22%3Anull%7D">
+                        <label for="1E324C18-D53E-4BA5-8DF5-29FF01032540">
+                            <span class="form-label-bold">
+                                CASTERBRIDGE COLLEGE
+                                (Open)
+                            </span>
+                            
+                            <span class="form-hint">
+                                UKPRN: 12345678
+                            </span>
+                            
+                            
+                        </label>
                     </div>
+
+                    
+
                 </fieldset>
-                <div class="panel panel-border-wide">
-                    <p>By continuing you accept the <a href="#">terms and conditions</a>.</p>
-                </div>
-                <div class="form-submit submit-buttons">
-                    <button type="submit" class="button">
-                        Sign in
-                        <span class="loader spinner-inline vh">
-                            <span class="ball b-1"></span>
-                            <span class="ball b-2"></span>
-                            <span class="ball b-3"></span>
-                        </span>
-                    </button>
-                </div>
+
+            </div>
+            <div class="form-group">
+                <input type="submit" class="button" value="Continue" />
+            </div>
             </form>
         </div>
     </div>
-    <div class="row">
-        <div class="col-8">
-            <details class="helpdesk">
-    <summary><span class="summary">Having problems?</span></summary>
-    <div class="panel panel-border-narrow">
-        <p>If you are having problems using the DfE Sign-in service, follow <a href="help.html">DfE Sign-in Help</a>. You will be able to request further assistance if required.</p>
-    </div>
-</details>
-
-        </div>
-    </div>
-
+</main>
 
 
     </main>
