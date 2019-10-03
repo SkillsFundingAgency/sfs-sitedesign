@@ -66,11 +66,38 @@ module.exports = function(router) {
 	});
 
 	// DfE Sign-in
-	router.get('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in', function (req, res) {
-		res.render(version + '/dfe-sign-in', {
+	router.get('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'error' : req.query.error
 		});
+	});
+	router.post('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
+		
+		req.session.username = req.body.username.toLowerCase();
+		var username = req.session.username;
+		req.session.password = req.body.password.toLowerCase();
+		var password = req.session.password;
+
+		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
+		if (username == "billshoggins" && password == "11111111") {
+			
+			req.session.hasValidRoles = "False";
+			
+			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
+		}
+		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
+		else if (username == "billshoggins" && password == "22222222") {
+
+			req.session.hasValidRoles = "True";
+
+			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in?error=true');	
+		}
+		
 	});
 
 	// Dashboard
@@ -404,6 +431,41 @@ module.exports = function(router) {
 		// Make sure the user chooses an option
 		else {
 			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in?error=true');
+		}
+		
+	});
+
+	// DfE Sign-in
+	router.get('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in/sign-in', {
+			'version' : version,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
+		
+		req.session.username = req.body.username.toLowerCase();
+		var username = req.session.username;
+		req.session.password = req.body.password.toLowerCase();
+		var password = req.session.password;
+
+		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
+		if (username == "billshoggins" && password == "11111111") {
+			
+			req.session.hasValidRoles = "False";
+			
+			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
+		}
+		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
+		else if (username == "billshoggins" && password == "22222222") {
+
+			req.session.hasValidRoles = "True";
+
+			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in?error=true');	
 		}
 		
 	});
@@ -907,6 +969,41 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/signed-in/internal/document-exchange/dashboard');
 	});
 
+	// DfE Sign-in
+	router.get('/' + version + '/signed-in/internal/document-exchange/dfe-sign-in/sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in/sign-in', {
+			'version' : version,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/signed-in/internal/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
+		
+		req.session.username = req.body.username.toLowerCase();
+		var username = req.session.username;
+		req.session.password = req.body.password.toLowerCase();
+		var password = req.session.password;
+
+		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
+		if (username == "billshoggins" && password == "11111111") {
+			
+			req.session.hasValidRoles = "False";
+			
+			res.redirect('/' + version + '/signed-in/internal/document-exchange/dashboard');
+		}
+		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
+		else if (username == "billshoggins" && password == "22222222") {
+
+			req.session.hasValidRoles = "True";
+
+			res.redirect('/' + version + '/signed-in/internal/document-exchange/dashboard');
+		}
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/signed-in/internal/document-exchange/dfe-sign-in/sign-in?error=true');	
+		}
+		
+	});
+
 	// Dashboard
 	router.get('/' + version + '/signed-in/internal/document-exchange/dashboard', function (req, res) {
 		
@@ -1087,7 +1184,7 @@ module.exports = function(router) {
 
 	// Documents Removed (Remove Confirmation)
 	router.get('/' + version + '/signed-in/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
-
+		
 		req.session.idams = "internal";
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-removed-confirmation', {

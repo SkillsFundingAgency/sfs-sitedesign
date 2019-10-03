@@ -47,9 +47,6 @@
 
 <div class="wrapper">
     
-    <div class="environment-banner">
-        <div><strong>ATTENTION!</strong> This is a <strong>Test</strong> version of DfE Sign-in used for testing purposes.</div>
-    </div>
 
     <header id="global-header">
         <div class="header-wrapper">
@@ -66,103 +63,77 @@
 
     <div class="header-user">
         <div class="header-inner">
-            <div class="service-info">
-                <div class="phase-banner-beta">
+            <div class="service-status">
+                <div class="phase-banner phase-banner-beta">
                     <p>
                         <strong class="phase-tag">BETA</strong>
                         <span>This is a new service – your <a href="https://www.smartsurvey.co.uk/s/DfESign-in_feedback/" target="_blank" title="This is a new service, your feedback will help us to improve it">feedback</a> will help us to improve it. </span>
                     </p>
                 </div>
             </div>
-            
         </div>
     </div>
 
-    <main id="content" tabindex="-1">
+    
+    <div class="global-navigation">
+        <nav>
+            <ul>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="organisations.html">Organisations</a></li>
+                
+                <div class="pull-right">
+                    <li><a href="profile.html" class="current">Profile</a></li>
+                    <li><a href="help.html">Help</a></li>
+                    <li><a href="#">Sign out</a> </li>
+                </div>
 
-    <div class="grid-row">
-
-        {% if error %}
-        <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
-            <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
-            <ul class="error-summary-list">
-                <li><a href="#username">Please enter your email address</a></li>
-                <li><a href="#password">Please enter your password</a></li>
             </ul>
-        </div>
-        {% endif %}
-
-        <div class="col-8">
-            <h1 class="heading-xlarge">
-                DfE Sign-in
-            </h1>
-        </div>
-
+        </nav>
     </div>
 
-    <div class="row">
-        <div class="col-6">
-            <p>DfE Sign-in is the new way to access some specific education sector services. To use DfE Sign-in you will need to <a href="#">create an account</a>.</p>
-            <!-- <form method="post" id="form-signin" class="form-signin"> -->
-            <form method="post" class="form">
-                <input type="hidden" name="_csrf" value="fM9xb4VS-PR6TVmgzn6Zrb1Me7SOO0x6FAZM" />
-                <input type="hidden" name="clientId" value="services"/>
-                <input type="hidden" name="redirectUri" value="https://signin-test-svc-as.azurewebsites.net:443/auth/cb"/>
-                <fieldset>
-                    <legend class="heading-medium">Sign-in</legend>
-                    <div class="form-group">
-                        <label class="form-label" for="username">Email address</label>
-                        <input class="form-control full-width" id="username" name="username" type="text"  value="">
-                    </div>
-                    <div class="form-group ">
-                        <label class="form-label" for="password">Password</label>
-                        
-                        <div class="show-password full-width">
-                            <input class="form-control" id="password" name="password" type="password" >
-                        </div>
-                        <p class="form-help"><a href="#">Forgotten your password?</a></p>
-                    </div>
-                </fieldset>
-                <div class="panel panel-border-wide">
-                    <p>By continuing you accept the <a href="#">terms and conditions</a>.</p>
-                </div>
-                <div class="form-submit submit-buttons">
-                    <button type="submit" class="button">
-                        Sign in
-                        <span class="loader spinner-inline vh">
-                            <span class="ball b-1"></span>
-                            <span class="ball b-2"></span>
-                            <span class="ball b-3"></span>
-                        </span>
-                    </button>
-                </div>
-            </form>
-        </div>
+   <main id="content" tabindex="-1">
+        
+
+        
+        
+
+
+<div class="row">
+    <div class="col-8">
+        <h1 class="heading-xlarge">
+            Profile
+        </h1>
+        <dl class="inline">
+            <dt>First name</dt>
+            <dd>MYESF</dd>
+            <dt>Last name</dt>
+            <dd>External user 1</dd>
+            <dt>Email</dt>
+            <dd>pds.sfs.test.dtest+external1@gmail.com</dd>
+        </dl>
     </div>
-    <div class="row">
-        <div class="col-8">
-            <details class="helpdesk">
-    <summary><span class="summary">Having problems?</span></summary>
-    <div class="panel panel-border-narrow">
-        <p>If you are having problems using the DfE Sign-in service, follow <a href="help.html">DfE Sign-in Help</a>. You will be able to request further assistance if required.</p>
+    <div class="col-4">
+        <aside>
+            <h2 class="heading-medium">Actions</h2>
+            <nav class="subnav">
+                <ul>
+                    <li><a href="/edit-details">Edit my details</a></li>
+                    <li><a href="/change-password">Change my password</a></li>
+                    <li><a href="/change-email">Change my email address</a></li>
+                </ul>
+            </nav>
+        </aside>
     </div>
-</details>
-
-        </div>
-    </div>
-
-
-
-    </main>
-
 </div>
 
-<footer class="group js-footer" id="footer">
+    </main>
+</div>
+<footer class="group" id="footer">
     <div class="footer-wrapper">
         <nav>
             <ul>
-                <li><a href="/cookies">Cookies</a></li>
-                <li><a href="/terms">Terms and conditions</a></li>
+                <li><a href="https://signin-test-int-as.azurewebsites.net/cookies">Cookies</a></li>
+                <li><a href="https://signin-test-int-as.azurewebsites.net/terms">Terms and conditions</a></li>
                 <li><a href="https://signin-test-hlp-as.azurewebsites.net/contact">Need help using this service?</a></li>
             </ul>
         </nav>
