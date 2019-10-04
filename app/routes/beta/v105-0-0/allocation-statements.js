@@ -8,8 +8,15 @@ module.exports = function(router) {
 
 	// GOV.UK Entry Point
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {
+		
+		// Set the unique related URL for this feature journey
+		// ALLOCATION STATEMENTS
+		// ADULTS
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions';
+		
 		res.render(version + '/start', {
-			'version' : version
+			'version' : version,
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {		
@@ -17,9 +24,10 @@ module.exports = function(router) {
 	});
 
 	// User roles and permissions 
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions', function (req, res) {
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
 

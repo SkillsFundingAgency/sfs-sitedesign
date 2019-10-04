@@ -8,8 +8,15 @@ module.exports = function(router) {
 	
 	// Start
 	router.get('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {
+		
+		// Set the unique related URL for this feature journey
+		// DOCUMENT EXCHANGE
+		// EXTERNAL USERS CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/document-exchange/adults/roles-and-permissions';
+		
 		res.render(version + '/start', {
-			'version' : version
+			'version' : version,
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {		
@@ -367,8 +374,15 @@ module.exports = function(router) {
 
 	// Start
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {
+		
+		// Set the unique related URL for this feature journey
+		// DOCUMENT EXCHANGE
+		// EXTERNAL USERS PARENT VIEW (LA & MAT)
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions';
+		
 		res.render(version + '/start', {
-			'version' : version
+			'version' : version,
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
 	router.post('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
@@ -943,8 +957,15 @@ module.exports = function(router) {
 
 	// Start
 	router.get('/' + version + '/signed-in/internal/document-exchange/start', function (req, res) {
+		
+		// Set the unique related URL for this feature journey
+		// DOCUMENT EXCHANGE
+		// INTERNAL USERS
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/internal/document-exchange/roles-and-permissions';
+		
 		res.render(version + '/start', {
-			'version' : version
+			'version' : version,
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/start', function (req, res) {		
