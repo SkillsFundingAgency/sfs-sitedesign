@@ -6,13 +6,16 @@ module.exports = function(router) {
 	 * GLOBAL
 	 * **********/
 
-	// Ensure that the default public service name is NOT set
+	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/*', function (req, res, next) {				
 		
 		// Set the unique related URLs for this feature journey
 		// ALLOCATION STATEMENTS
 		// ADULTS
 		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions';
+
+		// Both needed for the global IDAMS account header
+		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/my-roles-and-permissions';
 		req.session.signOutURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/start';
 
 		return next();
@@ -79,25 +82,40 @@ module.exports = function(router) {
 		
 	});
 
+	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/access-denied', function (req, res) {
+		res.render(version + '/error-pages/access-denied', {
+			'version' : version,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard', function (req, res) {
 	
-		req.session.idams = "dashboard";
-
 		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
+			
+			req.session.idams = "adults";
+			
 			res.render(version + '/error-pages/access-denied', {
 				'version' : version,
 				'idams' : req.session.idams,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL
 			});
 		}
 		// Take users to the dashbord
 		else {
+
+			req.session.idams = "dashboard";
+
 			res.render(version + '/signed-in/external/child/allocation-statements/dashboard', {
 				'version' : version,
 				'idams' : req.session.idams,
-				'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL
 			});
 		}
@@ -112,6 +130,7 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/allocation-statement-list', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -124,6 +143,7 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/16-to-18-traineeships', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -136,6 +156,7 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/apprenticeship-carry-in-details', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -149,6 +170,7 @@ module.exports = function(router) {
 			'version' : version,
 			'idams' : req.session.idams,
 			'interimDesign' : req.query.interimDesign,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -162,6 +184,7 @@ module.exports = function(router) {
 			'version' : version,
 			'idams' : req.session.idams,
 			'interimDesign' : req.query.interimDesign,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -174,6 +197,7 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v2', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -186,6 +210,7 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v1', {
 			'version' : version,
 			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
@@ -198,31 +223,34 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
-			'version' : version,
-			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
+			'version' : version
 		});
 	});
 
 	// SIGNED IN
-	// Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/access-denied', function (req, res) {
-		res.render(version + '/error-pages/access-denied', {
-			'version' : version,
-			'idams' : req.session.idams,
-			'signOutURL' : req.session.signOutURL
-		});
-	});
 	// My user roles and permissions (Settings)
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/my-roles-and-permissions', function (req, res) {		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/my-roles-and-permissions', {
+		
+		req.session.idams = "adults";
+		
+		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
-			'signOutURL' : req.session.signOutURL
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'hasValidRoles' : req.session.hasValidRoles
 		});
 	});
+
 	// All user roles and permissions
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/all-roles-and-permissions', function (req, res) {		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/all-roles-and-permissi', {
+		
+		req.session.idams = "adults";
+		
+		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
 		});
 	});
