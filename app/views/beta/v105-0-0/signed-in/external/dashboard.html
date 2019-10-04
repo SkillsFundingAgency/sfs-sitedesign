@@ -36,8 +36,6 @@
                 
             <section>
 
-                <!-- Custom view of tiles when user DOES have a need to view the apprenticeship service -->
-                {% if apprenticeshipServiceAccess %}
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
@@ -47,26 +45,14 @@
                             <span id="subcontractor-declaration-alert" class="alert alert-name-green">View statements</span>
                         </a>
                     </div>
-
-                    <div class="column-third margin-top">
-                        <a id="ageReports" class="dashboard-links" href="#">
-                            <span id="age-service" class="service-name">Apprenticeship grant for employers</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new grants</span> -->
-                            <span id="contract-alert" class="alert alert-name-green">View grants</span>
-                        </a>
-                    </div>
                     
                     <div class="column-third margin-top">
-                        <a id="apprenticeships" class="dashboard-links" href="#">
+                        <a id="apprenticeships" class="dashboard-links" href="https://pp-pas.apprenticeships.education.gov.uk/account">
                             <span id="apprenticeship-service" class="service-name">Apprenticeship service</span>
                             <span id="contract-alert" class="alert alert-name-green">Go to apprenticeship service</span>
                         </a>
                     </div>
 
-                </div>
-
-                <div class="grid-row">
-
                     <div class="column-third margin-top">
                         <a id="contracts" class="dashboard-links" href="#">
                             <span id="contracts-service" class="service-name">Contracts and agreements</span>
@@ -74,6 +60,10 @@
                             <span id="contract-alert" class="alert alert-name-green">View contracts</span>
                         </a>
                     </div>
+
+                </div>
+
+                <div class="grid-row">
 
                     <div class="column-third margin-top">
                         <a id="allocations" class="dashboard-links" href="home">
@@ -94,46 +84,6 @@
                     </div>
 
                 </div>
-                <!-- Standard view of tiles when user DOES NOT have a need to view the apprenticeship service (DEFAULT VIEW) -->
-                {% else %}
-                <div class="grid-row">
-
-                    <div class="column-third margin-top">
-                        <a id="adultFundingAllocation" class="dashboard-links" href="#">
-                            <span id="subcontractor-declaration-service" class="service-name">Allocation statements</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new statements</span> -->
-                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View statements</span>
-                        </a>
-                    </div>
-
-                    <div class="column-third margin-top">
-                        <a id="contracts" class="dashboard-links" href="#">
-                            <span id="contracts-service" class="service-name">Contracts and agreements</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new contracts</span> -->
-                            <span id="contract-alert" class="alert alert-name-green">View contracts</span>
-                        </a>
-                    </div>
-
-                    <div class="column-third margin-top">
-                        <a id="allocations" class="dashboard-links" href="home">
-                            <span id="allocations-service" class="service-name">Document exchange</span>
-                            {% if receivedDocuments == 'Yes' %}
-                                {% if parent == 'MAT' %}
-                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
-                                {% elif parent == 'LA' %}
-                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
-                                {% else %}
-                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
-                                {% endif %}
-                            {% else %}
-                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span>
-                            {% endif %}
-                            <!-- <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span> -->
-                        </a>
-                    </div>
-
-                </div>
-                {% endif %}
 
                 <br>
 
