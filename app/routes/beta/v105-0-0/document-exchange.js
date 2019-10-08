@@ -121,20 +121,20 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
 		
-		req.session.username = req.body.username.toLowerCase();
-		var username = req.session.username;
+		// req.session.username = req.body.username.toLowerCase();
+		// var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 
 		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
-		if (username == "billshoggins@gmail.com" && password == "11111111") {
+		if (password == "11111111") {
 			
 			req.session.hasValidRoles = "False";
 			
 			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
 		}
 		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
-		else if (username == "billshoggins@gmail.com" && password == "22222222") {
+		else if (password == "22222222") {
 
 			req.session.hasValidRoles = "True";
 
@@ -508,20 +508,20 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
 		
-		req.session.username = req.body.username.toLowerCase();
-		var username = req.session.username;
+		// req.session.username = req.body.username.toLowerCase();
+		// var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 
 		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
-		if (username == "billshoggins@gmail.com" && password == "11111111") {
+		if (password == "11111111") {
 			
 			req.session.hasValidRoles = "False";
 			
 			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
 		}
 		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
-		else if (username == "billshoggins@gmail.com" && password == "22222222") {
+		else if (password == "22222222") {
 
 			req.session.hasValidRoles = "True";
 
@@ -1063,20 +1063,20 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
 		
-		req.session.username = req.body.username.toLowerCase();
-		var username = req.session.username;
+		// req.session.username = req.body.username.toLowerCase();
+		// var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 
 		// USER RESEARCH TASK 1 - Trigger a successfull sign in with no valid MyESF roles or permissions
-		if (username == "billshoggins@gmail.com" && password == "11111111") {
+		if (password == "11111111") {
 			
 			req.session.hasValidRoles = "False";
 			
 			res.redirect('/' + version + '/signed-in/internal/document-exchange/dashboard');
 		}
 		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
-		else if (username == "billshoggins@gmail.com" && password == "22222222") {
+		else if (password == "22222222") {
 
 			req.session.hasValidRoles = "True";
 
