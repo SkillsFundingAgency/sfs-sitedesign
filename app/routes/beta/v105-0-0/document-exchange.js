@@ -9,7 +9,10 @@ module.exports = function(router) {
 	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/child/document-exchange/*', function (req, res, next) {				
-		
+
+		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
+		req.session.versioning = "True";
+
 		// Set the unique related URL for this feature journey
 		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions';
 		
@@ -23,10 +26,13 @@ module.exports = function(router) {
 	/*** EXTERNAL USERS - PARENT VIEW (LA & MAT) ***/
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/*', function (req, res, next) {				
-	
+
+		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
+		req.session.versioning = "True";
+
 		// Set the unique related URL for this feature journey		
 		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions';
-		
+
 		// Both needed for the global IDAMS account header
 		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/document-exchange/my-roles-and-permissions';
 		req.session.signOutURL = '/' + version + '/signed-in/external/parent/document-exchange/start';
@@ -37,10 +43,13 @@ module.exports = function(router) {
 	/*** INTERNAL USERS ***/
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/internal/document-exchange/*', function (req, res, next) {				
-		
+
+		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
+		req.session.versioning = "True";
+
 		// Set the unique related URL for this feature journey
 		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/internal/document-exchange/roles-and-permissions';
-		
+
 		// Both needed for the global IDAMS account header
 		req.session.myRolesAndPermissionsURL = '#';
 		req.session.signOutURL = '/' + version + '/signed-in/internal/document-exchange/start';
@@ -56,6 +65,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {	
 		res.render(version + '/start', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
@@ -66,7 +76,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions', function (req, res) {
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -75,6 +86,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in', function (req, res) {
 		res.render(version + '/idams/sign-in', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -116,6 +128,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -163,6 +176,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/dashboard', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
@@ -183,6 +197,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/home', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -222,6 +237,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/received-from-esfa', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -248,6 +264,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/sent-to-esfa', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -273,6 +290,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/document-upload-file-type', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -327,6 +345,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/document-upload', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -360,6 +379,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/document-upload-remove', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -412,6 +432,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/document-exchange/document-upload-complete', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -438,6 +459,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
@@ -448,7 +470,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions', function (req, res) {
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -457,6 +480,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in', function (req, res) {
 		res.render(version + '/idams/sign-in', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -509,6 +533,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -567,6 +592,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/dashboard', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
@@ -587,6 +613,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/home', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -705,6 +732,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/received-from-esfa', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -753,6 +781,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/sent-to-esfa', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -776,6 +805,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/select-organisation', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -816,6 +846,7 @@ module.exports = function(router) {
 
 		res.render(version + '/signed-in/external/parent/document-exchange/select-academy-or-school', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -867,6 +898,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/document-upload-file-type', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -938,6 +970,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/document-upload', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
@@ -972,6 +1005,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/document-upload-remove', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -1025,6 +1059,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/parent/document-exchange/document-upload-complete', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -1052,6 +1087,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/internal/document-exchange/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
@@ -1062,7 +1098,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/internal/document-exchange/roles-and-permissions', function (req, res) {
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -1070,7 +1107,8 @@ module.exports = function(router) {
 	// LEGACY but left in to show what it should look like
 	router.get('/' + version + '/signed-in/internal/document-exchange/idams/sign-in', function (req, res) {
 		res.render(version + '/idams/sign-in', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/idams/sign-in', function (req, res) {		
@@ -1081,6 +1119,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/internal/document-exchange/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -1095,6 +1134,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/dashboard', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1108,6 +1148,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/home', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1121,6 +1162,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/file-share', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1134,6 +1176,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -1163,6 +1206,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish-confirm', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1193,6 +1237,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish-confirmation', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1209,6 +1254,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish-remove-confirm', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1239,6 +1285,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-review', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -1261,6 +1308,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-review-remove-confirm', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1291,6 +1339,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/documents-removed-confirmation', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1307,6 +1356,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/internal/document-exchange/download-documents', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -1331,7 +1381,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -1343,6 +1394,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
@@ -1357,6 +1409,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1368,7 +1421,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -1383,6 +1437,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
@@ -1400,6 +1455,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -1411,7 +1467,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/internal/document-exchange/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -1423,6 +1480,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
@@ -1437,6 +1495,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL

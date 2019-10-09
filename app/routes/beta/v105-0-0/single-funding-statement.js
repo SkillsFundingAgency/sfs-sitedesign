@@ -8,8 +8,12 @@ module.exports = function(router) {
 
 	// Ensure that the default public service name is NOT set
 	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {				
-		
+
+		// So we can display the alternative service name for this sub service
 		req.session.publicServiceName = "True";
+
+		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
+		req.session.versioning = "True";
 
 		return next();
 	});
@@ -24,6 +28,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/not-signed-in/single-funding-statement/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'singleFundingStatement' : "true"
 		});
 	});
@@ -37,6 +42,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/start', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'glossaryTerms' : 'True',
 			'term1' : 'True'
 		});
@@ -50,6 +56,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/viewing-choice', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -85,6 +92,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/which-allocation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'error' : req.query.error
 		});
@@ -130,6 +138,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding/2019-to-2020', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'glossaryTerms' : 'True',
 			'term1' : 'True',
@@ -143,6 +152,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/choose-a-year', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'error' : req.query.error
 		});
@@ -174,6 +184,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'glossaryTerms' : 'True',
 			'term1' : 'True'
@@ -185,6 +196,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2018-to-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'glossaryTerms' : 'True',
 			'term1' : 'True'
@@ -196,6 +208,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/funding-type-unavailable', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'fundingAllocationChoice' : req.session.fundingAllocationChoice, 
 			'choice' : req.session.choice
 		});
@@ -206,6 +219,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/find-an-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'error' : req.query.error,
 			'error1' : req.query.error1,
@@ -324,6 +338,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/did-you-mean', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -362,6 +377,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/statement', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'didYouMean' : req.session.didYouMean,
@@ -385,6 +401,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/allocation-history', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -418,6 +435,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/27-03-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -442,6 +460,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/17-12-2018', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -466,6 +485,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/allocation-history', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -482,6 +502,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-10-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -497,6 +518,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/12-04-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -512,6 +534,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-02-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -527,6 +550,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/primary-2018-to-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
@@ -547,6 +571,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/glossary-of-terms', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'glossaryTerms' : 'False'
 		});
 	});
@@ -560,6 +585,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/no-results', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchTerm' : req.session.searchTerm,
 			'glossaryTerms' : 'True',
