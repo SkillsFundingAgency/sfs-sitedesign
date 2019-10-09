@@ -8,7 +8,10 @@ module.exports = function(router) {
 
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/*', function (req, res, next) {				
-		
+
+		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
+		req.session.versioning = "True";
+
 		// Set the unique related URLs for this feature journey
 		// ALLOCATION STATEMENTS
 		// ADULTS
@@ -29,6 +32,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
 		});
 	});
@@ -40,7 +44,8 @@ module.exports = function(router) {
 	// LEGACY but left in to show what it should look like
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/idams/sign-in', function (req, res) {
 		res.render(version + '/idams/sign-in', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/idams/sign-in', function (req, res) {		
@@ -51,6 +56,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
@@ -86,6 +92,7 @@ module.exports = function(router) {
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/access-denied', function (req, res) {
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -102,6 +109,7 @@ module.exports = function(router) {
 			
 			res.render(version + '/error-pages/access-denied', {
 				'version' : version,
+				'versioning' : req.session.versioning,
 				'idams' : req.session.idams,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL
@@ -114,6 +122,7 @@ module.exports = function(router) {
 
 			res.render(version + '/signed-in/external/child/allocation-statements/dashboard', {
 				'version' : version,
+				'versioning' : req.session.versioning,
 				'idams' : req.session.idams,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL
@@ -129,6 +138,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/allocation-statement-list', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -142,6 +152,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/16-to-18-traineeships', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -155,6 +166,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/apprenticeship-carry-in-details', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -168,6 +180,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'interimDesign' : req.query.interimDesign,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -182,6 +195,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'interimDesign' : req.query.interimDesign,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -196,6 +210,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v2', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -209,6 +224,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v1', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL
@@ -223,7 +239,8 @@ module.exports = function(router) {
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
-			'version' : version
+			'version' : version,
+			'versioning' : req.session.versioning
 		});
 	});
 
@@ -235,6 +252,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
@@ -249,6 +267,7 @@ module.exports = function(router) {
 		
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
+			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL

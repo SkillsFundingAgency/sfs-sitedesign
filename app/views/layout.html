@@ -1,7 +1,11 @@
 {% extends "govuk_template.html" %}
 
 {% block head %}
+	{% if versioning == 'True' %}
+	{% include version + "/includes/head.html" %}
+	{% else %}
 	{% include "includes/head.html" %}
+	{% endif %}
 {% endblock %}
 
 {% block cookie_message %}
@@ -50,7 +54,6 @@
 
 {% if useAutoStoreData %}
 <ul>
-	<!-- <li><a href="/prototype-admin/clear-data">Clear data</a></li> -->
 	<li><a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">Contact us</a></li>
 	{% if disclaimerAccepted == 'Yes' %}
 	<li><a href="/beta/{{disclaimerVersion}}/allocation-statements/adults/disclaimer-accepted">Disclaimer</a></li>
@@ -74,6 +77,10 @@
 {% endblock %}
 
 {% block body_end %}
+	{% if versioning == 'True' %}
+	{% include version + "/includes/scripts.html" %}
+	{% else %}
 	{% include "includes/scripts.html" %}
+	{% endif %}
 	<!-- GOV.UK Prototype kit {{releaseVersion}} -->
 {% endblock %}
