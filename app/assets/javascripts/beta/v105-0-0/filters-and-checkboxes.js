@@ -7,6 +7,9 @@
 // jQuery (START)
 $(document).ready(function () {
 
+    // Hide all non-JS elements
+    $("#postButton").hide();
+
     // Ensure we close the filters on load of the page only if the user is viewing in a smaller resolution
     /*
     if ((screen.width >= 1024) && (screen.height >= 1024)) {
