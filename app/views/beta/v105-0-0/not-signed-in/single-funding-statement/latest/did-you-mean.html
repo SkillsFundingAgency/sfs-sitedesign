@@ -40,9 +40,667 @@
                     <p>If a school has converted to an academy, you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
                 </div>
 
-                {% if searchTerm == 'london' %}
-                <!-- PAGINATION ON (search term on "london" or "London" with > 25 results) -->
-                <!-- TO DO: Add the pagination design once agreed with team -->
+                {% if searchTerm == 'abbey' or searchTerm == 'paging' or searchTerm == 'searchFilter' or searchFilter == 'True' %}
+                <!-- PAGINATION ON (search term on "abbey" or "Abbey" with > 25 results) -->
+                <div id="filterContent" class="column-filter-one-third column-third ">
+                    
+                    <div class="form-block">
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by local authority</legend>
+                            
+                            <div class="js-filter-collapsible-collections RegionFilter">
+                                <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                    <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                        <header id="local-authority-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by local authority</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div class="search-field-wrap hidden" aria-hidden="true" style="display: none;">
+                                        <label class="filter-searchwithin-label">
+                                            <span class="visuallyhidden">Search within this filter</span>
+                                            <input type="text" class="filter-search">
+                                            <button class="field-clear hidden"><span class="visuallyhidden">Clear</span></button>
+                                        </label>
+                                    </div>
+
+                                    <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType01" name="queryFilterLocalAuthority" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterLocalAuthorityType01">
+                                                        Birmingham (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType02" name="queryFilterLocalAuthority" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterLocalAuthorityType02">
+                                                        Buckinghamshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType03" name="queryFilterLocalAuthority" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterLocalAuthorityType03">
+                                                        Calderdale (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType04" name="queryFilterLocalAuthority" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterLocalAuthorityType04">
+                                                        Cambridgeshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType05" name="queryFilterLocalAuthority" type="checkbox" value="05">
+                                                    <label class="block" for="queryFilterLocalAuthorityType05">
+                                                        Coventry (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType06" name="queryFilterLocalAuthority" type="checkbox" value="06">
+                                                    <label class="block" for="queryFilterLocalAuthorityType06">
+                                                        Cumbria (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType07" name="queryFilterLocalAuthority" type="checkbox" value="07">
+                                                    <label class="block" for="queryFilterLocalAuthorityType07">
+                                                        Darlington (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType08" name="queryFilterLocalAuthority" type="checkbox" value="08">
+                                                    <label class="block" for="queryFilterLocalAuthorityType08">
+                                                        Dorset (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType09" name="queryFilterLocalAuthority" type="checkbox" value="09">
+                                                    <label class="block" for="queryFilterLocalAuthorityType09">
+                                                        Gloucestershire (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType10" name="queryFilterLocalAuthority" type="checkbox" value="10">
+                                                    <label class="block" for="queryFilterLocalAuthorityType10">
+                                                        Hampshire (3)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType11" name="queryFilterLocalAuthority" type="checkbox" value="11">
+                                                    <label class="block" for="queryFilterLocalAuthorityType11">
+                                                        Hertfordshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType12" name="queryFilterLocalAuthority" type="checkbox" value="12">
+                                                    <label class="block" for="queryFilterLocalAuthorityType12">
+                                                        Lancashire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType13" name="queryFilterLocalAuthority" type="checkbox" value="13">
+                                                    <label class="block" for="queryFilterLocalAuthorityType13">
+                                                        Leicester (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType14" name="queryFilterLocalAuthority" type="checkbox" value="14">
+                                                    <label class="block" for="queryFilterLocalAuthorityType14">
+                                                        Lincolnshire (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType15" name="queryFilterLocalAuthority" type="checkbox" value="15">
+                                                    <label class="block" for="queryFilterLocalAuthorityType15">
+                                                        Liverpool (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType16" name="queryFilterLocalAuthority" type="checkbox" value="16">
+                                                    <label class="block" for="queryFilterLocalAuthorityType16">
+                                                        Manchester (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType17" name="queryFilterLocalAuthority" type="checkbox" value="17">
+                                                    <label class="block" for="queryFilterLocalAuthorityType17">
+                                                        Medway (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType18" name="queryFilterLocalAuthority" type="checkbox" value="18">
+                                                    <label class="block" for="queryFilterLocalAuthorityType18">
+                                                        Merton (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType19" name="queryFilterLocalAuthority" type="checkbox" value="19">
+                                                    <label class="block" for="queryFilterLocalAuthorityType19">
+                                                        Milton Keynes (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType20" name="queryFilterLocalAuthority" type="checkbox" value="20">
+                                                    <label class="block" for="queryFilterLocalAuthorityType20">
+                                                        North Yorkshire (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType21" name="queryFilterLocalAuthority" type="checkbox" value="21">
+                                                    <label class="block" for="queryFilterLocalAuthorityType21">
+                                                        Northamptonshire (3)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType22" name="queryFilterLocalAuthority" type="checkbox" value="22">
+                                                    <label class="block" for="queryFilterLocalAuthorityType22">
+                                                        Northumberland (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType23" name="queryFilterLocalAuthority" type="checkbox" value="23">
+                                                    <label class="block" for="queryFilterLocalAuthorityType23">
+                                                        Nottinghamshire (4)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType24" name="queryFilterLocalAuthority" type="checkbox" value="24">
+                                                    <label class="block" for="queryFilterLocalAuthorityType24">
+                                                        Oxfordshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType25" name="queryFilterLocalAuthority" type="checkbox" value="25">
+                                                    <label class="block" for="queryFilterLocalAuthorityType25">
+                                                        Rotherham (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType26" name="queryFilterLocalAuthority" type="checkbox" value="26">
+                                                    <label class="block" for="queryFilterLocalAuthorityType26">
+                                                        Sandwell (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType27" name="queryFilterLocalAuthority" type="checkbox" value="27">
+                                                    <label class="block" for="queryFilterLocalAuthorityType27">
+                                                        Sheffield (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType28" name="queryFilterLocalAuthority" type="checkbox" value="28">
+                                                    <label class="block" for="queryFilterLocalAuthorityType28">
+                                                        Stoke-on-Trent (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType29" name="queryFilterLocalAuthority" type="checkbox" value="29">
+                                                    <label class="block" for="queryFilterLocalAuthorityType29">
+                                                        Surrey (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType30" name="queryFilterLocalAuthority" type="checkbox" value="30">
+                                                    <label class="block" for="queryFilterLocalAuthorityType30">
+                                                        Sutton (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType31" name="queryFilterLocalAuthority" type="checkbox" value="31">
+                                                    <label class="block" for="queryFilterLocalAuthorityType31">
+                                                        Swindon (2)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType32" name="queryFilterLocalAuthority" type="checkbox" value="32">
+                                                    <label class="block" for="queryFilterLocalAuthorityType32">
+                                                        Walsall (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType33" name="queryFilterLocalAuthority" type="checkbox" value="33">
+                                                    <label class="block" for="queryFilterLocalAuthorityType33">
+                                                        Warwickshire (1)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterLocalAuthorityType34" name="queryFilterLocalAuthority" type="checkbox" value="34">
+                                                    <label class="block" for="queryFilterLocalAuthorityType34">
+                                                        Worcestershire (3)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by establishment type</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="establishment-type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenEstablishmentTypeLink" id="queryFilterOpenEstablishmentTypeLink" aria-expanded="true" aria-controls="filter-by-establishment-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-establishment-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-establishment-type-link">
+                                        <header id="establishment-type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by establishment type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-establishment-type-link" class="js-filter-collapsible-content" aria-labelledby="establishment-type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeAcademy" name="queryFilterEstablishmentType" type="checkbox" value="Academy">
+                                                    <label class="block" for="queryFilterEstablishmentTypeAcademy">
+                                                        Academy (17)
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterEstablishmentTypeMaintained" name="queryFilterEstablishmentType" type="checkbox" value="Maintained">
+                                                    <label class="block" for="queryFilterEstablishmentTypeMaintained">
+                                                        Maintained school (35)
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                    <div id="postButton" class="form-group">
+                        <button class="button">Update results</button>
+                    </div>
+
+                    <div id="clearAllFilters" class="form-group">
+                        <a href="">Reset filters</a>
+                    </div>
+
+                </div>
+
+                <!-- Potential matches to search term -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Search results</legend>
+
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 25 of 52 documents</span>
+                        </div>
+
+                        <div class="form-block">
+                            <p>Searching on <span class="bold">'abbey'</span> we found 52 schools. Did you mean:</p>
+
+                            <!-- JS TABLE ROWS (START) -->
+                            <!-- 52 RESULTS -->
+                            <!-- 1-25 (START) -->
+                            <div class="hidden" hidden aria-hidden="true" data-checkboxes>
+
+                                <div class="form-block sectionContent 01 Maintained">
+                                    <a href="statement">Abbey Catholic Primary School (Birmingham, B23 6QL)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 21 Maintained">
+                                    <a href="statement">Abbey CofE Academy (Daventry, NN11 4GD)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 33 Maintained">
+                                    <a href="statement">Abbey CofE Infant School (Nuneaton, CV11 5EL)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 17 Maintained">
+                                    <a href="statement">Abbey Court Foundation Special School (Rochester, ME2 3SP)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 23 Maintained">
+                                    <a href="statement">Abbey Gates Primary School (Nottingham, NG15 9BN)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 16 Maintained">
+                                    <a href="statement">Abbey Hey Primary Academy (Manchester, M18 8PF)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 23 Maintained">
+                                    <a href="statement">Abbey Hill Primary & Nursery (Nottingham, NG17 7NZ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 28 Maintained">
+                                    <a href="statement">Abbey Hill School and College (Stoke-On-Trent, ST3 5PP)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 28 Maintained">
+                                    <a href="statement">Abbey Hulton Primary School (Stoke-on-Trent, ST2 8BS)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 26 Maintained">
+                                    <a href="statement">Abbey Infant School (Smethwick, B67 5LR)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 07 Maintained">
+                                    <a href="statement">Abbey Infants' School (Darlington, DL3 8JA)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 07 Maintained">
+                                    <a href="statement">Abbey Junior School (Darlington, DL3 8NN)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 26 Maintained">
+                                    <a href="statement">Abbey Junior School (Smethwick, B67 5LT)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 27 Maintained">
+                                    <a href="statement">Abbey Lane Primary School (Sheffield, S8 0BN)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 04 Maintained">
+                                    <a href="statement">Abbey Meadows Primary School (Cambridge, CB5 8ND)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 31 Maintained">
+                                    <a href="statement">Abbey Meads Community Primary School (Swindon, SN25 4GY)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 31 Maintained">
+                                    <a href="statement">Abbey Meads Community Primary School (Swindon, SN25 4GY)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 03 Maintained">
+                                    <a href="statement">Abbey Park Academy (Halifax, HX2 9DG)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 34 Maintained">
+                                    <a href="statement">Abbey Park First and Nursery School (Pershore, WR10 1DF)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 34 Maintained">
+                                    <a href="statement">Abbey Park Middle School (Pershore, WR10 1DF)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 13 Maintained">
+                                    <a href="statement">Abbey Primary Community School (Leicester, LE4 5HH)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 23 Maintained">
+                                    <a href="statement">Abbey Primary School (Mansfield, NG19 0AB)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 30 Maintained">
+                                    <a href="statement">Abbey Primary School (Morden, SM4 6NY)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 32 Maintained">
+                                    <a href="statement">Abbey Primary School (Walsall, WS3 2RP)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 23 Maintained">
+                                    <a href="statement">Abbey Road Primary School (Nottingham, NG2 5ND)</a>
+                                </div>
+                                <!-- 1-25 (END) -->
+
+                                <!-- 26-50 (START) -->
+                                <div class="form-block sectionContent 25 Maintained">
+                                    <a href="statement">Abbey School (Rotherham, S61 2RA)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 12 Maintained">
+                                    <a href="statement">Abbey Village Primary School (Chorley, PR6 8DD)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 24 Maintained">
+                                    <a href="statement">Abbey Woods Academy (Wallingford, OX10 7LZ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 27 Maintained">
+                                    <a href="statement">Abbeyfield Primary Academy (Sheffield, S3 9AN)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 22 Maintained">
+                                    <a href="statement">Abbeyfields First School (Morpeth, NE61 2LZ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 09 Maintained">
+                                    <a href="statement">Abbeymead Primary School (Gloucester, GL4 5YS)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 19 Maintained">
+                                    <a href="statement">Abbeys Primary School (Milton Keynes, MK3 6PS)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 34 Maintained">
+                                    <a href="statement">Abbeywood First School (Redditch, B98 9LR)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 14 Maintained">
+                                    <a href="statement">Bourne Abbey Church of England Primary Academy (Bourne, PE10 9EP)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 15 Maintained">
+                                    <a href="statement">Childwall Abbey School (Liverpool, L16 5EY)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 02 Maintained">
+                                    <a href="statement">Haydon Abbey School and Pre-School (Aylesbury, HP19 9NS)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 06 Maintained">
+                                    <a href="statement">Holm Cultram Abbey CofE School (Wigton, CA7 4RU)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 14 Maintained">
+                                    <a href="statement">Lincoln Monks Abbey Primary School (Lincoln, LN2 5PF)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 18 Maintained">
+                                    <a href="statement">Merton Abbey Primary School (London, SW19 2JY)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 10 Maintained">
+                                    <a href="statement">Netley Abbey Infant School (Southampton, SO31 5EL)</a>
+                                </div>
+                                
+                                <div class="form-block sectionContent 10 Maintained">
+                                    <a href="statement">Netley Abbey Junior School (Southampton, SO31 5EL)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 10 Maintained">
+                                    <a href="statement">Romsey Abbey Church of England Primary School (Romsey, SO51 8EP)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 20 Maintained">
+                                    <a href="statement">Rosedale Abbey Community Primary School (Pickering, YO18 8SA)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 20 Maintained">
+                                    <a href="statement">Selby Abbey Church of England Voluntary Controlled Primary School (Selby, YO8 4QB)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 08 Maintained">
+                                    <a href="statement">Sherborne Abbey Church of England Voluntary Controlled Primary School (Sherborne, DT9 6AQ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 11 Maintained">
+                                    <a href="statement">The Abbey Church of England Voluntary Aided Primary School, St Albans (St Albans, AL1 1DQ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 08 Maintained">
+                                    <a href="statement">The Abbey CofE VA Primary School, Shaftesbury (Shaftesbury, SP7 8HQ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 21 Maintained">
+                                    <a href="statement">The Abbey Primary School (Northampton, NN4 8AZ)</a>
+                                </div>
+                                
+                                <div class="form-block sectionContent 21 Maintained">
+                                    <a href="statement">The Abbey Primary School (Northampton, NN4 8AZ)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 29 Maintained">
+                                    <a href="statement">Waverley Abbey CofE Junior School (Farnham, GU10 2AE)</a>
+                                </div>
+                                <!-- 26-50 (END) -->
+
+                                <!-- 51-52 (START) -->
+                                <div class="form-block sectionContent 05 Maintained">
+                                    <a href="statement">Whitley Abbey Primary School (Coventry, CV3 4DE)</a>
+                                </div>
+
+                                <div class="form-block sectionContent 09 Maintained">
+                                    <a href="statement">Winchcombe Abbey Church of England Primary School (Cheltenham, GL54 5PZ)</a>
+                                </div>
+                                <!-- 51-52 (END) -->
+
+                            </div>
+                            <!-- JS TABLE ROWS (END) -->
+
+                        </div>
+
+                        <!-- NON JS PAGING (START) -->
+                        {% if paginationRequired %}
+                        {% if page1 %}
+                        <div class="pager" data-non-js-paging>
+
+                            <div class="pager-controls">
+                                <ul class="pager-items">
+                                    <li>
+                                        <span class="text-bold">1</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="received-from-esfa?paginationRequired=true&page2=true">2</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="received-from-esfa?paginationRequired=true&page3=true">3</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <a class="pager-next" href="received-from-esfa?paginationRequired=true&page2=true">Next</a>
+                                    <span class="visuallyhidden"> page</span>
+                                </ul>                                
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 1 to 10 of 30 documents
+                            </div>
+            
+                        </div>
+                        {% elif page2 %}
+                        <div class="pager" data-non-js-paging>
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="received-from-esfa?paginationRequired=true&page1=true">Previous</a>
+                                    <span class="visuallyhidden"> page</span>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="received-from-esfa?paginationRequired=true&page1=true">1</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">2</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="received-from-esfa?paginationRequired=true&page3=true">3</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <a class="pager-next" href="received-from-esfa?paginationRequired=true&page3=true">Next</a>
+                                    <span class="visuallyhidden"> page</span>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 11 to 20 of 30 documents
+                            </div>
+            
+                        </div>
+                        {% elif page3 %}
+                        <div class="pager" data-non-js-paging>
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="received-from-esfa?paginationRequired=true&page2=true">Previous</a>
+                                    <span class="visuallyhidden"> page</span>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="received-from-esfa?paginationRequired=true&page1=true">1</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="visuallyhidden">Page </span>
+                                        <a href="received-from-esfa?paginationRequired=true&page2=true">2</a>
+                                        <span class="visuallyhidden"> of 3</span>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 21 to 30 of 30 documents
+                            </div>
+            
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <div class="pager" data-non-js-paging>
+            
+                            <div class="pager-summary">
+                                Showing 1 to 4 of 4 documents
+                            </div>
+            
+                        </div>
+                        {% endif %}
+                        <!-- NON JS PAGING (END) -->
+
+                        <!-- JS PAGING (START) -->
+                        <div class="pager hidden" hidden aria-hidden="true" style="margin-top:0" data-paging>
+                        
+                            <div class="pager-controls">
+                                <a class="pager-prev" href="#">Previous</a>
+                                <ul class="pager-items"></ul>
+                                <a class="pager-next" href="#">Next</a>
+                            </div>
+
+                            <div class="pager-summary">
+                            </div>
+
+                            <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
+                            <!-- paginationRequired = true or false -->
+                            <span id="dynamicPaginationForPage" style="display: none;">{{paginationRequired}}</span>
+                            <!-- totalListCount -->
+                            <span id="totalDocumentCount" style="display: none;">{{totalListCount}}</span>
+                            <!-- clearLocalStorage -->
+                            <span id="clearLocalStorage" style="display: none;">{{clearLocalStorage}}</span>
+                            <!-- itemsPerPage -->
+                            <span id="itemsPerPage" style="display: none;">{{itemsPerPage}}</span>
+                            <!-- itemTypeLabel -->
+                            <span id="itemTypeLabel" style="display: none;">{{itemTypeLabel}}</span>
+                            <!-- itemTypeLabelPlural -->
+                            <span id="itemTypeLabelPlural" style="display: none;">{{itemTypeLabelPlural}}</span>
+
+                        </div>
+                        <!-- JS PAGING (END) -->
+
+                        <!-- Support section in an expandable link - START -->
+                        {% include version + "/includes/support.html" %}
+                        <!-- Support section in an expandable link - END -->
+
+                    </fieldset>
+
+                </div>
+                <!-- Show the scenario where a maintained school has converted to an academy ("Kilburn Junior School") -->
                 {% elif searchTerm == 'converted' %}
                 <div id="filterContent" class="column-filter-one-third column-third ">
                     
@@ -111,7 +769,7 @@
                     </fieldset>
 
                 </div>
-                {% else %}
+                {% else %}                
                 <div id="filterContent" class="column-filter-one-third column-third ">
                     
                     <div class="form-block">
@@ -126,7 +784,7 @@
                                             <h2 class="filters-headings heading-small">Filter by local authority</h2>
                                         </header>
                                     </a>
-                                    
+
                                     <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
                                         <section class="toggled-adult-funding-content group">
                                             <ul>
@@ -477,8 +1135,33 @@
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+        // Pass these parameters in (below)
+        dynamicPagination(
+            // Total items (totalListCount)
+            52,
+            // Boolean whether to clear down the session data or not
+            true,
+            // How many items to show per page
+            25,
+            // What to name the thing being displayed (singular)
+            "result",
+            // What to name the thing being displayed (plural)
+            "results"
+        );
+
+    });
+    
+</script>
+<!-- Dynamic pagination -->
+<script src="/public/javascripts/{{version}}/dynamic-pagination-for-divs.js"></script>
 <!-- Filters for the document list -->
 <script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Search all available filters -->
+<script src="/public/javascripts/{{version}}/search-filter-options.js?v=1.0.3"></script>
 <!-- JavaScript (END) -->
 
 {% endblock %}
