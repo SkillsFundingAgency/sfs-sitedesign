@@ -509,7 +509,117 @@
                     </table>
 
                     <h2 class="heading-medium padding-top-heading-total">High needs deductions</h2>
+
+                    <!-- SCENARIO 1 provides the default view for Camden where there are some deductions and 2 or more sections without  -->
+                    {% if scenario == '1' %}
                     
+                     <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Alternative provision academies and free schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Alternative provision academies and free schools</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">£20,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Maintained special schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Maintained special schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2021</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">16</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£53,328</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Maintained mainstream schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Maintained mainstream schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">30</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£60,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Further education (<abbr title="Further Education">FE</abbr>) and independent learning provider (<abb title="Independent Learning Provider">ILP</abb>) places</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Further education (<abbr title="Further Education">FE</abbr>) and independent learning provider (<abb title="Independent Learning Provider">ILP</abb>) places</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>September 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal"><abbr title="Further education">FE</abbr> and <abb title="Independent Learning Provider">ILP</abb> places</th>
+                                <td class="table-with-five-columns_cell--numeric">298</td>
+                                <td class="table-with-five-columns_cell--numeric">298</td>
+                                <td class="table-with-five-columns_cell--numeric">£1,788,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                        
+                    <details class="padding-details">
+                        <summary>
+                            <span class="summary">View funding factors with no deductions</span>
+                        </summary>
+                            
+                        <div class="panel-no-border">
+                            <p>There are no deductions for:</p>
+                            <ul class="list list-bullet">
+                                <li>mainstream academies (special educational needs units and resourced provision)</li>
+                                <li>special academies</li>
+                                <li>special free schools</li>
+                                <li>hospital academies</li>
+                                <li>16 to 19 academies and free schools places</li>
+                            </ul>
+                        </div>
+
+                    </details>
+                                        
+                    <!-- SCENARIO 2 provides a view for Camden when they have a deduction for all sections -->
+                    {% elif scenario == '2' %}
+
                     <table class="govuk-table padding-funding-breakdown-table">
                         <caption class="govuk-table__caption heading-small visuallyhidden">Mainstream academies (special educational needs units and resourced provision) Pre-16 places</caption>
                         <thead class="govuk-table__head">
@@ -779,7 +889,358 @@
                         </tbody>
                     </table>
 
-                    <!-- <details class="padding-details">
+                    <!-- SCENARIO 3 provides a view for Camden where they hav a deduction for all sections apart from one  -->
+                    {% elif scenario == '3' %}
+                    
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Mainstream academies (special educational needs units and resourced provision) Pre-16 places</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Mainstream academies (special educational needs units and resourced provision)</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2021</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col">Total deduction</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places funded at £6,000</th>
+                                <td class="table-with-five-columns_cell--numeric">9</td>
+                                <td class="table-with-five-columns_cell--numeric">9</td>
+                                <td class="table-with-five-columns_cell--numeric">£54,000</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places funded at £10,000</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Mainstream academies (special educational needs units and resourced provision) Post-16 places</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col"><span class="visuallyhidden">Mainstream academies (special educational needs units and resourced provision)</span></th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2021</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>                            
+                        <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Special academies</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Special academies</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                        
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Special academies</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col"><span class="visuallyhidden">Special academies</span></th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">£20,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Special free schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Special free schools</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">1</td>
+                                <td class="table-with-five-columns_cell--numeric">1</td>
+                                <td class="table-with-five-columns_cell--numeric">£10,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                        
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Special free schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col"><span class="visuallyhidden">Special free schools</span></th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                     <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Alternative provision academies and free schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Alternative provision academies and free schools</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">£20,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Maintained special schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Maintained special schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2021</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">16</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£53,328</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Maintained mainstream schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Maintained mainstream schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">30</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£60,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">16 to 19 academies and free schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">16 to 19 academies and free schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">3</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£6,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Further education (<abbr title="Further Education">FE</abbr>) and independent learning provider (<abb title="Independent Learning Provider">ILP</abb>) places</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Further education (<abbr title="Further Education">FE</abbr>) and independent learning provider (<abb title="Independent Learning Provider">ILP</abb>) places</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>September 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal"><abbr title="Further education">FE</abbr> and <abb title="Independent Learning Provider">ILP</abb> places</th>
+                                <td class="table-with-five-columns_cell--numeric">298</td>
+                                <td class="table-with-five-columns_cell--numeric">298</td>
+                                <td class="table-with-five-columns_cell--numeric">£1,788,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <details class="padding-details">
+                        <summary>
+                            <span class="summary">View funding factors with no deductions</span>
+                        </summary>
+                            
+                        <div class="panel-no-border" style="padding-top: 15px;">
+                            <p>There are no deductions for hopital academies.</p>
+                        </div>
+
+                    </details>
+
+                    {% else %}
+
+                     <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Alternative provision academies and free schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Alternative provision academies and free schools</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">April 2020 to <br>August 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">September 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Pre-16 alternative provision places</th>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">2</td>
+                                <td class="table-with-five-columns_cell--numeric">£20,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Maintained special schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Maintained special schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2021</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">16</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£53,328</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table padding-funding-breakdown-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Maintained mainstream schools</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Maintained mainstream schools</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>March 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal">Post-16 special educational needs places</th>
+                                <td class="table-with-five-columns_cell--numeric">30</td>
+                                <td class="table-with-five-columns_cell--numeric">0</td>
+                                <td class="table-with-five-columns_cell--numeric">£60,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Further education (<abbr title="Further Education">FE</abbr>) and independent learning provider (<abb title="Independent Learning Provider">ILP</abb>) places</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="table-with-five-columns_header--bold" scope="col">Further education (<abbr title="Further Education">FE</abbr>) and independent learning provider (<abb title="Independent Learning Provider">ILP</abb>) places</th>
+                                <th class="table-with-five-columns_header--numeric"  scope="col">April 2020 to <br>July 2020</th>
+                                <th class="table-with-five-columns_header--numeric" scope="col">August 2020 to <br>September 2021</th>
+                                <th class="table-with-five-columns_header--numeric--bold" scope="col"><span class="visuallyhidden">Total deduction</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header" scope="row" style="font-weight: normal"><abbr title="Further education">FE</abbr> and <abb title="Independent Learning Provider">ILP</abb> places</th>
+                                <td class="table-with-five-columns_cell--numeric">298</td>
+                                <td class="table-with-five-columns_cell--numeric">298</td>
+                                <td class="table-with-five-columns_cell--numeric">£1,788,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                                        
+                    <details class="padding-details">
                         <summary>
                             <span class="summary">View funding factors with no deductions</span>
                         </summary>
@@ -787,12 +1248,18 @@
                         <div class="panel-no-border">
                             <p>There are no deductions for:</p>
                             <ul class="list list-bullet">
+                                <li>mainstream academies (special educational needs units and resourced provision) Pre-16 places</li>
+                                <li>special academies</li>
+                                <li>special free schools</li>
                                 <li>hospital academies</li>
                                 <li>16 to 19 academies and free schools places</li>
                             </ul>
                         </div>
 
-                    </details> -->
+                    </details>
+
+                    {% endif %}
+
 
                     <table class="total-allocation-table-secondary padding-top-heading-total">
                         <tr>
