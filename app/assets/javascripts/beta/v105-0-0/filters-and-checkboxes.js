@@ -7,8 +7,17 @@
 // jQuery (START)
 $(document).ready(function () {
 
-    // Hide all non-JS elements
+    // HIDE all non-JS elements
     $("#postButton").hide();
+    $("#postButton").addClass("hidden");
+    $("#postButton").attr("aria-hidden", true);
+    $("#postButton").attr("hidden");
+
+    // SHOW any hidden elements which we need for a JavaScript UX
+    $(".search-field-wrap").show();
+    $(".search-field-wrap").removeClass("hidden");
+    $(".search-field-wrap").attr("aria-hidden", false);
+    $(".search-field-wrap").removeAttr("hidden");
 
     // Ensure we close the filters on load of the page only if the user is viewing in a smaller resolution
     /*
