@@ -427,7 +427,8 @@ module.exports = function(router) {
 			'term1' : 'True',
 			'term3' : 'True',
 			'reloads' : req.session.reloads,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'scenario' : req.query.scenario
 		});
 	});
 
