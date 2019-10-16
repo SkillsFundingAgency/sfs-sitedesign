@@ -104,7 +104,7 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (fundingAllocationChoice == "DSG") {
-			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding/2019-to-2020');	
+			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding/2020-to-2021');	
 		}
 		else if (fundingAllocationChoice == "PE and sport") {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/download-funding/2019-to-2020');
@@ -129,6 +129,21 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/which-allocation?error=true');
 		}
 		
+	});
+
+	// Download funding allocations 
+	// DSG
+	// 2020 to 2021
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding/2020-to-2021', function (req, res) {
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/download-funding/2020-to-2021', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'glossaryTerms' : 'True',
+			'term1' : 'True',
+			'term3' : 'True'
+		});
 	});
 
 	// Download funding allocations 
@@ -439,7 +454,33 @@ module.exports = function(router) {
 	});
 
 	// Full funding allocation (DSG: all 4 blocks)
-	// LATEST (27 March 2019)
+	// LATEST (17 December 2019)
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/17-12-2019', function (req, res) {
+		 
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/17-12-2019', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion,
+			'glossaryTerms' : 'True',
+			'term1' : 'True',
+			'term3' : 'True',
+			'term4' : 'True',
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	// Full funding allocation (DSG: all 4 blocks)
+	// PREVIOUS (27 March 2019)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/dedicated-schools-grant/funding-breakdown/27-03-2019', function (req, res) {
 		 
 		// Increment the number so we only execute the dynamic tab functionality ONCE
@@ -459,7 +500,8 @@ module.exports = function(router) {
 			'term3' : 'True',
 			'term4' : 'True',
 			'reloads' : req.session.reloads,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'scenario' : req.query.scenario
 		});
 	});
 
