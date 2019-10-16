@@ -20,8 +20,7 @@ function dynamicPagination(totalListCount,clearLocalStorage,itemsPerPage,itemTyp
     var _checkboxesContainer = jQuery("[data-checkboxes]")
     showOrHideElement(_checkboxesContainer, "show")
 
-    // Chris Harding (16.10.19) - Changed to pick up the unique class for each result
-    var _checkboxes = _checkboxesContainer.find("sectionContent")
+    var _checkboxes = _checkboxesContainer.find(".sectionContent")
 
     // Store filter checkboxes selected in local JSON storage
     if (clearLocalStorage == true) {
@@ -266,8 +265,7 @@ function dynamicPagination(totalListCount,clearLocalStorage,itemsPerPage,itemTyp
             }
 
             if ((_this.data("matches-search") == true) && ((_displayedCount > _pagingCalc1) && (_displayedCount <= _pagingCalc2))) {
-                // Chris Harding (16.10.19) - Change the thing we are showing from a "tr" to just the class
-                showOrHideElement(_this.closest("searchable-table-row"), "show", true)
+                showOrHideElement(_this.closest(".searchable-div"), "show", true)
                 
                 if (_pagingFirstItemIndexDone == false) {
                     _pagingFirstItemIndex = _displayedCount
@@ -280,8 +278,7 @@ function dynamicPagination(totalListCount,clearLocalStorage,itemsPerPage,itemTyp
 
             }
             else {
-                // Chris Harding (16.10.19) - Change the thing we are showing from a "tr" to just the class
-                showOrHideElement(_this.closest("searchable-table-row"), "hide", true)
+                showOrHideElement(_this.closest(".searchable-div"), "hide", true)
             }
 
         });

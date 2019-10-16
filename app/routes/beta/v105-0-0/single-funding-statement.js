@@ -256,6 +256,15 @@ module.exports = function(router) {
 				
 				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/find-an-organisation?error=true&error1=true');
 			}
+			// Turn pagination on (search term on "abbey" or "Abbey" with > 25 results)
+			else if (schoolOrAcademy == "abbey" || schoolOrAcademy == "paging" || schoolOrAcademy == "show filter search") {
+				
+				req.session.searchScope = "Primary";
+				req.session.searchTerm = schoolOrAcademy;
+				req.session.didYouMean = "Yes";
+				
+				res.redirect('/' + version + '/not-signed-in/single-funding-statement/latest/did-you-mean?paginationRequired=true&page1=true');
+			}
 			// Show the did you mean page for anything else
 			else {
 
@@ -342,7 +351,11 @@ module.exports = function(router) {
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean
+			'didYouMean' : req.session.didYouMean,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 
