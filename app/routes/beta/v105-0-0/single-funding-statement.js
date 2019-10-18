@@ -551,6 +551,21 @@ module.exports = function(router) {
 		});
 	});
 
+	// NOT APPROVED BY UX TEAM BODGED SOLUTION
+	// 2018 to 2019
+	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/2018-to-2019', function (req, res) {		
+		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/2018-to-2019', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'searchTerm' : req.session.searchTerm,
+			'didYouMean' : req.session.didYouMean,
+			'glossaryTerms' : 'True',
+			'term1' : 'True'
+		});
+	});
+
 	// Full funding allocation (PE and Sport)
 	// LATEST (5 October 2019)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/5-10-2019', function (req, res) {		
