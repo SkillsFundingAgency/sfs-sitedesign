@@ -1,0 +1,93 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Choose a historic funding year to view
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">                
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../viewing-choice">Choose how to view funding</a></li>
+                        <li><a href="../../which-allocation">Select a funding type</a></li>
+                        <!-- <li><a href="2019-to-2020">PE and sport premium 2019 to 2020</a></li> -->
+                        <li>Choose a historic funding year to view</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+            
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#chooseAYear">Choose a year</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+
+                <fieldset class="{% if error %}after-error-summary{% endif %}">    
+                    <legend id="chooseAYear">
+                        <h1 class="heading-xlarge">Choose a historic funding year to view</h1>
+                    </legend>
+            
+                    <div class="form-group {% if error %}form-group-error{% endif %}">
+                        {% if error %}
+                        <span class="error-message">Choose a year</span>
+                        {% endif %}                        
+
+                        <div class="multiple-choice">
+                            <input id="radio-1" type="radio" name="yearChoice" value="PE 2018 to 2019">
+                            <label for="radio-1">2018 to 2019</label>
+                            <!-- <span class="form-hint">...</span> -->
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="yearChoice" value="PE 2017 to 2018">
+                            <label for="radio-2">2017 to 2018</label>
+                            <!-- <span class="form-hint">...</span> -->
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-3" type="radio" name="yearChoice" value="PE 2016 to 2017">
+                            <label for="radio-3">2016 to 2017</label>
+                            <!-- <span class="form-hint">...</span> -->
+                        </div>
+            
+                    </div>
+            
+                </fieldset>
+
+                <div class="form-group">
+                    <button class="button">Continue</button>
+                </div>
+
+                <!-- Support section in an expandable link - START -->
+                {% include version + "/includes/support.html" %}
+                <!-- Support section in an expandable link - END -->
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
