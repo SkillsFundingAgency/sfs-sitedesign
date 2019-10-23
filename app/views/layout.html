@@ -24,7 +24,9 @@
 				{# Set serviceName in config.js. Use a block to override on a page. #}
 				{% block service_name %}
 				{% if serviceName %}
-					{% if publicServiceName == 'True' %}
+					{% if publicServiceName == 'NFF' %}
+					View national funding formula tables
+					{% elif publicServiceName == 'VLF' %}
 					View latest funding
 					{% else %}
 					{{serviceName}}
@@ -58,7 +60,7 @@
 	{% if disclaimerAccepted == 'Yes' %}
 	<li><a href="/beta/{{disclaimerVersion}}/allocation-statements/adults/disclaimer-accepted">Disclaimer</a></li>
 	{% endif %}
-	{% if publicServiceName == 'True' %}
+	{% if publicServiceName %}
 	{% if version == 'beta/v104-0-0' %}
 
 	{% else %}

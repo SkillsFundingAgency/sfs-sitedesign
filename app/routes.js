@@ -12,20 +12,21 @@ router.get('/', function (req, res) {
 
 // Beta
 // beta-v106-0-0
-require('./routes/beta/v106-0-0/allocation-statements.js')(router);
-require('./routes/beta/v106-0-0/document-exchange.js')(router);
+require('./routes/beta/v106-0-0/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/v106-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
+require('./routes/beta/v106-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v106-0-0/signed-in/document-exchange.js')(router);
 require('./routes/beta/v106-0-0/error-pages.js')(router);
-require('./routes/beta/v106-0-0/single-funding-statement.js')(router);
 // beta-v105-0-0
 require('./routes/beta/v105-0-0/allocation-statements.js')(router);
 require('./routes/beta/v105-0-0/document-exchange.js')(router);
 require('./routes/beta/v105-0-0/error-pages.js')(router);
-require('./routes/beta/v105-0-0/single-funding-statement.js')(router);
+require('./routes/beta/v105-0-0/view-latest-funding.js')(router);
 // beta-v104-0-0
 require('./routes/beta/v104-0-0/allocation-statements.js')(router);
 require('./routes/beta/v104-0-0/document-exchange.js')(router);
 require('./routes/beta/v104-0-0/error-pages.js')(router);
-require('./routes/beta/v104-0-0/single-funding-statement.js')(router);
+require('./routes/beta/v104-0-0/view-latest-funding.js')(router);
 // beta-v103-0-0
 require('./routes/beta/v103-0-0/allocation-statements.js')(router);
 require('./routes/beta/v103-0-0/document-exchange.js')(router);
