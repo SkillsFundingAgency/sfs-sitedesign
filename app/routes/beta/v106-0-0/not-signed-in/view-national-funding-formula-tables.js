@@ -495,8 +495,8 @@ module.exports = function(router) {
 	 * **********/
 
 	// All schools 2020 to 2021
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/download-funding/2020-to-2021', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/download-funding/2020-to-2021', {
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level', function (req, res) {
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
