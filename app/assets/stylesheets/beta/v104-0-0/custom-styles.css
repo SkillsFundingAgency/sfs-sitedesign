@@ -4,6 +4,14 @@
  * CUSTOM STYLES (CSS)
  * **********/
 
+/* Chris Harding (24.10.19) - TEMPORARY CSS workaround so that we can have GOV.UK Elements and GOV.UK Design System ones in our prototype without broken styling (e.g. having <h1> tags in the <legend>) */
+.govuk-fieldset__legend  {
+	margin-bottom: 0;
+}
+.govuk-fieldset__legend--xl {
+	margin-bottom: 0;
+}
+
 /* iFrame CSS (Site Map) */
 @media (max-width: 431px) {
 	.next a:before {
@@ -1962,7 +1970,7 @@ a.card__body {
     padding-top: 10px;
 }
 
-/* Chris Harding (05.09.19) - TEMPORARY design and content solution for the business requirement to not round all pupil numbers and have up to 11 decimal places */
+/* Chris Harding (05.09.19) - CSS styling so we can add links below any pupil number table value when we want to provide guidance to users (e.g. when we present decimal numbers for pupil numbers) */
 .decimal {
 	font-size: 16px;
 	line-height: 1.25;
