@@ -16,16 +16,12 @@
     
         <div class="column-full">                
     
-            <div id="global-breadcrumb" class="breadcrumbs group">
-                <nav>
-                    <ol>
-                        <li><a href="viewing-choice">Choose how to view provisional allocations</a></li>
-                        {% if didYouMean == 'Yes' %}
-                        <li><a href="did-you-mean">Search results</a></li>
-                        {% endif %}
-                        <li>{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'LA' %}Camden{% else %}St Mary's Kilburn Church of England Primary School{% endif %}</li>
-                    </ol>
-                </nav>
+            <div>                        
+                {% if didYouMean == 'Yes' %}
+                <a href="did-you-mean" class="govuk-back-link">Back</a>
+                {% else %}
+                <a href="viewing-choice" class="govuk-back-link">Back</a>
+                {% endif %}
             </div>
 
             <h1 class="heading-xlarge">              
@@ -40,48 +36,28 @@
                 <div class="form-group school-detail-container">
                     <div class="detail-column-half">
                         <dl>
-                            <dt class="metadata-type">Region:</dt><dd>Inner London</dd>
-                            <dt class="metadata-type">LA name:</dt><dd>Camden</dd>
-                            <dt class="metadata-type">LA number:</dt><dd>202</dd>
+                            <dt class="metadata-type">Region:</dt><dd class="metadata-name">Inner London</dd>
+                            <dt class="metadata-type">LA name:</dt><dd class="metadata-name">Camden</dd>
+                            <dt class="metadata-type">LA number:</dt><dd class="metadata-name">202</dd>
+                            <dt class="metadata-type">LAESTAB:</dt><dd class="metadata-name">2023517</dd>
+                            <dt class="metadata-type">URN:</dt><dd class="metadata-name">100042</dd>
                         </dl>
                     </div>
                     <div class="detail-column-half">
                         <dl>
-                            <dt class="metadata-type">LAESTAB:</dt><dd>2023517</dd>
-                            <dt class="metadata-type">URN:</dt><dd>100042</dd>
-                            <dt class="metadata-type">Phase:</dt><dd>Primary</dd>
+                            <dt class="metadata-type">Phase:</dt><dd class="metadata-name">Primary</dd>
+                            <dt class="metadata-type">Theoretical baseline:</dt><dd class="metadata-name">No</dd>
+                            <dt class="metadata-type">School opened for part of the year:</dt><dd class="metadata-name">No</dd>
                         </dl>
                     </div>
                 </div>
 
-                <h2 class="heading-large">Baseline <abbr title="national funding formula">NFF</abbr> funding</h2>
-                <table class="govuk-table">
-                    <caption class="govuk-table__caption heading-small">Baseline <abbr title="national funding formula">NFF</abbr> funding for 2019 to 2020</caption>
-                    <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"><span class="visuallyhidden">Baseline national funding formula funding for 2019 to 2020</span></th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-!-width-one-quarter table-header-normal" scope="row">Number of pupils (based on the 2018 to 2019 pupil count)</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">205</td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <th class="govuk-!-width-one-quarter table-header-normal" scope="row">Total baseline funding </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£1,172,444</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <h2 class="heading-large">Notional <abbr title="national funding formula">NFF</abbr> funding</h2>
+                <h2 class="heading-large">Notional <abbr title="national funding formula">NFF</abbr> funding for 2020 to 2021</h2>
                     <table class="govuk-table first-table-below-tab">
-                        <caption class="govuk-table__caption heading-small">Notional <abbr title="national funding formula">NFF</abbr> funding for 2020 to 2021</caption>
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"></th>
-                                <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Change</span></th>
+                                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Notional <abbr title="national funding formula">NFF</abbr> funding</th>
+                                <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col"><span>Change</span></th>
                                 <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Total</th>
                             </tr>
                         </thead>
@@ -103,6 +79,26 @@
                             </tr>
                         </tbody>
                     </table>
+
+                <h2 class="heading-large">Baseline <abbr title="national funding formula">NFF</abbr>funding for 2019 to 2020</h2>
+                <table class="govuk-table">
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"><span>Baseline <abbr title="national funding formula">NFF</abbr> funding</span></th>
+                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th class="govuk-!-width-one-quarter table-header-normal" scope="row">Number of pupils (based on the 2018 to 2019 pupil count)</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">205</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th class="govuk-!-width-one-quarter table-header-normal" scope="row">Total baseline funding </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£1,172,444</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <h2 class="heading-large heading-guidance">General <abbr title="national funding formula">NFF</abbr> resources</h2>
                 <ul class="list">
