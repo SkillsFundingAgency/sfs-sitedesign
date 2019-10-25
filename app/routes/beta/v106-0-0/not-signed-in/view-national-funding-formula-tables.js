@@ -65,49 +65,12 @@ module.exports = function(router) {
 		
 		var choice = req.body.choice;
 		req.session.choice = choice;
+		var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
 
 		if (choice == "Individual") {
-			
+
 			// Reset an error validation variable before user returns to this page
 			req.session.radio = "";
-			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-an-organisation');	
-		}
-		else if (choice == "National") {
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level');
-		}
-		// Make sure the user chooses an option
-		else {
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true');
-		}
-		
-	});
-
-	/**********
-	 * NOT SIGNED-IN (PUBLIC)
-	 * VIEW NATIONAL FUNDING FORMULA TABLES
-	 * JOURNEY A: AN INDIVIDUAL SCHOOL 
-	 * **********/
-
-	// Find an organisation
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-an-organisation', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-an-organisation', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'error' : req.query.error,
-			'radio' : req.session.radio
-		});
-	});
-	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-an-organisation', function (req, res) {
-		
-		var searchOn = req.body.searchScope;
-		var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
-		// var mat = req.body.matSearch.toLowerCase();
-		var la = req.body.laSearch.toLowerCase();
-		
-		if (searchOn == "Child") {
 
 			// Added so we can see an error page (search term which returns zero results)
 			if (schoolOrAcademy == "no results") {				
@@ -120,7 +83,7 @@ module.exports = function(router) {
 				req.session.searchTerm = schoolOrAcademy;
 				req.session.didYouMean = "No";
 				
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement');
+				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/school-level');
 			}
 			// Show the error validation if a user enters a blank search term (e.g. "")
 			else if (schoolOrAcademy == "") {
@@ -149,67 +112,23 @@ module.exports = function(router) {
 			}
 			
 		}
-		/*
-		else if (searchOn == "MAT") {
-
-			req.session.searchScope = "MAT";
-			req.session.searchTerm = mat;
-
-			// Added so we can see an error page (search term which returns zero results)
-			if (mat == "no results" || mat == "mole catch academy") {
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
-			}
-			// Skips the did you mean page and finds a direct match (for "White Rose Academies Trust")
-			else if (mat == "white rose academies trust") {
-				
-				req.session.didYouMean = "No";
-				
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement');
-			}
-			// Show the did you mean page for anything else
-			else {
-
-				req.session.didYouMean = "Yes";
-
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean');
-			}			
-			
+		else if (choice == "National") {
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level');
 		}
-		*/
-		else if (searchOn == "LA") {
-
-			req.session.searchScope = "LA";
-			req.session.searchTerm = la;
-
-			// Added so we can see an error page (search term which returns zero results)
-			if (la == "no results") {
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
-			}
-			// Skips the did you mean page and finds a direct match (for "Camden")
-			else if (la == "camden" || la == "202") {
-
-				req.session.didYouMean = "No";
-
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement');
-			}
-			// Show the error validation if a user enters a blank search term (e.g. "")
-			else if (la == "") {
-
-				req.session.radio = "Radio 2";
-			
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-an-organisation?error=true&error2=true');
-			}
-			// Show the did you mean page for anything else
-			else {
-
-				req.session.didYouMean = "Yes";
-
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean');
-			}			
-			
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true');
 		}
 		
+		
 	});
+
+	/**********
+	 * NOT SIGNED-IN (PUBLIC)
+	 * VIEW NATIONAL FUNDING FORMULA TABLES
+	 * JOURNEY A: AN INDIVIDUAL SCHOOL 
+	 * **********/
+
 
 	// Did you mean (e.g. when there are multiple search results)
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', function (req, res) {			
@@ -232,8 +151,8 @@ module.exports = function(router) {
 		});
 	});
 
-	// Single funding statement page
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement', function (req, res) {			
+	// Primary school statement page
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/school-level', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -260,7 +179,7 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement', {
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/school-level', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -276,217 +195,6 @@ module.exports = function(router) {
 		});
 	});
 
-	/**********
-	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT
-	 * DSG
-	 * **********/
-
-	// Allocation history  
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/allocation-history', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/allocation-history', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True',
-			'term2' : 'True',
-			'term3' : 'True',
-			'term4' : 'True'
-		});
-	});
-
-	// REDIRECT hook page used to record the tab that the user wants to view on the DSG breakdown page (e.g. schools)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/tab-choice', function (req, res) {		
-		
-		req.session.tab = req.query.tab;
-		// Reset this variable to 0 so we can execute the dynamic tab functionality
-		req.session.reloads = 0;
-		var redirectURL = req.query.redirectURL;
-		
-		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/' + redirectURL);
-	});
-
-	// Full funding allocation (DSG: all 4 blocks)
-	// LATEST (17 December 2019)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/17-12-2019', function (req, res) {
-		 
-		// Increment the number so we only execute the dynamic tab functionality ONCE
-		req.session.reloads++;
-		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/17-12-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'toggleVersion' : req.query.toggleVersion,
-			'glossaryTerms' : 'True',
-			'term1' : 'True',
-			'term3' : 'True',
-			'term4' : 'True',
-			'reloads' : req.session.reloads,
-			'tab' : req.session.tab,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// Full funding allocation (DSG: all 4 blocks)
-	// PREVIOUS (27 March 2019)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/27-03-2019', function (req, res) {
-		 
-		// Increment the number so we only execute the dynamic tab functionality ONCE
-		req.session.reloads++;
-		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/27-03-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'toggleVersion' : req.query.toggleVersion,
-			'glossaryTerms' : 'True',
-			'term1' : 'True',
-			'term3' : 'True',
-			'term4' : 'True',
-			'reloads' : req.session.reloads,
-			'tab' : req.session.tab,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// Full funding allocation (DSG: all 4 blocks) 
-	// PREVIOUS (17 December 2018)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/17-12-2018', function (req, res) {		
-		
-		// Increment the number so we only execute the dynamic tab functionality ONCE
-		req.session.reloads++;
-		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/dedicated-schools-grant/funding-breakdown/17-12-2018', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'toggleVersion' : req.query.toggleVersion,
-			'glossaryTerms' : 'True',
-			'term1' : 'True',
-			'term3' : 'True',
-			'reloads' : req.session.reloads,
-			'tab' : req.session.tab
-		});
-	});
-
-	/**********
-	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT
-	 * PE AND SPORT
-	 * **********/
-
-	// Allocation history  
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/allocation-history', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/allocation-history', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True',
-			'term2' : 'True'
-		});
-	});
-
-	// NOT APPROVED BY UX TEAM BODGED SOLUTION
-	// 2018 to 2019
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/2018-to-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/2018-to-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True'
-		});
-	});
-
-	// Full funding allocation (PE and Sport)
-	// LATEST (5 October 2019)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/5-10-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/5-10-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True'
-		});
-	});
-
-	// Full funding allocation (PE and Sport)
-	// PREVIOUS (12 April 2019)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/12-04-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/12-04-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True'
-		});
-	});
-
-	// Full funding allocation (PE and Sport)
-	// PREVIOUS (5 February 2019)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/5-02-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/5-02-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True'
-		});
-	});
-
-	// Full funding allocation (PE and Sport)
-	// HISTORIC FOR PRIMARY (2018 to 2019)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/primary-2018-to-2019', function (req, res) {		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/pe-and-sport/funding-breakdown/primary-2018-to-2019', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'searchScope' : req.session.searchScope,
-			'searchTerm' : req.session.searchTerm,
-			'didYouMean' : req.session.didYouMean,
-			'glossaryTerms' : 'True',
-			'term1' : 'True'
-		});
-	});
 
 	/**********
 	 * NOT SIGNED-IN (PUBLIC)
