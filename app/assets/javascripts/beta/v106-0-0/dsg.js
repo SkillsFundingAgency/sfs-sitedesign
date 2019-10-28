@@ -10,7 +10,7 @@ $(document).ready(function () {
     // On load clear any CSS we don't want to appear when JavaScript is turned on
     $(".govuk-tabs__list").css("padding-bottom", "");
 
-    // Code which stops the user being taken directly to the anchor links dfor each tab section
+    // Code which stops the user being taken directly to the anchor links for each tab section
     var reloads = $("#reloads").text();
     var tab = $("#tab").text();
     
