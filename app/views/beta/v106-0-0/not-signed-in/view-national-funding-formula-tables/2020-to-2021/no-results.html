@@ -14,17 +14,18 @@
 
     <div class="grid-row">
     
-        <div class="column-full">                
-    
-            <div id="global-breadcrumb" class="breadcrumbs group">
-                <nav>
-                    <ol>
-                        <li><a href="start">Choose how to view funding</a></li>
-                        <li><a href="find-an-organisation">View funding at organisation level</a></li>
-                        <li>Search results</li>
-                    </ol>
-                </nav>
-            </div>
+        <div class="column-full">  
+                
+            <div class="back">
+                <div class="button-back">
+                    <!-- the back link uses a simple javascript to go to previous page -->
+                    <a class="back-to-previous link-back" href="javascript:history.back()">
+                        Back
+                        <!-- the rest of this label is hidden, only used for screenreaders -->
+                        <span class="visuallyhidden"> to the previous question</span>
+                    </a>
+                </div>
+            </div> 
 
         </div>
 
@@ -37,16 +38,14 @@
                     <h2 class="heading-medium">No results for '{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</h2>
                     <p>This is because either:</p>
                     <ul class="list list-bullet">
-                        <li>there are no funding <a href="#" title="Find out what this term means" class="js-modal modal-link" data-modal-text="<p>An amount of Education and Skills Funding Agency (<abbr title='Education and Skills Funding Agency'>ESFA</abbr>) funding for a learning provider calculated by using a funding formula. Allocations can change throughout the year if pupil numbers change.</p><p><a href='/{{version}}/not-signed-in/glossary-of-terms'>View full glossary of funding terms</a></p>" data-modal-title="Allocations" data-modal-close-text="Close" data-modal-close-title="Close this window">allocations</a> for this organisation</li>
+                        <li>there are no funding allocations for this organisation</li>
                         <li>there is a misspelling</li>
                     </ul>
-                    <p><a href="find-an-organisation">Find an organisation</a></p>
+                    <p><a href="viewing-choice">Choose how to view provisional allocations</a></p>
                 </div>
 
                 <!-- Support section in an expandable link - START -->
                 <!-- Support section in an expandable link - END -->
-
-            </form>
         
         </div>
 

@@ -67,60 +67,48 @@ module.exports = function(router) {
 		req.session.choice = choice;
 		var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
 
-		if (choice == "Individual") {
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
 
-			// Reset an error validation variable before user returns to this page
-			req.session.radio = "";
-
-			// Added so we can see an error page (search term which returns zero results)
-			if (schoolOrAcademy == "no results") {				
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
-			}
-			// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
-			else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys" || schoolOrAcademy == "2023517") {
-				
-				req.session.searchScope = "Primary";
-				req.session.searchTerm = schoolOrAcademy;
-				req.session.didYouMean = "No";
-				
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/school-level');
-			}
-			// Show the error validation if a user enters a blank search term (e.g. "")
-			else if (schoolOrAcademy == "") {
-				
-				req.session.radio = "Radio 1";
-				
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-an-organisation?error=true&error1=true');
-			}
-			// Turn pagination on (search term on "abbey" or "Abbey" with > 25 results)
-			else if (schoolOrAcademy == "abbey" || schoolOrAcademy == "paging" || schoolOrAcademy == "show filter search") {
-				
-				req.session.searchScope = "Primary";
-				req.session.searchTerm = schoolOrAcademy;
-				req.session.didYouMean = "Yes";
-				
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?paginationRequired=true&page1=true');
-			}
-			// Show the did you mean page for anything else
-			else {
-
-				req.session.searchScope = "Primary";
-				req.session.searchTerm = schoolOrAcademy;
-				req.session.didYouMean = "Yes";
-
-				res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean');
-			}
+		// Added so we can see an error page (search term which returns zero results)
+		if (schoolOrAcademy == "no results") {				
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
+		}
+		// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
+		else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys" || schoolOrAcademy == "2023517") {
 			
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = schoolOrAcademy;
+			req.session.didYouMean = "No";
+			
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys');
 		}
-		else if (choice == "National") {
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level');
+		// Show the error validation if a user enters a blank search term (e.g. "")
+		else if (schoolOrAcademy == "") {
+			
+			req.session.radio = "Radio 1";
+			
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true&error1=true');
 		}
-		// Make sure the user chooses an option
+		// Turn pagination on (search term on "abbey" or "Abbey" with > 25 results)
+		else if (schoolOrAcademy == "abbey" || schoolOrAcademy == "paging" || schoolOrAcademy == "show filter search") {
+			
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = schoolOrAcademy;
+			req.session.didYouMean = "Yes";
+			
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?paginationRequired=true&page1=true');
+		}
+		// Show the did you mean page for anything else
 		else {
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true');
+
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = schoolOrAcademy;
+			req.session.didYouMean = "Yes";
+
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean');
 		}
-		
-		
+			
 	});
 
 	/**********
@@ -151,8 +139,8 @@ module.exports = function(router) {
 		});
 	});
 
-	// Primary school statement page
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/school-level', function (req, res) {			
+	// Primary school statement page - EXAMPLE A
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -179,7 +167,51 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/school-level', {
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion,
+			'glossaryTerms' : 'True',
+			'term1' : dynamicTerm1,
+			'term2' : dynamicTerm2,
+			'term3' : dynamicTerm3,
+			'term4' : dynamicTerm4
+		});
+	});
+
+	// Primary school statement page - EXAMPLE B 
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood', function (req, res) {			
+		
+		searchScope = req.session.searchScope;
+		var dynamicTerm1;
+		var dynamicTerm2;
+		var dynamicTerm3;
+		var dynamicTerm4;
+
+		if (searchScope == "Primary") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		else if (searchScope == "LA") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "True";
+			dynamicTerm3 = "True";
+			dynamicTerm4 = "True";
+		}
+		else {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -220,16 +252,6 @@ module.exports = function(router) {
 	 * VIEW NATIONAL FUNDING FORMULA TABLES
 	 * OTHER PAGES
 	 * **********/
-
-	// Glossary of terms
-	router.get('/' + version + '/not-signed-in/glossary-of-terms', function (req, res) {
-		res.render(version + '/not-signed-in/glossary-of-terms', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'glossaryTerms' : 'False'
-		});
-	});
 	
 	// Display when users enter a search term which returns zero results
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results', function (req, res) {
