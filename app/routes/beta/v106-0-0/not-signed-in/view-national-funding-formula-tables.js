@@ -44,7 +44,6 @@ module.exports = function(router) {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
-			'glossaryTerms' : 'True',
 			'term1' : 'True'
 		});
 	});
@@ -90,14 +89,14 @@ module.exports = function(router) {
 			
 			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true&error1=true');
 		}
-		// Turn pagination on (search term on "abbey" or "Abbey" with > 25 results)
-		else if (schoolOrAcademy == "abbey" || schoolOrAcademy == "paging" || schoolOrAcademy == "show filter search") {
+		// Return Hackwood primary
+		else if (schoolOrAcademy == "hackwood") {
 			
 			req.session.searchScope = "Primary";
 			req.session.searchTerm = schoolOrAcademy;
-			req.session.didYouMean = "Yes";
+			req.session.didYouMean = "No";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?paginationRequired=true&page1=true');
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood');
 		}
 		// Show the did you mean page for anything else
 		else {
@@ -175,7 +174,6 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'didYouMean' : req.session.didYouMean,
 			'toggleVersion' : req.query.toggleVersion,
-			'glossaryTerms' : 'True',
 			'term1' : dynamicTerm1,
 			'term2' : dynamicTerm2,
 			'term3' : dynamicTerm3,
@@ -219,7 +217,6 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'didYouMean' : req.session.didYouMean,
 			'toggleVersion' : req.query.toggleVersion,
-			'glossaryTerms' : 'True',
 			'term1' : dynamicTerm1,
 			'term2' : dynamicTerm2,
 			'term3' : dynamicTerm3,
@@ -241,7 +238,6 @@ module.exports = function(router) {
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
-			'glossaryTerms' : 'True',
 			'term1' : 'True',
 			'term3' : 'True'
 		});
@@ -265,7 +261,6 @@ module.exports = function(router) {
 			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchTerm' : req.session.searchTerm,
-			'glossaryTerms' : 'True',
 			'term1' : 'True'
 		});
 	});
