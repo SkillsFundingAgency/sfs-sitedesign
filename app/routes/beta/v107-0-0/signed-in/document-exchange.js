@@ -66,7 +66,8 @@ module.exports = function(router) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL,
+			'docExExternal' : "true"
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {		
@@ -460,7 +461,8 @@ module.exports = function(router) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL,
+			'docExExternal' : "true"
 		});
 	});
 	router.post('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
@@ -1088,7 +1090,8 @@ module.exports = function(router) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL,
+			'docExInternal' : "true"
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/start', function (req, res) {		
