@@ -1,7 +1,7 @@
 
 
 /**********
- * CUSTOM STYLES (CSS)
+ * CUSTOM STYLES - MYESF (CSS)
  * **********/
 
  /* Chris Harding (24.10.19) - TEMPORARY CSS workaround so that we can have GOV.UK Elements and GOV.UK Design System ones in our prototype without broken styling (e.g. having <h1> tags in the <legend>) */
@@ -12,232 +12,48 @@
 	margin-bottom: 0;
 }
 
-/* iFrame CSS (Site Map) */
-@media (max-width: 431px) {
-	.next a:before {
-		background: url('arrow-sprite.png') no-repeat -80px -7px;
-		background-position-x: right;
-		background-position-y: center;
-		display: block;
-		float: right;
-		width: 20px;
-		height: 24px;
-		background-size: 250%;
-		content: " ";
-	}
-}
-@media (max-width: 431px) {
-	.previous a:before {
-		background: url('arrow-sprite.png') no-repeat -80px -7px;
-		background-position-x: left;
-		background-position-y: center;
-		display: block;
-		float: left;
-		width: 20px;
-		height: 24px;
-		background-size: 250%;
-		content: " ";
-	}
-}
-@media (max-width: 550px) {
-	.hidden-page-items {
-		display: none;
-	}
-}
-@media (max-width: 550px) {
-	.next {
-		margin-left: 15px;
-	}
-}
-@media (max-width: 290px) {
-	.next {
-		padding-top: 5px;
-		margin-top: 5px;
-		margin-left: 0px;
-	}
-}
-.page {
-	margin: 0 10px 20px 0;
-	display: inline-block;
-	width: 32%;
-	position: relative;
-}
-.page--playlist:after {
-	content: "";
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	background: url('/public/images/chevron.svg') 0 0 no-repeat;
-	position: absolute;
-	top: 50%;
-	right: -15px;
-	background-size: 15px 15px;
-}
-.page:last-child:after {
-	display: none;
-}
-.page-playlist--withroute {
-	transform: translateX(50px)
-}
-.page-playlist--childroute {
-	transform: translateX(100px)
-}
-.page--route-heading:before {
-	content: "";
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	background: url('/public/images/chevron.svg') 0 0 no-repeat;
-	position: absolute;
-	top: 0;
-	left: -30px;
-	background-size: 15px 15px;
-	height: 260px;
-	background-position: 0 66%;
-	border-left: 5px solid;
-}
-.page h2 {
-	word-break: break-word;
-	font-size: 0.8em;
-	line-height: 1.1;
-	padding-bottom: 5px;
-}
-.page-inner {
-	border: 1px solid #000;
-	width: 100%;
-	overflow: hidden;
-	height: 200px;
-	background: #fff url('/public/images/loader.svg') 50% 50% no-repeat;
-}
-.page--exit .page-inner {
-	background: none;
-	padding: 20px;
-	box-sizing: border-box;
-}
-.page--exit {
-	height: 100%;
-	background: #005ea5;
-	color: white;
-}
-#userJourneyFrames {
-	width: 300%;
-	height: 600px;
-	transform: scale(0.33333);
-	transform-origin: 0 0;
-	background: none;
-	border: 0;
-}
-.page-width-wrapper {
-	position: relative;
-	margin-top: 3em;
-	width: 250px;
-}
-.page-width {
-	width: 100%;
-}
-.page-width:after {
-	content: "";
-	display: inline-block;
-	width: 30px;
-	height: 30px;
-	background: url('/public/images/desktop.svg') 50% 50% no-repeat;
-}
-.page-width[data-device="desktop"]:after {
-	background-image: url('/public/images/desktop.svg')
-}
-.page-width[data-device="tablet"]:after {
-	background-image: url('/public/images/tablet.svg')
-}
-.page-width[data-device="mobile"]:after {
-	background-image: url('/public/images/mobile.svg')
-}
-input[type="range"] {
-	width: calc(100% - 40px);
-	display: inline-block;
-	margin: 0;
-}
-input[type="range"]::-moz-range-track {
-	height: 1px;
-}
-input[type=range]::-moz-range-thumb {
-	height: 12px;
-	width: 12px;
-	background: #ccc;
-	border: 1px solid #aaa;
-}
-output {
-	position: absolute;
-	right: 0;
-	top: 0.25em;
-	font-size: 0.8em;
-	opacity: 0.8;
-}
-output:after {
-	content: "px";
-}
-.non-playlisted {
-	padding: 2em 1em;
-	background: lightgray;
-	margin: 0 -1em;
-}
-.non-playlisted:before {
-	content: "Pages not added to playlist";
-	display: block;
-	padding-bottom: 1em;
-}
-@media (min-width: 641px){
-	.block-label {
-		float: left;
-	}
-}
-.block-label {
-	display: block;
-	float: none;
-	clear: left;
-	position: relative;
-	background: #dee0e2;
-	border: 1px solid #dee0e2;
-	padding: 18px 30px 15px 54px;
-	margin-bottom: 10px;
-	cursor: pointer;
-}
-.js-enabled label.selected {
-	background: #fff;
-	border-color: #0b0c0c;
-}
+/**********
+* GLOBAL
+* CAN BE USED IN ALL JOURNEYS
+* **********/
 
-/* General */
-@media (min-width: 641px) {
-    .heading-medium-global {
-        margin-top: 1.875em;
-    }
+/* GOV.UK prototyp;ing kit (v6.1.0) workaround to hide the menu which appears in mobile view (< 641 pixels) */
+#global-header .header-proposition a.menu {
+    display: none;
 }
-.after-error-summary {
-	margin-top: -15px;
+/* Chris Harding (15.08.19) - Approved (by ESFA) UK government ESFA banner to use across the MyESF service and associated sub services where needed */
+.esfa-banner-container {
+	font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
+	font-size: 15px;
+	font-weight: 400;
+	display: inline-block;
+	width: 100%;
+	height: 20px;
+	border-bottom: 1px solid #bfc1c3;
+	padding: 8px 0 8px 0;
 }
 @media (min-width: 641px) {
-	.after-error-summary {
-		margin-top: -30px;
+	.esfa-banner-container {
+		font-size: 18px;
+		height: 26px;
+		padding: 10px 0 10px 0;
 	}
 }
-.final-column {
-	padding-right: 0px;
+.esfa-banner-crest-image {
+	float: left;
+	width: auto;
+	max-height: 20px;
+	border-left: 2px solid #003a69;
+	padding: 0 5px;
 }
-.remove:link, .remove:visited, .remove:hover, .remove:active, .remove:focus {
-	background-color: rgb(177, 14, 30)
-}
-.non-linked-error {
-	color: #b10e1e;
-	font-weight: bold;
-	text-decoration: none;
-}
-.document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
-	font-size: 14px;
-}
-@media (min-width: 741px) {
-	.document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
-		font-size: 16px;
+@media (min-width: 641px) {
+	.esfa-banner-crest-image {
+		max-height: 26px;
 	}
+} 
+.esfa-banner-crest-name {
+	display: inline-block;
+	vertical-align: middle;
 }
 
 /* Chris Harding (05.05.19) - Addition of styling for the global related (aside) navigation section */
@@ -272,6 +88,58 @@ output:after {
 	.related-links {
 		margin-top: 15px;
 	}
+}
+
+/* Headings */
+@media (min-width: 641px) {
+    .heading-medium-global {
+        margin-top: 1.875em;
+    }
+}
+
+/* Errors and validation */
+.after-error-summary {
+	margin-top: -15px;
+}
+@media (min-width: 641px) {
+	.after-error-summary {
+		margin-top: -30px;
+	}
+}
+.non-linked-error {
+	color: #b10e1e;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+/* Any document or results list */
+.document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
+	font-size: 14px;
+}
+@media (min-width: 741px) {
+	.document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
+		font-size: 16px;
+	}
+}
+
+/* Margin and padding */
+.no-margin-top {
+	margin-top: 0px !important;
+}
+.no-margin-bottom {
+	margin-bottom: 0px !important;
+}
+.no-padding-top {
+	padding-top: 0px !important;
+}
+.final-column {
+	padding-right: 0px;
+}
+
+/* Request an accessible format */
+.hidden-section {
+	font-size: 19px;
+    padding-top: 10px;
 }
 
 /* Chris Harding (15.10.18) - Inclusion of the 'introducing a new service' CSS used in the GOV.UK Verify service (https://introduction-slides-pattern.herokuapp.com) */
@@ -504,7 +372,7 @@ output:after {
 	}
 }
 
-/* Chris Harding (22.10.18) - Styling for the chosen (now global) tile dashboard design */
+/* Chris Harding (22.10.18) - Styling for the chosen (GLOBAL) tile dashboard design */
 .dashboard-links {
 	margin-bottom: 20px;
 }
@@ -565,7 +433,7 @@ a.dashboard-links {
 }
 
 /* Chris Harding (07.01.19) - Filters, sorting and checkboxes */
-/* FILTERING (Inline) */
+/* Filtering (Inline) */
 .column-filter-one-third {
 	padding: 0px 15px 0px 0px;
 }
@@ -707,7 +575,7 @@ a.dashboard-links {
 .filter-keyboard a {
 	text-decoration: none;
 }
-/* FILTERING (Stacked) */
+/* Filtering (Stacked) */
 .column-filter-full {
 	padding: 0px;
 }
@@ -893,7 +761,7 @@ input.filter-search[type="text"], input.filter-search[type="search"] {
 	margin: 0 0.5em;
 	padding: 0.25em;
 }
-/* SORTING */
+/* Sorting table columns */
 @media (min-width: 641px) {
 	.column-document-list-two-thirds {
 		padding: 0px 0px 0px 15px;
@@ -981,7 +849,7 @@ a.tab-header .hod-chevron-down:first-child {
 .chevron-size {
 	font-size: x-small;
 }
-/* CHECKBOXES */
+/* Checkboxes */
 .document-checkbox-th {
 	vertical-align: top;
 	margin: 0px;
@@ -1059,20 +927,6 @@ a.tab-header .hod-chevron-down:first-child {
 }
 .govuk-tag-secondary-heading {
 	vertical-align: middle;
-}
-
-/* Chris Harding (19.10.18) - File upload CSS */
-#fileInput0 {
-	font-size: 16px;
-}
-#documentsToSend table, #documentsToSend th, #documentsToSend tr, #documentsToSend td {
-	font-size: 16px;
-}
-#uploadAnotherDiv {
-	margin: 20px 0;
-}
-#button-to-remove {
-	background-color: #b10e1e;
 }
 
 /* Chris Harding (30.10.18) - Pagination */
@@ -1154,7 +1008,838 @@ a.tab-header .hod-chevron-down:first-child {
 	height: 0.968em;
 }
 
-/* Chris Harding (18.12.18) - Allocation Statements (Adults) statement list page */
+/**********
+* PROTOTYPE
+* SCREEN FLOWS PAGE
+* **********/
+
+/* iFrame CSS (Site Map) */
+@media (max-width: 431px) {
+	.next a:before {
+		background: url('arrow-sprite.png') no-repeat -80px -7px;
+		background-position-x: right;
+		background-position-y: center;
+		display: block;
+		float: right;
+		width: 20px;
+		height: 24px;
+		background-size: 250%;
+		content: " ";
+	}
+}
+@media (max-width: 431px) {
+	.previous a:before {
+		background: url('arrow-sprite.png') no-repeat -80px -7px;
+		background-position-x: left;
+		background-position-y: center;
+		display: block;
+		float: left;
+		width: 20px;
+		height: 24px;
+		background-size: 250%;
+		content: " ";
+	}
+}
+@media (max-width: 550px) {
+	.hidden-page-items {
+		display: none;
+	}
+}
+@media (max-width: 550px) {
+	.next {
+		margin-left: 15px;
+	}
+}
+@media (max-width: 290px) {
+	.next {
+		padding-top: 5px;
+		margin-top: 5px;
+		margin-left: 0px;
+	}
+}
+.page {
+	margin: 0 10px 20px 0;
+	display: inline-block;
+	width: 32%;
+	position: relative;
+}
+.page--playlist:after {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('/public/images/chevron.svg') 0 0 no-repeat;
+	position: absolute;
+	top: 50%;
+	right: -15px;
+	background-size: 15px 15px;
+}
+.page:last-child:after {
+	display: none;
+}
+.page-playlist--withroute {
+	transform: translateX(50px)
+}
+.page-playlist--childroute {
+	transform: translateX(100px)
+}
+.page--route-heading:before {
+	content: "";
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	background: url('/public/images/chevron.svg') 0 0 no-repeat;
+	position: absolute;
+	top: 0;
+	left: -30px;
+	background-size: 15px 15px;
+	height: 260px;
+	background-position: 0 66%;
+	border-left: 5px solid;
+}
+.page h2 {
+	word-break: break-word;
+	font-size: 0.8em;
+	line-height: 1.1;
+	padding-bottom: 5px;
+}
+.page-inner {
+	border: 1px solid #000;
+	width: 100%;
+	overflow: hidden;
+	height: 200px;
+	background: #fff url('/public/images/loader.svg') 50% 50% no-repeat;
+}
+.page--exit .page-inner {
+	background: none;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.page--exit {
+	height: 100%;
+	background: #005ea5;
+	color: white;
+}
+#userJourneyFrames {
+	width: 300%;
+	height: 600px;
+	transform: scale(0.33333);
+	transform-origin: 0 0;
+	background: none;
+	border: 0;
+}
+.page-width-wrapper {
+	position: relative;
+	margin-top: 3em;
+	width: 250px;
+}
+.page-width {
+	width: 100%;
+}
+.page-width:after {
+	content: "";
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	background: url('/public/images/desktop.svg') 50% 50% no-repeat;
+}
+.page-width[data-device="desktop"]:after {
+	background-image: url('/public/images/desktop.svg')
+}
+.page-width[data-device="tablet"]:after {
+	background-image: url('/public/images/tablet.svg')
+}
+.page-width[data-device="mobile"]:after {
+	background-image: url('/public/images/mobile.svg')
+}
+input[type="range"] {
+	width: calc(100% - 40px);
+	display: inline-block;
+	margin: 0;
+}
+input[type="range"]::-moz-range-track {
+	height: 1px;
+}
+input[type=range]::-moz-range-thumb {
+	height: 12px;
+	width: 12px;
+	background: #ccc;
+	border: 1px solid #aaa;
+}
+output {
+	position: absolute;
+	right: 0;
+	top: 0.25em;
+	font-size: 0.8em;
+	opacity: 0.8;
+}
+output:after {
+	content: "px";
+}
+.non-playlisted {
+	padding: 2em 1em;
+	background: lightgray;
+	margin: 0 -1em;
+}
+.non-playlisted:before {
+	content: "Pages not added to playlist";
+	display: block;
+	padding-bottom: 1em;
+}
+@media (min-width: 641px){
+	.block-label {
+		float: left;
+	}
+}
+.block-label {
+	display: block;
+	float: none;
+	clear: left;
+	position: relative;
+	background: #dee0e2;
+	border: 1px solid #dee0e2;
+	padding: 18px 30px 15px 54px;
+	margin-bottom: 10px;
+	cursor: pointer;
+}
+.js-enabled label.selected {
+	background: #fff;
+	border-color: #0b0c0c;
+}
+
+/**********
+* NOT SIGNED-IN (PUBLIC)
+* PE AND SPORT PREMIUM
+* **********/
+
+/* Chris Harding (05.04.19) - PE and sport styling for the floating left and right hand side sections */
+.section-left {
+	padding: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@media (min-width: 641px) {
+	.section-left {
+		float: left;
+		width: 66.66667%;
+		padding: 0px 15px 0px 0px;
+	}
+}
+.section-right {
+	padding: 0px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@media (min-width: 641px) {
+	.section-right {
+		float: right;
+		width: 33.33333%;
+		padding: 0px 0px 0px 15px;
+	}
+}
+
+/**********
+* NOT SIGNED-IN (PUBLIC)
+* VIEW LATEST FUNDING
+* **********/
+
+/* Chris Harding (24.04.19) - Single funding statement styling for all financial figures (right floated) */
+/* GOV.UK Design System accordion component (https://design-system.service.gov.uk/components/accordion) */
+.govuk-accordion__open-all {
+	font-size: 14px !important;
+}
+@media (min-width: 641px) {
+	.govuk-accordion__open-all {
+		font-size: 16px !important;
+	}
+}
+.govuk-accordion__single-funding-statement-header {
+	padding-top: 10px !important;
+	padding-right: 100px !important; 
+}
+@media (min-width: 641px) {
+	.govuk-accordion__single-funding-statement-header {
+		padding-right: 0px;
+	}
+}
+.govuk-accordion__section-button {
+	font-size: 19px;
+	padding-right: 0px;
+}
+@media (min-width: 641px) {
+	.govuk-accordion__section-button {
+		font-size: 24px;
+		padding-right: 0px;
+	}
+}
+.govuk-accordion__heading-text-left {
+	float: left;
+	width: 66.66667%;
+	margin: 0px;
+	padding: 0px;
+}
+.govuk-accordion__heading-number-right {
+	margin: 0px;
+	padding: 0px;
+}
+@media (min-width: 641px) {
+	.govuk-accordion__heading-number-right {
+		float: right;
+		width: 33.33333%;
+		text-align: right;
+	}
+}
+@media (max-width: 641px) {
+	.govuk-accordion__heading-number-right {
+		display: none;
+	}
+}
+.govuk-accordion__section-summary {
+	font-size: 16px;
+	margin-bottom: 5px;
+}
+@media (min-width: 641px) {
+	.govuk-accordion__section-summary {
+		font-size: 19px;
+	}
+}
+.govuk-accordion__section-content {
+	margin-bottom: 5px;
+}
+.govuk-body {
+	font-size: 16px !important;
+}
+@media (min-width: 641px) {
+	.govuk-body {
+		font-size: 19px !important;
+	}
+}
+.hidden-sub-section {
+	font-size: 19px;
+	font-weight: bold;
+}
+@media (min-width: 641px) {
+	.hidden-sub-section {
+		display: none;
+	}
+}
+.footer-guidance {
+	padding-bottom: 15px;
+}
+
+/* Floats (left and right) */
+.funding-block {
+	padding-bottom: 5px;
+}
+.funding-margin-bottom {
+	margin-bottom: 10px;
+}
+@media (min-width: 641px) {
+	.funding-margin-bottom {
+		margin-bottom: 20px;
+	}
+}
+.funding-left-container {
+	float: left;
+	margin: 0px;
+	padding: 0px;
+}
+@media (min-width: 641px) {
+	.funding-left-container {
+		padding: 0px;
+	}
+}
+.funding-left-text {
+	margin: 0px;
+	padding: 0px;
+}
+.funding-right-container {
+	clear: left;
+	text-align: inherit;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 10px;
+	padding-left: 0px;
+}
+@media (min-width: 641px) {
+	.funding-right-container {
+		clear: none;
+		text-align: right;
+		padding: 0px;
+	}
+}
+.funding-right-text {
+	margin-top: 0px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+}
+@media (min-width: 641px) {
+	.funding-right-text {
+		margin-top: 0px;
+		margin-right: 100px;
+		margin-bottom: 0px;
+		margin-left: 10px;
+	}
+}
+.variance-heading {
+	font-size: 16px;
+}
+@media (min-width: 641px) {
+	.variance-heading {
+		font-size: 19px;
+	}
+}
+.variance {
+	font-size: 13px;
+}
+@media (min-width: 641px) {
+	.variance {
+		font-size: 16px;
+	}
+}
+.total {
+	font-size: 19px;
+	font-weight: bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+@media (min-width: 641px) {
+	.total {
+		font-size: 24px;
+	}
+}
+.bold-lede {
+	font-weight: bold !important;
+}
+.gem-c-related-navigation__hidden-sub-section {
+	padding-bottom: 5px;
+}
+.gem-c-related-navigation__hidden-sub-section-last {
+	padding-bottom: 0px;
+}
+
+/* Chris Harding (15.05.19) - Dedicated schools grant (DSG) styling to show different funding blocks in tabs */
+/* GOV.UK Design System tabs component (https://design-system.service.gov.uk/components/tabs) */
+/* Tabs */
+.govuk-tabs {
+	font-size: 16px !important;
+}
+@media (min-width: 641px) {
+	.govuk-tabs {
+		font-size: 19px !important;
+	}
+}
+.govuk-tabs__title {
+	font-size: 16px !important;
+}
+@media (min-width: 641px) {
+	.govuk-tabs__title {
+		font-size: 19px !important;
+	}
+}
+.govuk-tabs__list-item {
+	font-size: 16px !important;
+}
+@media (min-width: 641px) {
+	.govuk-tabs__list-item {
+		font-size: 19px !important;
+	}
+}
+.govuk-tabs__tab {
+	font-size: 16px !important;
+}
+@media (min-width: 641px) {
+	.govuk-tabs__tab {
+		font-size: 19px !important;
+	}
+}    
+.govuk-tabs__list-item::before {
+	content: "\2014 ";
+	margin-left: -25px;
+	padding-right: 5px;
+}
+.clearfix {
+	clear: both;
+}
+
+/* Chris Harding (04.11.19) - New CSS for the DSG breakdown of funding (within tabs) so all views are responsive */
+/* Lower level table design for each tab and block */
+.funding-breakdown table, .funding-breakdown thead, .funding-breakdown th, .funding-breakdown tbody, .funding-breakdown tr, .funding-breakdown td {
+	font-size: 14px;
+}
+@media (min-width: 641px) {
+	.funding-breakdown table, .funding-breakdown thead, .funding-breakdown th, .funding-breakdown tbody, .funding-breakdown tr, .funding-breakdown td {
+		font-size: 19px;
+	}
+}
+.govuk-table__header {
+	width: 25% !important;
+}
+.first-table-below-tab {
+	margin-top: 10px;
+}
+@media (min-width: 641px) {
+	.first-table-below-tab {
+		margin-top: 20px;
+	}
+}
+.table-header-normal {
+	font-weight: normal;
+}
+.padding-details {
+	padding-bottom: 20px;
+}
+.padding-top-heading-total {
+	padding-top: 10px;
+}
+.heading-guidance {
+	padding-top: 0px;
+}
+@media (min-width: 641px) {
+	.heading-guidance {
+		padding-top: 15px;
+	}
+}
+.heading-guidance-final-section {
+	padding-top: 0px;
+	margin-top: 0px;
+}
+@media (min-width: 641px) {
+	.heading-guidance-final-section {
+		padding-top: 15px;
+	}
+}
+.heading-funding-summary {
+	margin-top: 5px;
+}
+.total-allocation-container {
+	box-sizing: border-box;
+	float: left;
+	width: 100%;
+	margin-bottom: 0px;
+	padding-bottom: 40px;
+}
+@media (min-width: 641px) {
+	.total-allocation-container {
+		margin-bottom: 10px;
+	}
+}
+/* Funding block tab total summary tables */ 
+.total-allocation-wrapper {
+	width: 100%;
+	display: inline-block;
+	padding-top: 0px;
+}
+@media (min-width: 641px) {
+	.total-allocation-wrapper {
+		padding-top: 10px;
+	}
+}
+.total-allocation-label {
+	float: left;
+}
+@media (min-width: 321px) { /* Display inline on the right for all resolutions up to an iPhone 5/SE (321 pixels wide) */
+	.total-allocation-label { 
+		width: 50%;
+	}
+}
+.total-allocation-amount {
+	clear: left;
+	width: 100%;
+	text-align: inherit;
+}
+@media (min-width: 321px) { /* Display inline on the right for all resolutions up to an iPhone 5/SE (321 pixels wide) */
+	.total-allocation-amount { 
+		clear: none;
+		text-align: right;
+	}
+}
+.detailed-funding-block-wrapper {
+	margin: 0px;
+	padding-bottom: 15px;
+}
+@media (min-width: 641px) {
+	.detailed-funding-block-wrapper {
+		padding-bottom: 0px;
+	}
+}
+.detailed-funding-block-wrapper ul {
+	margin-bottom: 0px;
+}
+
+/* Print section and icon */
+.block-header-print-no-tabs {
+	display: inherit;
+	padding-bottom: 30px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+@media (min-width: 641px) {
+	.block-header-print-no-tabs {
+		display: none;
+	}
+}
+.block-header-print-tabs {
+	display: none;
+}
+@media (min-width: 641px) {
+	.block-header-print-tabs {
+		display: inherit;
+	}
+}
+.fa {
+	padding: 0 0.3em 0 0;
+}
+.block-header-total {
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@media (min-width: 641px) {
+    .block-header-total {
+        float: left;
+        width: 78%;
+    }
+}
+.block-header-print {
+    padding: 0 15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@media (min-width: 641px) {
+    .block-header-print {
+		text-align: right;
+    }
+}
+
+/* James Mckechnie (28.06.19) - Cards */
+/* GOV.UK Design System cards component (https://github.com/alphagov/govuk-design-system-backlog/issues/113) currently EXPERIMENTAL */
+.card {
+	display: block;
+	float: left;
+	margin-bottom: 30px;
+}
+.card__body {
+	display: block;
+	padding-top: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	padding-left: 1em;
+	background-color: rgb(222, 224, 226);
+	color: rgb(11, 12, 12);
+	text-decoration-line: none;
+	text-decoration-style: initial;
+	text-decoration-color: initial;
+}
+a.card__body {
+	color: rgb(0, 94, 165);
+}
+.card__body span {
+	display: block;
+}
+.card__footer {
+	display: block;
+	background-color: rgb(248, 248, 248);
+	padding-top: 1em;
+	padding-right: 1em;
+	padding-bottom: 1em;
+	padding-left: 1em;
+}
+
+/* James Mckechnie (08.04.19) - VLF (PE and sport) styling for the published date font under the document download link */
+.published-date {
+	font-weight: normal;
+}
+
+/* Chris Harding (20.08.19) - Support section for users including the following:
+	a) Dynamic list of terms listed on each page (taken from the master glossary-of-terms.html)
+	b) Link to the master glossary of terms page
+	c) Contact us link
+*/
+.glossary-link  {
+	position: relative;
+	padding-top: 60px;
+}
+.glossary-link summary {
+	font-family: "nta", Arial, sans-serif;
+	font-weight: 400;
+	font-size: 14px;
+	color: #0b0c0c;
+	line-height: 1.14286;
+	padding-left: 0px 
+
+}
+@media (min-width: 641px) {
+	.glossary-link summary {
+		font-size: 16px;
+		line-height: 1.25;
+	}
+}
+.glossary-link details summary:before {
+	display: none;
+}
+.glossary-link details[open] > summary:before {
+	display: none;
+}
+.glossary-link summary:link, .glossary-link summary:visited, .glossary-link summary:hover, .glossary-link summary:active, .glossary-link summary:focus {
+	color: #0b0c0c;
+}
+
+/* Chris Harding (04.09.19) - New dynamic download section for the public VLF sub service also allowing users to request an alternative accessible format */
+/* Icon */
+.download-a-document-container {
+	padding-bottom: 0px;
+}
+@media (min-width: 641px) {
+	.download-a-document-container {
+		padding-bottom: 10px;
+	}
+}
+.download-a-document {
+	display: block;
+	font-weight: 600;
+	background: url('/public/images/beta/v105-0-0/icon-file-download.png') no-repeat scroll 0 0;
+	min-height: 2.5em;
+	padding: 0 0 0 2.5em;
+}
+/* Content */
+.download-a-document-content {
+	font-size: 16px;
+	font-weight: normal;
+	display: inline-grid;
+}
+.download-a-document-section-1 {
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+.download-a-document-section-2 {
+	display: block;
+}
+
+/* Chris Harding (05.09.19) - TEMPORARY design and content solution for the business requirement to not round all pupil numbers and have up to 11 decimal places */
+.decimal {
+	font-size: 13px;
+}
+@media (min-width: 641px) {
+	.decimal {
+		font-size: 16px;
+		line-height: 1.25;
+	}
+}
+
+/* Chris Harding (26.09.19) - Styling of a third party (OPEN SOURCE) accessible tooltip and modal which was taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) */
+.modal-link:link, .modal-link:visited, .modal-link:hover, .modal-link:active, .modal-link:focus {
+	color: #0b0c0c;
+}
+#page {
+	width: 960px;
+}
+dialog {
+	display: block;
+}
+.no-scroll-html {
+	overflow: hidden;
+}
+.no-scroll {
+	overflow: hidden;
+}
+.modal-overlay {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	background: #000;
+	opacity: .8;
+	z-index: 666;
+	cursor: pointer;
+}
+.modal {
+	font-family: "nta", Arial, sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	font-size: 16px;
+	line-height: 1.25;
+	-webkit-font-smoothing: antialiased;
+	position: fixed;
+	left: 0;
+	top: 25%;
+	width: 50%;
+	right: 0;
+	margin: 0 auto;
+	border: 1px solid #000;; 
+	background: #fff;
+	z-index: 667;
+	padding: 1em 2em 1em 2em;
+	overflow: auto;
+}
+@media (min-width: 641px) {
+	.modal {
+		font-size: 19px;
+		line-height: 1.31579;
+	}
+}
+.modal-close {
+	float: right;
+	font-family: "nta", Arial, sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	font-size: 16px;
+	line-height: 1.25;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1.2;
+	background: none !important;
+	border: none;
+	padding: 0 !important;
+	color: #069;
+	text-decoration: underline;
+	cursor: pointer;
+}
+.modal-close:link {
+	color: #005ea5;
+}
+.modal-close:visited {
+	color: #4c2c92;
+}
+.modal-close:hover {
+	color: #2b8cc4;
+}
+.modal-close:active {
+	color: #2b8cc4;
+}
+.modal-close:focus {
+	background: #ffbf47 !important;
+}
+@media (min-width: 641px) {
+	.modal-close {
+		font-size: 19px;
+		line-height: 1.31579;
+	}
+}
+#modal-title {
+	margin-top: 1.0em;
+	margin-bottom: 1.0em;
+}
+@media (min-width: 641px) {
+	#modal-title {
+		margin-top: 0.6em;
+		margin-bottom: 0.55556em;
+	}
+}
+
+/**********
+* SIGNED-IN
+* ALLOCATION STATEMENTS (ADULTS)
+* **********/
+
+/* Chris Harding (18.12.18) - Styling for the view all statements list page */
 .as-tab, .as-tab.active {
 	display: block;
 }
@@ -1186,7 +1871,7 @@ a.tab-header .hod-chevron-down:first-child {
 	}
 }
 
-/* Chris Harding (18.12.18) - Allocation Statements (Adults) styling for statement pages */
+/* Chris Harding (18.12.18) - Styling for all statement pages */
 .table-with-no-borders table, .table-with-no-borders th, .table-with-no-borders td {
 	border: none;
 }
@@ -1211,7 +1896,43 @@ a.tab-header .hod-chevron-down:first-child {
 	font-weight: normal;
 }
 
+/* James Mckechnie (21/01/2019) - Additional CSS styling for the view all statements list page */
+@media screen and (min-width: 780px) {
+	.parent-wrapper {
+    	width: 66.66%;
+    	display: inline-block;
+    }
+	.amount-wrapper {
+        float: right;
+    }
+}
+@media screen and (max-width: 780px) {
+.amount-wrapper {
+    padding-top: 10px;
+    }
+}
+
+/**********
+* SIGNED-IN
+* DOCUMENT EXCHANGE
+* **********/
+
+/* Chris Harding (19.10.18) - File upload CSS */
+#fileInput0 {
+	font-size: 16px;
+}
+#documentsToSend table, #documentsToSend th, #documentsToSend tr, #documentsToSend td {
+	font-size: 16px;
+}
+#uploadAnotherDiv {
+	margin: 20px 0;
+}
+#button-to-remove {
+	background-color: #b10e1e;
+}
+
 /* GOV.UK (Search) CSS */
+/* LEGACY (POSSIBLY OK TO REMOVE) - START */
 .search-section {
 	margin-bottom: 15px;
 }
@@ -1457,647 +2178,4 @@ a.tab-header .hod-chevron-down:first-child {
 button {
 	font-size: 19px;
 }
-
-/* James Mckechnie (21/01/2019) - Styling for Allocation Statements list */
-@media screen and (min-width: 780px) {
-	.parent-wrapper {
-    	width:66.66%;
-    	display: inline-block;
-    }
-	.amount-wrapper {
-        float: right;
-    }
-}
-@media screen and (max-width: 780px) {
-.amount-wrapper {
-    padding-top: 10px;
-    }
-}
-
-/* Chris Harding (05.04.19) - PE and sport styling for the floating left and right hand side sections */
-.section-left {
-	padding: 0px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-@media (min-width: 641px) {
-	.section-left {
-		float: left;
-		width: 66.66667%;
-		padding: 0px 15px 0px 0px;
-	}
-}
-.section-right {
-	padding: 0px;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-@media (min-width: 641px) {
-	.section-right {
-		float: right;
-		width: 33.33333%;
-		padding: 0px 0px 0px 15px;
-	}
-}
-
-/* James Mckechnie (08.04.19) - PE and sport styling for the published date font under the document download link */
-.published-date {
-	font-weight: normal;
-}
-
-/* Chris Harding (24.04.19) - Single funding statement styling for all financial figures (right floated) */
-/* GOV.UK Design System accordion component (https://design-system.service.gov.uk/components/accordion) */
-.govuk-accordion__open-all {
-	font-size: 14px !important;
-}
-@media (min-width: 641px) {
-	.govuk-accordion__open-all {
-		font-size: 16px !important;
-	}
-}
-.govuk-accordion__single-funding-statement-header {
-	padding-top: 10px !important;
-	padding-right: 100px !important; 
-}
-@media (min-width: 641px) {
-	.govuk-accordion__single-funding-statement-header {
-		padding-right: 0px;
-	}
-}
-.govuk-accordion__section-button {
-	font-size: 19px;
-	padding-right: 0px;
-}
-@media (min-width: 641px) {
-	.govuk-accordion__section-button {
-		font-size: 24px;
-		padding-right: 0px;
-	}
-}
-.govuk-accordion__heading-text-left {
-	float: left;
-	width: 66.66667%;
-	margin: 0px;
-	padding: 0px;
-}
-.govuk-accordion__heading-number-right {
-	margin: 0px;
-	padding: 0px;
-}
-@media (min-width: 641px) {
-	.govuk-accordion__heading-number-right {
-		float: right;
-		width: 33.33333%;
-		text-align: right;
-	}
-}
-@media (max-width: 641px) {
-	.govuk-accordion__heading-number-right {
-		display: none;
-	}
-}
-.govuk-accordion__section-summary {
-	font-size: 16px;
-	margin-bottom: 5px;
-}
-@media (min-width: 641px) {
-	.govuk-accordion__section-summary {
-		font-size: 19px;
-	}
-}
-.govuk-accordion__section-content {
-	margin-bottom: 5px;
-}
-.govuk-body {
-	font-size: 16px !important;
-}
-@media (min-width: 641px) {
-	.govuk-body {
-		font-size: 19px !important;
-	}
-}
-.hidden-sub-section {
-	font-size: 19px;
-	font-weight: bold;
-}
-@media (min-width: 641px) {
-	.hidden-sub-section {
-		display: none;
-	}
-}
-/* Floats (left and right) */
-.funding-block {
-	padding-bottom: 5px;
-}
-.funding-margin-bottom {
-	margin-bottom: 10px;
-}
-@media (min-width: 641px) {
-	.funding-margin-bottom {
-		margin-bottom: 20px;
-	}
-}
-.funding-left-container {
-	float: left;
-	margin: 0px;
-	padding: 0px;
-}
-@media (min-width: 641px) {
-	.funding-left-container {
-		padding: 0px;
-	}
-}
-.funding-left-text {
-	margin: 0px;
-	padding: 0px;
-}
-.funding-right-container {
-	clear: left;
-	text-align: inherit;
-	margin: 0px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 10px;
-	padding-left: 0px;
-}
-@media (min-width: 641px) {
-	.funding-right-container {
-		clear: none;
-		text-align: right;
-		padding: 0px;
-	}
-}
-.funding-right-text {
-	margin-top: 0px;
-	margin-right: 10px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-}
-@media (min-width: 641px) {
-	.funding-right-text {
-		margin-top: 0px;
-		margin-right: 100px;
-		margin-bottom: 0px;
-		margin-left: 10px;
-	}
-}
-.variance-heading {
-	font-size: 16px;
-}
-@media (min-width: 641px) {
-	.variance-heading {
-		font-size: 19px;
-	}
-}
-.variance {
-	font-size: 13px;
-}
-@media (min-width: 641px) {
-	.variance {
-		font-size: 16px;
-	}
-}
-.total {
-	font-size: 19px;
-	font-weight: bold;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-@media (min-width: 641px) {
-	.total {
-		font-size: 24px;
-	}
-}
-.bold-lede {
-	font-weight: bold !important;
-}
-.gem-c-related-navigation__hidden-sub-section {
-	padding-bottom: 5px;
-}
-.gem-c-related-navigation__hidden-sub-section-last {
-	padding-bottom: 0px;
-}
-
-/* Chris Harding (15.05.19) - Dedicated schools grant (DSG) styling to show different funding blocks in tabs */
-/* GOV.UK Design System tabs component (https://design-system.service.gov.uk/components/tabs) */
-/* Tabs */
-.govuk-tabs {
-	font-size: 16px !important;
-}
-@media (min-width: 641px) {
-	.govuk-tabs {
-		font-size: 19px !important;
-	}
-}
-.govuk-tabs__title {
-	font-size: 16px !important;
-}
-@media (min-width: 641px) {
-	.govuk-tabs__title {
-		font-size: 19px !important;
-	}
-}
-.govuk-tabs__list-item {
-	font-size: 16px !important;
-}
-@media (min-width: 641px) {
-	.govuk-tabs__list-item {
-		font-size: 19px !important;
-	}
-}
-.govuk-tabs__tab {
-	font-size: 16px !important;
-}
-@media (min-width: 641px) {
-	.govuk-tabs__tab {
-		font-size: 19px !important;
-	}
-}    
-.govuk-tabs__list-item::before {
-	content: "\2014 ";
-	margin-left: -25px;
-	padding-right: 5px;
-}
-.clearfix {
-	clear: both;
-}
-
-/* Lower level table design for each tab and block */
-.table-header-normal {
-	font-weight: normal;
-}
-.padding-details {
-	padding-bottom: 20px;
-}
-.padding-funding-breakdown-table {
-	padding-bottom: 20px;
-}
-.padding-top-heading-total {
-	padding-top: 10px;
-}
-.heading-large-tabs {
-	margin-top: 0px !important;
-}
-.heading-guidance {
-	padding-top: 15px;
-}
-.footer-guidance {
-	padding-bottom: 15px;
-}
-.heading-funding-summary {
-	margin-top: 5px;
-}
-.table-with-five-columns_header--numeric {
-	width: 20%;
-	font-weight: normal;
-	padding: 10px 0 10px 20px;
-	border-bottom: 1px solid #bfc1c3;
-	text-align: right;
-}
-.table-with-five-columns_header--numeric--bold {
-	width: 20%;
-	font-weight: bold;
-	padding: 10px 0 10px 20px;
-	border-bottom: 1px solid #bfc1c3;
-	text-align: right;
-}
-.table-with-five-columns_cell--numeric {
-	padding: 10px 0 10px 20px;
-	border-bottom: 1px solid #bfc1c3;
-	text-align: right;
-	font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-weight: 400;
-}
-.table-with-five-columns_cell--numeric--bold {
-	padding: 10px 0 10px 20px;
-	border-bottom: 1px solid #bfc1c3;
-	text-align: right;
-	font-family: "ntatabularnumbers", "nta", Arial, sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	font-weight: bold;
-}
-.first-table-below-tab {
-	margin-top: 10px;
-}
-@media (min-width: 641px) {
-	.first-table-below-tab {
-		margin-top: 20px;
-	}
-}
-
-/* All funding blocks */
-.total-allocation-table table, .total-allocation-table th, .total-allocation-table td {
-	border: none;
-	font-size: x-large;
-	font-weight: bold;
-	padding: 10px 0 10px 0;
-}
-.total-allocation-table--heading {
-	text-align: left;
-}
-.total-allocation-table--amount {
-	text-align: right;
-}
-.total-allocation-container {
-	box-sizing: border-box;
-	float: left;
-	width: 100%;
-	margin-bottom: 10px;
-	padding-bottom: 40px;
-}
-.total-allocation {
-	font-size: x-large;
-	font-weight: bold;
-}
-.total-allocation-table-secondary table, .total-allocation-table-secondary th, .total-allocation-table-secondary td {
-	border: none;
-	font-weight: bold;
-	padding: 10px 0 10px 0;
-}
-.total-allocation-table-secondary--heading {
-	text-align: left;
-}
-.total-allocation-table-secondary--amount {
-	text-align: right;
-}
-.total-allocation--secondary {
-	font-weight: bold;
-}
-
-/* Print action button */
-.fa {
-	padding: 0 0.3em 0 0;
-}
-.block-header-total {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-@media (min-width: 641px) {
-    .block-header-total {
-        float: left;
-        width: 78%;
-    }
-}
-.block-header-print {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-@media (min-width: 641px) {
-    .block-header-print {
-		text-align: right;
-    }
-}
-
-/* James Mckechnie (28.06.19) - Cards */
-/* GOV.UK Design System cards component (https://github.com/alphagov/govuk-design-system-backlog/issues/113) currently EXPERIMENTAL */
-.card {
-	display: block;
-	float: left;
-	margin-bottom: 30px;
-}
-.card__body {
-	display: block;
-	padding-top: 1em;
-	padding-right: 1em;
-	padding-bottom: 1em;
-	padding-left: 1em;
-	background-color: rgb(222, 224, 226);
-	color: rgb(11, 12, 12);
-	text-decoration-line: none;
-	text-decoration-style: initial;
-	text-decoration-color: initial;
-}
-a.card__body {
-	color: rgb(0, 94, 165);
-}
-.card__body span {
-	display: block;
-}
-.card__footer {
-	display: block;
-	background-color: rgb(248, 248, 248);
-	padding-top: 1em;
-	padding-right: 1em;
-	padding-bottom: 1em;
-	padding-left: 1em;
-}
-
-/* Chris Harding (15.08.19) - Approved (by ESFA) UK government ESFA banner to use across MyESF and VYF services when needed */
-.esfa-banner-container {
-	font-family: "HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif;
-	font-size: 15px;
-	font-weight: 400;
-	display: inline-block;
-	width: 100%;
-	height: 20px;
-	border-bottom: 1px solid #bfc1c3;
-	padding: 8px 0 8px 0;
-}
-@media (min-width: 641px) {
-	.esfa-banner-container {
-		font-size: 18px;
-		height: 26px;
-		padding: 10px 0 10px 0;
-	}
-}
-.esfa-banner-crest-image {
-	float: left;
-	width: auto;
-	max-height: 20px;
-	border-left: 2px solid #003a69;
-	padding: 0 5px;
-}
-@media (min-width: 641px) {
-	.esfa-banner-crest-image {
-		max-height: 26px;
-	}
-} 
-.esfa-banner-crest-name {
-	display: inline-block;
-	vertical-align: middle;
-}
-
-/* Chris Harding (20.08.19) - Support section for users including the following:
-	a) Dynamic list of terms listed on each page (taken from the master glossary-of-terms.html)
-	b) Link to the master glossary of terms page
-	c) Contact us link
-*/
-.glossary-link  {
-	position: relative;
-	padding-top: 60px;
-}
-.glossary-link summary {
-	font-family: "nta", Arial, sans-serif;
-	font-weight: 400;
-	font-size: 14px;
-	color: #0b0c0c;
-	line-height: 1.14286;
-	padding-left: 0px 
-
-}
-@media (min-width: 641px) {
-	.glossary-link summary {
-		font-size: 16px;
-		line-height: 1.25;
-	}
-}
-.glossary-link details summary:before {
-	display: none;
-}
-.glossary-link details[open] > summary:before {
-	display: none;
-}
-.glossary-link summary:link, .glossary-link summary:visited, .glossary-link summary:hover, .glossary-link summary:active, .glossary-link summary:focus {
-	color: #0b0c0c;
-}
-
-/* Chris Harding (04.09.19) - New dynamic download section for the public VYF sub service also allowing users to request an alternative accessible format */
-/* ICON */
-.download-a-document-container {
-	padding-bottom: 0px;
-}
-@media (min-width: 641px) {
-	.download-a-document-container {
-		padding-bottom: 10px;
-	}
-}
-.download-a-document {
-	display: block;
-	font-weight: 600;
-	background: url('/public/images/beta/v105-0-0/icon-file-download.png') no-repeat scroll 0 0;
-	min-height: 2.5em;
-	padding: 0 0 0 2.5em;
-}
-/* CONTENT */
-.download-a-document-content {
-	font-size: 16px;
-	font-weight: normal;
-	display: inline-grid;
-}
-.download-a-document-section-1 {
-	margin-top: 15px;
-	margin-bottom: 15px;
-}
-.download-a-document-section-2 {
-	display: block;
-}
-/* REQUEST AN ACCESSIBLE FORMAT */
-.hidden-section {
-	font-size: 19px;
-    padding-top: 10px;
-}
-
-/* Chris Harding (05.09.19) - TEMPORARY design and content solution for the business requirement to not round all pupil numbers and have up to 11 decimal places */
-.decimal {
-	font-size: 16px;
-	line-height: 1.25;
-}
-
-/* Chris Harding (26.09.19) - Styling of a third party (OPEN SOURCE) accessible tooltip and modal which was taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) */
-.modal-link:link, .modal-link:visited, .modal-link:hover, .modal-link:active, .modal-link:focus {
-	color: #0b0c0c;
-}
-#page {
-	width: 960px;
-}
-dialog {
-	display: block;
-}
-.no-scroll-html {
-	overflow: hidden;
-}
-.no-scroll {
-	overflow: hidden;
-}
-.modal-overlay {
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	background: #000;
-	opacity: .8;
-	z-index: 666;
-	cursor: pointer;
-}
-.modal {
-	font-family: "nta", Arial, sans-serif;
-	font-weight: 400;
-	text-transform: none;
-	font-size: 16px;
-	line-height: 1.25;
-	-webkit-font-smoothing: antialiased;
-	position: fixed;
-	left: 0;
-	top: 25%;
-	width: 50%;
-	right: 0;
-	margin: 0 auto;
-	border: 1px solid #000;; 
-	background: #fff;
-	z-index: 667;
-	padding: 1em 2em 1em 2em;
-	overflow: auto;
-}
-@media (min-width: 641px) {
-	.modal {
-		font-size: 19px;
-		line-height: 1.31579;
-	}
-}
-.modal-close {
-	float: right;
-	font-family: "nta", Arial, sans-serif;
-	font-weight: 400;
-	text-transform: none;
-	font-size: 16px;
-	line-height: 1.25;
-	-webkit-font-smoothing: antialiased;
-	line-height: 1.2;
-	background: none !important;
-	border: none;
-	padding: 0 !important;
-	color: #069;
-	text-decoration: underline;
-	cursor: pointer;
-}
-.modal-close:link {
-	color: #005ea5;
-}
-.modal-close:visited {
-	color: #4c2c92;
-}
-.modal-close:hover {
-	color: #2b8cc4;
-}
-.modal-close:active {
-	color: #2b8cc4;
-}
-.modal-close:focus {
-	background: #ffbf47 !important;
-}
-@media (min-width: 641px) {
-	.modal-close {
-		font-size: 19px;
-		line-height: 1.31579;
-	}
-}
-#modal-title {
-	margin-top: 1.0em;
-	margin-bottom: 1.0em;
-}
-@media (min-width: 641px) {
-	#modal-title {
-		margin-top: 0.6em;
-		margin-bottom: 0.55556em;
-	}
-}
+/* LEGACY (POSSIBLY OK TO REMOVE) - END */

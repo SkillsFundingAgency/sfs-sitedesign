@@ -4,10 +4,14 @@
  * PRINT (CSS)
  * **********/
 
-/* Global DOM elements */
+/**********
+* GLOBAL
+* CAN BE USED IN ALL JOURNEYS
+* **********/
+
+/* DOM elements */
 details {
-	padding-top: 5px;
-	padding-bottom: 5px;
+	display: none;
 }
 pre {
 	display: none;
@@ -26,6 +30,16 @@ pre {
 #global-breadcrumb {
 	display: none;
 }
+.heading-small {
+	font-size: 19px;
+}
+
+/**********
+* NOT SIGNED-IN (PUBLIC)
+* VIEW LATEST FUNDING
+* **********/
+
+/* IDs and Classes */
 .govuk-tabs__title {
 	display: none;
 }
@@ -35,35 +49,30 @@ pre {
 .download-a-document-section-2 {
 	display: none;
 }
-.print-page {
+.block-header-print-no-tabs {
+	display: none;
+}
+.block-header-print-tabs {
 	display: none;
 }
 .decimal {
 	display: none;
 }
-.padding-funding-breakdown-table {
-	padding-bottom: 20px;
-}
-.padding-top-heading-total {
-	padding-top: 10px;
-}
-.heading-funding-summary {
-    margin-top: 0px;
-}
-.glossary-link {
-	display: none;
-}
 
-/* DSG funding breakdown */
-.govuk-table {
-    width: 100%;
-}
+/* Styling */
 table {
     width: 100%;
 }
 table th, table td {
 	text-align: left;
 	border-bottom: 1px solid #bfc1c3;
+}
+.govuk-table {
+	width: 100%;
+	padding-bottom: 20px;
+}
+.govuk-table__header {
+	width: 25% !important;
 }
 .govuk-table__caption {
 	text-align: left;
@@ -82,44 +91,29 @@ table th, table td {
 	text-align: left;
     border-bottom: 1px solid #bfc1c3;
 }
-.total-allocation-table table, .total-allocation-table th, .total-allocation-table td {
-	font-weight: bold;
-	font-size: large;
-	border: none;
-	padding: 5px 0 5px 0;
+.heading-funding-summary {
+    margin-top: 0px;
 }
-.total-allocation-table--amount {
-    text-align: right !important;
+.glossary-link {
+	display: none;
 }
-.total-allocation-table--heading {
-	text-align: left;
-	padding-top: 20px;
+.total-allocation-container {
+	box-sizing: border-box;
+    float: left;
+    width: 100%;
+    margin: 0px;
+    padding-bottom: 15px;
 }
-.total-allocation-table-secondary--heading {
-	text-align: left;
-	padding-top: 20px;
+.total-allocation-wrapper {
+	display: inline-block;
+	width: 100%;
 }
-.total-allocation-table-secondary table, .total-allocation-table-secondary th, .total-allocation-table-secondary td {
-	font-weight: bold;
-	border: none;
-	padding: 5px 0 5px 0;
+.total-allocation-label {
+	float: left;
+	width: 50%;
 }
-.total-allocation-table-secondary--amount {
-    text-align: right !important;
-}
-.table-with-five-columns_header--numeric {
-    width: 20%;
-    font-weight: normal;
-    border-bottom: 1px solid #bfc1c3;
-    text-align: right;
-}
-.table-with-five-columns_header--numeric--bold {
-    width: 20%;
-    font-weight: bold;
-    border-bottom: 1px solid #bfc1c3;
-    text-align: right;
-}
-.table-with-five-columns_cell--numeric {
-    border-bottom: 1px solid #bfc1c3;
-    text-align: right;
+.total-allocation-amount {
+	clear: none;
+	text-align: right;
+	width: 100%;
 }
