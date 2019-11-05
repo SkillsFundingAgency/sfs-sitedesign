@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Disclaimer
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-two-thirds">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="allocation-statement-list">Allocation statements</a></li>
+                        <li>Disclaimer</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <form method="post" class="form">
+
+                <div class="form-group">
+                    <h1 class="heading-xlarge no-margin-top">Disclaimer</h1>
+                    <p>I understand that:</p>
+                    <ul class="list list-bullet">
+                        <li>I need to read the <a href="#" rel="external" target="external">further education allocation information (opens in a new tab)</a> (this replaces the allocation statement letter we have sent in previous years)</li>
+                        <li>ESFA can reduce or remove my allocation if they have evidence that public funds are at risk</li>
+                        <li>ESFA can reduce or remove my allocation if I do not meet the criteria for growth when they issue contract variations</li>
+                        <li>allocation statements are not legally binding – they do not create any legal obligation or expectation enforceable against the Secretary of State for Education, acting through the Education and Skills Funding Agency, an executive agency of the Department for Education</li>
+                        <li>I need to read the relevant <a href="https://www.gov.uk/guidance/sfa-funding-rules" rel="external" target="external">funding and performance management rules (opens in a new tab)</a></li>
+                    </ul>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}
