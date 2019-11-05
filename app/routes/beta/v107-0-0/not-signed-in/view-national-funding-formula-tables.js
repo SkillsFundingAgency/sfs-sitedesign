@@ -30,7 +30,7 @@ module.exports = function(router) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'singleFundingStatement' : "true"
+			'nationalFundingFormula' : "true"
 		});
 	});
 	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/start', function (req, res) {		

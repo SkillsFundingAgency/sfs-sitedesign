@@ -33,7 +33,8 @@ module.exports = function(router) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL
+			'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL,
+			'adultAllocations' : "true"
 		});
 	});
 	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {		

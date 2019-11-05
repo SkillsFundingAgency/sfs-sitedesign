@@ -30,7 +30,7 @@ module.exports = function(router) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'singleFundingStatement' : "true"
+			'viewLatestFunding' : "true"
 		});
 	});
 	router.post('/' + version + '/not-signed-in/view-latest-funding/start', function (req, res) {		
