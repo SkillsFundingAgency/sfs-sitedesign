@@ -557,6 +557,7 @@ module.exports = function(router) {
 		res.render(version + '/not-signed-in/single-funding-statement/latest/pe-and-sport/funding-breakdown/2018-to-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
 			'choice' : req.session.choice,
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
