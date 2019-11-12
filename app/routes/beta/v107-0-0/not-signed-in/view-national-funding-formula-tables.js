@@ -73,10 +73,10 @@ module.exports = function(router) {
 		if (schoolOrAcademy == "no results") {				
 			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
 		}
-		// Skips the did you mean page and finds a direct match (for "St Mary's Kilburn Church of England Primary School")
+		// Skips the did you mean page and finds a direct match for "St Mary's Kilburn Church of England Primary School"
 		else if (schoolOrAcademy == "st mary's" || schoolOrAcademy == "st marys" || schoolOrAcademy == "2023517") {
 			
-			req.session.searchScope = "Primary";
+			req.session.searchScope = "St marys";
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
@@ -89,10 +89,10 @@ module.exports = function(router) {
 			
 			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true&error1=true');
 		}
-		// Return Hackwood primary
+		// Skips the did you mean page and finds a direct match "Hackwood primary"
 		else if (schoolOrAcademy == "hackwood") {
 			
-			req.session.searchScope = "Primary";
+			req.session.searchScope = "Hackwood";
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
