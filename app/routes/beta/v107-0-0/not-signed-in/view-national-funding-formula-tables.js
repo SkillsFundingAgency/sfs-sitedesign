@@ -70,7 +70,7 @@ module.exports = function(router) {
 		req.session.radio = "";
 
 		// Added so we can see an error page (search term which returns zero results)
-		if (schoolOrAcademy == "no results") {				
+		if (schoolOrAcademy == "green oak" || schoolOrAcademy == "green oak primary") {				
 			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
 		}
 		// Skips the did you mean page and finds a direct match for "St Mary's Kilburn Church of England Primary School"
