@@ -9,6 +9,7 @@ module.exports = function(router) {
 	// Ensure that the default public service name is NOT set
 	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {				
 		
+		// So we can display the alternative service name for this sub service
 		req.session.publicServiceName = "True";
 
 		return next();
