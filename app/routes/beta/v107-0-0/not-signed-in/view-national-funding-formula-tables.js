@@ -98,6 +98,24 @@ module.exports = function(router) {
 			
 			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood');
 		}
+		// Skips the did you mean page and finds a direct match "Hackwood primary"
+		else if (schoolOrAcademy == "hackwood wild card") {
+			
+			req.session.searchScope = "Hackwood wild card";
+			req.session.searchTerm = schoolOrAcademy;
+			req.session.didYouMean = "No";
+			
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card');
+		}
+		// Skips the did you mean page and finds a direct match "Hackwood primary"
+		else if (schoolOrAcademy == "st marys wild card") {
+			
+			req.session.searchScope = "St marys wild card";
+			req.session.searchTerm = schoolOrAcademy;
+			req.session.didYouMean = "No";
+			
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card');
+		}
 		// Show the did you mean page for anything else
 		else {
 
@@ -224,7 +242,7 @@ module.exports = function(router) {
 		});
 	});
 
-	// Primary school statement page - EXAMPLE C (wild card)
+	// Primary school statement page - EXAMPLE C ( st marys wild card)
 		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
@@ -251,8 +269,51 @@ module.exports = function(router) {
 			dynamicTerm3 = "False";
 			dynamicTerm4 = "False";
 		}
+
+			res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion,
+			'term1' : dynamicTerm1,
+			'term2' : dynamicTerm2,
+			'term3' : dynamicTerm3,
+			'term4' : dynamicTerm4
+		});
+	});
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card', {
+		// Primary school statement page - EXAMPLE D ( hackwood wild card)
+		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card', function (req, res) {			
+		
+		searchScope = req.session.searchScope;
+		var dynamicTerm1;
+		var dynamicTerm2;
+		var dynamicTerm3;
+		var dynamicTerm4;
+
+		if (searchScope == "Primary") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		else if (searchScope == "LA") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "True";
+			dynamicTerm3 = "True";
+			dynamicTerm4 = "True";
+		}
+		else {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,

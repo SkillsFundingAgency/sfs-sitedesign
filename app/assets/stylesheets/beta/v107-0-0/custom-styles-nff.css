@@ -63,6 +63,7 @@
 	display: block;
 	float: left;
 	margin-bottom: 30px;
+    width: 100%;
 }
 .card__body {
 	display: block;
@@ -75,7 +76,21 @@
 	text-decoration-line: none;
 	text-decoration-style: initial;
 	text-decoration-color: initial;
+    font-size: medium;
+    min-height: 5em;
 }
+@media (max-width: 760px) {
+    .card__body {
+    min-height: 6em;
+    }
+}
+
+@media (max-width: 641px) {
+    .card__body {
+        font-size: small;
+    }
+}
+
 a.card__body {
 	color: rgb(0, 94, 165);
 }
@@ -89,7 +104,12 @@ a.card__body {
 	padding-right: 1em;
 	padding-bottom: 1em;
 	padding-left: 1em;
+    min-height: 3em;
 }
-.no-bold {
-    font-weight: normal;
+@media (max-width: 960px) {
+    .card__footer {
+        min-height: 4.75em;
+    }
 }
+
+
