@@ -242,8 +242,8 @@ module.exports = function(router) {
 		});
 	});
 
-	// Primary school statement page - EXAMPLE C ( st marys wild card)
-		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card', function (req, res) {			
+	// Primary school statement page - EXAMPLE C (old st marys design)
+		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-option-a', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -270,7 +270,7 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 
-			res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card', {
+			res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-option-a', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -285,8 +285,8 @@ module.exports = function(router) {
 		});
 	});
 		
-		// Primary school statement page - EXAMPLE D ( hackwood wild card)
-		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card', function (req, res) {			
+		// Primary school statement page - EXAMPLE D (old hackwood design)
+		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-option-a', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -313,7 +313,7 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card', {
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-option-a', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
