@@ -48,19 +48,19 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start', function (req, res) {		
-		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice');
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation');
 	});
 
-	// Choose how to view provisional allocations
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice', {
+	// Find a school or academy
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', function (req, res) {
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice', function (req, res) {		
+	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', function (req, res) {		
 		
 		var choice = req.body.choice;
 		req.session.choice = choice;
@@ -87,7 +87,7 @@ module.exports = function(router) {
 			
 			req.session.radio = "Radio 1";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/viewing-choice?error=true&error1=true');
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation?error=true&error1=true');
 		}
 		// Skips the did you mean page and finds a direct match "Hackwood primary"
 		else if (schoolOrAcademy == "hackwood") {
@@ -128,13 +128,6 @@ module.exports = function(router) {
 			
 	});
 
-	/**********
-	 * NOT SIGNED-IN (PUBLIC)
-	 * VIEW NATIONAL FUNDING FORMULA TABLES
-	 * JOURNEY A: AN INDIVIDUAL SCHOOL 
-	 * **********/
-
-
 	// Did you mean (e.g. when there are multiple search results)
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', function (req, res) {			
 		
@@ -156,7 +149,8 @@ module.exports = function(router) {
 		});
 	});
 
-	// Primary school statement page - EXAMPLE A
+	// Scenario A: School with both previous and current NFF funding values
+	// DEFAULT
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
@@ -199,7 +193,8 @@ module.exports = function(router) {
 		});
 	});
 
-	// Primary school statement page - EXAMPLE B 
+	// Scenario B: School with only current NFF funding values (no previous)
+	// DEFAULT
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
@@ -242,8 +237,9 @@ module.exports = function(router) {
 		});
 	});
 
-	// Primary school statement page - EXAMPLE C (old st marys design)
-		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-option-a', function (req, res) {			
+	// Scenario A: School with both previous and current NFF funding values
+	// LEGACY
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-option-a', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -285,8 +281,9 @@ module.exports = function(router) {
 		});
 	});
 		
-		// Primary school statement page - EXAMPLE D (old hackwood design)
-		router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-option-a', function (req, res) {			
+	// Scenario B: School with only current NFF funding values (no previous)
+	// LEGACY
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-option-a', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -325,25 +322,6 @@ module.exports = function(router) {
 			'term2' : dynamicTerm2,
 			'term3' : dynamicTerm3,
 			'term4' : dynamicTerm4
-		});
-	});
-
-
-	/**********
-	 * NOT SIGNED-IN (PUBLIC)
-	 * VIEW NATIONAL FUNDING FORMULA TABLES
-	 * JOURNEY B: ALL SCHOOLS (NATIONALLY) 
-	 * **********/
-
-	// All schools 2020 to 2021
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/national-level', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'choice' : req.session.choice,
-			'term1' : 'True',
-			'term3' : 'True'
 		});
 	});
 

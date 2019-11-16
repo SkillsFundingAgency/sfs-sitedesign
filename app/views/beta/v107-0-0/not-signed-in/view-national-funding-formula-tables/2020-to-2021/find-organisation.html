@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Choose how to view provisional allocations  
+    {% if error %}Error: {% endif %}Find a school or academy  
 {% endblock %}
 
 {% block content %}
@@ -15,6 +15,7 @@
     <div class="grid-row">
 
         <div class="column-full">
+
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
@@ -23,11 +24,11 @@
                         <li>Find a school or academy</li>
                     </ol>
                 </nav>
-            </div> 
+            </div>
+
         </div>
 
         <div class="column-two-thirds">
- 
             
             <form method="post" class="form">
 
@@ -40,35 +41,30 @@
                 </div>
                 {% endif %}
 
-                <fieldset class="{% if error %}after-error-summary{% endif %}">    
-                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl" id="viewingChoice">
+                <fieldset class="{% if error %}after-error-summary{% endif %}">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
                         <h1 class="heading-xlarge">Find a school or academy</h1>
                     </legend>
-            
-                    <div>                     
+                    <p>You can use a school or academy name or local authority establishment number</p>
 
-                        <h2 class="heading-medium">You can use a school or academy name or local authority establishment number</h2>
+                    <div class="{% if error %} form-group-error {% endif %} form-group" id="schoolOrAcademy">
 
-                        <div class="{% if error %} form-group-error {% endif %} form-group" id="schoolOrAcademy">
-
-                            <div class="search-field search-field-darker">
-                        
-                                <div class="search-input search-input-with-button">
-                                    <label class="form-label form-hint" for="schoolOrAcademySearch">For example, Lickhill Primary School or 3832470</label>
-                                    {% if error %}
-                                    <span class="error-message">Enter a school or academy name or local authority establishment number</span>
-                                    {% endif %}
-                                    <input autocomplete="off" class="form-control" name="schoolOrAcademySearch" id="schoolOrAcademySearch" type="text" value="" />
-                                </div>
-        
-                                <div class="search-submit">
-                                    <button id="school-or-academy-submit" class="button" type="submit" id="schoolOrAcademySubmit" name="schoolOrAcademySubmit" value="Search for school name, academy name, or local authority establishment number">Search for school name, academy name, or local authority establishment number</button>
-                                </div>
-        
+                        <div class="search-field search-field-darker">
+                    
+                            <div class="search-input search-input-with-button">
+                                <label class="form-label form-hint" for="schoolOrAcademySearch">For example, Lickhill Primary School or 3832470</label>
+                                {% if error %}
+                                <span class="error-message">Enter a school or academy name or local authority establishment number</span>
+                                {% endif %}
+                                <input autocomplete="off" class="form-control" name="schoolOrAcademySearch" id="schoolOrAcademySearch" type="text" value="" />
                             </div>
-                            
+    
+                            <div class="search-submit">
+                                <button id="school-or-academy-submit" class="button" type="submit" id="schoolOrAcademySubmit" name="schoolOrAcademySubmit" value="Search for school name, academy name, or local authority establishment number">Search for school name, academy name, or local authority establishment number</button>
+                            </div>
+    
                         </div>
-
+                        
                     </div>
 
                     <!-- <div class="form-group">
