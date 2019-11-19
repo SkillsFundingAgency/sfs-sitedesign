@@ -1,8 +1,8 @@
 
 
 /**********
- * SEARCH FILTER OPTIONS (JavaScript)
- * **********/
+* SEARCH FILTER OPTIONS (JavaScript)
+* **********/
 
 // jQuery (START)
 // Function that allows users to search all available filter options (e.g. when filter results >= 25)

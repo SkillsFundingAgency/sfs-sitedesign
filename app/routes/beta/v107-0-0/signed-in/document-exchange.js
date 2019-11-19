@@ -3,8 +3,8 @@ module.exports = function(router) {
 	var version = 'beta/v107-0-0';
 
 	/**********
-	 * GLOBAL
-	 * **********/
+	* GLOBAL
+	* **********/
 
 	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
 	// Set a selection of global variables for all templates being reused
@@ -58,8 +58,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * EXTERNAL USERS CHILD VIEW (SCHOOL & SINGLE ACADEMY)
-	 * **********/
+	* EXTERNAL USERS CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+	* **********/
 	
 	// Start
 	router.get('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {	
@@ -453,8 +453,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * EXTERNAL USERS PARENT VIEW (LA & MAT)
-	 * **********/
+	* EXTERNAL USERS PARENT VIEW (LA & MAT)
+	* **********/
 
 	// Start
 	router.get('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
@@ -1082,8 +1082,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * INTERNAL USERS
-	 * **********/
+	* INTERNAL USERS
+	* **********/
 
 	// Start
 	router.get('/' + version + '/signed-in/internal/document-exchange/start', function (req, res) {		
@@ -1376,8 +1376,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * MYESF SERVICES PAGES
-	 * **********/
+	* MYESF SERVICES PAGES
+	* **********/
 
 	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
 	// NOT SIGNED IN (PUBLIC)

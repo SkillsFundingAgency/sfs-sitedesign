@@ -1,8 +1,8 @@
 
 
 /**********
- * DYNAMIC PAGINATION (JavaScript)
- * **********/
+* DYNAMIC PAGINATION (JavaScript)
+* **********/
 
 function dynamicPagination(totalListCount,clearLocalStorage,itemsPerPage,itemTypeLabel,itemTypeLabelPlural) {
 

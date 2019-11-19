@@ -3,8 +3,8 @@ module.exports = function(router) {
 	var version = 'beta/v107-0-0';
 
 	/**********
-	 * GLOBAL
-	 * **********/
+	* GLOBAL
+	* **********/
 
 	// Set all global data and session variables
 	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {				
@@ -20,9 +20,9 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * NOT SIGNED-IN (PUBLIC)
-	 * VIEW NATIONAL FUNDING FORMULA TABLES
-	 * **********/
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW NATIONAL FUNDING FORMULA TABLES
+	* **********/
 
 	// Start page (MyESF)
 	// LEGACY but left in to show what it should look like
@@ -326,10 +326,10 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * NOT SIGNED-IN (PUBLIC)
-	 * VIEW NATIONAL FUNDING FORMULA TABLES
-	 * OTHER PAGES
-	 * **********/
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW NATIONAL FUNDING FORMULA TABLES
+	* OTHER PAGES
+	* **********/
 	
 	// Display when users enter a search term which returns zero results
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results', function (req, res) {

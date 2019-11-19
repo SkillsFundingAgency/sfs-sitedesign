@@ -1,8 +1,8 @@
 
 
 /**********
- * DSG (JavaScript)
- * **********/
+* DSG (JavaScript)
+* **********/
 
 // jQuery (START)
 $(document).ready(function () {

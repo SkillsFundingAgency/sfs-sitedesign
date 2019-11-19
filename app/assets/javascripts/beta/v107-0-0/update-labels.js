@@ -1,8 +1,8 @@
 
 
 /**********
- * UPDATE LABELS (JavaScript)
- * **********/
+* UPDATE LABELS (JavaScript)
+* **********/
 
 // jQuery (START)
 $(document).ready(function () {

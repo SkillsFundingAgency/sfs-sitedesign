@@ -1,8 +1,8 @@
 
 
 /**********
- * FILTERS AND CHECKBOXES (JavaScript)
- * **********/
+* FILTERS AND CHECKBOXES (JavaScript)
+* **********/
 
 // jQuery (START)
 $(document).ready(function () {

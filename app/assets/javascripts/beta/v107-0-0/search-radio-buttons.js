@@ -1,8 +1,8 @@
 
 
 /**********
- * SEARCH RADIO BUTTONS (JavaScript)
- * **********/
+* SEARCH RADIO BUTTONS (JavaScript)
+* **********/
 
 // jQuery (START)
 $(document).ready(function () {

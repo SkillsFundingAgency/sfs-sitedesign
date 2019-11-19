@@ -1,8 +1,8 @@
 
 
 /**********
- * FILTER CHECKBOXES - SENT (JavaScript)
- * **********/
+* FILTER CHECKBOXES - SENT (JavaScript)
+* **********/
 
 // JavaScript (START)
 function filterCheck() {
