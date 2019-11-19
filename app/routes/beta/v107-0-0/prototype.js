@@ -3,9 +3,9 @@ module.exports = function(router) {
 	var version = 'beta/v107-0-0';
 	
 	/**********
-	 * PROTOTYPE
-	 * SCREEN FLOWS PAGE
-	 * **********/
+	* PROTOTYPE
+	* SCREEN FLOWS PAGE
+	* **********/
 
 	// Render session variables needed for the screen flows (site map) page
 	router.get('/' + version + '/site-map', function (req, res) {
@@ -16,9 +16,9 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * PROTOTYPE
-	 * ERROR PAGES (GLOBAL)
-	 * **********/
+	* PROTOTYPE
+	* ERROR PAGES (GLOBAL)
+	* **********/
 	
 	// TEMPORARY - Show to users when they are not able to go directly to the apprenticeship service
 	router.get('/' + version + '/error-pages/no-apprenticeship-service', function (req, res) {

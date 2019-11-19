@@ -3,8 +3,8 @@ module.exports = function(router) {
 	var version = 'beta/v107-0-0';
 
 	/**********
-	 * GLOBAL
-	 * **********/
+	* GLOBAL
+	* **********/
 
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/*', function (req, res, next) {				
@@ -25,8 +25,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * ADULTS
-	 * **********/
+	* ADULTS
+	* **********/
 
 	// GOV.UK Entry Point
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {
@@ -233,8 +233,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * MYESF SERVICES PAGES
-	 * **********/
+	* MYESF SERVICE PAGES
+	* **********/
 
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions

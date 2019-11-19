@@ -3,8 +3,8 @@ module.exports = function(router) {
 	var version = 'beta/v107-0-0';
 
 	/**********
-	 * GLOBAL
-	 * **********/
+	* GLOBAL
+	* **********/
 
 	// Set all global data and session variables
 	router.get('/' + version + '/not-signed-in/*', function (req, res, next) {				
@@ -20,9 +20,9 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * NOT SIGNED-IN (PUBLIC)
-	 * VIEW LATEST FUNDING
-	 * **********/
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW LATEST FUNDING
+	* **********/
 
 	// Start page (MyESF)
 	// LEGACY but left in to show what it should look like
@@ -84,9 +84,9 @@ module.exports = function(router) {
 	});
 	
 	/**********
-	 * PUBLIC
-	 * DOWNLOAD FUNDING 
-	 * **********/
+	* PUBLIC
+	* DOWNLOAD FUNDING 
+	* **********/
 
 	// Select a funding type
 	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/which-allocation', function (req, res) {
@@ -420,10 +420,10 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT
-	 * DSG
-	 * **********/
+	* PUBLIC
+	* SINGLE FUNDING STATEMENT
+	* DSG
+	* **********/
 
 	// Allocation history  
 	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/allocation-history', function (req, res) {		
@@ -531,10 +531,10 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT
-	 * PE AND SPORT
-	 * **********/
+	* PUBLIC
+	* SINGLE FUNDING STATEMENT
+	* PE AND SPORT
+	* **********/
 
 	// Allocation history  
 	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/pe-and-sport/allocation-history', function (req, res) {		
@@ -633,10 +633,10 @@ module.exports = function(router) {
 	});
 
 	/**********
-	 * PUBLIC
-	 * SINGLE FUNDING STATEMENT
-	 * OTHER PAGES
-	 * **********/
+	* PUBLIC
+	* SINGLE FUNDING STATEMENT
+	* OTHER PAGES
+	* **********/
 
 	// Glossary of terms
 	router.get('/' + version + '/not-signed-in/glossary-of-terms', function (req, res) {

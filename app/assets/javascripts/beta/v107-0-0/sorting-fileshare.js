@@ -1,8 +1,8 @@
 
 
 /**********
- * SORTING FILESHARE (JavaScript)
- * **********/
+* SORTING FILESHARE (JavaScript)
+* **********/
 
 // jQuery (START)
 // Change the visual (sorting) indicators for each table column heading whenever they are clicked

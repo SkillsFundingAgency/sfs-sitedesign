@@ -1,8 +1,8 @@
 
 
 /**********
- * ALLOCATION STATEMENTS FILTERS AND CHECKBOXES (JavaScript)
- * **********/
+* ALLOCATION STATEMENTS FILTERS AND CHECKBOXES (JavaScript)
+* **********/
 
 // jQuery (START)
 $(document).ready(function() {

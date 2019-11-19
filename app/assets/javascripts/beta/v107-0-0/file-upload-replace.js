@@ -1,8 +1,8 @@
 
 
 /**********
- * FILE UPLOAD - REPLACE (JavaScript)
- * **********/
+* FILE UPLOAD - REPLACE (JavaScript)
+* **********/
 
 // jQuery (START)
 (function () {
