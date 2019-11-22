@@ -429,7 +429,8 @@ module.exports = function(router) {
 			'term3' : 'True',
 			'reloads' : req.session.reloads,
 			'tab' : req.session.tab,
-			'scenario' : req.query.scenario
+			'scenario' : req.query.scenario,
+			'design' : req.query.design
 		});
 	});
 
