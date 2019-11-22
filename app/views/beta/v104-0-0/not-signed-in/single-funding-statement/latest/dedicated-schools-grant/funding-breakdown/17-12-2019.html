@@ -314,7 +314,50 @@
                     </details>
                     <!-- DESIGN OPTION 2 - Hybrid of the 'hand holding' step by step design and the current DSG design patterns displaying dynamic content to users depending on whether that LA receives LA protection funding -->
                     {% elif design == '2' %}
-                    
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small">Local authority protection</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header visuallyhidden" scope="col"></th>
+                                <!-- <th class="govuk-table__header govuk-table__header--numeric visuallyhidden" scope="col">Change</th>
+                                <th class="govuk-table__header govuk-table__header--numeric visuallyhidden" scope="col">Previous total</th> -->
+                                <th class="govuk-table__header govuk-table__header--numeric visuallyhidden" scope="col">Current total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Per pupil baseline for the schools block (excluding growth factor) 2019 to 2020</th>
+                                <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,800</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Per pupil provisional funding for schools block (excluding growth factor) 2020 to 2021</th>
+                                <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,200</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Provisional percentage change over 2019 to 2020 baseline</th>
+                                <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">Up 1.55%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Local authority protection 2020 to 2021
+                                </th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">10,751.16666666666</td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£55,127,687</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Adjusted percentage change over 2019 to 2020 baseline</th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">Up 1.84%</td>
+                            </tr>
+                        </tbody>
+                    </table>
                     
                     <details class="padding-details">
                         <summary>
@@ -348,6 +391,68 @@
                         </tbody>
                     </table>
 
+                    <details class="padding-details">
+                        <summary>
+                            <span class="summary">How we calculate this</span>
+                        </summary>
+                        
+                        <div class="panel panel-border-narrow">
+                            <p>Get more information on these calculations from the <a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020" rel="external" target="external" title="This will open in a new tab or window"><abbr title="Dedicated Schools Grant">DSG</abbr>: technical note 2020 to 2021</a>.</p>
+                        </div>
+
+                    </details>
+                    <!-- DEFAULT - Use DESIGN OPTION 2 -->
+                    {% else %}
+                    {% if scenario == '4' %}
+                    <h3 class="heading-small">Local authority protection</h3>
+                    <p>There is no local authority protection for Camden during 2020 to 2021.</p>
+                    {% else %}
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small">Local authority protection</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header visuallyhidden" scope="col"></th>
+                                <!-- <th class="govuk-table__header govuk-table__header--numeric visuallyhidden" scope="col">Change</th>
+                                <th class="govuk-table__header govuk-table__header--numeric visuallyhidden" scope="col">Previous total</th> -->
+                                <th class="govuk-table__header govuk-table__header--numeric visuallyhidden" scope="col">Current total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Per pupil baseline for the schools block (excluding growth factor) 2019 to 2020</th>
+                                <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,800</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Per pupil provisional funding for schools block (excluding growth factor) 2020 to 2021</th>
+                                <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,200</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Provisional percentage change over 2019 to 2020 baseline</th>
+                                <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">Up 1.55%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Local authority protection 2020 to 2021
+                                </th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">10,751.16666666666</td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£55,127,687</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Adjusted percentage change over 2019 to 2020 baseline</th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">Up 1.84%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    {% endif %}
+                    
                     <details class="padding-details">
                         <summary>
                             <span class="summary">How we calculate this</span>
