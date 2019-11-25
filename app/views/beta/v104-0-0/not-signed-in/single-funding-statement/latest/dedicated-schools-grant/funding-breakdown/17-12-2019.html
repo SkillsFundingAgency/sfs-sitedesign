@@ -214,7 +214,7 @@
                                 <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Funding per pupil (excluding growth) 2019 to 2020</th>
                                 <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
                                 <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
-                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,118.64</td>
+                                <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">{% if laprotection == 'false' %}£6,113.51{% else %}£6,118.64{% endif %}</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Funding per pupil (excluding growth) 2020 to 2021</th>
@@ -227,7 +227,7 @@
                                 <!-- <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£0</td>
                                 <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">£6,928.20</td> -->
                                 <td class="govuk-table__cell govuk-!-width-one-quarter govuk-table__cell--numeric">
-                                    <span><i class="fas fa-caret-up fa-lg increase" title="Increased" aria-hidden="true"></i><span class="sr-only">Increase</span> 1.76%</span>
+                                    <span><i class="fas fa-caret-up fa-lg increase" title="Increased" aria-hidden="true"></i><span class="sr-only">Increase</span>{% if laprotection == 'false' %}1.84%{% else %}1.76%{% endif %}</span>
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -237,21 +237,21 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric">10,751.16666666666</td> -->
                                 <td class="govuk-table__cell govuk-table__cell--numeric">{% if laprotection == 'false' %}£0{% else %}£96,012{% endif %}</td>
                             </tr>
-                            {% if laprotection == 'false' %}
+                            <!-- {% if laprotection == 'false' %}
                             {% else %}
                             <tr class="govuk-table__row">
-                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Adjusted change</th>
+                                <th class="govuk-table__header govuk-!-width-one-quarter table-header-normal" scope="row">Adjusted change</th> -->
                                 <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">
                                     <span><i class="fas fa-caret-up fa-lg increase" title="Increased" aria-hidden="true"></i><span class="sr-only">Increase</span> 1.84%</span>
                                 </td>
                             </tr>
-                            {% endif %}
+                            {% endif %} -->
                         </tbody>
                     </table>
                     
-                    <details class="padding-details">
+                    <!-- <details class="padding-details">
                         <summary>
                             <span class="summary">How we calculate this</span>
                         </summary>
@@ -260,7 +260,7 @@
                             <p>This local authority gets extra funding as the per pupil gain is lower than the minimum of 1.84%.</p>
                         </div>
 
-                    </details>
+                    </details> -->
 
                     <table class="govuk-table padding-funding-breakdown-table">
                         <caption class="govuk-table__caption heading-small">Growth</caption>
