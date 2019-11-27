@@ -476,7 +476,8 @@ module.exports = function(router) {
 			'term4' : 'True',
 			'reloads' : req.session.reloads,
 			'tab' : req.session.tab,
-			'scenario' : req.query.scenario
+			'scenario' : req.query.scenario,
+			'laprotection' : req.query.laprotection
 		});
 	});
 

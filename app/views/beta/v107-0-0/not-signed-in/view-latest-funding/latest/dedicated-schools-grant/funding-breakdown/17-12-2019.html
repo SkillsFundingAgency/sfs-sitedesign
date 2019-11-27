@@ -42,7 +42,7 @@
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation after high needs deductions for financial year 2020 to 2021
-                    <p class="heading-large heading-funding-summary">£170,472,000</p>
+                    <p class="heading-large heading-funding-summary">{% if laprotection == 'false' %}£170,473,178{% else %}£170,569,190{% endif %}</p>
                 </h2>
                 <div class="block-header-print-no-tabs">                               
                     <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
@@ -104,7 +104,7 @@
                         <div class="block-header-total">
                             <h2 class="lede">
                                 Total schools block
-                                <p class="heading-large heading-funding-summary">£116,935,309</p>
+                                <p class="heading-large heading-funding-summary">{% if laprotection == 'false' %}£116,936,487{% else %}£117,032,499{% endif %}</p>
                             </h2>   
                         </div>
                     
@@ -171,13 +171,13 @@
                                 </th>
                                 <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">10,751.16666666666</td> -->
-                                <td class="govuk-table__cell govuk-table__cell--numeric">10,751.17</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">7,957.17</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th class="table-header-normal" scope="row">Total secondary schools</th>
                                 <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£55,127,687</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£55,128,865</td>
                             </tr>
                         </tbody>
                     </table>
@@ -198,6 +198,47 @@
                                 <!-- <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£3,410,000</td> -->
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£3,410,075</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Total schools block local authority protection funding</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Local authority protection funding</th>
+                                <!-- <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Change</th>
+                                <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Previous total</th> -->
+                                <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Current total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row">Funding per pupil (excluding growth) 2019 to 2020</th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">{% if laprotection == 'false' %}£6,113.51{% else %}£6,118.64{% endif %}</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row">Funding per pupil (excluding growth) 2020 to 2021</th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,226.08</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row">Change</th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,928.20</td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">
+                                    <span><i class="fas fa-caret-up fa-lg increase" title="Increased" aria-hidden="true"></i><span class="sr-only">Increase</span>{% if laprotection == 'false' %}1.84%{% else %}1.76%{% endif %}</span>
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row">Total protection funding to make sure funding per pupil increases by at least 1.84% for 2020 to 2021
+                                </th>
+                                <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">10,751.16666666666</td> -->
+                                <td class="govuk-table__cell govuk-table__cell--numeric">{% if laprotection == 'false' %}£0{% else %}£96,012{% endif %}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -231,7 +272,7 @@
                             </div>
                 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-medium">£116,935,309</h2>
+                                <h2 class="heading-medium">{% if laprotection == 'false' %}£116,936,487{% else %}£117,032,499{% endif %}</h2>
                             </div>
                 
                         </div>
