@@ -11,6 +11,12 @@ router.get('/', function (req, res) {
  * **********/
 
 // Beta
+// beta-v108-0-0
+require('./routes/beta/v108-0-0/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/v108-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
+require('./routes/beta/v108-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v108-0-0/signed-in/document-exchange.js')(router);
+require('./routes/beta/v108-0-0/prototype.js')(router);
 // beta-v107-0-0
 require('./routes/beta/v107-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v107-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
