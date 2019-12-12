@@ -11,7 +11,25 @@ module.exports = function(router) {
 	router.get('/' + version + '/site-map', function (req, res) {
 		res.render(version + '/site-map', {
 			'version' : version,
-			'versioning' : "True"
+			'latestVersion' : version,
+			'versioning' : "True",
+			'showPropositionLinks' : "True",
+			'serviceScope' : "User journeys"
+		});
+	});
+
+	/**********
+	* PROTOTYPE
+	* ARCHIVE PAGE (kanban-beta-v108-0-0)
+	* **********/
+
+	// Render session variables needed for the archive page
+	router.get('/archive/beta/kanban-beta-v108-0-0', function (req, res) {
+		res.render('archive/beta/kanban-beta-v108-0-0', {
+			'version' : version,
+			'latestVersion' : version,
+			'versioning' : "True",
+			'showPropositionLinks' : "True"
 		});
 	});
 

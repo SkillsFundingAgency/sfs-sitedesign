@@ -1,13 +1,40 @@
-var express = require('express')
-var router = express.Router()
+var express = require('express');
+var router = express.Router();
+var latestVersion = 'beta/v108-0-0';
 
-// Route index page
-router.get('/', function (req, res) {
-	res.render('index');
+// Index page
+router.get('/', function (req, res) {		
+	res.render('index', {
+		'latestVersion' : latestVersion,
+		'showPropositionLinks' : "True"
+	});
+});
+
+// Archive page
+router.get('/archive', function (req, res) {		
+	res.render('archive', {
+		'latestVersion' : latestVersion,
+		'showPropositionLinks' : "True"
+	});
+});
+
+// Legacy page
+router.get('/legacy', function (req, res) {		
+	res.render('legacy', {
+		'latestVersion' : latestVersion,
+		'showPropositionLinks' : "True"
+	});
 });
 
 /**********
  * CHILD ROUTE FILES
+ * **********/
+
+// Component library
+require('./routes/component-library.js')(router);
+
+/**********
+ * VERSIONED ROUTE FILES
  * **********/
 
 // Beta
