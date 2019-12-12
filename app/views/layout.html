@@ -34,12 +34,12 @@
 				{% endif %}
 				{% endblock %}
 			</a>
-			<!--
+			{% if showPropositionLinks == 'True' %}
 			<ul id="proposition-links">
-				<li><a href="url-to-page-1" class="active">Navigation item #1</a></li>
-				<li><a href="url-to-page-2">Navigation item #2</a></li>
+				<li><a href="/component-library/" {% if serviceScope == 'Component library' %}class="active"{% endif %}>Component library</a></li>
+				<li><a href="/{{latestVersion}}/site-map" {% if serviceScope == 'User journeys' %}class="active"{% endif %}>User journeys</a></li>
 			</ul>
-			-->
+			{% endif %}			
 		</nav>
 
 	</div>
