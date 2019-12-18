@@ -36,5 +36,12 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
+	router.get('/component-library/examples/accordion', function (req, res) {		
+		res.render('component-library/examples/accordion', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
 
 }

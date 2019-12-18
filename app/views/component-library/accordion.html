@@ -6,7 +6,150 @@
 
 {% block content %}
 
+<style>
+
+	/* Added to the GOV.UK grid layout ('three-quarters') so it displays in all browsers correctly */
+	.govuk-grid-column-three-quarters {
+		display: inline-table;
+	}
+	/* iFrame for showing examples of the design components */
+	.app-example-wrapper {
+		margin-top: 20px;
+		margin-bottom: 20px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 1.25;
+	}
+	@media (min-width: 40.0625em) {
+		.app-example-wrapper {
+			margin-top: 30px;
+		}
+	}
+	@media (min-width: 40.0625em) {
+		.app-example-wrapper {
+			margin-bottom: 30px;
+		}
+	}
+	@media print {
+		.app-example-wrapper {
+			font-family: sans-serif;
+		}
+	}
+	@media (min-width: 40.0625em) {
+		.app-example-wrapper {
+			font-size: 19px;
+			line-height: 1.31579;
+		}
+	}
+	@media print {
+		.app-example-wrapper {
+			font-size: 14pt;
+			line-height: 1.15;
+		}
+	}
+	.app-example {
+		position: relative;
+		border: 1px solid #b1b4b6;
+		background: #f3f2f1;
+	}
+	.app-example--tabs {
+		margin-bottom: 0;
+	}
+	@media (min-width: 40.0625em) {
+		.app-example--tabs {
+			margin-bottom: 0;
+		}
+	}
+	@media (min-width: 48.0625em) {
+		.app-example--tabs {
+			margin-bottom: -1px;
+		}
+	}
+	.app-example__new-window {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		padding: 5px 10px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		font-weight: 400;
+		font-size: 12px;
+		line-height: 1.25;
+		background: #f3f2f1;
+		text-decoration: none;
+	}
+	@media print {
+		.app-example__new-window {
+			font-family: sans-serif;
+		}
+	}
+	@media (min-width: 40.0625em) {
+		.app-example__new-window {
+			font-size: 14px;
+			line-height: 1.42857;
+		}
+	}
+	@media print {
+		.app-example__new-window {
+			font-size: 12pt;
+			line-height: 1.2;
+		}
+	}
+	.app-prose-scope .app-example__new-window:focus {
+		-webkit-box-shadow: 0 4px 0 0 #0b0c0c;
+		box-shadow: 0 4px 0 0 #0b0c0c;
+	}
+	.app-example__frame {
+		display: block;
+		width: 100%;
+		max-width: 100%;
+		border: 0;
+		border-right: 1px solid #b1b4b6;
+		background: #fff;
+	}
+	.app-example__iframe,
+	.app-example__frame--xs {
+		height: 150px;
+	}
+	.app-example__frame--s {
+		height: 250px;
+	}
+	.app-example__frame--m {
+		height: 350px;
+	}
+	.app-example__frame--l {
+		height: 450px;
+	}
+	.app-example__frame--xl {
+		height: 550px;
+	}
+	.app-example__frame--resizable {
+		width: 1px;
+		min-width: 100%;
+		min-height: 60px;
+		overflow: auto;
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+	}
+	@media (min-width: 48.0625em) {
+		.app-example__frame--resizable {
+			resize: both;
+		}
+	}
+	.app-example__frame--xl {
+		height: 550px;
+	}
+
+</style>
+
 <main id="content" role="main">
+
+	<!-- ESFA banner - START -->
+	{% include "includes/esfa_banner.html" %}
+	<!-- ESFA banner - END -->
 
 	<div class="govuk-grid-row">
 
@@ -62,25 +205,18 @@
 		</div>
 
 		<div class="govuk-grid-column-three-quarters">
-			
-			<div class="form-group">
-				<h1 class="heading-xlarge">
-					<span class="heading-secondary">Component library</span>
-					Accordion
-				</h1>
-				<p>The accordion component lets users show and hide sections of related content on a page.</p>
-			</div>
+			<h1 class="heading-xlarge">
+				<span class="heading-secondary">Component library</span>
+				Accordion
+			</h1>
+			<p>The accordion component lets users show and hide sections of related content on a page.</p>
 
 			<!-- Example CODE snippet (START) -->
 			<div class="app-example-wrapper" id="accordion-example" data-module="app-tabs">
 			
 				<div class="app-example app-example--tabs">
-					<a href="accordion" class="app-example__new-window" target="_blank">
-						Open this
-						<span class="govuk-visually-hidden">accordion</span>
-						example in a new window
-					</a>
-					<iframe title="Accordion example" data-module="app-example-frame" class="app-example__frame app-example__frame--resizable app-example__frame--xl" src="accordion" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="auto" style="overflow: auto; height: 365px;"></iframe>
+					<a href="examples/accordion" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">accordion</span> example in a new window</a>
+					<iframe title="Accordion example" data-module="app-example-frame" class="app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/accordion" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
 				</div>
 			
 			</div>
@@ -165,5 +301,15 @@
 	</div>
 
 </main>
+
+<!-- JavaScript (START) -->
+<!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
+<script src="/public/javascripts/iframeResizer.min.js"></script>
+<script>
+
+	iFrameResize({ log: true }, '#iFrameResizer0')
+
+</script>
+<!-- JavaScript (END) -->
 
 {% endblock %}
