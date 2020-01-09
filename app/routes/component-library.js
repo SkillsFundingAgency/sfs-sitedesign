@@ -60,4 +60,52 @@ module.exports = function(router) {
 		});
 	});
 
+	// Cards
+	router.get('/component-library/cards', function (req, res) {		
+		res.render('component-library/cards', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/cards', function (req, res) {		
+		res.render('component-library/examples/cards', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+
+	// Download a document
+	router.get('/component-library/download-a-document', function (req, res) {		
+		res.render('component-library/download-a-documentnk', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/download-a-document', function (req, res) {		
+		res.render('component-library/examples/download-a-document', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+
+	// Organisation banner
+	router.get('/component-library/organisation-banner', function (req, res) {		
+		res.render('component-library/organisation-banner', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/organisation-banner', function (req, res) {		
+		res.render('component-library/examples/organisation-banner', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+
 }
