@@ -44,4 +44,20 @@ module.exports = function(router) {
 		});
 	});
 
+	// Back to top link
+	router.get('/component-library/back-to-top-link', function (req, res) {		
+		res.render('component-library/back-to-top-link', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/back-to-top-link', function (req, res) {		
+		res.render('component-library/examples/back-to-top-link', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+
 }
