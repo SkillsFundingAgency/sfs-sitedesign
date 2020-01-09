@@ -107,5 +107,20 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-
+	
+	// Tags
+	router.get('/component-library/tags', function (req, res) {		
+		res.render('component-library/tags', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/tags', function (req, res) {		
+		res.render('component-library/examples/tags', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
 }
