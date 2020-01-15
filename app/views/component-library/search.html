@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-	Back to top link
+	Search
 {% endblock %}
 
 {% block content %}
@@ -755,7 +755,7 @@
 					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="accordion">Accordion</a>
 					</li>
-					<li class="app-subnav__section-item app-subnav__section-item--current">
+					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="back-to-top-link">Back to top link</a>
 					</li>
 					<li class="app-subnav__section-item">
@@ -782,7 +782,7 @@
 					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="pagination">Pagination</a>
 					</li>
-					<li class="app-subnav__section-item">
+					<li class="app-subnav__section-item app-subnav__section-item--current">
 						<a class="app-subnav__link" href="search">Search</a>
 					</li>
 					<li class="app-subnav__section-item">
@@ -802,102 +802,82 @@
 		<div class="govuk-grid-column-three-quarters">
 			<h1 class="heading-xlarge">
 				<span class="heading-secondary">Component library</span>
-				Back to top link
+				Search
 			</h1>
 
 			<div class="app-prose-scope">
-				<p>A link to help users quickly navigate back to the top of pages when they reach the bottom.</p>
-				<p>This component is not currently in the GOV.UK design system, but has been added to their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/5">GitHub backlog</a>.</p>
-				<p>The back to top link is used across all of our services. It can be found on <a href="/{{latestVersion}}/signed-in/external/parent/document-exchange/received-from-esfa?paginationRequired=true&page1=true">document exchange</a>.</p>
+				<p>Help users search through large collections of information or documents using a search box component.</p>
+				<p>This component is not currently in the GOV.UK design system, but has been added to their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/88">GitHub backlog</a>.</p>
+				<p>The search component is used across most of our services. This can be found on <a href="/{{latestVersion}}/signed-in/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true"><abbr title="Manage your education and skills funding">MyESF</abbr></a>, <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/find-an-organisation">view latest funding</a> and <a href="/{{latestVersion}}/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation">view national funding formula for schools</a>.</p>
 
 				<!--
 				Example CODE snippet (START) 
-				*** BACK TO TOP LINK ***
+				*** SEARCH ***
 				-->
-				<div class="app-example-wrapper" id="back-to-top-link-example" data-module="app-tabs">
+				<div class="app-example-wrapper" id="search-example" data-module="app-tabs">
 				
 					<div class="app-example app-example--tabs">
-						<a href="examples/back-to-top-link" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">back to top link</span> example in a new window</a>
-						<iframe title="Back to top link example" data-module="app-example-frame" class="app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/back-to-top-link" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
+						<a href="examples/search" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">signed-in account banner</span> example in a new window</a>
+						<iframe title="Search example" data-module="app-example-frame" class="app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/search" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
 					</div>
 
-					<span id="options-back-to-top-link-example"></span>
+					<span id="options-search-example"></span>
 					<ul class="app-tabs" role="tablist">
-						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#back-to-top-link-example-html" role="tab" aria-controls="back-to-top-link-example-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
-						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#back-to-top-link-example-css" role="tab" aria-controls="back-to-top-link-example-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#search-example-html" role="tab" aria-controls="search-example-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#search-example-css" role="tab" aria-controls="search-example-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#search-example-javascript" role="tab" aria-controls="search-example-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a></li>
 					</ul>
 
 					<div class="app-tabs__heading js-tabs__heading">
-						<a href="#back-to-top-link-example-html" role="tab" aria-controls="back-to-top-link-example-html" data-track="tab-html" aria-expanded="false">HTML</a>
+						<a href="#search-example-html" role="tab" aria-controls="search-example-html" data-track="tab-html" aria-expanded="false">HTML</a>
 					</div>
 				
 					<!-- HTML Code Tab (START) -->
-					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="back-to-top-link-example-html" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group direction-rtl"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"app-c-back-to-top dont-print"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"content"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"app-c-back-to-top__icon"</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"13"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"17"</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 13 17"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">"currentColor"</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">path</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-    Back to top
-  <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="search-example-html" role="tabpanel" aria-hidden="true">
+
 					</div>
 					<!-- HTML Code Tab (END) -->
 
 					<div class="app-tabs__heading js-tabs__heading">
-						<a href="#back-to-top-link-example-css" role="tab" aria-controls="back-to-top-link-example-css" data-track="tab-css" aria-expanded="false">CSS</a>
+						<a href="#search-example-css" role="tab" aria-controls="search-example-css" data-track="tab-css" aria-expanded="false">CSS</a>
 					</div>
 
 					<!-- CSS Code Tab (START) -->
-					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="back-to-top-link-example-css" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.direction-rtl &#123;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">direction</span></span></span></span>:<span class="hljs-string">"rtl"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">text-align</span></span></span></span>:<span class="hljs-string">"start"</span>;
-&#125;
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="search-example-css" role="tabpanel" aria-hidden="true">
 
-.app-c-back-to-top &#123;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-family</span></span></span></span>:<span class="hljs-string">"nta, Arial, sans-serif"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-weight</span></span></span></span>:<span class="hljs-string">"400"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">text-transform</span></span></span></span>:<span class="hljs-string">"none"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-size</span></span></span></span>:<span class="hljs-string">"14px"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">line-height</span></span></span></span>:<span class="hljs-string">"1.14286"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">display</span></span></span></span>:<span class="hljs-string">"inline-block"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span></span></span>:<span class="hljs-string">"15px"</span>;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
-  .app-c-back-to-top &#123;
-    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
-    <span class="hljs-tag"><span class="hljs-attr">line-height</span></span>: <span class="hljs-string">1.25</span>;
-  &#125;
-&#125;
-
-.app-c-back-to-top__icon &#123;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">float</span></span></span></span>:<span class="hljs-string">"left"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">margin-right</span></span></span></span>:<span class="hljs-string">"0.3em"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">width</span></span></span></span>:<span class="hljs-string">"0.8em"</span>;
-  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">height</span></span></span></span>:<span class="hljs-string">"0.968em"</span>;
-&#125;</code></pre>
 					</div>
 					<!-- CSS Code Tab (END) -->
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#search-example-javascript" role="tab" aria-controls="search-example-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a>
+					</div>
+
+					<!-- JavaScript Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="search-example-javascript" role="tabpanel" aria-hidden="true">
 						
+					</div>
+					<!-- JavaScript Code Tab (END) -->
+
 				</div>
 				<!--
 				Example CODE snippet (END) 
-				*** BACK TO TOP LINK ***
+				*** SEARCH ***
 				-->
 
 				<div class="form-group">
 					<h2 class="heading-large first-sub-heading">When to use this component</h2>
-					<p>This component should be used as an aid for users to navigate back to the top of long pages of content.</p>
-					<h2 class="heading-large">When not to use this component</h2>
-					<p>Do not use this component anywhere other than the bottom of the page.</p>
+					<p>The search component is used across most of our services. This can be found on MyESF, view latest funding and view national funding formula for schools.</p>
 					<h2 class="heading-large">How it works</h2>
-					<p>This component can be dynamically hidden or shown on pages where list items or content length can change. Across our services, the back to top link should be shown:</p>
-					<ul class="list list-bullet">
-						<li>any time that <a href="pagination">pagination</a> is triggered</li>
-						<li>if there are more than 25 listed items on a statement page where pagination is not recommended (e.g. <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/statement">view your funding</a>)</li>
-					</ul>
+					<h3 class="heading-medium">Search for an entity</h3>
+					<p>Allowing users to search from a large collection - of <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/find-an-organisation">organisations</a> for example - can make a user’s journey quicker and easier if done correctly.</p>
+					<p>Do not use a search that requires the user to know background information on what they are searching (e.g. requiring a user to search by URN when they only know a schools name).</p>
+					<p>A ‘search results’ page is shown to the user when we find more than one possible matches to their search. They can then filter the results and make a choice based on extra metadata we provide with the results.</p>
+					<p>If a search does not return any results, we show the user a ‘no results’ page. This will help the user correct their search terms or explain why we do not have what they are looking for.</p>
+					<p>If a search term matches exactly, the user is sent straight to the relevant result.</p>
+					<h3 class="heading-medium">Search in a list</h3>
+					<p>A search can be used to find something in a long list of items, such as a list of <a href="/{{latestVersion}}/signed-in/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true">academies</a>.</p>
+					<p>When a user searches for a term, the list below will automatically refresh to match the characters in the search box.</p>
+					<p>Provide a ‘clear search’ option to allow user to quickly reset the list.</p>
 				</div>
 
 			</div>
@@ -909,7 +889,7 @@
 						<li class="app-subnav__section-item">
 							<a class="app-subnav__link" href="accordion">Accordion</a>
 						</li>
-						<li class="app-subnav__section-item mobile-app-subnav__section-item--current">
+						<li class="app-subnav__section-item">
 							<a class="app-subnav__link" href="back-to-top-link">Back to top link</a>
 						</li>
 						<li class="app-subnav__section-item">
@@ -936,7 +916,7 @@
 						<li class="app-subnav__section-item">
 							<a class="app-subnav__link" href="pagination">Pagination</a>
 						</li>
-						<li class="app-subnav__section-item">
+						<li class="app-subnav__section-item mobile-app-subnav__section-item--current">
 							<a class="app-subnav__link" href="search">Search</a>
 						</li>
 						<li class="app-subnav__section-item">
