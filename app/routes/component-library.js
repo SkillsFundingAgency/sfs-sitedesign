@@ -68,8 +68,29 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/card', function (req, res) {		
-		res.render('component-library/examples/card', {
+	router.get('/component-library/examples/card-as-navigation', function (req, res) {		
+		res.render('component-library/examples/card-as-navigation', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/card-as-navigation-with-notification', function (req, res) {		
+		res.render('component-library/examples/card-as-navigation-with-notification', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/card-to-display-data-one-third', function (req, res) {		
+		res.render('component-library/examples/card-to-display-data-one-third', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/card-to-display-data-two-thirds', function (req, res) {		
+		res.render('component-library/examples/card-to-display-data-two-thirds', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
