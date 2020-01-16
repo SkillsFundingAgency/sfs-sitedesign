@@ -8,7 +8,7 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:image" content="/public/images/opengraph-image.png?0.19.2">
-        <title>Card: as navigation</title>
+        <title>Card: to display data - one third width</title>
 
         <!--[if gt IE 8]><!--><link href="/public/stylesheets/govuk-template.css?0.19.2" media="screen" rel="stylesheet"><!--<![endif]-->
         <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
@@ -38,7 +38,7 @@
         <!-- External third party CSS links (END) -->
 
         <!-- Changeable Custom CSS - add all variable CSS here (START) -->
-        <link href="/public/stylesheets/{{latestVersion}}/custom-styles-myesf.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/public/stylesheets/{{latestVersion}}/custom-styles-nff.css" media="screen" rel="stylesheet" type="text/css" />
         <link href="/public/stylesheets/{{latestVersion}}/print.css" media="print" rel="stylesheet" type="text/css" />
         <!-- Changeable Custom CSS - add all variable CSS here (END) -->
 
@@ -70,18 +70,31 @@
 
             <form action="/form-handler" method="post" novalidate="">
                         
-                <!-- COMPONENT - CARD: AS NAVIGATION (START) -->
+                <!-- COMPONENT - CARD: TO DISPLAY DATA - ONE THIRD (START) -->
                 <div class="grid-row">
-
-                    <div class="column-third">
-                        <a href="#" id="document-exchange" class="dashboard-links">
-                            <span id="document-exchange-service" class="service-name">Document exchange</span>
-                            <span id="document-exchange-alert" class="alert alert-name-green">View documents</span>
-                        </a>
+    
+                    <div class="column-one-third">
+    
+                        <div class="card">
+    
+                            <div class="card__footer">
+                                <span class="heading-small">
+                                    Change in total funding
+                                    <br>
+                                    <pre><span class="heading-large"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> 2.33%</span></pre>
+                                </span> 
+                            </div>
+    
+                            <div class="card__body">
+                                <p>Funding is allocated on a per pupil basis. Total funding changes with pupil numbers.</p>
+                            </div>
+    
+                        </div>
+    
                     </div>
-
+    
                 </div>
-                <!-- COMPONENT - CARD: AS NAVIGATION (END) -->
+                <!-- COMPONENT - CARD: TO DISPLAY DATA - ONE THIRD (END) -->
 
             </form>
 
@@ -99,6 +112,9 @@
         <script src="/public/javascripts/{{latestVersion}}/custom-global-behaviour.js"></script>
         <!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
         <script src="/public/javascripts/iframeResizer.contentWindow.min.js"></script>
+        <!-- External third party CSS links (START) -->
+        <script src="https://kit.fontawesome.com/71943611db.js" crossorigin="anonymous"></script>
+        <!-- External third party CSS links (END) -->
         <!-- JavaScript (END) -->
     </body>
 
