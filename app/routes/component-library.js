@@ -265,8 +265,22 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/tag', function (req, res) {		
-		res.render('component-library/examples/tag', {
+	router.get('/component-library/examples/tag-blue', function (req, res) {		
+		res.render('component-library/examples/tag-blue', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/tag-red', function (req, res) {		
+		res.render('component-library/examples/tag-red', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/tag-grey', function (req, res) {		
+		res.render('component-library/examples/tag-grey', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
