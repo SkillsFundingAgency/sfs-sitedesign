@@ -137,8 +137,29 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/funding-table', function (req, res) {		
-		res.render('component-library/examples/funding-table', {
+	router.get('/component-library/examples/funding-table-two-columns', function (req, res) {		
+		res.render('component-library/examples/funding-table-two-columns', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/funding-table-no-repeating-column-headers', function (req, res) {		
+		res.render('component-library/examples/funding-table-no-repeating-column-headers', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/funding-table-four-columns', function (req, res) {		
+		res.render('component-library/examples/funding-table-four-columns', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/funding-table-with-link', function (req, res) {		
+		res.render('component-library/examples/funding-table-with-link', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
