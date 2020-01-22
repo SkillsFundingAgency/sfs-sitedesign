@@ -806,8 +806,8 @@
 			</h1>
 
 			<div class="app-prose-scope">
-				<p>Panels of structured content (e.g. image, title, description, link), typically organised in rows or grids.</p>
-				<p>This component is not currently in the GOV.UK design system, but has been added to their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/113">GitHub backlog</a>.</p>
+				<p>Panels of structured content - for example, image, title, description, link. They are typically organised in rows or grids.</p>
+				<p>This component is not currently in the GOV.UK design system, but is in their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/113">GitHub backlog</a>.</p>
 				<p>The card component is used as a form of navigation on the <a href="/{{latestVersion}}/signed-in/external/child/allocation-statements/adults/dashboard"><abbr title="Manage your education and skills funding">MyESF</abbr> dashboard</a> and as a way to display data on <a href="/{{latestVersion}}/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys">view national funding formula for schools</a>.</p>
 				<h2 class="heading-medium">As navigation</h2>
 
@@ -950,7 +950,7 @@ a.dashboard-links &#123;
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card__body"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Funding is allocated on a per pupil basis. Total funding changes with pupil numbers.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Funding is allocated on a per pupil basis.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -1033,13 +1033,17 @@ a.card__body &#123;
 
 				<div class="form-group">
 					<h2 class="heading-large first-sub-heading">When to use this component</h2>
-					<p>Cards can be a good way at chunking up related content, data and links. Use the cards to display items on a page if the data is simple to understand.</p>
-					<p>Cards indicate no inherent hierarchy if they are organised on a row or on a grid, this means they can be useful for dashboard pages where there are a few journeys a user can take.</p>
+					<p>Cards can be a good way to display related content, data and links. Use the cards to display items on a page if the data is simple to understand.</p>
+					<p>If cards are organised in a row or a grid, there is no hierarchy. This means they can be useful for dashboard pages where there are a number of journeys to select.</p>
 					<h2 class="heading-large">When not to use this component</h2>
-					<p>Do not use this component for relatively complex data, users should be able to easily identify the relationships between the data.</p>
+					<p>Do not use this component for complex data. For example, when long explanations are needed to help users understand the relationship between data points. Users should be able to easily understand the relationship by looking at the data type and value.</p>
 					<h2 class="heading-large">How it works</h2>
 					<h3 class="heading-medium">As navigation</h3>
-          			<p>For card used in navigation (such as the <abbr title="Manage your education and skills funding">MyESF</abbr> dashboard), the top section of the card is used for identification, the bottom section is dynamic, the styling of the bottom section will change which is used to notify the user to take action on something.</p>
+          <p>For cards used in navigation, such as the MYESF dashboard:</p>
+			<ul class="list list-bullet">
+				<li>the top section of the card is used to identify the next page</li>
+				<li>the bottom section is dynamic and gives more information about what to expect on the next page</li>
+			</ul>
           
           <!--
           Example CODE snippet (START) 
@@ -1144,8 +1148,8 @@ a.dashboard-links &#123;
           *** CARD: AS NAVIGATION ***
           -->
 
-					<h3 class="heading-medium">As navigation with notification</h3>
-					<p>When a task or action is required from the user for the related tile (e.g. document exchange) a red notification label is displayed on the bottom section of the card. This is triggered when there is one or greater notifications for that featured card.</p>
+          <h3 class="heading-medium">As navigation with notification</h3>
+          <p>When a user needs to complete one or more actions, a red notification label is displayed in the bottom section of the related card.</p>
 
           <!--
           Example CODE snippet (START) 
@@ -1250,9 +1254,14 @@ a.dashboard-links &#123;
           -->
 
 					<h3 class="heading-medium">To display data</h3>
-					<p>For cards used on statement pages (NFF), the top section of the card displays the data type and its value, the bottom section is used for supporting content which can provide the user some contextual help when scanning the page.</p>
-					<h3 class="heading-medium">To display data - one third width</h3>
-
+		  <p>For cards used on statement pages (NFF):</p> 
+		  <ul class="list list-bullet">
+			<li>the top section of the card displays the data type and its value</li>
+			<li>the bottom section is for extra content to provide contextual help if users need it</li>
+		  </ul>
+		  
+		  <h3 class="heading-medium">To display data - one third width</h3>
+		  <p> If users need contextual help, the content in the bottom section should be less than 50 characters.</p>
           <!--
           Example CODE snippet (START) 
           *** CARD: TO DISPLAY DATA - ONE THIRD ***
@@ -1287,7 +1296,7 @@ a.dashboard-links &#123;
         <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card__body"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Funding is allocated on a per pupil basis. Total funding changes with pupil numbers.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Funding is allocated on a per pupil basis.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -1368,8 +1377,8 @@ a.card__body &#123;
           *** CARD: TO DISPLAY DATA - ONE THIRD ***
           -->
 
-					<h3 class="heading-medium">To display data - two thirds width</h3>
-
+          <h3 class="heading-medium">To display data - two thirds width</h3>
+		  <p> If users need contextual help, the content in the bottom section should be less than 100 characters.</p>
           <!--
           Example CODE snippet (START) 
           *** CARD: TO DISPLAY DATA - TWO THIRDS ***
@@ -1402,7 +1411,7 @@ a.card__body &#123;
         <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-large"</span>&gt;</span>£1,172,444<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"card__body"</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>The school's final funding may be different. This is because funds are allocated to the local authority first. The local authority then decides how much funding this school gets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>This school's final funding may be different. This is because funds are allocated to local authorities first. The local authority then decides how much funding this school gets.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
@@ -1484,7 +1493,7 @@ a.card__body &#123;
           -->
 
 					<h2 class="heading-large">Research on this component</h2>
-					<p>Whilst testing the cards used on NFF, we found that the footer text was consistently not read by users. Further iterations and testing may be required to ensure users make full use of both sections of the card.</p>
+					<p>We tested the cards used in NFF. We found that users consistently did not read content in the bottom section of the cards and the footer. More iterations and testing is needed to make sure the design and content meet user needs.</p>
 				</div>
 
 			</div>
