@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-	Funding total section
+	Links
 {% endblock %}
 
 {% block content %}
@@ -768,13 +768,19 @@
 						<a class="app-subnav__link" href="filter-a-list">Filter a list</a>
 					</li>
 					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-header">Funding header</a>
+					</li>
+					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="funding-table">Funding table</a>
 					</li>
-					<li class="app-subnav__section-item app-subnav__section-item--current">
-						<a class="app-subnav__link" href="funding-total-section">Funding total section</a>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-totals">Funding totals</a>
 					</li>
 					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="icons">Icons</a>
+					</li>
+					<li class="app-subnav__section-item app-subnav__section-item--current">
+						<a class="app-subnav__link" href="links">Links</a>
 					</li>
 					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="organisation-banner">Organisation banner</a>
@@ -802,62 +808,156 @@
 		<div class="govuk-grid-column-three-quarters">
 			<h1 class="heading-xlarge">
 				<span class="heading-secondary">Component library</span>
-				Funding total section
+				Links
 			</h1>
 
 			<div class="app-prose-scope">
-				<p>A custom styled typography which is used to give headline funding totals.</p>
-				<p>View more general GDS guidelines on this component on the <a href="https://design-system.service.gov.uk/styles/typography/">GOV.UK design system</a>.</p>
-				<p>The funding total section is used as a way of displaying totals in <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>.</p>
+				<p>A recognisable icon, accompanied by a file link and supporting content. Users can use it to download a file to their local drive.</p>
+				<p>This component is not in the GOV.UK design system, but is in their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/20">GitHub backlog</a>.</p>
+				<p>The download component is used across all of our services. It can be found on <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/download-funding/2020-to-2021">view latest funding</a>.</p>
 
 				<!--
 				Example CODE snippet (START) 
-				*** FUNDING TOTAL SECTION ***
+				*** LINK: STANDARD ***
 				-->
-				<div class="app-example-wrapper" id="funding-total-section-example" data-module="app-tabs">
+				<div class="app-example-wrapper" id="download-a-document-example" data-module="app-tabs">
 				
 					<div class="app-example app-example--tabs">
-						<a href="examples/funding-total-section" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">signed-in account banner</span> example in a new window</a>
-						<iframe title="Funding total section example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/funding-total-section" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
+						<a href="examples/link-standard" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">links</span> example in a new window</a>
+						<iframe title="Links example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/link-standard" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
 					</div>
 
-					<span id="options-funding-total-section-example"></span>
+					<span id="options-download-a-document-example"></span>
 					<ul class="app-tabs" role="tablist">
-						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-total-section-example-html" role="tab" aria-controls="funding-total-section-example-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
-						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-total-section-example-css" role="tab" aria-controls="funding-total-section-example-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#download-a-document-example-html" role="tab" aria-controls="download-a-document-example-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#download-a-document-example-css" role="tab" aria-controls="download-a-document-example-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#download-a-document-example-javascript" role="tab" aria-controls="download-a-document-example-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a></li>
 					</ul>
 
 					<div class="app-tabs__heading js-tabs__heading">
-						<a href="#funding-total-section-example-html" role="tab" aria-controls="funding-total-section-example-html" data-track="tab-html" aria-expanded="false">HTML</a>
+						<a href="#download-a-document-example-html" role="tab" aria-controls="download-a-document-example-html" data-track="tab-html" aria-expanded="false">HTML</a>
 					</div>
 				
 					<!-- HTML Code Tab (START) -->
-					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-total-section-example-html" role="tabpanel" aria-hidden="true">
-
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="download-a-document-example-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-block attachment embedded"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-container"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Download DSG allocation for Camden 2020 to 2021"</span>&gt;</span>Download (<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Dedicated schools grant"</span>&gt;</span>DSG<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>) allocation for Camden 2020 to 2021<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> 
+      <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-content"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-section-1"</span>&gt;</span>OpenDocument Spreadsheet (<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"OpenDocument Spreadsheet"</span>&gt;</span>ODS<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>), 206KB<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-section-2"</span>&gt;</span>
+          This file is in an <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"This will open in a new tab or window"</span>&gt;</span>OpenDocument<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> format. You may need a different format if you're using assistive technology. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#attachment-1-accessibility-request"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expand-hidden-section"</span> <span class="hljs-attr">data-controls</span>=<span class="hljs-string">"attachment-1-accessibility-request"</span> <span class="hljs-attr">data-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"attachment-1-accessibility-request"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>Request an accessible format<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"attachment-1-accessibility-request"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden-section js-hidden"</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"region"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20Dedicated%20schools%20grant%20allocation%20for%20Camden%202019%20to%202020%0A%20%20Original%20format%3A%20ods%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27Dedicated%20schools%20grant%20allocation%20for%20Camden%202019%20to%202020%27%20in%20an%20alternative%20format"</span>&gt;</span>ESFA.GOVUK-ENQUIRIES@education.gov.uk<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Please tell us what format you need. It will help us if you say what assistive technology you use.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span></code></pre>
 					</div>
 					<!-- HTML Code Tab (END) -->
 
 					<div class="app-tabs__heading js-tabs__heading">
-						<a href="#funding-total-section-example-css" role="tab" aria-controls="funding-total-section-example-css" data-track="tab-css" aria-expanded="false">CSS</a>
+						<a href="#download-a-document-example-css" role="tab" aria-controls="download-a-document-example-css" data-track="tab-css" aria-expanded="false">CSS</a>
 					</div>
 
 					<!-- CSS Code Tab (START) -->
-					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-total-section-example-css" role="tabpanel" aria-hidden="true">
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="download-a-document-example-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.download-a-document-container &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+&#125;
 
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .download-a-document-container &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">10px</span>;
+  &#125;
+&#125;
+
+.download-a-document &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">600</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background</span></span>: <span class="hljs-string">url('/public/images/beta/v105-0-0/icon-file-download.png') no-repeat scroll 0 0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">min-height</span></span>: <span class="hljs-string">2.5em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0 0 2.5em</span>;
+&#125;
+
+.download-a-document-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">inline-grid</span>;
+&#125;
+
+.download-a-document-section-1 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">15px</span>;
+&#125;
+
+.download-a-document-section-2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;</code></pre>
 					</div>
 					<!-- CSS Code Tab (END) -->
 
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#download-a-document-example-javascript" role="tab" aria-controls="download-a-document-example-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a>
+					</div>
+
+					<!-- JavaScript Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="download-a-document-example-javascript" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">document</span>)<span class="hljs-tag"><span class="hljs-attr">.ready</span></span>(<span class="hljs-symbol">function</span> () {
+
+  <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-string">".expand-hidden-section"</span>)<span class="hljs-tag"><span class="hljs-attr">.click</span></span>(<span class="hljs-symbol">function</span> (<span class="hljs-name">e</span>) {
+
+    <span class="hljs-name">e</span><span class="hljs-tag"><span class="hljs-attr">.preventDefault</span></span>();
+
+    <span class="hljs-symbol">var</span> <span class="hljs-name">expandHiddenSectionState</span> = <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">this</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">'aria-expanded'</span>);
+    <span class="hljs-symbol">var</span> <span class="hljs-name">hiddenSection</span> = <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">this</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">'href'</span>);
+
+    <span class="hljs-symbol">if</span> (<span class="hljs-name">expandHiddenSectionState</span> == <span class="hljs-string">"false"</span>) {
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">this</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">"data-expanded"</span>, <span class="hljs-name">true</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">this</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">"aria-expanded"</span>, <span class="hljs-name">true</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.show</span></span>();
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.removeClass</span></span>(<span class="hljs-string">"js-hidden"</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">"aria-hidden"</span>, <span class="hljs-name">false</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.css</span></span>(<span class="hljs-string">"display"</span>, <span class="hljs-string">"inline-block"</span>);
+    }
+    <span class="hljs-symbol">else if</span> (<span class="hljs-name">expandHiddenSectionState</span> == <span class="hljs-string">"true"</span>) {
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">this</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">"data-expanded"</span>, <span class="hljs-name">false</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">this</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">"aria-expanded"</span>, <span class="hljs-name">false</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.hide</span></span>();
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.addClass</span></span>(<span class="hljs-string">"js-hidden"</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.attr</span></span>(<span class="hljs-string">"aria-hidden"</span>, <span class="hljs-name">true</span>);
+      <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">hiddenSection</span>)<span class="hljs-tag"><span class="hljs-attr">.css</span></span>(<span class="hljs-string">"display"</span>, <span class="hljs-string">"none"</span>);
+    }
+
+  });
+
+});</code></pre>
+					</div>
+					<!-- JavaScript Code Tab (END) -->
+						
 				</div>
 				<!--
 				Example CODE snippet (END) 
-				*** FUNDING TOTAL SECTION ***
+				*** LINK: STANDARD ***
 				-->
 
 				<div class="form-group">
 					<h2 class="heading-large first-sub-heading">When to use this component</h2>
-					<p>This component can be used to show important totals to users.</p>
+					<p>Use this component when a user needs to download a file as part of their journey.</p>
 					<h2 class="heading-large">When not to use this component</h2>
-					<p>Do not use this component on the same page as a lot of other headings of similar size. This can confuse the user and reduce its visibility on the page.</p>
+					<p>Do not use this component where the file is elsewhere on the web already. If that is the case, just a link to it would be enough.</p>
+					<h2 class="heading-large">How it works</h2>
+					<p>Use clear, descriptive file names to help the user understand what they are downloading.</p>
+					<p>Include file size and type to reassure users that the file can be successfully downloaded and opened.</p>
+					<p>Include published date to ensure users can choose the most up to date information.</p>
+					<h3 class="heading-medium">Use with other components</h3>
+					<p>This component can be paired with components such as <a href="tags">tags</a> to help them identify the most up to date files.</p>
+					<h3 class="heading-medium">Let users request another format</h3>
+					<p>We must let users request another file format if they are using assistive technology. Our component does this using a link through the query form.</p>
+					<h2 class="heading-large">Research on this component</h2>
+					<p>User testing has found that some users do not understand what an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation">ODS</a> file format is. GDS recommends using this file format as the default. We added links, hover text and explanatory text to help users understand what it means.</p>
 				</div>
 
 			</div>
@@ -882,13 +982,19 @@
 							<a class="app-subnav__link" href="filter-a-list">Filter a list</a>
 						</li>
 						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-header">Funding header</a>
+						</li>
+						<li class="app-subnav__section-item">
 							<a class="app-subnav__link" href="funding-table">Funding table</a>
 						</li>
-						<li class="app-subnav__section-item mobile-app-subnav__section-item--current">
-							<a class="app-subnav__link" href="funding-total-section">Funding total section</a>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-totals">Funding totals</a>
 						</li>
 						<li class="app-subnav__section-item">
 							<a class="app-subnav__link" href="icons">Icons</a>
+						</li>
+						<li class="app-subnav__section-item mobile-app-subnav__section-item--current">
+							<a class="app-subnav__link" href="links">Links</a>
 						</li>
 						<li class="app-subnav__section-item">
 							<a class="app-subnav__link" href="organisation-banner">Organisation banner</a>
