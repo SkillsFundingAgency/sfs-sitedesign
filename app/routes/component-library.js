@@ -129,6 +129,29 @@ module.exports = function(router) {
 		});
 	});
 
+	// Funding header
+	router.get('/component-library/funding-header', function (req, res) {		
+		res.render('component-library/funding-header', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/funding-header-full-width', function (req, res) {		
+		res.render('component-library/examples/funding-header-full-width', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/funding-header-float-left', function (req, res) {		
+		res.render('component-library/examples/funding-header-float-left', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+
 	// Funding table
 	router.get('/component-library/funding-table', function (req, res) {		
 		res.render('component-library/funding-table', {
@@ -166,16 +189,23 @@ module.exports = function(router) {
 		});
 	});
 
-	// Funding total section
-	router.get('/component-library/funding-total-section', function (req, res) {		
-		res.render('component-library/funding-total-section', {
+	// Funding totals
+	router.get('/component-library/funding-totals', function (req, res) {		
+		res.render('component-library/funding-totals', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/funding-total-section', function (req, res) {		
-		res.render('component-library/examples/funding-total-section', {
+	router.get('/component-library/examples/funding-totals-grand-total', function (req, res) {		
+		res.render('component-library/examples/funding-totals-grand-total', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/funding-totals-sub-total', function (req, res) {		
+		res.render('component-library/examples/funding-totals-sub-total', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -192,6 +222,50 @@ module.exports = function(router) {
 	});
 	router.get('/component-library/examples/icons', function (req, res) {		
 		res.render('component-library/examples/icons', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+
+	// Links
+	router.get('/component-library/links', function (req, res) {		
+		res.render('component-library/links', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/link-standard', function (req, res) {		
+		res.render('component-library/examples/link-standard', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/link-external', function (req, res) {		
+		res.render('component-library/examples/link-external', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/link-tabbed', function (req, res) {		
+		res.render('component-library/examples/link-tabbed', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/link-action', function (req, res) {		
+		res.render('component-library/examples/link-action', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/link-funding-table-guidance', function (req, res) {		
+		res.render('component-library/examples/link-funding-table-guidanceƒ', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
