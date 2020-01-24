@@ -220,8 +220,29 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/icons', function (req, res) {		
-		res.render('component-library/examples/icons', {
+	router.get('/component-library/examples/icons-document', function (req, res) {		
+		res.render('component-library/examples/icons-document', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-increase', function (req, res) {		
+		res.render('component-library/examples/icons-increase', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-decrease', function (req, res) {		
+		res.render('component-library/examples/icons-decrease', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-print', function (req, res) {		
+		res.render('component-library/examples/icons-print', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -236,36 +257,36 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/link-standard', function (req, res) {		
-		res.render('component-library/examples/link-standard', {
+	router.get('/component-library/examples/links-standard', function (req, res) {		
+		res.render('component-library/examples/links-standard', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/link-external', function (req, res) {		
-		res.render('component-library/examples/link-external', {
+	router.get('/component-library/examples/links-external', function (req, res) {		
+		res.render('component-library/examples/links-external', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/link-tabbed', function (req, res) {		
-		res.render('component-library/examples/link-tabbed', {
+	router.get('/component-library/examples/links-tabbed', function (req, res) {		
+		res.render('component-library/examples/links-tabbed', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/link-action', function (req, res) {		
-		res.render('component-library/examples/link-action', {
+	router.get('/component-library/examples/links-action', function (req, res) {		
+		res.render('component-library/examples/links-action', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/link-funding-table-guidance', function (req, res) {		
-		res.render('component-library/examples/link-funding-table-guidanceƒ', {
+	router.get('/component-library/examples/links-funding-table-guidance', function (req, res) {		
+		res.render('component-library/examples/links-funding-table-guidanceƒ', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
