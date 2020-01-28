@@ -68,17 +68,39 @@ module.exports = function(router) {
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 
-		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// SCENARIO 1 - Do not set the switch so users can directly access the apprenticeship service after clicking the tile
 		if (password == "11111111") {
 			
-			req.session.hasValidRoles = "False";
+			req.session.signIntoAnotherServicePage = "False";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.hasValidRoles = "True";
 			
 			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
 		}
-		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
+		// SCENARIO 2 - Set the switch so users see the apprenticeship service information page ("sign-into-another-service")
 		else if (password == "22222222") {
 
+			req.session.signIntoAnotherServicePage = "True";
+			req.session.noApprenticeshipServicePage = "False";
 			req.session.hasValidRoles = "True";
+
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+		}
+		// SCENARIO 3 - Set the switch so users see the no apprenticeship service page ("no-apprenticeship-service")
+		else if (password == "33333333") {
+
+			req.session.signIntoAnotherServicePage = "False";
+			req.session.noApprenticeshipServicePage = "True";
+			req.session.hasValidRoles = "True";
+
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+		}
+		// SCENARIO 4 - Trigger and show users the no MyESF roles page
+		else if (password == "44444444") {
+
+			req.session.signIntoAnotherServicePage = "False";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.hasValidRoles = "False";
 
 			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
 		}
@@ -103,7 +125,7 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard', function (req, res) {
 	
-		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 			
 			req.session.idams = "adults";
@@ -126,7 +148,9 @@ module.exports = function(router) {
 				'versioning' : req.session.versioning,
 				'idams' : req.session.idams,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-				'signOutURL' : req.session.signOutURL
+				'signOutURL' : req.session.signOutURL,
+				'signIntoAnotherServicePage' : req.session.signIntoAnotherServicePage,
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
 			});
 		}
 		
