@@ -286,7 +286,7 @@ module.exports = function(router) {
 		});
 	});
 	router.get('/component-library/examples/links-funding-table-guidance', function (req, res) {		
-		res.render('component-library/examples/links-funding-table-guidanceƒ', {
+		res.render('component-library/examples/links-funding-table-guidance', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
