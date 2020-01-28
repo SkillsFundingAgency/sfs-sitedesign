@@ -39,36 +39,47 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="adultFundingAllocation" class="dashboard-links" href="#">
-                            <span id="subcontractor-declaration-service" class="service-name">Allocation statements</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new statements</span> -->
-                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View statements</span>
+                        <a id="allocationStatements" class="dashboard-links" href="#">
+                            <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
+                            <!-- <span id="allocation-statements-alert" class="alert alert-name-red">2 new statements</span> -->
+                            <span id="allocation-statements-declaration-alert" class="alert alert-name-green">View statements</span>
                         </a>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a id="contracts" class="dashboard-links" href="#">
-                            <span id="contracts-service" class="service-name">Contracts and agreements</span>
-                            <!-- <span id="allocation-alert" class="alert alert-name-red">2 new contracts</span> -->
-                            <span id="contract-alert" class="alert alert-name-green">View contracts</span>
+                        <a id="apprenticeshipService" class="dashboard-links" href="{% if signIntoAnotherServicePage == 'True' %}/{{version}}/error-pages/sign-into-another-service{% elif noApprenticeshipServicePage == 'True' %}/{{version}}/error-pages/no-apprenticeship-service{% else %}https://providers.apprenticeships.education.gov.uk{% endif %}">
+                            <span id="apprenticeship-declaration-service" class="service-name">Apprenticeship service</span>
+                            <span id="apprenticeship-declaration-alert" class="alert alert-name-green">Go to apprenticeship service</span>
                         </a>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a id="allocations" class="dashboard-links" href="home">
-                            <span id="allocations-service" class="service-name">Document exchange</span>
+                        <a id="contractsAndAgreements" class="dashboard-links" href="#">
+                            <span id="contracts-and-agreements-service" class="service-name">Contracts and agreements</span>
+                            <!-- <span id="contracts-and-agreements-alert" class="alert alert-name-red">2 new contracts</span> -->
+                            <span id="contracts-and-agreements-alert" class="alert alert-name-green">View contracts</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="grid-row">
+
+                    <div class="column-third margin-top">
+                        <a id="documentExchange" class="dashboard-links" href="home">
+                            <span id="document-exchange-service" class="service-name">Document exchange</span>
                             {% if receivedDocuments == 'Yes' %}
                                 {% if parent == 'MAT' %}
-                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span>
                                 {% elif parent == 'LA' %}
-                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span>
                                 {% else %}
-                                <span id="allocation-alert" class="alert alert-name-red">2 new documents</span>
+                                <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span>
                                 {% endif %}
                             {% else %}
-                            <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span>
+                            <span id="document-exchange-alert" class="alert alert-name-green">View documents</span>
                             {% endif %}
-                            <!-- <span id="subcontractor-declaration-alert" class="alert alert-name-green">View documents</span> -->
+                            <!-- <span id="document-exchange-alert" class="alert alert-name-green">View documents</span> -->
                         </a>
                     </div>
 

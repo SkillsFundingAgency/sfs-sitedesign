@@ -35,18 +35,18 @@ module.exports = function(router) {
 
 	/**********
 	* PROTOTYPE
-	* ERROR PAGES (GLOBAL)
+	* SHUTTER OR ERROR PAGES (GLOBAL)
 	* **********/
 	
-	// TEMPORARY - Show to users when they are not able to go directly to the apprenticeship service
+	// Show to users when they are not permitted to access the apprenticeship service due to:
+	// REASON 1: User has not signed their apprenticeship agreement in MyESF
+	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
 	router.get('/' + version + '/error-pages/no-apprenticeship-service', function (req, res) {
 		res.render(version + '/error-pages/no-apprenticeship-service', {
 			'version' : version,
 			'versioning' : "True",
-			'alternativeContentRequired' : req.query.alternativeContentRequired,
-			'reason1' : req.query.reason1,
-			'reason2' : req.query.reason2,
-			'reason3' : req.query.reason3
+			'content1' : req.query.content1,
+			'content2' : req.query.content2
 		});
 	});
 
@@ -55,10 +55,18 @@ module.exports = function(router) {
 		res.render(version + '/error-pages/no-features-available', {
 			'version' : version,
 			'versioning' : "True",
-			'alternativeContentRequired' : req.query.alternativeContentRequired,
-			'reason1' : req.query.reason1,
-			'reason2' : req.query.reason2,
-			'reason3' : req.query.reason3
+			'content1' : req.query.content1,
+			'content2' : req.query.content2,
+			'content3' : req.query.content3
+		});
+	});
+
+	// TEMPORARY (while other ESFA services wait to use DfE Sign-in)
+	// Show this page to users to warn them they will need to sign in with IdAMS to access this service
+	router.get('/' + version + '/error-pages/sign-into-another-service', function (req, res) {
+		res.render(version + '/error-pages/sign-into-another-service', {
+			'version' : version,
+			'versioning' : "True"
 		});
 	});
 
