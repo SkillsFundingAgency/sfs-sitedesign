@@ -231,7 +231,7 @@ module.exports = function(router) {
 	});
 
 	// Find an organisation
-	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/find-an-organisation', function (req, res) {		
+	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/find-an-organisation', function (req, res) {				
 		res.render(version + '/not-signed-in/view-latest-funding/latest/find-an-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
@@ -359,6 +359,14 @@ module.exports = function(router) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
+
+		// Check for a URL query parameter override (e.g. when linking directly to this page)
+		var urlParameterOverride = req.query.searchTerm;
+
+		if (urlParameterOverride == "abbey") {
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = "abbey";
+		}
 		
 		res.render(version + '/not-signed-in/view-latest-funding/latest/did-you-mean', {
 			'version' : version,
@@ -573,6 +581,14 @@ module.exports = function(router) {
 	// Full funding allocation (PE and Sport)
 	// LATEST (5 October 2019)
 	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/pe-and-sport/funding-breakdown/5-10-2019', function (req, res) {		
+
+		// Check for a URL query parameter override (e.g. when linking directly to this page)
+		var urlParameterOverride = req.query.searchScope;
+
+		if (urlParameterOverride == "LA") {
+			req.session.searchScope = "LA";
+		}
+
 		res.render(version + '/not-signed-in/view-latest-funding/latest/pe-and-sport/funding-breakdown/5-10-2019', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,

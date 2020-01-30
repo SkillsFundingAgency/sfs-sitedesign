@@ -156,6 +156,37 @@ module.exports = function(router) {
 		
 	});
 
+	// TEMPORARY (while other ESFA services wait to use DfE Sign-in)
+	// Show this page to users to warn them they will need to sign in with IdAMS to access this service
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/sign-into-another-service', function (req, res) {
+		
+		req.session.idams = "adults";
+		
+		res.render(version + '/error-pages/sign-into-another-service', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
+	// Show to users when they are not permitted to access the apprenticeship service due to:
+	// REASON 1: User has not signed their apprenticeship agreement in MyESF
+	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/no-apprenticeship-service', function (req, res) {
+		
+		req.session.idams = "adults";
+		
+		res.render(version + '/error-pages/no-apprenticeship-service', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
 	// Allocation statements
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/allocation-statement-list', function (req, res) {
 
