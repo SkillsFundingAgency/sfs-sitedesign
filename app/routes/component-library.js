@@ -52,8 +52,15 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/back-to-top-link', function (req, res) {		
-		res.render('component-library/examples/back-to-top-link', {
+	router.get('/component-library/examples/back-to-top-link-stand-alone', function (req, res) {		
+		res.render('component-library/examples/back-to-top-link-stand-alone', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/back-to-top-link-with-pagination', function (req, res) {		
+		res.render('component-library/examples/back-to-top-link-with-pagination', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -317,7 +324,14 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/pagination', function (req, res) {		
+	router.get('/component-library/examples/pagination-10', function (req, res) {		
+		res.render('component-library/examples/pagination', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/pagination-25', function (req, res) {		
 		res.render('component-library/examples/pagination', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",

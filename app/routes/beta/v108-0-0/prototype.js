@@ -45,8 +45,9 @@ module.exports = function(router) {
 		res.render(version + '/error-pages/no-apprenticeship-service', {
 			'version' : version,
 			'versioning' : "True",
-			'content1' : req.query.content1,
-			'content2' : req.query.content2
+			'idams' : "adults",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
 		});
 	});
 
@@ -55,9 +56,9 @@ module.exports = function(router) {
 		res.render(version + '/error-pages/no-features-available', {
 			'version' : version,
 			'versioning' : "True",
-			'content1' : req.query.content1,
-			'content2' : req.query.content2,
-			'content3' : req.query.content3
+			'idams' : "dashboard",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
 		});
 	});
 
@@ -66,7 +67,10 @@ module.exports = function(router) {
 	router.get('/' + version + '/error-pages/sign-into-another-service', function (req, res) {
 		res.render(version + '/error-pages/sign-into-another-service', {
 			'version' : version,
-			'versioning' : "True"
+			'versioning' : "True",
+			'idams' : "adults",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
 		});
 	});
 
