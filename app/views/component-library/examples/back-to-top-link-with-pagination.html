@@ -71,7 +71,7 @@
             <form action="/form-handler" method="post" novalidate="">
                         
                 <!-- COMPONENT - BACK TO TOP LINK: WITH PAGINATION (START) -->
-                <div class="pager" aria-hidden="false" style="margin-top: 0;" data-paging="">
+                <!-- <div class="pager" aria-hidden="false" style="margin-top: 0;" data-paging="">
                     
                     <div class="pager-controls">
                         <a class="pager-prev hidden" href="#" aria-hidden="true" hidden="hidden">Previous</a>
@@ -84,6 +84,19 @@
                     </div>
 
                     <div class="pager-summary">Showing 1 to 25 of 52 results</div>
+
+                </div> -->
+
+                <div class="pager hidden" hidden aria-hidden="true" style="margin-top: 0" data-paging>
+                    
+                    <div class="pager-controls">
+                        <a class="pager-prev" href="#">Previous</a>
+                        <ul class="pager-items"></ul>
+                        <a class="pager-next" href="#">Next</a>
+                    </div>
+
+                    <div class="pager-summary">
+                    </div>
 
                 </div>
 
@@ -103,12 +116,33 @@
 
         <!-- JavaScript (START) -->
         <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-        <!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
-        <script src="/public/javascripts/{{latestVersion}}/jquery-accessible-modal-window-aria.js"></script>
-        <!-- GOV.UK Design System tabs -->
-        <script src="/public/javascripts/{{latestVersion}}/accordion.js"></script>
-        <!-- DSG -->
-        <script src="/public/javascripts/{{latestVersion}}/dsg.js"></script>
+        <script>
+
+            $(document).ready(function() {
+        
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    52,
+                    // Boolean whether to clear down the session data or not
+                    true,
+                    // How many items to show per page
+                    25,
+                    // What to name the thing being displayed (singular)
+                    "result",
+                    // What to name the thing being displayed (plural)
+                    "results"
+                );
+        
+            });
+            
+        </script>
+        <!-- Dynamic pagination -->
+        <script src="/public/javascripts/{{latestVersion}}/dynamic-pagination-for-divs.js"></script>
+        <!-- Filters for the document list -->
+        <script src="/public/javascripts/{{latestVersion}}/filters-and-checkboxes.js"></script>
+        <!-- Search all available filters -->
+        <script src="/public/javascripts/{{latestVersion}}/search-filter-options.js?v=1.0.3"></script>
         <!-- Custom global behaviour -->
         <script src="/public/javascripts/{{latestVersion}}/custom-global-behaviour.js"></script>
         <!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
