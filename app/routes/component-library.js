@@ -325,14 +325,14 @@ module.exports = function(router) {
 		});
 	});
 	router.get('/component-library/examples/pagination-10', function (req, res) {		
-		res.render('component-library/examples/pagination', {
+		res.render('component-library/examples/pagination-10', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
 	});
 	router.get('/component-library/examples/pagination-25', function (req, res) {		
-		res.render('component-library/examples/pagination', {
+		res.render('component-library/examples/pagination-25', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
