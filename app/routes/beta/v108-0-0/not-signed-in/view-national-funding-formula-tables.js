@@ -141,6 +141,10 @@ module.exports = function(router) {
 			req.session.searchScope = "Primary";
 			req.session.searchTerm = "abbey";
 		}
+		else if (urlParameterOverride == "default") {
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = "default";
+		}
 		
 		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', {
 			'version' : version,
