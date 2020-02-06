@@ -40,11 +40,11 @@
 
         </div>
 
-        <form method="post" class="form">               
+        <form method="post" class="form">         
 
             {% if searchTerm == 'abbey' or searchTerm == 'paging' or searchTerm == 'show filter search' %}
             <!-- PAGINATION ON (search term on "abbey" or "Abbey" with > 25 results) -->
-            <div id="filterContent" class="column-third ">
+            <div id="filterContent" class="column-third">
                 
                 <div class="form-block">
                     <fieldset class="filter">
@@ -324,7 +324,7 @@
                 </div>
 
                 <div id="clearAllFilters" class="form-group">
-                    <a href="">Reset filters</a>
+                    <a href="">Clear filters</a>
                 </div>
 
             </div>
@@ -1138,7 +1138,7 @@
             </div>
             <!-- Show the scenario where a maintained school has converted to an academy ("Kilburn Junior School") -->
             {% elif searchTerm == 'converted' %}
-            <div id="filterContent" class="column-third ">
+            <div id="filterContent" class="column-third">
                 
                 <div class="form-block">
                     <fieldset class="filter">
@@ -1210,7 +1210,7 @@
 
             </div>
             {% else %}                
-            <div id="filterContent" class="column-third ">
+            <div id="filterContent" class="column-third">
                 
                 <div class="form-block">
                     <fieldset class="filter">
@@ -1296,7 +1296,7 @@
                 </div>
 
                 <div id="clearAllFilters" class="form-group">
-                    <a href="">Reset filters</a>
+                    <a href="">Clear filters</a>
                 </div>
 
             </div>
@@ -1427,11 +1427,15 @@
 
             <div class="form-group">
                 <h1 class="heading-xlarge">Search results</h1>
-                <p>If a school has converted to an academy, you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
+                <p>If a school has converted to an <a href="#" title="Find out what this term means" class="js-modal modal-link" data-modal-text="<p>Academies are publicly funded independent schools. They do not have to follow the national curriculum and can set their own term times. They follow the same rules on admissions, special educational needs and exclusions as other state schools. Academies get their funding directly from the government, not the local council.</p><p><a href='/{{version}}/not-signed-in/glossary-of-terms'>View full glossary of funding terms</a></p>" data-modal-title="Academy" data-modal-close-text="Close" data-modal-close-title="Close this window">academy</a>, you will see two sets of figures: one for when it was maintained by a local authority, and another for since it has been an academy.</p>
             </div>
 
-            <div id="filterContent" class="column-third ">
-            
+        </div>
+
+        <form method="post" class="form"> 
+
+            <div id="filterContent" class="column-third">
+                
                 <div class="form-block">
                     <fieldset class="filter">
                         <legend class="visuallyhidden">Filter by local authority</legend>
@@ -1444,7 +1448,7 @@
                                         <h2 class="filters-headings heading-small">Filter by local authority</h2>
                                     </header>
                                 </a>
-                                
+
                                 <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
                                     <section class="toggled-adult-funding-content group">
                                         <ul>
@@ -1516,7 +1520,7 @@
                 </div>
 
                 <div id="clearAllFilters" class="form-group">
-                    <a href="">Reset filters</a>
+                    <a href="">Clear filters</a>
                 </div>
 
             </div>
@@ -1570,10 +1574,10 @@
                 </fieldset>
 
             </div>
-            <!-- DEFAULT VIEW - when all session variables fail (END) -->
-            {% endif %}
 
         </form>
+        <!-- DEFAULT VIEW - when all session variables fail (END) -->
+        {% endif %}
         
     </div>
 

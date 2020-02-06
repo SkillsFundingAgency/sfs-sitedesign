@@ -128,11 +128,22 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/filter-a-list', function (req, res) {		
-		res.render('component-library/examples/filter-a-list', {
+	router.get('/component-library/examples/filter-a-list-standard', function (req, res) {		
+		res.render('component-library/examples/filter-a-list-standard', {
 			'latestVersion' : latestVersion,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/filter-a-list-searchable', function (req, res) {		
+		res.render('component-library/examples/filter-a-list-searchable', {
+			'latestVersion' : latestVersion,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 
