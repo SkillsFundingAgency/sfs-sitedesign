@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var latestVersion = 'beta/v108-0-0';
+var latestVersion = 'beta/v109-0-0';
 
 // Index page
 router.get('/', function (req, res) {		
@@ -38,6 +38,12 @@ require('./routes/component-library.js')(router);
  * **********/
 
 // Beta
+// beta-v109-0-0
+require('./routes/beta/v109-0-0/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/v109-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
+require('./routes/beta/v109-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v109-0-0/signed-in/document-exchange.js')(router);
+require('./routes/beta/v109-0-0/prototype.js')(router);
 // beta-v108-0-0
 require('./routes/beta/v108-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v108-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);

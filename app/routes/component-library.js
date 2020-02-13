@@ -1,6 +1,6 @@
 module.exports = function(router) {
 
-	var latestVersion = 'beta/v108-0-0';
+	var latestVersion = 'beta/v109-0-0';
 	
 	/**********
 	* GLOBAL
