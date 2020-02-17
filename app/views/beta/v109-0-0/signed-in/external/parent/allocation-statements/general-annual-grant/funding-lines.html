@@ -1,0 +1,462 @@
+{% extends "layout.html" %}
+
+{% block pageTitle %}
+  GOV.UK Prototype Kit
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-width-container">
+        <a href="allocation-detail.html" class="govuk-back-link no-print">Back</a>
+
+
+  <main class="govuk-main-wrapper">
+
+    <div class="govuk-grid-row">
+      <div class="govuk-grid-column-full">
+          <a class="govuk-link float-right" onclick="printPage()" href="#">Save or print this page</a>
+          <span class="govuk-caption-xl">2019 - 2020</span>
+          <h1 class="govuk-heading-xl govuk-!-margin-bottom-9">School budget share</h1>
+
+
+          <table class="govuk-table govuk-!-margin-bottom-9">
+              <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Basic entitlement age weighted pupil unit (AWPU)</h3>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header ">Description</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Weighting</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Pupils</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Sub-total</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEN %</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Primary (including reception)</th>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">£2,783.35</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">1.000000</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">£539,970.46</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">4.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Key Stage 2</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,783.35</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1.000000</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">800</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,539,970.46</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">2.00</td>
+                  </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Key stage 4</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£4,783.35</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1.000000</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">695</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£939,970.46</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">8.00</td>
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <span class="govuk-caption-l right-align">AWPU total</span>
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£3,019,911.38</h2>
+              </div>
+            </div>
+
+            <table class="govuk-table govuk-!-margin-bottom-9">
+              <h3 class="govuk-heading-m ">Deprivation</h3>
+              <div class="govuk-!-margin-bottom-4">
+                <a title="External link" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/778675/Allocations_guide_2019_to_2020_mainstream_open_before_April_2019_cleared_for_publication.pdf#page=11" target="_blank">Further guidance on deprivation</a>
+              </div>
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row">
+                  <th scope="col" class="govuk-table__header">Description</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Weighting</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Pupils</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">Sub-total</th>
+                  <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEN %</th>
+                </tr>
+              </thead>
+              <tbody class="govuk-table__body">
+                <tr class="govuk-table__row">
+                  <th scope="row" class="govuk-table__header">Primary IDACI band F</th>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">£208.64</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">0.073298</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">£2,966.79</td>
+                  <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary IDACI band E</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£250.36</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.031414</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,525.80</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                  </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary IDACI band D</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£375.55</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.099476</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£7,247.44</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary IDACI band C</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£406.84</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.078534</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£6,198.50</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary IDACI band B</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£438.14</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.350785</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£20,915.93</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary IDACI band A</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£599.83</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1.000000</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£40,819.99</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band F</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£302.52</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.087611</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£30,056.05</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band E</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£406.84</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.092920</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£42,869.57</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band D</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£537.24</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.155752</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£94,889.07</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band C</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£584.18</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.050442</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£33,416.09</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band B</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£625.91</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.412389</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£292,707.36</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band A</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£844.98</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.123009</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£117,868.35</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary free school meals (FSM)</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£459.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.381443</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£33,966.15</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">47.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary FSM6</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£563.32</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.448980</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£49,066.46</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">47.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary FSM</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£459.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.426056</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£221,765.85</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">60.00</td>
+                </tr>
+                <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Secondary IDACI band A</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£818.90</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.581900</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£540,372.61</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">60.00</td>
+                </tr>
+              </tbody>
+            </table>
+
+            <div class="govuk-grid-row">
+              <div class="govuk-grid-column-full">
+                <span class="govuk-caption-l right-align">Deprivation total</span>
+                <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£1,536,652.01</h2>
+              </div>
+            </div>
+
+            <table class="govuk-table govuk-!-margin-bottom-9">
+                <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Prior attainment</h3>
+                <thead class="govuk-table__head">
+                  <tr class="govuk-table__row">
+                    <th scope="col" class="govuk-table__header">Description</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Weighting</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Pupils</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">Sub-total</th>
+                    <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEN %</th>
+                  </tr>
+                </thead>
+                <tbody class="govuk-table__body">
+                  <tr class="govuk-table__row">
+                    <th scope="row" class="govuk-table__header">Primary attainment: low primary prior attainment</th>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£640.00</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">0.359477</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">£44,632.66</td>
+                    <td class="govuk-table__cell govuk-table__cell--numeric">100.000</td>
+                  </tr>
+                </tbody>
+              </table>  
+
+              <div class="govuk-grid-row">
+                <div class="govuk-grid-column-full">
+                  <span class="govuk-caption-l right-align">Prior attainment total</span>
+                  <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£44,632.66</h2>
+                </div>
+              </div>
+
+              <table class="govuk-table govuk-!-margin-bottom-9">
+                  <h3 class="govuk-heading-m govuk-!-margin-bottom-6">English as an additional language (EAL)</h3>
+                  <thead class="govuk-table__head">
+                    <tr class="govuk-table__row">
+                      <th scope="col" class="govuk-table__header">Description</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Weighting</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Pupils</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">Sub-total</th>
+                      <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEN %</th>
+                    </tr>
+                  </thead>
+                  <tbody class="govuk-table__body">
+                    <tr class="govuk-table__row">
+                      <th scope="row" class="govuk-table__header">Primary EAL band 1</th>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">0.044444</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                      <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                    </tr>
+                  </tbody>
+                  <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Primary EAL band 2</th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0.083333</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                      </tr>
+                    </tbody>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">Primary EAL band 3</th>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£515.00</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">0.150000</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£14,986.50</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                        </tr>
+                      </tbody>
+                      <tbody class="govuk-table__body">
+                          <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Secondary EAL band 1</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">0.060071</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                          </tr>
+                        </tbody>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                              <th scope="row" class="govuk-table__header">Secondary EAL band 2</th>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">0.099823</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                              <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                            </tr>
+                          </tbody>
+                          <tbody class="govuk-table__body">
+                              <tr class="govuk-table__row">
+                                <th scope="row" class="govuk-table__header">Secondary EAL band 3</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1.385.00</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0.177562</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,134</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£278,877.10</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                              </tr>
+                            </tbody>
+                          </table>
+
+                          <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-full">
+                              <span class="govuk-caption-l right-align">EAL total</span>
+                              <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£293,863.60</h2>
+                            </div>
+                          </div>
+
+                <table class="govuk-table govuk-!-margin-bottom-9">
+                    <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Mobility (over 10% applicable only)</h3>
+                    <thead class="govuk-table__head">
+                      <tr class="govuk-table__row">
+                        <th scope="col" class="govuk-table__header">Description</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Weighting</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Pupils</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">Sub-total</th>
+                        <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEN %</th>
+                      </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                      <tr class="govuk-table__row">
+                        <th scope="row" class="govuk-table__header">Primary pupils starting school outside of normal entry dates (proportion above 10%)</th>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">£1000.00</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0.049485</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">194</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">£9,600.09</td>
+                        <td class="govuk-table__cell govuk-table__cell--numeric">0.000</td>
+                      </tr>
+                    </tbody>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">Secondary pupils starting school outside of normal entry dates (proportion above 10%)</th>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£1000.00</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">0.065493</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">11,134</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£74,269.06</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">0.000</td>
+                        </tr>
+                      </tbody>
+                  </table>
+                  
+                  <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-full">
+                      <span class="govuk-caption-l right-align">Mobility total</span>
+                      <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£83,869.15</h2>
+                    </div>
+                  </div>
+
+                  <span class="govuk-caption-l right-align">Total pupil-led factors</span>
+                  <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£7,844,397.79</h2>
+                  <!-- Insert total pupil led factors amount here-->
+
+                  <table class="govuk-table govuk-!-margin-bottom-9">
+                      <h3 class="govuk-heading-m govuk-!-margin-bottom-6">Lump sum</h3>
+                      <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                          <th scope="col" class="govuk-table__header">Description</th>
+                          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Rate</th>
+                          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Weighting</th>
+                          <th scope="col" class="govuk-table__header govuk-table__header--numeric">Sub-total</th>
+                          <th scope="col" class="govuk-table__header govuk-table__header--numeric">SEN %</th>
+                        </tr>
+                      </thead>
+                      <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                          <th scope="row" class="govuk-table__header">Primary lump sum</th>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£110.000.00</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">0.000000</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">£0.00</td>
+                          <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="govuk-table__header">Secondary lump sum</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£110,000.00</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">1.000000</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£110,000.00</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">0.00</td>
+                          </tr>
+                      </tbody>
+                    </table>
+
+                  <span class="govuk-caption-l right-align">Total other factors</span>
+                  <h2 class="govuk-heading-l govuk-!-margin-bottom-9 right-align">£110,000</h2>
+                  <!-- Insert total other factors amount here-->
+
+                  <span class="govuk-caption-l right-align">Total school budget share (excluding NNDR)</span>
+                  <h2 class="govuk-heading-l right-align">£7,954,397.79</h2>
+                  <span class="govuk-caption-l right-align">of which, notional SEN Budget</span>
+                  <span class="govuk-caption-l govuk-!-margin-bottom-9 right-align">£1,411,872.30</span>
+
+            <!-- Funding not qualified for START-->
+            <details class="govuk-details no-print" data-module="govuk-details">
+                <summary class="govuk-details__summary">
+                  <span class="govuk-details__summary-text">
+                    Funding not qualified for
+                  </span>
+                </summary>
+                <div class="govuk-details__text">
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Looked after children (LAC)</h4>
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Sparsity</h4>
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">Split sites</h4>
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">PFI</h4>
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">London fringe</h4>
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">MFL adjustment</h4>
+                  <h4 class="govuk-heading-s govuk-!-margin-bottom-2">2017 to 2018 funding floor protection</h4>
+                </div>
+            </details>              
+            <!-- Funding not qualified for END-->
+
+              <ul class="govuk-list no-print">
+                <li>
+                </li>
+                <li>
+                  <a class="govuk-link" target="_blank" href="https://www.education.gov.uk/efa-enquiry-form">Contact ESFA </a>
+                </li>
+                <li>
+              </ul>
+
+              <div class="app-back-to-top no-print" data-module="app-back-to-top">
+                <a class="govuk-link govuk-link--no-visited-state app-back-to-top__link" href="#top">
+                  <svg role="presentation" focusable="false" class="app-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                  </svg>Back to top
+                </a>
+              </div>
+
+          </div> 
+      </div>
+    </div>
+
+  </main>
+</div>
+
+{% endblock %}

@@ -387,6 +387,111 @@ module.exports = function(router) {
 		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in');
 	});
 
+	// IDAMS
+	// LEGACY but left in to show what it should look like
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {
+		res.render(version + '/idams/sign-in', {
+			'version' : version,
+			'versioning' : req.session.versioning
+		});
+	});
+	router.post('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dashboard');
+	});
+
+	// DfE Sign-in
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in/sign-in', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {		
+		
+		// req.session.username = req.body.username.toLowerCase();
+		// var username = req.session.username;
+		req.session.password = req.body.password.toLowerCase();
+		var password = req.session.password;
+
+		// SCENARIO 1 - Do not set the switch so users can directly access the apprenticeship service after clicking the tile
+		if (password == "") {
+			
+			req.session.signIntoAnotherServicePage = "True";
+			req.session.noApprenticeshipServicePage = "True";
+			req.session.hasValidRoles = "True";
+			
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dashboard');
+		}
+
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in?error=true');	
+		}
+		
+	});
+
+	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/access-denied', function (req, res) {
+		res.render(version + '/error-pages/access-denied', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
+	// Dashboard
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dashboard', function (req, res) {
+	
+		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		if (req.session.hasValidRoles == "False") {
+			
+			req.session.idams = "general-annual-grant";
+			
+			res.render(version + '/error-pages/access-denied', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'idams' : req.session.idams,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL
+			});
+		}
+		// Take users to the dashbord
+		else {
+
+			req.session.idams = "dashboard";
+
+			res.render(version + '/signed-in/external/child/allocation-statements/dashboard', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'idams' : req.session.idams,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'signIntoAnotherServicePage' : req.session.signIntoAnotherServicePage,
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
+			});
+		}
+		
+	});
+
+	// Allocation statements
+	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/allocation-statement-list', function (req, res) {
+
+		req.session.idams = "adults";
+		
+		res.render(version + '/signed-in/external/child/allocation-statements/general-annual-grant/allocation-statement-list', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
+
+
 	/**********
 	* MYESF SERVICE PAGES
 	* GENERAL ANNUAL GRANT (CHILD)
@@ -446,6 +551,109 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/start', function (req, res) {		
 		res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in');
+	});
+
+	// IDAMS
+	// LEGACY but left in to show what it should look like
+	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {
+		res.render(version + '/idams/sign-in', {
+			'version' : version,
+			'versioning' : req.session.versioning
+		});
+	});
+	router.post('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard');
+	});
+
+	// DfE Sign-in
+	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {
+		res.render(version + '/dfe-sign-in/sign-in', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {		
+		
+		// req.session.username = req.body.username.toLowerCase();
+		// var username = req.session.username;
+		req.session.password = req.body.password.toLowerCase();
+		var password = req.session.password;
+
+		// SCENARIO 1 - Do not set the switch so users can directly access the apprenticeship service after clicking the tile
+		if (password == "") {
+			
+			req.session.signIntoAnotherServicePage = "True";
+			req.session.noApprenticeshipServicePage = "True";
+			req.session.hasValidRoles = "True";
+			
+			res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard');
+		}
+
+		// Make sure the user chooses an option
+		else {
+			res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in?error=true');	
+		}
+		
+	});
+
+	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
+	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/access-denied', function (req, res) {
+		res.render(version + '/error-pages/access-denied', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
+	// Dashboard
+	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard', function (req, res) {
+	
+		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		if (req.session.hasValidRoles == "False") {
+			
+			req.session.idams = "general-annual-grant";
+			
+			res.render(version + '/error-pages/access-denied', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'idams' : req.session.idams,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL
+			});
+		}
+		// Take users to the dashbord
+		else {
+
+			req.session.idams = "dashboard";
+
+			res.render(version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'idams' : req.session.idams,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'signIntoAnotherServicePage' : req.session.signIntoAnotherServicePage,
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
+			});
+		}
+		
+	});
+
+	// Allocation statements
+	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/allocation-statement-list', function (req, res) {
+
+		req.session.idams = "adults";
+		
+		res.render(version + '/signed-in/external/parent/allocation-statements/general-annual-grant/allocation-statement-list', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
 	});
 
 	/**********

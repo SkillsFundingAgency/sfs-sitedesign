@@ -1,0 +1,263 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+   Allocation statements
+{% endblock %}
+
+{% block content %}
+
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/jquery-1.12.2.js"></script>
+<!-- Added by Aaron to make the filtering work (START) -->
+<script src="/public/javascripts/{{version}}/as-filters-and-checkboxes.js"></script>
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- JavaScript (END) -->
+
+<a href="dashboard.html" class="govuk-back-link">Back</a>
+
+<div class="govuk-width-container">
+  
+    <div class="govuk-main-wrapper">
+    <h1 class="govuk-heading-xl govuk-!-margin-bottom-9">Funding types</h1>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-one-third">
+                <div class="govuk-form-group filterbyContainer">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading">
+                            <h4 class="govuk-fieldset__heading govuk-heading-m">
+                              Filter by type
+                            </h4>
+                          </legend>
+                          <div class="govuk-form-group filterSearch">
+                            <label id="filterBySchool" class="govuk-label filterLabel" for="filter-by-type">
+                              Search
+                            </label>
+                            <input class="govuk-input filterSearchInput" id="address-line-1" name="address-line-1" autocomplete="off" type="text">
+                          </div>
+                          <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox" value="hmrc">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                General annual grant
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                PE and sport premium allocation
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                <div class="govuk-form-group filterbyContainer">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading">
+                            <h4 class="govuk-fieldset__heading govuk-heading-m">
+                              Filter by school
+                            </h4>
+                          </legend>
+                          <div class="govuk-form-group filterSearch">
+                            <label class="govuk-label filterLabel" for="filter-by-type">
+                              Search
+                            </label>
+                            <input class="govuk-input filterSearchInput" id="myInput" autocomplete="off" name="search" type="text">
+                          </div>
+                          <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox" id="filterBySchoolResults">
+                            <ul id="myList">
+                              <li>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox" value="hmrc">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                School a
+                              </label>
+                            </div>
+                            </li>
+                            <li>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                School b
+                              </label>
+                            </div>
+                          </li>
+                            <li>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                  School c
+                                </label>
+                              </div>
+                            </li>
+                              <li>
+                              <div class="govuk-checkboxes__item">
+                                  <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                                  <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                    School d
+                                  </label>
+                                </div>
+                              </li>
+                              <li>
+                                <div class="govuk-checkboxes__item">
+                                    <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                                    <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                      School e
+                                    </label>
+                                  </div>
+                                </li>
+                              </ul>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div class="govuk-form-group filterbyContainer">
+                        <fieldset class="govuk-fieldset">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading">
+                            <h4 class="govuk-fieldset__heading govuk-heading-m">
+                              Filter by year
+                            </h4>
+                          </legend>
+                          <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox">
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" autocomplete="off" type="checkbox" value="hmrc">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                2019 - 2020
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                2018 - 2019
+                              </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                              <input class="govuk-checkboxes__input" id="organisation-3" name="organisation" type="checkbox" value="employment-tribunal">
+                              <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                2017 - 2018
+                              </label>
+                            </div>
+                          </div>
+                        </fieldset>
+                      </div>  
+                      <div class="govuk-form-group filterbyContainer">
+                          <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m filterbyHeading">
+                              <h4 class="govuk-fieldset__heading govuk-heading-m">
+                                Filter by local authority (LA)
+                              </h4>
+                            </legend>
+                            <div class="govuk-form-group filterSearch">
+                              <label class="govuk-label filterLabel" for="filter-by-type">
+                                Search
+                              </label>
+                              <input class="govuk-input filterSearchInput" id="address-line-1" autocomplete="off" name="address-line-1" type="text">
+                            </div>
+                            <div class="govuk-checkboxes govuk-checkboxes--small filterbyCheckbox">
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-1" name="organisation" type="checkbox" value="hmrc">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation">
+                                  Local authority a
+                                </label>
+                              </div>
+                              <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="organisation-2" name="organisation" type="checkbox" value="employment-tribunal">
+                                <label class="govuk-label govuk-checkboxes__label" for="organisation-2">
+                                  Local authority b
+                                </label>
+                              </div>
+                            </div>
+                          </fieldset>
+                        </div>    
+            </div>
+
+            <div class="govuk-grid-column-two-thirds">
+                <div class="govuk-accordion" data-module="govuk-accordion" id="accordion-default">
+                    <div class="govuk-accordion__section ">
+                      <div class="govuk-accordion__section-header">
+                        <h2 class="govuk-accordion__section-heading">
+                          <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                            General annnual grant 2019 - 2020
+                          </span>
+                        </h2>
+                        <p class="govuk-body">Academy name</p> 
+                        <p class="govuk-body">Published: March 12th 2019 <strong class="govuk-tag red-background"> Updated </strong></p>
+                        <span class="govuk-caption-l">Total allocation</span>
+                        <h4 class="govuk-heading-s">£9,254,351.66</h4>
+                      </div>
+            
+                      <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                        <h2 class=""><a href="allocation-change">View changes to your allocation</a></h2>
+                        <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                        <h3 class="govuk-heading-m govuk-!-margin-bottom-4">Funding breakdown 2019 - 2020</h3>
+                          <dl class="govuk-summary-list govuk-summary-list--no-border">
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                      <a href="allocation-detail.html#schoolAllocation">School Allocation</a>
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      £8,183,791.66
+                                    </dd>
+                                  </div>
+                                  <div class="govuk-summary-list__row hide">
+                                    <dt class="govuk-summary-list__key">
+                                      <a href="allocation-detail.html#highNeedsAllocation">High needs allocation</a>
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      £0.00
+                                    </dd>
+                                  </div>
+                                  <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                      <a href="allocation-detail.html#16-19Allocation">16 - 19 Allocation</a>
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                      £1,070,560.00
+                                    </dd>
+                                  </div>
+                                </dl>
+                                <span class="govuk-caption-l">Total allocation</span>
+                                <h3 class="govuk-heading-m">£9,254,351.66</h3>
+                                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                                <div class="download-document-image">
+                                  <h3 class="govuk-header-m govuk-!-margin-bottom-2"><a href="/public/images/gag-statement.pdf" download="gag-allocation-19-20">Save or print the latest version of your statement</a></h2>
+                                  <p>Portable document format (PDF), 206KB This file is in a PDF format. You may need a different format if you're using assistive technology.</p>
+                                  <details class="govuk-details" data-module="govuk-details">
+                                      <summary class="govuk-details__summary">
+                                        <span class="govuk-details__summary-text">
+                                          Request an accessible format.
+                                        </span>
+                                      </summary>
+                                      <div class="govuk-details__text">
+                                          <p class="govuk-body">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk."> esfa.govuk-enquiries@education.gov.uk.</a> Please tell us what format you need. It will help us if you say what assistive technology you use.</p>
+                                      </div>
+                                    </details>
+                                </div>
+                                <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+                                  <h3 class="govuk-heading-m">Allocation History</h3>
+                                  <h4><a href="allocation-history.html" title="Access your allocation history"> View your allocation history</a></h4>
+                                  <p>You can view all versions of this <a class="modal-link-hotfix glossaryTerm" id="glossaryTerm-allocation" href="#open-modal" title="Find out what this term means" aria-haspopup="dialog">allocation</a> for the academic year 2019 to 2020 and previous years on the <a class="govuk-link" title="Access your allocation history" href="allocation-history.html">allocation history </a>.</p>
+                                
+                                  <h3 class="govuk-heading-m">General annual grant resources</h3>
+                                  <p class="govuk-body">Get more general guidance on <a class="govuk-link" target="_blank" href="https://www.gov.uk/guidance/academies-general-annual-grant-allocation-guides-2019-to-2020">GAG 2019 - 2020</a>.</p>
+                                  <p><a href="/glossary/glossary-of-terms">Glossary of funding terms</a></p>
+
+                                
+                                  <div id="open-modal" class="modal-window">
+                                  <div>
+                                    <h3 class="govuk-heading-m">Allocation</h3>
+                                    <p class="govuk-body">	An amount of Education and Skills Funding Agency (ESFA) funding for a learning provider calculated by using a funding formula. Allocations can change throughout the year if pupil numbers change.</p>
+                                    <p><a href="http://localhost:3000/glossary/glossary-of-terms">View full glossary of terms</a></p>
+                                    <a href="#glossaryTerm-allocation" role="button" draggable="false" class="govuk-button govuk-button--start govuk-button-modal" data-module="govuk-button">
+                                        Close </a>
+                                  </div>       
+                                                            
+                    </div>
+                    </div>
+                      </div>
+                      </div>
+            </div>
+        </div>
+  </div>
+
+{% endblock %}
