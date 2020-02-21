@@ -1,6 +1,8 @@
 module.exports = function(router) {
 
+	// Add latest versions of MyESF features here
 	var version = 'beta/v108-0-0';
+	var latestVersionVLF = 'beta/v105-1-0';
 	
 	/**********
 	* PROTOTYPE
@@ -12,6 +14,7 @@ module.exports = function(router) {
 		res.render(version + '/site-map', {
 			'version' : version,
 			'latestVersion' : version,
+			'latestVersionVLF' : latestVersionVLF,
 			'versioning' : "True",
 			'showPropositionLinks' : "True",
 			'serviceScope' : "User journeys"
@@ -28,6 +31,7 @@ module.exports = function(router) {
 		res.render('archive/beta/kanban-beta-v108-0-0', {
 			'version' : version,
 			'latestVersion' : version,
+			'latestVersionVLF' : latestVersionVLF,
 			'versioning' : "True",
 			'showPropositionLinks' : "True"
 		});
