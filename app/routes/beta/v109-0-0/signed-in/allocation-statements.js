@@ -90,55 +90,45 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in', function (req, res) {		
 		
-		// req.session.username = req.body.username.toLowerCase();
-		// var username = req.session.username;
+		req.session.username = req.body.username.toLowerCase();
+		var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
-
-		// SCENARIO 1 - Do not set the switch so users can directly access the apprenticeship service after clicking the tile
-		if (password == "11111111") {
-			
-			req.session.signIntoAnotherServicePage = "False";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.hasValidRoles = "True";
-			
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
+		
+		// Make sure the user enters a username and password
+		if (username == "" || password == "") {				
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in?error=true');
 		}
-		// SCENARIO 2 - Set the switch so users see the apprenticeship service information page ("sign-into-another-service")
-		else if (password == "22222222") {
+		// TRIGGER ERROR 1 - User has no valid MyESF roles
+		else if (password == "novalidroles") {
 
-			req.session.signIntoAnotherServicePage = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.hasValidRoles = "True";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
-		}
-		// SCENARIO 3 - Set the switch so users see the no apprenticeship service page ("no-apprenticeship-service")
-		else if (password == "33333333") {
-
-			req.session.signIntoAnotherServicePage = "False";
-			req.session.noApprenticeshipServicePage = "True";
-			req.session.hasValidRoles = "True";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
-		}
-		// SCENARIO 4 - Trigger and show users the no MyESF roles page
-		else if (password == "44444444") {
-
-			req.session.signIntoAnotherServicePage = "False";
-			req.session.noApprenticeshipServicePage = "False";
 			req.session.hasValidRoles = "False";
+			req.session.noApprenticeshipServicePage = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
-		// Make sure the user chooses an option
+		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
+		// REASON 1: User has not signed their apprenticeship agreement in MyESF
+		// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+		else if (password == "noapprenticeshipservice") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "True";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
+		}
+		// Anything else take user to dashboard with valid MyESF roles
 		else {
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in?error=true');	
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');	
 		}
 		
 	});
 
-	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
+	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/access-denied', function (req, res) {
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
@@ -165,7 +155,7 @@ module.exports = function(router) {
 				'signOutURL' : req.session.signOutURL
 			});
 		}
-		// Take users to the dashbord
+		// Take users to the standard dashbord
 		else {
 
 			req.session.idams = "dashboard";
@@ -176,29 +166,13 @@ module.exports = function(router) {
 				'idams' : req.session.idams,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL,
-				'signIntoAnotherServicePage' : req.session.signIntoAnotherServicePage,
 				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
 			});
 		}
 		
 	});
 
-	// TEMPORARY (while other ESFA services wait to use DfE Sign-in)
-	// Show this page to users to warn them they will need to sign in with IdAMS to access this service
-	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/sign-into-another-service', function (req, res) {
-		
-		req.session.idams = "adults";
-		
-		res.render(version + '/error-pages/sign-into-another-service', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
-		});
-	});
-
-	// Show to users when they are not permitted to access the apprenticeship service due to:
+	// ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
 	// REASON 1: User has not signed their apprenticeship agreement in MyESF
 	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/no-apprenticeship-service', function (req, res) {
