@@ -8,7 +8,7 @@ module.exports = function(router) {
 
 	/*** ADULT ***/
 	// Set a selection of global variables for all templates being reused
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/*', function (req, res, next) {				
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/*', function (req, res, next) {				
 
 		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
 		req.session.versioning = "True";
@@ -16,18 +16,18 @@ module.exports = function(router) {
 		// Set the unique related URLs for this feature journey
 		// ALLOCATION STATEMENTS
 		// ADULTS
-		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions';
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/allocation-statements/adults/child/roles-and-permissions';
 
 		// Both needed for the global IDAMS account header
-		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/my-roles-and-permissions';
-		req.session.signOutURL = '/' + version + '/signed-in/external/child/allocation-statements/adults/start';
+		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/allocation-statements/adults/child/my-roles-and-permissions';
+		req.session.signOutURL = '/' + version + '/signed-in/external/allocation-statements/adults/child/start';
 
 		return next();
 	});
 
 	/*** GENERAL ANNUAL GRANT (CHILD) ***/
 	// Set a selection of global variables for all templates being reused
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/*', function (req, res, next) {				
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/*', function (req, res, next) {				
 
 		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
 		req.session.versioning = "True";
@@ -35,18 +35,18 @@ module.exports = function(router) {
 		// Set the unique related URLs for this feature journey
 		// ALLOCATION STATEMENTS
 		// GENERAL ANNUAL GRANT
-		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/roles-and-permissions';
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/roles-and-permissions';
 
 		// Both needed for the global IDAMS account header
-		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/my-roles-and-permissions';
-		req.session.signOutURL = '/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/start';
+		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/my-roles-and-permissions';
+		req.session.signOutURL = '/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/start';
 
 		return next();
 	});
 
 	/*** GENERAL ANNUAL GRANT (PARENT) ***/
 	// Set a selection of global variables for all templates being reused
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/*', function (req, res, next) {				
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/*', function (req, res, next) {				
 
 		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
 		req.session.versioning = "True";
@@ -54,11 +54,11 @@ module.exports = function(router) {
 		// Set the unique related URLs for this feature journey
 		// ALLOCATION STATEMENTS
 		// GENERAL ANNUAL GRANT (PARENT)
-		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/roles-and-permissions';
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/roles-and-permissions';
 
 		// Both needed for the global IDAMS account header
-		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/my-roles-and-permissions';
-		req.session.signOutURL = '/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/start';
+		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/my-roles-and-permissions';
+		req.session.signOutURL = '/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/start';
 
 		return next();
 	});
@@ -68,7 +68,7 @@ module.exports = function(router) {
 	* **********/
 
 	// GOV.UK Entry Point
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -76,31 +76,19 @@ module.exports = function(router) {
 			'adultAllocations' : "true"
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in');
-	});
-
-	// IDAMS
-	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/idams/sign-in', function (req, res) {
-		res.render(version + '/idams/sign-in', {
-			'version' : version,
-			'versioning' : req.session.versioning
-		});
-	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/idams/sign-in', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+	router.post('/' + version + '/signed-in/external/allocation-statements/adults/child/start', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in');
 	});
 
 	// DfE Sign-in
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in', function (req, res) {		
 		
 		// req.session.username = req.body.username.toLowerCase();
 		// var username = req.session.username;
@@ -114,7 +102,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.hasValidRoles = "True";
 			
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
 		// SCENARIO 2 - Set the switch so users see the apprenticeship service information page ("sign-into-another-service")
 		else if (password == "22222222") {
@@ -123,7 +111,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.hasValidRoles = "True";
 
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
 		// SCENARIO 3 - Set the switch so users see the no apprenticeship service page ("no-apprenticeship-service")
 		else if (password == "33333333") {
@@ -132,7 +120,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "True";
 			req.session.hasValidRoles = "True";
 
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
 		// SCENARIO 4 - Trigger and show users the no MyESF roles page
 		else if (password == "44444444") {
@@ -141,17 +129,17 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.hasValidRoles = "False";
 
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dfe-sign-in/sign-in?error=true');	
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in?error=true');	
 		}
 		
 	});
 
 	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/access-denied', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/access-denied', function (req, res) {
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -162,7 +150,7 @@ module.exports = function(router) {
 	});
 
 	// Dashboard
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard', function (req, res) {
 	
 		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
@@ -182,7 +170,7 @@ module.exports = function(router) {
 
 			req.session.idams = "dashboard";
 
-			res.render(version + '/signed-in/external/child/allocation-statements/dashboard', {
+			res.render(version + '/signed-in/external/allocation-statements/adults/dashboard', {
 				'version' : version,
 				'versioning' : req.session.versioning,
 				'idams' : req.session.idams,
@@ -197,7 +185,7 @@ module.exports = function(router) {
 
 	// TEMPORARY (while other ESFA services wait to use DfE Sign-in)
 	// Show this page to users to warn them they will need to sign in with IdAMS to access this service
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/sign-into-another-service', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/sign-into-another-service', function (req, res) {
 		
 		req.session.idams = "adults";
 		
@@ -213,7 +201,7 @@ module.exports = function(router) {
 	// Show to users when they are not permitted to access the apprenticeship service due to:
 	// REASON 1: User has not signed their apprenticeship agreement in MyESF
 	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/no-apprenticeship-service', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/no-apprenticeship-service', function (req, res) {
 		
 		req.session.idams = "adults";
 		
@@ -227,11 +215,11 @@ module.exports = function(router) {
 	});
 
 	// Allocation statements
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/allocation-statement-list', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statement-list', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/allocation-statement-list', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/allocation-statement-list', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -241,11 +229,11 @@ module.exports = function(router) {
 	});
 
 	// 16 to 18 traineeships for 2018 to 2019
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/16-to-18-traineeships', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/16-to-18-traineeships', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -255,11 +243,11 @@ module.exports = function(router) {
 	});
 
 	// Apprenticeship carry-in for 2018 to 2019
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/apprenticeship-carry-in-details', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/apprenticeship-carry-in-details', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -269,11 +257,11 @@ module.exports = function(router) {
 	});
 
 	// ESFA adult education budget 2018 to 2019 (v2)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v2', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v2', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v2', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -284,11 +272,11 @@ module.exports = function(router) {
 	});
 
 	// ESFA adult education budget 2018 to 2019 (v1)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v1', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/esfa-adult-education-budget-details-v1', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v1', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -299,11 +287,11 @@ module.exports = function(router) {
 	});
 
 	// Advanced learner loans for 2018 to 2019 (v2)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v2', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v2', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v2', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v2', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -313,11 +301,11 @@ module.exports = function(router) {
 	});
 
 	// Advanced learner loans for 2018 to 2019 (v1)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v1', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v1', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/adults/advanced-learner-loan-details-v1', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v1', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -333,7 +321,7 @@ module.exports = function(router) {
 
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
@@ -342,7 +330,7 @@ module.exports = function(router) {
 
 	// SIGNED IN
 	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/my-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/my-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "adults";
 		
@@ -357,7 +345,7 @@ module.exports = function(router) {
 	});
 
 	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/all-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/all-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "adults";
 		
@@ -375,7 +363,7 @@ module.exports = function(router) {
 	* **********/
 
 	// GOV.UK Entry Point
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/start', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -383,31 +371,19 @@ module.exports = function(router) {
 			'adultAllocations' : "true"
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in');
-	});
-
-	// IDAMS
-	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {
-		res.render(version + '/idams/sign-in', {
-			'version' : version,
-			'versioning' : req.session.versioning
-		});
-	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dashboard');
+	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/start', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dfe-sign-in/sign-in');
 	});
 
 	// DfE Sign-in
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dfe-sign-in/sign-in', function (req, res) {		
 		
 		// req.session.username = req.body.username.toLowerCase();
 		// var username = req.session.username;
@@ -421,18 +397,18 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "True";
 			req.session.hasValidRoles = "True";
 			
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dashboard');
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
 
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dfe-sign-in/sign-in?error=true');	
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dfe-sign-in/sign-in?error=true');	
 		}
 		
 	});
 
 	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/access-denied', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/access-denied', function (req, res) {
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -443,7 +419,7 @@ module.exports = function(router) {
 	});
 
 	// Dashboard
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/dashboard', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard', function (req, res) {
 	
 		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
@@ -463,7 +439,7 @@ module.exports = function(router) {
 
 			req.session.idams = "dashboard";
 
-			res.render(version + '/signed-in/external/child/allocation-statements/dashboard', {
+			res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/dashboard', {
 				'version' : version,
 				'versioning' : req.session.versioning,
 				'idams' : req.session.idams,
@@ -477,11 +453,11 @@ module.exports = function(router) {
 	});
 
 	// Allocation statements
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/allocation-statement-list', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statement-list', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/child/allocation-statements/general-annual-grant/allocation-statement-list', {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statement-list', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -499,7 +475,7 @@ module.exports = function(router) {
 
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
@@ -508,7 +484,7 @@ module.exports = function(router) {
 
 	// SIGNED IN
 	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/my-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/my-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "general-annual-grant";
 		
@@ -523,7 +499,7 @@ module.exports = function(router) {
 	});
 
 	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/child/allocation-statements/general-annual-grant/all-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/all-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "general-annual-grant";
 		
@@ -541,7 +517,7 @@ module.exports = function(router) {
 	* **********/
 
 	// GOV.UK Entry Point
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/start', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/start', function (req, res) {
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -549,56 +525,37 @@ module.exports = function(router) {
 			'adultAllocations' : "true"
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in');
-	});
-
-	// IDAMS
-	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {
-		res.render(version + '/idams/sign-in', {
-			'version' : version,
-			'versioning' : req.session.versioning
-		});
-	});
-	router.post('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/idams/sign-in', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard');
+	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/start', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dfe-sign-in/sign-in');
 	});
 
 	// DfE Sign-in
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dfe-sign-in/sign-in', function (req, res) {		
 		
-		// req.session.username = req.body.username.toLowerCase();
-		// var username = req.session.username;
+		req.session.username = req.body.username.toLowerCase();
+		var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 
-		// SCENARIO 1 - Do not set the switch so users can directly access the apprenticeship service after clicking the tile
-		if (password == "") {
-			
-			req.session.signIntoAnotherServicePage = "True";
-			req.session.noApprenticeshipServicePage = "True";
-			req.session.hasValidRoles = "True";
-			
-			res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard');
+		// Make sure the user enters a username and password
+		if (username == "" || password == "") {			
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dfe-sign-in/sign-in?error=true');
 		}
-
-		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dfe-sign-in/sign-in?error=true');	
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');	
 		}
 		
 	});
 
 	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/access-denied', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/access-denied', function (req, res) {
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -609,45 +566,22 @@ module.exports = function(router) {
 	});
 
 	// Dashboard
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard', function (req, res) {
-	
-		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
-		if (req.session.hasValidRoles == "False") {
-			
-			req.session.idams = "general-annual-grant";
-			
-			res.render(version + '/error-pages/access-denied', {
-				'version' : version,
-				'versioning' : req.session.versioning,
-				'idams' : req.session.idams,
-				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-				'signOutURL' : req.session.signOutURL
-			});
-		}
-		// Take users to the dashbord
-		else {
-
-			req.session.idams = "dashboard";
-
-			res.render(version + '/signed-in/external/parent/allocation-statements/general-annual-grant/dashboard', {
-				'version' : version,
-				'versioning' : req.session.versioning,
-				'idams' : req.session.idams,
-				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-				'signOutURL' : req.session.signOutURL,
-				'signIntoAnotherServicePage' : req.session.signIntoAnotherServicePage,
-				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
-			});
-		}
-		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard', function (req, res) {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/dashboard', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
 	});
 
 	// Allocation statements
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/allocation-statement-list', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list', function (req, res) {
 
 		req.session.idams = "adults";
 		
-		res.render(version + '/signed-in/external/parent/allocation-statements/general-annual-grant/allocation-statement-list', {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -663,7 +597,7 @@ module.exports = function(router) {
 
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
@@ -672,7 +606,7 @@ module.exports = function(router) {
 
 	// SIGNED IN
 	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/my-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/my-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "general-annual-grant";
 		
@@ -687,7 +621,7 @@ module.exports = function(router) {
 	});
 
 	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/parent/allocation-statements/general-annual-grant/all-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/all-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "general-annual-grant";
 		
