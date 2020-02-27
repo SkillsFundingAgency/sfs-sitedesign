@@ -8,34 +8,34 @@ module.exports = function(router) {
 
 	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
 	// Set a selection of global variables for all templates being reused
-	router.get('/' + version + '/signed-in/external/child/document-exchange/*', function (req, res, next) {				
+	router.get('/' + version + '/signed-in/external/document-exchange/child/*', function (req, res, next) {				
 
 		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
 		req.session.versioning = "True";
 
 		// Set the unique related URL for this feature journey
-		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions';
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/document-exchange/child/roles-and-permissions';
 		
 		// Both needed for the global IDAMS account header
-		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/child/document-exchange/my-roles-and-permissions';
-		req.session.signOutURL = '/' + version + '/signed-in/external/child/document-exchange/start';
+		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/document-exchange/child/my-roles-and-permissions';
+		req.session.signOutURL = '/' + version + '/signed-in/external/document-exchange/child/start';
 
 		return next();
 	});
 
 	/*** EXTERNAL USERS - PARENT VIEW (LA & MAT) ***/
 	// Set a selection of global variables for all templates being reused
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/*', function (req, res, next) {				
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/*', function (req, res, next) {				
 
 		// Tells layout.html to use versioned HTML templates and partials (e.g. includes)
 		req.session.versioning = "True";
 
 		// Set the unique related URL for this feature journey		
-		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions';
+		req.session.userRolesAndPermissionsURL = '/' + version + '/signed-in/external/document-exchange/parent/roles-and-permissions';
 
 		// Both needed for the global IDAMS account header
-		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/parent/document-exchange/my-roles-and-permissions';
-		req.session.signOutURL = '/' + version + '/signed-in/external/parent/document-exchange/start';
+		req.session.myRolesAndPermissionsURL = '/' + version + '/signed-in/external/document-exchange/parent/my-roles-and-permissions';
+		req.session.signOutURL = '/' + version + '/signed-in/external/document-exchange/parent/start';
 
 		return next();
 	});
@@ -62,7 +62,7 @@ module.exports = function(router) {
 	* **********/
 	
 	// Start
-	router.get('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {	
+	router.get('/' + version + '/signed-in/external/document-exchange/child/start', function (req, res) {	
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -70,70 +70,27 @@ module.exports = function(router) {
 			'docExExternal' : "true"
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in');
+	router.post('/' + version + '/signed-in/external/document-exchange/child/start', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/document-exchange/child/dfe-sign-in/sign-in');
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/roles-and-permissions', function (req, res) {
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
 		});
 	});
 
-	// IDAMS
-	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in', function (req, res) {
-		res.render(version + '/idams/sign-in', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'error' : req.query.error
-		});
-	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in', function (req, res) {		
-		
-		// USABILITY TESTING ONLY
-		req.session.receivedDocuments = "Yes";
-		req.session.documentReceived1 = "New";
-		req.session.documentReceived2 = "New";
-		req.session.documentSent1 = "No";
-		req.session.documentSent2 = "No";
-		req.session.userID = req.body.id.toLowerCase();
-		var userID = req.session.userID;
-
-		// User is signing in as a Local Authority (LA) Training Provider (TP)
-		if (userID == "tp") {
-
-			req.session.idams = "TP";
-			req.session.child = "TP";
-
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
-		}
-		// User is signing in as any other valid child education institution
-		else if (userID == "academy" || userID == "college" || userID == "school" || userID == "sixth form") {
-			
-			req.session.idams = "other";
-			req.session.child = "other";
-
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
-		}
-		// Make sure the user chooses an option
-		else {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/idams/sign-in?error=true');
-		}
-		
-	});
-
 	// DfE Sign-in
-	router.get('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/child/dfe-sign-in/sign-in', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
@@ -150,7 +107,7 @@ module.exports = function(router) {
 			req.session.idams = "TP";
 			req.session.child = "TP";
 
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/dashboard');
 		}
 		// User is signing in as any other valid child education institution
 		else if (username == "academy" || username == "college" || username == "school" || username == "sixth form") {
@@ -158,24 +115,24 @@ module.exports = function(router) {
 			req.session.idams = "other";
 			req.session.child = "other";
 
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dashboard');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/dashboard');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/dfe-sign-in/sign-in?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/dfe-sign-in/sign-in?error=true');
 		}
 		
 	});
 
 	// Dashboard
-	router.get('/' + version + '/signed-in/external/child/document-exchange/dashboard', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/dashboard', function (req, res) {
 	
 		req.session.dashboard = "Yes";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
 		
-		res.render(version + '/signed-in/external/dashboard', {
+		res.render(version + '/signed-in/external/document-exchange/dashboard', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -189,14 +146,14 @@ module.exports = function(router) {
 	});
 
 	// Document Exchange (Home)
-	router.get('/' + version + '/signed-in/external/child/document-exchange/home', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/home', function (req, res) {
 		
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
 		
-		res.render(version + '/signed-in/external/child/document-exchange/home', {
+		res.render(version + '/signed-in/external/document-exchange/child/home', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -209,7 +166,7 @@ module.exports = function(router) {
 	});
 
 	// Received from ESFA
-	router.get('/' + version + '/signed-in/external/child/document-exchange/received-from-esfa', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/received-from-esfa', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -236,7 +193,7 @@ module.exports = function(router) {
 			req.session.receivedDocuments = "No";
 		}
 		
-		res.render(version + '/signed-in/external/child/document-exchange/received-from-esfa', {
+		res.render(version + '/signed-in/external/document-exchange/child/received-from-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -251,7 +208,7 @@ module.exports = function(router) {
 	});
 
 	// Sent to ESFA
-	router.get('/' + version + '/signed-in/external/child/document-exchange/sent-to-esfa', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/sent-to-esfa', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -263,7 +220,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
-		res.render(version + '/signed-in/external/child/document-exchange/sent-to-esfa', {
+		res.render(version + '/signed-in/external/document-exchange/child/sent-to-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -277,7 +234,7 @@ module.exports = function(router) {
 	});
 
 	// Document Upload File Type
-	router.get('/' + version + '/signed-in/external/child/document-exchange/document-upload-file-type', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -289,7 +246,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
-		res.render(version + '/signed-in/external/child/document-exchange/document-upload-file-type', {
+		res.render(version + '/signed-in/external/document-exchange/child/document-upload-file-type', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -303,7 +260,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/document-upload-file-type', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type', function (req, res) {		
 		
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
@@ -322,17 +279,17 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/document-upload-file-type?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type?error=true');
 		}
 		// Success
 		else {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/document-upload');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload');
 		}
 		
 	});
 
 	// Document Upload
-	router.get('/' + version + '/signed-in/external/child/document-exchange/document-upload', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -344,7 +301,7 @@ module.exports = function(router) {
 		req.session.fileType = req.session.fileType || "";
 		req.session.fileTypeVersion = req.session.fileTypeVersion || "";
 		
-		res.render(version + '/signed-in/external/child/document-exchange/document-upload', {
+		res.render(version + '/signed-in/external/document-exchange/child/document-upload', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -359,15 +316,15 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});		
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/document-upload', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload', function (req, res) {		
 
 		req.session.fileName = req.body.fileName;
 		
-		res.redirect('/' + version + '/signed-in/external/child/document-exchange/document-upload-complete');
+		res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete');
 	});
 
 	// Document Upload - Remove Document
-	router.get('/' + version + '/signed-in/external/child/document-exchange/document-upload-remove', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload-remove', function (req, res) {
 	
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -378,7 +335,7 @@ module.exports = function(router) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
 		}
 		
-		res.render(version + '/signed-in/external/child/document-exchange/document-upload-remove', {
+		res.render(version + '/signed-in/external/document-exchange/child/document-upload-remove', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -390,7 +347,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/document-upload-remove', function (req, res) {
+	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-remove', function (req, res) {
 		
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -399,24 +356,24 @@ module.exports = function(router) {
 		var deleteDocument = req.body.deleteDocument;
 
 		if (deleteDocument == "Yes") {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type');
 		}
 		else if (deleteDocument == "No") {
 
 			// Tell the next page to show the last uploaded document information
 			req.session.uploadedDocumentStatus = "Show";
 
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/document-upload');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/child/document-exchange/document-upload-remove?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload-remove?error=true');
 		}
 		
 	});
 
 	// Document Upload Complete
-	router.get('/' + version + '/signed-in/external/child/document-exchange/document-upload-complete', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
 		if (req.session.fileType == "Business case" || req.session.fileType == "Business case template") {
@@ -431,7 +388,7 @@ module.exports = function(router) {
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
 		
-		res.render(version + '/signed-in/external/child/document-exchange/document-upload-complete', {
+		res.render(version + '/signed-in/external/document-exchange/child/document-upload-complete', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -442,14 +399,14 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/child/document-exchange/document-upload-complete', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		
-		res.redirect('/' + version + '/signed-in/external/child/document-exchange/home');
+		res.redirect('/' + version + '/signed-in/external/document-exchange/child/home');
 	});
 
 	/**********
@@ -457,7 +414,7 @@ module.exports = function(router) {
 	* **********/
 
 	// Start
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
 			'versioning' : req.session.versioning,
@@ -465,81 +422,27 @@ module.exports = function(router) {
 			'docExExternal' : "true"
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/start', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in');
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/start', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/external/document-exchange/parent/dfe-sign-in/sign-in');
 	});
 
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/roles-and-permissions', function (req, res) {
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
 		});
 	});
 
-	// IDAMS
-	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in', function (req, res) {
-		res.render(version + '/idams/sign-in', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'error' : req.query.error
-		});
-	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in', function (req, res) {		
-		
-		// USABILITY TESTING ONLY
-		req.session.receivedDocuments = "Yes";
-		req.session.documentReceived1 = "New";
-		req.session.documentReceived2 = "New";
-		req.session.documentReceived3 = "New";
-		req.session.documentReceived4 = "New";
-		req.session.documentReceived5 = "New";
-		req.session.documentReceived6 = "New";
-		req.session.documentReceived7 = "New";
-		req.session.documentReceived8 = "New";
-		req.session.documentReceived9 = "New";
-		req.session.documentReceived10 = "New";
-		req.session.documentReceived11 = "New";
-		req.session.documentReceived12 = "New";
-		req.session.documentReceived13 = "New";
-		req.session.documentSent1 = "No";
-		req.session.documentSent2 = "No";
-		req.session.userID = req.body.id.toLowerCase();
-		var userID = req.session.userID;
-
-		// User is signing in as a Local Authority (LA)
-		if (userID == "la") {
-
-			req.session.idams = "LA";
-			req.session.parent = "LA";
-
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
-		}
-		// User is signing in as a Multi Academy Trust (MAT)
-		else if (userID == "mat") {
-			
-			req.session.idams = "MAT";
-			req.session.parent = "MAT";
-
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
-		}
-		// Make sure the user chooses an option
-		else {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/idams/sign-in?error=true');
-		}
-		
-	});
-
 	// DfE Sign-in
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/dfe-sign-in/sign-in', function (req, res) {		
 		
 		// USABILITY TESTING ONLY
 		req.session.receivedDocuments = "Yes";
@@ -567,7 +470,7 @@ module.exports = function(router) {
 			req.session.idams = "LA";
 			req.session.parent = "LA";
 
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/dashboard');
 		}
 		// User is signing in as a Multi Academy Trust (MAT)
 		else if (username == "mat") {
@@ -575,24 +478,24 @@ module.exports = function(router) {
 			req.session.idams = "MAT";
 			req.session.parent = "MAT";
 
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dashboard');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/dashboard');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/dfe-sign-in/sign-in?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/dfe-sign-in/sign-in?error=true');
 		}
 		
 	});
 
 	// Dashboard
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/dashboard', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/dashboard', function (req, res) {
 		
 		req.session.dashboard = "Yes";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		
-		res.render(version + '/signed-in/external/dashboard', {
+		res.render(version + '/signed-in/external/document-exchange/dashboard', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -606,14 +509,14 @@ module.exports = function(router) {
 	});
 
 	// Document Exchange (Home)
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/home', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/home', function (req, res) {
 		
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/home', {
+		res.render(version + '/signed-in/external/document-exchange/parent/home', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -626,7 +529,7 @@ module.exports = function(router) {
 	});
 
 	// Received from ESFA
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/received-from-esfa', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/received-from-esfa', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -732,7 +635,7 @@ module.exports = function(router) {
 
 		}
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/received-from-esfa', {
+		res.render(version + '/signed-in/external/document-exchange/parent/received-from-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -769,7 +672,7 @@ module.exports = function(router) {
 	});
 
 	// Sent to ESFA
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/sent-to-esfa', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/sent-to-esfa', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -781,7 +684,7 @@ module.exports = function(router) {
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/sent-to-esfa', {
+		res.render(version + '/signed-in/external/document-exchange/parent/sent-to-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -795,7 +698,7 @@ module.exports = function(router) {
 	});
 
 	// Select an organisation
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/select-organisation', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/select-organisation', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -805,7 +708,7 @@ module.exports = function(router) {
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/select-organisation', {
+		res.render(version + '/signed-in/external/document-exchange/parent/select-organisation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -818,7 +721,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/select-organisation', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/select-organisation', function (req, res) {		
 		
 		var organisationType = req.body.organisationType;
 
@@ -826,27 +729,27 @@ module.exports = function(router) {
 
 			req.session.sendFrom = organisationType;
 
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type');
 		}
 		else if (organisationType == "A specific academy") {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/select-organisation?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-organisation?error=true');
 		}
 		
 	});
 
 	// Select an academy or school
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/select-academy-or-school', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 
-		res.render(version + '/signed-in/external/parent/document-exchange/select-academy-or-school', {
+		res.render(version + '/signed-in/external/document-exchange/parent/select-academy-or-school', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -861,27 +764,27 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/select-academy-or-school', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school', function (req, res) {		
 		
 		req.session.academyOrSchoolName = req.body.academyOrSchoolName;
 		var academyOrSchoolName = req.session.academyOrSchoolName;
 
 		// Make sure the user chooses an option
 		if (academyOrSchoolName == undefined) {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/select-academy-or-school?paginationRequired=true&page1=true&error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true&error=true');
 		}
 		// Success
 		else {
 			
 			req.session.sendFrom = academyOrSchoolName;
 			
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type');
 		}
 		
 	});
 
 	// Document Upload File Type
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/document-upload-file-type', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -898,7 +801,7 @@ module.exports = function(router) {
 			req.session.sendFrom = "Redhill Council";
 		}
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/document-upload-file-type', {
+		res.render(version + '/signed-in/external/document-exchange/parent/document-upload-file-type', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -913,7 +816,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/document-upload-file-type', function (req, res) {
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type', function (req, res) {
 
 		// Set the chosen document type as a session variable
 		req.session.fileType = req.body.fileType;
@@ -948,17 +851,17 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (fileType == undefined) {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload-file-type?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type?error=true');
 		}
 		// Success
 		else {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload');
 		}
 		
 	});
 
 	// Document Upload
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/document-upload', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -970,7 +873,7 @@ module.exports = function(router) {
 		req.session.fileType = req.session.fileType || "";
 		req.session.fileTypeVersion = req.session.fileTypeVersion || "";
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/document-upload', {
+		res.render(version + '/signed-in/external/document-exchange/parent/document-upload', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -986,15 +889,15 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});		
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/document-upload', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload', function (req, res) {		
 
 		req.session.fileName = req.body.fileName;
 		
-		res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload-complete');
+		res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete');
 	});
 
 	// Document Upload - Remove Document
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/document-upload-remove', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload-remove', function (req, res) {
 	
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -1005,7 +908,7 @@ module.exports = function(router) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
 		}
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/document-upload-remove', {
+		res.render(version + '/signed-in/external/document-exchange/parent/document-upload-remove', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -1018,7 +921,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/document-upload-remove', function (req, res) {
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-remove', function (req, res) {
 		
 		if (!req.session.uploadedDocumentName || req.session.uploadedDocumentName === undefined) {
 			req.session.uploadedDocumentName = req.query.uploadedDocumentName;
@@ -1027,24 +930,24 @@ module.exports = function(router) {
 		var deleteDocument = req.body.deleteDocument;
 
 		if (deleteDocument == "Yes") {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload-file-type');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type');
 		}
 		else if (deleteDocument == "No") {
 
 			// Tell the next page to show the last uploaded document information
 			req.session.uploadedDocumentStatus = "Show";
 
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload');
 		}
 		// Make sure the user chooses an option
 		else {
-			res.redirect('/' + version + '/signed-in/external/parent/document-exchange/document-upload-remove?error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-remove?error=true');
 		}
 		
 	});
 
 	// Document Upload Complete
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/document-upload-complete', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
 		if (req.session.fileType == "RPA certificate" || req.session.fileType == "Data sharing protocol") {
@@ -1059,7 +962,7 @@ module.exports = function(router) {
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
 		
-		res.render(version + '/signed-in/external/parent/document-exchange/document-upload-complete', {
+		res.render(version + '/signed-in/external/document-exchange/parent/document-upload-complete', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'dashboard' : req.session.dashboard,
@@ -1071,14 +974,14 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
-	router.post('/' + version + '/signed-in/external/parent/document-exchange/document-upload-complete', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
 		req.session.fileType = "";
 		
-		res.redirect('/' + version + '/signed-in/external/parent/document-exchange/home');
+		res.redirect('/' + version + '/signed-in/external/document-exchange/parent/home');
 	});
 
 	/**********
@@ -1106,18 +1009,6 @@ module.exports = function(router) {
 		});
 	});
 
-	// IDAMS
-	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/signed-in/internal/document-exchange/idams/sign-in', function (req, res) {
-		res.render(version + '/idams/sign-in', {
-			'version' : version,
-			'versioning' : req.session.versioning
-		});
-	});
-	router.post('/' + version + '/signed-in/internal/document-exchange/idams/sign-in', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/internal/document-exchange/dashboard');
-	});
-
 	// DfE Sign-in
 	router.get('/' + version + '/signed-in/internal/document-exchange/dfe-sign-in/sign-in', function (req, res) {
 		res.render(version + '/dfe-sign-in/sign-in', {
@@ -1135,7 +1026,7 @@ module.exports = function(router) {
 		
 		req.session.idams = "internal";
 		
-		res.render(version + '/signed-in/internal/dashboard', {
+		res.render(version + '/signed-in/internal/document-exchange/dashboard', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'idams' : req.session.idams,
@@ -1382,7 +1273,7 @@ module.exports = function(router) {
 	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/child/document-exchange/roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/document-exchange/child/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
@@ -1391,7 +1282,7 @@ module.exports = function(router) {
 
 	// SIGNED IN
 	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/child/document-exchange/my-roles-and-permissions', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/child/my-roles-and-permissions', function (req, res) {
 		
 		req.session.idams = "adults";
 		
@@ -1406,7 +1297,7 @@ module.exports = function(router) {
 	});
 
 	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/child/document-exchange/all-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/document-exchange/child/all-roles-and-permissions', function (req, res) {		
 		
 		req.session.idams = "adults";
 		
@@ -1422,7 +1313,7 @@ module.exports = function(router) {
 	/*** EXTERNAL USERS - PARENT VIEW (LA & MAT) ***/
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/roles-and-permissions', function (req, res) {		
 		res.render(version + '/roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning
@@ -1431,7 +1322,7 @@ module.exports = function(router) {
 
 	// SIGNED IN
 	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/my-roles-and-permissions', function (req, res) {
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/my-roles-and-permissions', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
@@ -1449,7 +1340,7 @@ module.exports = function(router) {
 	});
 
 	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/parent/document-exchange/all-roles-and-permissions', function (req, res) {		
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/all-roles-and-permissions', function (req, res) {		
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
