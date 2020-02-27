@@ -26,15 +26,15 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="allocationStatements" class="dashboard-links" href="allocation-statement-list">
+                        <a id="allocationStatements" class="dashboard-links" href="select-academy-or-school">
                             <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
-                            <!-- <span id="allocation-statements-alert" class="alert alert-name-red">2 new statements</span> -->
-                            <span id="allocation-statements-declaration-alert" class="alert alert-name-green">View statements</span>
+                            <span id="allocation-statements-alert" class="alert alert-name-red">1 new statement</span>
+                            <!-- <span id="allocation-statements-declaration-alert" class="alert alert-name-green">View statements</span> -->
                         </a>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a id="apprenticeshipService" class="dashboard-links" href="{% if signIntoAnotherServicePage == 'True' %}/{{version}}/signed-in/external/child/allocation-statements/adults/sign-into-another-service{% elif noApprenticeshipServicePage == 'True' %}/{{version}}/signed-in/external/child/allocation-statements/adults/no-apprenticeship-service{% else %}https://providers.apprenticeships.education.gov.uk{% endif %}">
+                        <a id="apprenticeshipService" class="dashboard-links" href="{% if noApprenticeshipServicePage == 'True' %}/{{version}}/signed-in/external/allocation-statements/general-annual-grant/parent/no-apprenticeship-service{% else %}https://providers.apprenticeships.education.gov.uk{% endif %}">
                             <span id="apprenticeship-declaration-service" class="service-name">Apprenticeship service</span>
                             <span id="apprenticeship-declaration-alert" class="alert alert-name-green">Go to apprenticeship service</span>
                         </a>
@@ -53,20 +53,10 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="documentExchange" class="dashboard-links" href="home">
+                        <a id="documentExchange" class="dashboard-links" href="#">
                             <span id="document-exchange-service" class="service-name">Document exchange</span>
-                            {% if receivedDocuments == 'Yes' %}
-                                {% if parent == 'MAT' %}
-                                <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span>
-                                {% elif parent == 'LA' %}
-                                <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span>
-                                {% else %}
-                                <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span>
-                                {% endif %}
-                            {% else %}
+                            <!-- <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span> -->
                             <span id="document-exchange-alert" class="alert alert-name-green">View documents</span>
-                            {% endif %}
-                            <!-- <span id="document-exchange-alert" class="alert alert-name-green">View documents</span> -->
                         </a>
                     </div>
 
