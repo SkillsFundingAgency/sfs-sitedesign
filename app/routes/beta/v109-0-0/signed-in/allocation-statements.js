@@ -128,17 +128,6 @@ module.exports = function(router) {
 		
 	});
 
-	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/access-denied', function (req, res) {
-		res.render(version + '/error-pages/access-denied', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
-		});
-	});
-
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard', function (req, res) {
 	
@@ -150,9 +139,9 @@ module.exports = function(router) {
 			res.render(version + '/error-pages/access-denied', {
 				'version' : version,
 				'versioning' : req.session.versioning,
-				'idams' : req.session.idams,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-				'signOutURL' : req.session.signOutURL
+				'signOutURL' : req.session.signOutURL,
+				'idams' : req.session.idams
 			});
 		}
 		// Take users to the standard dashbord
@@ -163,13 +152,24 @@ module.exports = function(router) {
 			res.render(version + '/signed-in/external/allocation-statements/adults/dashboard', {
 				'version' : version,
 				'versioning' : req.session.versioning,
-				'idams' : req.session.idams,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL,
+				'idams' : req.session.idams,
 				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
 			});
 		}
 		
+	});
+
+	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/access-denied', function (req, res) {
+		res.render(version + '/error-pages/access-denied', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
+		});
 	});
 
 	// ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
@@ -182,9 +182,9 @@ module.exports = function(router) {
 		res.render(version + '/error-pages/no-apprenticeship-service', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -196,9 +196,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/allocation-statement-list', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -210,9 +210,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -224,9 +224,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -238,10 +238,10 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v2', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'interimDesign' : req.query.interimDesign,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'interimDesign' : req.query.interimDesign
 		});
 	});
 
@@ -253,10 +253,10 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v1', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'interimDesign' : req.query.interimDesign,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'interimDesign' : req.query.interimDesign
 		});
 	});
 
@@ -268,9 +268,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v2', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -282,9 +282,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v1', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -311,9 +311,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
 			'hasValidRoles' : req.session.hasValidRoles
 		});
 	});
@@ -326,9 +326,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -440,8 +440,6 @@ module.exports = function(router) {
 		});
 	});
 
-
-
 	/**********
 	* MYESF SERVICE PAGES
 	* GENERAL ANNUAL GRANT (CHILD)
@@ -465,9 +463,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
 			'hasValidRoles' : req.session.hasValidRoles
 		});
 	});
@@ -480,9 +478,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -517,50 +515,132 @@ module.exports = function(router) {
 		var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
+		req.session.idams = "MAT";
 
 		// Make sure the user enters a username and password
-		if (username == "" || password == "") {			
+		if (username == "" || password == "") {				
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dfe-sign-in/sign-in?error=true');
 		}
+		// TRIGGER ERROR 1 - User has no valid MyESF roles
+		else if (password == "novalidroles") {
+
+			req.session.hasValidRoles = "False";
+			req.session.noApprenticeshipServicePage = "False";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
+		// REASON 1: User has not signed their apprenticeship agreement in MyESF
+		// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+		else if (password == "noapprenticeshipservice") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "True";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Anything else take user to dashboard with valid MyESF roles
 		else {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');	
 		}
 		
 	});
 
-	// DfE Sign-in (ERROR 1: ACCESS DENIED) - Show to users when they are not able to view any of the service features (tiles)
+	// Dashboard
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard', function (req, res) {
+
+		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		if (req.session.hasValidRoles == "False") {
+
+			req.session.dashboard = "No";
+			
+			res.render(version + '/error-pages/access-denied', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams
+			});
+		}
+		// Take users to the standard dashbord
+		else {
+
+			req.session.dashboard = "Yes";
+			// Only set the session variable if it does not exist
+			req.session.hasValidRoles = req.session.hasValidRoles || "True";
+			req.session.idams = req.session.idams || "MAT";
+
+			res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/dashboard', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams,
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
+			});
+		}
+		
+	});
+
+	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/access-denied', function (req, res) {
+	
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.idams = req.session.idams || "MAT";
+		
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams
 		});
 	});
 
-	// Dashboard
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard', function (req, res) {
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/dashboard', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
-		});
-	});
-
-	// Allocation statements
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list', function (req, res) {
-
-		req.session.idams = "adults";
+	// ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
+	// REASON 1: User has not signed their apprenticeship agreement in MyESF
+	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/no-apprenticeship-service', function (req, res) {
 		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list', {
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.idams = req.session.idams || "MAT";
+		
+		res.render(version + '/error-pages/no-apprenticeship-service', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams
+		});
+	});
+
+	// Select academy or school
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy-or-school', function (req, res) {
+
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.idams = req.session.idams || "MAT";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy-or-school', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -582,14 +662,17 @@ module.exports = function(router) {
 	// My user roles and permissions (Settings)
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/my-roles-and-permissions', function (req, res) {		
 		
-		req.session.idams = "general-annual-grant";
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/signed-in/my-roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
 			'hasValidRoles' : req.session.hasValidRoles
 		});
 	});
@@ -597,14 +680,17 @@ module.exports = function(router) {
 	// All user roles and permissions
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/all-roles-and-permissions', function (req, res) {		
 		
-		req.session.idams = "general-annual-grant";
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.parent = req.session.parent || "MAT";
 		
 		res.render(version + '/signed-in/all-roles-and-permissions', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
