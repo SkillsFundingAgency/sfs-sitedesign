@@ -135,13 +135,13 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/dashboard', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
 			'child' : req.session.child,
-			'receivedDocuments' : req.session.receivedDocuments,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
+			'receivedDocuments' : req.session.receivedDocuments
 		});
 	});
 
@@ -156,12 +156,12 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/home', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
-			'receivedDocuments' : req.session.receivedDocuments,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'receivedDocuments' : req.session.receivedDocuments
 		});
 	});
 
@@ -196,14 +196,14 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/received-from-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'receivedDocuments' : req.session.receivedDocuments,
 			'documentReceived1' : req.session.documentReceived1,
-			'documentReceived2' : req.session.documentReceived2,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'documentReceived2' : req.session.documentReceived2
 		});
 	});
 
@@ -223,13 +223,13 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/sent-to-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'documentSent1' : req.session.documentSent1,
-			'documentSent2' : req.session.documentSent2,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'documentSent2' : req.session.documentSent2
 		});
 	});
 
@@ -249,15 +249,15 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/document-upload-file-type', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'fileType' : req.session.fileType
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type', function (req, res) {		
@@ -304,6 +304,8 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/document-upload', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
@@ -311,9 +313,7 @@ module.exports = function(router) {
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType,
-			'fileTypeVersion' : req.session.fileTypeVersion,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'fileTypeVersion' : req.session.fileTypeVersion
 		});		
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload', function (req, res) {		
@@ -338,13 +338,13 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/document-upload-remove', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'error' : req.query.error,
-			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-remove', function (req, res) {
@@ -391,12 +391,12 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/child/document-upload-complete', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'child' : req.session.child,
-			'fileName' : req.session.fileName,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'fileName' : req.session.fileName
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete', function (req, res) {		
@@ -498,13 +498,13 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/dashboard', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
 			'parent' : req.session.parent,
-			'receivedDocuments' : req.session.receivedDocuments,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'apprenticeshipServiceAccess' : req.query.apprenticeshipServiceAccess,
+			'receivedDocuments' : req.session.receivedDocuments
 		});
 	});
 
@@ -519,12 +519,12 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/home', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
-			'receivedDocuments' : req.session.receivedDocuments,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'receivedDocuments' : req.session.receivedDocuments
 		});
 	});
 
@@ -638,6 +638,8 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/received-from-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -665,9 +667,7 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents",
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 
@@ -687,13 +687,13 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/sent-to-esfa', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'documentSent1' : req.session.documentSent1,
-			'documentSent2' : req.session.documentSent2,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'documentSent2' : req.session.documentSent2
 		});
 	});
 
@@ -711,14 +711,14 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/select-organisation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
-			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/select-organisation', function (req, res) {		
@@ -752,6 +752,8 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/select-academy-or-school', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -759,9 +761,7 @@ module.exports = function(router) {
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
-			'page3' : req.query.page3,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'page3' : req.query.page3
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school', function (req, res) {		
@@ -804,6 +804,8 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/document-upload-file-type', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
@@ -811,9 +813,7 @@ module.exports = function(router) {
 			'error' : req.query.error,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'fileType' : req.session.fileType
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type', function (req, res) {
@@ -876,17 +876,17 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/document-upload', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'error' : req.query.error,
 			'parent' : req.session.parent,
+			'error' : req.query.error,
 			'sendFrom' : req.session.sendFrom,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType,
-			'fileTypeVersion' : req.session.fileTypeVersion,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'fileTypeVersion' : req.session.fileTypeVersion
 		});		
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload', function (req, res) {		
@@ -911,14 +911,14 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/document-upload-remove', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
 			'error' : req.query.error,
-			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'uploadedDocumentName' : req.session.uploadedDocumentName
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-remove', function (req, res) {
@@ -965,13 +965,13 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/external/document-exchange/parent/document-upload-complete', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
-			'fileName' : req.session.fileName,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'fileName' : req.session.fileName
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete', function (req, res) {		
@@ -1029,9 +1029,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/dashboard', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -1043,9 +1043,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/home', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -1057,9 +1057,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/file-share', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 
@@ -1071,7 +1071,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,			
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
@@ -1084,9 +1086,7 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents",
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish', function (req, res) {		
@@ -1101,10 +1101,10 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish-confirm', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'error' : req.query.error,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'error' : req.query.error
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish-confirm', function (req, res) {		
@@ -1132,9 +1132,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish-confirmation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish-confirmation', function (req, res) {		
@@ -1149,10 +1149,10 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-publish-remove-confirm', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'error' : req.query.error,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'error' : req.query.error
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish-remove-confirm', function (req, res) {		
@@ -1180,6 +1180,8 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-review', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -1189,9 +1191,7 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents",
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 
@@ -1203,10 +1203,10 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-to-review-remove-confirm', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
-			'error' : req.query.error,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'error' : req.query.error
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-review-remove-confirm', function (req, res) {		
@@ -1234,9 +1234,9 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/documents-removed-confirmation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
-			'idams' : req.session.idams,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-removed-confirmation', function (req, res) {		
@@ -1251,6 +1251,8 @@ module.exports = function(router) {
 		res.render(version + '/signed-in/internal/document-exchange/download-documents', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
 			'idams' : req.session.idams,
 			'error' : req.query.error,
 			'paginationRequired' : req.query.paginationRequired,
@@ -1260,9 +1262,7 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents",
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL
+			'itemTypeLabelPlural' : "documents"
 		});
 	});
 

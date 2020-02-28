@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    {% if error %}Error: {% endif %}Select {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} do you want to send a document for?
+    {% if error %}Error: {% endif %}Select which academy you want to send a document for
 {% endblock %}
 
 {% block content %}
@@ -24,8 +24,6 @@
                 <nav>
                     <ol>
                         <li><a href="dashboard">Home</a></li>
-                        <li><a href="home">Document exchange</a></li>
-                        <!-- <li><a href="select-organisation">Send for {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}academy or school{% endif %}</a></li> -->
                         <li>Select an organisation</li>
                     </ol>
                 </nav>
@@ -39,7 +37,7 @@
             <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                 <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                 <ul class="error-summary-list">
-                    <li><a href="#academyOrSchool">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</a></li>
+                    <li><a href="#academyOrSchool">Select which academy you want to send a document for</a></li>
                 </ul>
             </div>
             {% endif %}
@@ -50,18 +48,18 @@
             <form action="add-team-members-to-client" method="GET">
 
                 <fieldset class="{% if error %}after-error-summary{% endif %}">
-                    <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</h1>
-                    <legend id="academyOrSchool" class="visuallyhidden">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</legend>
+                    <h1 class="heading-xlarge">Select which academy you want to send a document for</h1>
+                    <legend id="academyOrSchool" class="visuallyhidden">Search for an academy in the Rupert Shoggins Academy Trust</legend>
                     
                     <div style="margin-bottom: 1em;" class="search-field search-field-darker" data-checkbox-search-filter>
                         
                         <div class="search-input search-input-with-button" >
-                            <label class="form-label" for="searchUsers">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</label>
+                            <label class="form-label" for="searchUsers">Search for an academy in the Rupert Shoggins Academy Trust</label>
                             <input autocomplete="off" class="form-control" name="searchUsers" id="searchUsers" type="text" value="" />
                         </div>
 
                         <div class="search-submit">
-                            <button class="button" type="submit" id="searchUsersSubmit" name="searchUsersSubmit" value="Search team members">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</button>
+                            <button class="button" type="submit" id="searchUsersSubmit" name="searchUsersSubmit" value="Search team members">Search for an academy in the Rupert Shoggins Academy Trust</button>
                         </div>
 
                     </div>
@@ -75,23 +73,18 @@
                 <p class="hidden" data-clear-filter><a href="select-academy-or-school?paginationRequired=true&page1=true" id="clearSearchAndSelection">Clear search</a></p>
             </div>
 
-            {% if parent == 'MAT' %}
             <h2 id="selectedChoiceHeading" class="heading-medium hidden">0 academies selected</h2>
             <p data-filtered-message>60 academies</p>
-            {% elif parent == 'LA' %}
-            <h2 id="selectedChoiceHeading" class="heading-medium hidden">0 schools selected</h2>
-            <p data-filtered-message>60 schools</p>
-            {% endif %}
             
             <form method="POST">
             
                 <fieldset>
-                    <legend class="visuallyhidden">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</legend>
+                    <legend class="visuallyhidden">Select which academy you want to send a document for</legend>
 
                     <!-- NON JS CHECKBOXES (START) -->
                     <div class="form-group {% if error %}form-group-error{% endif %}" data-non-js-checkboxes>
                         {% if error %}
-                        <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</span>
+                        <span class="error-message">Select which academy you want to send a document for</span>
                         {% endif %}
                         
                         <!-- SHOWING 1 TO 25 OF 60 DOCUMENTS -->
@@ -978,8 +971,8 @@
             true,
             // (25) - how many items to show per page
 			25,
-			"{% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %}",
-			"{% if parent == 'MAT' %}academies{% elif parent == 'LA' %}schools{% else %}[academies or schools]{% endif %}"
+			"academy",
+			"academies"
 		)
 
     });
