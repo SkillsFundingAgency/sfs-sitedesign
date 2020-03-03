@@ -543,6 +543,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL
 		});
 	});
+	
 	// Allocation history
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-history', function (req, res) {
 
@@ -744,14 +745,14 @@ module.exports = function(router) {
 		});
 	});
 
-	// Select academy or school
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy-or-school', function (req, res) {
+	// Select academy
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy', function (req, res) {
 
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy-or-school', {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -765,23 +766,43 @@ module.exports = function(router) {
 			'page3' : req.query.page3
 		});
 	});
-	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy-or-school', function (req, res) {		
+	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy', function (req, res) {		
 		
-		req.session.academyOrSchoolName = req.body.academyOrSchoolName;
-		var academyOrSchoolName = req.session.academyOrSchoolName;
+		req.session.organisationName = req.body.organisationName;
+		var organisationName = req.session.organisationName;
 
 		// Make sure the user chooses an option
-		if (academyOrSchoolName == undefined) {
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy-or-school?paginationRequired=true&page1=true&error=true');
+		if (organisationName == undefined) {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy?paginationRequired=true&page1=true&error=true');
 		}
 		// Success
 		else {
 			
-			req.session.sendFrom = academyOrSchoolName;
+			req.session.organisationName = organisationName;
 			
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list');
 		}
 		
+	});
+
+	// Allocation statement list
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statement-list', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'versionB' : req.query.versionB
+		});
 	});
 
 	/**********

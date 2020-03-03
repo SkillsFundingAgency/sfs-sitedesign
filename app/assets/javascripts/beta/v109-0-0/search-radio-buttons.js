@@ -7,9 +7,9 @@
 // jQuery (START)
 $(document).ready(function () {
 
-    $('input[name="academyOrSchoolName"]').on('change', function() {
+    $('input[name="organisationName"]').on('change', function() {
         
-        var selectedRadioButtonValue = $('input[name=academyOrSchoolName]:checked').val(); 
+        var selectedRadioButtonValue = $('input[name=organisationName]:checked').val(); 
         var clearFilter = jQuery("[data-clear-filter]");
         var searchContainer = jQuery("[data-checkbox-search-filter]");
         var searchInput = searchContainer.find("input");
