@@ -488,6 +488,75 @@ module.exports = function(router) {
 		});
 	});
 
+	// Schools funding breakdown
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation', function (req, res) {
+
+		req.session.idams = "general-annual-grant";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
+	// Schools funding breakdown
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-2', function (req, res) {
+
+		req.session.idams = "general-annual-grant";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-2', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+	
+	// Schools funding breakdown
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-3', function (req, res) {
+
+		req.session.idams = "general-annual-grant";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-3', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
+	// Schools funding breakdown
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-4', function (req, res) {
+
+		req.session.idams = "general-annual-grant";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-4', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+	// Allocation history
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-history', function (req, res) {
+
+		req.session.idams = "general-annual-grant";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-history', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'idams' : req.session.idams,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL
+		});
+	});
+
 	/**********
 	* MYESF SERVICE PAGES
 	* GENERAL ANNUAL GRANT (CHILD)
