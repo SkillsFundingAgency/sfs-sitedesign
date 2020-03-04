@@ -3,10 +3,14 @@ module.exports = function(router) {
 	var version = 'beta/v109-0-0';
 
 	/**********
-	* GLOBAL
+	* GLOBAL VARIABLES
+	* MYESF (ALLOCATION STATEMENTS)
 	* **********/
 
-	/*** ADULT ***/
+	/**********
+	* ADULTS - CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+	* **********/
+
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/*', function (req, res, next) {				
 
@@ -25,7 +29,10 @@ module.exports = function(router) {
 		return next();
 	});
 
-	/*** GENERAL ANNUAL GRANT (CHILD) ***/
+	/**********
+	* GENERAL ANNUAL GRANT - CHILD VIEW (SAT)
+	* **********/
+
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/*', function (req, res, next) {				
 
@@ -44,7 +51,10 @@ module.exports = function(router) {
 		return next();
 	});
 
-	/*** GENERAL ANNUAL GRANT (PARENT) ***/
+	/**********
+	* GENERAL ANNUAL GRANT - PARENT VIEW (MAT)
+	* **********/
+
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/*', function (req, res, next) {				
 
@@ -64,7 +74,9 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* ADULTS
+	* SIGNED IN (EXTERNAL USERS)
+	* MYESF (ALLOCATION STATEMENTS)
+	* ADULTS - CHILD VIEW (SCHOOL & SINGLE ACADEMY)
 	* **********/
 
 	// GOV.UK Entry Point
@@ -289,51 +301,9 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* MYESF SERVICE PAGES
-	* ADULTS
-	* **********/
-
-	// NOT SIGNED IN (PUBLIC)
-	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/roles-and-permissions', function (req, res) {		
-		res.render(version + '/roles-and-permissions', {
-			'version' : version,
-			'versioning' : req.session.versioning
-		});
-	});
-
-	// SIGNED IN
-	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/my-roles-and-permissions', function (req, res) {		
-		
-		req.session.idams = "adults";
-		
-		res.render(version + '/signed-in/my-roles-and-permissions', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams,
-			'hasValidRoles' : req.session.hasValidRoles
-		});
-	});
-
-	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/all-roles-and-permissions', function (req, res) {		
-		
-		req.session.idams = "adults";
-		
-		res.render(version + '/signed-in/all-roles-and-permissions', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
-		});
-	});
-
-	/**********
-	* GENERAL ANNUAL GRANT (CHILD)
+	* SIGNED IN (EXTERNAL USERS)
+	* MYESF (ALLOCATION STATEMENTS)
+	* GENERAL ANNUAL GRANT - CHILD VIEW (SAT)
 	* **********/
 
 	// GOV.UK Entry Point
@@ -587,55 +557,9 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* MYESF SERVICE PAGES
-	* GENERAL ANNUAL GRANT (CHILD)
-	* **********/
-
-	// NOT SIGNED IN (PUBLIC)
-	// User roles and permissions
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/roles-and-permissions', function (req, res) {		
-		res.render(version + '/roles-and-permissions', {
-			'version' : version,
-			'versioning' : req.session.versioning
-		});
-	});
-
-	// SIGNED IN
-	// My user roles and permissions (Settings)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/my-roles-and-permissions', function (req, res) {		
-		
-		req.session.dashboard = "No";
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		
-		res.render(version + '/signed-in/my-roles-and-permissions', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams,
-			'hasValidRoles' : req.session.hasValidRoles
-		});
-	});
-
-	// All user roles and permissions
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/all-roles-and-permissions', function (req, res) {		
-		
-		req.session.dashboard = "No";
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		
-		res.render(version + '/signed-in/all-roles-and-permissions', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
-		});
-	});
-
-	/**********
-	* GENERAL ANNUAL GRANT (PARENT)
+	* SIGNED IN (EXTERNAL USERS)
+	* MYESF (ALLOCATION STATEMENTS)
+	* GENERAL ANNUAL GRANT - PARENT VIEW (MAT)
 	* **********/
 
 	// GOV.UK Entry Point
@@ -833,6 +757,10 @@ module.exports = function(router) {
 		});
 	});
 
+	/**********
+	* GENERAL ANNUAL GRANT
+	* **********/
+
 	// Allocation history 
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-history', function (req, res) {
 
@@ -852,9 +780,137 @@ module.exports = function(router) {
 		});
 	});
 
+	// REDIRECT hook page used to record the tab that the user wants to view on the GAG breakdown page (e.g. schools)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/tab-choice', function (req, res) {		
+		
+		req.session.tab = req.query.tab;
+		// Reset this variable to 0 so we can execute the dynamic tab functionality
+		req.session.reloads = 0;
+		var redirectURL = req.query.redirectURL;
+		
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/' + redirectURL);
+	});
+
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
 	/**********
-	* MYESF SERVICE PAGES
-	* GENERAL ANNUAL GRANT (PARENT)
+	* SERVICE & FEATURE PAGES
+	* MYESF (ALLOCATION STATEMENTS)
+	* **********/
+
+	/**********
+	* ADULTS - CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+	* **********/
+
+	// NOT SIGNED IN (PUBLIC)
+	// User roles and permissions
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/roles-and-permissions', function (req, res) {		
+		res.render(version + '/roles-and-permissions', {
+			'version' : version,
+			'versioning' : req.session.versioning
+		});
+	});
+
+	// SIGNED IN
+	// My user roles and permissions (Settings)
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/my-roles-and-permissions', function (req, res) {		
+		
+		req.session.idams = "adults";
+		
+		res.render(version + '/signed-in/my-roles-and-permissions', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'hasValidRoles' : req.session.hasValidRoles
+		});
+	});
+
+	// All user roles and permissions
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/all-roles-and-permissions', function (req, res) {		
+		
+		req.session.idams = "adults";
+		
+		res.render(version + '/signed-in/all-roles-and-permissions', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
+		});
+	});
+
+	/**********
+	* GENERAL ANNUAL GRANT - CHILD VIEW (SAT)
+	* **********/
+
+	// NOT SIGNED IN (PUBLIC)
+	// User roles and permissions
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/roles-and-permissions', function (req, res) {		
+		res.render(version + '/roles-and-permissions', {
+			'version' : version,
+			'versioning' : req.session.versioning
+		});
+	});
+
+	// SIGNED IN
+	// My user roles and permissions (Settings)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/my-roles-and-permissions', function (req, res) {		
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		
+		res.render(version + '/signed-in/my-roles-and-permissions', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams,
+			'hasValidRoles' : req.session.hasValidRoles
+		});
+	});
+
+	// All user roles and permissions
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/all-roles-and-permissions', function (req, res) {		
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		
+		res.render(version + '/signed-in/all-roles-and-permissions', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'idams' : req.session.idams
+		});
+	});
+
+	/**********
+	* GENERAL ANNUAL GRANT - PARENT VIEW (MAT)
 	* **********/
 
 	// NOT SIGNED IN (PUBLIC)

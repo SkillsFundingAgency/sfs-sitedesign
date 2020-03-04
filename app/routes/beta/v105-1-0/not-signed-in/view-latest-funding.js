@@ -3,7 +3,9 @@ module.exports = function(router) {
 	var version = 'beta/v105-1-0';
 
 	/**********
-	* GLOBAL
+	* GLOBAL VARIABLES
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW LATEST FUNDING
 	* **********/
 
 	// Set all global data and session variables
@@ -25,7 +27,7 @@ module.exports = function(router) {
 	* **********/
 
 	// Start page (MyESF)
-	// LEGACY but left in to show what it should look like
+	// NOTE: This has been left in as requested by the business, despite contradicting user research data
 	router.get('/' + version + '/not-signed-in/view-latest-funding/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
@@ -38,7 +40,6 @@ module.exports = function(router) {
 	});
 
 	// Start page (VYF)
-	// DEFAULT
 	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/start', function (req, res) {
 		res.render(version + '/not-signed-in/view-latest-funding/latest/start', {
 			'version' : version,
@@ -84,8 +85,9 @@ module.exports = function(router) {
 	});
 	
 	/**********
-	* PUBLIC
-	* DOWNLOAD FUNDING 
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW LATEST FUNDING
+	* AT NATIONAL LEVEL
 	* **********/
 
 	// Select a funding type
@@ -433,8 +435,12 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* PUBLIC
-	* SINGLE FUNDING STATEMENT
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW LATEST FUNDING
+	* AT INDIVIDUAL ORGANISATION LEVEL
+	* **********/
+
+	/**********
 	* DSG
 	* **********/
 
@@ -545,9 +551,7 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* PUBLIC
-	* SINGLE FUNDING STATEMENT
-	* PE AND SPORT
+	* PE AND SPORT PREMIUM
 	* **********/
 
 	// Allocation history  
@@ -655,20 +659,10 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* PUBLIC
-	* SINGLE FUNDING STATEMENT
-	* OTHER PAGES
+	* SERVICE & FEATURE PAGES
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW LATEST FUNDING
 	* **********/
-
-	// Glossary of terms
-	router.get('/' + version + '/not-signed-in/glossary-of-terms', function (req, res) {
-		res.render(version + '/not-signed-in/glossary-of-terms', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'glossaryTerms' : 'False'
-		});
-	});
 	
 	// Display when users enter a search term which returns zero results
 	router.get('/' + version + '/not-signed-in/view-latest-funding/latest/no-results', function (req, res) {
