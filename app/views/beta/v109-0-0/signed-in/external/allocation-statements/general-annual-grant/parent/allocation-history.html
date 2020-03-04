@@ -1,66 +1,91 @@
-
 {% extends "layout.html" %}
 
-{% block pageTitle %}
-  GOV.UK Prototype Kit
+{% block page_title %}
+    Allocation history
 {% endblock %}
 
 {% block content %}
 
-<a class="govuk-back-link govuk-!-margin-bottom-9" href="javascript:history.back()">Back</a>
+<main role="main" id="content">
 
-<div class="form-block">
-    <h1 class="govuk-heading-xl">
-        <span class="govuk-caption-xl">General annual grant</span>
-        Allocation history
-    </h1>
-    <p class="govuk-body-l">Find breakdowns of General annual grant for Academy name for each academic year.</p>
-    <h2 class="govuk-heading-l">2019 to 2020</h2>
-        
-    <table class="govuk-table govuk-!-margin-bottom-9">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-!-width-one-quarter govuk-table__header">Published date</th>
-                <th class="govuk-table__header">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="funding-breakdown/5-10-2019">5 October 2019</a><br><strong class="govuk-tag">Latest</strong></td>
-                <td class="govuk-table__cell">New allocations published for the academic year 2019 to 2020.</td>
-            </tr>
-        </tbody>
-    </table>  
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
 
-    <h2 class="govuk-heading-l">2018 to 2019</h2>
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
 
-    <table class="govuk-table govuk-!-margin-bottom-9">
-        <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
-                <th class="govuk-!-width-one-quarter govuk-table__header" scope="col"><span class="visuallyhidden">Published date</span></th>
-                <th scope="col" class="govuk-table__header"><span class="visuallyhidden">Action</span></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="funding-breakdown/12-04-2019">12 April 2019</a><br><strong class="govuk-tag govuk-bggrey">Final</strong></td>
-                <td class="govuk-table__cell">Updated for the academic year 2018 to 2019.</td>
-            </tr>
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="funding-breakdown/5-02-2019">5 February 2019</a></td>
-                <td class="govuk-table__cell">Corrected allocation date: new academies, free schools, and CTCs will receive seven-twelfths of their 2018 to 2019 allocation on 1 March 2019.</td>
-            </tr>
-            <tr class="govuk-table__row">
-                <td class="govuk-table__cell"><a href="#">3 October 2018</a></td>
-                <td class="govuk-table__cell">New allocations published for the academic year 2018 to 2019.</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="grid-row">
     
-    <h2 class="govuk-heading-l">2017 to 2018</h2>
-    <p>To find allocations for this period, go to general annual grant: funding allocations for 2017 to 2018</a>.</p>
-    <h2 class="govuk-heading-l">2016 to 2017</h2>
-    <p>To find allocations for this period, go to general annual grant: funding allocations for 2016 to 2017</a>.</p>
-</div>
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="select-academy?paginationRequired=true&page1=true">Select an academy</a></li>
+                        <li><a href="allocation-statements">Allocation statements: {{organisationName}}</a></li>
+                        <li>Allocation history</li>
+                    </ol>
+                </nav>
+            </div> 
+
+        </div>
+
+        <div class="column-full">
+
+            <form method="post" class="form">
+
+                <div class="form-block">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">General annual grant</span>
+                        Allocation history
+                    </h1>
+                    <p class="lede">Find detailed breakdowns of general annual grant for {{organisationName}} for each academic year.</p>
+                    <h2 class="heading-large heading-guidance">2020 to 2021</h2>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption visuallyhidden">General annual grant 2020 to 2021 allocation history</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Published date</th>
+                                <th class="govuk-table__header govuk-!-width-three-quarters" scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row"><a href="funding-breakdown/school-allocation">12 September 2020</a><br><strong class="govuk-tag">Latest</strong></th>
+                                <td class="table-header-normal">New allocations published for the academic year 2020 to 2021.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h2 class="heading-large heading-guidance">2019 to 2020</h2>
+                    <p>You can view allocations from this period at: <a href="#" rel="external" target="external" title="This will open in a new tab or window">General annual grant: 2019 to 2020</a></a>.</p>
+                    <h2 class="heading-large heading-guidance">2018 to 2019</h2>
+                    <p>You can view allocations from this period at: <a href="#" rel="external" target="external" title="This will open in a new tab or window">General annual grant: 2018 to 2019</a></a>.</p>
+                    <h2 class="heading-large heading-guidance">2017 to 2018</h2>
+                    <p>You can view allocations from this period at: <a href="#" rel="external" target="external" title="This will open in a new tab or window">General annual grant: 2017 to 2018</a></a>.</p>
+                </div>
+
+                <!-- Support section in an expandable link - START -->
+                <!-- Support section in an expandable link - END -->
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
+<script src="/public/javascripts/{{version}}/jquery-accessible-modal-window-aria.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
 
 {% endblock %}
