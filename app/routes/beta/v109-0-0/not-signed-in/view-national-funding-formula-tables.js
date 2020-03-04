@@ -3,7 +3,9 @@ module.exports = function(router) {
 	var version = 'beta/v109-0-0';
 
 	/**********
-	* GLOBAL
+	* GLOBAL VARIABLES
+	* NOT SIGNED-IN (PUBLIC)
+	* VIEW NATIONAL FUNDING FORMULA FOR SCHOOLS
 	* **********/
 
 	// Set all global data and session variables
@@ -21,11 +23,12 @@ module.exports = function(router) {
 
 	/**********
 	* NOT SIGNED-IN (PUBLIC)
-	* VIEW NATIONAL FUNDING FORMULA TABLES
+	* VIEW NATIONAL FUNDING FORMULA FOR SCHOOLS
+	* AT INDIVIDUAL ORGANISATION LEVEL
 	* **********/
 
 	// Start page (MyESF)
-	// LEGACY but left in to show what it should look like
+	// NOTE: This has been left in as requested by the business, despite contradicting user research data
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,
@@ -38,7 +41,6 @@ module.exports = function(router) {
 	});
 
 	// Start page (NFF)
-	// DEFAULT
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start', function (req, res) {
 		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start', {
 			'version' : version,
@@ -338,9 +340,9 @@ module.exports = function(router) {
 	});
 
 	/**********
+	* SERVICE & FEATURE PAGES
 	* NOT SIGNED-IN (PUBLIC)
-	* VIEW NATIONAL FUNDING FORMULA TABLES
-	* OTHER PAGES
+	* VIEW NATIONAL FUNDING FORMULA FOR SCHOOLS
 	* **********/
 	
 	// Display when users enter a search term which returns zero results

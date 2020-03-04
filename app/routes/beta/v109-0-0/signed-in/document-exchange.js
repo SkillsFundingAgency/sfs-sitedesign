@@ -3,10 +3,14 @@ module.exports = function(router) {
 	var version = 'beta/v109-0-0';
 
 	/**********
-	* GLOBAL
+	* GLOBAL VARIABLES
+	* MYESF (DOCUMENT EXCHANGE)
 	* **********/
 
-	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
+	/**********
+	* EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+	* **********/
+	
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/document-exchange/child/*', function (req, res, next) {				
 
@@ -23,7 +27,10 @@ module.exports = function(router) {
 		return next();
 	});
 
-	/*** EXTERNAL USERS - PARENT VIEW (LA & MAT) ***/
+	/**********
+	* EXTERNAL USERS - PARENT VIEW (LA & MAT)
+	* **********/
+
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/external/document-exchange/parent/*', function (req, res, next) {				
 
@@ -39,8 +46,11 @@ module.exports = function(router) {
 
 		return next();
 	});
+	
+	/**********
+	* INTERNAL USERS
+	* **********/
 
-	/*** INTERNAL USERS ***/
 	// Set a selection of global variables for all templates being reused
 	router.get('/' + version + '/signed-in/internal/document-exchange/*', function (req, res, next) {				
 
@@ -58,7 +68,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* EXTERNAL USERS CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+	* SIGNED IN (EXTERNAL USERS)
+	* MYESF (DOCUMENT EXCHANGE) - CHILD VIEW (SCHOOL & SINGLE ACADEMY)
 	* **********/
 	
 	// Start
@@ -410,7 +421,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* EXTERNAL USERS PARENT VIEW (LA & MAT)
+	* SIGNED IN (EXTERNAL USERS)
+	* MYESF (DOCUMENT EXCHANGE) - PARENT VIEW (LA & MAT)
 	* **********/
 
 	// Start
@@ -985,7 +997,8 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* INTERNAL USERS
+	* SIGNED IN (INTERNAL USERS)
+	* MYESF (DOCUMENT EXCHANGE)
 	* **********/
 
 	// Start
@@ -1267,10 +1280,14 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* MYESF SERVICES PAGES
+	* SERVICE & FEATURE PAGES
+	* MYESF (DOCUMENT EXCHANGE)
 	* **********/
 
-	/*** EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY) ***/
+	/**********
+	* EXTERNAL USERS - CHILD VIEW (SCHOOL & SINGLE ACADEMY)
+	* **********/
+
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/document-exchange/child/roles-and-permissions', function (req, res) {		
@@ -1310,7 +1327,10 @@ module.exports = function(router) {
 		});
 	});
 
-	/*** EXTERNAL USERS - PARENT VIEW (LA & MAT) ***/
+	/**********
+	* EXTERNAL USERS - PARENT VIEW (LA & MAT)
+	* **********/
+
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/external/document-exchange/parent/roles-and-permissions', function (req, res) {		
@@ -1356,7 +1376,10 @@ module.exports = function(router) {
 		});
 	});
 
-	/*** INTERNAL USERS ***/
+	/**********
+	* INTERNAL USERS
+	* **********/
+
 	// NOT SIGNED IN (PUBLIC)
 	// User roles and permissions
 	router.get('/' + version + '/signed-in/internal/document-exchange/roles-and-permissions', function (req, res) {		
