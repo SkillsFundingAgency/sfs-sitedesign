@@ -358,6 +358,78 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
+		// Show the user variant 1 of the GAG statement
+		else if (username == "1") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 2 of the GAG statement
+		else if (username == "2") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "2";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 3 of the GAG statement
+		else if (username == "3") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "3";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 4 of the GAG statement
+		else if (username == "4") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "4";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 5 of the GAG statement
+		else if (username == "5") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "5";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 6 of the GAG statement
+		else if (username == "6") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "6";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 7 of the GAG statement
+		else if (username == "7") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "7";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 8 of the GAG statement
+		else if (username == "8") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "8";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
 		// Anything else take user to dashboard with valid MyESF roles
 		else {
 
@@ -448,6 +520,7 @@ module.exports = function(router) {
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "SAT";
+		req.session.gagVariant = req.session.gagVariant || "1";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statements', {
@@ -457,6 +530,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
+			'gagVariant' : req.session.gagVariant,
 			'organisationName' : req.session.organisationName
 		});
 	});
@@ -613,6 +687,78 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
+		// Show the user variant 1 of the GAG statement
+		else if (username == "1") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 2 of the GAG statement
+		else if (username == "2") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "2";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 3 of the GAG statement
+		else if (username == "3") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "3";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 4 of the GAG statement
+		else if (username == "4") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "4";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 5 of the GAG statement
+		else if (username == "5") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "5";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 6 of the GAG statement
+		else if (username == "6") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "6";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 7 of the GAG statement
+		else if (username == "7") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "7";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 8 of the GAG statement
+		else if (username == "8") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "8";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
 		// Anything else take user to dashboard with valid MyESF roles
 		else {
 
@@ -743,6 +889,7 @@ module.exports = function(router) {
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.dashboard = req.session.dashboard || "No";
+		req.session.gagVariant = req.session.gagVariant || "1";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements', {
@@ -752,6 +899,7 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
+			'gagVariant' : req.session.gagVariant,			
 			'organisationName' : req.session.organisationName,
 			'versionB' : req.query.versionB
 		});
