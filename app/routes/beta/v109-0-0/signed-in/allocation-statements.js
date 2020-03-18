@@ -412,29 +412,12 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
-		// Show the user variant 7 of the GAG statement
-		else if (username == "7") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.gagVariant = "7";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
-		}
-		// Show the user variant 8 of the GAG statement
-		else if (username == "8") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.gagVariant = "8";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
-		}
 		// Anything else take user to dashboard with valid MyESF roles
 		else {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');	
 		}
@@ -535,81 +518,9 @@ module.exports = function(router) {
 		});
 	});
 
-	// Schools funding breakdown (VERSION 1)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName
-		});
-	});
-
-	// Schools funding breakdown (VERSION 2)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-2', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-2', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName
-		});
-	});
-	
-	// Schools funding breakdown (VERSION 3)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-3', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-3', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName
-		});
-	});
-
-	// Schools funding breakdown (VERSION 4)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-4', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/school-allocation-4', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName
-		});
-	});
+	/**********
+	* GENERAL ANNUAL GRANT
+	* **********/
 	
 	// Allocation history
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-history', function (req, res) {
@@ -620,6 +531,201 @@ module.exports = function(router) {
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-history', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
+	// REDIRECT hook page used to record the tab that the user wants to view on the GAG breakdown page (e.g. school)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown/tab-choice', function (req, res) {		
+		
+		req.session.tab = req.query.tab;
+		// Reset this variable to 0 so we can execute the dynamic tab functionality
+		req.session.reloads = 0;
+		var redirectURL = req.query.redirectURL;
+		var gagVariant = req.session.gagVariant;
+		
+		if (gagVariant == "1") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/' + redirectURL);
+		}
+		else if (gagVariant == "2") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-2/' + redirectURL);
+		}
+		else if (gagVariant == "3") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-3/' + redirectURL);
+		}
+		else if (gagVariant == "4") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-4/' + redirectURL);
+		}
+		else if (gagVariant == "5") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-5/' + redirectURL);
+		}
+		else if (gagVariant == "6") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-6/' + redirectURL);
+		}
+		else {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/' + redirectURL);
+		}
+
+	});
+
+	// VARIATION 1
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
+	// VARIATION 1 (VERSION B)
+	/* Alternative Table Design */
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/school-allocation-versionB', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/school-allocation-versionB', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
+	// VARIATION 2
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-2/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-2/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+	
+	// VARIATION 3
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-3/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-3/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
+	// VARIATION 4
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-4/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-4/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
+	// VARIATION 5
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-5/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-5/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
+	// VARIATION 6
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020)
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-6/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-6/school-allocation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -741,29 +847,12 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
-		// Show the user variant 7 of the GAG statement
-		else if (username == "7") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.gagVariant = "7";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
-		}
-		// Show the user variant 8 of the GAG statement
-		else if (username == "8") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.gagVariant = "8";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
-		}
 		// Anything else take user to dashboard with valid MyESF roles
 		else {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');	
 		}
@@ -915,6 +1004,7 @@ module.exports = function(router) {
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.dashboard = req.session.dashboard || "No";
+		req.session.gagVariant = req.session.gagVariant || "1";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-history', {
@@ -924,24 +1014,48 @@ module.exports = function(router) {
 			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
+			'gagVariant' : req.session.gagVariant,
 			'organisationName' : req.session.organisationName
 		});
 	});
 
-	// REDIRECT hook page used to record the tab that the user wants to view on the GAG breakdown page (e.g. schools)
+	// REDIRECT hook page used to record the tab that the user wants to view on the GAG breakdown page (e.g. school)
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/tab-choice', function (req, res) {		
 		
 		req.session.tab = req.query.tab;
 		// Reset this variable to 0 so we can execute the dynamic tab functionality
 		req.session.reloads = 0;
 		var redirectURL = req.query.redirectURL;
+		var gagVariant = req.session.gagVariant;
 		
-		res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/' + redirectURL);
+		if (gagVariant == "1") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/' + redirectURL);
+		}
+		else if (gagVariant == "2") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-2/' + redirectURL);
+		}
+		else if (gagVariant == "3") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-3/' + redirectURL);
+		}
+		else if (gagVariant == "4") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-4/' + redirectURL);
+		}
+		else if (gagVariant == "5") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-5/' + redirectURL);
+		}
+		else if (gagVariant == "6") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-6/' + redirectURL);
+		}
+		else {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/' + redirectURL);
+		}
+
 	});
 
+	// VARIATION 1
 	// School budget share (excl. rates)
 	// LATEST (12 SEPTEMBER 2020) 
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/school-allocation', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/school-allocation', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
@@ -950,7 +1064,152 @@ module.exports = function(router) {
 		// Increment the number so we only execute the dynamic tab functionality ONCE
 		req.session.reloads++;
 		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown/school-allocation', {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
+	// VARIATION 1 (VERSION B)
+	/* Alternative Table Design */
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/school-allocation-versionB', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/school-allocation-versionB', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
+	// VARIATION 2
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-2/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-2/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
+	// VARIATION 3
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-3/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-3/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
+	// VARIATION 4
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-4/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-4/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
+	// VARIATION 5
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-5/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-5/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads
+		});
+	});
+
+	// VARIATION 6
+	// School budget share (excl. rates)
+	// LATEST (12 SEPTEMBER 2020) 
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-6/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-6/school-allocation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,

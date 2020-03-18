@@ -179,18 +179,6 @@
                         <div class="funding-block">
 
                             <div class="funding-left-container">
-                                <p class="funding-left-text"><a href="#">ESG protection</a></p>
-                            </div>
-                
-                            <div class="funding-right-container">
-                                <p class="funding-right-text">£0.00</p>
-                            </div>
-                
-                        </div>
-
-                        <div class="funding-block">
-
-                            <div class="funding-left-container">
                                 <p class="funding-left-text"><a href="#">Post-opening grant (start-up grant)</a></p>
                             </div>
                 
@@ -381,18 +369,6 @@
                 
                             <div class="funding-right-container">
                                 <p class="funding-right-text">£229,393.87</p>
-                            </div>
-                
-                        </div>
-
-                        <div class="funding-block">
-
-                            <div class="funding-left-container">
-                                <p class="funding-left-text"><a href="#">ESG protection</a></p>
-                            </div>
-                
-                            <div class="funding-right-container">
-                                <p class="funding-right-text">£0.00</p>
                             </div>
                 
                         </div>
@@ -597,18 +573,6 @@
                         <div class="funding-block">
 
                             <div class="funding-left-container">
-                                <p class="funding-left-text"><a href="#">ESG protection</a></p>
-                            </div>
-                
-                            <div class="funding-right-container">
-                                <p class="funding-right-text">£0.00</p>
-                            </div>
-                
-                        </div>
-
-                        <div class="funding-block">
-
-                            <div class="funding-left-container">
                                 <p class="funding-left-text"><a href="#">Post-opening grant (start-up grant)</a></p>
                             </div>
                 
@@ -799,18 +763,6 @@
                 
                             <div class="funding-right-container">
                                 <p class="funding-right-text">£229,393.87</p>
-                            </div>
-                
-                        </div>
-
-                        <div class="funding-block">
-
-                            <div class="funding-left-container">
-                                <p class="funding-left-text"><a href="#">ESG protection</a></p>
-                            </div>
-                
-                            <div class="funding-right-container">
-                                <p class="funding-right-text">£0.00</p>
                             </div>
                 
                         </div>
@@ -1271,13 +1223,43 @@
                             <h2 class="govuk-accordion__section-heading">
                                 <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
                                     <span class="govuk-accordion__heading-text-left">General annual grant allocation for academic year 2020 to 2021</span>
-                                    <span class="govuk-accordion__heading-number-right">£8,183,791.66</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        {% if gagVariant == '1' %}
+                                        £2,740,800
+                                        {% elif gagVariant == '2' %}
+                                        £2,007,243
+                                        {% elif gagVariant == '3' %}
+                                        £411,390.84
+                                        {% elif gagVariant == '4' %}
+                                        £665,000
+                                        {% elif gagVariant == '5' %}
+                                        £282,254.72
+                                        {% elif gagVariant == '6' %}
+                                        £637,431.69
+                                        {% else %}
+                                        £2,740,800
+                                        {% endif %}
+                                    </span>
                                 </span>
                             </h2>
 
                             <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
                                 <span class="hidden-sub-section">
-                                    £8,183,791.66
+                                    {% if gagVariant == '1' %}
+                                    £2,740,800
+                                    {% elif gagVariant == '2' %}
+                                    £2,007,243
+                                    {% elif gagVariant == '3' %}
+                                    £411,390.84
+                                    {% elif gagVariant == '4' %}
+                                    £665,000
+                                    {% elif gagVariant == '5' %}
+                                    £282,254.72
+                                    {% elif gagVariant == '6' %}
+                                    £637,431.69
+                                    {% else %}
+                                    £2,740,800
+                                    {% endif %}
                                     <br>
                                 </span>
                                 Published: 12 September 2020 <strong class="govuk-tag">Latest</strong>
@@ -1287,16 +1269,17 @@
                 
                         <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
                             <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                            {% if gagVariant == '1' %}
                             <h4 class="heading-small">School allocation</h4>
                         
                             <div class="funding-block">
 
                                 <div class="funding-left-container">
-                                    <p class="funding-left-text"><a href="funding-breakdown/school-allocation">School budget share (excl. rates)</a></p>
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=school">School budget share (excl. rates)</a></p>
                                 </div>
                     
                                 <div class="funding-right-container">
-                                    <p class="funding-right-text">£7,435,250.87</p>
+                                    <p class="funding-right-text">£2,740,800</p>
                                 </div>
                     
                             </div>
@@ -1308,7 +1291,7 @@
                                 </div>
                     
                                 <div class="funding-right-container">
-                                    <p class="funding-right-text">£1,411,872.30)</p>
+                                    <p class="funding-right-text">£379,010.52)</p>
                                 </div>
                     
                             </div>
@@ -1316,19 +1299,7 @@
                             <div class="funding-block">
 
                                 <div class="funding-left-container">
-                                    <p class="funding-left-text"><a href="#">Minimum funding guarantee</a></p>
-                                </div>
-                    
-                                <div class="funding-right-container">
-                                    <p class="funding-right-text">£229,393.87</p>
-                                </div>
-                    
-                            </div>
-
-                            <div class="funding-block">
-
-                                <div class="funding-left-container">
-                                    <p class="funding-left-text"><a href="#">ESG protection</a></p>
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=mfg">Minimum funding guarantee</a></p>
                                 </div>
                     
                                 <div class="funding-right-container">
@@ -1340,7 +1311,7 @@
                             <div class="funding-block">
 
                                 <div class="funding-left-container">
-                                    <p class="funding-left-text"><a href="#">Post-opening grant (start-up grant)</a></p>
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
                                 </div>
                     
                                 <div class="funding-right-container">
@@ -1354,7 +1325,7 @@
                             <div class="funding-block">
 
                                 <div class="funding-left-container">
-                                    <p class="funding-left-text"><a href="#">Pre-16 high needs place funding</a></p>
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
                                 </div>
                     
                                 <div class="funding-right-container">
@@ -1366,7 +1337,7 @@
                             <div class="funding-block">
 
                                 <div class="funding-left-container">
-                                    <p class="funding-left-text"><a href="#">Post-16 high needs place funding</a></p>
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
                                 </div>
                     
                                 <div class="funding-right-container">
@@ -1436,6 +1407,775 @@
                                 </div>
                     
                             </div>
+                            {% elif gagVariant == '2' %}
+                            <h4 class="heading-small">School allocation</h4>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">High needs allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£1,020,000</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£430,000</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=hospital">Hospital education funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£552,630</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">16 to 19 allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Programme funding formula</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Formula protection funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Student financial support funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£4,613</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Industry placements: capacity and delivery funding (CDF)</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Advanced maths premium funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+                            {% elif gagVariant == '3' %}
+                            <h4 class="heading-small">School allocation</h4>
+                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=school">School budget share (excl. rates)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£411,390.84</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">(of which, notional SEN funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£46,024.77)</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">(funding previously de-delegated</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00)</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=dedelegation">De-delegation funding retained by the local authority</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=fundingprotection">Funding protection</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">High needs allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">16 to 19 allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Programme funding formula</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Formula protection funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Student financial support funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Industry placements: capacity and delivery funding (CDF)</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Advanced maths premium funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+                            {% elif gagVariant == '4' %}
+                            <h4 class="heading-small">School allocation</h4>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£25,000</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">High needs allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£560,000</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£80,000</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=hospital">Hospital education funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">16 to 19 allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Programme funding formula</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Formula protection funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Student financial support funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Industry placements: capacity and delivery funding (CDF)</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Advanced maths premium funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+                            {% elif gagVariant == '5' %}
+                            <h4 class="heading-small">School allocation</h4>
+                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=school">School budget share (excl. rates)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£282,254.72</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">(of which, notional SEN funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£17,552.65)</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">(funding previously de-delegated</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£1,538.64)</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=mfg">Minimum funding guarantee</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">High needs allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">16 to 19 allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Programme funding formula</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Formula protection funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Student financial support funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Industry placements: capacity and delivery funding (CDF)</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+                            {% elif gagVariant == '6' %}
+                            <h4 class="heading-small">School allocation</h4>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">High needs allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£504,098.36</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£133,333.33</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=hospital">Hospital education funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">16 to 19 allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Programme funding formula</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Formula protection funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Student financial support funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Industry placements: capacity and delivery funding (CDF)</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+                            {% else %}
+                            <h4 class="heading-small">School allocation</h4>
+                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=school">School budget share (excl. rates)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£2,740,800</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">(of which, notional SEN funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£379,010.52)</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=mfg">Minimum funding guarantee</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=school-allocation&tab=postopeninggrant">Post-opening grant (start-up grant)</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">High needs allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=pre16">Pre-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=high-needs-allocation&tab=post16">Post-16 high needs place funding</a></p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <h4 class="heading-small">16 to 19 allocation</h4>
+                            
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Programme funding formula</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Formula protection funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Student financial support funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Industry placements: capacity and delivery funding (CDF)</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block funding-margin-bottom">
+
+                                <div class="funding-left-container">
+                                    <p class="funding-left-text">Advanced maths premium funding</p>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0.00</p>
+                                </div>
+                    
+                            </div>
+                            {% endif %}
                             
                             <section class="form-block attachment embedded">
                         
