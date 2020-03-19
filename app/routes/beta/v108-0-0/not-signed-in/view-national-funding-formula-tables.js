@@ -133,6 +133,18 @@ module.exports = function(router) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
+
+		// Check for a URL query parameter override (e.g. when linking directly to this page)
+		var urlParameterOverride = req.query.searchTerm;
+
+		if (urlParameterOverride == "abbey") {
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = "abbey";
+		}
+		else if (urlParameterOverride == "default") {
+			req.session.searchScope = "Primary";
+			req.session.searchTerm = "default";
+		}
 		
 		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', {
 			'version' : version,

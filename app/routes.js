@@ -1,11 +1,26 @@
+
+
+/**********
+* GLOBAL VARIABLES
+* **********/
+
+// For prototype to work
 var express = require('express');
 var router = express.Router();
-var latestVersion = 'beta/v108-0-0';
+
+// Add latest versions of MyESF features here
+var latestVersion = 'beta/v109-0-0';
+var latestVersionVLF = 'beta/v105-1-0';
+
+/**********
+* GLOBAL PROTOTYPE PAGES
+* **********/
 
 // Index page
 router.get('/', function (req, res) {		
 	res.render('index', {
 		'latestVersion' : latestVersion,
+		'latestVersionVLF' : latestVersionVLF,
 		'showPropositionLinks' : "True"
 	});
 });
@@ -27,35 +42,40 @@ router.get('/legacy', function (req, res) {
 });
 
 /**********
- * CHILD ROUTE FILES
- * **********/
+* CHILD ROUTE FILES
+* **********/
 
 // Component library
 require('./routes/component-library.js')(router);
 
 /**********
- * VERSIONED ROUTE FILES
- * **********/
+* VERSIONED ROUTE FILES
+* **********/
 
 // Beta
+// beta-v109-0-0
+require('./routes/beta/v109-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
+require('./routes/beta/v109-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v109-0-0/signed-in/document-exchange.js')(router);
+require('./routes/beta/v109-0-0/prototype.js')(router);
 // beta-v108-0-0
-require('./routes/beta/v108-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v108-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
 require('./routes/beta/v108-0-0/signed-in/allocation-statements.js')(router);
 require('./routes/beta/v108-0-0/signed-in/document-exchange.js')(router);
 require('./routes/beta/v108-0-0/prototype.js')(router);
 // beta-v107-0-0
-require('./routes/beta/v107-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v107-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
 require('./routes/beta/v107-0-0/signed-in/allocation-statements.js')(router);
 require('./routes/beta/v107-0-0/signed-in/document-exchange.js')(router);
 require('./routes/beta/v107-0-0/prototype.js')(router);
 // beta-v106-0-0
-require('./routes/beta/v106-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v106-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
 require('./routes/beta/v106-0-0/signed-in/allocation-statements.js')(router);
 require('./routes/beta/v106-0-0/signed-in/document-exchange.js')(router);
 require('./routes/beta/v106-0-0/prototype.js')(router);
+// beta-v105-1-0
+require('./routes/beta/v105-1-0/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/v105-1-0/prototype.js')(router);
 // beta-v105-0-0
 require('./routes/beta/v105-0-0/allocation-statements.js')(router);
 require('./routes/beta/v105-0-0/document-exchange.js')(router);
