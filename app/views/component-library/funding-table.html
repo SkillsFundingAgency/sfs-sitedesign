@@ -814,7 +814,7 @@
 			<div class="app-prose-scope">
 				<p>A custom styled table used to display funding data in a clear and understandable format.</p>
 				<p>View more general GDS guidelines on this component in the <a href="https://design-system.service.gov.uk/components/table/">GOV.UK design system</a>.</p>
-				<p>The funding table component is used as the main way to display funding data on <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>.</p>
+				<p>The funding table component is used as the main way to display data on <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>.</p>
 
 				<!--
 				Example CODE snippet (START) 
@@ -905,16 +905,15 @@
 
 				<div class="form-group">
 					<h2 class="heading-large first-sub-heading">When to use this component</h2>
-					<p>Use a funding table to help simplify complex funding data. Related data points can be arranged to show their formulas without having to display calculations.</p>
+					<p>Use a funding table to help simplify complex funding data. Related data points can be arranged in sequential order. This makes it easier to work out formulas without having to display calculations.</p>
 					<p>This should only be used if the user can easily work out the relationship between each of the data points.</p>
 					<h2 class="heading-large">When not to use this component</h2>
-					<p>User may only be able to understand the data in the tables if they have the full picture. The tables must not have missing data otherwise the format becomes confusing and unfamiliar.</p>
+					<p>Users may need the full picture to understand the data in the tables. The tables must not have missing data, otherwise the format becomes confusing and unfamiliar.</p>
 					<p>Do not list unrelated data in one table. Use headings or separate tables to display this information.</p>
 					<h2 class="heading-large">How it works</h2>
-					<p>The tables are similar to the <a href="https://design-system.service.gov.uk/components/table/">GOV.UK design system tables</a>, there are some custom styles on the tables to ensure that the table contents are read out by screen readers.</p>
-					<p>In <a href="/{{latestVersion}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>, when the same column in different tables have the same heading, only the first heading is displayed. For example, see the 'Current total' column.  This reduces duplication of content and clutter. Screen readers will still read out the heading for each table.</p>
+					<p>The tables are similar to the <a href="https://design-system.service.gov.uk/components/table/">GOV.UK design system tables</a>. There are some custom styles on the tables to make sure that the table contents are read out by screen readers.</p>
 					<h3 class="heading-medium">Two columns</h3>
-					<p>This is the default design type of this component to use for displaying funding data in a table to end users in <abbr title="Manage your education and skills funding">MyESF</abbr>. Use this table type whenever possible for displaying funding data to users in the service.</p>
+					<p>Use this default table design to display funding data in <abbr title="Manage your education and skills funding">MyESF</abbr>.</p>
 
 					<!--
 					Example CODE snippet (START) 
@@ -1004,7 +1003,9 @@
 					-->
 
 					<h3 class="heading-medium">No repeating column headers</h3>
-					<p>Our version of the traditional <a href="https://design-system.service.gov.uk/components/table/">GOV.UK design system table</a> differs only in the use of column headers. We remove any duplicate funding table headers (e.g. 'Total deduction') where possible to reduce the cognitive load on our users and make the data more easily understandable.</p>
+.govuk-\!-width-one-quarter &#123;
+.govuk-\!-width-one-quarter &#123;
+					<p>We use column headers differently compared with the traditional <a href="https://design-system.service.gov.uk/components/table/">GOV.UK design system table</a> by removing any duplicate headers. For example, see 'Total deduction'. This reduces the cognitive load on our users and makes the data more easily understandable. Screen readers will still read out all the column headers.</p>
 
 					<!--
 					Example CODE snippet (START) 
@@ -1116,13 +1117,13 @@
 					*** FUNDING TABLE: NO REPEATING COLUMN HEADERS ***
 					-->
 
-					<p>The rules that dictate the removal of duplicate column headers are:</p>
+					<p>The rules for removing duplicate column headers are:</p>
 					<ul class="list list-bullet">
-						<li>only visually display the first instance of a column header</li>
-						<li>use the <span class="code">&lt;span class="visuallyhidden"&gt;</span> HTML markup to visually hide any duplicate column headers so that screen readers can still identify the data relationships</li>
+						<li>only visually display the first column header</li>
+						<li>use the <span class="code">&lt;span class="visuallyhidden"&gt;</span> HTML markup to visually hide other duplicate column headers so that screen readers can still identify the data relationships</li>
 					</ul>
 					<h3 class="heading-medium">Four columns</h3>
-					<p>When displaying more complex funding data to users, this four column funding table layout can be more suitable. It follows the same rules as the previous tables with just the additional of two more columns.</p>
+					<p>The 4 column funding table layout can be more suitable for displaying more complex funding data. It follows the same rules as the previous tables with just 2 more columns.</p>
 
 					<!--
 					Example CODE snippet (START) 
@@ -1215,8 +1216,8 @@
 					*** FUNDING TABLE: FOUR COLUMNS ***
 					-->
 
-					<h3 id="with-link" class="heading-medium">With link</h3>
-					<p>Sometimes we have to display funding data to users which is not clear, partial or confusing (e.g. decimalised figures). To try and solve this problem we can provide a link which offers guidance on how to interpret and understand the data being displayed to users.</p>
+					<h3 id="with-link" class="heading-medium"> Link to guidance</h3>
+					<p>Sometimes we have to display funding data to users which is not clear, partial or confusing. For eample, decimalised figures. To try and help users understand the data, consider linking off which offers guidance on how to interpret and understand the data being displayed to users.</p>
 					
 					<!--
 					Example CODE snippet (START) 
