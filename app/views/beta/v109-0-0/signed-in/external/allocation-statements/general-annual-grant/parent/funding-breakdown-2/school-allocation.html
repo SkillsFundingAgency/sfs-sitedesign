@@ -18,7 +18,7 @@
 
     <div class="grid-row">
 
-        <div class="column-full">      
+        <div class="column-full">
 
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
@@ -28,13 +28,13 @@
                         <li>General annual grant 2020 to 2021</li>
                     </ol>
                 </nav>
-            </div>   
+            </div>
 
             <h1 class="heading-xlarge">
                 General annual grant: 2020 to 2021
                 <span class="heading-secondary">
                     This allocation:
-                    <span class="bold-medium">12 February 2019</span>
+                    <span class="bold-medium">12 September 2020</span>
                     <strong class="govuk-tag govuk-tag-secondary-heading">Latest</strong>
                 </span>
             </h1>
@@ -44,9 +44,11 @@
                     Total school allocation
                     <p class="heading-large heading-funding-summary">£0</p>
                 </h2>
-                <div class="block-header-print-no-tabs">                               
+
+                <div class="block-header-print-no-tabs">
                     <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
                 </div>
+
             </div>
 
             <div class="form-group">
@@ -74,9 +76,9 @@
             <div class="govuk-tabs clearfix" data-module="tabs">
                 <h3 class="govuk-tabs__title">Contents</h3>
                 <ul class="govuk-tabs__list" style="padding-bottom: 40px;">
-                    <li class="govuk-tabs__list-item"><a id="schools-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#schools">School budget share</a></li>
-                    <li class="govuk-tabs__list-item"><a id="css-tab" class="govuk-tabs__tab print-trigger" href="#css">Minimum funding guarantee</a></li>
-                    <li class="govuk-tabs__list-item"><a id="early-years-tab" class="govuk-tabs__tab print-trigger" href="#early-years">Post-opening grant</a></li>
+                    <li class="govuk-tabs__list-item"><a id="school-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#school">School budget share</a></li>
+                    <li class="govuk-tabs__list-item"><a id="mfg-tab" class="govuk-tabs__tab print-trigger" href="#mfg">Minimum funding guarantee</a></li>
+                    <li class="govuk-tabs__list-item"><a id="post-opening-grant-tab" class="govuk-tabs__tab print-trigger" href="#post-opening-grant">Post-opening grant</a></li>
                 </ul>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
@@ -87,14 +89,14 @@
                     </summary>
                     
                     <div class="panel panel-border-narrow">
-                        <p>...</p>             
+                        <p>...</p>
                     </div>
 
                 </details>
                 <!-- END -->
 
-                <!-- Schools funding block - (START) -->
-                <section class="govuk-tabs__panel" id="schools">
+                <!-- School budget share - (START) -->
+                <section class="govuk-tabs__panel" id="school">
 
                     <div class="grid-row">
                     
@@ -102,41 +104,41 @@
                             <h2 class="lede">
                                 Total school budget share
                                 <p class="heading-large heading-funding-summary">£0</p>
-                            </h2>   
+                            </h2>
                         </div>
                     
-                        <div class="block-header-print block-header-print-tabs">                               
+                        <div class="block-header-print block-header-print-tabs">
                             <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
                         </div>
                     
                     </div>
 
                 </section>
-                <!-- Schools budget share - (END) -->
+                <!-- School budget share - (END) -->
 
-                <!-- Minimum funding guaranteeGeneral annual grant resources - (START) -->
-                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="css">
+                <!-- Minimum funding guarantee - (START) -->
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mfg">
                     
                     <div class="grid-row">
                 
                         <div class="block-header-total">
                             <h2 class="lede">
-                                Total minimum funding guarantee  
+                                Total minimum funding guarantee
                                 <p class="heading-large heading-funding-summary">£0</p>
-                            </h2>   
+                            </h2>
                         </div>
                     
-                        <div class="block-header-print block-header-print-tabs">                               
+                        <div class="block-header-print block-header-print-tabs">
                             <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
                         </div>
                     
                     </div>
 
                 </section>
-                <!-- Minimum funding guaranteeGeneral annual grant resources - (END) -->
+                <!-- Minimum funding guarantee - (END) -->
 
                 <!-- Post-opening grant (start-up grant) - (START) -->
-                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="early-years">
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="post-opening-grant">
                     
                     <div class="grid-row">
                 
@@ -144,10 +146,10 @@
                             <h2 class="lede">
                                 Total post-opening grant (start-up grant)
                                 <p class="heading-large heading-funding-summary">£0</p>
-                            </h2>   
+                            </h2>
                         </div>
                     
-                        <div class="block-header-print block-header-print-tabs">                               
+                        <div class="block-header-print block-header-print-tabs">
                             <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
                         </div>
                     
@@ -171,11 +173,8 @@
             <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
             <!-- reloads (an incremented number each time the page is loaded) -->
             <span id="reloads" style="display: none;">{{reloads}}</span>
-            <!-- tab = schools, css, highneeds or earlyyears -->
+            <!-- tab = school, mfg, postopeninggrant -->
             <span id="tab" style="display: none;">{{tab}}</span>
-
-            <!-- Support section in an expandable link - START -->
-            <!-- Support section in an expandable link - END -->
 
         </div>
 
@@ -185,12 +184,10 @@
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-<!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
-<script src="/public/javascripts/{{version}}/jquery-accessible-modal-window-aria.js"></script>
 <!-- GOV.UK Design System tabs -->
 <script src="/public/javascripts/{{version}}/tabs.js"></script>
 <!-- DSG -->
-<script src="/public/javascripts/{{version}}/dsg.js"></script>
+<script src="/public/javascripts/{{version}}/gag.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
 <!-- JavaScript (END) -->
