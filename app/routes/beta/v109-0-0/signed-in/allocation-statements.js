@@ -412,6 +412,24 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
+		// Show the user variant 7 of the GAG statement
+		else if (username == "7") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "7";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// Show the user variant 8 of the GAG statement
+		else if (username == "8") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "8 ";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
 		// Anything else take user to dashboard with valid MyESF roles
 		else {
 
@@ -567,6 +585,9 @@ module.exports = function(router) {
 		}
 		else if (gagVariant == "6") {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-6/' + redirectURL);
+		}
+		else if (gagVariant == "8") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/' + redirectURL);
 		}
 		else {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/' + redirectURL);
@@ -739,6 +760,52 @@ module.exports = function(router) {
 		});
 	});
 
+	// VARIATION 7
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
+	// VARIATION 8
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
 	// HIGH NEEDS ALLOCATION
 	// LATEST (12 SEPTEMBER 2020)
 
@@ -880,6 +947,52 @@ module.exports = function(router) {
 		});
 	});
 
+	// VARIATION 7
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/high-needs-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/high-needs-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
+	// VARIATION 8
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/high-needs-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/high-needs-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
 	* MYESF (ALLOCATION STATEMENTS)
@@ -988,6 +1101,24 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "6";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 7 of the GAG statement
+		else if (username == "7") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "7";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
+		}
+		// Show the user variant 8 of the GAG statement
+		else if (username == "8") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "8";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
@@ -1190,6 +1321,12 @@ module.exports = function(router) {
 		else if (gagVariant == "6") {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-6/' + redirectURL);
 		}
+		else if (gagVariant == "7") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/' + redirectURL);
+		}
+		else if (gagVariant == "8") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-8/' + redirectURL);
+		}
 		else {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/' + redirectURL);
 		}
@@ -1361,6 +1498,52 @@ module.exports = function(router) {
 		});
 	});
 
+	// VARIATION 7
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
+	// VARIATION 8
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-8/school-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-8/school-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
 	// HIGH NEEDS ALLOCATION
 	// LATEST (12 SEPTEMBER 2020)
 
@@ -1490,6 +1673,52 @@ module.exports = function(router) {
 		req.session.reloads++;
 		
 		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-6/high-needs-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
+	// VARIATION 7
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/high-needs-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/high-needs-allocation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab
+		});
+	});
+
+	// VARIATION 8
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-8/high-needs-allocation', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-8/high-needs-allocation', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
