@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    General annual grant
+    General annual grant: 2020 to 2021
 {% endblock %}
 
 {% block content %}
@@ -42,7 +42,7 @@
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation
-                    <p class="heading-large heading-funding-summary">£25,000</p>
+                    <p class="heading-large heading-funding-summary">£665,000</p>
                 </h2>
 
                 <div class="block-header-print-no-tabs">
@@ -76,9 +76,8 @@
             <div class="govuk-tabs clearfix" data-module="tabs">
                 <h3 class="govuk-tabs__title">Contents</h3>
                 <ul class="govuk-tabs__list" style="padding-bottom: 40px;">
-                    <li class="govuk-tabs__list-item"><a id="school-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#school">School budget share</a></li>
-                    <li class="govuk-tabs__list-item"><a id="mfg-tab" class="govuk-tabs__tab print-trigger" href="#mfg">Minimum funding guarantee</a></li>
                     <li class="govuk-tabs__list-item"><a id="post-opening-grant-tab" class="govuk-tabs__tab print-trigger" href="#post-opening-grant">Post-opening grant</a></li>
+                    <li class="govuk-tabs__list-item"><a id="high-needs-tab" class="govuk-tabs__tab print-trigger" href="#high-needs">High needs</a></li>
                 </ul>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
@@ -93,51 +92,9 @@
                     </div>
 
                 </details>
-                <!-- END -->
+                <!-- END -->                
 
-                <!-- School budget share - (START) -->
-                <section class="govuk-tabs__panel" id="school">
-
-                    <div class="grid-row">
-                    
-                        <div class="block-header-total">
-                            <h2 class="lede">
-                                Total school budget share
-                                <p class="heading-large heading-funding-summary">£0</p>
-                            </h2>   
-                        </div>
-                    
-                        <div class="block-header-print block-header-print-tabs">
-                            <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
-                        </div>
-                    
-                    </div>
-
-                </section>
-                <!-- School budget share - (END) -->
-
-                <!-- Minimum funding guarantee - (START) -->
-                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mfg">
-                    
-                    <div class="grid-row">
-                
-                        <div class="block-header-total">
-                            <h2 class="lede">
-                                Total minimum funding guarantee
-                                <p class="heading-large heading-funding-summary">£0</p>
-                            </h2>
-                        </div>
-                    
-                        <div class="block-header-print block-header-print-tabs">
-                            <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
-                        </div>
-                    
-                    </div>
-
-                </section>
-                <!-- Minimum funding guarantee - (END) -->
-
-                <!-- post-opening grant - (START) -->
+                <!-- Post-opening grant - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="post-opening-grant">
                     
                     <div class="grid-row">
@@ -155,37 +112,178 @@
                     
                     </div>
 
-                    <table class="govuk-table">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">post-opening grant</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th class="govuk-table__header" scope="col">post-opening grant</th>
-                                <th class="govuk-table__header govuk-table__header--numeric" scope="col">Total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th class="table-header-normal" scope="row">Per pupil resources - not related to staffing</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£25,000</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th class="table-header-normal" scope="row">Leadership diseconomies</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th class="table-header-normal" scope="row">Total post-opening grant</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£25,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table funding-breakdown first-table-below-tab">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total post-opening grant breakdown</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">Post-opening grant</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Per pupil resources - not related to staffing</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£25,000</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Leadership diseconomies</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Total post-opening grant</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£25,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="total-allocation-wrapper">
+
+                        <div class="total-allocation-label">
+                            <h2 class="heading-medium">Total post-opening grant</h2>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <h2 class="heading-medium">£25,000</h2>
+                        </div>
+
+                    </div>
 
                 </section>
-                <!-- post-opening grant - (END) -->
+                <!-- Post-opening grant - (END) -->
+
+                <!-- High needs - (START) -->
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="high-needs">
+                    
+                    <div class="grid-row">
+                
+                        <div class="block-header-total">
+                            <h2 class="lede">
+                                Total high needs allocation
+                                <p class="heading-large heading-funding-summary">£640,000</p>
+                            </h2>
+                        </div>
+                    
+                        <div class="block-header-print block-header-print-tabs">
+                            <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
+                        </div>
+                    
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table funding-breakdown first-table-below-tab">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total pre-16 high needs funding breakdown</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">Pre-16 high needs funding</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Pupil number</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Funding per pupil</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Full year total</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Total to August 2020</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Special</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£10,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£560,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£560,000</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Alternative provision</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£10,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Pre-16 high needs funding total</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£560,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+    
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table funding-breakdown">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total post-16 high needs funding breakdown</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">Post-16 high needs funding</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Pupil number</span></th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Funding per pupil</span></th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Full year total</span></th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total to August 2020</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Post-16 high needs funding total</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">8</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£10,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£80,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£80,000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table funding-breakdown">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total hospital education funding breakdown</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th class="govuk-table__header" scope="col">Hospital education funding</th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Pupil number</span></th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden"></span></th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Full year total</span></th>
+                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total to August 2020</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Hospital education funding total</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="total-allocation-wrapper">
+
+                        <div class="total-allocation-label">
+                            <h2 class="heading-medium">Total high needs allocation</h2>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <h2 class="heading-medium">£640,000</h2>
+                        </div>
+
+                    </div>
+                    
+                </section>
+                <!-- High needs - (END) -->
 
             </div>
 
             <div class="form-block">
-                <h3 class="heading-medium">Allocation history</h3>
+                <h3 class="heading-medium heading-guidance-final-section">Allocation history</h3>
                 <p><a href="../allocation-history">View history of allocated funding</a></p>
                 <h3 class="heading-medium heading-guidance">General annual grant resources</h3>
                 <ul class="list">
@@ -196,7 +294,7 @@
             <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
             <!-- reloads (an incremented number each time the page is loaded) -->
             <span id="reloads" style="display: none;">{{reloads}}</span>
-            <!-- tab = school, mfg, postopeninggrant -->
+            <!-- tab = postopeninggrant, highneeds -->
             <span id="tab" style="display: none;">{{tab}}</span>
 
         </div>
