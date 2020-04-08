@@ -622,6 +622,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -646,6 +647,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -669,6 +671,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -692,6 +695,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -715,6 +719,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -738,6 +743,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -761,6 +767,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -784,6 +791,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -807,6 +815,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1173,6 +1182,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1197,6 +1207,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1220,6 +1231,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1243,6 +1255,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1266,6 +1279,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1289,6 +1303,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1312,6 +1327,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1335,6 +1351,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
@@ -1358,6 +1375,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
+			'scenario' : req.query.scenario,
 			'tab' : req.session.tab
 		});
 	});
