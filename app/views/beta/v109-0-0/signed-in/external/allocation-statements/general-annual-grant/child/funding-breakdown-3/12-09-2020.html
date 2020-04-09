@@ -6,6 +6,20 @@
 
 {% block content %}
 
+<style>
+
+    .variance-heading-no-padding {
+        margin: 0px;
+        padding: 0px;
+    }
+    .variance-text {
+        font-size: 75%;
+        /* margin: 0px;
+        padding: 0px; */
+    }
+
+</style>
+
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -39,7 +53,23 @@
                 </span>
             </h1>
 
-            <div class="form-group">
+            <div class="form-group govuk-!-margin-bottom-8">
+                <h2 class="lede">
+                    Total allocation
+                    <p class="heading-large heading-funding-summary variance-heading-no-padding">
+                        <a href="#" title="Find out why this increased" class="js-modal modal-link" data-modal-text="<p>Your school received an increase of £30,901.20 to its school budget share. This was in comparison to your school's last general annual grant published allocation.</p><p>You received this increase due to 8 new Key Stage 2 pupils joining your school.</p>" data-modal-title="Increased by £30,901.20" data-modal-close-text="Close" data-modal-close-title="Close this window">
+                            <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £411,390.84
+                        </a>
+                    </p>
+                </h2>
+
+                <div class="block-header-print-no-tabs">
+                    <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
+                </div>
+
+            </div>
+
+            <!-- <div class="form-group">
                 <h2 class="lede">
                     Total allocation
                     <p class="heading-large heading-funding-summary">£411,390.84</p>
@@ -49,7 +79,7 @@
                     <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
                 </div>
 
-            </div>
+            </div> -->
 
             <div class="form-group">
                             
@@ -100,11 +130,15 @@
                 <section class="govuk-tabs__panel" id="school">
 
                     <div class="grid-row">
-                    
-                        <div class="block-header-total">
+
+                        <div class="block-header-total govuk-!-margin-bottom-3">
                             <h2 class="lede">
                                 Total school budget share
-                                <p class="heading-large heading-funding-summary">£411,390.84</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-padding">
+                                    <a href="#" title="Find out why this increased" class="js-modal modal-link" data-modal-text="<p>Your school received an increase of £30,901.20 to its school budget share. This was in comparison to your school's last general annual grant published allocation.</p><p>You received this increase due to 8 new Key Stage 2 pupils joining your school.</p>" data-modal-title="Increased by £30,901.20" data-modal-close-text="Close" data-modal-close-title="Close this window">
+                                        <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £411,390.84
+                                    </a>
+                                </p>
                             </h2>
                         </div>
                     
@@ -651,7 +685,7 @@
                                 <div class="total-allocation-amount">
                                     <h2 class="heading-small no-margin-top">£46,024.77</h2>
                                 </div>
-                            
+                                
                                 <div class="total-allocation-wrapper no-padding-top">
 
                                     <div class="total-allocation-label">
@@ -665,6 +699,8 @@
                                 </div>
                             
                             </div>
+
+                        </div>
 
                     </div>
 
@@ -849,7 +885,10 @@
             </div>
 
             <div class="form-block">
-                <h3 class="heading-medium heading-guidance-final-section">Allocation history</h3>
+                <h3 class="heading-medium heading-guidance-final-section">What's changed</h3>
+                <p>This allocation has increased by 7% (<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20) from the last published general annual grant for your organisation.</p>
+                <p>You can <a href="#">view a summary of these changes to your allocation</a> or you can click the <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> and <i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> icons in your statement to find out more.</p>
+                <h3 class="heading-medium heading-guidance">Allocation history</h3>
                 <p><a href="../allocation-history">View history of allocated funding</a></p>
                 <h3 class="heading-medium heading-guidance">General annual grant resources</h3>
                 <ul class="list">
@@ -877,6 +916,8 @@
 <script src="/public/javascripts/{{version}}/gag.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
+<script src="/public/javascripts/{{version}}/jquery-accessible-modal-window-aria.js"></script>
 <!-- JavaScript (END) -->
 
 {% endblock %}
