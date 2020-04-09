@@ -6,6 +6,18 @@
 
 {% block content %}
 
+<style>
+
+    .variance-heading-no-padding {
+        margin: 0px;
+        padding: 0px;
+    }
+    .variance-text {
+        font-size: 75%;
+    }
+
+</style>
+
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -635,11 +647,11 @@
                                     <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2020 to 2021</span>
                                     <span class="govuk-accordion__heading-number-right">
                                         {% if gagVariant == '1' %}
-                                        £2,765,800
+                                        <span class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span></span> £2,765,800
                                         {% elif gagVariant == '2' %}
                                         £2,002,630
                                         {% elif gagVariant == '3' %}
-                                        £411,390.84
+                                        <span class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span></span> £411,390.84
                                         {% elif gagVariant == '4' %}
                                         £665,000
                                         {% elif gagVariant == '5' %}
@@ -660,11 +672,11 @@
                             <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-2">
                                 <span class="hidden-sub-section">
                                     {% if gagVariant == '1' %}
-                                    £2,765,800
+                                    <span class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span></span> £2,765,800
                                     {% elif gagVariant == '2' %}
                                     £2,002,630
                                     {% elif gagVariant == '3' %}
-                                    £411,390.84
+                                    <span class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span></span> £411,390.84
                                     {% elif gagVariant == '4' %}
                                     £665,000
                                     {% elif gagVariant == '5' %}
@@ -686,6 +698,16 @@
                         </div>
                 
                         <div id="accordion-default-content-2" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-2">
+                            {% if gagVariant == '2' %}
+                            <h3 class="heading-medium heading-guidance">What's changed</h3>
+                            <p><a href="#">View changes to your allocation</a></p>
+                            {% elif gagVariant == '3' %}
+                            <h3 class="heading-medium heading-guidance">What's changed</h3>
+                            <p>This allocation has increased by 7% (<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20) from the last published general annual grant for your organisation.</p>
+                            <p>You can <a href="#">view a summary of these changes to your allocation</a> or you can click the <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> and <i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> icons in your statement to find out more.</p>
+                            {% else %}
+
+                            {% endif %}
                             <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
 
                             {% if gagVariant == '1' %}                        
@@ -696,7 +718,11 @@
                                 </div>
                     
                                 <div class="funding-right-container">
-                                    <p class="funding-right-text">£2,740,800</p>
+                                    <p class="funding-right-text">
+                                        £2,740,800
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                    </p>
                                 </div>
                     
                             </div>
@@ -732,7 +758,11 @@
                                 </div>
                     
                                 <div class="funding-right-container">
-                                    <p class="funding-right-text">£25,000</p>
+                                    <p class="funding-right-text">
+                                        £25,000
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
+                                    </p>
                                 </div>
                     
                             </div>
@@ -904,7 +934,11 @@
                                 </div>
                     
                                 <div class="funding-right-container">
-                                    <p class="funding-right-text">£411,390.84</p>
+                                    <p class="funding-right-text">
+                                        <a href="#" title="Find out why this increased" class="js-modal modal-link" data-modal-text="<p>Your school received an increase of £30,901.20 to its school budget share. This was in comparison to your school's last general annual grant published allocation.</p><p>You received this increase due to 8 new Key Stage 2 pupils joining your school.</p>" data-modal-title="Increased by £30,901.20" data-modal-close-text="Close" data-modal-close-title="Close this window">
+                                            <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £411,390.84
+                                        </a>
+                                    </p>
                                 </div>
                     
                             </div>
@@ -964,7 +998,11 @@
                                 </div>
                     
                                 <div class="funding-right-container">
-                                    <p class="funding-right-text">£0</p>
+                                    <p class="funding-right-text">
+                                        <a href="#" title="Find out why this decreased" class="js-modal modal-link" data-modal-text="<p>Your school received £10,000 less funding within its school budget share. This was in comparison to your school's last general annual grant published allocation.</p><p>This is because you can't receive a second start-up grant for a school after opening.</p>" data-modal-title="Decreased by £10,000" data-modal-close-text="Close" data-modal-close-title="Close this window">
+                                            <i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £0
+                                        </a>
+                                    </p>
                                 </div>
                     
                             </div>
@@ -1809,6 +1847,10 @@
 <script src="/public/javascripts/{{version}}/accordion.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+{% if gagVariant == '3' %}
+<!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
+<script src="/public/javascripts/{{version}}/jquery-accessible-modal-window-aria.js"></script>
+{% endif %}
 <!-- JavaScript (END) -->
 
 {% endblock %}
