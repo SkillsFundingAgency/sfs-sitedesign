@@ -6,6 +6,18 @@
 
 {% block content %}
 
+<style>
+
+    .variance-heading-no-padding {
+        margin: 0px;
+        padding: 0px;
+    }
+    .variance-text {
+        font-size: 75%;
+    }
+
+</style>
+
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -39,10 +51,23 @@
                 </span>
             </h1>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <h2 class="lede">
                     Total allocation
                     <p class="heading-large heading-funding-summary">£7,756,176.08</p>
+                </h2>
+
+                <div class="block-header-print-no-tabs">
+                    <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
+                </div>
+
+            </div> -->
+
+            <div class="form-group govuk-!-margin-bottom-8">
+                <h2 class="lede">
+                    Total allocation
+                    <p class="heading-large heading-funding-summary variance-heading-no-padding">£7,756,176.08</p>
+                    <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                 </h2>
 
                 <div class="block-header-print-no-tabs">
@@ -101,10 +126,11 @@
 
                     <div class="grid-row">
                     
-                        <div class="block-header-total">
+                        <div class="block-header-total govuk-!-margin-bottom-3">
                             <h2 class="lede">
                                 Total school budget share
-                                <p class="heading-large heading-funding-summary">£7,341,489.46</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-padding">£7,341,489.46</p>
+                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </h2>
                         </div>
                     
@@ -133,9 +159,17 @@
                                     <th scope="row" class="table-header-normal">Key Stage 2</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£3,862.65</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">347</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        347
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 8)</span>
+                                    </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">2%</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,340,339.55</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £1,340,339.55
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                    </td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Key Stage 4</th>
@@ -151,7 +185,11 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,322,760.99</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £2,322,760.99
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -183,6 +221,22 @@
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Secondary IDACI band A - most deprived</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£580</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.001751</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£579.90</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Secondary IDACI band C</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£348</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.001751</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£347.94</td>
+                                </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Secondary IDACI band F - least deprived</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£290</td>
@@ -229,9 +283,7 @@
                                 <li>Primary IDACI band D</li>
                                 <li>Primary IDACI band E</li>
                                 <li>Primary IDACI band F - least deprived</li>
-                                <li>Secondary IDACI band A - most deprived</li>
                                 <li>Secondary IDACI band B</li>
-                                <li>Secondary IDACI band C</li>
                                 <li>Secondary IDACI band D</li>
                                 <li>Secondary IDACI band E</li>
                                 <li>Primary free school meals</li>
@@ -346,7 +398,7 @@
                             </tbody>
                         </table>
 
-                        <details>
+                        <!-- <details>
                             <summary>
                                 <span class="summary">See funding types you did not get</span>
                             </summary>
@@ -357,13 +409,13 @@
                                 <li>Secondary pupils in first year of education within England</li>
                                 <li>Secondary pupils in first 2 years of education within England</li>
                             </div>
-                        </details> 
+                        </details>  -->
                     </div>
 
                     <div class="govuk-!-margin-bottom-8">
                         
                         <table class="govuk-table funding-breakdown">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Total Mobility breakdown</caption>
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total mobility breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th class="govuk-table__header bold" scope="col">Mobility</th>
@@ -406,7 +458,8 @@
                             </div>
 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-small no-margin-top">£2,541,268.73</h2>
+                                <h2 class="heading-small no-margin-top variance-heading-no-padding">£2,541,268.73</h2>
+                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </div>
 
                         </div>
@@ -416,7 +469,7 @@
                     <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table funding-breakdown">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Tota sparsity breakdown</caption>
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total sparsity breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th class="govuk-table__header bold" scope="col">Sparsity</th>
@@ -630,7 +683,8 @@
                             </div>
                 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-medium">£7,341,489.46</h2>
+                                <h2 class="heading-medium variance-heading-no-padding">£7,341,489.46</h2>
+                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </div>
 
                         </div>
@@ -640,7 +694,7 @@
                             <div class="total-allocation-wrapper no-padding-top">
 
                                 <div class="total-allocation-label">
-                                    <h2 class="heading-small no-margin-top">includes SEN funding to be spent based on pupil needs</h2>
+                                    <h2 class="heading-small no-margin-top">Includes SEN funding to be spent based on pupil needs</h2>
                                 </div>
                             
                                 <div class="total-allocation-amount">
@@ -682,10 +736,11 @@
                     
                     <div class="grid-row">
                 
-                        <div class="block-header-total">
+                        <div class="block-header-total govuk-!-margin-bottom-3">
                             <h2 class="lede">
                                 Total post-opening grant
-                                <p class="heading-large heading-funding-summary">£55,500</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-padding">£55,500</p>
+                                <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
                             </h2>
                         </div>
                     
@@ -712,11 +767,19 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Leadership diseconomies</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£40,500</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £40,500
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
+                                    </td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total post-opening grant</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£55,500</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £55,500
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -730,7 +793,8 @@
                         </div>
             
                         <div class="total-allocation-amount">
-                            <h2 class="heading-medium">£55,500</h2>
+                            <h2 class="heading-medium variance-heading-no-padding">£55,500</h2>
+                            <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
                         </div>
 
                     </div>
@@ -858,7 +922,7 @@
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
 <!-- GOV.UK Design System tabs -->
 <script src="/public/javascripts/{{version}}/tabs.js"></script>
-<!-- DSG -->
+<!-- GAG -->
 <script src="/public/javascripts/{{version}}/gag.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
