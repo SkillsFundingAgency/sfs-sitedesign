@@ -778,17 +778,17 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school', function (req, res) {		
 		
-		req.session.academyOrSchoolName = req.body.academyOrSchoolName;
-		var academyOrSchoolName = req.session.academyOrSchoolName;
+		req.session.organisationName = req.body.organisationName;
+		var organisationName = req.session.organisationName;
 
 		// Make sure the user chooses an option
-		if (academyOrSchoolName == undefined) {
+		if (organisationName == undefined) {
 			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true&error=true');
 		}
 		// Success
 		else {
 			
-			req.session.sendFrom = academyOrSchoolName;
+			req.session.sendFrom = organisationName;
 			
 			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type');
 		}
