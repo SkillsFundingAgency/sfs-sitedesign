@@ -6,6 +6,18 @@
 
 {% block content %}
 
+<style>
+
+    .variance-heading-no-padding {
+        margin: 0px;
+        padding: 0px;
+    }
+    .variance-text {
+        font-size: 75%;
+    }
+
+</style>
+
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -40,10 +52,23 @@
                 </span>
             </h1>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <h2 class="lede">
                     Total allocation
                     <p class="heading-large heading-funding-summary">£7,756,176.08</p>
+                </h2>
+
+                <div class="block-header-print-no-tabs">
+                    <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
+                </div>
+
+            </div> -->
+
+            <div class="form-group govuk-!-margin-bottom-8">
+                <h2 class="lede">
+                    Total allocation
+                    <p class="heading-large heading-funding-summary variance-heading-no-padding">£7,756,176.08</p>
+                    <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                 </h2>
 
                 <div class="block-header-print-no-tabs">
@@ -102,10 +127,11 @@
 
                     <div class="grid-row">
                     
-                        <div class="block-header-total">
+                        <div class="block-header-total govuk-!-margin-bottom-3">
                             <h2 class="lede">
                                 Total school budget share
-                                <p class="heading-large heading-funding-summary">£7,341,489.46</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-padding">£7,341,489.46</p>
+                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </h2>
                         </div>
                     
@@ -134,9 +160,17 @@
                                     <th scope="row" class="table-header-normal">Key Stage 2</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£3,862.65</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">347</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        347
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 8)</span>
+                                    </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">2%</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,340,339.55</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £1,340,339.55
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                    </td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Key Stage 4</th>
@@ -152,7 +186,11 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£2,322,760.99</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £2,322,760.99
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -184,6 +222,22 @@
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Secondary IDACI band A - most deprived</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£580</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.001751</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£579.90</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th class="table-header-normal" scope="row">Secondary IDACI band C</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£348</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.001751</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£347.94</td>
+                                </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Secondary IDACI band F - least deprived</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£290</td>
@@ -230,9 +284,7 @@
                                 <li>Primary IDACI band D</li>
                                 <li>Primary IDACI band E</li>
                                 <li>Primary IDACI band F - least deprived</li>
-                                <li>Secondary IDACI band A - most deprived</li>
                                 <li>Secondary IDACI band B</li>
-                                <li>Secondary IDACI band C</li>
                                 <li>Secondary IDACI band D</li>
                                 <li>Secondary IDACI band E</li>
                                 <li>Primary free school meals</li>
@@ -347,7 +399,7 @@
                             </tbody>
                         </table>
 
-                        <details>
+                        <!-- <details>
                             <summary>
                                 <span class="summary">See funding types you did not get</span>
                             </summary>
@@ -358,13 +410,13 @@
                                 <li>Secondary pupils in first year of education within England</li>
                                 <li>Secondary pupils in first 2 years of education within England</li>
                             </div>
-                        </details> 
+                        </details>  -->
                     </div>
 
                     <div class="govuk-!-margin-bottom-8">
                         
                         <table class="govuk-table funding-breakdown">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Total Mobility breakdown</caption>
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total mobility breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th class="govuk-table__header bold" scope="col">Mobility</th>
@@ -415,7 +467,8 @@
                             </div>
 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-small no-margin-top">£2,541,268.73</h2>
+                                <h2 class="heading-small no-margin-top variance-heading-no-padding">£2,541,268.73</h2>
+                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </div>
 
                         </div>
@@ -425,7 +478,7 @@
                     <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table funding-breakdown">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Tota sparsity breakdown</caption>
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total sparsity breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th class="govuk-table__header bold" scope="col">Sparsity</th>
@@ -639,7 +692,8 @@
                             </div>
                 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-medium">£7,341,489.46</h2>
+                                <h2 class="heading-medium variance-heading-no-padding">£7,341,489.46</h2>
+                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </div>
 
                         </div>
@@ -649,7 +703,7 @@
                             <div class="total-allocation-wrapper no-padding-top">
 
                                 <div class="total-allocation-label">
-                                    <h2 class="heading-small no-margin-top">includes SEN funding to be spent based on pupil needs</h2>
+                                    <h2 class="heading-small no-margin-top">Includes SEN funding to be spent based on pupil needs</h2>
                                 </div>
                             
                                 <div class="total-allocation-amount">
@@ -683,6 +737,1099 @@
                     
                     </div>
 
+                    <!-- SCENARIO 4 provides a view of tables with lettered rows and calculations shown as sums in indent text -->
+                    {% if scenario == '4' %}
+                    <h3 class="heading-medium heading-guidance">Minimum value per pupil for academic year 2018 to 2019</h3>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header calc-letter">Code</th>
+                            <th scope="col" class="govuk-table__header">Adjusted pre-16 school budget share for academic year 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">a</span></th>
+                                <td class="govuk-table__cell">Full year pre-16 school budget share for academic year 2019 to 2020</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,513,180.63</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">b</span></th>
+                                <td class="govuk-table__cell">Lump sum (including fringe) in LA’s funding formula for academic year 2019 to 2020</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£130,592</td>
+                            </tr>
+                            <tr class="govuk-table__row"> 
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">c</span></th>
+                                <td class="govuk-table__cell">Sparsity value (including taper) for academic year 2019 to 2020</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">d</span></th>
+                                <td class="govuk-table__cell">Approved MFG exclusions for academic year 2018 to 2019</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£56,898.42</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">e</span></th>
+                                <td class="govuk-table__cell">Technical adjustments to academic year 2018 to 2019 baseline</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">f</span></th>
+                                <td class="govuk-table__cell">Adjusted pre-16 school budget share for academic year 2018 to 2019</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">f</span> = <span class="bold">a</span> − <span class="bold">b</span> − <span class="bold">c</span> − <span class="bold">d</span> − <span class="bold">e</span></p>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                            <th scope="col" class="govuk-table__header">MFG unit value for academic year 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">f</span></th>
+                                <th scope="row" class="table-header-normal">Adjusted pre-16 school budget share for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">g</span></th>
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,033</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">h</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">h</span> = <span class="bold">f</span> ÷ <span class="bold">g</span></p>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                            <th scope="col" class="govuk-table__header">Minimum value per pupil</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">h</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">i</span></th>
+                                <th scope="row" class="table-header-normal">MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-1.5%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">j</span></th>
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">j</span> = <span class="bold">h</span> × <span class="bold">i</span></p>
+
+                    <h3 class="heading-medium heading-guidance">MFG budget for academic year 2019 to 2020</h3>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">MFG budget for academic year 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">k</span></th>
+                                <th scope="row" class="table-header-normal">School budget share for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">l</span></th>
+                                <th scope="row" class="table-header-normal">Lump sum (including fringe) in LA’s funding formula for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£130,592</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">m</span></th>
+                                <th scope="row" class="table-header-normal">Sparsity value (including taper) for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">n</span></th>
+                                <th scope="row" class="table-header-normal">Approved MFG exclusions for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">o</span></th>
+                                <th scope="row" class="table-header-normal">Technical adjustments to academic year 2019 to 2020 baseline</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">p</span></th>
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">p</span> = <span class="bold">k</span> − <span class="bold">l</span> − <span class="bold">m</span> − <span class="bold">n</span> − <span class="bold">o</span></p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">MFG unit value for academic year 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">p</span></th>
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">r</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">r</span> = <span class="bold">p</span> ÷ <span class="bold">q</span></p>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                            <th scope="col" class="govuk-table__header">Guaranteed level of funding for academic year 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">j</span></th>
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">s</span></th>
+                                <th scope="row" class="table-header-normal">Guaranteed level of funding for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">s</span> = <span class="bold">j</span> × <span class="bold">q</span></p>
+
+                    <h3 class="heading-medium heading-guidance">MFG floor and scaling/capping</h3>
+                    
+                    <div class="total-allocation-wrapper govuk-!-margin-bottom-4">
+
+                        <div class="total-allocation-label">
+                            <p>Does the LA apply capping and scaling?</p>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <p>Yes</p>
+                        </div>
+
+                        <div class="total-allocation-label">
+                            <p>Has growing school criteria been met?</p>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <p>No</p>
+                        </div>
+
+                    </div>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Change in MFG unit value between academic years 2018 to 2019 and 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">r</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">j</span></th>
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">t</span></th>
+                                <th scope="row" class="table-header-normal">Change in MFG unit value</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-6.02%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8 bold">This calculation is wrong in guidance</p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Extent to which percentage change falls below MFG floor</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">i</span></th>
+                                <th scope="row" class="table-header-normal">MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-1.5%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">t</span></th>
+                                <th scope="row" class="table-header-normal">Change in MFG unit value</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-6.02%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">u</span></th>
+                                <th scope="row" class="table-header-normal">Extent to which percentage change falls below MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">4.52%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">u</span> <span class="bold">=</span> <span class="bold">i</span> - <span class="bold">t</span></p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">MFG adjustment value (applying MFG floor)</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">u</span></th>
+                                <th scope="row" class="table-header-normal">Extent to which percentage change falls below MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">4.52%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">j</span></th>
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">v</span></th>
+                                <th scope="row" class="table-header-normal">MFG adjustment value (applying MFG floor)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">v</span> = <span class="bold">u</span> × <span class="bold">q</span> × <span class="bold">j</span></p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Extent to which percentage change exceeds cap</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">x</span></th>
+                                <th scope="row" class="table-header-normal">Extent to which percentage change exceeds cap</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">x</span> = <span class="bold">0</span> because....</p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Scale factor applied to excess above cap</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">x</span></th>
+                                <th scope="row" class="table-header-normal">Extent to which percentage change exceeds cap</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">y</span></th>
+                                <th scope="row" class="table-header-normal">LA scaling factor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">z</span></th>
+                                <th scope="row" class="table-header-normal">Scale factor applied to excess above cap</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">z</span> = <span class="bold">x</span> × <span class="bold">y</span></p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Affordability value adjustment (applying scale factor above cap)</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">AA</span></th>
+                                <th scope="row" class="table-header-normal">Affordability value adjustment (applying scale factor above cap)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">AA</span> = 0 as capping does not apply</p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Overall net adjustment</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">v</span></th>
+                                <th scope="row" class="table-header-normal">MFG adjustment value (applying MFG floor)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">f</span></th>
+                                <th scope="row" class="table-header-normal">Affordability value adjustment (applying scale factor above cap)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">AA</span></th>
+                                <th scope="row" class="table-header-normal">Minimum funding level and funding floor adjustment (post cap and scale)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">BB</span></th>
+                                <th scope="row" class="table-header-normal">Overall net adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">BB</span> = <span class="bold">v</span> - <span class="bold">f</span> × <span class="bold">f</span></p>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">MFG budget for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">p</span></th>
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">	£7,210,897.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">BB</span></th>
+                                <th scope="row" class="table-header-normal">Overall net adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">CC</span></th>
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">CC</span> = <span class="bold">p</span> + <span class="bold">BB</span></p>
+                      
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">MFG unit value for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">CC</span></th>
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">DD</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">DD</span> = <span class="bold">CC</span>  ÷  <span class="bold">q</span></p>
+                      
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Percentage change in MFG unit value after adjustments</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">DD</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">h</span></th>
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">EE</span></th>
+                                <th scope="row" class="table-header-normal">Percentage change in MFG unit value after adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-1.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8 bold">Calculation wrong in guidance </p>
+                      
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header calc-letter"><span class="visuallyhidden calc-letter">Code</span></th>
+                                <th scope="col" class="govuk-table__header">Total school budget share (excluding rates) for academic year 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">k</span></th>
+                                <th scope="row" class="table-header-normal">School budget share for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">BB</span></th>
+                                <th scope="row" class="table-header-normal">Overall net adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">FF</span></th>
+                                <th scope="row" class="table-header-normal">Total school budget share (excluding rates) for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,688,676.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text"><span class="bold">FF</span> = <span class="bold">k</span>  +  <span class="bold">BB</span></p>
+
+                    <div class="govuk-!-margin-bottom-4">
+
+                        <div class="total-allocation-wrapper">
+
+                            <div class="total-allocation-label">
+                                <h2 class="heading-medium">Total minimum funding guarantee</h2>
+                            </div>
+                
+                            <div class="total-allocation-amount">
+                                <h2 class="heading-medium variance-heading-no-padding">£347,186.62</h2>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+                   
+                    <!-- SCENARIO 3 provides a view of tables with inline calculations  -->
+                    {% else %}
+                    <h3 class="heading-medium heading-guidance">Minimum value per pupil for academic year 2018 to 2019</h3>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Adjusted pre-16 school budget share for academic year 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header calc-letter">Calculation</th>
+                            <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Full year pre-16 school budget share for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,513,180.63</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Lump sum (including fringe) in LA’s funding formula for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£130,592.00</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Sparsity value (including taper) for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Approved MFG exclusions for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£56,898.42</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Technical adjustments to academic year 2018 to 2019 baseline</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Adjusted pre-16 school budget share for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">MFG unit value for academic year 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                            <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Adjusted pre-16 school budget share for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,033</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Minimum value per pupil</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-1.5%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="heading-medium heading-guidance">MFG budget for academic year 2019 to 2020</h3>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">MFG budget for academic year 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">School budget share for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Lump sum (including fringe) in LA’s funding formula for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£130,592</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Sparsity value (including taper) for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Approved MFG exclusions for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Technical adjustments to academic year 2019 to 2020 baseline</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">MFG unit value for academic year 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Guaranteed level of funding for academic year 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Guaranteed level of funding for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="heading-medium heading-guidance">MFG floor and scaling/capping</h3>
+
+                    <div class="total-allocation-wrapper govuk-!-margin-bottom-4">
+
+                        <div class="total-allocation-label">
+                            <p>Does the LA apply capping and scaling?</p>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <p>No</p>
+                        </div>
+
+                        <div class="total-allocation-label">
+                            <p>Has growing school criteria been met?</p>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <p>No</p>
+                        </div>
+
+                    </div>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Change in MFG unit value between academic years 2018 to 2019 and 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Change in MFG unit value</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-6.02%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8">This calculation is wrong in guidance</p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Extent to which percentage change falls below MFG floor</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-1.5%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Change in MFG unit value</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-6.02%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Extent to which percentage change falls below MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">4.52%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8">Extent to which percentage change falls below MFG floor is zero because...</p>
+                    
+
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">MFG adjustment value (applying MFG floor)</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Extent to which percentage change falls below MFG floor</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">4.52%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Minimum value per pupil</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG adjustment value (applying MFG floor)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Extent to which percentage change exceeds cap</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Extent to which percentage change exceeds cap</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8">Extent to which percentage change exceeds cap is zero because...</p>
+                    
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Scale factor applied to excess above cap</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Extent to which percentage change exceeds cap</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">LA scaling factor</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Scale factor applied to excess above cap</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Affordability value adjustment (applying scale factor above cap)</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Affordability value adjustment (applying scale factor above cap)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8">Affordability value adjustment is zero because capping does not apply</p>
+                    
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Overall net adjustment (MFG minus affordability plus MFL adjustment)</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG adjustment value (applying MFG floor)</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Affordability value adjustment (applying scale factor above cap)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Minimum funding level and funding floor adjustment (post cap and scale)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-plus" title="plus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Overall net adjustment (MFG minus affordability plus MFL adjustment)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">MFG budget for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Total MFG budget for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Overall net adjustment (MFG minus affordability plus MFL adjustment)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-plus" title="plus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+ 
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">MFG unit value for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG budget for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Pupil NOR academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Percentage change in MFG unit value after adjustments</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2019 to 2020 after MFG and affordability adjustments</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">MFG unit value for academic year 2018 to 2019</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Percentage change in MFG unit value after adjustments</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-1.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="inset-text govuk-!-margin-bottom-8">This calculation is wrong in guidance</p>
+                    
+
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Total school budget share (excluding rates) for academic year 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">School budget share for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Overall net adjustment (MFG minus affordability plus MFL adjustment)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-plus" title="plus" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Total school budget share (excluding rates) for academic year 2019 to 2020</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£7,688,676.08</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="govuk-!-margin-bottom-4">
+
+                        <div class="total-allocation-wrapper">
+
+                            <div class="total-allocation-label">
+                                <h2 class="heading-medium">Total minimum funding guarantee</h2>
+                            </div>
+                
+                            <div class="total-allocation-amount">
+                                <h2 class="heading-medium variance-heading-no-padding">£347,186.62</h2>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+
+                    {% endif %}
+
                 </section>
                 <!-- Minimum funding guarantee - (END) -->
 
@@ -691,10 +1838,11 @@
                     
                     <div class="grid-row">
                 
-                        <div class="block-header-total">
+                        <div class="block-header-total govuk-!-margin-bottom-3">
                             <h2 class="lede">
                                 Total post-opening grant
-                                <p class="heading-large heading-funding-summary">£55,500</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-padding">£55,500</p>
+                                <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
                             </h2>
                         </div>
                     
@@ -721,11 +1869,19 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Leadership diseconomies</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£40,500</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £40,500
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
+                                    </td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total post-opening grant</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£55,500</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        £55,500
+                                        <br>
+                                        <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -739,7 +1895,8 @@
                         </div>
             
                         <div class="total-allocation-amount">
-                            <h2 class="heading-medium">£55,500</h2>
+                            <h2 class="heading-medium variance-heading-no-padding">£55,500</h2>
+                            <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
                         </div>
 
                     </div>
@@ -867,7 +2024,7 @@
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
 <!-- GOV.UK Design System tabs -->
 <script src="/public/javascripts/{{version}}/tabs.js"></script>
-<!-- DSG -->
+<!-- GAG -->
 <script src="/public/javascripts/{{version}}/gag.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
