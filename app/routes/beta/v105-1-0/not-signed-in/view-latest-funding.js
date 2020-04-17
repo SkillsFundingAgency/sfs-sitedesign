@@ -26,7 +26,7 @@ module.exports = function(router) {
 	* VIEW LATEST FUNDING
 	* **********/
 
-	// Start page (MyESF)
+	// Start page (MYESF)
 	// NOTE: This has been left in as requested by the business, despite contradicting user research data
 	router.get('/' + version + '/not-signed-in/view-latest-funding/start', function (req, res) {		
 		res.render(version + '/start', {

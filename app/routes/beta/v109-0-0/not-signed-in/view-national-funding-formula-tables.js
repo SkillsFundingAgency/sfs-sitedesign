@@ -27,7 +27,7 @@ module.exports = function(router) {
 	* AT INDIVIDUAL ORGANISATION LEVEL
 	* **********/
 
-	// Start page (MyESF)
+	// Start page (MYESF)
 	// NOTE: This has been left in as requested by the business, despite contradicting user research data
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/start', function (req, res) {		
 		res.render(version + '/start', {

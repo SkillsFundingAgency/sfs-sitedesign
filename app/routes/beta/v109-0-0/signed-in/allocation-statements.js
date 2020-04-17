@@ -111,7 +111,7 @@ module.exports = function(router) {
 		if (username == "" || password == "") {				
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in?error=true');
 		}
-		// TRIGGER ERROR 1 - User has no valid MyESF roles
+		// TRIGGER ERROR 1 - User has no valid MYESF roles
 		else if (password == "novalidroles") {
 
 			req.session.hasValidRoles = "False";
@@ -120,8 +120,8 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
 		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
-		// REASON 1: User has not signed their apprenticeship agreement in MyESF
-		// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+		// REASON 1: User has not signed their apprenticeship agreement in MYESF
+		// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 		else if (password == "noapprenticeshipservice") {
 
 			req.session.hasValidRoles = "True";
@@ -129,7 +129,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
-		// Anything else take user to dashboard with valid MyESF roles
+		// Anything else take user to dashboard with valid MYESF roles
 		else {
 
 			req.session.hasValidRoles = "True";
@@ -143,7 +143,7 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard', function (req, res) {
 	
-		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 			
 			req.session.idams = "adults";
@@ -185,8 +185,8 @@ module.exports = function(router) {
 	});
 
 	// ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
-	// REASON 1: User has not signed their apprenticeship agreement in MyESF
-	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+	// REASON 1: User has not signed their apprenticeship agreement in MYESF
+	// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/no-apprenticeship-service', function (req, res) {
 		
 		req.session.idams = "adults";
@@ -340,7 +340,7 @@ module.exports = function(router) {
 		if (username == "" || password == "") {				
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dfe-sign-in/sign-in?error=true');
 		}
-		// TRIGGER ERROR 1 - User has no valid MyESF roles
+		// TRIGGER ERROR 1 - User has no valid MYESF roles
 		else if (password == "novalidroles") {
 
 			req.session.hasValidRoles = "False";
@@ -349,8 +349,8 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
 		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
-		// REASON 1: User has not signed their apprenticeship agreement in MyESF
-		// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+		// REASON 1: User has not signed their apprenticeship agreement in MYESF
+		// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 		else if (password == "noapprenticeshipservice") {
 
 			req.session.hasValidRoles = "True";
@@ -430,7 +430,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
-		// Anything else take user to dashboard with valid MyESF roles
+		// Anything else take user to dashboard with valid MYESF roles
 		else {
 
 			req.session.hasValidRoles = "True";
@@ -445,7 +445,7 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard', function (req, res) {
 
-		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 
 			req.session.dashboard = "No";
@@ -497,8 +497,8 @@ module.exports = function(router) {
 	});
 
 	// ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
-	// REASON 1: User has not signed their apprenticeship agreement in MyESF
-	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+	// REASON 1: User has not signed their apprenticeship agreement in MYESF
+	// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/no-apprenticeship-service', function (req, res) {
 		
 		req.session.dashboard = "No";
@@ -859,7 +859,7 @@ module.exports = function(router) {
 		if (username == "" || password == "") {				
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dfe-sign-in/sign-in?error=true');
 		}
-		// TRIGGER ERROR 1 - User has no valid MyESF roles
+		// TRIGGER ERROR 1 - User has no valid MYESF roles
 		else if (password == "novalidroles") {
 
 			req.session.hasValidRoles = "False";
@@ -868,8 +868,8 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
 		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
-		// REASON 1: User has not signed their apprenticeship agreement in MyESF
-		// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+		// REASON 1: User has not signed their apprenticeship agreement in MYESF
+		// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 		else if (password == "noapprenticeshipservice") {
 
 			req.session.hasValidRoles = "True";
@@ -949,7 +949,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
-		// Anything else take user to dashboard with valid MyESF roles
+		// Anything else take user to dashboard with valid MYESF roles
 		else {
 
 			req.session.hasValidRoles = "True";
@@ -964,7 +964,7 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard', function (req, res) {
 
-		// Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 
 			req.session.dashboard = "No";
@@ -1016,8 +1016,8 @@ module.exports = function(router) {
 	});
 
 	// ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
-	// REASON 1: User has not signed their apprenticeship agreement in MyESF
-	// REASON 2: User as not signed their apprenticeship agreement in MyESF AND does not have the required role in MyESF to sign it
+	// REASON 1: User has not signed their apprenticeship agreement in MYESF
+	// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/no-apprenticeship-service', function (req, res) {
 		
 		req.session.dashboard = "No";

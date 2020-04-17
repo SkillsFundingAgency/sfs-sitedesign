@@ -68,14 +68,14 @@ module.exports = function(router) {
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 
-		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (password == "11111111") {
 			
 			req.session.hasValidRoles = "False";
 			
 			res.redirect('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard');
 		}
-		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MyESF roles or permissions
+		// USER RESEARCH TASK 2 - Trigger a successfull sign in with 1 or more valid MYESF roles or permissions
 		else if (password == "22222222") {
 
 			req.session.hasValidRoles = "True";
@@ -103,7 +103,7 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/child/allocation-statements/adults/dashboard', function (req, res) {
 	
-		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MyESF roles or permissions
+		// USER RESEARCH TASK 1 - Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 			
 			req.session.idams = "adults";
