@@ -8,9 +8,12 @@
 var express = require('express');
 var router = express.Router();
 
-// Add latest versions of MYESF features here
-var latestVersion = 'beta/v109-0-0';
+// Add latest versions of stable MYESF features here
+var latestVersion = 'beta/v110-0-0';
 var latestVersionVLF = 'beta/v105-1-0';
+var latestVersionNFF = 'beta/v108-0-0';
+var latestVersionAdults = 'beta/v109-0-0';
+var latestVersionDocumentExchange = 'beta/v109-0-0';
 
 /**********
 * GLOBAL PROTOTYPE PAGES
@@ -21,6 +24,9 @@ router.get('/', function (req, res) {
 	res.render('index', {
 		'latestVersion' : latestVersion,
 		'latestVersionVLF' : latestVersionVLF,
+		'latestVersionNFF' : latestVersionNFF,
+		'latestVersionAdults' : latestVersionAdults,
+		'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 		'showPropositionLinks' : "True"
 	});
 });
@@ -53,8 +59,10 @@ require('./routes/component-library.js')(router);
 * **********/
 
 // Beta
+// beta-v110-0-0
+require('./routes/beta/v110-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v110-0-0/prototype.js')(router);
 // beta-v109-0-0
-require('./routes/beta/v109-0-0/not-signed-in/view-national-funding-formula-tables.js')(router);
 require('./routes/beta/v109-0-0/signed-in/allocation-statements.js')(router);
 require('./routes/beta/v109-0-0/signed-in/document-exchange.js')(router);
 require('./routes/beta/v109-0-0/prototype.js')(router);

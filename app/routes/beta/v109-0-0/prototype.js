@@ -3,6 +3,7 @@ module.exports = function(router) {
 	// Add latest versions of MYESF features here
 	var version = 'beta/v109-0-0';
 	var latestVersionVLF = 'beta/v105-1-0';
+	var latestVersionNFF = 'beta/v108-0-0';
 	
 	/**********
 	* PROTOTYPE
@@ -15,6 +16,7 @@ module.exports = function(router) {
 			'version' : version,
 			'latestVersion' : version,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
 			'versioning' : "True",
 			'showPropositionLinks' : "True",
 			'serviceScope' : "User journeys"
@@ -32,6 +34,7 @@ module.exports = function(router) {
 			'version' : version,
 			'latestVersion' : version,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
 			'versioning' : "True",
 			'showPropositionLinks' : "True"
 		});

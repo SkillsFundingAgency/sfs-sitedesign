@@ -1,8 +1,11 @@
 module.exports = function(router) {
 
 	// Add latest versions of MYESF features here
-	var latestVersion = 'beta/v109-0-0';
+	var latestVersion = 'beta/v110-0-0';
 	var latestVersionVLF = 'beta/v105-1-0';
+	var latestVersionNFF = 'beta/v108-0-0';
+	var latestVersionAdults = 'beta/v109-0-0';
+	var latestVersionDocumentExchange = 'beta/v109-0-0';
 	
 	/**********
 	* GLOBAL
@@ -26,6 +29,9 @@ module.exports = function(router) {
 		res.render('component-library/index', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -36,6 +42,9 @@ module.exports = function(router) {
 		res.render('component-library/accordion', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -44,6 +53,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/accordion', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -54,6 +66,9 @@ module.exports = function(router) {
 		res.render('component-library/back-to-top-link', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -62,6 +77,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/back-to-top-link-stand-alone', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -70,6 +88,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/back-to-top-link-with-pagination', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -80,6 +101,9 @@ module.exports = function(router) {
 		res.render('component-library/card', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -88,6 +112,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/card-as-navigation', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -96,6 +123,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/card-as-navigation-with-notification', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -104,6 +134,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/card-to-display-data-one-third', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -112,6 +145,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/card-to-display-data-two-thirds', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -122,6 +158,9 @@ module.exports = function(router) {
 		res.render('component-library/download-a-document', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -130,6 +169,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/download-a-document', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -140,6 +182,9 @@ module.exports = function(router) {
 		res.render('component-library/filter-a-list', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -148,6 +193,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/filter-a-list-standard', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -156,6 +204,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/filter-a-list-searchable', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
 			'paginationRequired' : req.query.paginationRequired,
@@ -170,6 +221,9 @@ module.exports = function(router) {
 		res.render('component-library/funding-header', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -178,6 +232,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-header-full-width', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -186,6 +243,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-header-float-left', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -196,6 +256,9 @@ module.exports = function(router) {
 		res.render('component-library/funding-table', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -204,6 +267,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-table-two-columns', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -212,6 +278,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-table-no-repeating-column-headers', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -220,6 +289,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-table-four-columns', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -228,6 +300,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-table-with-link', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -238,6 +313,9 @@ module.exports = function(router) {
 		res.render('component-library/funding-totals', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -246,6 +324,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-totals-grand-total', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -254,6 +335,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/funding-totals-sub-total', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -264,6 +348,9 @@ module.exports = function(router) {
 		res.render('component-library/icons', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -272,6 +359,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/icons-document', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -280,6 +370,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/icons-increase', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -288,6 +381,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/icons-decrease', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -296,6 +392,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/icons-print', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -306,6 +405,9 @@ module.exports = function(router) {
 		res.render('component-library/links', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -314,6 +416,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/links-standard', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -322,6 +427,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/links-external', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -330,6 +438,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/links-tabbed', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -338,6 +449,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/links-action', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -346,6 +460,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/links-funding-table-guidance', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -356,6 +473,9 @@ module.exports = function(router) {
 		res.render('component-library/organisation-banner', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -364,6 +484,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/organisation-banner', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -374,6 +497,9 @@ module.exports = function(router) {
 		res.render('component-library/pagination', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -382,6 +508,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/pagination-10', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -390,6 +519,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/pagination-25', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -400,6 +532,9 @@ module.exports = function(router) {
 		res.render('component-library/search', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -408,6 +543,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/search', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -418,6 +556,9 @@ module.exports = function(router) {
 		res.render('component-library/signed-in-account-banner', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -426,6 +567,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/signed-in-account-banner', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -436,6 +580,9 @@ module.exports = function(router) {
 		res.render('component-library/tabs', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -444,6 +591,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/tabs', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -454,6 +604,9 @@ module.exports = function(router) {
 		res.render('component-library/tag', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -462,6 +615,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/tag-blue', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -470,6 +626,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/tag-red', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
@@ -478,6 +637,9 @@ module.exports = function(router) {
 		res.render('component-library/examples/tag-grey', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
 		});
