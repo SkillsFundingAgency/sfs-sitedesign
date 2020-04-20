@@ -19,7 +19,7 @@ module.exports = function(router) {
 	 * SINGLE FUNDING STATEMENT
 	 * **********/
 
-	// Start page (MyESF)
+	// Start page (MYESF)
 	router.get('/' + version + '/not-signed-in/single-funding-statement/start', function (req, res) {		
 		res.render(version + '/start', {
 			'version' : version,

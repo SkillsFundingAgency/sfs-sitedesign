@@ -24,7 +24,7 @@ module.exports = function(router) {
 	* VIEW NATIONAL FUNDING FORMULA TABLES
 	* **********/
 
-	// Start page (MyESF)
+	// Start page (MYESF)
 	// LEGACY but left in to show what it should look like
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/start', function (req, res) {		
 		res.render(version + '/start', {
