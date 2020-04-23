@@ -1,19 +1,39 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    General annual grant: 2020 to 2021
+    General annual grant: 2021 to 2022
 {% endblock %}
 
 {% block content %}
 
 <style>
 
-    /* Chris Harding (21.04.20) - Show users change and variance between their funding statements */
-    .variance-heading-no-padding {
-        margin: 0px;
+    /* Chris Harding (22.04.20) - REWORK (NEW) to existing table component CSS */
+    .block-header-total {
+        padding-top: 10px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
-    .variance-text {
-        font-size: 75%;
+    @media (min-width: 641px) {
+        .block-header-total {
+            float: left;
+            width: 78%;
+            padding-top: 15px;
+        }
+    }
+    .block-header-print {
+        text-align: right;
+        padding-top: 15px;
+        padding-right: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
     }
     /* Chris Harding (21.04.20) - Responsive table design for all tables */
     .table-column-default {
@@ -31,6 +51,22 @@
         .table-column-mobile {
             display: none;
         }
+    }
+    /* Chris Harding (21.04.20) - Show users change and variance between their funding statements */
+    .variance-block-header-total {
+        padding-bottom: 5px;
+    }
+    @media (min-width: 641px) {
+        .variance-block-header-total {
+            padding-bottom: 15px;
+        }
+    }
+    .variance-heading-no-margin {
+        margin-bottom: 0px;
+    }
+    .variance-text {
+        font-size: 75%;
+        margin-top: 0px;
     }
 
 </style>
@@ -53,39 +89,26 @@
                 <nav>
                     <ol>
                         <li><a href="../../parent/dashboard">Home</a></li>
-                        <li><a href="../select-academy?paginationRequired=true&page1=true">Select an academy</a></li>
-                        <li><a href="../allocation-statements">Allocation statements: {{organisationName}}</a></li>
-                        <li>General annual grant 2020 to 2021</li>
+                        <li><a href="../allocation-statements">Allocation statements</a></li>
+                        <li>General annual grant 2021 to 2022</li>
                     </ol>
                 </nav>
             </div>
 
             <h1 class="heading-xlarge">
-                General annual grant: 2020 to 2021
+                General annual grant: 2021 to 2022
                 <span class="heading-secondary">
                     This allocation:
-                    <span class="bold-medium">12 September 2020</span>
+                    <span class="bold-medium">12 September 2021</span>
                     <strong class="govuk-tag govuk-tag-secondary-heading">Latest</strong>
                 </span>
             </h1>
 
-            <!-- <div class="form-group">
+            <div class="form-group">
                 <h2 class="lede">
                     Total allocation
-                    <p class="heading-large heading-funding-summary">£7,756,176.08</p>
-                </h2>
-
-                <div class="block-header-print-no-tabs">
-                    <a class="print-page" href="#"><i class="fa fa-print"></i>Print this page</a>
-                </div>
-
-            </div> -->
-
-            <div class="form-group govuk-!-margin-bottom-8">
-                <h2 class="lede">
-                    Total allocation
-                    <p class="heading-large heading-funding-summary variance-heading-no-padding">£7,756,176.08</p>
-                    <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                    <p class="heading-large heading-funding-summary variance-heading-no-margin">£7,756,176.08</p>
+                    <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</p>
                 </h2>
 
                 <div class="block-header-print-no-tabs">
@@ -100,13 +123,13 @@
             
                     <div class="download-a-document-container">
                         <p class="download-a-document">
-                            <a href="#" title="Download general annual grant allocation for {{organisationName}} 2020 to 2021">Download general annual grant allocation for {{organisationName}} 2020 to 2021</a>
+                            <a href="#" title="Download general annual grant allocation for {{organisationName}} 2021 to 2022">Download general annual grant allocation for {{organisationName}} 2021 to 2022</a>
                             <br>
                             <span class="download-a-document-content">
                                 <span class="download-a-document-section-1">Portable Document Format (<abbr title="Portable Document Format">PDF</abbr>), 206KB</span>
                                 <span class="download-a-document-section-2">
                                     You may need a different format if you're using assistive technology. <a href="#attachment-1-accessibility-request" class="expand-hidden-section" data-controls="attachment-1-accessibility-request" data-expanded="false" role="button" aria-controls="attachment-1-accessibility-request" aria-expanded="false">Request an accessible format</a>.
-                                    <span id="attachment-1-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20general%20annual%20grant%20allocation%20for%20{{organisationName}}%202020%20to%202021%0A%20%20Original%20format%3A%20pdf%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27general%20annual%20grant%20allocation%20for%20{{organisationName}}%202020%20to%202021%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
+                                    <span id="attachment-1-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20general%20annual%20grant%20allocation%20for%20{{organisationName}}%202120%20to%202122%0A%20%20Original%20format%3A%20pdf%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27general%20annual%20grant%20allocation%20for%20{{organisationName}}%202120%20to%202122%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
                                 </span>
                             </span>
                         </p>
@@ -144,10 +167,10 @@
 
                     <div class="grid-row">
                     
-                        <div class="block-header-total govuk-!-margin-bottom-3">
+                        <div class="block-header-total variance-block-header-total">
                             <h2 class="lede">
                                 Total school budget share
-                                <p class="heading-large heading-funding-summary variance-heading-no-padding">£7,341,489.46</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-margin">£7,341,489.46</p>
                                 <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </h2>
                         </div>
@@ -189,14 +212,12 @@
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric">1</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
                                         347
-                                        <br>
-                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 8)</span>
+                                        <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 8)</p>
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2%</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">
                                         £1,340,339.55
-                                        <br>
-                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                        <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</p>
                                     </td>
                                 </tr>
                                 <tr class="govuk-table__row">
@@ -218,15 +239,14 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£982,421.44</td>
                                 </tr>
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">Total based on pupil numbers from October 2019 census </th>
+                                    <th scope="row" class="table-header-normal">Total based on pupil numbers from October 2020 census </th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">
                                         £2,322,760.99
-                                        <br>
-                                        <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                        <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</p>
                                     </td>
                                 </tr>
                             </tbody>
@@ -554,8 +574,8 @@
                             </div>
 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-small no-margin-top variance-heading-no-padding">£2,541,268.73</h2>
-                                <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
+                                <h2 class="heading-small no-margin-top variance-heading-no-margin">£2,541,268.73</h2>
+                                <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</p>
                             </div>
 
                         </div>
@@ -779,7 +799,7 @@
                             </div>
                 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-medium variance-heading-no-padding">£7,341,489.46</h2>
+                                <h2 class="heading-medium variance-heading-no-margin">£7,341,489.46</h2>
                                 <span class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</span>
                             </div>
 
@@ -826,45 +846,45 @@
 
                     <!-- SCENARIO 4 provides a view of tables with lettered rows and calculations shown as sums in indent text -->
                     {% if scenario == '4' %}
-                    <h3 class="heading-medium heading-guidance">Minimum value per pupil 2018 to 2019</h3>
+                    <h3 class="heading-medium heading-guidance">Minimum value per pupil 2020 to 2021</h3>
 
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header calc-letter">Code</th>
-                            <th scope="col" class="govuk-table__header">Adjusted school budget share 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header">Adjusted school budget share 2020 to 2021</th>
                             <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">a</span></th>
-                                <td class="govuk-table__cell">School budget share 2019 to 2020</td>
+                                <td class="govuk-table__cell">School budget share 2020 to 2020</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,513,180.63</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">b</span></th>
-                                <td class="govuk-table__cell">Lump sum (including fringe) 2019 to 2020</td>
+                                <td class="govuk-table__cell">Lump sum (including fringe) 2021 to 2022</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£130,592</td>
                             </tr>
                             <tr class="govuk-table__row"> 
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">c</span></th>
-                                <td class="govuk-table__cell">Sparsity value 2019 to 2020</td>
+                                <td class="govuk-table__cell">Sparsity value 2021 to 2022</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">d</span></th>
-                                <td class="govuk-table__cell">Approved exclusions 2018 to 2019</td>
+                                <td class="govuk-table__cell">Approved exclusions 2020 to 2021</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£56,898.42</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">e</span></th>
-                                <td class="govuk-table__cell">Technical adjustments to 2018 to 2019 baseline</td>
+                                <td class="govuk-table__cell">Technical adjustments to 2020 to 2021 baseline</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">f</span></th>
-                                <td class="govuk-table__cell">Adjusted school budget share 2018 to 2019</td>
+                                <td class="govuk-table__cell">Adjusted school budget share 2020 to 2021</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
                             </tr>
                         </tbody>
@@ -876,24 +896,24 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                            <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2020 to 2021</th>
                             <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">f</span></th>
-                                <th scope="row" class="table-header-normal">Adjusted school budget share 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Adjusted school budget share 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">g</span></th>
-                                <th scope="row" class="table-header-normal">Pupil number 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,033</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">h</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
                             </tr>
                         </tbody>
@@ -912,7 +932,7 @@
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">h</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -930,45 +950,45 @@
 
                     <p class="inset-text govuk-!-margin-bottom-8"><span class="bold">j</span> = <span class="bold">h</span> × <span class="bold">i</span></p>
 
-                    <h3 class="heading-medium heading-guidance">Minimum funding guarantee budget 2019 to 2020</h3>
+                    <h3 class="heading-medium heading-guidance">Minimum funding guarantee budget 2021 to 2022</h3>
 
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2021 to 2022</th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">k</span></th>
-                                <th scope="row" class="table-header-normal">School budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">School budget share 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">l</span></th>
-                                <th scope="row" class="table-header-normal">Lump sum (including fringe) 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Lump sum (including fringe) 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£130,592</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">m</span></th>
-                                <th scope="row" class="table-header-normal">Sparsity value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Sparsity value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">n</span></th>
-                                <th scope="row" class="table-header-normal">Approved exclusions 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Approved exclusions 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">o</span></th>
-                                <th scope="row" class="table-header-normal">Technical adjustments to 2019 to 2020 baseline</th>
+                                <th scope="row" class="table-header-normal">Technical adjustments to 2021 to 2022 baseline</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">p</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
                             </tr>
                         </tbody>
@@ -980,24 +1000,24 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2021 to 2022</th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">p</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">r</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
                             </tr>
                         </tbody>
@@ -1009,7 +1029,7 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                            <th scope="col" class="govuk-table__header">Guaranteed level of funding 2019 to 2020</th>
+                            <th scope="col" class="govuk-table__header">Guaranteed level of funding 2021 to 2022</th>
                             <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
@@ -1021,12 +1041,12 @@
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">s</span></th>
-                                <th scope="row" class="table-header-normal">Guaranteed level of funding 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Guaranteed level of funding 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
                             </tr>
                         </tbody>
@@ -1060,14 +1080,14 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                             <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                                <th scope="col" class="govuk-table__header">Change in minimum funding guarantee unit value between 2018 to 2019 and 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Change in minimum funding guarantee unit value between 2020 to 2021 and 2021 to 2022</th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">r</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -1130,7 +1150,7 @@
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -1252,14 +1272,14 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                                 <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2021 to 2022 after MFG and affordability adjustments</th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">p</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">	£7,210,897.46</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -1269,7 +1289,7 @@
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">CC</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
                             </tr>
                         </tbody>
@@ -1281,24 +1301,24 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                                 <th scope="col" class="govuk-table__header"><span class="visuallyhidden calc-letter">Code</span></th>
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2021 to 2022 after MFG and affordability adjustments</th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">CC</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">q</span></th>
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">DD</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
                             </tr>
                         </tbody>
@@ -1317,12 +1337,12 @@
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">DD</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">h</span></th>
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -1339,14 +1359,14 @@
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                                 <th scope="col" class="govuk-table__header calc-letter"><span class="visuallyhidden calc-letter">Code</span></th>
-                                <th scope="col" class="govuk-table__header">Total school budget share 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Total school budget share 2021 to 2022</th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">k</span></th>
-                                <th scope="row" class="table-header-normal">School budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">School budget share 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -1356,7 +1376,7 @@
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal calc-letter"><span class="calc-letter">FF</span></th>
-                                <th scope="row" class="table-header-normal">Total school budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Total school budget share 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,688,676.08</td>
                             </tr>
                         </tbody>
@@ -1373,7 +1393,7 @@
                             </div>
                 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-medium variance-heading-no-padding">£347,186.62</h2>
+                                <h2 class="heading-medium">£347,186.62</h2>
                             </div>
 
                         </div>
@@ -1382,44 +1402,44 @@
                    
                     <!-- SCENARIO 3 provides a view of tables with inline calculations  -->
                     {% else %}
-                    <h3 class="heading-medium heading-guidance">Minimum value per pupil 2018 to 2019</h3>
+                    <h3 class="heading-medium heading-guidance">Minimum value per pupil 2020 to 2021</h3>
 
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header">Adjusted school budget share 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header">Adjusted school budget share 2020 to 2021</th>
                             <th scope="col" class="govuk-table__header calc-letter">Calculation</th>
                             <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">School budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">School budget share 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,513,180.63</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Lump sum (including fringe) 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Lump sum (including fringe) 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£130,592.00</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Sparsity value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Sparsity value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Approved exclusions 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Approved exclusions 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£56,898.42</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Technical adjustments to 2018 to 2019 baseline</th>
+                                <th scope="row" class="table-header-normal">Technical adjustments to 2020 to 2021 baseline</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Adjusted school budget share 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Adjusted school budget share 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
                             </tr>
@@ -1429,24 +1449,24 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2018 to 2019</th>
+                            <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2020 to 2021</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                             <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Adjusted school budget share 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Adjusted school budget share 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,325,690.21</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Pupil number 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,033</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
                             </tr>
@@ -1463,7 +1483,7 @@
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
                             </tr>
@@ -1480,44 +1500,44 @@
                         </tbody>
                     </table>
 
-                    <h3 class="heading-medium heading-guidance">Minimum funding guarantee budget 2019 to 2020</h3>
+                    <h3 class="heading-medium heading-guidance">Minimum funding guarantee budget 2021 to 2022</h3>
 
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2021 to 2022</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric">Total</th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">School budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">School budget share 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Lump sum (including fringe) 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Lump sum (including fringe) 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£130,592</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Sparsity value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Sparsity value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Approved exclusions 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Approved exclusions 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Technical adjustments to 2019 to 2020 baseline</th>
+                                <th scope="row" class="table-header-normal">Technical adjustments to 2021 to 2022 baseline</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
                             </tr>
@@ -1527,24 +1547,24 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2021 to 2022</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
                             </tr>
@@ -1554,7 +1574,7 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Guaranteed level of funding 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Guaranteed level of funding 2021 to 2022</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
@@ -1566,12 +1586,12 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Guaranteed level of funding 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Guaranteed level of funding 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
                             </tr>
@@ -1603,14 +1623,14 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Change in minimum funding guarantee unit value between 2018 to 2019 and 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Change in minimum funding guarantee unit value between 2020 to 2021 and 2021 to 2022</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,664.42</td>
                             </tr>
@@ -1675,7 +1695,7 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric">4.52%</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
@@ -1791,14 +1811,14 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee budget 2021 to 2022 after MFG and affordability adjustments</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total Minimum funding guarantee budget 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Total Minimum funding guarantee budget 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,210,897.46</td>
                             </tr>
@@ -1808,7 +1828,7 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
                             </tr>
@@ -1818,24 +1838,24 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="col" class="govuk-table__header">Minimum funding guarantee unit value 2021 to 2022 after MFG and affordability adjustments</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee budget 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,558,084.08</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Pupil number 2019 to 2020	</th>
+                                <th scope="row" class="table-header-normal">Pupil number 2021 to 2022	</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">1,082</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
                             </tr>
@@ -1852,12 +1872,12 @@
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2019 to 2020 after MFG and affordability adjustments</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2021 to 2022 after MFG and affordability adjustments</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£6,985.29</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2018 to 2019</th>
+                                <th scope="row" class="table-header-normal">Minimum funding guarantee unit value 2020 to 2021</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,091.67</td>
                             </tr>
@@ -1875,14 +1895,14 @@
                     <table class="govuk-table">
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header">Total school budget share 2019 to 2020</th>
+                                <th scope="col" class="govuk-table__header">Total school budget share 2021 to 2022</th>
                             <th scope="col" class="govuk-table__header calc-letter"><span class="visually-hidden">Calculation</span></th>
                                 <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Total</span></th>
                             </tr>
                         </thead>
                         <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">School budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">School budget share 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__header--numeric"><span class="calc-letter"></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,341,489.46</td>
                             </tr>
@@ -1892,7 +1912,7 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£347,186.62</td>
                             </tr>
                             <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total school budget share 2019 to 2020</th>
+                                <th scope="row" class="table-header-normal">Total school budget share 2021 to 2022</th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">£7,688,676.08</td>
                             </tr>
@@ -1908,7 +1928,7 @@
                             </div>
                 
                             <div class="total-allocation-amount">
-                                <h2 class="heading-medium variance-heading-no-padding">£347,186.62</h2>
+                                <h2 class="heading-medium">£347,186.62</h2>
                             </div>
 
                         </div>
@@ -1925,10 +1945,10 @@
                     
                     <div class="grid-row">
                 
-                        <div class="block-header-total govuk-!-margin-bottom-3">
+                        <div class="block-header-total variance-block-header-total">
                             <h2 class="lede">
                                 Total post-opening grant
-                                <p class="heading-large heading-funding-summary variance-heading-no-padding">£55,500</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-margin">£55,500</p>
                                 <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
                             </h2>
                         </div>
@@ -1982,8 +2002,8 @@
                         </div>
             
                         <div class="total-allocation-amount">
-                            <h2 class="heading-medium variance-heading-no-padding">£55,500</h2>
-                            <span class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</span>
+                            <h2 class="heading-medium variance-heading-no-margin">£55,500</h2>
+                            <p class="variance-text">(<i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000)</p>
                         </div>
 
                     </div>
@@ -2091,7 +2111,7 @@
                 <p><a href="../allocation-history">View history of allocated funding</a></p>
                 <h3 class="heading-medium heading-guidance">General annual grant resources</h3>
                 <ul class="list">
-                    <li><a href="https://www.gov.uk/guidance/academies-general-annual-grant-allocation-guides-2019-to-2020" rel="external" target="external" title="This will open in a new tab or window">General annual grant allocation guide: 2020 to 2021</a></li>
+                    <li><a href="https://www.gov.uk/guidance/academies-general-annual-grant-allocation-guides-2020-to-2021" rel="external" target="external" title="This will open in a new tab or window">General annual grant allocation guide: 2021 to 2022</a></li>
                 </ul>
             </div>
 
