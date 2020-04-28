@@ -1579,6 +1579,39 @@ output:after {
 .detailed-funding-block-wrapper ul {
 	margin-bottom: 0px;
 }
+/* Chris Harding (21.04.20) - Responsive table design for all tables */
+.table-column-default {
+	display: none;
+}
+@media (min-width: 415px) {
+	.table-column-default {
+		display: table-cell;
+	}
+}
+.table-column-mobile {
+	display: table-cell;
+}
+@media (min-width: 415px) {
+	.table-column-mobile {
+		display: none;
+	}
+}
+/* Chris Harding (21.04.20) - Show users change and variance between their funding statements */
+.variance-block-header-total {
+	padding-bottom: 5px;
+}
+@media (min-width: 641px) {
+	.variance-block-header-total {
+		padding-bottom: 15px;
+	}
+}
+.variance-heading-no-margin {
+	margin-bottom: 0px;
+}
+.variance-text {
+	font-size: 75%;
+	margin-top: 0px;
+}
 
 /* Print section and icon */
 .block-header-print-no-tabs {
@@ -1604,31 +1637,32 @@ output:after {
 .fa {
 	padding: 0 0.3em 0 0;
 }
-/* REWORK (REPLACE) - START */
 .block-header-total {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	padding-top: 10px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 @media (min-width: 641px) {
-    .block-header-total {
-        float: left;
-        width: 78%;
-    }
+	.block-header-total {
+		float: left;
+		width: 78%;
+		padding-top: 15px;
+	}
 }
 .block-header-print {
-    padding: 0 15px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+	text-align: right;
+	padding-top: 15px;
+	padding-right: 15px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
-@media (min-width: 641px) {
-    .block-header-print {
-		text-align: right;
-    }
-}
-/* REWORK (REPLACE) - END */
 
 /* James Mckechnie (28.06.19) - Cards */
 /* GOV.UK Design System cards component (https://github.com/alphagov/govuk-design-system-backlog/issues/113) currently EXPERIMENTAL */
