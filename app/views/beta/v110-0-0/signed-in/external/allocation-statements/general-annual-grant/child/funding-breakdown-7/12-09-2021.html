@@ -6,71 +6,6 @@
 
 {% block content %}
 
-<style>
-
-    /* Chris Harding (22.04.20) - REWORK (NEW) to existing table component CSS */
-    .block-header-total {
-        padding-top: 10px;
-        padding-right: 15px;
-        padding-bottom: 15px;
-        padding-left: 15px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    @media (min-width: 641px) {
-        .block-header-total {
-            float: left;
-            width: 78%;
-            padding-top: 15px;
-        }
-    }
-    .block-header-print {
-        text-align: right;
-        padding-top: 15px;
-        padding-right: 15px;
-        padding-bottom: 15px;
-        padding-left: 15px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    /* Chris Harding (21.04.20) - Responsive table design for all tables */
-    .table-column-default {
-        display: none;
-    }
-    @media (min-width: 415px) {
-        .table-column-default {
-            display: table-cell;
-        }
-    }
-    .table-column-mobile {
-        display: table-cell;
-    }
-    @media (min-width: 415px) {
-        .table-column-mobile {
-            display: none;
-        }
-    }
-    /* Chris Harding (21.04.20) - Show users change and variance between their funding statements */
-    .variance-block-header-total {
-        padding-bottom: 5px;
-    }
-    @media (min-width: 641px) {
-        .variance-block-header-total {
-            padding-bottom: 15px;
-        }
-    }
-    .variance-heading-no-margin {
-        margin-bottom: 0px;
-    }
-    .variance-text {
-        font-size: 75%;
-        margin-top: 0px;
-    }
-
-</style>
-
 <main role="main" id="content">
 
     <!-- GOV.UK phase banner (Beta) - START -->
@@ -406,21 +341,31 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total looked after children breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Looked after children</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Pupil number</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Looked after children</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Rate</th>
+                                    <!-- <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th> -->
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Pupil number</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">SEN %</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th class="table-header-normal" scope="row">Total looked after children</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.014134</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
+                                    <th class="table-header-normal" scope="row">
+                                        Total looked after children
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £0
+                                            <br>
+                                            Number of pupils: 8.07
+                                            <br>
+                                            SEN %: 100%
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0.014134</td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">8.07</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">100%</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
                             </tbody>
@@ -434,30 +379,40 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total prior attainment breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Prior attainment</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Pupil number</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Prior attainment</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Rate</th>
+                                    <!-- <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th> -->
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Pupil number</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">SEN %</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th class="table-header-normal" scope="row">Secondary pupils not achieving the expected standards in KS2 tests</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,550</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.168738</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£149,341.57</td>
+                                    <th class="table-header-normal" scope="row">
+                                        Secondary pupils not achieving the expected standards in KS2 tests
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £1,550
+                                            <br>
+                                            Number of pupils: 96.35
+                                            <br>
+                                            SEN %: 100%
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£1,550</td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0.168738</td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">96.35</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">100%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£149,342.50</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total prior attainment</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£149,341.57</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£149,342.50</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -478,30 +433,40 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total English as an additional language breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">English as an additional language</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Pupil number</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">English as an additional language</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Rate</th>
+                                    <!-- <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th> -->
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Pupil number</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">SEN %</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th class="table-header-normal" scope="row">Secondary pupils in first 3 years of education within England</th>
+                                    <th class="table-header-normal" scope="row">
+                                        Secondary pupils in first 3 years of education within England
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £1,385
+                                            <br>
+                                            Number of pupils: 1
+                                            <br>
+                                            SEN %: 100%
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£1,385</td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0.001751</td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">100%</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£1,385</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.001751</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,384.75</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total English as an additional language</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,384.75</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,385</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -526,31 +491,41 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total mobility breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Mobility</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Pupil number</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Mobility</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Rate</th>
+                                    <!-- <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th> -->
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Pupil number</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">SEN %</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th class="table-header-normal" scope="row">Secondary pupils starting school on unusual entry dates (proportion above 6%)</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,535.24</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.160217</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">571</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">100%</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£140,449.75</td>
+                                    <th class="table-header-normal" scope="row">
+                                        Secondary pupils starting school on unusual entry dates (proportion above 6%)
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £1,535.24
+                                            <br>
+                                            Number of pupils: 91.48
+                                            <br>
+                                            SEN %: 100%
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£1,535.24</td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0.160217</td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">91.48</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">100%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£140,443.76</td>
                                 </tr>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total mobility</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£140,449.75</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£140,443.76</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -588,19 +563,13 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total sparsity breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Sparsity</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Rate</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Weighting</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">SEN %</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col">Total</th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Sparsity</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total for small academy in remote area</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£6,283.33</td>
                                 </tr>
                             </tbody>
@@ -614,26 +583,36 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total lump sum breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Lump sum</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Lump sum</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Rate</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">Weighting</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default" scope="col">SEN %</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th class="table-header-normal" scope="row">Secondary lump sum</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£110,000</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                    <th class="table-header-normal" scope="row">
+                                        Secondary lump sum
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £110,000
+                                            <br>
+                                            Weighting: 1
+                                            <br>
+                                            SEN %: 0%
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£110,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£110,000</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total lump sum</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£110,000</td>
                                 </tr>
                             </tbody>
@@ -655,19 +634,13 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total split sites breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Split sites</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Split sites</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total for running an academy across different sites</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
                             </tbody>
@@ -681,19 +654,13 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total Private Finance Initiative academies breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">Private Finance Initiative academies</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Private Finance Initiative academies</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total for extra premises costs</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
                             </tbody>
@@ -707,19 +674,13 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total London fringe area breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header bold" scope="col">London fringe area</th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Rate</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Weighting</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">SEN</span></th>
-                                    <th class="govuk-table__header govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total</span></th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">London fringe area</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col">Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total for costs of higher teacher salaries</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
                             </tbody>
@@ -749,23 +710,17 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total minimum funding level breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Minimum funding level</th>
-                                    <!-- <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Change</th>
-                                    <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Previous total</th> -->
-                                    <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col"><span>Total</th>
+                                    <th class="govuk-table__header govuk-!-width-one-third" scope="col">Minimum funding level</th>
+                                    <th class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric" scope="col"><span>Total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Minimum per pupil funding level set by local authority</th>
-                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£4,800</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th class="table-header-normal" scope="row">Total adjustment to make sure minimum per pupil funding level is met</th>
-                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric"></td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£83,247.94</td>
                                 </tr>
                             </tbody>
@@ -790,22 +745,18 @@
 
                     </div>
 
-                    <div class="govuk-!-margin-bottom-8">
+                    <div class="total-allocation-wrapper no-padding-top">
 
-                        <div class="total-allocation-wrapper">
-
-                            <div class="total-allocation-label">
-                                <h2 class="heading-medium">Total school budget share</h2>
-                            </div>
-                
-                            <div class="total-allocation-amount">
-                                <h2 class="heading-medium variance-heading-no-margin">£7,341,489.46</h2>
-                                <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</p>
-                            </div>
-
+                        <div class="total-allocation-label">
+                            <h2 class="heading-medium">Total school budget share</h2>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <h2 class="heading-medium variance-heading-no-margin">£7,341,489.46</h2>
+                            <p class="variance-text">(<i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £30,901.20)</p>
                         </div>
 
-                        <div class="form-group no-padding-top">
+                        <div class="form-block no-padding-top">
 
                             <div class="total-allocation-wrapper no-padding-top">
 
