@@ -1103,7 +1103,7 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish', function (req, res) {		
-		res.redirect('/' + version + '/signed-in/internal/document-exchange/documents-to-publish-confirm');
+		res.redirect('/' + version + '/signed-in/internal/document-exchange/documents-to-publish-remove-confirm');
 	});
 
 	// Documents to Publish (Are you sure?)
@@ -1206,6 +1206,9 @@ module.exports = function(router) {
 			'itemTypeLabel' : "document",
 			'itemTypeLabelPlural' : "documents"
 		});
+	});
+	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-review', function (req, res) {		
+		res.redirect('/' + version + '/signed-in/internal/document-exchange/documents-to-review-remove-confirm');
 	});
 
 	// Documents to Review > Remove (Are you sure?)
