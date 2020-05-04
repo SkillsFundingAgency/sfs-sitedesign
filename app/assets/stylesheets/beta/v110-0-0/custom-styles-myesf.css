@@ -1326,6 +1326,10 @@ output:after {
 .footer-guidance {
 	padding-bottom: 15px;
 }
+.academyName {
+	display: block;
+	font-weight: bold;
+}
 
 /* Floats (left and right) */
 .funding-block {
@@ -1381,22 +1385,6 @@ output:after {
 		margin-right: 100px;
 		margin-bottom: 0px;
 		margin-left: 10px;
-	}
-}
-.variance-heading {
-	font-size: 16px;
-}
-@media (min-width: 641px) {
-	.variance-heading {
-		font-size: 19px;
-	}
-}
-.variance {
-	font-size: 13px;
-}
-@media (min-width: 641px) {
-	.variance {
-		font-size: 16px;
 	}
 }
 .total {
@@ -1479,6 +1467,9 @@ output:after {
 		font-size: 19px;
 	}
 }
+.govuk-\!-width-one-third {
+	width: 33.33% !important;
+}
 .govuk-\!-width-one-quarter {
 	width: 25% !important;
 }
@@ -1488,12 +1479,20 @@ output:after {
 .govuk-\!-width-one-sixth {
 	width: 16.66% !important;
 }
-.first-table-below-tab {
+.first-element-in-tab {
 	margin-top: 10px;
 }
 @media (min-width: 641px) {
-	.first-table-below-tab {
+	.first-element-in-tab {
 		margin-top: 20px;
+	}
+}
+.last-table-below-tab {
+	margin-bottom: 10px !important;
+}
+@media (min-width: 641px) {
+	.last-table-below-tab {
+		margin-bottom: -10px !important;
 	}
 }
 .table-header-normal {
@@ -1595,22 +1594,6 @@ output:after {
 	.table-column-mobile {
 		display: none;
 	}
-}
-/* Chris Harding (21.04.20) - Show users change and variance between their funding statements */
-.variance-block-header-total {
-	padding-bottom: 5px;
-}
-@media (min-width: 641px) {
-	.variance-block-header-total {
-		padding-bottom: 15px;
-	}
-}
-.variance-heading-no-margin {
-	margin-bottom: 0px;
-}
-.variance-text {
-	font-size: 75%;
-	margin-top: 0px;
 }
 
 /* Print section and icon */
@@ -1987,6 +1970,57 @@ dialog {
 
 /**********
 * SIGNED-IN
+* ALLOCATION STATEMENTS (GAG)
+* **********/
+
+/* Chris Harding (21.04.20) - Show users change and variance between their funding statements */
+.variance {
+	font-size: 13px;
+}
+@media (min-width: 641px) {
+	.variance {
+		font-size: 16px;
+	}
+}
+.variance-heading {
+	font-size: 16px;
+}
+@media (min-width: 641px) {
+	.variance-heading {
+		font-size: 19px;
+	}
+}
+.variance-block-header-total {
+	padding-bottom: 5px;
+}
+@media (min-width: 641px) {
+	.variance-block-header-total {
+		padding-bottom: 15px;
+	}
+}
+.variance-heading-no-margin {
+	margin-bottom: 0px;
+}
+.variance-heading-no-padding {
+	margin: 0px;
+	padding: 0px;
+}
+.variance-summary-text {
+	font-size: 75%;
+}
+.variance-text {
+	font-size: 75%;
+	margin-top: 0px;
+}
+
+/* James Mckechnie (30.04.20) - Show users icons to understand calculations in their funding statements */
+.calc-letter {
+	font-weight: bold;
+	width: 30px;
+}
+
+/**********
+* SIGNED-IN
 * DOCUMENT EXCHANGE
 * **********/
 
@@ -2251,24 +2285,4 @@ dialog {
 button {
 	font-size: 19px;
 }
-
-
-/**********
-* SIGNED-IN
-* GENERAL ANNUAL GRANT
-* **********/
-
 /* LEGACY (POSSIBLY OK TO REMOVE) - END */
-
-.inset-text {
-	border-left: 10px solid #bfc1c3;
-	padding: 15px;
-}
-.calc-number {
-	font-weight: bold;
-	margin-right: 15px;
-}
-.calc-letter {
-	font-weight: bold;
-	width: 30px;
-}

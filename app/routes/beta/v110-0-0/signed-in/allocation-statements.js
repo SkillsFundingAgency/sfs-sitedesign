@@ -627,31 +627,6 @@ module.exports = function(router) {
 		});
 	});
 
-	// VARIATION 1 (VERSION B)
-	/* Alternative Table Design */
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/12-09-2021-versionB', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "SAT";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
-		// Increment the number so we only execute the dynamic tab functionality ONCE
-		req.session.reloads++;
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-1/12-09-2021-versionB', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'reloads' : req.session.reloads,
-			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
-		});
-	});
-
 	// VARIATION 2
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-2/12-09-2021', function (req, res) {
 
@@ -797,7 +772,7 @@ module.exports = function(router) {
 	});
 
 	// VARIATION 8
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/12-09-2020', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-8/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "SAT";
@@ -1174,31 +1149,6 @@ module.exports = function(router) {
 		req.session.reloads++;
 		
 		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'reloads' : req.session.reloads,
-			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
-		});
-	});
-
-	// VARIATION 1 (VERSION B)
-	/* Alternative Table Design */
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021-versionB', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "MAT";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
-		// Increment the number so we only execute the dynamic tab functionality ONCE
-		req.session.reloads++;
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021-versionB', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
