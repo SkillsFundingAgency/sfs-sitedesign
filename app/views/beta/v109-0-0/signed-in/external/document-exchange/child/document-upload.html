@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-    Send your document
+    {% if error %}Error: {% endif %}Send your document
 {% endblock %}
 
 {% block content %}
@@ -73,6 +73,11 @@
                         </div>
                         
                     </div>
+
+                    <!-- Non JavaScript button allowing POST back to the server after using the HTML input type="file" -->
+                    <div id="postButton" class="form-block">
+                        <button class="button" type="submit" data-prevent-double-click="true">Upload</button>
+                    </div>
                 {% endif %}
                     
                     <div class="form-group">
@@ -132,6 +137,7 @@
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
 <script src="/public/javascripts/{{version}}/file-upload-new.js"></script>
 <!-- JavaScript (END) -->
 

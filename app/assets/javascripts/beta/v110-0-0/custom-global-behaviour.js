@@ -7,6 +7,12 @@
 // jQuery (START)
 $(document).ready(function () {
 
+    // HIDE all non-JS elements
+    $("#postButton").hide();
+    $("#postButton").addClass("hidden");
+    $("#postButton").attr("aria-hidden", true);
+    $("#postButton").attr("hidden");
+
     // Global function to deal with expanding and closing all hidden links in the service, currently covering:
     // a) Download component
     // b) Support component
