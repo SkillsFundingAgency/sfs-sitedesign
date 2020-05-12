@@ -797,7 +797,7 @@ module.exports = function(router) {
 
 	// Full funding allocation (GAG: all statement variant blocks nested on same page)
 	// PREVIOUS (27 JULY 2021)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/27-07-2021', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/27-02-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "SAT";
@@ -806,7 +806,7 @@ module.exports = function(router) {
 		// Increment the number so we only execute the dynamic tab functionality ONCE
 		req.session.reloads++;
 		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/27-07-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/child/funding-breakdown-7/27-02-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1357,7 +1357,7 @@ module.exports = function(router) {
 
 	// Full funding allocation (GAG: all statement variant blocks nested on same page)
 	// PREVIOUS (27 JULY 2021)
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/27-07-2021', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/27-02-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
@@ -1366,7 +1366,7 @@ module.exports = function(router) {
 		// Increment the number so we only execute the dynamic tab functionality ONCE
 		req.session.reloads++;
 		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/27-07-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/27-02-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
