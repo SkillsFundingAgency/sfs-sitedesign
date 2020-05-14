@@ -225,6 +225,7 @@ module.exports = function(router) {
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
+
 		// Reset all session variables for document upload (START)
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
@@ -244,16 +245,19 @@ module.exports = function(router) {
 		});
 	});
 
-	// Document Upload File Type
+	// Document Upload File Type - STEP 1 (Choose Document Type)
 	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
+
 		// Reset all session variables for document upload (START)
+		req.session.fileUploadComponent = "";
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
+		req.session.fileName = "";
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 		
@@ -266,9 +270,11 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'error' : req.query.error,
+			'fileUploadComponent' : req.session.fileUploadComponent,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType
+			'fileType' : req.session.fileType,
+			'fileTypeVersion' : req.session.fileTypeVersion
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-file-type', function (req, res) {		
@@ -276,6 +282,7 @@ module.exports = function(router) {
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
+
 		// Set the chosen document type as a session variable
 		req.session.fileType = req.body.fileType;
 		var fileType = req.session.fileType;
@@ -299,13 +306,14 @@ module.exports = function(router) {
 		
 	});
 
-	// Document Upload
+	// Document Upload - STEP 2 (Choose Document)
 	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "other";
 		req.session.child = req.session.child || "other";
+		
 		// Set the session variable if is does not exist
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
@@ -321,6 +329,7 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'error' : req.query.error,
+			'fileUploadComponent' : req.session.fileUploadComponent,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType,
@@ -329,12 +338,25 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload', function (req, res) {		
 
-		req.session.fileName = req.body.fileName;
+		// Only set this variable if tit hasn't already been set in the user journey
+		if (!req.session.fileName || req.session.fileName === undefined) {
+			req.session.fileName = req.body.fileInput;
+		}
 		
-		res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete');
+		var fileName = req.session.fileName;
+
+		// Make sure non-JS users have selected a file to send
+		if (fileName == undefined || fileName == "") {
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload?error=true');
+		}
+		// Success
+		else {
+			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete');
+		}
+		
 	});
 
-	// Document Upload - Remove Document
+	// Document Upload - STEP 3 (Remove Document)
 	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload-remove', function (req, res) {
 	
 		// Only set the session variable if it does not exist
@@ -371,8 +393,14 @@ module.exports = function(router) {
 		}
 		else if (deleteDocument == "No") {
 
-			// Tell the next page to show the last uploaded document information
+			// Tell the next page to hide the input type="file" HTML element
+			req.session.fileUploadComponent = "Hide";
+
+			// Tell the next page to show the document upload review table
 			req.session.uploadedDocumentStatus = "Show";
+
+			// Update the req.session.fileName ready for submission (e.g. so we can display for both JS and non-JS users confirmation of what they have sent to the ESFA) 
+			req.session.fileName = req.session.uploadedDocumentName;
 
 			res.redirect('/' + version + '/signed-in/external/document-exchange/child/document-upload');
 		}
@@ -383,7 +411,7 @@ module.exports = function(router) {
 		
 	});
 
-	// Document Upload Complete
+	// Document Upload Complete - STEP 4 (Done)
 	router.get('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
@@ -413,9 +441,12 @@ module.exports = function(router) {
 	router.post('/' + version + '/signed-in/external/document-exchange/child/document-upload-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
+		req.session.fileUploadComponent = "";
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
+		req.session.fileName = "";
 		req.session.fileType = "";
+		req.session.fileTypeVersion = "";
 		
 		res.redirect('/' + version + '/signed-in/external/document-exchange/child/home');
 	});
@@ -795,16 +826,19 @@ module.exports = function(router) {
 		
 	});
 
-	// Document Upload File Type
+	// Document Upload File Type - STEP 1 (Choose Document Type)
 	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type', function (req, res) {
 		
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
+
 		// Reset all session variables for document upload (START)
+		req.session.fileUploadComponent = "";
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
+		req.session.fileName = "";
 		req.session.fileType = "";
 		req.session.fileTypeVersion = "";
 
@@ -823,9 +857,11 @@ module.exports = function(router) {
 			'parent' : req.session.parent,
 			'sendFrom' : req.session.sendFrom,
 			'error' : req.query.error,
+			'fileUploadComponent' : req.session.fileUploadComponent,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
-			'fileType' : req.session.fileType
+			'fileType' : req.session.fileType,
+			'fileTypeVersion' : req.session.fileTypeVersion
 		});
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type', function (req, res) {
@@ -872,13 +908,14 @@ module.exports = function(router) {
 		
 	});
 
-	// Document Upload
+	// Document Upload - STEP 2 (Choose Document)
 	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.idams = req.session.idams || "MAT";
 		req.session.parent = req.session.parent || "MAT";
+
 		// Set the session variable if is does not exist
 		req.session.uploadedDocumentStatus = req.session.uploadedDocumentStatus || "";
 		req.session.uploadedDocumentName = req.session.uploadedDocumentName || "";
@@ -895,6 +932,7 @@ module.exports = function(router) {
 			'parent' : req.session.parent,
 			'error' : req.query.error,
 			'sendFrom' : req.session.sendFrom,
+			'fileUploadComponent' : req.session.fileUploadComponent,
 			'uploadedDocumentStatus' : req.session.uploadedDocumentStatus,
 			'uploadedDocumentName' : req.session.uploadedDocumentName,
 			'fileType' : req.session.fileType,
@@ -903,12 +941,25 @@ module.exports = function(router) {
 	});
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload', function (req, res) {		
 
-		req.session.fileName = req.body.fileName;
+		// Only set this variable if tit hasn't already been set in the user journey
+		if (!req.session.fileName || req.session.fileName === undefined) {
+			req.session.fileName = req.body.fileInput;
+		}
+
+		var fileName = req.session.fileName;
+
+		// Make sure non-JS users have selected a file to send
+		if (fileName == undefined || fileName == "") {
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload?error=true');
+		}
+		// Success
+		else {
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete');
+		}
 		
-		res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete');
 	});
 
-	// Document Upload - Remove Document
+	// Document Upload - STEP 3 (Remove Document)
 	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload-remove', function (req, res) {
 	
 		// Only set the session variable if it does not exist
@@ -946,8 +997,14 @@ module.exports = function(router) {
 		}
 		else if (deleteDocument == "No") {
 
-			// Tell the next page to show the last uploaded document information
+			// Tell the next page to hide the input type="file" HTML element
+			req.session.fileUploadComponent = "Hide";
+
+			// Tell the next page to show the document upload review table
 			req.session.uploadedDocumentStatus = "Show";
+
+			// Update the req.session.fileName ready for submission (e.g. so we can display for both JS and non-JS users confirmation of what they have sent to the ESFA) 
+			req.session.fileName = req.session.uploadedDocumentName;
 
 			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload');
 		}
@@ -958,7 +1015,7 @@ module.exports = function(router) {
 		
 	});
 
-	// Document Upload Complete
+	// Document Upload Complete - STEP 4 (Done)
 	router.get('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete', function (req, res) {
 	
 		// USABILITY TESTING ONLY
@@ -989,9 +1046,12 @@ module.exports = function(router) {
 	router.post('/' + version + '/signed-in/external/document-exchange/parent/document-upload-complete', function (req, res) {		
 		
 		// Reset all session variables for document upload (END)
+		req.session.fileUploadComponent = "";
 		req.session.uploadedDocumentStatus = "";
 		req.session.uploadedDocumentName = "";
+		req.session.fileName = "";
 		req.session.fileType = "";
+		req.session.fileTypeVersion = "";
 		
 		res.redirect('/' + version + '/signed-in/external/document-exchange/parent/home');
 	});

@@ -16,7 +16,9 @@
     */
 
     // Step 1 - Show the continue button when the user has selected a type
-    $("#fileTypeDiv input").click(function () { $("#goToStep2").removeAttr("disabled"); });
+    $("#fileTypeDiv input").click(function () {
+        $("#goToStep2").removeAttr("disabled");
+    });
 
     // Step 1 - Go to the file upload page when click 'Continue' (also when you click to go back to step 2)
     $("#goToStep2, #backToStep2").click(function (e) {
@@ -31,7 +33,7 @@
         Step2Logic();
     });
 
-    // Step 2 - Upload another. Starts the journey again
+    // Step 2 - Upload another (starts the journey again)
     $("#uploadAnother").click(function (e) {
         Move($(".fileUploads").length);
         GoToStep(2);
@@ -40,7 +42,7 @@
 
     var removeFileIdx = null;
 
-    // Step 2 - Click 'Remove' on a document (Live event listener)
+    // Step 2 - Click 'Remove' on a document (live event listener)
     $("#documentsToSend").on("click", ".removeLink", function (e) {
         removeFileIdx = parseInt($(this).attr("id").replace("remove", ""));
         GoToStep(3);
