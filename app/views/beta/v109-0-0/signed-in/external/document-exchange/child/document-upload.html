@@ -22,16 +22,10 @@
 
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
-                    <ol id="removeADocBreadcrumb1">
+                    <ol>
                         <li><a href="dashboard">Home</a></li>
                         <li><a href="home">Document exchange</a></li>
                         <li>Send your document </li>
-                    </ol>
-                    <ol id="removeADocBreadcrumb2" style="display: none">
-                        <li><a href="dashboard">Home</a></li>
-                        <li><a href="home">Document exchange</a></li>
-                        <li><a href="#">Send your document</a></li>
-                        <li>Remove a document</li>
                     </ol>
                 </nav>
             </div>
@@ -46,86 +40,71 @@
                 <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                     <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                     <ul class="error-summary-list">
-                        <li><a href="#fileInput0">Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format</a></li>
+                        <li><a href="#fileInput">Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format</a></li>
                     </ul>
                 </div>
                 {% endif %}
             
-                <h1 id="originalHeading1" class="heading-xlarge">
-                    <!-- <span class="heading-secondary">Casterbridge College</span>
-                    <span class="heading-secondary">UKPRN: 12345678</span> -->
-                    Send your document
-                </h1>
+                <h1 class="heading-xlarge">Send your document</h1>
+                <p>Each document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format.</p>
 
-                {% if uploadedDocumentStatus == 'Show' %}
+                {% if fileUploadComponent == 'Hide' %}
                 {% else %}
-                <div class="form-group" id="uploadFileDiv">
-                    
-                    <div class="form-block" id="form-upload">
-                        <label class="form-label visuallyhidden" for="fileInput">Choose a document to upload</label>
-                        <!-- <p class="lede">You are replacing ‘businesscase-02.xls’.</p> -->
-                        <p>Each document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format.</p>
-
-                        <div class="form-block" id="fileUploadPlaceholder">
-                            <p>Upload a document</p>
-                            <input id="fileInput0" name="fileInput" type="file" class="fileUploads">
-                            <label class="form-label visuallyhidden" for="fileInput0">Upload a document</label>
-                        </div>
-                        
-                    </div>
-
-                    <!-- Non JavaScript button allowing POST back to the server after using the HTML input type="file" -->
-                    <div id="postButton" class="form-block">
-                        <button class="button" type="submit" data-prevent-double-click="true">Upload</button>
-                    </div>
+                <div id="fileUploadComponent" class="form-block {% if error %}form-group-error{% endif %}">
+                    <label class="form-label" for="fileInput">
+                        Upload a document
+                    </label>
+                    {% if error %}
+                    <span id="fileInput-error" class="error-message">
+                        <span class="visuallyhidden">Error:</span> Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format
+                    </span>
+                    {% endif %}
+                    <input class="fileUploads {% if error %}govuk-file-upload--error{% endif %}" id="fileInput" name="fileInput" type="file" {% if error %}aria-describedby="fileInput-error"{% endif %}>
+                </div>
                 {% endif %}
+
+                <div class="form-block document-upload-review-section" id="documentToSendReviewTable" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %}>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Send your document review table</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Document name</th>
+                                <th scope="col" class="govuk-table__header">Document type</th>
+                                <th scope="col" class="govuk-table__header">Version</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Action</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal"><a href="#" id="fileName" name="fileName">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></th>
+                                <td class="govuk-table__cell">{% if fileType %}{{fileType}}{% else %}[FILE TYPE]{% endif %}</td>
+                                <td class="govuk-table__cell">{% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[1]{% endif %}</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}" id="removeURL" name="removeURL">Remove</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="form-block" id="documentToSendButton" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %}>
+                    <button class="button" type="submit" data-prevent-double-click="true">Send</button>
+                </div>
+
+                <!-- Non JavaScript button allowing POST back to the server after using the HTML input type="file" - START -->
+                <div id="nonJavaScript" class="form-block">
                     
-                    <div class="form-group">
-                        <table class="file-upload-table" id="documentsToSend" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;{% endif %}">
-                            <thead>
-                                <tr>
-                                    <th>Document name</th>
-                                    <th>Document type</th>
-                                    <th>Version</th>
-                                    <th class="numeric"></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% if uploadedDocumentStatus == 'Show' %}
-                                <tr>
-                                    <td><a href="#">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></td>
-                                    <td>{% if fileType %}{{fileType}}{% else %}[FILE TYPE]{% endif %}</td>
-                                    <td>{% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[1]{% endif %}</td>
-                                    <td class="numeric"><a class="" href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">Remove</a></td>
-                                </tr>
-                                <tr style="display: none;">
-                                    <td>
-                                        <input id="fileName" name="fileName" type="text" value="{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">
-                                        <label class="form-label visuallyhidden" for="fileName">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</label>
-                                    </td>
-                                </tr>
-                                {% endif %}
-                            </tbody>
-                        </table>
+                    <div class="form-block">
+                        <p>
+                            Document type: {% if fileType %}{{fileType}}{% else %}[DOCUMENT TYPE]{% endif %}
+                            <br>
+                            Version: {% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[VERSION]{% endif %}
+                        </p>
                     </div>
-
-                    <input type="submit" id="goToStep3" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %} class="button" value="Send">
-                    <label class="form-label visuallyhidden" for="goToStep3">Send</label>
-                </div>        
-
-                <div class="form-group" id="removeFileDiv" style="display: none;">
-                    <h1 class="heading-xlarge">Are you sure you want to remove <span id="removeFileNameHeading1"></span>?</h1>
-                    <p>This will remove <span id="removeFileName"></span> from your list of documents and it will not be sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr>.</p>
-                    <p><a href="#" id="backToStep2">Cancel and go back</a></p>
-                    <a class="button" id="button-to-remove" href="document-upload-file-type">Remove</a>
-                    <p></p>
+                
+                    <button class="button" type="submit" data-prevent-double-click="true">Send</button>
                 </div>
-
-                <div style="display: none;" id="hiddenFormEles">
-                    <!-- File uploads will get sent here + radio button selections -->
-                    <p id="fileType">{% if fileType %}{{fileType}}{% else %}[DOCUMENT TYPE]{% endif %}</p>
-                    <p id="fileTypeVersion">{% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[VERSION]{% endif %}</p>
-                </div>
+                <!-- Non JavaScript button allowing POST back to the server after using the HTML input type="file" - END -->
 
             </form>
 
@@ -137,8 +116,7 @@
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/jquery-2.1.4.js"></script>
-<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
-<script src="/public/javascripts/{{version}}/file-upload-new.js"></script>
+<script src="/public/javascripts/{{version}}/send-your-document.js"></script>
 <!-- JavaScript (END) -->
 
 {% endblock %}
