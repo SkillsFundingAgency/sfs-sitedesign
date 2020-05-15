@@ -1,7 +1,7 @@
 module.exports = function(router) {
 
 	// Add latest versions of MYESF features here
-	var version = 'beta/v110-0-0';
+	var version = 'beta/v111-0-0';
 	var latestVersionVLF = 'beta/v105-1-0';
 	var latestVersionNFF = 'beta/v110-0-0';
 	var latestVersionAdults = 'beta/v109-0-0';
@@ -29,12 +29,12 @@ module.exports = function(router) {
 
 	/**********
 	* PROTOTYPE
-	* ARCHIVE PAGE (kanban-beta-v110-0-0)
+	* ARCHIVE PAGE (kanban-beta-v111-0-0)
 	* **********/
 
 	// Render session variables needed for the archive page
-	router.get('/archive/beta/kanban-beta-v110-0-0', function (req, res) {
-		res.render('archive/beta/kanban-beta-v110-0-0', {
+	router.get('/archive/beta/kanban-beta-v111-0-0', function (req, res) {
+		res.render('archive/beta/kanban-beta-v111-0-0', {
 			'version' : version,
 			'latestVersion' : version,
 			'latestVersionVLF' : latestVersionVLF,
