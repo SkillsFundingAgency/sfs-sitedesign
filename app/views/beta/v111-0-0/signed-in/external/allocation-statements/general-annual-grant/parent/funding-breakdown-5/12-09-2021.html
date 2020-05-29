@@ -604,18 +604,18 @@
                     <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Total exceptional circumstance 1 breakdown</caption>
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total extra funding related to premisesbreakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional circumstance 1</th>
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Full year total</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional premises</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth table-column-default govuk-table__header--numeric">Full year total</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Part year total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Additional lump sum for schools merged during financial year 2019 to 2020
+                                        Total additional funding related to premises
                                         <span class="table-column-mobile">
                                             <br>
                                             Full year total: £0
@@ -627,11 +627,34 @@
                             </tbody>
                         </table>
                                
-                    </div> 
+                        <details>
+                            <summary>
+                                <span class="summary">See funding factors you did not get</span>
+                            </summary>
+
+                            <div class="panel panel-border-narrow">
+                                <ul class="list list-bullet">
+                                    <li>Academies that merged last year - get 85% of last year’s combined lump sum</li>
+                                </ul>
+                                
+                                <p>Your local authority may request other factors to be included. For example:</p>
+                                <ul class="list list-bullet">
+                                    <li>additional lump sum for small secondary academy in remote area</li>
+                                    <li>joint use of leisure facilities</li>
+                                    <li>building schools for the future (BSF) scheme</li>
+                                    <li>hiring PE facilities</li>
+                                    <li>listed buildings</li>
+                                    <li>academy with a farm used for education</li>
+                                    <li>rents</li>
+                                </ul>
+                            </div>
+
+                        </details>                   
+                    </div>
                         
                     <div class="govuk-!-margin-bottom-8">
 
-                        <table class="govuk-table">
+                        <!--<table class="govuk-table">
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total exceptional circumstance 2 breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
@@ -793,7 +816,7 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
                             </tbody>
-                        </table>
+                        </table>-->
                                
                     </div>
                     
@@ -906,6 +929,8 @@
                 <!-- Minimum funding guarantee - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="mfg">
                     
+                    {% if scenario == '2' %}
+                    
                     <div class="grid-row">
                 
                         <div class="block-header-total">
@@ -926,7 +951,7 @@
                         <table class="govuk-table first-element-in-tab">
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">MFG adjustment for 153 days pro rata (not adjusted for pupils)</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Minimum funding guarantee for days opened (not adjusted for pupils)</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
                                 </tr>
@@ -934,7 +959,239 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        MFG adjustment for full year
+                                        Minimum funding guarantee for full year
+
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">-£297,398.83</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Days in full year
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">366</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Days of school being open
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">366</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Minimum funding guarantee for days opened (not adjusted for pupils)
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">-£297,398.83</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pupil adjustment</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Pupil numbers used in original minimum funding guarantee calculation
+
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">599</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Pupil numbers actually funded
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">599</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Pupil adjustment
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Minimum funding guarantee for days opened (adjusted for pupils)</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Minimum funding guarantee for days opened (adjusted for pupils)
+
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">-£297,398.83</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Pupil adjustment
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Minimum funding guarantee for days opened (adjusted for pupils)
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">-£297,398.83</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <!--<table class="govuk-table">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted school budget share</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        School budget share for 153 days pro rata
+
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£282,254.72</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Minimum funding guarantee for days opened (adjusted for pupils)
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Adjusted school budget share
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span>
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span></td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£282,254.72</td>
+                                </tr>
+                            </tbody>
+                        </table>-->
+
+                    </div>
+
+                    <div class="total-allocation-wrapper last-table-below-tab">
+
+                        <div class="total-allocation-label">
+                            <h2 class="heading-medium">Total minimum funding guarantee</h2>
+                        </div>
+            
+                        <div class="total-allocation-amount">
+                            <h2 class="heading-medium">£0</h2>
+                        </div>
+
+                    </div>
+
+                    {% else %}
+
+                    <div class="grid-row">
+                
+                        <div class="block-header-total">
+                            <h2 class="lede">
+                                Total minimum funding guarantee
+                                <p class="heading-large heading-funding-summary">£0</p>
+                            </h2>
+                        </div>
+                    
+                        <div class="block-header-print block-header-print-tabs">
+                            <a class="print-page" href="#"><i class="fa fa-print"></i>Save or print this page</a>
+                        </div>
+                    
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <div class="govuk-!-margin-bottom-8">
+                        
+                            <div class="panel panel-border-narrow">
+                                <p>New academies do not get minimum funding guarantee in their first year.</p>
+                            </div>
+    
+                        </div>
+                        
+                        <!--<table class="govuk-table first-element-in-tab">
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Minimum funding guarantee for days opened (not adjusted for pupils)</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Minimum funding guarantee for full year
 
                                     </th>
                                     <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
@@ -964,7 +1221,7 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        MFG adjustment for 153 days pro rata (not adjusted for pupils)
+                                        Minimum funding guarantee for days opened (not adjusted for pupils)
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span>
@@ -991,7 +1248,7 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Pupil numbers used in original MFG calculation
+                                        Pupil numbers used in original minimum funding guarantee calculation
 
                                     </th>
                                     <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
@@ -1029,7 +1286,7 @@
                         <table class="govuk-table">
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">MFG adjustment for 153 days pro rata (adjusted for pupils)</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Minimum funding guarantee for days opened (adjusted for pupils)</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
                                 </tr>
@@ -1037,7 +1294,7 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        MFG adjustment for 153 days pro rata (not adjusted for pupils)
+                                        Minimum funding guarantee for days opened (not adjusted for pupils)
 
                                     </th>
                                     <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
@@ -1056,7 +1313,7 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        MFG adjustment for 153 days pro rata (adjusted for pupils)
+                                        Minimum funding guarantee for days opened (adjusted for pupils)
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-equals" title="equals" style="font-size: 14px;"></i></span>
@@ -1091,7 +1348,7 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        MFG adjustment for 153 days pro rata (adjusted for pupils)
+                                        Minimum funding guarantee for days opened (adjusted for pupils)
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span>
@@ -1126,7 +1383,9 @@
                             <h2 class="heading-medium">£0</h2>
                         </div>
 
-                    </div>
+                    </div>-->
+
+                    {% endif %}
 
                 </section>
                 <!-- Minimum funding guarantee - (END) -->
