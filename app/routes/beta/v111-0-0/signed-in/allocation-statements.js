@@ -1034,52 +1034,12 @@ module.exports = function(router) {
 		});
 	});
 
-	// Select academy
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy', function (req, res) {
+	// Allocation statements
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements', function (req, res) {
 
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
-		
-		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'error' : req.query.error,
-			'paginationRequired' : req.query.paginationRequired,
-			'page1' : req.query.page1,
-			'page2' : req.query.page2,
-			'page3' : req.query.page3
-		});
-	});
-	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy', function (req, res) {		
-		
-		req.session.organisationName = req.body.organisationName;
-		var organisationName = req.session.organisationName;
-
-		// Make sure the user chooses an option
-		if (organisationName == undefined) {
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/select-academy?paginationRequired=true&page1=true&error=true');
-		}
-		// Success
-		else {
-			
-			req.session.organisationName = organisationName;
-			
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements');
-		}
-		
-	});
-
-	// Allocation statements
-	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "MAT";
-		req.session.dashboard = req.session.dashboard || "No";
 		req.session.gagVariant = req.session.gagVariant || "1";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		

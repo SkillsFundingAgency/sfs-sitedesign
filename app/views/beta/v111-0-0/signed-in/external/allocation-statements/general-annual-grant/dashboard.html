@@ -34,9 +34,15 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="allocationStatements" class="dashboard-links" href="{% if idams == 'SAT' %}allocation-statements{% elif idams == 'MAT' %}select-academy?paginationRequired=true&page1=true{% else %}allocation-statements{% endif %}">
+                        <a id="allocationStatements" class="dashboard-links" href="allocation-statements">
                             <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
+                            {% if idams == 'SAT' %}
                             <span id="allocation-statements-alert" class="alert alert-name-red">1 new statement</span>
+                            {% elif idams == 'MAT' %}
+                            <span id="allocation-statements-alert" class="alert alert-name-red">4 new statements</span>
+                            {% else %}
+                            <span id="allocation-statements-alert" class="alert alert-name-red">1 new statement</span>
+                            {% endif %}
                             <!-- <span id="allocation-statements-declaration-alert" class="alert alert-name-green">View statements</span> -->
                         </a>
                     </div>
