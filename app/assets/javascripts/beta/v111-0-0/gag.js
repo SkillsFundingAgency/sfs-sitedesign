@@ -23,7 +23,7 @@ $(document).ready(function () {
 
         // Only execute this print logic on mobile view (e.g. when ALL DSG tabs are displaying) when the screen width is less than 641 pixels
         if (screen.width < 641) {
-            $('head').append('<style type="text/css" media="print">#school { display: inherit; } #mfg { display: inherit; } #post-opening-grant { display: inherit; } #high-needs { display: inherit; }</style>');
+            $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         }
         else {
 
@@ -51,7 +51,7 @@ $(document).ready(function () {
                 $("#high-needs").addClass("govuk-tabs__panel--hidden");
     
                 // Finally set the DEFAULT CSS to be applied to the print view of the UI served to the user
-                $('head').append('<style type="text/css" media="print">#school { display: inherit; } #mfg { display: none; } #post-opening-grant { display: none; } #high-needs { display: none; }</style>');
+                $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: none; } #post-opening-grant { display: none; } #high-needs { display: none; }</style>');
         
             }
             else if (tab == "mfg") {
@@ -77,7 +77,7 @@ $(document).ready(function () {
                 $("#high-needs").addClass("govuk-tabs__panel--hidden");
     
                 // Finally set the DEFAULT CSS to be applied to the print view of the UI served to the user
-                $('head').append('<style type="text/css" media="print">#school { display: none; } #mfg { display: inherit; } #post-opening-grant { display: none; } #high-needs { display: none; }</style>');
+                $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         
             }
             else if (tab == "postopeninggrant") {
@@ -103,7 +103,7 @@ $(document).ready(function () {
                 $("#high-needs").addClass("govuk-tabs__panel--hidden");
     
                 // Finally set the DEFAULT CSS to be applied to the print view of the UI served to the user
-                $('head').append('<style type="text/css" media="print">#school { display: none; } #mfg { display: none; } #post-opening-grant { display: inherit; } #high-needs { display: none; }</style>');
+                $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         
             }
             else if (tab == "highneeds") {
@@ -129,7 +129,7 @@ $(document).ready(function () {
                 $("#post-opening-grant").addClass("govuk-tabs__panel--hidden");
     
                 // Finally set the DEFAULT CSS to be applied to the print view of the UI served to the user
-                $('head').append('<style type="text/css" media="print">#school { display: none; } #mfg { display: none; } #post-opening-grant { display: none; } #high-needs { display: inherit; }</style>');
+                $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         
             }
             // Default to the default view wired into the GOV.UK tabs component - the 'school' tab
@@ -156,7 +156,7 @@ $(document).ready(function () {
                 $("#high-needs").addClass("govuk-tabs__panel--hidden");
     
                 // Finally set the DEFAULT CSS to be applied to the print view of the UI served to the user
-                $('head').append('<style type="text/css" media="print">#school { display: inherit; } #mfg { display: none; } #post-opening-grant { display: none; } #high-needs { display: none; }</style>');
+                $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         
             }
 
@@ -170,16 +170,16 @@ $(document).ready(function () {
         var clickedPrintSection = $(this).attr('href');
         
         if (clickedPrintSection == "#school") {
-            $('head').append('<style type="text/css" media="print">#school { display: inherit; } #mfg { display: none; } #post-opening-grant { display: none; } #high-needs { display: none; }</style>');
+            $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         }
         else if (clickedPrintSection == "#mfg") {
-            $('head').append('<style type="text/css" media="print">#school { display: none; } #mfg { display: inherit; } #post-opening-grant { display: none; } #high-needs { display: none; }</style>');
+            $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         }
         else if (clickedPrintSection == "#post-opening-grant") {
-            $('head').append('<style type="text/css" media="print">#school { display: none; } #mfg { display: none; } #post-opening-grant { display: inherit; } #high-needs { display: none; }</style>');
+            $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         }
         else if (clickedPrintSection == "#high-needs") {
-            $('head').append('<style type="text/css" media="print">#school { display: none; } #mfg { display: none; } #post-opening-grant { display: none; } #high-needs { display: inherit; }</style>');
+            $('head').append('<style type="text/css" media="print">#school { display: block; } #mfg { display: block; } #post-opening-grant { display: block; } #high-needs { display: block; }</style>');
         }
 
     });
