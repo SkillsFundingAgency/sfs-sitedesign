@@ -445,6 +445,13 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard', function (req, res) {
 
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.noApprenticeshipServicePage = req.session.noApprenticeshipServicePage || "False";
+		req.session.gagVariant = req.session.gagVariant || "1";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+
 		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 
@@ -473,7 +480,8 @@ module.exports = function(router) {
 				'signOutURL' : req.session.signOutURL,
 				'dashboard' : req.session.dashboard,
 				'idams' : req.session.idams,
-				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
+				'gagVariant' : req.session.gagVariant
 			});
 		}
 		
@@ -854,6 +862,7 @@ module.exports = function(router) {
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
 		req.session.idams = "MAT";
+		req.session.organisationName = "Mole Catch Academy";
 
 		// Make sure the user enters a username and password
 		if (username == "" || password == "") {				
@@ -964,6 +973,13 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard', function (req, res) {
 
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.noApprenticeshipServicePage = req.session.noApprenticeshipServicePage || "False";
+		req.session.gagVariant = req.session.gagVariant || "1";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+
 		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 
@@ -992,7 +1008,8 @@ module.exports = function(router) {
 				'signOutURL' : req.session.signOutURL,
 				'dashboard' : req.session.dashboard,
 				'idams' : req.session.idams,
-				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
+				'gagVariant' : req.session.gagVariant
 			});
 		}
 		

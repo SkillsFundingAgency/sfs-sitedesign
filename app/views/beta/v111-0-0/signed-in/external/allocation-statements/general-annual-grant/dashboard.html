@@ -36,14 +36,7 @@
                     <div class="column-third margin-top">
                         <a id="allocationStatements" class="dashboard-links" href="allocation-statements">
                             <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
-                            {% if idams == 'SAT' %}
-                            <span id="allocation-statements-alert" class="alert alert-name-red">1 new statement</span>
-                            {% elif idams == 'MAT' %}
-                            <span id="allocation-statements-alert" class="alert alert-name-red">4 new statements</span>
-                            {% else %}
-                            <span id="allocation-statements-alert" class="alert alert-name-red">1 new statement</span>
-                            {% endif %}
-                            <!-- <span id="allocation-statements-declaration-alert" class="alert alert-name-green">View statements</span> -->
+                            <span id="allocation-statements-alert" class="alert alert-name-red">1 {% if gagVariant == '1' or gagVariant == '2' or gagVariant == '3' or gagVariant == '4' or gagVariant == '5' or gagVariant == '6' %}new{% elif gagVariant == '7' or gagVariant == '8' %}updated{% else %}new{% endif %} statement</span>
                         </a>
                     </div>
 
