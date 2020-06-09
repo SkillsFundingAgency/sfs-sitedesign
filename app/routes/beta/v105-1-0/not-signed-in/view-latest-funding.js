@@ -605,6 +605,7 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
+			'noFilterResults' : req.query.noFilterResults,
 			'glossaryTerms' : 'True',
 			'term1' : 'True'
 		});
@@ -621,6 +622,7 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
+			'noFilterResults' : req.query.noFilterResults,
 			'glossaryTerms' : 'True',
 			'term1' : 'True'
 		});
@@ -637,6 +639,7 @@ module.exports = function(router) {
 			'searchScope' : req.session.searchScope,
 			'searchTerm' : req.session.searchTerm,
 			'didYouMean' : req.session.didYouMean,
+			'noFilterResults' : req.query.noFilterResults,
 			'glossaryTerms' : 'True',
 			'term1' : 'True'
 		});

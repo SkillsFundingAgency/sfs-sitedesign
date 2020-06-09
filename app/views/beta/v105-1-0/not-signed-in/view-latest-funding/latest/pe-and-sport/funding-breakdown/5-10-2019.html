@@ -237,6 +237,11 @@
                     </section>
                     <!-- <p>This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation" rel="external" target="external" title="This will open in a new tab or window">OpenDocument</a> format. You may need a different format if you're using assistive technology. <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk">Request an accessible format</a>.</p> -->
 
+                    {% if noFilterResults %}
+                    <div class="form-group panel panel-border-wide">
+                        <p>No results found. Please use the filters to refine your search again.</p>
+                    </div>
+                    {% else %}
                     <div class="form-group">
                         <p>We found 48 schools</p>
                         
@@ -613,6 +618,7 @@
                             Back to top
                         </a>
                     </div>
+                    {% endif %}
 
                     <div class="form-block">
                         <h3 class="heading-medium heading-guidance">Allocation history</h3>

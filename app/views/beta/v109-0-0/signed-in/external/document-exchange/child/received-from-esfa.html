@@ -144,6 +144,11 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to 5 of 5 documents</span>
                         </div>
 
+                        {% if noFilterResults %}
+                        <div class="form-block panel panel-border-wide">
+                            <p>No results found. Please use the filters to refine your search again.</p>
+                        </div>
+                        {% else %}
                         <table>
                             <caption class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
                             <thead>
@@ -274,6 +279,7 @@
                             </div>
             
                         </div>
+                        {% endif %}
 
                     </fieldset>
 
@@ -381,6 +387,11 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to 4 of 4 documents</span>
                         </div>
 
+                        {% if noFilterResults %}
+                        <div class="form-block panel panel-border-wide">
+                            <p>No results found. Please use the filters to refine your search again.</p>
+                        </div>
+                        {% else %}
                         <table>
                             <caption class="visuallyhidden">List of documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
                             <thead>
@@ -489,16 +500,17 @@
                             </tbody>
                             {% endif %}
                         </table>
-                    
-                        <div class="pager">
-            
-                            <div class="pager-summary">
-                                Showing 1 to 4 of 4 documents
-                            </div>
-            
-                        </div>
 
                     </fieldset>
+
+                    <div class="pager">
+            
+                        <div class="pager-summary">
+                            Showing 1 to 4 of 4 documents
+                        </div>
+        
+                    </div>
+                    {% endif %}
 
                 </div>
                 {% endif %}

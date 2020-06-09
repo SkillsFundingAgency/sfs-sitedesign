@@ -338,10 +338,12 @@
                         <span id="filter-results" class="pager-summary">Showing 1 to 25 of 52 documents</span>
                     </div>
 
-                    <div class="form-block">
-                        {% if noFilterResults %}
+                    {% if noFilterResults %}
+                    <div class="panel panel-border-wide">
                         <p>No results found. Please use the filters to refine your search again.</p>
-                        {% else %}
+                    </div>
+                    {% else %}
+                    <div class="form-block">
                         <p>Searching on <span class="bold">'abbey'</span> we found 52 schools. Did you mean:</p>
 
                         <!-- NON JS TABLE ROWS (START) -->
@@ -1000,9 +1002,12 @@
                         </div>
                         <!-- JS TABLE ROWS (END) -->
 
-                        {% endif %}
                     </div>
+                    {% endif %}
 
+                    {% if noFilterResults %}
+                    
+                    {% else %}
                     <!-- NON JS PAGING (START) -->
                     {% if paginationRequired %}
                     {% if page1 %}
@@ -1128,6 +1133,7 @@
                             Back to top
                         </a>
                     </div>
+                    {% endif %}
 
                     <!-- Support section in an expandable link - START -->
                     {% include version + "/includes/support.html" %}
@@ -1189,10 +1195,12 @@
                         <span id="filter-results" class="pager-summary">Showing 1 to 2 of 2 documents</span>
                     </div>
 
-                    <div class="form-group">
-                        {% if noFilterResults %}
+                    {% if noFilterResults %}
+                    <div class="panel panel-border-wide">
                         <p>No results found. Please use the filters to refine your search again.</p>
-                        {% else %}
+                    </div>
+                    {% else %}
+                    <div class="form-group">
                         <p>Searching on <span class="bold">'{{searchTerm}}'</span> we found 2 schools. Did you mean:</p>
 
                         <div class="form-block sectionContent Academy">
@@ -1203,8 +1211,8 @@
                             <a href="statement">Kilburn Junior School (Belper, DE56 0LA)</a>
                         </div>
 
-                        {% endif %}
                     </div>
+                    {% endif %}
 
                 </fieldset>
 
@@ -1310,10 +1318,12 @@
                         <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
                     </div>
 
-                    <div class="form-block">
-                        {% if noFilterResults %}
+                    {% if noFilterResults %}
+                    <div class="panel panel-border-wide">
                         <p>No results found. Please use the filters to refine your search again.</p>
-                        {% else %}
+                    </div>
+                    {% else %}
+                    <div class="form-block">
                         <p>Searching on <span class="bold">'kilburn'</span> we found 6 schools. Did you mean:</p>
 
                         <div class="form-block sectionContent 01 Academy">
@@ -1340,8 +1350,8 @@
                             <a href="statement">The Kilburn Park School Foundation (London, NW6 5RG)</a>
                         </div>
 
-                        {% endif %}
                     </div>
+                    {% endif %}
 
                     <!-- Support section in an expandable link - START -->
                     {% include version + "/includes/support.html" %}
@@ -1534,10 +1544,12 @@
                         <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
                     </div>
 
-                    <div class="form-block">
-                        {% if noFilterResults %}
+                    {% if noFilterResults %}
+                    <div class="panel panel-border-wide">
                         <p>No results found. Please use the filters to refine your search again.</p>
-                        {% else %}
+                    </div>
+                    {% else %}
+                    <div class="form-block">
                         <p>Searching on <span class="bold">'kilburn'</span> we found 6 schools. Did you mean:</p>
 
                         <div class="form-block sectionContent 01 Academy">
@@ -1564,8 +1576,8 @@
                             <a href="statement">The Kilburn Park School Foundation (London, NW6 5RG)</a>
                         </div>
 
-                        {% endif %}
                     </div>
+                    {% endif %}
 
                     <!-- Support section in an expandable link - START -->
                     {% include version + "/includes/support.html" %}

@@ -210,7 +210,8 @@ module.exports = function(router) {
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
+			'idams' : req.session.idams,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
@@ -1069,7 +1070,8 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'gagVariant' : req.session.gagVariant,			
 			'organisationName' : req.session.organisationName,
-			'versionB' : req.query.versionB
+			'versionB' : req.query.versionB,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
