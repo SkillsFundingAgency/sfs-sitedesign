@@ -214,7 +214,8 @@ module.exports = function(router) {
 			'child' : req.session.child,
 			'receivedDocuments' : req.session.receivedDocuments,
 			'documentReceived1' : req.session.documentReceived1,
-			'documentReceived2' : req.session.documentReceived2
+			'documentReceived2' : req.session.documentReceived2,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
@@ -241,7 +242,8 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'child' : req.session.child,
 			'documentSent1' : req.session.documentSent1,
-			'documentSent2' : req.session.documentSent2
+			'documentSent2' : req.session.documentSent2,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
@@ -710,7 +712,8 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents"
+			'itemTypeLabelPlural' : "documents",
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
@@ -736,7 +739,8 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'documentSent1' : req.session.documentSent1,
-			'documentSent2' : req.session.documentSent2
+			'documentSent2' : req.session.documentSent2,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
@@ -1159,7 +1163,8 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents"
+			'itemTypeLabelPlural' : "documents",
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish', function (req, res) {		
@@ -1264,7 +1269,8 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents"
+			'itemTypeLabelPlural' : "documents",
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-review', function (req, res) {		
@@ -1338,7 +1344,8 @@ module.exports = function(router) {
 			'clearLocalStorage' : true,
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
-			'itemTypeLabelPlural' : "documents"
+			'itemTypeLabelPlural' : "documents",
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 

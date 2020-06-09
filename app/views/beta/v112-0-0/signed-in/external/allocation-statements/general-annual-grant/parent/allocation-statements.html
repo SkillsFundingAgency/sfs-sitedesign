@@ -210,6 +210,13 @@
 
             <div class="column-two-thirds document-list">
 
+                {% if noFilterResults %}
+                <div class="form-block panel panel-border-wide">
+                    <p>No results found. Please use the filters to refine your search again.</p>
+                </div>
+
+            </div>
+                {% else %}
                 <!-- COMPONENT - ACCORDION (START) -->
                 <div class="govuk-accordion" data-module="accordion" id="accordion-default">
 
@@ -2777,36 +2784,37 @@
                     </a>
                 </div>
 
-            </form>
-
-            <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
-            <!-- START-->
-            <details style="display: none;">
-                <summary>
-                    <span class="summary">...</span>
-                </summary>
-                
-                <div class="panel panel-border-narrow">
-                    <p>...</p>             
-                </div>
-
-            </details>
-            <!-- END -->
-
-            <div class="form-group">
-                <details>
+                <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+                <!-- START-->
+                <details style="display: none;">
                     <summary>
-                        <span class="summary">I'm looking for another funding type</span>
+                        <span class="summary">...</span>
                     </summary>
                     
                     <div class="panel panel-border-narrow">
-                        <p>...</p>
+                        <p>...</p>             
                     </div>
 
                 </details>
-            </div>
+                <!-- END -->
 
-        </div>
+                <div class="form-group">
+                    <details>
+                        <summary>
+                            <span class="summary">I'm looking for another funding type</span>
+                        </summary>
+                        
+                        <div class="panel panel-border-narrow">
+                            <p>...</p>
+                        </div>
+
+                    </details>
+                </div>
+
+            </div>
+            {% endif %}
+
+        </form>
 
     </div>
 

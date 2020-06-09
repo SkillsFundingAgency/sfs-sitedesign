@@ -139,6 +139,11 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} of {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} documents</span>
                         </div>
 
+                        {% if noFilterResults %}
+                        <div class="form-block panel panel-border-wide">
+                            <p>No results found. Please use the filters to refine your search again.</p>
+                        </div>
+                        {% else %}
                         <table>
                             <caption class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
                             <thead>
@@ -317,6 +322,7 @@
                         </div>
         
                     </div>
+                    {% endif %}
 
                 </div>
                 <!-- TPs - Dynamic content (END) -->
@@ -428,6 +434,11 @@
                             <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} of {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} documents</span>
                         </div>
 
+                        {% if noFilterResults %}
+                        <div class="form-block panel panel-border-wide">
+                            <p>No results found. Please use the filters to refine your search again.</p>
+                        </div>
+                        {% else %}
                         <table>
                             <caption class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></caption>
                             <thead>
@@ -616,6 +627,7 @@
                             </tbody>
                             {% endif %}
                         </table>
+
                     </fieldset>
 
                     <div class="pager">
@@ -625,6 +637,7 @@
                         </div>
         
                     </div>
+                    {% endif %}
 
                 </div>
                 {% endif %}
