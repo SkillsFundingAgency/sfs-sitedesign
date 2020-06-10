@@ -482,7 +482,8 @@ module.exports = function(router) {
 				'dashboard' : req.session.dashboard,
 				'idams' : req.session.idams,
 				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
-				'gagVariant' : req.session.gagVariant
+				'gagVariant' : req.session.gagVariant,
+				'tagType' : req.query.tagType,
 			});
 		}
 		
@@ -1010,7 +1011,8 @@ module.exports = function(router) {
 				'dashboard' : req.session.dashboard,
 				'idams' : req.session.idams,
 				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
-				'gagVariant' : req.session.gagVariant
+				'gagVariant' : req.session.gagVariant,
+				'tagType' : req.query.tagType,
 			});
 		}
 		
