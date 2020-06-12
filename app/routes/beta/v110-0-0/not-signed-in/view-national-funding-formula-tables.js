@@ -64,8 +64,7 @@ module.exports = function(router) {
 		
 		var choice = req.body.choice;
 		req.session.choice = choice;
-		var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
-
+		var schoolOrAcademy = ' '
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 
