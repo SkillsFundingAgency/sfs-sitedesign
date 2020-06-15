@@ -32,6 +32,10 @@
 
             <form method="post" class="form">
 
+                {% if nothingToView %}
+                <h1 class="heading-xlarge">Documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
+                <p>If you've just sent a document, it can take a few minutes to show here.</p>
+                {% else %}
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">{% if parent == 'MAT' %}Results updated, now showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents{% elif parent == 'LA' %}Results updated, now showing 1 to {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} documents{% else %}Results updated, now showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents{% endif %}</h2>
@@ -1431,6 +1435,7 @@
                 </div>
                 {% endif %}
 
+            {% endif %}            
             </form>
 
         </div>

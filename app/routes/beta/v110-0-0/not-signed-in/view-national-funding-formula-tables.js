@@ -156,7 +156,8 @@ module.exports = function(router) {
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
-			'page3' : req.query.page3
+			'page3' : req.query.page3,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
