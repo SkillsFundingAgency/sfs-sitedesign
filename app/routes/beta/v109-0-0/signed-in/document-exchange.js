@@ -215,7 +215,8 @@ module.exports = function(router) {
 			'receivedDocuments' : req.session.receivedDocuments,
 			'documentReceived1' : req.session.documentReceived1,
 			'documentReceived2' : req.session.documentReceived2,
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 
@@ -243,7 +244,8 @@ module.exports = function(router) {
 			'child' : req.session.child,
 			'documentSent1' : req.session.documentSent1,
 			'documentSent2' : req.session.documentSent2,
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 
@@ -713,7 +715,8 @@ module.exports = function(router) {
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
 			'itemTypeLabelPlural' : "documents",
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 
@@ -740,7 +743,8 @@ module.exports = function(router) {
 			'parent' : req.session.parent,
 			'documentSent1' : req.session.documentSent1,
 			'documentSent2' : req.session.documentSent2,
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 
@@ -1164,7 +1168,8 @@ module.exports = function(router) {
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
 			'itemTypeLabelPlural' : "documents",
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-publish', function (req, res) {		
@@ -1270,7 +1275,8 @@ module.exports = function(router) {
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
 			'itemTypeLabelPlural' : "documents",
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 	router.post('/' + version + '/signed-in/internal/document-exchange/documents-to-review', function (req, res) {		
@@ -1345,7 +1351,8 @@ module.exports = function(router) {
 			'itemsPerPage' : 10,
 			'itemTypeLabel' : "document",
 			'itemTypeLabelPlural' : "documents",
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 

@@ -32,6 +32,11 @@
 
             <form method="post" class="form">
 
+                {% if nothingToView %}
+                <h1 class="heading-xlarge">Documents you've received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
+                <p>No documents to view yet.</p>
+                <p>You will receive an email when a new document is available.</p>
+                {% else %}
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 4 of 4 documents</h2>
@@ -515,6 +520,7 @@
                 </div>
                 {% endif %}
 
+            {% endif %}
             </form>
 
         </div>

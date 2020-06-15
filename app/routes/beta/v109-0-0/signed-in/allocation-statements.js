@@ -211,7 +211,8 @@ module.exports = function(router) {
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
 			'idams' : req.session.idams,
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 
