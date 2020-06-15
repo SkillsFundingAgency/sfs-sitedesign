@@ -55,6 +55,11 @@
                 </div>
                 {% endif %}
 
+                {% if nothingToView %}
+                <h1 class="heading-xlarge">Documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
+                <p>No documents to view yet.</p>
+                <p>You will receive an email when a new document is available.</p>
+                {% else %}
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 10 of 30 documents</h2>
@@ -62,8 +67,6 @@
 
                 <div class="form-group">
                     <h1 class="heading-xlarge">Documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
-                    <!-- <p>You have not received any documents yet.</p>
-                    <p>Any documents you receive will show here.</p> -->
                     <p>If you need a document in a different format, email <a href="#">pds.mailbox@education.gov.uk</a>.</p>
                 </div>
 
@@ -494,7 +497,7 @@
                             <p>No results found. Use the filters to refine your search again.</p>
                         </div>
                         {% else %}
-                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" class="hidden" aria-hidden="true" style="display: none;" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -3138,7 +3141,7 @@
                             <p>No results found. Use the filters to refine your search again.</p>
                         </div>
                         {% else %}
-                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" class="hidden" aria-hidden="true" style="display: none;" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -5882,7 +5885,7 @@
                             <p>No results found. Use the filters to refine your search again.</p>
                         </div>
                         {% else %}
-                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" class="hidden" aria-hidden="true" style="display: none;" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -8095,6 +8098,7 @@
                 </div>
                 {% endif %}
 
+            {% endif %}
             </form>
 
         </div>

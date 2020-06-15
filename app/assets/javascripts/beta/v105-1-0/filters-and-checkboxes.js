@@ -18,17 +18,73 @@ $(document).ready(function () {
     $(".search-field-wrap").removeClass("hidden");
     $(".search-field-wrap").attr("aria-hidden", false);
     $(".search-field-wrap").removeAttr("hidden");
+    $("#selectAllTrigger").show();
+    $("#selectAllTrigger").removeClass("hidden");
+    $("#selectAllTrigger").attr("aria-hidden", false);
+    $("#selectAllTrigger").removeAttr("hidden");
 
-    // Ensure we close the filters on load of the page only if the user is viewing in a smaller resolution
-    /*
-    if ((screen.width >= 1024) && (screen.height >= 1024)) {
-        
-        if () {
+    // Ensure (on load) we close all filter sections if the user is viewing in a smaller resolution (1024px by 1024px)
+    (function () {
+
+        var $container = $(".js-filter-collapsible-collections");
+
+        // If the user is viewing with a width of 640 pixels of less then automatically close all filter sections
+        if (screen.width < 641) {
+
+            if ($container) {
+                
+                var $sections = $container.find(".js-filter-collapsible");
+                
+                $sections.each(function () {
+                    
+                    var $section = $(this);
+
+                    $section.toggleContent = function () {
+                        
+                        $section.find(".js-filter-collapsible-content").toggle();
+                        
+                        var $openInput = $section.find("input[type=hidden]");
+                        var $openURL = $section.find("a[type=button]");
+
+                        // Update ARIA information on hidden input field
+                        if ($openInput.val() === "true") {
+                            $openInput.val("false");
+                            $openInput.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openInput.val("true");
+                            $openInput.attr("aria-expanded","true");
+                        }
+
+                        // Update ARIA information on the URL
+                        if ($openURL.attr("aria-expanded") === "true") {
+                            $openURL.attr("aria-expanded","false");
+                        }
+                        else {
+                            $openURL.attr("aria-expanded","true");
+                        }
+
+                        $section.toggleClass("js-open");
+                    };
+
+                    $section.find("header").addClass("js-filter-collapsible-header");
+                    $section.toggleContent();
+                });
+
+                $sections
+                    .has(":hidden[value='false']")
+                    .find(".js-filter-collapsible-content")
+                    .hide()
+                    .removeClass("js-open");
+                $sections
+                    .has(":hidden[value='true']")
+                    .show()
+                    .addClass("js-open");
+            }
 
         }
 
-    }
-    */
+    })();
 
     // Trigger the select all documents in document list rules (see below) via clicking "Select/deselect all team members" link
     $("#selectAllTrigger").click(function () {
@@ -45,9 +101,9 @@ $(document).ready(function () {
         $("#queryFilterStatusError").trigger("click");
     });
 
-    // Open/close ALL filter sections - Toggles content based on user clicking grey filter sections
+    // Open/close ANY CHOSEN filter section - Toggles content based on user clicking or using the keyboard to open a grey filter section
     // GLOBAL
-    // ACTION: '.click'
+    // TRIGGER 1: 'click'
     (function () {
 
         var $container = $(".js-filter-collapsible-collections");
@@ -88,33 +144,19 @@ $(document).ready(function () {
                     $section.toggleClass("js-open");
                 };
 
-                $section.find("header")
-                
-                .addClass("js-filter-collapsible-header")
-
                 // TRIGGER 1 - 'click'
+                $section.find("header").addClass("js-filter-collapsible-header")
                 .click(function () {
                     $section.toggleContent();
                 });
 
-                // TRIGGER 2 - 'keyup'
-                /*
-                $(".filter-keyboard").keyup(function(event) {
-                    
-                    if (event.keyCode === 13) {
-                        $section.toggleContent();
-                    }
-
-                });
-                */
-
             });
+
             $sections
                 .has(":hidden[value='false']")
                 .find(".js-filter-collapsible-content")
                 .hide()
                 .removeClass("js-open");
-
             $sections
                 .has(":hidden[value='true']")
                 .show()

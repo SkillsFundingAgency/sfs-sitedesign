@@ -29,18 +29,27 @@
                 </nav>
             </div>
 
+            {% if nothingToView %}
             <h1 class="heading-xlarge">Allocation statements</h1>
-
+            <p>No allocation statements to view yet.</p>
+            <p>You will receive an email when a new allocation statement is available.</p>
+            {% else %}
             <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
             <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                 <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 28 of 28 allocation statements</h2>
             </div>
 
+            <h1 class="heading-xlarge">Allocation statements</h1>
+            {% endif %}
+
         </div>
 
+        {% if nothingToView %}
+
+        {% else %}
         <form method="post" class="form">
 
-            <div id="filterContent" class="column-third">
+            <div id="filterContentInDivs" class="column-third">
 
                 <div class="form-block">
                     <fieldset class="filter">
@@ -2815,6 +2824,7 @@
             {% endif %}
 
         </form>
+        {% endif %}
 
     </div>
 
