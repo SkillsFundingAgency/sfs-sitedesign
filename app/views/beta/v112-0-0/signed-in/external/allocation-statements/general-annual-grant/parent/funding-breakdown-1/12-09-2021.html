@@ -141,6 +141,27 @@
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
+                                <!--  SCENARIO 1
+                                      Reception uplift pupil numbers - Display the scenario where an academy has reception pupil funding as part of their basic entitlement -->
+                                {% if scenario == '1' %}
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Reception uplift
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £2,500.50
+                                            <br>
+                                            Weighting: 1
+                                            <br>
+                                            Pupils: 40
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,500.50</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">40</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£100,020</td>
+                                </tr>
+                                {% endif %}
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Key Stage 3
@@ -958,7 +979,9 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Pupils
+                                        <!--  SCENARIO 1
+                                              Reception uplift pupil numbers - Display the scenario where an academy has reception pupil funding as part of their basic entitlement -->
+                                        Pupils {% if scenario == '1' %}(excluding reception uplift){% endif %}                                        
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-divide" title="divide" style="font-size: 14px;"></i></span>
@@ -1067,7 +1090,9 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Pupils
+                                        <!--  SCENARIO 1
+                                              Reception uplift pupil numbers - Display the scenario where an academy has reception pupil funding as part of their basic entitlement -->
+                                        Pupils {% if scenario == '1' %}(excluding reception uplift){% endif %}
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-times" title="multiply" style="font-size: 14px;"></i></span>
@@ -1222,7 +1247,8 @@
                     <h3 class="heading-medium heading-guidance">Capping and scaling back by local authority</h3>
                     
                     {% if scenario == '2' %}
-                    <!-- MFG (Capping and Scaling) SCENARIO 2 - Academy with "Yes" to capping and scaling from LA plus "Yes" to growing also -->
+                    <!-- SCENARIO 2
+                         MFG (Capping and Scaling) - Academy with "Yes" to capping and scaling from LA plus "Yes" to growing also -->
                     <div class="total-allocation-wrapper">
 
                         <div class="total-allocation-label">
