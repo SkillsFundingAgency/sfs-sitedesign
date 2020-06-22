@@ -41,17 +41,17 @@
                 </div>
                 {% endif %}
 
+                {% if nothingToView %}
+                <h1 class="heading-xlarge">Download your documents</h1>
+                <p>No documents to view yet.</p>
+                <p>Any documents you receive will show here.</p>
+                {% else %}
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 10 of 12 documents</h2>
                 </div>
 
                 <h1 class="heading-xlarge">Download your documents</h1>
-                <!-- Only display this content within the div when the paragraph is required (conditionally) -->
-                <!-- <div class="form-group">
-                    <h1 class="heading-xlarge">Download your documents</h1>
-                    <p>Any documents you receive will show here.</p>
-                </div> -->
     
                 <div class="pager-top">
     
@@ -178,7 +178,7 @@
                             <p>No results found. Use the filters to refine your search again.</p>
                         </div>
                         {% else %}
-                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" class="hidden" aria-hidden="true" style="display: none;" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -1069,6 +1069,7 @@
                     </fieldset>
                 </div>
 
+            {% endif %}
             </form>
 
         </div>

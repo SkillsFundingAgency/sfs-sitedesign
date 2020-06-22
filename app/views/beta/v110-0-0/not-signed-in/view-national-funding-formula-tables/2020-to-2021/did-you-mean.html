@@ -300,6 +300,11 @@
                         <span id="filter-results" class="pager-summary">Showing 1 to 25 of 52 documents</span>
                     </div>
 
+                    {% if noFilterResults %}
+                    <div class="panel panel-border-wide">
+                        <p>No results found. Use the filters to refine your search again.</p>
+                    </div>
+                    {% else %}
                     <div class="form-block">
                         <p>Searching on <span class="bold">'abbey'</span> we found 52 schools. Did you mean:</p>
 
@@ -1086,11 +1091,12 @@
                             Back to top
                         </a>
                     </div>
+                    {% endif %}
 
                     <!-- Support section in an expandable link - START -->
                     {% include version + "/includes/support.html" %}
                     <!-- Support section in an expandable link - END -->
-
+                    
                 </fieldset>
             </div>
             {% else %}                

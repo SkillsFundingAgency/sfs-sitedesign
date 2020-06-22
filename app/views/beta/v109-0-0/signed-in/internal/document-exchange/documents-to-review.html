@@ -43,6 +43,11 @@
                 </div>
                 {% endif %}
 
+                {% if nothingToView %}
+                <h1 class="heading-xlarge">Review your document names</h1>
+                <p>No documents to review yet.</p>
+                <p>Any documents that need reviewing will show here.</p>
+                {% else %}
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
                     <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 12 of 12 documents</h2>
@@ -179,7 +184,7 @@
                             <p>No results found. Use the filters to refine your search again.</p>
                         </div>
                         {% else %}
-                        <p><a href="#" id="selectAllTrigger" aria-live="polite">Select all documents</a></p>
+                        <p><a href="#" id="selectAllTrigger" class="hidden" aria-hidden="true" style="display: none;" aria-live="polite">Select all documents</a></p>
 
                         <div class="form-group">
                             <!-- NON JS TABLE ROWS (START) -->
@@ -1070,6 +1075,7 @@
                     </fieldset>
                 </div>
 
+            {% endif %}
             </form>
 
         </div>

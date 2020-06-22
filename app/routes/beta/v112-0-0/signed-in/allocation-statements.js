@@ -1073,7 +1073,8 @@ module.exports = function(router) {
 			'gagVariant' : req.session.gagVariant,			
 			'organisationName' : req.session.organisationName,
 			'versionB' : req.query.versionB,
-			'noFilterResults' : req.query.noFilterResults
+			'noFilterResults' : req.query.noFilterResults,
+			'nothingToView' : req.query.nothingToView
 		});
 	});
 
