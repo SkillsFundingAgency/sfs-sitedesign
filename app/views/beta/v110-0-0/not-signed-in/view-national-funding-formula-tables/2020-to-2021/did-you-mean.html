@@ -1156,12 +1156,12 @@
                     <legend id="document-list" class="visuallyhidden">Search results</legend>
 
                     <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                        <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
+                        <span id="filter-results" class="pager-summary">Showing 1 to 1 of 1 documents</span>
                     </div>
 
                     <div class="form-block">
-                        <p>Searching on <span class="bold">'St Mary's Kilburn Church of England Primary School'</span> we found 1 school. Did you mean:</p>
-
+                        <p>Searching on <span class="bold" id='school'>the search input</span> we found 1 school. Did you mean:</p>
+                        <div>
                         <!-- <div class="form-block sectionContent 01 Academy">
                             <a href="statement-st-marys">Kilburn Grange School (London, NW6 7UJ)</a>
                         </div>
@@ -1179,12 +1179,13 @@
                         </div>-->
 
                         <div class="form-block sectionContent 02 Maintained">
-                            <a href="statement-st-marys">St Mary's Kilburn Church of England Primary School (London, NW6 4PG)</a>
+                            <a href="statement-st-marys" id='search-results'>St Mary's Kilburn Church of England Primary School (London, NW6 4PG)</a>
                         </div>
 
                         <!-- <div class="form-block sectionContent 01 Maintained">
                             <a href="statement-st-marys">The Kilburn Park School Foundation (London, NW6 5RG)</a>
                         </div> -->
+                    </div>
 
                     </div>
 
@@ -1378,6 +1379,18 @@
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
 <script>
+        const queryString = window.location.search;
+        console.log(queryString);
+        const urlParams = new URLSearchParams(queryString);
+        const input = urlParams.get('input');
+        String.prototype.capitalize = function() {
+            return input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+        const searchInput = input.capitalize();
+        console.log(searchInput);
+        document.getElementById("school").innerHTML = searchInput;
+</script>
+<script>
 
     $(document).ready(function() {
 
@@ -1398,6 +1411,13 @@
     });
     
 </script>
+<script>
+    const array1 = [1, 4, 9, 16];
+    const map1 = array1.map(x => x * 2);
+    document.getElementById("search-results").innerHTML = searchInput;
+</script>
+
+
 <!-- Dynamic pagination -->
 <script src="/public/javascripts/{{version}}/dynamic-pagination-for-divs.js"></script>
 <!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
