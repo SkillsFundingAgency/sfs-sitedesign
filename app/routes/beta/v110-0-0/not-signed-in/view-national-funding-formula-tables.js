@@ -1,6 +1,7 @@
 module.exports = function(router) {
 
 	var version = 'beta/v110-0-0';
+	
 
 	/**********
 	* GLOBAL
@@ -18,7 +19,31 @@ module.exports = function(router) {
 
 		return next();
 	});
-
+	router.get('/' + version + '/not-signed-in/search-funding', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/search-funding', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.post('/' + version + '/not-signed-in/search-funding', function (req, res) {		
+		if (req.body.searchScope == "School"){
+			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation');
+		}
+		if (req.body.searchScope == "MAT"){
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula-mat/parent/allocation-statements');
+		}
+		if (req.body.searchScope == "LA"){
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula-la/parent/allocation-statements');
+		}
+	});
 	/**********
 	* NOT SIGNED-IN (PUBLIC)
 	* VIEW NATIONAL FUNDING FORMULA TABLES
@@ -46,9 +71,6 @@ module.exports = function(router) {
 			'versioning' : req.session.versioning,
 			'term1' : 'True'
 		});
-	});
-	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start', function (req, res) {		
-		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation');
 	});
 
 	// Find a school or academy
@@ -358,6 +380,109 @@ module.exports = function(router) {
 		req.session.radio = "";
 		
 		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/dashboard', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		req.session.idams = "MAT";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-mat/dashboard', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/allocation-history', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/allocation-history', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+
+	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/allocation-statements', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/allocation-statements', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/select-academy', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/select-academy', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/funding-breakdown/12-09-2021', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/funding-breakdown/12-09-2021', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	
+
+	router.get('/' + version + '/not-signed-in/national-funding-formula-la/parent/allocation-history', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-la/parent/allocation-history', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+
+	router.get('/' + version + '/not-signed-in/national-funding-formula-la/parent/allocation-statements', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula-la/parent/allocation-statements', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
