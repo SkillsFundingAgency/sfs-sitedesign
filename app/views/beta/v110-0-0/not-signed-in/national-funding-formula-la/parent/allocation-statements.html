@@ -247,9 +247,12 @@ National funding formula allocations 2021 to 2022
 
             </div>
             <div class="column-two-thirds document-list">
-
+                
+                
                 <!-- COMPONENT - ACCORDION (START) -->
                 <div class="govuk-accordion" data-module="accordion" id="accordion-default" style='display: none;'>
+                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button">Export in CSV</a>
+                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button">Print</a>
 
                     <div class="govuk-accordion__section sectionContent queryFilterAcademy02 queryFilterType06 queryFilterLocalAuthority01">
                 
@@ -1978,9 +1981,14 @@ document.getElementById("MATsearchSubmit").onclick = function () {
         var elem = document.querySelector('#accordion-default');
         var elem2 = document.querySelector('#filterContent')
         var elem4 = document.querySelector('#results-title')
+        var elem5 = document.querySelector(".govuk-accordion__open-all")
         elem.style.display = 'inline'
         elem2.style.display = 'inline'
         elem4.style.display = 'inline'
+        elem5.style.display = 'none'
+        $(".exportbutton").prependTo(".govuk-accordion__controls");
+        $(".govuk-accordion__controls").css("margin-bottom", "20px");
+        $(".exportbutton").css("margin-left", "10px");
     }
     else{
         var elem3 = document.querySelector('#emptyMAT');
