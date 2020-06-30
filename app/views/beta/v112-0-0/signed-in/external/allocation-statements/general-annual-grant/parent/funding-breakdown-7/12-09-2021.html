@@ -30,10 +30,6 @@
                 </nav>
             </div>
 
-            <div class="show-on-print">
-                <h3>{{organisationName}} (URN: 790647)</h3>
-            </div>
-
             <h1 class="heading-xlarge">
                 General annual grant: 2021 to 2022
                 <span class="heading-secondary">
@@ -42,6 +38,10 @@
                     <strong class="govuk-tag govuk-tag-secondary-heading">Latest</strong>
                 </span>
             </h1>
+
+            <div class="show-on-print">
+                <h2 class="heading-large govuk-!-margin-bottom-6">{{organisationName}} (URN: 790647)</h2>
+            </div>
 
             <div class="form-group">
                 <h2 class="lede">
@@ -143,6 +143,27 @@
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
+                                <!-- SCENARIO 1
+                                     Reception uplift pupil numbers - Display the scenario where an academy has reception pupil funding as part of their basic entitlement -->
+                                {% if scenario == '1' %}
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Reception uplift
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £2,500.50
+                                            <br>
+                                            Weighting: 1
+                                            <br>
+                                            Pupils: 40
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,500.50</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">40</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£100,020</td>
+                                </tr>
+                                {% endif %}
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Key Stage 3
@@ -184,7 +205,13 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£2,399,038.07</td>
                                 </tr>
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">Total basic entitlement </th>
+                                    <th scope="row" class="table-header-normal">
+                                        Total basic entitlement
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Total pupils: 1,090
+                                        </span>
+                                    </th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1,090</td>
@@ -196,7 +223,7 @@
                             </tbody>
                         </table>
                                             
-                        <p><a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#pupil-numbers" rel="external" target="external" title="This will open in a new tab or window"> Where total pupil numbers come from</a>.</p>
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#pupil-numbers" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Where total pupil numbers come from</a>
                     </div>
 
                     <div class="govuk-!-margin-bottom-8">
@@ -402,9 +429,8 @@
                         </table>
 
                         <ul class="list">                                    
-                            <li><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#idaci-bands" rel="external" target="external" title="This will open in a new tab or window">What Income Deprivation Affecting Children Index (IDACI) bands are</a></li>
-                            <li><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#free-school-meals" rel="external" target="external" title="This will open in a new tab or window">Where free school meals pupil numbers come from</a></li>
-                            
+                            <li><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#idaci-bands" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">What Income Deprivation Affecting Children Index (IDACI) bands are</a></li>
+                            <li><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#free-school-meals" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Where free school meals pupil numbers come from</a></li>
                         </ul>
                     </div>
                         
@@ -498,8 +524,7 @@
                             </tbody>
                         </table>
 
-                        <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#low-prior-attainment" rel="external" target="external" title="This will open in a new tab or window">More about low prior attainment</a>
-
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#low-prior-attainment" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about low prior attainment</a>
                     </div>
 
                     <div class="govuk-!-margin-bottom-8">
@@ -558,10 +583,15 @@
                             </summary>
 
                             <div class="panel panel-border-narrow">
-                                <p>Pupil numbers for <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#english-as-an-additional-language" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">English as an additional language</a> will be taken from the national pupil database.</p>
+                                <p>Pupil numbers for <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#english-as-an-additional-language" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">English as an additional language</a> will be taken from the national pupil database.</p>
                             </div>
 
-                        </details> 
+                        </details>
+
+                        <div class="show-on-print">
+                            <p>Pupil numbers for <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#english-as-an-additional-language" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">English as an additional language</a> will be taken from the national pupil database.</p>
+                        </div>
+
                     </div>
 
                     <div class="govuk-!-margin-bottom-8">
@@ -614,8 +644,7 @@
                             </tbody>
                         </table>
 
-                        <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#mobility" rel="external" target="external" title="This will open in a new tab or window">More about mobility</a>
-
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#mobility" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about mobility</a>
                     </div>
 
                     <div class="govuk-!-margin-bottom-6">
@@ -656,7 +685,6 @@
                         </table>
                     
                     </div> -->
-    
                     
                     <div class="govuk-!-margin-bottom-8">
 
@@ -671,19 +699,14 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Secondary lump sum
+                                        Total secondary lump sum
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£110,000</td>
-                                </tr>
-                                <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">Total lump sum</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£110,000</td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#lump-sum" rel="external" target="external" title="This will open in a new tab or window">More about lump sum</a>
-                    
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#lump-sum" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about lump sum</a>
                     </div>
 
                     <!-- <div class="govuk-!-margin-bottom-8">
@@ -768,16 +791,55 @@
                                     </tbody> 
                                 </table>
 
-                                <p><a  href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#sparsity" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about sparsity</a>.</p>
-                                
+                                <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#sparsity" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about sparsity</a>
                             </div>
     
-                        </details> 
+                        </details>
+
+                        <div class="show-on-print">
+
+                            <table class="govuk-table">
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Sparsity data summary</caption>
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Sparsity data</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Value</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Maximum sparsity amount set by local authority</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£65,000</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Taper set by local authority</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">National funding formula</td>
+                                    </tr>                                        
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Minimum distance from second nearest eligible school (miles) set by local authority </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Distance from second nearest eligible school (miles) for academy</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">4.299859</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Maximum year group size set by local authority</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">120</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Academy's average year group size</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">114.2</td>
+                                    </tr>
+                                </tbody> 
+                            </table>
+
+                            <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#sparsity" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about sparsity</a> 
+                        </div>
 
                     </div>
                         
-                        
-                   <!-- <div class="govuk-!-margin-bottom-8">
+                    <!-- <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table">
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total split sites breakdown</caption>
@@ -821,7 +883,7 @@
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-third">Minimum funding level</th>
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric"><span>Total</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric"><span>Sub-total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
@@ -836,8 +898,7 @@
                             </tbody>
                         </table>     
      
-                        <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#minimum-per-pupil-funding-level" rel="external" target="external" title="This will open in a new tab or window">More about minimum per pupil funding level</a>
-                    
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#minimum-per-pupil-funding-level" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about minimum per pupil funding level</a>
                     </div>
 
                     <div class="govuk-!-margin-bottom-6">
@@ -861,7 +922,7 @@
                         <div class="total-allocation-wrapper no-padding-top">
 
                             <div class="total-allocation-label">
-                                <h2 class="heading-medium no-margin-top">Total school budget share</h2>
+                                <h2 class="heading-medium">Total school budget share</h2>
                             </div>
                 
                             <div class="total-allocation-amount">
@@ -873,7 +934,7 @@
 
                     </div>
 
-                    <div class="no-padding-top  last-table-below-tab">
+                    <div class="no-padding-top last-table-below-tab">
                         <p>£769,550.86 from the total school budget share should be <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#notional-sen" rel="noreferrer noopener" target="_blank" title="Opens in a new tab"> spent based on the needs of SEN pupils</a>.</p>
                     </div>
 
@@ -885,17 +946,17 @@
                     
                     <div class="grid-row">
                 
-                        <div class="block-header-total">
+                        <div class="block-header-total variance-block-header-total">
                             <h2 class="lede">
                                 Total minimum funding guarantee
-                                <p class="heading-large  heading-funding-summary variance-heading-no-margin">£1,131,324.03</p>
+                                <p class="heading-large heading-funding-summary variance-heading-no-margin">£1,131,324.03</p>
                                 <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £10,449.73</p>
                             </h2>
                         </div>
                     
                     </div>
 
-                    <p class="inset-text govuk-!-margin-bottom-8">Protection funding to make sure change in per pupil school budget share between 2020 to 2021 and 2021 to 2022 will not fall below the local authority guaranteed change of 1.5%.</p>
+                    <p class="govuk-!-margin-bottom-8 first-element-in-tab">Protection funding to make sure change in per pupil school budget share between 2020 to 2021 and 2021 to 2022 will not fall below the local authority guaranteed change of 1.5%.</p>
                     
                     <div class="govuk-!-margin-bottom-6">
                         <h3 class="heading-medium first-element-in-tab">2020 to 2021</h3>
@@ -965,17 +1026,6 @@
                                     <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="minus"></i></span></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£6,283.33</td>
                                 </tr>
-                                <!-- <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">
-                                        Teachers’ pay and pension grant 2021 to 2022
-                                        <span class="table-column-mobile">
-                                            <br>
-                                            Calculation: <span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span>
-                                        </span>
-                                    </th>
-                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                </tr> -->
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Technical adjustments
@@ -1001,7 +1051,7 @@
                             </tbody>
                         </table>
 
-                        <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#adjusted-school-budget-share" rel="external" target="external" title="This will open in a new tab or window">More about adjusted school budget share</a>
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#adjusted-school-budget-share" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about adjusted school budget share</a>
                     </div>
 
                     <div class="govuk-!-margin-bottom-8">
@@ -1026,7 +1076,9 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Pupils
+                                        <!-- SCENARIO 1
+                                             Reception uplift pupil numbers - Display the scenario where an academy has reception pupil funding as part of their basic entitlement -->
+                                        Pupils {% if scenario == '1' %}(excluding reception uplift){% endif %} 
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-divide" title="divide"></i></span>
@@ -1135,7 +1187,9 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Pupils
+                                        <!-- SCENARIO 1
+                                             Reception uplift pupil numbers - Display the scenario where an academy has reception pupil funding as part of their basic entitlement -->
+                                        Pupils {% if scenario == '1' %}(excluding reception uplift){% endif %}
                                         <span class="table-column-mobile">
                                             <br>
                                             Calculation: <span class="calc-letter"><i class="fas fa-times" title="multiply"></i></span>
@@ -1233,17 +1287,6 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="minus"></i></span></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£6,283.33</td>
                                 </tr>
-                                <!-- <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">
-                                        Teachers’ pay and pension grant 2021 to 2022
-                                        <span class="table-column-mobile">
-                                            <br>
-                                            Calculation: <span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span>
-                                        </span>
-                                    </th>
-                                    <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="minus" style="font-size: 14px;"></i></span></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                </tr> -->
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Technical adjustments
@@ -1274,9 +1317,8 @@
 
                     </div>
 
-                   <!--<h3 class="heading-medium heading-guidance">Minimum funding guarantee</h3>-->
+                    <!-- <h3 class="heading-medium heading-guidance">Minimum funding guarantee</h3> -->
                     
-
                     <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table">
@@ -1292,8 +1334,8 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        School budget share guaranteed by local authority
-                                        2021 to 2022
+                                        School budget share guaranteed by local authority 2021 to 2022
+
                                     </th>
                                     <td class="govuk-table__cell govuk-table__header--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">
@@ -1332,12 +1374,13 @@
                             </tbody>
                         </table>
 
-                    </div> 
+                    </div>
                     
                     <h3 class="heading-medium heading-guidance">Capping and scaling back by local authority</h3>
                     
+                    <!-- SCENARIO 2
+                         MFG (Capping and Scaling) - Academy with "Yes" to capping and scaling from LA plus "Yes" to growing also -->
                     {% if scenario == '2' %}
-                    <!-- MFG (Capping and Scaling) SCENARIO 2 - Academy with "Yes" to capping and scaling from LA plus "Yes" to growing also -->
                     <div class="total-allocation-wrapper">
 
                         <div class="total-allocation-label">
@@ -1365,12 +1408,12 @@
                     <div class="govuk-!-margin-bottom-8">
                     
                         <div class="panel panel-border-narrow">
-                            <p>Your academy is growing. There is no <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#capping-and-scaling-back" rel="external" target="external" title="This will open in a new tab or window">capping and scaling back adjustment</a> to your minimum funding guarantee.</p>
+                            <p>Your academy is growing. There is no <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#capping-and-scaling-back" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">capping and scaling back adjustment</a> to your minimum funding guarantee.</p>
                         </div>
 
                     </div>
+                    <!-- MFG capping and scaling (DEFAULT) - Academy with "No" capping and scaling from LA -->
                     {% else %}
-                    <!-- MFG (Capping and Scaling) SCENARIO 1 - Academy with "No" capping and scaling from LA -->
                     <div class="total-allocation-wrapper govuk-!-margin-bottom-4">
 
                         <div class="total-allocation-label">
@@ -1386,7 +1429,7 @@
                     <div class="govuk-!-margin-bottom-8">
                     
                         <div class="panel panel-border-narrow">
-                            <p>There is no <a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#capping-and-scaling-back" rel="external" target="external" title="This will open in a new tab or window">capping and scaling back adjustment</a> to your minimum funding guarantee.</p>
+                            <p>There is no <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#capping-and-scaling-back" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">capping and scaling back adjustment</a> to your minimum funding guarantee.</p>
                         </div>
 
                     </div>
@@ -1520,8 +1563,7 @@
                     
                         </table>
                         
-                        <p><a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#post-opening-grant" rel="external" target="external" title="This will open in a new tab or window">More about post-opening grant</a></p>
-
+                        <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#post-opening-grant" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about post-opening grant</a>
                     </div>
 
                     <div class="total-allocation-wrapper last-table-below-tab">
@@ -1569,6 +1611,20 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
+                                        Alternative provision
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Rate: £10,000
+                                            <br>
+                                            Place numbers: 0
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£10,000</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
                                         Special occupied
                                         <span class="table-column-mobile">
                                             <br>
@@ -1596,20 +1652,6 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">
-                                        Alternative provision
-                                        <span class="table-column-mobile">
-                                            <br>
-                                            Rate: £10,000
-                                            <br>
-                                            Place numbers: 0
-                                        </span>
-                                    </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£10,000</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                </tr>
-                                <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Total pre-16 high needs</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
@@ -1629,7 +1671,13 @@
                             </div>
                             
                         </details>
-                        <p><a class="contextual-guidance" href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#rate-for-occupied-and-unoccupied-places" rel="external" target="external" title="This will open in a new tab or window">Difference between occupied and unoccupied places</a></p>
+
+                        <div class="show-on-print">
+                            <p>Place numbers are either rolled forward from 2020 to 2021 or your local authority agreed it with ESFA. This provides a base level of funding.</p>
+                            <p>You must agree additional funding above this level with your local authority. Local authorities pay you the top-up funding directly. It is not shown in this statement.</p>
+                        </div>
+
+                        <p><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#rate-for-occupied-and-unoccupied-places" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Difference between occupied and unoccupied places</a></p>
                     </div>
 
                     <div class="total-allocation-wrapper last-table-below-tab">
@@ -1658,13 +1706,11 @@
                 </ul>
             </div>
 
-
             <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
             <!-- reloads (an incremented number each time the page is loaded) -->
             <span id="reloads" style="display: none;">{{reloads}}</span>
             <!-- tab = school, mfg, postopeninggrant, highneeds -->
             <span id="tab" style="display: none;">{{tab}}</span>
-
         </div>
 
     </div>
