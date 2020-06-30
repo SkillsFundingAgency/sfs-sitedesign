@@ -1,0 +1,84 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    St Mary's Kilburn Church of England Primary School
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/org-banner.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">           
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../start">Manage your education and skills funding</a></li>
+                        <li><a href="start">View national funding formula (<abbr title="National funding formula">NFF</abbr>) for schools</a></li>
+                        <li><a href="find-organisation">Find a school or academy</a></li>
+                        {% if didYouMean == 'Yes' %}
+                        <li><a href="did-you-mean">Search results</a></li>
+                        {% endif %}
+                        <li id='schoolName_'>St Mary's Kilburn Church of England Primary School</li>
+                    </ol>
+                </nav>
+            </div>     
+            <div class="">
+            <div class="form-block">
+                <h1 class="heading-xlarge">
+                    <span id="schoolName">St Mary's Kilburn Church of England Primary School</span>
+                    <span class="heading-secondary">
+                        Camden, NW6 4PG
+                    </span>
+                </h1>
+            </div>
+            
+            <h2 class="heading-large"><abbr title="National funding formula">National funding formula</abbr> allocation 2021 to 2022</h2>
+            <p>No funding information is available. This could be because:</p> 
+            <ul class="list list-bullet">
+                <li>this is a new school which did not receive funding for the full year</li>
+                <li>two schools merged to become one and it isn't useful to compare the funding information from before the merger</li>
+                <li>a school split into 2 different schools and it isn't useful to compare the funding information from before the split</li>
+            </ul>
+        </div>
+        
+        <div class="form-block">
+            <h2 class="heading-large">Related resources</h2>
+            <ul class="list">
+                <li><a href="https://www.gov.uk/government/publications/national-funding-formula-tables-for-schools-and-high-needs-2020-to-2021" rel="external" target="_blank" title="National funding formula tables for schools and high needs: 2020 to 2021">National funding formula tables for schools and high needs: 2021 to 2022</a></li>
+                <li><a href="https://www.gov.uk/government/publications/guide-to-national-funding-formula" rel="external" target="_blank" title="Quick guide to National funding formula">National funding formula: quick guide</a></li> 
+                <li><a href="https://www.gov.uk/government/publications/national-funding-formula-for-schools-and-high-needs" rel="external" target="_blank" title="Detailed information about the National funding formula">National funding formula: detailed information</a></li>
+            </ul>
+        </div>
+            
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<script>
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    const input = urlParams.get('input');
+    String.prototype.capitalize = function() {
+        return input.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+    const searchInput = input.capitalize();
+    var ParsedSearchInput = searchInput.split(' - ')[0];
+    console.log(ParsedSearchInput);
+    document.getElementById("schoolName").innerHTML = ParsedSearchInput;
+    document.getElementById("schoolName_").innerHTML = ParsedSearchInput;
+</script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
