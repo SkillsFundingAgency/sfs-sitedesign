@@ -93,8 +93,8 @@
             <div class="govuk-tabs clearfix" data-module="tabs">
                 <h3 class="govuk-tabs__title">Contents</h3>
                 <ul class="govuk-tabs__list" style="padding-bottom: 40px;">
-                    <li class="govuk-tabs__list-item"><a id="post-opening-grant-tab" class="govuk-tabs__tab print-trigger" href="#post-opening-grant">Post-opening grant</a></li>
                     <li class="govuk-tabs__list-item"><a id="high-needs-tab" class="govuk-tabs__tab print-trigger" href="#high-needs">High needs</a></li>
+                    <li class="govuk-tabs__list-item"><a id="post-opening-grant-tab" class="govuk-tabs__tab print-trigger" href="#post-opening-grant">Post-opening grant</a></li>
                 </ul>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
@@ -110,27 +110,6 @@
 
                 </details>
                 <!-- END -->
-
-                <!-- Post-opening grant - (START) -->
-                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="post-opening-grant">
-                    
-                    <div class="grid-row">
-                
-                        <div class="block-header-total">
-                            <h2 class="lede">
-                                Total post-opening grant
-                                <p class="heading-large heading-funding-summary">£0</p>
-                            </h2>
-                        </div>
-                    
-                    </div>
-
-                    <div class="govuk-!-margin-bottom-8 first-element-in-tab last-table-below-tab">
-                        <p>Your academy has built up pupil numbers to capacity. You will no longer receive the <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#post-opening-grant" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">post-opening grant</a>.</p>
-                    </div>
-
-                </section>
-                <!-- Post-opening grant - (END) -->
 
                 <!-- High needs - (START) -->
                 <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="high-needs">
@@ -259,6 +238,27 @@
                 </section>
                 <!-- High needs - (END) -->
 
+                <!-- Post-opening grant - (START) -->
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="post-opening-grant">
+                    
+                    <div class="grid-row">
+                
+                        <div class="block-header-total">
+                            <h2 class="lede">
+                                Total post-opening grant
+                                <p class="heading-large heading-funding-summary">£0</p>
+                            </h2>
+                        </div>
+                    
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8 first-element-in-tab last-table-below-tab">
+                        <p>Your academy has built up pupil numbers to capacity. You will no longer receive the <a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#post-opening-grant" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">post-opening grant</a>.</p>
+                    </div>
+
+                </section>
+                <!-- Post-opening grant - (END) -->
+
             </div>
 
             <div class="form-block">
@@ -273,7 +273,7 @@
             <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
             <!-- reloads (an incremented number each time the page is loaded) -->
             <span id="reloads" style="display: none;">{{reloads}}</span>
-            <!-- tab = postopeninggrant, highneeds -->
+            <!-- tab = highneeds, postopeninggrant -->
             <span id="tab" style="display: none;">{{tab}}</span>
         </div>
 

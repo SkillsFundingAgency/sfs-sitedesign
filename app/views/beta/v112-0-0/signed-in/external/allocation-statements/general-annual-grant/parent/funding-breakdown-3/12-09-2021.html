@@ -43,12 +43,30 @@
                 <h2 class="heading-large govuk-!-margin-bottom-6">{{organisationName}} (URN: 790647)</h2>
             </div>
 
-            <div class="form-group">
+            {% if scenario == 'alternate' %}
+            <div class="form-block">
                 <h2 class="lede">
                     Total allocation
                     <p class="heading-large heading-funding-summary">£413,390.84</p>
                 </h2>
             </div>
+
+            <div class="govuk-!-margin-bottom-8">
+
+                <div class="panel panel-border-wide">
+                    <p>Opening date: 1 September 2021</p>
+                    <p>Days open: 365</p>
+                </div>
+
+            </div>
+            {% else %}
+            <div class="form-group">
+                <h2 class="lede">
+                    Total allocation (based on being open 365 days this academic year)
+                    <p class="heading-large heading-funding-summary">£413,390.84</p>
+                </h2>
+            </div>
+            {% endif %}
 
             <div class="form-group">
                         
