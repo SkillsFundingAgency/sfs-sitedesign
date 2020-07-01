@@ -72,6 +72,14 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', function (req, res) {
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'term1' : 'True'
+		});
+	});
 
 	// Find a school or academy
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', function (req, res) {
