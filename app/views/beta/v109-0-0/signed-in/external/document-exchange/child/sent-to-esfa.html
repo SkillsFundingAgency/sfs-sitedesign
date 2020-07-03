@@ -70,13 +70,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case audit evidence return ({% if documentSent2 == 'Yes' %}2{% else %}1{% endif %})
+                                                        Business case audit evidence return
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        Business case template ({% if documentSent1 == 'Yes' %}3{% else %}2{% endif %})
+                                                        Business case template
                                                     </label>
                                                 </li>
                                             </ul>
@@ -105,13 +105,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if documentSent2 == 'Yes' %}3{% elif documentSent1 == 'Yes' %}2{% else %}1{% endif %})
+                                                        2018 to 2019
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 (2)
+                                                        2017 to 2018
                                                     </label>
                                                 </li>
                                             </ul>
@@ -140,7 +140,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} of {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} of {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} documents</span>
                         </div>
 
                         {% if noFilterResults %}
@@ -178,9 +178,9 @@
                             {% elif page3 %}
 
                             {% endif %}
-                            <!-- {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} RESULTS -->
+                            <!-- {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} RESULTS -->
                             {% else %}
-                            <!-- SHOWING 1 TO {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} OF {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} DOCUMENTS -->
+                            <!-- SHOWING 1 TO {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} OF {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} DOCUMENTS -->
                             <tbody>
                                 {% if documentSent2 == 'Yes' %}
                                 <tr>
@@ -197,33 +197,40 @@
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
-                                            2018 to 2019
+                                        2018 to 2019
                                     </td>
                                 </tr>
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" target="_blank" title="Open Business case template (2018-2019) v2.xlsx (opens in a new tab)">Business case template (2018-2019) v2.xlsx</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by B Shoggins at 11:17am on 14 March 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" target="_blank" title="Open Business case template (2018-2019).xlsx (opens in a new tab)">Business case template (2018-2019).xlsx</a>
-                                        <br>
-                                        Sent by D Pipe at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" target="_blank" title="Open Business case template (2018-2019).xlsx (opens in a new tab)">Business case template (2018-2019).xlsx</a>
+                                                    <br>
+                                                    Sent by D Pipe at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>
                                     </td>
                                     <td class="02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -235,26 +242,33 @@
                                     <td style="vertical-align: top;">
                                         <a href="#" target="_blank" title="Open Business case template (2018-2019) v2.xlsx (opens in a new tab)">Business case template (2018-2019) v2.xlsx</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by B Shoggins at 11:17am on 14 March 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" target="_blank" title="Open Business case template (2018-2019).xlsx (opens in a new tab)">Business case template (2018-2019).xlsx</a>
-                                        <br>
-                                        Sent by D Pipe at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" target="_blank" title="Open Business case template (2018-2019).xlsx (opens in a new tab)">Business case template (2018-2019).xlsx</a>
+                                                    <br>
+                                                    Sent by D Pipe at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>
                                     </td>
                                     <td class="02" rel="02" style="vertical-align: top;">
                                         Business case template
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -317,12 +331,13 @@
                             </tbody>
                             {% endif %}
                         </table>
+
                     </fieldset>
 
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} of {% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %} documents
+                            Showing 1 to {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} of {% if documentSent2 == 'Yes' %}4{% else %}3{% endif %} documents
                         </div>
         
                     </div>
@@ -353,25 +368,25 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case ({% if documentSent1 == 'Yes' %}3{% else %}2{% endif %})
+                                                        Business case
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        Business case audit evidence (2)
+                                                        Business case audit evidence
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
                                                     <label class="block" for="queryFilterDocumentType03">
-                                                        Financial report (1)
+                                                        Financial report
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
                                                     <label class="block" for="queryFilterDocumentType04">
-                                                        Infrastructure template (1)
+                                                        Infrastructure template
                                                     </label>
                                                 </li>
                                             </ul>
@@ -400,13 +415,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if documentSent1 == 'Yes' %}3{% else %}2{% endif %})
+                                                        2018 to 2019
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 (4)
+                                                        2017 to 2018
                                                     </label>
                                                 </li>
                                             </ul>
@@ -435,7 +450,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} of {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to 6 of 6 documents</span>
                         </div>
 
                         {% if noFilterResults %}
@@ -473,34 +488,42 @@
                             {% elif page3 %}
 
                             {% endif %}
-                            <!-- {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} RESULTS -->
+                            <!-- 6 RESULTS -->
                             {% else %}
-                            <!-- SHOWING 1 TO {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} OF {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} DOCUMENTS -->
+                            <!-- SHOWING 1 TO 6 OF 6 DOCUMENTS -->
                             <tbody>
                                 {% if documentSent1 == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" target="_blank" title="Open Business case (2018-2019) v2.xlsx (opens in a new tab)">Business case (2018-2019) v2.xlsx</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by J Jones at 11:17am on 14 March 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" target="_blank" title="Open Business case (2018-2019).xlsx (opens in a new tab)">Business case (2018-2019).xlsx</a>
-                                        <br>
-                                        Sent by L Smith at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" target="_blank" title="Open Business case (2018-2019).xlsx (opens in a new tab)">Business case (2018-2019).xlsx</a>
+                                                    <br>
+                                                    Sent by L Smith at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>                                        
                                     </td>
                                     <td class="01" rel="01" style="vertical-align: top;">
                                         Business case
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -581,7 +604,7 @@
                                     <td style="vertical-align: top;">
                                         <a href="#" target="_blank" title="Open Business Case (2017-2018).xlsx (opens in a new tab)">Business Case (2017-2018).xlsx</a>
                                         <br>
-                                        Sent by J Jones at 3:03am on 5 October 2017
+                                        Sent by J Jones at 3:47am on 5 October 2017
                                     </td>
                                     <td class="01" rel="01" style="vertical-align: top;">
                                         Business case
@@ -599,12 +622,38 @@
                                         <a href="#" target="_blank" title="Open Business case audit evidence.pdf (opens in a new tab)">Business case audit evidence.pdf</a>
                                         <br>
                                         Sent by I Longbottom at 3:09am on 5 October 2017
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div id="version2" class="documentVersionStandard">
+                                                    Version 2:
+                                                    <br>
+                                                    <a href="#" target="_blank" title="Open Business case audit evidence.pdf (opens in a new tab)">Business case audit evidence.pdf</a>
+                                                    <br>
+                                                    Sent by J Jones at 10:09am on 5 October 2017
+                                                </div>
+
+                                                <div id="version1" class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" target="_blank" title="Open Business case audit evidence.pdf (opens in a new tab)">Business case audit evidence.pdf</a>
+                                                    <br>
+                                                    Sent by J Jones at 4:31pm on 3 October 2017
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>
                                     </td>
                                     <td class="02" rel="02" style="vertical-align: top;">
                                         Business case audit evidence
                                     </td>
                                     <td style="vertical-align: top;">
-                                        1
+                                        3
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2017-2018" rel="2017-2018">
@@ -637,7 +686,7 @@
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} of {% if documentSent1 == 'Yes' %}7{% else %}6{% endif %} documents
+                            Showing 1 to 6 of 6 documents
                         </div>
         
                     </div>

@@ -38,7 +38,7 @@
                 {% else %}
                 <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
                 <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
-                    <h2 id="filter-results-updated" class="pager-summary">{% if parent == 'MAT' %}Results updated, now showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents{% elif parent == 'LA' %}Results updated, now showing 1 to {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} documents{% else %}Results updated, now showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents{% endif %}</h2>
+                    <h2 id="filter-results-updated" class="pager-summary">{% if parent == 'MAT' %}Results updated, now showing 1 to {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} documents{% elif parent == 'LA' %}Results updated, now showing 1 to {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} documents{% else %}Results updated, now showing 1 to {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} documents{% endif %}</h2>
                 </div>
     
                 <div class="form-group">
@@ -69,25 +69,25 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
                                                     <label class="block" for="queryFilterOrganisationChild01">
-                                                        Frog Field Academy (1)
+                                                        Frog Field Academy
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
                                                     <label class="block" for="queryFilterOrganisationChild02">
-                                                        Mole Catch Academy ({% if documentSent1 == 'Yes' %}2{% else %}1{% endif %})
+                                                        Mole Catch Academy
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
                                                     <label class="block" for="queryFilterOrganisationParent">
-                                                        Rupert Shoggins Academy Trust ({% if documentSent1 == 'Yes' %}5{% else %}4{% endif %})
+                                                        Rupert Shoggins Academy Trust
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
                                                     <label class="block" for="queryFilterOrganisationChild03">
-                                                        Ryckborst Academy of Justice (1)
+                                                        Ryckborst Academy of Justice
                                                     </label>
                                                 </li>
                                             </ul>
@@ -116,13 +116,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case (2)
+                                                        Business case
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        RPA certificate ({% if documentSent1 == 'Yes' %}7{% else %}5{% endif %})
+                                                        RPA certificate
                                                     </label>
                                                 </li>
                                             </ul>
@@ -151,13 +151,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if documentSent1 == 'Yes' %}4{% else %}2{% endif %})
+                                                        2018 to 2019
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 (5)
+                                                        2017 to 2018
                                                     </label>
                                                 </li>
                                             </ul>
@@ -186,7 +186,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} documents</span>
                         </div>
 
                         {% if noFilterResults %}
@@ -227,23 +227,36 @@
                             {% elif page3 %}
 
                             {% endif %}
-                            <!-- {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
+                            <!-- {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} RESULTS -->
                             {% else %}
-                            <!-- SHOWING 1 TO {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} OF {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} DOCUMENTS -->
+                            <!-- SHOWING 1 TO {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} OF {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} DOCUMENTS -->
                             <tbody>
                                 {% if documentSent1 == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Open RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf (opens in a new tab)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by J Jones at 9:52am on 27 February 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" title="Open RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf (opens in a new tab)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
-                                        <br>
-                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" title="Open RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf (opens in a new tab)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
+                                                    <br>
+                                                    Sent by J Jones at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>                                        
                                     </td>
                                     <td class="Parent" rel="Parent" style="vertical-align: top;">
                                         Rupert Shoggins Academy Trust
@@ -253,13 +266,6 @@
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -451,12 +457,13 @@
                             </tbody>
                             {% endif %}
                         </table>
+
                     </fieldset>
 
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents
+                            Showing 1 to {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} documents
                         </div>
         
                     </div>
@@ -488,25 +495,25 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
                                                     <label class="block" for="queryFilterOrganisationChild01">
-                                                        Foxford School (1)
+                                                        Foxford School
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
                                                     <label class="block" for="queryFilterOrganisationChild02">
-                                                        Sir Frank Whittle School (1)
+                                                        Sir Frank Whittle School
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationParent01" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
                                                     <label class="block" for="queryFilterOrganisationParent01">
-                                                        Redhill Council ({% if documentSent2 == 'Yes' %}7{% elif documentSent1 == 'Yes' %}6{% else %}5{% endif %})
+                                                        Redhill Council
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
                                                     <label class="block" for="queryFilterOrganisationChild03">
-                                                        Tudor Grange School (1)
+                                                        Tudor Grange School
                                                     </label>
                                                 </li>
                                             </ul>
@@ -535,31 +542,31 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case template (4)
+                                                        Business case template
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        CFO 16 to 19 LA grant assurance (1)
+                                                        CFO 16 to 19 LA grant assurance
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
                                                     <label class="block" for="queryFilterDocumentType03">
-                                                        Data sharing protocol ({% if documentSent1 == 'Yes' %}2{% else %}1{% endif %})
+                                                        Data sharing protocol
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
                                                     <label class="block" for="queryFilterDocumentType04">
-                                                        DSG CFO statement of assurance (1)
+                                                        DSG CFO statement of assurance
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
                                                     <label class="block" for="queryFilterDocumentType05">
-                                                        Infrastructure template ({% if documentSent2 == 'Yes' %}2{% else %}1{% endif %})
+                                                        Infrastructure template
                                                     </label>
                                                 </li>
                                             </ul>
@@ -588,13 +595,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if documentSent2 == 'Yes' %}5{% elif documentSent1 == 'Yes' %}4{% else %}3{% endif %})
+                                                        2018 to 2019
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 (5)
+                                                        2017 to 2018
                                                     </label>
                                                 </li>
                                             </ul>
@@ -623,7 +630,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} documents</span>
                         </div>
 
                         {% if noFilterResults %}
@@ -664,9 +671,9 @@
                             {% elif page3 %}
 
                             {% endif %}
-                            <!-- {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} RESULTS -->
+                            <!-- {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} RESULTS -->
                             {% else %}
-                            <!-- SHOWING 1 TO {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} OF {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} DOCUMENTS -->
+                            <!-- SHOWING 1 TO {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} OF {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} DOCUMENTS -->
                             <tbody>
                                 {% if documentSent2 == 'Yes' %}
                                 <tr>
@@ -693,14 +700,27 @@
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Open Data Sharing Protocol (2018-2019) v2.xlsx (opens in a new tab)">Data Sharing Protocol (2018-2019) v2.xlsx</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by B Shoggins at 9:52am on 14 March 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" title="Open Data Sharing Protocol (2018-2019).xlsx (opens in a new tab)">Data Sharing Protocol (2018-2019).xlsx</a>
-                                        <br>
-                                        Sent by B Shoggins at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" title="Open Data Sharing Protocol (2018-2019).xlsx (opens in a new tab)">Data Sharing Protocol (2018-2019).xlsx</a>
+                                                    <br>
+                                                    Sent by B Shoggins at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>
                                     </td>
                                     <td class="Parent" rel="Parent" style="vertical-align: top;">
                                         Redhill Council
@@ -710,13 +730,6 @@
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -768,14 +781,27 @@
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Open Data Sharing Protocol (2018-2019) v2.xlsx (opens in a new tab)">Data Sharing Protocol (2018-2019) v2.xlsx</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by B Shoggins at 9:52am on 14 March 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" title="Open Data Sharing Protocol (2018-2019).xlsx (opens in a new tab)">Data Sharing Protocol (2018-2019).xlsx</a>
-                                        <br>
-                                        Sent by B Shoggins at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" title="Open Data Sharing Protocol (2018-2019).xlsx (opens in a new tab)">Data Sharing Protocol (2018-2019).xlsx</a>
+                                                    <br>
+                                                    Sent by B Shoggins at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>
                                     </td>
                                     <td class="Parent" rel="Parent" style="vertical-align: top;">
                                         Redhill Council
@@ -785,13 +811,6 @@
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -1003,12 +1022,13 @@
                             </tbody>
                             {% endif %}
                         </table>
+
                     </fieldset>
 
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}10{% elif documentSent1 == 'Yes' %}9{% else %}8{% endif %} documents
+                            Showing 1 to {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} of {% if documentSent2 == 'Yes' %}9{% else %}8{% endif %} documents
                         </div>
         
                     </div>
@@ -1039,25 +1059,25 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
                                                     <label class="block" for="queryFilterOrganisationChild01">
-                                                        Frog Field Academy (1)
+                                                        Frog Field Academy
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
                                                     <label class="block" for="queryFilterOrganisationChild02">
-                                                        Mole Catch Academy ({% if documentSent1 == 'Yes' %}2{% else %}1{% endif %})
+                                                        Mole Catch Academy
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationParent" rel="Parent" name="queryFilterOrganisation" type="checkbox" value="Parent">
                                                     <label class="block" for="queryFilterOrganisationParent">
-                                                        Rupert Shoggins Academy Trust ({% if documentSent1 == 'Yes' %}5{% else %}4{% endif %})
+                                                        Rupert Shoggins Academy Trust
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
                                                     <label class="block" for="queryFilterOrganisationChild03">
-                                                        Ryckborst Academy of Justice (1)
+                                                        Ryckborst Academy of Justice
                                                     </label>
                                                 </li>
                                             </ul>
@@ -1086,13 +1106,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
                                                     <label class="block" for="queryFilterDocumentType01">
-                                                        Business case (2)
+                                                        Business case
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
                                                     <label class="block" for="queryFilterDocumentType02">
-                                                        RPA certificate ({% if documentSent1 == 'Yes' %}7{% else %}5{% endif %})
+                                                        RPA certificate
                                                     </label>
                                                 </li>
                                             </ul>
@@ -1121,13 +1141,13 @@
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
                                                     <label class="block" for="queryFilterAcademicYear20182019">
-                                                        2018 to 2019 ({% if documentSent1 == 'Yes' %}4{% else %}2{% endif %})
+                                                        2018 to 2019
                                                     </label>
                                                 </li>
                                                 <li class="gds-multiple-choice multiple-choice myesf-filter">
                                                     <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
                                                     <label class="block" for="queryFilterAcademicYear20172018">
-                                                        2017 to 2018 (5)
+                                                        2017 to 2018
                                                     </label>
                                                 </li>
                                             </ul>
@@ -1156,7 +1176,7 @@
                         <legend id="document-list" class="visuallyhidden">List of documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></legend>
 
                         <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
-                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents</span>
+                            <span id="filter-results" class="pager-summary">Showing 1 to {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} documents</span>
                         </div>
 
                         {% if noFilterResults %}
@@ -1197,23 +1217,36 @@
                             {% elif page3 %}
 
                             {% endif %}
-                            <!-- {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} RESULTS -->
+                            <!-- {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} RESULTS -->
                             {% else %}
-                            <!-- SHOWING 1 TO {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} OF {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} DOCUMENTS -->
+                            <!-- SHOWING 1 TO {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} OF {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} DOCUMENTS -->
                             <tbody>
                                 {% if documentSent1 == 'Yes' %}
                                 <tr>
                                     <td style="vertical-align: top;">
                                         <a href="#" title="Open RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf (opens in a new tab)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019 (v2).pdf</a>
                                         <br>
-                                        <strong class="govuk-tag">UPDATED</strong>
+                                        <strong class="govuk-tag govuk-bgred">UPDATED</strong>
                                         <br>
                                         Sent by J Jones at 9:52am on 27 February 2019
-                                        <br>
-                                        <br>
-                                        <a href="#" title="Open RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf (opens in a new tab)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
-                                        <br>
-                                        Sent by J Jones at 5:44pm on 23 September 2018
+                                        <details>
+                                            <summary>
+                                                <span class="summary">Previous versions</span>
+                                            </summary>
+                                            
+                                            <div class="panel panel-border-narrow">
+                                                
+                                                <div class="documentVersionFinal">
+                                                    Version 1:
+                                                    <br>
+                                                    <a href="#" title="Open RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf (opens in a new tab)">RPA certificate (Rupert Shoggins Academy Trust) for 2018-2019.pdf</a>
+                                                    <br>
+                                                    Sent by J Jones at 5:44pm on 23 September 2018
+                                                </div>
+
+                                            </div>
+                    
+                                        </details>
                                     </td>
                                     <td class="Parent" rel="Parent" style="vertical-align: top;">
                                         Rupert Shoggins Academy Trust
@@ -1223,13 +1256,6 @@
                                     </td>
                                     <td style="vertical-align: top;">
                                         2
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        <br>
-                                        1
                                     </td>
                                     <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
                                     <td style="display: none;" class="2018-2019" rel="2018-2019">
@@ -1421,12 +1447,13 @@
                             </tbody>
                             {% endif %}
                         </table>
+                        
                     </fieldset>
 
                     <div class="pager">
         
                         <div class="pager-summary">
-                            Showing 1 to {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}9{% else %}7{% endif %} documents
+                            Showing 1 to {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} of {% if documentSent1 == 'Yes' %}8{% else %}7{% endif %} documents
                         </div>
         
                     </div>
