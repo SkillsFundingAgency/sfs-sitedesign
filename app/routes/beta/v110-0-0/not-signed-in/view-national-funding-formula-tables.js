@@ -72,14 +72,7 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'term1' : 'True'
-		});
-	});
+
 
 	// Find a school or academy
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', function (req, res) {
@@ -164,6 +157,7 @@ module.exports = function(router) {
 		}
 			
 	});
+	
 
 	// Did you mean (e.g. when there are multiple search results)
 	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', function (req, res) {			
@@ -242,6 +236,7 @@ module.exports = function(router) {
 			'term4' : dynamicTerm4
 		});
 	});
+	
 
 	// Scenario B: School with only current NFF funding values (no previous)
 	// DEFAULT
@@ -499,5 +494,144 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
+
+// CHILD VIEW //
+
+
+router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', function (req, res) {
+	res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'term1' : 'True'
+	});
+});
+
+router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys_child', function (req, res) {			
+		
+	searchScope = req.session.searchScope;
+	var dynamicTerm1;
+	var dynamicTerm2;
+	var dynamicTerm3;
+	var dynamicTerm4;
+
+	if (searchScope == "Primary") {
+		dynamicTerm1 = "True";
+		dynamicTerm2 = "False";
+		dynamicTerm3 = "False";
+		dynamicTerm4 = "False";
+	}
+	else if (searchScope == "LA") {
+		dynamicTerm1 = "True";
+		dynamicTerm2 = "True";
+		dynamicTerm3 = "True";
+		dynamicTerm4 = "True";
+	}
+	else {
+		dynamicTerm1 = "True";
+		dynamicTerm2 = "False";
+		dynamicTerm3 = "False";
+		dynamicTerm4 = "False";
+	}
+
+	res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys_child', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'choice' : req.session.choice,
+		'searchScope' : req.session.searchScope,
+		'didYouMean' : req.session.didYouMean,
+		'toggleVersion' : req.query.toggleVersion,
+		'term1' : dynamicTerm1,
+		'term2' : dynamicTerm2,
+		'term3' : dynamicTerm3,
+		'term4' : dynamicTerm4
+	});
+});
+
+router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation_child', function (req, res) {
+	res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation_child', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'error' : req.query.error
+	});
+});
+
+router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation_child', function (req, res) {		
+		
+	var choice = req.body.choice;
+	req.session.choice = choice;
+	var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
+	// Reset an error validation variable before user returns to this page
+	req.session.radio = "";
+	// Added so we can see an error page (search term which returns zero results)
+	if (schoolOrAcademy == "green oak primary") {				
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
+	}
+	// Skips the did you mean page and finds a direct match for "St Mary's Kilburn Church of England Primary School"
+	else if (schoolOrAcademy == "2023517" || schoolOrAcademy == "st mary's kilburn church of england primary school" || schoolOrAcademy == "st mary's kilburn church of england primary school (camden) - 100042/2023517") {
+		
+		req.session.searchScope = "St marys";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys_child');
+	}
+	
+	// Show the error validation if a user enters a blank search term (e.g. "")
+	else if (schoolOrAcademy == "") {
+		
+		req.session.radio = "Radio 1";
+		
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation_child?error=true&error1=true');
+	}
+	// Skips the did you mean page and finds a direct match "Hackwood primary"
+	else if (schoolOrAcademy == "hackwood") {
+		
+		req.session.searchScope = "Hackwood";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood');
+	}
+	// Skips the did you mean page and finds a direct match "Hackwood primary"
+	else if (schoolOrAcademy == "hackwood wild card") {
+		
+		req.session.searchScope = "Hackwood wild card";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card');
+	}
+	// Skips the did you mean page and finds a direct match "Hackwood primary"
+	else if (schoolOrAcademy == "st marys wild card") {
+		
+		req.session.searchScope = "St marys wild card";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card');
+	}
+	// Show the did you mean page for anything else
+	else if (schoolOrAcademy.indexOf('-') > -1) {
+		
+		req.session.searchScope = "St marys";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys_child?input=' + schoolOrAcademy);
+	}
+	else {
+
+		req.session.searchScope = "Primary";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "Yes";
+
+		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?input=' + schoolOrAcademy);
+	}
+		
+});
+
 
 }
