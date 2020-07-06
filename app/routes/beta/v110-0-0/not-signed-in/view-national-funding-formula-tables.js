@@ -236,6 +236,47 @@ module.exports = function(router) {
 			'term4' : dynamicTerm4
 		});
 	});
+	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys_nofunding', function (req, res) {			
+		
+		searchScope = req.session.searchScope;
+		var dynamicTerm1;
+		var dynamicTerm2;
+		var dynamicTerm3;
+		var dynamicTerm4;
+
+		if (searchScope == "Primary") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		else if (searchScope == "LA") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "True";
+			dynamicTerm3 = "True";
+			dynamicTerm4 = "True";
+		}
+		else {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		
+		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys_nofunding', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion,
+			'term1' : dynamicTerm1,
+			'term2' : dynamicTerm2,
+			'term3' : dynamicTerm3,
+			'term4' : dynamicTerm4
+		});
+	});
 	
 
 	// Scenario B: School with only current NFF funding values (no previous)
