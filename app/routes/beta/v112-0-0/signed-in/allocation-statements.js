@@ -101,11 +101,13 @@ module.exports = function(router) {
 		});
 	});
 	router.post('/' + version + '/signed-in/external/allocation-statements/adults/child/dfe-sign-in/sign-in', function (req, res) {		
-		
+
 		req.session.username = req.body.username.toLowerCase();
 		var username = req.session.username;
 		req.session.password = req.body.password.toLowerCase();
 		var password = req.session.password;
+		req.session.idams = "SAT";
+		req.session.organisationName = "Mole Catch Academy";
 		
 		// Make sure the user enters a username and password
 		if (username == "" || password == "") {				
@@ -116,6 +118,7 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "False";
 			req.session.noApprenticeshipServicePage = "False";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
@@ -126,6 +129,17 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "True";
+			req.session.hybrid = "False";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
+		}
+		// TEMPORARY (MYESF feature switch in live)
+		// Show the MYESF team the design for the hybrid old (e.g. adults) vs new (e.g. GAG) allocation statements feature
+		else if (username == "hybrid") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.hybrid = "True";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
@@ -134,6 +148,7 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');	
 		}
@@ -143,10 +158,16 @@ module.exports = function(router) {
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard', function (req, res) {
 	
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.noApprenticeshipServicePage = req.session.noApprenticeshipServicePage || "False";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+
 		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
 		if (req.session.hasValidRoles == "False") {
 			
-			req.session.idams = "adults";
+			req.session.dashboard = "No";
 			
 			res.render(version + '/error-pages/access-denied', {
 				'version' : version,
@@ -159,15 +180,20 @@ module.exports = function(router) {
 		// Take users to the standard dashbord
 		else {
 
-			req.session.idams = "dashboard";
+			req.session.dashboard = "Yes";
+			// Only set the session variable if it does not exist
+			req.session.idams = req.session.idams || "SAT";
 
 			res.render(version + '/signed-in/external/allocation-statements/adults/dashboard', {
 				'version' : version,
 				'versioning' : req.session.versioning,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
 				'idams' : req.session.idams,
-				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
+				'tagType' : req.query.tagType,
+				'hybrid' : req.session.hybrid
 			});
 		}
 		
@@ -175,11 +201,17 @@ module.exports = function(router) {
 
 	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/access-denied', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		
 		res.render(version + '/error-pages/access-denied', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams
 		});
 	});
@@ -189,115 +221,199 @@ module.exports = function(router) {
 	// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/no-apprenticeship-service', function (req, res) {
 		
-		req.session.idams = "adults";
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
 		
 		res.render(version + '/error-pages/no-apprenticeship-service', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams
 		});
+	});
+
+	// TEMPORARY (MYESF feature switch in live)
+	// Which feature
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/which-feature', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/adults/which-feature', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/signed-in/external/allocation-statements/adults/child/which-feature', function (req, res) {		
+
+		req.session.feature = req.body.feature;
+		var feature = req.session.feature;
+
+		// Send the user to the OLD (e.g. adults) MYESF feature
+		if (feature == "Adults") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statements');
+		}
+		// Send the user to the NEW (e.g. GAG) MYESF feature
+		else if (feature == "Pre-16") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statements');
+		}
+		// Make sure the user enters a choice
+		else {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/which-feature?error=true');
+		}
+		
 	});
 
 	// Allocation statements
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statements', function (req, res) {
 
-		req.session.idams = "adults";
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/allocation-statements', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'noFilterResults' : req.query.noFilterResults
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
 	// 16 to 18 traineeships for 2018 to 2019
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', function (req, res) {
 
-		req.session.idams = "adults";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
 	// Apprenticeship carry-in for 2018 to 2019
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', function (req, res) {
 
-		req.session.idams = "adults";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
 	// ESFA adult education budget 2018 to 2019 (v2)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v2', function (req, res) {
 
-		req.session.idams = "adults";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v2', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'interimDesign' : req.query.interimDesign
+			'organisationName' : req.session.organisationName,
+			'interimDesign' : req.query.interimDesign,
+			'feature' : req.session.feature
 		});
 	});
 
 	// ESFA adult education budget 2018 to 2019 (v1)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v1', function (req, res) {
 
-		req.session.idams = "adults";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/esfa-adult-education-budget-details-v1', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
-			'interimDesign' : req.query.interimDesign
+			'organisationName' : req.session.organisationName,
+			'interimDesign' : req.query.interimDesign,
+			'feature' : req.session.feature
 		});
 	});
 
 	// Advanced learner loans for 2018 to 2019 (v2)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v2', function (req, res) {
 
-		req.session.idams = "adults";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v2', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
 	// Advanced learner loans for 2018 to 2019 (v1)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v1', function (req, res) {
 
-		req.session.idams = "adults";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v1', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
-			'idams' : req.session.idams
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -346,6 +462,8 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "False";
 			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -356,6 +474,8 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "True";
+			req.session.gagVariant = "1";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -365,6 +485,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "1";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -374,6 +495,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "2";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -383,6 +505,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "3";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -392,6 +515,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "4";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -401,6 +525,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "5";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -410,6 +535,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "6";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -419,6 +545,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "7";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -428,6 +555,18 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "8";
+			req.session.hybrid = "False";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
+		}
+		// TEMPORARY (MYESF feature switch in live)
+		// Show the MYESF team the design for the hybrid old (e.g. adults) vs new (e.g. GAG) allocation statements feature
+		else if (username == "hybrid") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
+			req.session.hybrid = "True";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -437,6 +576,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "1";
+			req.session.hybrid = "False";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');	
 		}
@@ -484,6 +624,7 @@ module.exports = function(router) {
 				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
 				'gagVariant' : req.session.gagVariant,
 				'tagType' : req.query.tagType,
+				'hybrid' : req.session.hybrid
 			});
 		}
 		
@@ -525,6 +666,48 @@ module.exports = function(router) {
 		});
 	});
 
+	// TEMPORARY (MYESF feature switch in live)
+	// Which feature
+	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/which-feature', function (req, res) {
+
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.gagVariant = req.session.gagVariant || "1";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/general-annual-grant/which-feature', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'gagVariant' : req.session.gagVariant,
+			'organisationName' : req.session.organisationName,
+			'error' : req.query.error
+		});
+	});
+	router.post('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/which-feature', function (req, res) {		
+
+		req.session.feature = req.body.feature;
+		var feature = req.session.feature;
+
+		// Send the user to the OLD MYESF feature (e.g. adults)
+		if (feature == "Adults") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statements');
+		}
+		// Send the user to the NEW MYESF feature (e.g. GAG)
+		else if (feature == "Pre-16") {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statements');
+		}
+		// Make sure the user enters a choice
+		else {
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/which-feature?error=true');
+		}
+		
+	});
+	
 	// Allocation statements
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statements', function (req, res) {
 
@@ -542,7 +725,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'gagVariant' : req.session.gagVariant,
-			'organisationName' : req.session.organisationName
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -567,7 +751,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'gagVariant' : req.session.gagVariant,
-			'organisationName' : req.session.organisationName
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -633,7 +818,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -657,7 +843,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 	
@@ -681,7 +868,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -705,7 +893,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -729,7 +918,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -753,7 +943,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -777,7 +968,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -801,7 +993,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -826,7 +1019,8 @@ module.exports = function(router) {
 			'organisationName' : req.session.organisationName,
 			'reloads' : req.session.reloads,
 			'scenario' : req.query.scenario,
-			'tab' : req.session.tab
+			'tab' : req.session.tab,
+			'feature' : req.session.feature
 		});
 	});
 
@@ -875,6 +1069,7 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "False";
 			req.session.noApprenticeshipServicePage = "False";
+			req.session.gagVariant = "1";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
@@ -885,6 +1080,7 @@ module.exports = function(router) {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "True";
+			req.session.gagVariant = "1";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/parent/dashboard');
 		}
@@ -1012,7 +1208,7 @@ module.exports = function(router) {
 				'idams' : req.session.idams,
 				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
 				'gagVariant' : req.session.gagVariant,
-				'tagType' : req.query.tagType,
+				'tagType' : req.query.tagType
 			});
 		}
 		
