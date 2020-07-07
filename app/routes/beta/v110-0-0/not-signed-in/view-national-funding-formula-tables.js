@@ -38,7 +38,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation');
 		}
 		if (req.body.searchScope == "MAT"){
-			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-mat/allocation-statements');
 		}
 		if (req.body.searchScope == "LA"){
 			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements');
