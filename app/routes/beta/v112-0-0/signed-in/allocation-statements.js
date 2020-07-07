@@ -119,6 +119,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "False";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
@@ -130,6 +131,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "True";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');
 		}
@@ -149,6 +151,7 @@ module.exports = function(router) {
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/dashboard');	
 		}
@@ -265,7 +268,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statements');
 		}
 		// Send the user to the NEW (e.g. GAG) MYESF feature
-		else if (feature == "Pre-16") {
+		else if (feature == "Pre-16 and 16 to 19") {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statements');
 		}
 		// Make sure the user enters a choice
@@ -464,6 +467,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "1";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -476,6 +480,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "True";
 			req.session.gagVariant = "1";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -486,6 +491,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "1";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -496,6 +502,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "2";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -506,6 +513,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "3";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -516,6 +524,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "4";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -526,6 +535,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "5";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -536,6 +546,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "6";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -546,6 +557,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "7";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -556,6 +568,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "8";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');
 		}
@@ -577,6 +590,7 @@ module.exports = function(router) {
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.gagVariant = "1";
 			req.session.hybrid = "False";
+			req.session.feature = "";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/dashboard');	
 		}
@@ -698,7 +712,7 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statements');
 		}
 		// Send the user to the NEW MYESF feature (e.g. GAG)
-		else if (feature == "Pre-16") {
+		else if (feature == "Pre-16 and 16 to 19") {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant/child/allocation-statements');
 		}
 		// Make sure the user enters a choice
