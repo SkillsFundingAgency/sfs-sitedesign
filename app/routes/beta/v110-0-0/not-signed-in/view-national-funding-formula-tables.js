@@ -19,12 +19,12 @@ module.exports = function(router) {
 
 		return next();
 	});
-	router.get('/' + version + '/not-signed-in/search-funding', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/search-funding', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/search-funding', {
+		res.render(version + '/not-signed-in/national-funding-formula/search-funding', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -33,15 +33,15 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
-	router.post('/' + version + '/not-signed-in/search-funding', function (req, res) {		
+	router.post('/' + version + '/not-signed-in/national-funding-formula/search-funding', function (req, res) {		
 		if (req.body.searchScope == "School"){
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation');
 		}
 		if (req.body.searchScope == "MAT"){
-			res.redirect('/' + version + '/not-signed-in/national-funding-formula-mat/parent/allocation-statements');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements');
 		}
 		if (req.body.searchScope == "LA"){
-			res.redirect('/' + version + '/not-signed-in/national-funding-formula-la/parent/allocation-statements');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements');
 		}
 	});
 	/**********
@@ -51,29 +51,11 @@ module.exports = function(router) {
 
 	// Start page (MYESF)
 	// LEGACY but left in to show what it should look like
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/start', function (req, res) {		
-		res.render(version + '/start', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'nationalFundingFormula' : "true"
-		});
-	});
-	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/start', function (req, res) {		
-		res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/start');
-	});
 
 	// Start page (NFF)
 	// DEFAULT
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start', {
-			'version' : version,
-			'publicServiceName' : req.session.publicServiceName,
-			'versioning' : req.session.versioning,
-			'term1' : 'True'
-		});
-	});
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start_child', {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/start', function (req, res) {
+		res.render(version + '/not-signed-in/national-funding-formula/start', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -81,16 +63,17 @@ module.exports = function(router) {
 		});
 	});
 
+
 	// Find a school or academy
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', function (req, res) {
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation', function (req, res) {
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/find-organisation', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
 			'error' : req.query.error
 		});
 	});
-	router.post('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation', function (req, res) {		
+	router.post('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation', function (req, res) {		
 		
 		var choice = req.body.choice;
 		req.session.choice = choice;
@@ -99,7 +82,7 @@ module.exports = function(router) {
 		req.session.radio = "";
 		// Added so we can see an error page (search term which returns zero results)
 		if (schoolOrAcademy == "green oak primary") {				
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/no-results');
 		}
 		// Skips the did you mean page and finds a direct match for "St Mary's Kilburn Church of England Primary School"
 		else if (schoolOrAcademy == "2023517" || schoolOrAcademy == "st mary's kilburn church of england primary school" || schoolOrAcademy == "st mary's kilburn church of england primary school (camden) - 100042/2023517") {
@@ -108,7 +91,7 @@ module.exports = function(router) {
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown');
 		}
 		
 		// Show the error validation if a user enters a blank search term (e.g. "")
@@ -116,7 +99,7 @@ module.exports = function(router) {
 			
 			req.session.radio = "Radio 1";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/find-organisation?error=true&error1=true');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation?error=true&error1=true');
 		}
 		// Skips the did you mean page and finds a direct match "Hackwood primary"
 		else if (schoolOrAcademy == "hackwood") {
@@ -125,7 +108,7 @@ module.exports = function(router) {
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood');
 		}
 		// Skips the did you mean page and finds a direct match "Hackwood primary"
 		else if (schoolOrAcademy == "hackwood wild card") {
@@ -134,7 +117,7 @@ module.exports = function(router) {
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-wild-card');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood-wild-card');
 		}
 		// Skips the did you mean page and finds a direct match "Hackwood primary"
 		else if (schoolOrAcademy == "st marys wild card") {
@@ -143,7 +126,7 @@ module.exports = function(router) {
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-wild-card');
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown-wild-card');
 		}
 		// Show the did you mean page for anything else
 		else if (schoolOrAcademy.indexOf('-') > -1) {
@@ -152,7 +135,7 @@ module.exports = function(router) {
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "No";
 			
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys?input=' + schoolOrAcademy);
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown?input=' + schoolOrAcademy);
 		}
 		else {
 
@@ -160,13 +143,14 @@ module.exports = function(router) {
 			req.session.searchTerm = schoolOrAcademy;
 			req.session.didYouMean = "Yes";
 
-			res.redirect('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?input=' + schoolOrAcademy);
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/did-you-mean?input=' + schoolOrAcademy);
 		}
 			
 	});
+	
 
 	// Did you mean (e.g. when there are multiple search results)
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', function (req, res) {			
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/did-you-mean', function (req, res) {			
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
@@ -183,7 +167,7 @@ module.exports = function(router) {
 			req.session.searchTerm = "default";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/did-you-mean', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -201,7 +185,7 @@ module.exports = function(router) {
 
 	// Scenario A: School with both previous and current NFF funding values
 	// DEFAULT
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys', function (req, res) {			
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -228,7 +212,7 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -242,10 +226,7 @@ module.exports = function(router) {
 			'term4' : dynamicTerm4
 		});
 	});
-
-	// Scenario B: School with only current NFF funding values (no previous)
-	// DEFAULT
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood', function (req, res) {			
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_nofunding', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -272,7 +253,52 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_nofunding', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchScope' : req.session.searchScope,
+			'didYouMean' : req.session.didYouMean,
+			'toggleVersion' : req.query.toggleVersion,
+			'term1' : dynamicTerm1,
+			'term2' : dynamicTerm2,
+			'term3' : dynamicTerm3,
+			'term4' : dynamicTerm4
+		});
+	});
+	
+
+	// Scenario B: School with only current NFF funding values (no previous)
+	// DEFAULT
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood', function (req, res) {			
+		
+		searchScope = req.session.searchScope;
+		var dynamicTerm1;
+		var dynamicTerm2;
+		var dynamicTerm3;
+		var dynamicTerm4;
+
+		if (searchScope == "Primary") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		else if (searchScope == "LA") {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "True";
+			dynamicTerm3 = "True";
+			dynamicTerm4 = "True";
+		}
+		else {
+			dynamicTerm1 = "True";
+			dynamicTerm2 = "False";
+			dynamicTerm3 = "False";
+			dynamicTerm4 = "False";
+		}
+		
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -289,7 +315,7 @@ module.exports = function(router) {
 
 	// Scenario A: School with both previous and current NFF funding values
 	// LEGACY
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-option-a', function (req, res) {			
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown-option-a', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -316,7 +342,7 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 
-			res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-st-marys-option-a', {
+			res.render(version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown-option-a', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -333,7 +359,7 @@ module.exports = function(router) {
 		
 	// Scenario B: School with only current NFF funding values (no previous)
 	// LEGACY
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-option-a', function (req, res) {			
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood-option-a', function (req, res) {			
 		
 		searchScope = req.session.searchScope;
 		var dynamicTerm1;
@@ -360,7 +386,7 @@ module.exports = function(router) {
 			dynamicTerm4 = "False";
 		}
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/statement-hackwood-option-a', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood-option-a', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -382,12 +408,12 @@ module.exports = function(router) {
 	* **********/
 	
 	// Display when users enter a search term which returns zero results
-	router.get('/' + version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/no-results', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/view-national-funding-formula-tables/2020-to-2021/no-results', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-school/no-results', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -396,13 +422,13 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
-	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/dashboard', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/dashboard', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		req.session.idams = "MAT";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-mat/dashboard', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-mat/dashboard', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -411,12 +437,12 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
-	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/allocation-history', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/allocation-history', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/allocation-history', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-mat/allocation-history', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -426,12 +452,12 @@ module.exports = function(router) {
 		});
 	});
 
-	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/allocation-statements', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/allocation-statements', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/allocation-statements', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-mat/allocation-statements', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -440,12 +466,12 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
-	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/select-academy', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/select-academy', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/select-academy', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-mat/select-academy', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -454,12 +480,12 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
-	router.get('/' + version + '/not-signed-in/national-funding-formula-mat/parent/funding-breakdown/12-09-2021', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/funding-breakdown/12-09-2021', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-mat/parent/funding-breakdown/12-09-2021', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-mat/funding-breakdown/12-09-2021', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -470,12 +496,12 @@ module.exports = function(router) {
 	});
 	
 
-	router.get('/' + version + '/not-signed-in/national-funding-formula-la/parent/allocation-history', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-history', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-la/parent/allocation-history', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-history', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -485,12 +511,12 @@ module.exports = function(router) {
 		});
 	});
 
-	router.get('/' + version + '/not-signed-in/national-funding-formula-la/parent/allocation-statements', function (req, res) {
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
 		req.session.radio = "";
 		
-		res.render(version + '/not-signed-in/national-funding-formula-la/parent/allocation-statements', {
+		res.render(version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements', {
 			'version' : version,
 			'publicServiceName' : req.session.publicServiceName,
 			'versioning' : req.session.versioning,
@@ -499,5 +525,144 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
+
+// CHILD VIEW //
+
+
+router.get('/' + version + '/not-signed-in/national-funding-formula/start_child', function (req, res) {
+	res.render(version + '/not-signed-in/national-funding-formula/start_child', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'term1' : 'True'
+	});
+});
+
+router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child', function (req, res) {			
+		
+	searchScope = req.session.searchScope;
+	var dynamicTerm1;
+	var dynamicTerm2;
+	var dynamicTerm3;
+	var dynamicTerm4;
+
+	if (searchScope == "Primary") {
+		dynamicTerm1 = "True";
+		dynamicTerm2 = "False";
+		dynamicTerm3 = "False";
+		dynamicTerm4 = "False";
+	}
+	else if (searchScope == "LA") {
+		dynamicTerm1 = "True";
+		dynamicTerm2 = "True";
+		dynamicTerm3 = "True";
+		dynamicTerm4 = "True";
+	}
+	else {
+		dynamicTerm1 = "True";
+		dynamicTerm2 = "False";
+		dynamicTerm3 = "False";
+		dynamicTerm4 = "False";
+	}
+
+	res.render(version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'choice' : req.session.choice,
+		'searchScope' : req.session.searchScope,
+		'didYouMean' : req.session.didYouMean,
+		'toggleVersion' : req.query.toggleVersion,
+		'term1' : dynamicTerm1,
+		'term2' : dynamicTerm2,
+		'term3' : dynamicTerm3,
+		'term4' : dynamicTerm4
+	});
+});
+
+router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child', function (req, res) {
+	res.render(version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'error' : req.query.error
+	});
+});
+
+router.post('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child', function (req, res) {		
+		
+	var choice = req.body.choice;
+	req.session.choice = choice;
+	var schoolOrAcademy = req.body.schoolOrAcademySearch.toLowerCase();
+	// Reset an error validation variable before user returns to this page
+	req.session.radio = "";
+	// Added so we can see an error page (search term which returns zero results)
+	if (schoolOrAcademy == "green oak primary") {				
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/no-results');
+	}
+	// Skips the did you mean page and finds a direct match for "St Mary's Kilburn Church of England Primary School"
+	else if (schoolOrAcademy == "2023517" || schoolOrAcademy == "st mary's kilburn church of england primary school" || schoolOrAcademy == "st mary's kilburn church of england primary school (camden) - 100042/2023517") {
+		
+		req.session.searchScope = "St marys";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child');
+	}
+	
+	// Show the error validation if a user enters a blank search term (e.g. "")
+	else if (schoolOrAcademy == "") {
+		
+		req.session.radio = "Radio 1";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child?error=true&error1=true');
+	}
+	// Skips the did you mean page and finds a direct match "Hackwood primary"
+	else if (schoolOrAcademy == "hackwood") {
+		
+		req.session.searchScope = "Hackwood";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood');
+	}
+	// Skips the did you mean page and finds a direct match "Hackwood primary"
+	else if (schoolOrAcademy == "hackwood wild card") {
+		
+		req.session.searchScope = "Hackwood wild card";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/statement-hackwood-wild-card');
+	}
+	// Skips the did you mean page and finds a direct match "Hackwood primary"
+	else if (schoolOrAcademy == "st marys wild card") {
+		
+		req.session.searchScope = "St marys wild card";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown-wild-card');
+	}
+	// Show the did you mean page for anything else
+	else if (schoolOrAcademy.indexOf('-') > -1) {
+		
+		req.session.searchScope = "St marys";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child?input=' + schoolOrAcademy);
+	}
+	else {
+
+		req.session.searchScope = "Primary";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "Yes";
+
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/did-you-mean?input=' + schoolOrAcademy);
+	}
+		
+});
+
 
 }

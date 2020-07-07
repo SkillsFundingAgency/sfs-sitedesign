@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-National funding formula allocations 2021 to 2022   
+Find a multi-academy trust   
 {% endblock %}
 
 {% block content %}
@@ -22,9 +22,9 @@ National funding formula allocations 2021 to 2022
                 <nav>
                     <ol>
                         <li><a href="../start">Manage your education and skills funding</a></li>
-                        <li><a href="../../view-national-funding-formula-tables/2020-to-2021/start">View national funding formula (<abbr title="National funding formula">NFF</abbr>) for schools</a></li>                     
+                        <li><a href="../start">View national funding formula (<abbr title="National funding formula">NFF</abbr>) for schools</a></li>        
                         <li>
-                            <a href="../../search-funding">How do you want to search?</a>               
+                            <a href="./search-funding">How do you want to search?</a>               
                         </li> 
                         <li>
                         Find a multi-academy trust           
@@ -114,7 +114,7 @@ National funding formula allocations 2021 to 2022
                 
                             <h2 class="govuk-accordion__section-heading govuk-heading-m">
                                 <span class="govuk-accordion__section-button govuk-link govuk-link--no-visited-state"
-                                      id="transaction-summary-accordion-heading-1" style='cursor: default !important;'>Bourne Education Trust (16)</span>
+                                      id="transaction-summary-accordion-heading-1" style='cursor: default !important;'>Bourne Education Trust</span>
                             </h2>
                             
                         </div>
@@ -221,8 +221,9 @@ National funding formula allocations 2021 to 2022
 
                 <!-- COMPONENT - ACCORDION (START) -->
                 <div class="govuk-accordion" data-module="accordion" id="accordion-default" style='display: none;'>
-                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button">Export in CSV</a>
-                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button">Print</a>
+                    <p class='resultsnumber  heading-small' style='float: left;margin-top:0px!important'>16 results</p>
+                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button" style='display:inline'>Export in CSV</a>
+                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button" style='display:inline'>Print</a>
 
 
                     <div class="govuk-accordion__section sectionContent queryFilterAcademy02 queryFilterType06 queryFilterLocalAuthority01">
@@ -1965,6 +1966,7 @@ document.getElementById("MATsearchSubmit").onclick = function () {
         elem4.style.display = 'inline'
         elem5.style.display = 'none'
         $(".exportbutton").prependTo(".govuk-accordion__controls");
+        $(".resultsnumber").prependTo(".govuk-accordion__controls");
         $(".govuk-accordion__controls").css("margin-bottom", "20px");
         $(".exportbutton").css("margin-left", "10px");
     }
