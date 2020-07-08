@@ -255,6 +255,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
+			'tagTypeA' : req.query.tagTypeA,
+			'tagTypeB' : req.query.tagTypeB,
 			'error' : req.query.error
 		});
 	});
@@ -699,6 +701,8 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'gagVariant' : req.session.gagVariant,
 			'organisationName' : req.session.organisationName,
+			'tagTypeA' : req.query.tagTypeA,
+			'tagTypeB' : req.query.tagTypeB,
 			'error' : req.query.error
 		});
 	});
