@@ -422,6 +422,34 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/no-results', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula/find-mat/no-results', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/no-results', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula/find-local-authority/no-results', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
 	router.get('/' + version + '/not-signed-in/national-funding-formula/find-mat/dashboard', function (req, res) {
 		
 		// Reset an error validation variable before user returns to this page
