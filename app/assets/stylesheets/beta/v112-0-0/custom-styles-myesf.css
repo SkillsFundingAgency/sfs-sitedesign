@@ -432,93 +432,71 @@ a.dashboard-links {
 	padding: 10px 20px;
 }
 
-/* Chris Harding (07.01.19) - Filters, sorting and checkboxes */
+/* Chris Harding (09.07.20) - Filters, sorting and checkboxes */
 /* Filtering (Inline) */
 .column-filter-one-third {
 	padding: 0px 15px 0px 0px;
-}
-.minus-25px-margin-top {
-	margin-top: -25px
-}
-.filters h2 {
-	font-weight: 700;
-	font-size: 24px;
 }
 .filter {
 	border: 1px solid #dee0e2;
 	margin-bottom: 20px;
 }
-.filler legend {
-	display: none;
-}
-.filter h2 {
-	font-weight: 700;
-	font-size: 17px;
-	clear: both;
-	background: #dee0e2;
-	box-sizing: border-box;
+.filter-keyboard {
 	display: block;
 	width: 100%;
-	padding: 5px 30px 5px 10px;
-	margin: 0;
-	top: 0;
-	float: none;
-	position: relative;
+    height: 100%;
+    text-decoration: none;
 }
-@media (min-width: 741px) {
-	.filter h2  {
-		font-size: 19px;
-	}
-}
-.js-filter-collapsible .js-filter-collapsible-header h2 {
-	position: relative;
-	clear: both;
-	box-sizing: border-box;
-	display: block;
-	width: 100%;
-	padding: 5px 30px 5px 10px;
-	margin: 0;
-	top: 0;
-	float: none;
-	cursor: pointer;
-	background-image: url('/public/images/option-select-toggle-sprite.png');
-	background-repeat: no-repeat;
-	background-position: 100% -32px;
-	background-size: 32px 50px;
-	clear: both
+.filter-keyboard a {
+	text-decoration: none;
 }
 .js-filter-collapsible.js-open .js-filter-collapsible-header h2 {
-	background-position: 100% 8px;
-}
-.js-filter-collapsible.js-open .js-collapsible-hide-when-open {
-	display: none;
+	background-image: url('/public/images/beta/v112-0-0/sprite-open.png');
 }
 .js-filter-collapsible .js-filter-collapsible-header h2 {
-	color: #0b0c0c;
-	background-color: #dee0e2;
+    position: relative;
+    float: none;
+    clear: both;
+    display: block;
+    width: 100%;
+	padding: 5px 30px 5px 10px;
+	margin: 0;
+	top: 0;
+    background-image: url('/public/images/beta/v112-0-0/sprite-closed.png');
+	background-repeat: no-repeat;
+    background-position: 98% 50%;
+    background-color: #dee0e2;
+    color: #0b0c0c;
+    box-sizing: border-box;
+	cursor: pointer;
+}
+@media (min-width: 641px) {
+	.js-filter-collapsible .js-filter-collapsible-header h2 {
+		background-position: 96% 50%;
+	}
 }
 .js-filter-collapsible .js-filter-collapsible-header h2:hover {
 	color: #0b0c0c;
 	background-color: #bfc1c3;
 }
-.js-filter-collapsible-toggle {
-	float: right;
-	margin-bottom: 10px;    
+.filter h2 {
+    position: relative;
+    float: none;
+    clear: both;
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    width: 100%;
+	padding: 5px 30px 5px 10px;
+	margin: 0;
+	top: 0;
+	background: #dee0e2;
+	box-sizing: border-box;
 }
-.js-filter-collapsible-toggle li {
-	padding: 5px;
-}
-.js-filter-collapsible-content .toggled-content {
-	padding: 20px
-}
-.js-filter-collapsible-content .toggled-adult-funding-content {
-	padding-top: 20px;
-	padding-right: 20px;
-	padding-bottom: 20px;
-	padding-left: 20px;
-}
-.js-open .search-field-wrap {
-	display: block;
+@media (min-width: 741px) {
+	.filter h2  {
+		font-size: 19px;
+	}
 }
 .js-filter-collapsible-content {
 	max-height: 330px;
@@ -536,6 +514,9 @@ a.dashboard-links {
 		-webkit-box-shadow: 0 0 1px rgba(255,255,255,0.5);
 		box-shadow: 0 0 1px rgba(255,255,255,0.5);
 	}
+}
+.js-filter-collapsible-content .toggled-adult-funding-content {
+	padding: 20px;
 }
 .gds-multiple-choice [type=checkbox] + label::before {
 	width: 12px;
@@ -563,15 +544,6 @@ a.dashboard-links {
 }
 .block {
 	display: block;
-}
-.filter-keyboard {
-	display: block;
-	text-decoration: none;
-	width: 100%;
-	height: 100%;
-}
-.filter-keyboard a {
-	text-decoration: none;
 }
 /* Filtering (Stacked) */
 .column-filter-full {
@@ -723,41 +695,40 @@ button[aria-disabled="true"] {
 	width: 298px;
 }
 /* Search all available filter options (e.g. when filter results >= 25) */
+.js-open .search-field-wrap {
+	display: block;
+}
 .search-field-wrap {
 	background-color: #dee0e2;
 	display: none;
 }
 .search-field-wrap .filter-searchwithin-label {
-	background: transparent url('/public/images/beta/v105-0-0/icon-mag-glass.png') no-repeat 12px center;
-	background-size: 15px;
-	padding-left: 35px;
-	padding-right: 20px;
-	display: block;
 	position: relative;
+	display: block;
+	background: transparent url('/public/images/beta/v112-0-0/icon-mag-glass.png') no-repeat 12px center;
+	background-size: 15px;
+	padding-right: 20px;
 	padding-bottom: 10px;
+	padding-left: 35px;
 }
 .search-field-wrap .filter-searchwithin-label input.filter-search {
+	width: 100%;
+	font-size: 16px;
 	background-color: transparent;
 	border: 0;
 	border-bottom: #0b0c0c 1px solid;
-	width: 100%;
-	font-size: 16px;
-}
-input.filter-search[type="text"], input.filter-search[type="search"] {
-	min-width: 0 !important;
-	margin: 0 !important;
-	width: 250px;
 }
 input.filter-search[type="text"], input.filter-search[type="search"] {
 	font-family: "nta", Arial, sans-serif;
 	font-size: 16px;
 	line-height: 1.25;
 	font-weight: 400;
+	width: 250px;
+	min-width: 0;
+	margin: 0;
+	padding: 0.25em;
 	text-transform: none;
 	border: 1px solid #bbb;
-	min-width: 8em;
-	margin: 0 0.5em;
-	padding: 0.25em;
 }
 /* Sorting table columns */
 @media (min-width: 641px) {
@@ -1764,7 +1735,7 @@ a.card__body {
 .download-a-document {
 	display: block;
 	font-weight: 600;
-	background: url('/public/images/beta/v105-0-0/icon-file-download.png') no-repeat scroll 0 0;
+	background: url('/public/images/beta/v112-0-0/icon-file-download.png') no-repeat scroll 0 0;
 	min-height: 2.5em;
 	padding: 0 0 0 2.5em;
 }
@@ -1968,14 +1939,14 @@ dialog {
 .form-download {
 	display: block;
 	font-weight: 600;
-	background: url('/public/images/beta/v105-0-0/icon-file-download.png') no-repeat scroll 0 0;
+	background: url('/public/images/beta/v112-0-0/icon-file-download.png') no-repeat scroll 0 0;
 	min-height: 2.5em;
 	padding: 0 0 0 2.5em;
 }
 .form-download-small {
 	display: block;
 	font-weight: 400;
-	background: url('/public/images/beta/v105-0-0/icon-file-download.png') no-repeat scroll 0 0;
+	background: url('/public/images/beta/v112-0-0/icon-file-download.png') no-repeat scroll 0 0;
 	min-height: 1.25em;
 	padding: 0 0 0 1.25em;
 }
