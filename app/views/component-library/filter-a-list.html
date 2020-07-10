@@ -814,7 +814,7 @@
 			<div class="app-prose-scope">
 				<p>A way of reducing items on a page to help a user find what they are looking for, or make a comparison.</p>
 				<p>This component is not currently in the GOV.UK design system, but is on their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/113">GitHub backlog</a>.</p>
-				<p>The filter component is used across all of our services, examples can be found on <a href="/{{latestVersionDocumentExchange}}/signed-in/external/document-exchange/child/received-from-esfa"><abbr title="Manage your education and skills funding">MYESF</abbr> document exchange</a>, <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/did-you-mean?searchTerm=default">view latest funding</a> and <a href="/{{latestVersionNFF}}/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?paginationRequired=true&page1=true&searchTerm=abbey">view national funding formula for schools</a>.</p>
+				<p>The filter component is used across all of our services, examples can be found on <a href="/{{latestVersionDocumentExchange}}/signed-in/external/document-exchange/child/received-from-esfa"><abbr title="Manage your education and skills funding">MYESF</abbr> document exchange</a>, <a href="/beta/v112-0-0/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements"><abbr title="Manage your education and skills funding">MYESF</abbr> allocation statements</a> and <a href="/{{latestVersionNFF}}/not-signed-in/view-national-funding-formula-tables/2020-to-2021/did-you-mean?paginationRequired=true&page1=true&searchTerm=abbey">view national funding formula for schools</a>.</p>
 
 				<!--
 				Example CODE snippet (START) 
@@ -840,7 +840,170 @@
 				
 					<!-- HTML Code Tab (START) -->
 					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-standard-example1-html" role="tabpanel" aria-hidden="true">
-
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column-filter-one-third column-third"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-block"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>Filter by document type<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-collections"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"document-type-filter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible js-open"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterOpenDocumentType"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterOpenDocumentType"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-document-type"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-keyboard-document-type"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter-keyboard"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-document-type"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"document-type"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-header"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters-headings heading-small"</span>&gt;</span>Filter by document type<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-by-document-type"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-content"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"document-type"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"toggled-adult-funding-content group"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterDocumentType01"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterDocumentType"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"01"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterDocumentType01"</span>&gt;</span>
+                    Business case template
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterDocumentType02"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"02"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterDocumentType"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"02"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterDocumentType02"</span>&gt;</span>
+                    Business case audit evidence template
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterDocumentType03"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"03"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterDocumentType"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"03"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterDocumentType03"</span>&gt;</span>
+                    Data sharing protocol
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>Filter by academic year<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-collections"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"academic-year-filter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible js-open"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-academic-year"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-keyboard-academic-year"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter-keyboard"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-academic-year"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"academic-year"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-header"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters-headings heading-small"</span>&gt;</span>Filter by academic year<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-by-academic-year"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-content"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"academic-year"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"toggled-adult-funding-content group"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterAcademicYear20182019"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2018-2019"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2018-2019"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterAcademicYear20182019"</span>&gt;</span>
+                    2018 to 2019
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterAcademicYear20172018"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2017-2018"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2017-2018"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterAcademicYear20172018"</span>&gt;</span>
+                    2017 to 2018
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"postButton"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span>Update results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"clearAllFilters"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>Clear filters<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column-document-list-two-thirds column-two-thirds document-list"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"document-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>List of documents received from <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Education and Skills Funding Agency"</span>&gt;</span>ESFA<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"filter-results"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-results"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager-summary"</span>&gt;</span>Showing 1 to 4 of 4 documents<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>List of documents received from <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Education and Skills Funding Agency"</span>&gt;</span>ESFA<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"first"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>
+            Document name
+          <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>
+            Document type
+          <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"document1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../../../../../public/documents/document-exchange/other/businesscaseauditevidencetemplate.pdf"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open businesscaseauditevidencetemplate.pdf (opens in a new tab)"</span>&gt;</span>business<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>case<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>audit<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>evidence<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>template<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.pdf<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-tag govuk-bgred"</span>&gt;</span>NEW<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            9:20am on 14 November 2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"02"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"02"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Business case audit evidence template
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2018-2019"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2018-2019"</span>&gt;</span>
+            2018-2019
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"document2"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../../../../../public/documents/document-exchange/other/businesscasetemplate.pdf"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open businesscasetemplate.pdf (opens in a new tab)"</span>&gt;</span>business<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>case<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>template<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.pdf<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-tag govuk-bgred"</span>&gt;</span>NEW<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            9:05am on 13 November 2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Business case template
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2018-2019"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2018-2019"</span>&gt;</span>
+            2018-2019
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open businesscasetemplate.pdf (opens in a new tab)"</span>&gt;</span>business<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>case<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>template<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.pdf<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            10:13am on 1 October 2017
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Business case template
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2017-2018"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2017-2018"</span>&gt;</span>
+            2017-2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open datasharingprotocol.xlsx (opens in a new tab)"</span>&gt;</span>data<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>sharing<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>protocol<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.xlsx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            4:48am on 28 September 2017
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"03"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"03"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Data sharing protocol
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2017-2018"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2017-2018"</span>&gt;</span>
+            2017-2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager-summary"</span>&gt;</span>
+        Showing 1 to 4 of 4 documents
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 					</div>
 					<!-- HTML Code Tab (END) -->
 
@@ -850,7 +1013,135 @@
 
 					<!-- CSS Code Tab (START) -->
 					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-standard-example1-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.column-filter-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px 15px 0px 0px</span>;
+&#125;
 
+.filter &#123;
+  <span class="hljs-tag"><span class="hljs-attr">border</span></span>: <span class="hljs-string">1px solid #dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">20px</span>;
+&#125;
+
+.filter-keyboard &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">text-decoration</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">100%</span>;
+&#125;
+
+.filter-keyboard a &#123;
+  <span class="hljs-tag"><span class="hljs-attr">text-decoration</span></span>: <span class="hljs-string">none</span>;
+&#125;
+
+.js-filter-collapsible.js-open .js-filter-collapsible-header h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">background-image</span></span>: <span class="hljs-string">url('/public/images/beta/v112-0-0/sprite-open.png')</span>;
+&#125;
+
+.js-filter-collapsible .js-filter-collapsible-header h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">both</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">5px 30px 5px 10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-image</span></span>: <span class="hljs-string">url('/public/images/beta/v112-0-0/sprite-closed.png')</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-repeat</span></span>: <span class="hljs-string">no-repeat</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-position</span></span>: <span class="hljs-string">98% 50%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#0b0c0c</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">cursor</span></span>: <span class="hljs-string">pointer</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .js-filter-collapsible .js-filter-collapsible-header h2 &#123;
+    <span class="hljs-tag"><span class="hljs-attr">background-position</span></span>: <span class="hljs-string">96% 50%</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible .js-filter-collapsible-header h2:hover &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#0b0c0c</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#bfc1c3</span>;
+&#125;
+
+.filter h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">both</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">17px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">700</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">5px 30px 5px 10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .filter h2 &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">max-height</span></span>: <span class="hljs-string">330px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">overflow-x</span></span>: <span class="hljs-string">hidden</span>;
+  <span class="hljs-tag"><span class="hljs-attr">overflow-y</span></span>: <span class="hljs-string">auto</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 769px) &#123;
+  .js-filter-collapsible-content::-webkit-scrollbar &#123;
+    <span class="hljs-tag"><span class="hljs-attr">-webkit-appearance</span></span>: <span class="hljs-string">none</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">7px</span>;
+  &#125;
+  .js-filter-collapsible-content::-webkit-scrollbar-thumb &#123;
+    <span class="hljs-tag"><span class="hljs-attr">border-radius</span></span>: <span class="hljs-string">4px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">rgba(0,0,0,0.5)</span>;
+    <span class="hljs-tag"><span class="hljs-attr">-webkit-box-shadow</span></span>: <span class="hljs-string">0 0 1px rgba(255,255,255,0.5)</span>;
+    <span class="hljs-tag"><span class="hljs-attr">box-shadow</span></span>: <span class="hljs-string">0 0 1px rgba(255,255,255,0.5)</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible-content .toggled-adult-funding-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">20px</span>;
+&#125;
+
+.gds-multiple-choice [type=checkbox] + label::before &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">12px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">12px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">initial</span>;
+&#125;
+
+.gds-multiple-choice [type=checkbox] + label::after &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">8px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">3px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">border-width</span></span>: <span class="hljs-string">0 0 2px 2px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">5px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">left</span></span>: <span class="hljs-string">3px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">initial</span>;
+&#125;
+
+.gds-multiple-choice &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0 0 30px</span>;
+&#125;
+
+.myesf-filter label &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">14px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .myesf-filter label &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  &#125;
+&#125;
+
+.block &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;</code></pre>
 					</div>
 					<!-- CSS Code Tab (END) -->
 
@@ -860,7 +1151,20 @@
 
 					<!-- JavaScript Code Tab (START) -->
 					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-standard-example1-javascript" role="tabpanel" aria-hidden="true">
-						
+            
+            <div class="notice form-group">
+              <i class="icon icon-important">
+                <span class="visually-hidden">Warning</span>
+              </i>
+              <strong class="bold-small">We recommend creating or finding your own code to achieve this functionality.</strong>
+            </div>
+
+            <p>The client side scripting required to make this component work is currently being updated in the prototype (<a href="/public/javascripts/{{latestVersion}}/filters-and-checkboxes.js" title="Download filters-and-checkboxes.js" download="">filters-and-checkboxes.js</a>), to ensure that:</p>
+              <ul class="list list-bullet last-item-in-tab">
+                <li>filter sections work in combination</li>
+                <li>filters should automatically update the list of results when a filter is selected</li>
+                <li>screen readers can announce which filter has been selected and how many results are showing on the page after filtering</li>
+              </ul>
 					</div>
 					<!-- JavaScript Code Tab (END) -->
 
@@ -884,7 +1188,6 @@
 						<li>users can have and use multiple filters at once to reduce content</li>
 						<li>all filters work in combination not independently (e.g. show me all matches from selected filter types 'status' and 'organisation')</li>
 						<li>when a user selects any filter they are given accessible feedback in their browser</li>
-						<li>filter options should have an amount next to them to inform users how many items relate to this option</li>
 						<li>users must have the ability to clear all filters at once with a "clear filters" link</li>
 					</ul>
 					<h3 class="heading-medium">Standard - less than 25 filter options</h3>
@@ -915,7 +1218,170 @@
 					
 						<!-- HTML Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-standard-example2-html" role="tabpanel" aria-hidden="true">
-
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column-filter-one-third column-third"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-block"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>Filter by document type<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-collections"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"document-type-filter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible js-open"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterOpenDocumentType"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterOpenDocumentType"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-document-type"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-keyboard-document-type"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter-keyboard"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-document-type"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"document-type"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-header"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters-headings heading-small"</span>&gt;</span>Filter by document type<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-by-document-type"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-content"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"document-type"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"toggled-adult-funding-content group"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterDocumentType01"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterDocumentType"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"01"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterDocumentType01"</span>&gt;</span>
+                    Business case template
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterDocumentType02"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"02"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterDocumentType"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"02"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterDocumentType02"</span>&gt;</span>
+                    Business case audit evidence template
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterDocumentType03"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"03"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterDocumentType"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"03"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterDocumentType03"</span>&gt;</span>
+                    Data sharing protocol
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>Filter by academic year<span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-collections"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"academic-year-filter"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible js-open"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"hidden"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-academic-year"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"true"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-keyboard-academic-year"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filter-keyboard"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"true"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"filter-by-academic-year"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">header</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"academic-year"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-header"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"filters-headings heading-small"</span>&gt;</span>Filter by academic year<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">header</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-by-academic-year"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"js-filter-collapsible-content"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"academic-year"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"toggled-adult-funding-content group"</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterAcademicYear20182019"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2018-2019"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2018-2019"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterAcademicYear20182019"</span>&gt;</span>
+                    2018 to 2019
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">li</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"gds-multiple-choice multiple-choice myesf-filter"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"queryFilterAcademicYear20172018"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2017-2018"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"queryFilterAcademicYear"</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"checkbox"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"2017-2018"</span>&gt;</span>
+                  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block"</span> <span class="hljs-attr">for</span>=<span class="hljs-string">"queryFilterAcademicYear20172018"</span>&gt;</span>
+                    2017 to 2018
+                  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+              <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"postButton"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"button"</span>&gt;</span>Update results<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"clearAllFilters"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-group"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">""</span>&gt;</span>Clear filters<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column-document-list-two-thirds column-two-thirds document-list"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">fieldset</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">legend</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"document-list"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>List of documents received from <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Education and Skills Funding Agency"</span>&gt;</span>ESFA<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">legend</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"alert"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"filter-results"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"filter-results"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager-summary"</span>&gt;</span>Showing 1 to 4 of 4 documents<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"visuallyhidden"</span>&gt;</span>List of documents received from <span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Education and Skills Funding Agency"</span>&gt;</span>ESFA<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"first"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>
+            Document name
+          <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>
+            Document type
+          <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"document1"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../../../../../public/documents/document-exchange/other/businesscaseauditevidencetemplate.pdf"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open businesscaseauditevidencetemplate.pdf (opens in a new tab)"</span>&gt;</span>business<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>case<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>audit<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>evidence<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>template<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.pdf<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-tag govuk-bgred"</span>&gt;</span>NEW<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            9:20am on 14 November 2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"02"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"02"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Business case audit evidence template
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2018-2019"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2018-2019"</span>&gt;</span>
+            2018-2019
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"document2"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"../../../../../../public/documents/document-exchange/other/businesscasetemplate.pdf"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open businesscasetemplate.pdf (opens in a new tab)"</span>&gt;</span>business<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>case<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>template<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.pdf<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-tag govuk-bgred"</span>&gt;</span>NEW<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            9:05am on 13 November 2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Business case template
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2018-2019"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2018-2019"</span>&gt;</span>
+            2018-2019
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open businesscasetemplate.pdf (opens in a new tab)"</span>&gt;</span>business<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>case<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>template<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.pdf<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            10:13am on 1 October 2017
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"01"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Business case template
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2017-2018"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2017-2018"</span>&gt;</span>
+            2017-2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Open datasharingprotocol.xlsx (opens in a new tab)"</span>&gt;</span>data<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>sharing<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>protocol<span class="hljs-tag">&lt;<span class="hljs-name">wbr</span>&gt;</span>.xlsx<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+            4:48am on 28 September 2017
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"03"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"03"</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"vertical-align: top;"</span>&gt;</span>
+            Data sharing protocol
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">style</span>=<span class="hljs-string">"display: none;"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"2017-2018"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"2017-2018"</span>&gt;</span>
+            2017-2018
+          <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"pager-summary"</span>&gt;</span>
+        Showing 1 to 4 of 4 documents
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">fieldset</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
 						</div>
 						<!-- HTML Code Tab (END) -->
 
@@ -925,7 +1391,135 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-standard-example2-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.column-filter-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px 15px 0px 0px</span>;
+&#125;
 
+.filter &#123;
+  <span class="hljs-tag"><span class="hljs-attr">border</span></span>: <span class="hljs-string">1px solid #dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">20px</span>;
+&#125;
+
+.filter-keyboard &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">text-decoration</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">100%</span>;
+&#125;
+
+.filter-keyboard a &#123;
+  <span class="hljs-tag"><span class="hljs-attr">text-decoration</span></span>: <span class="hljs-string">none</span>;
+&#125;
+
+.js-filter-collapsible.js-open .js-filter-collapsible-header h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">background-image</span></span>: <span class="hljs-string">url('/public/images/beta/v112-0-0/sprite-open.png')</span>;
+&#125;
+
+.js-filter-collapsible .js-filter-collapsible-header h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">both</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">5px 30px 5px 10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-image</span></span>: <span class="hljs-string">url('/public/images/beta/v112-0-0/sprite-closed.png')</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-repeat</span></span>: <span class="hljs-string">no-repeat</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-position</span></span>: <span class="hljs-string">98% 50%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#0b0c0c</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">cursor</span></span>: <span class="hljs-string">pointer</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .js-filter-collapsible .js-filter-collapsible-header h2 &#123;
+    <span class="hljs-tag"><span class="hljs-attr">background-position</span></span>: <span class="hljs-string">96% 50%</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible .js-filter-collapsible-header h2:hover &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#0b0c0c</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#bfc1c3</span>;
+&#125;
+
+.filter h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">both</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">17px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">700</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">5px 30px 5px 10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .filter h2 &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">max-height</span></span>: <span class="hljs-string">330px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">overflow-x</span></span>: <span class="hljs-string">hidden</span>;
+  <span class="hljs-tag"><span class="hljs-attr">overflow-y</span></span>: <span class="hljs-string">auto</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 769px) &#123;
+  .js-filter-collapsible-content::-webkit-scrollbar &#123;
+    <span class="hljs-tag"><span class="hljs-attr">-webkit-appearance</span></span>: <span class="hljs-string">none</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">7px</span>;
+  &#125;
+  .js-filter-collapsible-content::-webkit-scrollbar-thumb &#123;
+    <span class="hljs-tag"><span class="hljs-attr">border-radius</span></span>: <span class="hljs-string">4px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">rgba(0,0,0,0.5)</span>;
+    <span class="hljs-tag"><span class="hljs-attr">-webkit-box-shadow</span></span>: <span class="hljs-string">0 0 1px rgba(255,255,255,0.5)</span>;
+    <span class="hljs-tag"><span class="hljs-attr">box-shadow</span></span>: <span class="hljs-string">0 0 1px rgba(255,255,255,0.5)</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible-content .toggled-adult-funding-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">20px</span>;
+&#125;
+
+.gds-multiple-choice [type=checkbox] + label::before &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">12px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">12px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">initial</span>;
+&#125;
+
+.gds-multiple-choice [type=checkbox] + label::after &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">8px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">3px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">border-width</span></span>: <span class="hljs-string">0 0 2px 2px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">5px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">left</span></span>: <span class="hljs-string">3px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">initial</span>;
+&#125;
+
+.gds-multiple-choice &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0 0 30px</span>;
+&#125;
+
+.myesf-filter label &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">14px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .myesf-filter label &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  &#125;
+&#125;
+
+.block &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;</code></pre>
 						</div>
 						<!-- CSS Code Tab (END) -->
 
@@ -935,7 +1529,20 @@
 
 						<!-- JavaScript Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-standard-example2-javascript" role="tabpanel" aria-hidden="true">
-							
+              
+              <div class="notice form-group">
+                <i class="icon icon-important">
+                  <span class="visually-hidden">Warning</span>
+                </i>
+                <strong class="bold-small">We recommend creating or finding your own code to achieve this functionality.</strong>
+              </div>
+  
+              <p>The client side scripting required to make this component work is currently being updated in the prototype (<a href="/public/javascripts/{{latestVersion}}/filters-and-checkboxes.js" title="Download filters-and-checkboxes.js" download="">filters-and-checkboxes.js</a>), to ensure that:</p>
+                <ul class="list list-bullet last-item-in-tab">
+                  <li>filter sections work in combination</li>
+                  <li>filters should automatically update the list of results when a filter is selected</li>
+                  <li>screen readers can announce which filter has been selected and how many results are showing on the page after filtering</li>
+                </ul>
 						</div>
 						<!-- JavaScript Code Tab (END) -->
 
@@ -982,7 +1589,175 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-searchable-example-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.column-filter-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px 15px 0px 0px</span>;
+&#125;
 
+.filter &#123;
+  <span class="hljs-tag"><span class="hljs-attr">border</span></span>: <span class="hljs-string">1px solid #dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">20px</span>;
+&#125;
+
+.filter-keyboard &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">text-decoration</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">100%</span>;
+&#125;
+
+.filter-keyboard a &#123;
+  <span class="hljs-tag"><span class="hljs-attr">text-decoration</span></span>: <span class="hljs-string">none</span>;
+&#125;
+
+.js-filter-collapsible.js-open .js-filter-collapsible-header h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">background-image</span></span>: <span class="hljs-string">url('/public/images/beta/v112-0-0/sprite-open.png')</span>;
+&#125;
+
+.js-filter-collapsible .js-filter-collapsible-header h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">both</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">5px 30px 5px 10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-image</span></span>: <span class="hljs-string">url('/public/images/beta/v112-0-0/sprite-closed.png')</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-repeat</span></span>: <span class="hljs-string">no-repeat</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-position</span></span>: <span class="hljs-string">98% 50%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#0b0c0c</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">cursor</span></span>: <span class="hljs-string">pointer</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .js-filter-collapsible .js-filter-collapsible-header h2 &#123;
+    <span class="hljs-tag"><span class="hljs-attr">background-position</span></span>: <span class="hljs-string">96% 50%</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible .js-filter-collapsible-header h2:hover &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#0b0c0c</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#bfc1c3</span>;
+&#125;
+
+.filter h2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">both</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">17px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">700</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">5px 30px 5px 10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .filter h2 &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">max-height</span></span>: <span class="hljs-string">330px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">overflow-x</span></span>: <span class="hljs-string">hidden</span>;
+  <span class="hljs-tag"><span class="hljs-attr">overflow-y</span></span>: <span class="hljs-string">auto</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 769px) &#123;
+  .js-filter-collapsible-content::-webkit-scrollbar &#123;
+    <span class="hljs-tag"><span class="hljs-attr">-webkit-appearance</span></span>: <span class="hljs-string">none</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">7px</span>;
+  &#125;
+  .js-filter-collapsible-content::-webkit-scrollbar-thumb &#123;
+    <span class="hljs-tag"><span class="hljs-attr">border-radius</span></span>: <span class="hljs-string">4px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">rgba(0,0,0,0.5)</span>;
+    <span class="hljs-tag"><span class="hljs-attr">-webkit-box-shadow</span></span>: <span class="hljs-string">0 0 1px rgba(255,255,255,0.5)</span>;
+    <span class="hljs-tag"><span class="hljs-attr">box-shadow</span></span>: <span class="hljs-string">0 0 1px rgba(255,255,255,0.5)</span>;
+  &#125;
+&#125;
+
+.js-filter-collapsible-content .toggled-adult-funding-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">20px</span>;
+&#125;
+
+.gds-multiple-choice [type=checkbox] + label::before &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">12px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">12px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">initial</span>;
+&#125;
+
+.gds-multiple-choice [type=checkbox] + label::after &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">8px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">height</span></span>: <span class="hljs-string">3px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">border-width</span></span>: <span class="hljs-string">0 0 2px 2px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">top</span></span>: <span class="hljs-string">5px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">left</span></span>: <span class="hljs-string">3px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">initial</span>;
+&#125;
+
+.gds-multiple-choice &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0 0 30px</span>;
+&#125;
+
+.myesf-filter label &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">14px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 741px) &#123;
+  .myesf-filter label &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  &#125;
+&#125;
+
+.block &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;
+
+.js-open .search-field-wrap &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;
+
+.search-field-wrap &#123;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">#dee0e2</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+&#125;
+
+.search-field-wrap .filter-searchwithin-label &#123;
+  <span class="hljs-tag"><span class="hljs-attr">position</span></span>: <span class="hljs-string">relative</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background</span></span>: <span class="hljs-string">transparent url('/public/images/beta/v112-0-0/icon-mag-glass.png') no-repeat 12px center</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-size</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">20px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">35px</span>;
+&#125;
+
+.search-field-wrap .filter-searchwithin-label input.filter-search &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">background-color</span></span>: <span class="hljs-string">transparent</span>;
+  <span class="hljs-tag"><span class="hljs-attr">border</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">border-bottom</span></span>: <span class="hljs-string">#0b0c0c 1px solid</span>;
+&#125;
+
+input.filter-search[type="text"], input.filter-search[type="search"] &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-family</span></span>: <span class="hljs-string">"nta", Arial, sans-serif</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">line-height</span></span>: <span class="hljs-string">1.25</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">400</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">250px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">min-width</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0.25em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">text-transform</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">border</span></span>: <span class="hljs-string">1px solid #bbb</span>;
+&#125;</code></pre>
 						</div>
 						<!-- CSS Code Tab (END) -->
 
@@ -992,7 +1767,8 @@
 
 						<!-- JavaScript Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="filter-a-list-searchable-example-javascript" role="tabpanel" aria-hidden="true">
-							
+              <p>To offer users a dynamic client side searchable filter experience, you can reference this example JavaScript file named <a href="/public/javascripts/{{latestVersion}}/search-filter-options.js" title="Download search-filter-options.js" download="">search-filter-options.js</a>.</p>
+              <p>You will then need to add a reference to this file on any HTML pages which need this functionality.</p>
 						</div>
 						<!-- JavaScript Code Tab (END) -->
 
