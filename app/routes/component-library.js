@@ -70,7 +70,11 @@ module.exports = function(router) {
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 	router.get('/component-library/examples/back-to-top-link-stand-alone', function (req, res) {		
@@ -92,7 +96,11 @@ module.exports = function(router) {
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 
@@ -501,7 +509,14 @@ module.exports = function(router) {
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3,
+			'page4' : req.query.page4,
+			'page5' : req.query.page5,
+			'page6' : req.query.page6
 		});
 	});
 	router.get('/component-library/examples/pagination-10', function (req, res) {		
@@ -512,7 +527,14 @@ module.exports = function(router) {
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3,
+			'page4' : req.query.page4,
+			'page5' : req.query.page5,
+			'page6' : req.query.page6
 		});
 	});
 	router.get('/component-library/examples/pagination-25', function (req, res) {		
@@ -523,7 +545,11 @@ module.exports = function(router) {
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3
 		});
 	});
 
