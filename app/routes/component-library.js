@@ -258,6 +258,17 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
+	router.get('/component-library/examples/funding-header-variance', function (req, res) {		
+		res.render('component-library/examples/funding-header-variance', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
 
 	// Funding table
 	router.get('/component-library/funding-table', function (req, res) {		
@@ -350,10 +361,76 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
+	router.get('/component-library/examples/funding-totals-variance', function (req, res) {		
+		res.render('component-library/examples/funding-totals-variance', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
 
 	// Icons
 	router.get('/component-library/icons', function (req, res) {		
 		res.render('component-library/icons', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-divide', function (req, res) {		
+		res.render('component-library/examples/icons-divide', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-equals', function (req, res) {		
+		res.render('component-library/examples/icons-equals', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-minus', function (req, res) {		
+		res.render('component-library/examples/icons-minus', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-multiply', function (req, res) {		
+		res.render('component-library/examples/icons-multiply', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
+	router.get('/component-library/examples/icons-plus', function (req, res) {		
+		res.render('component-library/examples/icons-plus', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
