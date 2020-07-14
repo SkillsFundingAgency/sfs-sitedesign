@@ -809,6 +809,8 @@ module.exports = function(router) {
 			'idams' : req.session.idams,
 			'parent' : req.session.parent,
 			'error' : req.query.error,
+			'error1' : req.query.error1,
+			'error2' : req.query.error2,
 			'paginationRequired' : req.query.paginationRequired,
 			'page1' : req.query.page1,
 			'page2' : req.query.page2,
@@ -822,7 +824,7 @@ module.exports = function(router) {
 
 		// Make sure the user chooses an option
 		if (organisationName == undefined) {
-			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true&error=true');
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true&error=true&error2=true');
 		}
 		// Success
 		else {
@@ -830,6 +832,23 @@ module.exports = function(router) {
 			req.session.sendFrom = organisationName;
 			
 			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/document-upload-file-type');
+		}
+		
+	});
+
+	// NON JAVASCRIPT - Deal with the non JavaScript scenario (e.g. POST) for users entering an empty search on the radio buttons
+	router.get('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school-non-javascript-post', function (req, res) {		
+	
+		req.session.searchInput = req.query.searchAcademyOrSchool;
+		var searchInput = req.session.searchInput;
+
+		// Make sure the user chooses an option
+		if (searchInput == "") {
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true&error=true&error1=true');
+		}
+		// Success
+		else {
+			res.redirect('/' + version + '/signed-in/external/document-exchange/parent/select-academy-or-school?paginationRequired=true&page1=true');
 		}
 		
 	});

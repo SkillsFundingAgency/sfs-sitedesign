@@ -562,19 +562,85 @@ module.exports = function(router) {
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3,
+			'error' : req.query.error,
+			'error1' : req.query.error1,
+			'error2' : req.query.error2
 		});
 	});
-	router.get('/component-library/examples/search', function (req, res) {		
-		res.render('component-library/examples/search', {
+	router.get('/component-library/examples/search-for-an-entity', function (req, res) {		
+		res.render('component-library/examples/search-for-an-entity', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
-			'serviceScope' : req.session.serviceScope
+			'serviceScope' : req.session.serviceScope,
+			'error' : req.query.error
 		});
+	});
+	router.post('/component-library/examples/search-for-an-entity', function (req, res) {		
+
+		// Make sure the user chooses an option
+		if (req.body.schoolOrAcademySearch == "") {
+			res.redirect('/component-library/examples/search-for-an-entity?error=true');
+		}
+		// Success
+		else {
+			res.redirect('/component-library/examples/search-for-an-entity');
+		}
+		
+	});
+	router.get('/component-library/examples/search-a-large-list-of-choices', function (req, res) {		
+		res.render('component-library/examples/search-a-large-list-of-choices', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope,
+			'paginationRequired' : req.query.paginationRequired,
+			'page1' : req.query.page1,
+			'page2' : req.query.page2,
+			'page3' : req.query.page3,
+			'error' : req.query.error,
+			'error1' : req.query.error1,
+			'error2' : req.query.error2
+		});
+	});
+	router.post('/component-library/examples/search-a-large-list-of-choices', function (req, res) {		
+
+		// Make sure the user chooses an option
+		if (req.body.organisationName == undefined) {
+			res.redirect('/component-library/examples/search-a-large-list-of-choices?paginationRequired=true&page1=true&error=true&error2=true');
+		}
+		// Success
+		else {
+			res.redirect('/component-library/examples/search-a-large-list-of-choices');
+		}
+		
+	});
+	// NON JAVASCRIPT - Deal with the non JavaScript scenario (e.g. POST) for users entering an empty search on the radio buttons
+	router.get('/component-library/examples/search-a-large-list-of-choices-non-javascript-post', function (req, res) {		
+		
+		req.session.searchInput = req.query.searchAcademyOrSchool;
+		var searchInput = req.session.searchInput;
+
+		// Make sure the user chooses an option
+		if (searchInput == "") {
+			res.redirect('/component-library/examples/search-a-large-list-of-choices?paginationRequired=true&page1=true&error=true&error1=true');
+		}
+		// Success
+		else {
+			res.redirect('/component-library/examples/search-a-large-list-of-choices?paginationRequired=true&page1=true');
+		}
+		
 	});
 
 	// Signed-in account banner

@@ -8,7 +8,7 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:image" content="/public/images/opengraph-image.png?0.19.2">
-        <title>Search</title>
+        <title>{% if error %}Error: {% endif %}Search: search for an entity</title>
 
         <!--[if gt IE 8]><!--><link href="/public/stylesheets/govuk-template.css?0.19.2" media="screen" rel="stylesheet"><!--<![endif]-->
         <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
@@ -68,24 +68,53 @@
 
         <main role="main" id="example">
 
-            <form action="/form-handler" method="post" novalidate="">
-                        
-                <!-- COMPONENT - SEARCH (START) -->
+            <!-- COMPONENT - SEARCH: SEARCH FOR AN ENTITY (START) -->
+            <form method="post" class="form" novalidate="">   
                 
-                <!-- COMPONENT - SEARCH (END) -->
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#schoolOrAcademySearch">Enter a school or academy name or local authority establishment number</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+                
+                <fieldset{% if error %} class="after-error-summary"{% endif %}>
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                        <h1 class="heading-xlarge">Find a school or academy</h1>
+                    </legend>
+                    <p>You can use a school or academy name or local authority establishment number.</p>
+
+                    <div class="{% if error %}form-group-error {% endif %}form-group" id="schoolOrAcademy">
+
+                        <div class="search-field search-field-darker">
+                    
+                            <div class="search-input search-input-with-button">
+                                <label class="form-label form-hint" for="schoolOrAcademySearch">For example, Lickhill Primary School or 3832470</label>
+                                {% if error %}
+                                <span class="error-message">Enter a school or academy name or local authority establishment number</span>
+                                {% endif %}
+                                <input autocomplete="off" class="form-control" name="schoolOrAcademySearch" id="schoolOrAcademySearch" type="text" value="" />
+                            </div>
+    
+                            <div class="search-submit">
+                                <button id="school-or-academy-submit" class="button" type="submit" id="schoolOrAcademySubmit" name="schoolOrAcademySubmit" value="Search for school name, academy name, or local authority establishment number">Search for school name, academy name, or local authority establishment number</button>
+                            </div>
+    
+                        </div>
+                        
+                    </div>
+            
+                </fieldset>
 
             </form>
+            <!-- COMPONENT - SEARCH: SEARCH FOR AN ENTITY (END) -->
 
         </main>
 
         <!-- JavaScript (START) -->
         <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-        <!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
-        <script src="/public/javascripts/{{latestVersion}}/jquery-accessible-modal-window-aria.js"></script>
-        <!-- GOV.UK Design System tabs -->
-        <script src="/public/javascripts/{{latestVersion}}/accordion.js"></script>
-        <!-- DSG -->
-        <script src="/public/javascripts/{{latestVersion}}/dsg.js"></script>
         <!-- Custom global behaviour -->
         <script src="/public/javascripts/{{latestVersion}}/custom-global-behaviour.js"></script>
         <!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
