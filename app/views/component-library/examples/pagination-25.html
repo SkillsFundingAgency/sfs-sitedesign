@@ -297,7 +297,110 @@
                 </div>
 
                 <!-- COMPONENT - PAGINATION: SEARCH RESULTS PAGES - 25 ITEMS OR MORE (START) -->
-                <div class="pager hidden" hidden aria-hidden="true" style="margin-top: 0" data-paging>
+                <!-- NON JS PAGING (START) -->
+                {% if paginationRequired %}
+                {% if page1 %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+
+                    <div class="pager-controls">
+                        <ul class="pager-items">
+                            <li>
+                                <span class="text-bold">1</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="pagination-25?paginationRequired=true&page2=true">2</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="pagination-25?paginationRequired=true&page3=true">3</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <a class="pager-next" href="pagination-25?paginationRequired=true&page2=true">Next</a>
+                            <span class="visuallyhidden"> page</span>
+                        </ul>                                
+                    </div>
+    
+                    <div class="pager-summary">
+                        Showing 1 to 25 of 52 results
+                    </div>
+    
+                </div>
+                {% elif page2 %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+
+                    <div class="pager-controls">                               
+                        <ul class="pager-items">
+                            <a class="pager-next" href="pagination-25?paginationRequired=true&page1=true">Previous</a>
+                            <span class="visuallyhidden"> page</span>
+                            &nbsp;&nbsp;
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="pagination-25?paginationRequired=true&page1=true">1</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="text-bold">2</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="pagination-25?paginationRequired=true&page3=true">3</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <a class="pager-next" href="pagination-25?paginationRequired=true&page3=true">Next</a>
+                            <span class="visuallyhidden"> page</span>
+                        </ul>
+                    </div>
+    
+                    <div class="pager-summary">
+                        Showing 26 to 50 of 52 results
+                    </div>
+    
+                </div>
+                {% elif page3 %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+
+                    <div class="pager-controls">                               
+                        <ul class="pager-items">
+                            <a class="pager-next" href="pagination-25?paginationRequired=true&page2=true">Previous</a>
+                            <span class="visuallyhidden"> page</span>
+                            &nbsp;&nbsp;
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="pagination-25?paginationRequired=true&page1=true">1</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="pagination-25?paginationRequired=true&page2=true">2</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="text-bold">3</span>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="pager-summary">
+                        Showing 51 to 52 of 52 results
+                    </div>
+    
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+    
+                    <div class="pager-summary">
+                        Showing 1 to 25 of 52 results
+                    </div>
+    
+                </div>
+                {% endif %}
+                <!-- NON JS PAGING (END) -->
+                
+                <!-- JS PAGING (START) -->
+                <div class="pager hidden" hidden aria-hidden="true" style="margin-top: 0;" data-paging>
                                     
                     <div class="pager-controls">
                         <a class="pager-prev" href="#">Previous</a>
@@ -309,15 +412,7 @@
                     </div>
 
                 </div>
-
-                <div class="form-group direction-rtl">
-                    <a class="app-c-back-to-top dont-print" href="#content">
-                        <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
-                            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
-                        </svg>
-                        Back to top
-                    </a>
-                </div>
+                <!-- JS PAGING (END) -->
                 <!-- COMPONENT - PAGINATION: SEARCH RESULTS PAGES - 25 ITEMS OR MORE (END) -->
 
             </form>
