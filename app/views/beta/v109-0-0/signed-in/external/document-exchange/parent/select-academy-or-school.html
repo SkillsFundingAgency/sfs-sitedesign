@@ -39,7 +39,12 @@
             <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
                 <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
                 <ul class="error-summary-list">
-                    <li><a href="#academyOrSchool">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</a></li>
+                    {% if error1 %}
+                    <li><a href="#academyOrSchool">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</a></li>
+                    {% endif %}
+                    {% if error2 %}
+                    <li><a href="#academyOrSchoolRadios">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</a></li>
+                    {% endif %}
                 </ul>
             </div>
             {% endif %}
@@ -47,21 +52,24 @@
             <!-- 60 RESULTS -->
             {% if paginationRequired %}
             <!-- Radio button SEARCH (START) -->
-            <form action="add-team-members-to-client" method="GET">
+            <form action="select-academy-or-school-non-javascript-post" method="GET">
 
-                <fieldset class="{% if error %}after-error-summary{% endif %}">
+                <fieldset{% if error %} class="after-error-summary"{% endif %}>
                     <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</h1>
                     <legend id="academyOrSchool" class="visuallyhidden">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</legend>
                     
-                    <div style="margin-bottom: 1em;" class="search-field search-field-darker" data-checkbox-search-filter>
+                    <div style="margin-bottom: 1em;" class="{% if error1 %}form-group-error {% endif %}search-field search-field-darker" data-checkbox-search-filter>
                         
                         <div class="search-input search-input-with-button" >
-                            <label class="form-label" for="searchUsers">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</label>
-                            <input autocomplete="off" class="form-control" name="searchUsers" id="searchUsers" type="text" value="" />
+                            <label class="form-label" for="searchAcademyOrSchool">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</label>
+                            {% if error1 %}
+                            <span class="error-message">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</span>
+                            {% endif %}
+                            <input autocomplete="off" class="form-control" name="searchAcademyOrSchool" id="searchAcademyOrSchool" type="text" value="" />
                         </div>
 
                         <div class="search-submit">
-                            <button class="button" type="submit" id="searchUsersSubmit" name="searchUsersSubmit" value="Search team members">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</button>
+                            <button class="button" type="submit" id="searchAcademyOrSchoolSubmit" name="searchAcademyOrSchoolSubmit" value="Search academy or school">{% if parent == 'MAT' %}Search for an academy in the Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Search for a school in Redhill{% endif %}</button>
                         </div>
 
                     </div>
@@ -86,11 +94,11 @@
             <form method="POST">
             
                 <fieldset>
-                    <legend class="visuallyhidden">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</legend>
+                    <legend id="academyOrSchoolRadios" class="visuallyhidden">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</legend>
 
                     <!-- NON JS CHECKBOXES (START) -->
-                    <div class="form-group {% if error %}form-group-error{% endif %}" data-non-js-checkboxes>
-                        {% if error %}
+                    <div class="form-group {% if error2 %}form-group-error{% endif %}" data-non-js-checkboxes>
+                        {% if error2 %}
                         <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</span>
                         {% endif %}
                         
@@ -268,7 +276,7 @@
                         </div>
 
                         <div class="searchable-radio multiple-choice">
-                            <input id="radio-35" name="organisationName" type="radio" data-search-value="" value="{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %}">
+                            <input id="radio-35" name="organisationName" type="radio" data-search-value="{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %}" value="{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %}">
                             <label for="radio-35">{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %} (10456250)</label>
                         </div>
 
@@ -403,8 +411,8 @@
                     <!-- NON JS CHECKBOXES (END) -->
             
                     <!-- JS CHECKBOXES (START) -->
-                    <div class="form-group {% if error %}form-group-error{% endif %} hidden" hidden aria-hidden="true" data-checkboxes>
-                        {% if error %}
+                    <div class="form-group {% if error2 %}form-group-error{% endif %} hidden" hidden aria-hidden="true" data-checkboxes>
+                        {% if error2 %}
                         <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</span>
                         {% endif %}
 
@@ -579,7 +587,7 @@
                         </div>
 
                         <div class="searchable-radio multiple-choice">
-                            <input id="radio-35" name="organisationName" type="radio" data-search-value="" value="{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %}">
+                            <input id="radio-35" name="organisationName" type="radio" data-search-value="{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %}" value="{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %}">
                             <label for="radio-35">{% if parent == 'MAT' %}Radford Primary Academy{% elif parent == 'LA' %}Plaistow Hill Infant and Nursery School{% else %}[Academy or school name]{% endif %} (10456250)</label>
                         </div>
 
@@ -819,23 +827,6 @@
                         {% endif %}
                         <!-- NON JS PAGING (START) -->
 
-                        <!-- <div class="pager" style="margin-top: 0" data-non-js-paging>
-                        
-                            <div class="pager-controls" >
-                                <ul class="pager-items">
-                                    <li>1</li>
-                                    <li><a href="add-team-members-to-client?activePage=2">2</a></li>
-                                    <li><a href="add-team-members-to-client?activePage=3">3</a></li>
-                                    <li><a href="add-team-members-to-client?activePage=4">4</a></li>
-                                    <li><a href="add-team-members-to-client?activePage=5">5</a></li>
-                                </ul>
-                                <a class="pager-next" href="add-team-members-to-client?activePage=2">Next</a>
-                            </div>
-
-                            <div class="pager-summary">Showing 1 - 25 of 60 team members</div>
-                            
-                        </div> -->
-
                         <!-- JS PAGING (START) -->
                         <div class="pager hidden" hidden aria-hidden="true" style="margin-top:0" data-paging>
                         
@@ -872,16 +863,16 @@
             {% else %}
             <form method="post" class="form">
 
-                <fieldset class="{% if error %}after-error-summary{% endif %}">
+                <fieldset{% if error %} class="after-error-summary"{% endif %}>
                 
                     <div>
-                        <legend id="academyOrSchool">
+                        <legend id="academyOrSchoolRadios">
                             <h1 class="heading-xlarge">Select which {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</h1>
                         </legend>
                     </div>
             
-                    <div class="form-group {% if error %}form-group-error{% endif %}">
-                        {% if error %}
+                    <div class="form-group {% if error2 %}form-group-error{% endif %}">
+                        {% if error2 %}
                         <span class="error-message">Select the {% if parent == 'MAT' %}academy{% elif parent == 'LA' %}school{% else %}[academy or school]{% endif %} you want to send a document for</span>
                         {% endif %}
 
@@ -965,7 +956,6 @@
 <script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
 <script src="/public/javascripts/lifted/selection-buttons.js"></script>
 <!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
-
 <script>
 
 	$(document).ready(function() {
@@ -985,7 +975,6 @@
     });
     
 </script>
-
 <!-- Searchable radio button choices (EMAC) -->
 <script src="/public/javascripts/{{version}}/checkbox-editing.js"></script>
 <!-- Dynamic search against all radion buttons (academies or schools) -->

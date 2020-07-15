@@ -1098,9 +1098,18 @@
 						</div>
 					
 						<!-- HTML Code Tab (START) -->
-						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-action-example-html" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>Print this page<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
-						</div>
+					<!-- HTML Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-action-example-html" role="tabpanel" aria-hidden="true">
+  <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-a-document-container"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-icon"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-a-document"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>Print this page<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+					</div>
+					<!-- HTML Code Tab (END) -->
 						<!-- HTML Code Tab (END) -->
 
 						<div class="app-tabs__heading js-tabs__heading">
@@ -1109,12 +1118,31 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-action-example-css" role="tabpanel" aria-hidden="true">
-              <p>The related print icon uses a third party CSS library. You will need to reference the following CSS resource below in the HTML:</p>
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"</span>&gt;</span></code></pre>
+              <p>The related print component should hide when a user opens the print dialogue. You will need to reference the following CSS resource below in the <a href="/public/stylesheets/{{latestVersion}}/print.css" title="Print.css" download="">print.css</a> file:</p>
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.print-page &#123;
+	<span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+  &#125;</code></pre>
               <br>
               <p>You will need to add the following CSS to style the action link:</p>
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.fa &#123;
-  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0.3em 0 0</span>;
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.print-a-document-container &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+.print-icon &#123;
+<span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+<span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">2.5em</span>;
+&#125;
+
+.fa &#123;
+<span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0.3em 0 0</span>;
+&#125;
+
+.print-a-document &#123;
+<span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+<span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">600</span>;
+<span class="hljs-tag"><span class="hljs-attr">min-height</span></span>: <span class="hljs-string">2.5em</span>;
+<span class="hljs-tag"><span class="hljs-attr">vertical-align</span></span>: <span class="hljs-string">top</span>;
+<span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">2.8em</span>;
 &#125;</code></pre>
 						</div>
 						<!-- CSS Code Tab (END) -->
@@ -1125,7 +1153,8 @@
 
 						<!-- JavaScript Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-action-example-javascript" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">document</span>)<span class="hljs-tag"><span class="hljs-attr">.ready</span></span>(<span class="hljs-symbol">function</span> () {
+				<p>The print dialogue functionality uses the following JavaScript:</p>
+  <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-name">document</span>)<span class="hljs-tag"><span class="hljs-attr">.ready</span></span>(<span class="hljs-symbol">function</span> () {
 
   <span class="hljs-tag"><span class="hljs-attr">$</span></span>(<span class="hljs-string">".print-page"</span>)<span class="hljs-tag"><span class="hljs-attr">.click</span></span>(<span class="hljs-symbol">function</span> (<span class="hljs-name">e</span>) {
 
@@ -1135,6 +1164,9 @@
   });
 
 });</code></pre>
+				<br>
+				<p>This print icon uses a third party JavaScript library to dynamically generate the optimum CSS for the device utilising it. You will need to reference the following JavaScript resource below in the HTML:</p>
+  <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://kit.fontawesome.com/71943611db.js"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
 						</div>
 						<!-- JavaScript Code Tab (END) -->
 							
