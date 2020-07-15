@@ -60,6 +60,17 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
+	router.get('/component-library/examples/accordion-allocation-statements', function (req, res) {		
+		res.render('component-library/examples/accordion-allocation-statements', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
 
 	// Back to top link
 	router.get('/component-library/back-to-top-link', function (req, res) {		
