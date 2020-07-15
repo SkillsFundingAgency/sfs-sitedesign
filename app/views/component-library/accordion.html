@@ -814,7 +814,7 @@
 			<div class="app-prose-scope">
 				<p>The accordion component lets users show and hide sections of related content on a page.</p>
 				<p>View more general guidelines on this component in the <a href="https://design-system.service.gov.uk/components/accordion">GOV.UK design system</a>.</p>
-				<p>The accordion is used primarily on <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/statement">view latest funding</a>.</p>
+				<p>The accordion is primarily is used primarily on <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/statement">view latest funding</a> and <a href="/{{latestVersion}}/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements">MYESF allocation statements</a>.</p>
 
 				<!--
 				Example CODE snippet (START) 
@@ -994,7 +994,7 @@
 
 .govuk-accordion__single-funding-statement-header &#123;
   <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">10px !important</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">100px !important</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">50px !important</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
@@ -1053,7 +1053,7 @@
 &#125;
 
 .govuk-accordion__section-content &#123;
-  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">5px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">50px !important</span>;
 &#125;
 
 .govuk-body &#123;
@@ -1081,29 +1081,45 @@
   <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
 &#125;
 
+.academyName &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">bold</span>;
+&#125;
+
 .funding-block &#123;
-  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">5px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">inline-block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-block &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+  &#125;
 &#125;
 
 .funding-margin-bottom &#123;
-  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">15px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-margin-bottom &#123;
-    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">20px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">30px</span>;
   &#125;
 &#125;
 
 .funding-left-container &#123;
-  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
   <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
   <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-left-container &#123;
-    <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">66.66666%</span>;
   &#125;
 &#125;
 
@@ -1112,57 +1128,33 @@
   <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-left-text &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">10px</span>;
+  &#125;
+&#125;
+
 .funding-right-container &#123;
-  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">left</span>;
-  <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">inherit</span>;
   <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">10px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-right-container &#123;
-    <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">none</span>;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">right</span>;
     <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
-    <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33333%</span>;
   &#125;
 &#125;
 
 .funding-right-text &#123;
-  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">margin-right</span></span>: <span class="hljs-string">10px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">margin-left</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-right-text &#123;
-    <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">0px</span>;
-    <span class="hljs-tag"><span class="hljs-attr">margin-right</span></span>: <span class="hljs-string">100px</span>;
-    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">0px</span>;
     <span class="hljs-tag"><span class="hljs-attr">margin-left</span></span>: <span class="hljs-string">10px</span>;
-  &#125;
-&#125;
-
-.variance-heading &#123;
-  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
-  .variance-heading &#123;
-    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
-  &#125;
-&#125;
-
-.variance &#123;
-  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">13px</span>;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
-  .variance &#123;
-    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
   &#125;
 &#125;
 
@@ -1177,6 +1169,15 @@
   .total &#123;
     <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">24px</span>;
   &#125;
+&#125;
+
+.variance-summary-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">80%</span>;
+&#125;
+
+.variance-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">80%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">opx</span>;
 &#125;
 
 .bold-lede &#123;
@@ -1228,6 +1229,422 @@
 					<p>Our version of the accordion can be customised to meet the user's content needs. The expanded section of the accordion is flexible and can contain other components such as icons, tables, tags etc.</p>
 					<h2 class="heading-large">How it works</h2>
 					<p>The accordion component uses JavaScript. When JavaScript is not available, users will see all the content displayed with the section labels as headings.</p>
+					<h3 class="heading-medium">Accordions with additional functionality</h3>
+					<p>There are some cases where accordions need to display more information than the standard pattern found on <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/statement">view latest funding</a>.</p>
+					<p>In <a href="/{{latestVersion}}/signed-in/external/allocation-statements/general-annual-grant/parent/allocation-statements">MYESF allocation statements (parent view)</a>, there is a need to display information such as: organisation name, status tag and variance.</p>
+					<p>These do not need to be used all together but the example below shows how each can be adopted.</p>
+				<!--
+				Example CODE snippet (START) 
+				*** ACCORDION ***
+				-->
+				<div class="app-example-wrapper" id="accordion-example" data-module="app-tabs">
+				
+					<div class="app-example app-example--tabs">
+						<a href="examples/accordion-allocation-statements" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">accordion</span> example in a new window</a>
+						<iframe title="Accordion example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/accordion-allocation-statements" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
+					</div>
+
+					<span id="options-accordion-example"></span>
+					<ul class="app-tabs" role="tablist">
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#accordion-example-html" role="tab" aria-controls="accordion-example-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#accordion-example-css" role="tab" aria-controls="accordion-example-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#accordion-example-javascript" role="tab" aria-controls="accordion-example-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a></li>
+					</ul>
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#accordion-example-html" role="tab" aria-controls="accordion-example-html" data-track="tab-html" aria-expanded="false">HTML</a>
+					</div>
+				
+					<!-- HTML Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="accordion-example-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion"</span> <span class="hljs-attr">data-module</span>=<span class="hljs-string">"accordion"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accordion-default"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__section"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__section-header govuk-accordion__single-funding-statement-header"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__section-heading"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__section-button"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accordion-default-heading-1"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__heading-text-left"</span>&gt;</span>General annual grant: academic year 2021 to 2022<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__heading-number-right"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-summary-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-up fa-lg increase"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Increase"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Increase<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £7,800,862.80
+	  <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__section-summary"</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accordion-with-summary-sections-summary-1"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"academyName"</span>&gt;</span>Mole Catch Academy (URN: 790647)<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden-sub-section"</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-summary-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-up fa-lg increase"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Increase"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Increase<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £7,800,862.80
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        Published: 12 September 2021 <span class="hljs-tag">&lt;<span class="hljs-name">strong</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-tag govuk-bgred"</span>&gt;</span>Updated<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"accordion-default-content-1"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-accordion__section-content"</span> <span class="hljs-attr">aria-labelledby</span>=<span class="hljs-string">"accordion-default-heading-1"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-medium heading-guidance"</span>&gt;</span>Funding breakdown<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-block"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-container"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=school"</span>&gt;</span>School budget share<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-container"</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-text"</span>&gt;</span>
+	    £6,614,038.77
+	    <span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-summary-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-up fa-lg increase"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Increase"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Increase<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £45,589.63<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-block"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-container"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=mfg"</span>&gt;</span>Minimum funding guarantee<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-container"</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-text"</span>&gt;</span>
+	    £1,131,324.03
+	    <span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-summary-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-up fa-lg increase"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Increase"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Increase<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £10,449.73<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-block"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-container"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=highneeds"</span>&gt;</span>High needs<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-container"</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-text"</span>&gt;</span>£0<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-block funding-margin-bottom"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-container"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-left-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=postopeninggrant"</span>&gt;</span>Post-opening grant<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-container"</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"funding-right-text"</span>&gt;</span>
+	    £55,500
+	    <span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-summary-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-down fa-lg decrease"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Decrease"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Decrease<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £10,000<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	  <span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"form-block attachment embedded"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-container-new"</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-icon"</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-file"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+	  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-new"</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Download general annual grant allocation for {{organisationName}} 2021 to 2022"</span>&gt;</span>Download general annual grant allocation for {{organisationName}} 2021 to 2022<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> 
+	    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+	    <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-content"</span>&gt;</span>
+	      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-section-1"</span>&gt;</span>OpenDocument Spreadsheet (<span class="hljs-tag">&lt;<span class="hljs-name">abbr</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"OpenDocument Spreadsheet"</span>&gt;</span>ODS<span class="hljs-tag">&lt;/<span class="hljs-name">abbr</span>&gt;</span>), 206KB<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"download-a-document-section-2"</span>&gt;</span>
+	        This file is in an <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"This will open in a new tab or window"</span>&gt;</span>OpenDocument<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> format. You may need a different format if you're using assistive technology. <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#attachment-1-accessibility-request"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"expand-hidden-section"</span> <span class="hljs-attr">data-controls</span>=<span class="hljs-string">"attachment-1-accessibility-request"</span> <span class="hljs-attr">data-expanded</span>=<span class="hljs-string">"false"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">aria-controls</span>=<span class="hljs-string">"attachment-1-accessibility-request"</span> <span class="hljs-attr">aria-expanded</span>=<span class="hljs-string">"false"</span>&gt;</span>Request an accessible format<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.
+	        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"attachment-1-accessibility-request"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"hidden-section js-hidden"</span> <span class="hljs-attr">aria-live</span>=<span class="hljs-string">"polite"</span> <span class="hljs-attr">role</span>=<span class="hljs-string">"region"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span>If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20dedicated%20schools%20grant%20allocation%20for%20Camden%202019%20to%202020%0A%20%20Original%20format%3A%20ods%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27dedicated%20schools%20grant%20allocation%20for%20Camden%202019%20to%202020%27%20in%20an%20alternative%20format"</span>&gt;</span>ESFA.GOVUK-ENQUIRIES@education.gov.uk<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>. Please tell us what format you need. It will help us if you say what assistive technology you use.<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	      <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+	    <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-medium heading-guidance"</span>&gt;</span>Allocation history<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"allocation-history"</span>&gt;</span>View history of allocated funding<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">h3</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-medium heading-guidance"</span>&gt;</span>General annual grant resources<span class="hljs-tag">&lt;/<span class="hljs-name">h3</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ul</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"list footer-guidance"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>Get more general guidance on <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"noreferrer noopener"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Opens in a new tab"</span>&gt;</span>General annual grant allocation guides: 2021 to 2022<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>.<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+					</div>
+					<!-- HTML Code Tab (END) -->
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#accordion-example-css" role="tab" aria-controls="accordion-example-css" data-track="tab-css" aria-expanded="false">CSS</a>
+					</div>
+
+					<!-- CSS Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="accordion-example-css" role="tabpanel" aria-hidden="true">
+					<p>For the additional functionality to be displayed correctly, you need to ensure you include CSS references for <a href="download-a-document">download a document</a>, <a href="tag">tags</a>, <a href="icons#icons-increase">variance icons</a> and <a href="funding-header#funding-header-example4">variance text</a> as seen below.</p>
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.govuk-accordion__open-all &#123;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-size</span></span></span></span>: <span class="hljs-string">14px !important</span>;
+&#125;
+
+.govuk-accordion__open-all &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">14px !important</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .govuk-accordion__open-all &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px !important</span>;
+  &#125;
+&#125;
+
+.govuk-accordion__single-funding-statement-header &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">10px !important</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">50px !important</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .govuk-accordion__single-funding-statement-header &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
+  &#125;
+&#125;
+
+.govuk-accordion__section-button &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .govuk-accordion__section-button &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">24px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
+  &#125;
+&#125;
+
+.govuk-accordion__heading-text-left &#123;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">66.66667%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+.govuk-accordion__heading-number-right &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .govuk-accordion__heading-number-right &#123;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">right</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33333%</span>;
+    <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
+  &#125;
+&#125;
+
+<span class="hljs-symbol">@media</span> (max-width: 641px) &#123;
+  .govuk-accordion__heading-number-right &#123;
+    <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+  &#125;
+&#125;
+
+.govuk-accordion__section-summary &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">5px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .govuk-accordion__section-summary &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  &#125;
+&#125;
+
+.govuk-accordion__section-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">50px !important</span>;
+&#125;
+
+.govuk-body &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px !important</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .govuk-body &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px !important</span>;
+  &#125;
+&#125;
+
+.hidden-sub-section &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">bold</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .hidden-sub-section &#123;
+    <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+  &#125;
+&#125;
+
+.footer-guidance &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
+&#125;
+
+.academyName &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">bold</span>;
+&#125;
+
+.funding-block &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">inline-block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-block &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+  &#125;
+&#125;
+
+.funding-margin-bottom &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">15px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-margin-bottom &#123;
+    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">30px</span>;
+  &#125;
+&#125;
+
+.funding-left-container &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-left-container &#123;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">66.66666%</span>;
+  &#125;
+&#125;
+
+.funding-left-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-left-text &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">10px</span>;
+  &#125;
+&#125;
+
+.funding-right-container &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-right-container &#123;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">right</span>;
+    <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33333%</span>;
+  &#125;
+&#125;
+
+.funding-right-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-right-text &#123;
+    <span class="hljs-tag"><span class="hljs-attr">margin-left</span></span>: <span class="hljs-string">10px</span>;
+  &#125;
+&#125;
+
+.total &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">bold</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">10px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .total &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">24px</span>;
+  &#125;
+&#125;
+
+.variance-summary-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">80%</span>;
+&#125;
+
+.variance-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">80%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">opx</span>;
+&#125;
+
+.increase &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#00703c</span>;
+&#125;
+
+.decrease &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#d4351c</span>;
+&#125;
+
+.bold-lede &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">bold !important</span>;
+&#125;
+
+.gem-c-related-navigation__hidden-sub-section &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">5px</span>;
+&#125;
+
+.gem-c-related-navigation__hidden-sub-section-last &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+.download-a-document-container-new &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">1.5em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .download-a-document-container-new &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">10px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">1.5em</span>;
+    <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+  &#125;
+&#125;
+
+.download-a-document-new &#123;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">600</span>;
+  <span class="hljs-tag"><span class="hljs-attr">vertical-align</span></span>: <span class="hljs-string">top</span>;
+  <span class="hljs-tag"><span class="hljs-attr">min-height</span></span>: <span class="hljs-string">2.5em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">2.8em</span>;
+&#125;
+
+.download-a-document-content &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">16px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">inline-grid</span>;
+&#125;
+
+.download-a-document-section-1 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">15px</span>;
+&#125;
+
+.download-a-document-section-2 &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">block</span>;
+&#125;
+
+.download-icon &#123;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">2.5em</span>;
+&#125;</code></pre>
+					</div>
+					<!-- CSS Code Tab (END) -->
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#accordion-example-javascript" role="tab" aria-controls="accordion-example-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a>
+					</div>
+
+					<!-- JavaScript Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="accordion-example-javascript" role="tabpanel" aria-hidden="true">
+						<p>To make the accordion functional, you need to reference the GOV.UK Design System JavaScript file named <a href="/public/javascripts/{{latestVersion}}/accordion.js" title="Download accordion.js" download="">accordion.js</a>.</p>
+						<p>You will then need to add a reference to this file on any HTML pages which need an accordion.</p>
+						<p>The icons in this component use a third party JavaScript library to dynamically generate the optimum CSS for the device utilising it. You will need to reference the following JavaScript resource below:</p>
+						<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://kit.fontawesome.com/71943611db.js"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+					</div>
+					<!-- JavaScript Code Tab (END) -->
+						
+				</div>
+				<!--
+				Example CODE snippet (END) 
+				*** ACCORDION ***
+				-->
+
 					<h3 class="heading-medium">Find out how your users interact with the content</h3>
 					<p>Users might need the sections they have opened to stay open if they leave and then return to the page.</p>
 					<p>We have configured the accordion to remember the users selections within the same session within our service. This can be changed if there are valid user needs for other behaviours elsewhere.</p>
