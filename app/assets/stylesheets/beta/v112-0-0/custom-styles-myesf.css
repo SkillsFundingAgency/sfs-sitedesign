@@ -112,6 +112,194 @@
 	text-decoration: none;
 }
 
+/* Chris Harding (14.07.20) - Inclusion of the GOV.UK search styling and CSS for use across MYESF */
+.search-section {
+	margin-bottom: 15px;
+}
+.search-field {
+	position: relative;
+}
+.search-input {
+	position: static;
+	margin: 0px;
+	padding: 0px;
+}
+.search-input-with-button {
+	padding-right: 50px;
+}
+.autocomplete__wrapper {
+	position: relative;
+	background-color: #ffffff;
+}
+.hidden, .js-enabled .js-hidden {
+	display: none;
+	visibility: hidden;
+}
+.hidden {
+	display: none;
+}
+.autocomplete__hint, .autocomplete__input {
+	-webkit-appearance: none;
+	border-width: 2px;
+	border-style: solid;
+	border-color: initial;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	box-sizing: border-box;
+	margin-bottom: 0px;
+	width: 100%;
+}
+.autocomplete__input {
+	background-color: transparent;
+	position: relative;
+}
+.autocomplete__hint, .autocomplete__input, .autocomplete__option {
+	font-size: 19px;
+	line-height: 1.25;
+	padding: 4px;
+}
+.search-input input {
+	-webkit-appearance: none;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	font-family: nta, "Arial", sans-serif;
+	font-weight: 400;
+	text-transform: none;
+	font-size: 19px;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 0px;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	display: block;
+	height: 50px;
+	border-color: rgb(191, 193, 195);
+	line-height: 48px;
+}
+.search-field-darker .search-input input {
+	border-color: rgb(111, 119, 123);
+}
+.search-input-with-button input {
+	border-right-width: initial;
+	border-right-style: none;
+	border-right-color: initial;
+}
+.autocomplete__menu {
+	background-color: rgb(255, 255, 255);
+	border-right-width: 2px;
+	border-bottom-width: 2px;
+	border-left-width: 2px;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-right-color: rgb(11, 12, 12);
+	border-bottom-color: rgb(11, 12, 12);
+	border-left-color: rgb(11, 12, 12);
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	border-top-width: 0px;
+	border-top-style: initial;
+	border-top-color: initial;
+	color: rgb(52, 56, 75);
+	margin: 0px;
+	max-height: 342px;
+	overflow-x: hidden;
+	padding: 0px;
+	width: calc(100% - 4px);
+}
+.autocomplete__menu--hidden {
+	display: none;
+}
+.autocomplete__menu--overlay {
+	box-shadow: rgba(0, 0, 0, 0.26) 0px 2px 6px;
+	left: 0px;
+	position: absolute;
+	top: 100%;
+	z-index: 100;
+}
+[role="listbox"] {
+	min-height: 18em;
+	padding: 0px;
+	background-image: initial;
+	background-position-x: initial;
+	background-position-y: initial;
+	background-size: initial;
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+	background-attachment: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: white;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgb(170, 170, 170);
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+}
+.search-submit {
+	position: absolute;
+	bottom: 0px;
+	right: 0px;
+	height: 50px;
+	width: 50px;
+	overflow-x: visible;
+	overflow-y: visible;
+}
+.search-submit button {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+	box-shadow: none;
+	position: absolute;
+	z-index: 4;
+	right: 0px;
+	top: 0px;
+	width: 50px;
+	height: 50px;
+	border-width: initial;
+	border-style: none;
+	border-color: initial;
+	border-image-source: initial;
+	border-image-slice: initial;
+	border-image-width: initial;
+	border-image-outset: initial;
+	border-image-repeat: initial;
+	overflow-x: hidden;
+	overflow-y: hidden;
+	text-indent: -5000px;
+	color: rgb(255, 255, 255);
+	background-color: #005ea5;
+	background-image: url("/public/images/search-button.png");
+	background-repeat: repeat-x;
+	background-repeat: repeat-y;
+	background-position-x: -12.5%;
+	background-position-y: 50%;
+}
+.search-submit button:hover, .search-submit button:focus {
+	background-color: #267daf;
+}
+button {
+	font-size: 19px;
+}
+
 /* Any document or results list */
 .document-list table, .document-list thead, .document-list th, .document-list tbody, .document-list tr, .document-list td {
 	font-size: 14px;
@@ -2105,252 +2293,3 @@ dialog {
 .documentVersionFinal {
 	padding-bottom: 0px;
 }
-
-/* GOV.UK (Search) CSS */
-/* LEGACY (POSSIBLY OK TO REMOVE) - START */
-.search-section {
-	margin-bottom: 15px;
-}
-.search-field {
-	position: relative;
-}
-.search-input {
-	position: static;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-}
-.search-input-with-button {
-	padding-right: 50px;
-}
-.autocomplete__wrapper {
-	position: relative;
-	background-color: #ffffff;
-}
-.hidden, .js-enabled .js-hidden {
-	display: none;
-	visibility: hidden;
-}
-.hidden {
-	display: none;
-}
-.autocomplete__hint, .autocomplete__input {
-	-webkit-appearance: none;
-	border-top-width: 2px;
-	border-right-width: 2px;
-	border-bottom-width: 2px;
-	border-left-width: 2px;
-	border-top-style: solid;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: solid;
-	border-top-color: initial;
-	border-right-color: initial;
-	border-bottom-color: initial;
-	border-left-color: initial;
-	border-image-source: initial;
-	border-image-slice: initial;
-	border-image-width: initial;
-	border-image-outset: initial;
-	border-image-repeat: initial;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	box-sizing: border-box;
-	margin-bottom: 0px;
-	width: 100%;
-}
-.autocomplete__input {
-	background-color: transparent;
-	position: relative;
-}
-.autocomplete__hint, .autocomplete__input, .autocomplete__option {
-	font-size: 19px;
-	line-height: 1.25;
-	padding-top: 4px;
-	padding-right: 4px;
-	padding-bottom: 4px;
-	padding-left: 4px;
-}
-.search-input input {
-	-webkit-appearance: none;
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	font-family: nta, Arial, sans-serif;
-	font-weight: 400;
-	text-transform: none;
-	font-size: 19px;
-	box-sizing: border-box;
-	width: 100%;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 10px;
-	display: block;
-	height: 50px;
-	border-top-color: rgb(191, 193, 195);
-	border-right-color: rgb(191, 193, 195);
-	border-bottom-color: rgb(191, 193, 195);
-	border-left-color: rgb(191, 193, 195);
-	line-height: 48px;
-}
-.search-field-darker .search-input input {
-	border-top-color: rgb(111, 119, 123);
-	border-right-color: rgb(111, 119, 123);
-	border-bottom-color: rgb(111, 119, 123);
-	border-left-color: rgb(111, 119, 123);
-}
-.search-input-with-button input {
-	border-right-width: initial;
-	border-right-style: none;
-	border-right-color: initial;
-}
-.autocomplete__menu {
-	background-color: rgb(255, 255, 255);
-	border-right-width: 2px;
-	border-bottom-width: 2px;
-	border-left-width: 2px;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: solid;
-	border-right-color: rgb(11, 12, 12);
-	border-bottom-color: rgb(11, 12, 12);
-	border-left-color: rgb(11, 12, 12);
-	border-image-source: initial;
-	border-image-slice: initial;
-	border-image-width: initial;
-	border-image-outset: initial;
-	border-image-repeat: initial;
-	border-top-width: 0px;
-	border-top-style: initial;
-	border-top-color: initial;
-	color: rgb(52, 56, 75);
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	margin-left: 0px;
-	max-height: 342px;
-	overflow-x: hidden;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	width: calc(100% - 4px);
-}
-.autocomplete__menu--hidden {
-	display: none;
-}
-.autocomplete__menu--overlay {
-	box-shadow: rgba(0, 0, 0, 0.26) 0px 2px 6px;
-	left: 0px;
-	position: absolute;
-	top: 100%;
-	z-index: 100;
-}
-[role="listbox"] {
-	min-height: 18em;
-	padding-top: 0px;
-	padding-right: 0px;
-	padding-bottom: 0px;
-	padding-left: 0px;
-	background-image: initial;
-	background-position-x: initial;
-	background-position-y: initial;
-	background-size: initial;
-	/* background-repeat-x: no-repeat;
-	background-repeat-y: no-repeat; */
-	background-repeat: repeat-x;
-	background-repeat: repeat-y;
-	background-attachment: initial;
-	background-origin: initial;
-	background-clip: initial;
-	background-color: white;
-	border-top-width: 1px;
-	border-right-width: 1px;
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-	border-top-style: solid;
-	border-right-style: solid;
-	border-bottom-style: solid;
-	border-left-style: solid;
-	border-top-color: rgb(170, 170, 170);
-	border-right-color: rgb(170, 170, 170);
-	border-bottom-color: rgb(170, 170, 170);
-	border-left-color: rgb(170, 170, 170);
-	border-image-source: initial;
-	border-image-slice: initial;
-	border-image-width: initial;
-	border-image-outset: initial;
-	border-image-repeat: initial;
-}
-.search-submit {
-	position: absolute;
-	bottom: 0px;
-	right: 0px;
-	height: 50px;
-	width: 50px;
-	overflow-x: visible;
-	overflow-y: visible;
-}
-.search-submit button {
-	border-top-left-radius: 0px;
-	border-top-right-radius: 0px;
-	border-bottom-right-radius: 0px;
-	border-bottom-left-radius: 0px;
-	box-shadow: none;
-	position: absolute;
-	z-index: 4;
-	right: 0px;
-	top: 0px;
-	width: 50px;
-	height: 50px;
-	border-top-width: initial;
-	border-right-width: initial;
-	border-bottom-width: initial;
-	border-left-width: initial;
-	border-top-style: none;
-	border-right-style: none;
-	border-bottom-style: none;
-	border-left-style: none;
-	border-top-color: initial;
-	border-right-color: initial;
-	border-bottom-color: initial;
-	border-left-color: initial;
-	border-image-source: initial;
-	border-image-slice: initial;
-	border-image-width: initial;
-	border-image-outset: initial;
-	border-image-repeat: initial;
-	overflow-x: hidden;
-	overflow-y: hidden;
-	text-indent: -5000px;
-	color: rgb(255, 255, 255);
-	/* background-color: rgb(43, 140, 196); */
-	background-color: #005ea5;
-	background-image: url("/public/images/search-button.png");
-	/* background-repeat-x: no-repeat;
-	background-repeat-y: no-repeat; */
-	background-repeat: repeat-x;
-	background-repeat: repeat-y;
-	background-position-x: -12.5%;
-	background-position-y: 50%;
-}
-.search-submit button:hover, .search-submit button:focus {
-	background-color: #267daf;
-}
-button {
-	font-size: 19px;
-}
-/* LEGACY (POSSIBLY OK TO REMOVE) - END */
