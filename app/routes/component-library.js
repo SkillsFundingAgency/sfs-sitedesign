@@ -304,8 +304,8 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/funding-table-no-repeating-column-headers', function (req, res) {		
-		res.render('component-library/examples/funding-table-no-repeating-column-headers', {
+	router.get('/component-library/examples/funding-table-with-variance', function (req, res) {		
+		res.render('component-library/examples/funding-table-with-variance', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
@@ -315,8 +315,8 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/funding-table-four-columns', function (req, res) {		
-		res.render('component-library/examples/funding-table-four-columns', {
+	router.get('/component-library/examples/funding-table-three-or-more-columns', function (req, res) {		
+		res.render('component-library/examples/funding-table-three-or-more-columns', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,

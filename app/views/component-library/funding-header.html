@@ -923,7 +923,8 @@
 					-->
 
 					<h3 id="funding-header-float-left" class="heading-medium">Float left</h3>
-					<p>Sometimes we need to use tabs to show how total funding is broken down into funding type. For example, we use tabs to break down the DSG into different funding types in <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>. To meet user needs, we display the DSG total funding heading amount as well as the totals for each funding type.</p>
+          <p>Sometimes we need to use tabs to show how total funding is broken down into funding type. For example, we use tabs to break down the DSG into different funding types in <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>. To meet user needs, we display the DSG total funding heading amount as well as the totals for each funding type.</p>
+          <p>When using this version of the component, make sure that the user can print each tab by including a print this page <a href="links#links-action">action link</a> on the right hand side of the funding header.</p>
 
 					<!--
 					Example CODE snippet (START) 
@@ -968,7 +969,33 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example3-css" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.block-header-print-tabs &#123;
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.block-header-total &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-webkit-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-moz-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .block-header-total &#123;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">60%</span>;
+    <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">15px</span>;
+  &#125;
+&#125;
+
+.block-header-print &#123;
+  <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-webkit-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-moz-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+  
+.block-header-print-tabs &#123;
   <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
 &#125;
 
@@ -980,37 +1007,6 @@
 
 .fa &#123;
   <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0.3em 0 0</span>;
-&#125;
-
-.block-header-total &#123;
-  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 15px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">-webkit-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
-  <span class="hljs-tag"><span class="hljs-attr">-moz-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
-  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
-  .block-header-total &#123;
-    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
-    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">78%</span>;
-  &#125;
-&#125;
-
-.block-header-print &#123;
-  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 15px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">-webkit-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
-  <span class="hljs-tag"><span class="hljs-attr">-moz-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
-  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
-  .block-header-print &#123;
-    <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
-  &#125;
-&#125;
-
-.heading-funding-summary &#123;
-  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">5px</span>;
 &#125;</code></pre>
 						</div>
 						<!-- CSS Code Tab (END) -->
@@ -1019,8 +1015,8 @@
 					<!--
 					Example CODE snippet (END) 
 					*** FUNDING HEADER: FLOAT LEFT ***
-					-->
-					<p>When using this version of the component, make sure that the user can print each tab by including a print this page <a href="links#links-action">action link</a> on the right hand side of the funding header.</p>
+          -->
+          
 					<h3 class="heading-medium">With variance</h3>
 					<p>Use this version of the component when you need to show a change in something. For example, on <a href="/{{latestVersionAdults}}/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/12-09-2021"><abbr title="Manage your education and skills funding">MYESF</abbr> allocation statements</a> we use this version to display the total funding amount with an <a href="icons#icons-increase">increase icon</a> to show the funding total has gone up.</p>
 
@@ -1103,7 +1099,9 @@
 					<h2 class="heading-large">Linked components</h2>
 					<ul class="list">
 						<li><a href="links#links-action">Links (with action)</a></li>
-						<li><a href="icons#icons-increase">Icons (increase)</a></li>
+            <li><a href="icons#icons-increase">Icons (increase)</a></li>
+            <li><a href="icons#icons-decrease">Icons (decrease)</a></li>
+            <li><a href="icons#icons-print">Icons (print)</a></li>
 					</ul>
 				</div>
 
