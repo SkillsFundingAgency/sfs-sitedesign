@@ -60,8 +60,8 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/accordion-allocation-statements', function (req, res) {		
-		res.render('component-library/examples/accordion-allocation-statements', {
+	router.get('/component-library/examples/accordion-with-additional-information', function (req, res) {		
+		res.render('component-library/examples/accordion-with-additional-information', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
