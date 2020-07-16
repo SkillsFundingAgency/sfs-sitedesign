@@ -914,7 +914,7 @@
 					
 						<!-- HTML Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-external-example-html" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.gov.uk/government/publications/guide-to-national-funding-formula"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"This will open in a new tab or window"</span>&gt;</span>National funding formula: quick guide<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.gov.uk/government/publications/guide-to-national-funding-formula"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"noreferrer noopener"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Opens in a new tab"</span>&gt;</span>National funding formula: quick guide<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></code></pre>
 						</div>
 						<!-- HTML Code Tab (END) -->
 							
@@ -1009,18 +1009,39 @@
 &#125;
 
 .funding-block &#123;
-  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">5px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">100%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">inline-block</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-block &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">0px</span>;
+  &#125;
+&#125;
+
+.funding-margin-bottom &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">15px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-margin-bottom &#123;
+    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">30px</span>;
+  &#125;
 &#125;
 
 .funding-left-container &#123;
-  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
   <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
   <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-left-container &#123;
-    <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">66.66666%</span>;
   &#125;
 &#125;
 
@@ -1029,36 +1050,32 @@
   <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .funding-left-text &#123;
+    <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">10px</span>;
+  &#125;
+&#125;
+
 .funding-right-container &#123;
-  <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">left</span>;
-  <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">inherit</span>;
   <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">10px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-right-container &#123;
-    <span class="hljs-tag"><span class="hljs-attr">clear</span></span>: <span class="hljs-string">none</span>;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">right</span>;
     <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
-    <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33333%</span>;
   &#125;
 &#125;
 
 .funding-right-text &#123;
-  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">margin-right</span></span>: <span class="hljs-string">10px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">0px</span>;
-  <span class="hljs-tag"><span class="hljs-attr">margin-left</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin</span></span>: <span class="hljs-string">0px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0px</span>;
 &#125;
 
 <span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
   .funding-right-text &#123;
-    <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">0px</span>;
-    <span class="hljs-tag"><span class="hljs-attr">margin-right</span></span>: <span class="hljs-string">100px</span>;
-    <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">0px</span>;
     <span class="hljs-tag"><span class="hljs-attr">margin-left</span></span>: <span class="hljs-string">10px</span>;
   &#125;
 &#125;</code></pre>
@@ -1102,7 +1119,7 @@
 					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-action-example-html" role="tabpanel" aria-hidden="true">
   <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-a-document-container"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-icon"</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print fa-print-large"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-a-document"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span>Print this page<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
@@ -1120,8 +1137,8 @@
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-action-example-css" role="tabpanel" aria-hidden="true">
               <p>The related print component should hide when a user opens the print dialogue. You will need to reference the following CSS resource below in the <a href="/public/stylesheets/{{latestVersion}}/print.css" title="Print.css" download="">print.css</a> file:</p>
 <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.print-page &#123;
-	<span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
-  &#125;</code></pre>
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+&#125;</code></pre>
               <br>
               <p>You will need to add the following CSS to style the action link:</p>
 <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.print-a-document-container &#123;
@@ -1129,20 +1146,30 @@
 &#125;
 
 .print-icon &#123;
-<span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
-<span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">2.5em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">2.5em</span>;
 &#125;
 
 .fa &#123;
-<span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0.3em 0 0</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0.3em 0 0</span>;
+&#125;
+
+.fa-print-large &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">28px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .fa-print-large &#123;
+    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">34px</span>;
+  &#125;
 &#125;
 
 .print-a-document &#123;
-<span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
-<span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">600</span>;
-<span class="hljs-tag"><span class="hljs-attr">min-height</span></span>: <span class="hljs-string">2.5em</span>;
-<span class="hljs-tag"><span class="hljs-attr">vertical-align</span></span>: <span class="hljs-string">top</span>;
-<span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">2.8em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">none</span>;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">600</span>;
+  <span class="hljs-tag"><span class="hljs-attr">min-height</span></span>: <span class="hljs-string">2.5em</span>;
+  <span class="hljs-tag"><span class="hljs-attr">vertical-align</span></span>: <span class="hljs-string">top</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">2.8em</span>;
 &#125;</code></pre>
 						</div>
 						<!-- CSS Code Tab (END) -->
@@ -1209,30 +1236,30 @@
 					
 						<!-- HTML Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-funding-table-guidance-example-html" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table funding-breakdown"</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__caption heading-small visuallyhidden"</span>&gt;</span>Total schools block secondary schools breakdown<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__caption heading-small visuallyhidden"</span>&gt;</span>Total schools block primary schools breakdown<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">thead</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__head"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-quarter"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Secondary schools<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span>&gt;</span>Current total<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-third"</span>&gt;</span>Primary schools<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric"</span>&gt;</span>Sub-total<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__body"</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span>&gt;</span>Unit of funding<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£6,928.20<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>Unit of funding<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£5,389.25<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>
         Number of pupils
         <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"decimal"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#pupil-number-information"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"external"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"This will open in a new tab or window"</span>&gt;</span>Find out why partial pupil numbers are used<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"decimal"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020#pupil-number-information"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"noreferrer noopener"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"_blank"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Opens in a new tab"</span>&gt;</span>Find out why partial pupil numbers are used<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>7,957.17<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>10,751<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span>&gt;</span>Total secondary schools<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£55,128,865<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>Total primary schools<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£57,939,827<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
@@ -1245,27 +1272,7 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="links-funding-table-guidance-example-css" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.funding-breakdown table, .funding-breakdown thead, .funding-breakdown th, .funding-breakdown tbody, .funding-breakdown tr, .funding-breakdown td &#123;
-  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">12px</span>;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 391px) and (max-width: 640px) &#123;
-  .funding-breakdown table, .funding-breakdown thead, .funding-breakdown th, .funding-breakdown tbody, .funding-breakdown tr, .funding-breakdown td &#123;
-    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">14px</span>;
-  &#125;
-&#125;
-
-<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
-  .funding-breakdown table, .funding-breakdown thead, .funding-breakdown th, .funding-breakdown tbody, .funding-breakdown tr, .funding-breakdown td &#123;
-    <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">19px</span>;
-  &#125;
-&#125;
-
-.govuk-\!-width-one-quarter &#123;
-  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">25% !important</span>;
-&#125;
-
-.table-header-normal &#123;
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.table-header-normal &#123;
   <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
 &#125;
 
@@ -1296,8 +1303,8 @@
 						<li><a href="accordion">Accordion</a></li>
 						<li><a href="download-a-document">Download a document</a></li>
 						<li><a href="funding-header#funding-header-float-left">Funding header (float left)</a></li>
-						<li><a href="funding-table#funding-table-with-link">Funding table (with link)</a></li>
-						<li><a href="links#links-action">Links (with action)</a></li>
+						<li><a href="funding-table#with-link">Funding table (with link)</a></li>
+						<li><a href="icons#icons-print">Icons (print)</a></li>
 					</ul>
 				</div>
 
