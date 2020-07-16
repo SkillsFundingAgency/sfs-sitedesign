@@ -871,7 +871,15 @@
 
 					<!-- CSS Code Tab (START) -->
 					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example1-css" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.table-header-normal &#123;
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.govuk-!-width-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33% !important</span>;
+&#125;
+
+.govuk-!-width-one-sixth &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">16.66% !important</span>;
+&#125;
+
+.table-header-normal &#123;
   <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
 &#125;</code></pre>
 					</div>
@@ -950,7 +958,15 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example2-css" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.table-header-normal &#123;
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.govuk-!-width-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33% !important</span>;
+&#125;
+
+.govuk-!-width-one-sixth &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">16.66% !important</span>;
+&#125;
+
+.table-header-normal &#123;
   <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
 &#125;</code></pre>
 						</div>
@@ -962,7 +978,7 @@
 					*** FUNDING TABLE: TWO COLUMNS ***
 					-->
 
-					<h3 class="heading-medium">With variance</h3>
+					<h3 id="funding-table-with-variance" class="heading-medium">With variance</h3>
           <p>We sometimes need to inform users that there has been a change in the funding data they are viewing - we call this variance. When showing variance to users we add the information as closely to the data it relates to so users can more easily understand what it means.</p>
 
 					<!--
@@ -979,7 +995,8 @@
 						<span id="options-funding-table-example3"></span>
 						<ul class="app-tabs" role="tablist">
 							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-table-example3-html" role="tab" aria-controls="funding-table-example3-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
-							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-table-example3-css" role="tab" aria-controls="funding-table-example3-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+              <li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-table-example3-css" role="tab" aria-controls="funding-table-example3-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+              <li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-table-example3-javascript" role="tab" aria-controls="funding-table-example3-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a></li>
 						</ul>
 
 						<div class="app-tabs__heading js-tabs__heading">
@@ -988,7 +1005,35 @@
 					
 						<!-- HTML Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example3-html" role="tabpanel" aria-hidden="true">
-
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__caption heading-small visuallyhidden"</span>&gt;</span>Total post-opening grant breakdown<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__head"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-third"</span>&gt;</span>Post-opening grant<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric"</span>&gt;</span>Sub-total<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>Per pupil resources<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£15,000<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>Leadership or other costs to build up pupil numbers<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>
+        £40,500
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-down fa-lg decrease"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Decrease"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Decrease<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £10,000<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>Total post-opening grant<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>
+        £55,500
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-down fa-lg decrease"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Decrease"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Decrease<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £10,000<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
 						</div>
 						<!-- HTML Code Tab (END) -->
 
@@ -998,9 +1043,39 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example3-css" role="tabpanel" aria-hidden="true">
-             
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.govuk-!-width-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33% !important</span>;
+&#125;
+
+.govuk-!-width-one-sixth &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">16.66% !important</span>;
+&#125;
+
+.table-header-normal &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
+&#125;
+
+.variance-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">80%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+.decrease &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#00703c</span>;
+&#125;</code></pre>
 						</div>
-						<!-- CSS Code Tab (END) -->
+            <!-- CSS Code Tab (END) -->
+            
+            <div class="app-tabs__heading js-tabs__heading">
+              <a href="#funding-table-example3-javascript" role="tab" aria-controls="funding-table-example3-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a>
+            </div>
+  
+            <!-- JavaScript Code Tab (START) -->
+            <div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example3-javascript" role="tabpanel" aria-hidden="true">
+              <p>This icon uses a third party JavaScript library to dynamically generate the optimum CSS for the device utilising it. You will need to reference the following JavaScript resource below in the HTML:</p>
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://kit.fontawesome.com/71943611db.js"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+            </div>
+            <!-- JavaScript Code Tab (END) -->
 
 					</div>
 					<!--
@@ -1008,6 +1083,13 @@
 					*** FUNDING TABLE: WITH VARIANCE ***
 					-->
 
+          <p>The rules for displaying variance are:</p>
+					<ul class="list list-bullet">
+            <li>only show variance if a figure has either increased or decreased from the previous figure</li>
+            <li>when it has increased, include an <a href="icons#icons-increase">increase icon</a> with the data</li>
+            <li>when it has decreased, include an <a href="icons#icons-decrease">decrease icon</a> with the data</li>
+            <li>always display variance directly below the data it relates to</li>
+					</ul>
 					<h3 class="heading-medium">Three or more columns</h3>
 					<p>This type of funding table layout is more suitable for displaying more complex funding data. When this type of table reaches a smaller resolution, it will wrap all centre columns (e.g. not first or last columns) so they display within the first column.</p>
           <p>This means on smaller devices even the most complex funding tables will still be accessible and understandable without impacting on the overall experience for all of our users' needs (e.g. reduced font sizes).</p>
@@ -1035,7 +1117,61 @@
 					
 						<!-- HTML Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example4-html" role="tabpanel" aria-hidden="true">
-
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">table</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">caption</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__caption heading-small visuallyhidden"</span>&gt;</span>Total basic entitlement breakdown<span class="hljs-tag">&lt;/<span class="hljs-name">caption</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">thead</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__head"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-third"</span>&gt;</span>Basic entitlement<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default"</span>&gt;</span>Rate<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default"</span>&gt;</span>Weighting<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default"</span>&gt;</span>Pupils<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"col"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric"</span>&gt;</span>Sub-total<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__body"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>
+        Key Stage 3
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-column-mobile"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          Rate: £3,862.65
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          Weighting: 1
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          Pupils: 347
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span>£3,862.65<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span>347<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£1,340,339.55<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>
+        Key Stage 4
+        <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-column-mobile"</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          Rate: £4,385.81
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          Weighting: 1
+          <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span>
+          Pupils: 224
+        <span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span>£4,385.81<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span>224<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£982,421.44<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tr</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__row"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">th</span> <span class="hljs-attr">scope</span>=<span class="hljs-string">"row"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"table-header-normal"</span>&gt;</span>Total basic entitlement<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric table-column-default"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">td</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"govuk-table__cell govuk-table__cell--numeric"</span>&gt;</span>£2,322,760.99<span class="hljs-tag">&lt;/<span class="hljs-name">td</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span></code></pre>
 						</div>
 						<!-- HTML Code Tab (END) -->
 
@@ -1045,7 +1181,37 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example4-css" role="tabpanel" aria-hidden="true">
-           
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.govuk-!-width-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33% !important</span>;
+&#125;
+
+.govuk-!-width-one-sixth &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">16.66% !important</span>;
+&#125;
+
+.table-header-normal &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
+&#125;
+
+.table-column-default &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 415px) &#123;
+  .table-column-default &#123;
+    <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">table-cell</span>;
+  &#125;
+&#125;
+
+.table-column-mobile &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">table-cell</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 415px) &#123;
+  .table-column-mobile &#123;
+    <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+  &#125;
+&#125;</code></pre>
 						</div>
 						<!-- CSS Code Tab (END) -->
 
@@ -1123,7 +1289,15 @@
 
 						<!-- CSS Code Tab (START) -->
 						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-table-example5-css" role="tabpanel" aria-hidden="true">
-<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.table-header-normal &#123;
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.govuk-!-width-one-third &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">33.33% !important</span>;
+&#125;
+
+.govuk-!-width-one-sixth &#123;
+  <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">16.66% !important</span>;
+&#125;
+
+.table-header-normal &#123;
   <span class="hljs-tag"><span class="hljs-attr">font-weight</span></span>: <span class="hljs-string">normal</span>;
 &#125;
 
@@ -1156,6 +1330,8 @@
 					<p>Users' ability to effectively interpret data from this component decreases however with additional columns. Consistent with usability research literature, it is important to users that only data pertinent to their needs is displayed.</p>
 					<h2 class="heading-large">Linked components</h2>
 					<ul class="list">
+            <li><a href="icons#icons-calculation">Icons (calculation)</a></li>
+            <li><a href="icons#icons-variance">Icons (variance)</a></li>
 						<li><a href="links#links-funding-table-guidance">Links (funding table guidance)</a></li>
 					</ul>
 				</div>
