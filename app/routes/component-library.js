@@ -60,6 +60,17 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
+	router.get('/component-library/examples/accordion-with-additional-information', function (req, res) {		
+		res.render('component-library/examples/accordion-with-additional-information', {
+			'latestVersion' : latestVersion,
+			'latestVersionVLF' : latestVersionVLF,
+			'latestVersionNFF' : latestVersionNFF,
+			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
+			'showPropositionLinks' : "True",
+			'serviceScope' : req.session.serviceScope
+		});
+	});
 
 	// Back to top link
 	router.get('/component-library/back-to-top-link', function (req, res) {		
@@ -293,8 +304,8 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/funding-table-no-repeating-column-headers', function (req, res) {		
-		res.render('component-library/examples/funding-table-no-repeating-column-headers', {
+	router.get('/component-library/examples/funding-table-with-variance', function (req, res) {		
+		res.render('component-library/examples/funding-table-with-variance', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
@@ -304,8 +315,8 @@ module.exports = function(router) {
 			'serviceScope' : req.session.serviceScope
 		});
 	});
-	router.get('/component-library/examples/funding-table-four-columns', function (req, res) {		
-		res.render('component-library/examples/funding-table-four-columns', {
+	router.get('/component-library/examples/funding-table-three-or-more-columns', function (req, res) {		
+		res.render('component-library/examples/funding-table-three-or-more-columns', {
 			'latestVersion' : latestVersion,
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,

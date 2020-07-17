@@ -8,7 +8,7 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:image" content="/public/images/opengraph-image.png?0.19.2">
-        <title>Funding table: four columns</title>
+        <title>Funding table: three or more columns</title>
 
         <!--[if gt IE 8]><!--><link href="/public/stylesheets/govuk-template.css?0.19.2" media="screen" rel="stylesheet"><!--<![endif]-->
         <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
@@ -70,33 +70,63 @@
 
             <form action="/form-handler" method="post" novalidate="">
                         
-                <!-- COMPONENT - FUNDING TABLE: FOUR COLUMNS (START) -->
-                <table class="govuk-table funding-breakdown">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Total high needs block alternative provision academies and free schools breakdown</caption>
+                <!-- COMPONENT - FUNDING TABLE: THREE OR MORE COLUMNS (START) -->
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total basic entitlement breakdown</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
-                            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Alternative provision academies and free schools</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">April 2020 to <br>August 2020</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">September 2020 to <br>March 2021</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Total deduction</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Basic entitlement</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Weighting</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Pupils</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                         </tr>
                     </thead>
-                    <tbody class="govuk-table__body">
+                    <tbody class="govuk-table__body">                        
                         <tr class="govuk-table__row">
-                            <th class="table-header-normal" scope="row">Pre-16 special educational needs places</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            <th scope="row" class="table-header-normal">
+                                Key Stage 3
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Rate: £3,862.65
+                                    <br>
+                                    Weighting: 1
+                                    <br>
+                                    Pupils: 347
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£3,862.65</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">347</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£1,340,339.55</td>
                         </tr>
                         <tr class="govuk-table__row">
-                            <th class="table-header-normal" scope="row">Pre-16 alternative provision places</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">2</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">2</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£20,000</td>
+                            <th scope="row" class="table-header-normal">
+                                Key Stage 4
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Rate: £4,385.81
+                                    <br>
+                                    Weighting: 1
+                                    <br>
+                                    Pupils: 224
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,385.81</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">224</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£982,421.44</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">Total basic entitlement</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£2,322,760.99</td>
                         </tr>
                     </tbody>
                 </table>
-                <!-- COMPONENT - FUNDING TABLE: FOUR COLUMNS (END) -->
+                <!-- COMPONENT - FUNDING TABLE: THREE OR MORE COLUMNS (END) -->
 
             </form>
 
@@ -104,16 +134,12 @@
 
         <!-- JavaScript (START) -->
         <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-        <!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
-        <script src="/public/javascripts/{{latestVersion}}/jquery-accessible-modal-window-aria.js"></script>
-        <!-- GOV.UK Design System tabs -->
-        <script src="/public/javascripts/{{latestVersion}}/accordion.js"></script>
-        <!-- DSG -->
-        <script src="/public/javascripts/{{latestVersion}}/dsg.js"></script>
         <!-- Custom global behaviour -->
         <script src="/public/javascripts/{{latestVersion}}/custom-global-behaviour.js"></script>
         <!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
         <script src="/public/javascripts/iframeResizer.contentWindow.min.js"></script>
+        <!-- External third party CSS links (Font Awesome) -->
+        <script src="https://kit.fontawesome.com/71943611db.js" crossorigin="anonymous"></script>
         <!-- JavaScript (END) -->
     </body>
 

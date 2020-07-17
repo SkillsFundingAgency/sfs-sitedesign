@@ -8,7 +8,7 @@
         <meta name="robots" content="noindex, nofollow">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta property="og:image" content="/public/images/opengraph-image.png?0.19.2">
-        <title>Funding table: no repeating column headers</title>
+        <title>Funding table: with variance</title>
 
         <!--[if gt IE 8]><!--><link href="/public/stylesheets/govuk-template.css?0.19.2" media="screen" rel="stylesheet"><!--<![endif]-->
         <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
@@ -70,53 +70,38 @@
 
             <form action="/form-handler" method="post" novalidate="">
                         
-                <!-- COMPONENT - FUNDING TABLE: NO REPEATING COLUMN HEADERS (START) -->
-                <table class="govuk-table funding-breakdown">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Total high needs block special free schools breakdown</caption>
+                <!-- COMPONENT - FUNDING TABLE: WITH VARIANCE (START) -->
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total post-opening grant breakdown</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
-                            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Special free schools</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">April 2020 to <br>August 2020</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">September 2020 to <br>March 2021</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">Total deduction</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Post-opening grant</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
-                            <th class="table-header-normal" scope="row">Pre-16 special educational needs places</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            <th scope="row" class="table-header-normal">Per pupil resources</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£15,000</td>
                         </tr>
                         <tr class="govuk-table__row">
-                            <th class="table-header-normal" scope="row">Pre-16 alternative provision places</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">1</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£10,000</td>
+                            <th scope="row" class="table-header-normal">Leadership or other costs to build up pupil numbers</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £40,500
+                                <p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000</p>
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">Total post-opening grant</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £55,500
+                                <p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £10,000</p>
+                            </td>
                         </tr>
                     </tbody>
+            
                 </table>
-                                    
-                <table class="govuk-table funding-breakdown">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Total high needs block special free schools breakdown</caption>
-                    <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">
-                            <th class="govuk-table__header govuk-!-width-one-quarter" scope="col"><span class="visuallyhidden">Special free schools</span></th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">April 2020 to <br>July 2020</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col">August 2020 to <br>March 2021</th>
-                            <th class="govuk-table__header govuk-!-width-one-quarter govuk-table__header--numeric" scope="col"><span class="visuallyhidden">Total deduction</span></th>
-                        </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <th class="table-header-normal" scope="row">Post-16 special educational needs places</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <!-- COMPONENT - FUNDING TABLE: NO REPEATING COLUMN HEADERS (END) -->
+                <!-- COMPONENT - FUNDING TABLE: WITH VARIANCE (END) -->
 
             </form>
 
@@ -124,16 +109,12 @@
 
         <!-- JavaScript (START) -->
         <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-        <!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
-        <script src="/public/javascripts/{{latestVersion}}/jquery-accessible-modal-window-aria.js"></script>
-        <!-- GOV.UK Design System tabs -->
-        <script src="/public/javascripts/{{latestVersion}}/accordion.js"></script>
-        <!-- DSG -->
-        <script src="/public/javascripts/{{latestVersion}}/dsg.js"></script>
         <!-- Custom global behaviour -->
         <script src="/public/javascripts/{{latestVersion}}/custom-global-behaviour.js"></script>
         <!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
         <script src="/public/javascripts/iframeResizer.contentWindow.min.js"></script>
+        <!-- External third party CSS links (Font Awesome) -->
+        <script src="https://kit.fontawesome.com/71943611db.js" crossorigin="anonymous"></script>
         <!-- JavaScript (END) -->
     </body>
 
