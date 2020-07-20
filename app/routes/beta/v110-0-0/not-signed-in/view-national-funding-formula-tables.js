@@ -608,6 +608,14 @@ router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/
 	});
 });
 
+router.get('/' + version + '/not-signed-in/national-funding-formula/accessibility', function (req, res) {
+	res.render(version + '/not-signed-in/national-funding-formula/accessibility', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'error' : req.query.error
+	});
+});
 router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child', function (req, res) {
 	res.render(version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child', {
 		'version' : version,
