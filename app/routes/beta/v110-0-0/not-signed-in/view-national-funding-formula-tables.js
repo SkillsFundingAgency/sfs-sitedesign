@@ -62,6 +62,14 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula', function (req, res) {
+		res.render(version + '/not-signed-in/national-funding-formula/start', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'term1' : 'True'
+		});
+	});
 
 
 	// Find a school or academy
