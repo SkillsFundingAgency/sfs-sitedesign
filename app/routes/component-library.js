@@ -1,10 +1,11 @@
 module.exports = function(router) {
 
 	// Add latest versions of MYESF features here
-	var latestVersion = 'beta/v112-0-0';
+	var latestVersion = 'beta/v113-0-0';
 	var latestVersionVLF = 'beta/v105-1-0';
 	var latestVersionNFF = 'beta/v108-0-0';
 	var latestVersionAdults = 'beta/v112-0-0';
+	var latestVersionGAG = 'beta/v112-0-0';
 	var latestVersionDocumentExchange = 'beta/v109-0-0';
 	
 	/**********
@@ -31,6 +32,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -44,6 +46,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -55,6 +58,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -66,6 +70,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -79,6 +84,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -94,6 +100,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -105,6 +112,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -122,6 +130,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -133,6 +142,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -144,6 +154,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -155,6 +166,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -166,6 +178,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -179,6 +192,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -190,6 +204,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -203,6 +218,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -214,6 +230,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -225,6 +242,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -242,6 +260,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -253,6 +272,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -264,6 +284,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -275,6 +296,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -288,6 +310,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -299,6 +322,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -310,6 +334,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -321,6 +346,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -332,6 +358,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -345,6 +372,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -356,6 +384,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -367,6 +396,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -378,6 +408,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -391,6 +422,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -402,6 +434,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -413,6 +446,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -424,6 +458,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -435,6 +470,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -446,6 +482,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -457,6 +494,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -468,6 +506,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -479,6 +518,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -490,6 +530,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -503,6 +544,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -514,6 +556,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -525,6 +568,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -536,6 +580,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -547,6 +592,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -558,6 +604,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -571,6 +618,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -582,6 +630,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -595,6 +644,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -613,6 +663,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -631,6 +682,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -648,6 +700,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -666,6 +719,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -690,6 +744,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope,
@@ -738,6 +793,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -749,6 +805,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -762,6 +819,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -773,6 +831,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -786,6 +845,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -797,6 +857,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -808,6 +869,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
@@ -819,6 +881,7 @@ module.exports = function(router) {
 			'latestVersionVLF' : latestVersionVLF,
 			'latestVersionNFF' : latestVersionNFF,
 			'latestVersionAdults' : latestVersionAdults,
+			'latestVersionGAG' : latestVersionGAG,
 			'latestVersionDocumentExchange' : latestVersionDocumentExchange,
 			'showPropositionLinks' : "True",
 			'serviceScope' : req.session.serviceScope
