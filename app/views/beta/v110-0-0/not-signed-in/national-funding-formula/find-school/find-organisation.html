@@ -2539,6 +2539,8 @@
   </script>
   <script type="text/javascript">
     var schools = [];
+    var letterNumber = /^[0-9]+$/;
+    
     $.getJSON( "/public/javascripts/beta/v110-0-0/json/schools.json", function( json ) {
         schools = JSON.parse(JSON.stringify(json));
         runCodeAfter();
@@ -2551,7 +2553,8 @@
         element: element,
         id: id,
         name: name,
-        source: schools
+        source: schools,
+        minLength: 3
         })
     }
   </script>
