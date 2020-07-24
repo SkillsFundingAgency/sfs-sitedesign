@@ -16,14 +16,17 @@
         
         <div class="column-full">
             <h1 class="heading-xlarge">
-                {% if idams == 'SAT' %}
-                <span class="heading-secondary">Mole Catch Academy</span>
+                {% if idams == 'other' %}
+                <span class="heading-secondary">Casterbridge College</span>
                 <span class="heading-secondary">UKPRN: 12345678</span>
+                {% elif idams == 'LA' %}
+                <span class="heading-secondary">Redhill Council</span>
+                <span class="heading-secondary">UKPRN: 87654321</span>
                 {% elif idams == 'MAT' %}
                 <span class="heading-secondary">Rupert Shoggins Academy Trust</span>
                 <span class="heading-secondary">UKPRN: 87654321</span>
                 {% else %}
-                <span class="heading-secondary">Mole Catch Academy</span>
+                <span class="heading-secondary">Casterbridge College</span>
                 <span class="heading-secondary">UKPRN: 12345678</span>
                 {% endif %}
                 Manage your education and skills funding
@@ -34,9 +37,9 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="allocationStatements" class="dashboard-links" href="{% if hybrid == 'True' %}which-feature{% else %}allocation-statements{% endif %}">
+                        <a id="allocationStatements" class="dashboard-links" href="allocation-statements">
                             <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
-                            <span id="allocation-statements-alert" class="alert alert-name-red">{% if tagType == '1' %}1 new statement{% elif tagType == '2' %}1 updated statement{% elif tagType == '3' %}1 new and 1 updated statement{% elif tagType == '4' %}1 new and 3 updated statements{% else %}{% if gagVariant == '7' %}1 updated statement{% else %}1 new statement{% endif %}{% endif %}</span>
+                            <span id="allocation-statements-alert" class="alert alert-name-red">{% if tagType == '1' %}1 new statement{% elif tagType == '2' %}1 updated statement{% elif tagType == '3' %}1 new and 1 updated statement{% elif tagType == '4' %}1 new and 3 updated statements{% else %}{% if sixteenToNineteenVariant == '1' %}2 updated statements{% else %}2 new statements{% endif %}{% endif %}</span>
                         </a>
                     </div>
 
