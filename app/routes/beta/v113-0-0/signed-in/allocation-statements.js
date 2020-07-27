@@ -294,7 +294,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show the user variant 1 (16 to 19) of the GAG statement
+		// Show the user variant 1 (16 to 19) of the 16 to 19 statement
 		else if (username == "1") {
 
 			req.session.hasValidRoles = "True";
@@ -303,7 +303,16 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show the user variant 2 (16 to 19 acccommodation) of the GAG statement
+		// Show the user variant 1B (16 to 19 acccommodation) of the 16 to 19 statement
+		else if (username == "1b") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.sixteenToNineteenVariant = "1B";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
+		}
+		// Show the user variant 2 (16 to 19 acccommodation) of the 16 to 19 statement
 		else if (username == "2") {
 
 			req.session.hasValidRoles = "True";
@@ -312,7 +321,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show the user variant 3 (16 to 19 alternatiive completion) of the GAG statement
+		// Show the user variant 3 (16 to 19 alternatiive completion) of the 16 to 19 statement
 		else if (username == "3") {
 
 			req.session.hasValidRoles = "True";
@@ -321,7 +330,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show the user variant 4 (NMSS) of the GAG statement
+		// Show the user variant 4 (NMSS) of the 16 to 19 statement
 		else if (username == "4") {
 
 			req.session.hasValidRoles = "True";
@@ -494,6 +503,26 @@ module.exports = function(router) {
 		});
 	});
 
+	// VARIATION 1B
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-1B/12-09-2021', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-1B/12-09-2021', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
 	// VARIATION 2
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-2/12-09-2021', function (req, res) {
 
@@ -633,7 +662,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dashboard');
 		}
-		// Show users the LA view of the GAG statement
+		// Show users the LA view of the 16 to 19 statement
 		else if (username == "la") {
 
 			req.session.hasValidRoles = "True";
@@ -644,7 +673,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dashboard');
 		}
-		// Show users the MAT view of the GAG statement
+		// Show users the MAT view of the 16 to 19 statement
 		else if (username == "mat") {
 
 			req.session.hasValidRoles = "True";
