@@ -561,6 +561,37 @@ module.exports = function(router) {
 			'term1' : 'True'
 		});
 	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements_v2', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements_v2', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.get('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/find_la', function (req, res) {
+		
+		// Reset an error validation variable before user returns to this page
+		req.session.radio = "";
+		
+		res.render(version + '/not-signed-in/national-funding-formula/find-local-authority/find_la', {
+			'version' : version,
+			'publicServiceName' : req.session.publicServiceName,
+			'versioning' : req.session.versioning,
+			'choice' : req.session.choice,
+			'searchTerm' : req.session.searchTerm,
+			'term1' : 'True'
+		});
+	});
+	router.post('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/find_la', function (req, res) {		
+			res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-local-authority/allocation-statements_v2');
+	});
 
 // CHILD VIEW //
 
@@ -571,6 +602,17 @@ router.get('/' + version + '/not-signed-in/national-funding-formula/start_child'
 		'publicServiceName' : req.session.publicServiceName,
 		'versioning' : req.session.versioning,
 		'term1' : 'True'
+	});
+});
+router.get('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_partway', function (req, res) {			
+	res.render(version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_partway', {
+		'version' : version,
+		'publicServiceName' : req.session.publicServiceName,
+		'versioning' : req.session.versioning,
+		'choice' : req.session.choice,
+		'searchScope' : req.session.searchScope,
+		'didYouMean' : req.session.didYouMean,
+		'toggleVersion' : req.query.toggleVersion
 	});
 });
 
@@ -652,6 +694,15 @@ router.post('/' + version + '/not-signed-in/national-funding-formula/find-school
 		req.session.didYouMean = "No";
 		
 		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child');
+	}
+
+	else if (schoolOrAcademy == "102745" || schoolOrAcademy == "william davies primary school - newham") {
+		
+		req.session.searchScope = "william davies";
+		req.session.searchTerm = schoolOrAcademy;
+		req.session.didYouMean = "No";
+		
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_partway');
 	}
 	
 	// Show the error validation if a user enters a blank search term (e.g. "")
