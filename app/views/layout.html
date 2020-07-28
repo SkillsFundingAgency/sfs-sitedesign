@@ -53,8 +53,15 @@
 {% endblock %}
 
 {% block footer_support_links %}
-
-{% if useAutoStoreData %}
+{% if publicServiceName == 'NFF' %}
+<ul>
+	<li><a href="https://skillsfunding.service.gov.uk/privacy-and-cookies">Privacy and cookies</a></li>
+	<li><a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes" rel="external" target="external" title="This will open in a new tab or window">Contact us</a></li>
+	<li><a href="/{{version}}/not-signed-in/national-funding-formula/accessibility">Accessibility</a></li>
+	<li><a href="https://skillsfunding.service.gov.uk/terms-and-conditions">Terms and conditions</a></li>
+</ul>
+{% endif %}
+{% if useAutoStoreData and publicServiceName != 'NFF' %}
 <ul>
 	<li><a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes" rel="external" target="external" title="This will open in a new tab or window">Contact us</a></li>
 	{% if disclaimerAccepted == 'Yes' %}
@@ -69,9 +76,7 @@
 	
 	{% endif %}
 	{% endif %}
-	{% if publicServiceName == 'NFF' %}
-	<li><a href="/{{version}}/not-signed-in/national-funding-formula/accessibility">Accessibility</a></li>
-	{% endif %}
+
 	<li><a href="https://skillsfunding.service.gov.uk/privacy-and-cookies">Privacy and cookies</a></li>
 	<li><a href="https://skillsfunding.service.gov.uk/terms-and-conditions">Terms and conditions</a></li>
 </ul>
