@@ -27,7 +27,7 @@ Coventry, Midlands
                             <a href="../search-funding">How do you want to search?</a>               
                         </li>
                         <li>
-                            <a href="../search-funding">Find a local authority</a>            
+                            <a href="./find_la">Find a local authority</a>            
                         </li> 
                         <li>
                             Coventry, Midlands 
@@ -231,8 +231,8 @@ Coventry, Midlands
                 <!-- COMPONENT - ACCORDION (START) -->
                 <div class="govuk-accordion" data-module="accordion" id="accordion-default">
                     <p class='resultsnumber heading-small'>331 results</p>
-                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button" style='display:inline'>Export results (CSV)</a>
-                    <a href="../../../not-signed-in/search-funding" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button" style='display:inline'>Print</a>
+                    <a href="#" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button" style='display:inline'>Export results (CSV)</a>
+                    <a href="#" onclick="window.print();return false;" role="button" draggable="false" class="button button-secondary exportbutton" data-module="govuk-button" style='display:inline'>Print</a>
 
                     <div class="govuk-accordion__section sectionContent queryFilterAcademy01 queryFilterType01 queryFilterLocalAuthority01">
                 
@@ -1674,11 +1674,6 @@ Coventry, Midlands
 <script type='text/javascript'>
 
 function MATsearch(){
-    alert('julien')
-}
-document.getElementById("MATsearchSubmit").onclick = function () {
-    if ($('#MATsearch').val().indexOf('') > -1) {
-        console.log('has something');
         var elem = document.querySelector('#accordion-default');
         var elem2 = document.querySelector('#filterContent')
         var elem4 = document.querySelector('#results-title')
@@ -1686,18 +1681,14 @@ document.getElementById("MATsearchSubmit").onclick = function () {
         elem.style.display = 'inline'
         elem2.style.display = 'inline'
         elem4.style.display = 'inline'
-        elem5.style.display = 'none'
-        $(".exportbutton").prependTo(".govuk-accordion__controls");
-        $(".resultsnumber").prependTo(".govuk-accordion__controls");
+        elem5.style.display = ''
+        $(".exportbutton").appendTo(".govuk-accordion__controls");
+        $(".resultsnumber").appendTo(".govuk-accordion__controls");
         $(".govuk-accordion__controls").css("margin-bottom", "20px");
         $(".exportbutton").css("margin-left", "10px");
-    }
-    else{
-        var elem3 = document.querySelector('#emptyMAT');
-        elem3.style.display = 'inline'
-        $("#MATs").addClass("form-group-error");
-    }
 }
+
+window.onload = MATsearch()
 </script>
 <script type="text/javascript">
     var authority = [
