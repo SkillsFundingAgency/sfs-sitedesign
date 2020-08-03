@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Allocation history - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="../../16-to-19/child/allocation-statements">Allocation statements</a></li>
+                        <li>Allocation history</li>
+                    </ol>
+                </nav>
+            </div> 
+
+        </div>
+
+        <div class="column-full">
+
+            <form method="post" class="form">
+
+                <div class="form-block">
+                    <h1 class="heading-xlarge">
+                        <span class="heading-secondary">14 to 16 funding</span>
+                        Allocation history
+                    </h1>
+                    <p class="lede">Find detailed breakdowns of 14 to 16 funding for {{organisationName}} for each academic year.</p>
+                    <h2 class="heading-large heading-guidance">2021 to 2022</h2>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption visuallyhidden">14 to 16 funding 2021 to 2022 allocation history</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th class="govuk-table__header govuk-!-width-one-quarter" scope="col">Published date</th>
+                                <th class="govuk-table__header govuk-!-width-three-quarters" scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row">
+                                    {% if sixteenToNineteenVariant == '1' %}
+                                    <a href="funding-breakdown-1/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '2' %}
+                                    <a href="funding-breakdown-2/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '3' %}
+                                    <a href="funding-breakdown-3/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '4' %}
+                                    <a href="funding-breakdown-4/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '5' %}
+                                    <a href="funding-breakdown-5/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '6' %}
+                                    <a href="funding-breakdown-6/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '7' %}
+                                    <a href="funding-breakdown-7/12-09-2021">12 September 2021</a>
+                                    {% elif sixteenToNineteenVariant == '8' %}
+                                    <a href="funding-breakdown-8/12-09-2021">12 September 2021</a>
+                                    {% else %}
+                                    <a href="funding-breakdown-1/12-09-2021">12 September 2021</a>
+                                    {% endif %}
+                                    <br>
+                                    <strong class="govuk-tag">Latest</strong>
+                                </th>
+                                {% if sixteenToNineteenVariant == '1' %}
+                                <td class="table-header-normal">Revised allocations for the academic year 2021 to 2022.</td>
+                                {% else %}
+                                <td class="table-header-normal">New allocations published for the academic year 2021 to 2022.</td>
+                                {% endif %}
+                            </tr>
+                            {% if sixteenToNineteenVariant == '1' %}
+                            <tr class="govuk-table__row">
+                                <th class="table-header-normal" scope="row"><a href="funding-breakdown-7/27-02-2021">27 February 2021</a></th>
+                                <td class="table-header-normal">New allocations published for the academic year 2021 to 2022.</td>
+                            </tr>
+                            {% else %}
+
+                            {% endif %}
+                        </tbody>
+                    </table>
+
+                    <h2 class="heading-large heading-guidance">Previous years</h2>
+                    <p>You can view previous allocations in <a href="https://www.gov.uk/government/publications/efa-information-exchange" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Information Exchange</a></a>.</p>
+                </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
