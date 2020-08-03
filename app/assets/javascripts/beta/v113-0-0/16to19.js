@@ -27,8 +27,7 @@ $(document).ready(function () {
             $("#tab_programme-formula").addClass("govuk-tabs__tab--selected");
             $("#tab_programme-formula").attr("aria-selected", true);
             $("#tab_programme-formula").attr("tagindex", "0");
-            $("#tab_programme-formula").addClass();
-            $("#programme-funding").removeClass("govuk-tabs__panel--hidden");
+            $("#programme-formula").removeClass("govuk-tabs__panel--hidden");
     
             // Hide these
             $("#tab_condition-of-funding").removeClass("govuk-tabs__tab--selected");

@@ -1,167 +1,167 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-16 to 19 funding: 2021 to 2022 - manage your education and skills funding - GOV.UK
+    16 to 19 funding: 2021 to 2022 - manage your education and skills funding - GOV.UK
 {% endblock %}
 
 {% block content %}
 
 <style>
-.govuk-tabs {
-  font-family: "nta", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  line-height: 1.25;
-  font-size: 19px !important;
-  color: #0b0c0c;
-  margin-top: 5px;
-  margin-bottom: 20px;
-}
+    .govuk-tabs {
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    line-height: 1.25;
+    font-size: 19px !important;
+    color: #0b0c0c;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    }
 
-.govuk-tabs__title {
-  font-family: "nta", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 19px !important;
-  line-height: 1.25;
-  color: #1d70b8;
-  margin-bottom: 5px;
-}
+    .govuk-tabs__title {
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 19px !important;
+    line-height: 1.25;
+    color: #1d70b8;
+    margin-bottom: 5px;
+    }
 
-.govuk-tabs__list {
-  margin: 0;
-  list-style: none;
-}
+    .govuk-tabs__list {
+    margin: 0;
+    list-style: none;
+    }
 
-.govuk-tabs__list-item {
-  margin-left: 25px;
-  display: inline-block;
-  border: none;
-}
+    .govuk-tabs__list-item {
+    margin-left: 25px;
+    display: inline-block;
+    border: none;
+    }
 
-.govuk-tabs__list-item::before {
-  content: "— ";
-  margin-left: -25px;
-  border: none;
-  padding-right: 5px;
-}
+    .govuk-tabs__list-item::before {
+    content: "— ";
+    margin-left: -25px;
+    border: none;
+    padding-right: 5px;
+    }
 
-.govuk-tabs__tab {
-  font-family: "nta", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-family: "nta", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-weight: 400;
-  font-size: 19px !important;
-  line-height: 1.25;
-  border: none;
-  display: inline-block;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
+    .govuk-tabs__tab {
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: "nta", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    font-size: 19px !important;
+    line-height: 1.25;
+    border: none;
+    display: inline-block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    }
 
-.govuk-tabs__tab:focus {
-    color: #0B0C0C;
-    border-bottom: 5px solid #2b8cc4 !important;
-    font-weight: bold;
-    outline: none;
-}
+    .govuk-tabs__tab:focus {
+        color: #0B0C0C;
+        border-bottom: 5px solid #2b8cc4 !important;
+        font-weight: bold;
+        outline: none;
+    }
 
-.govuk-tabs__tab:link {
-  color: #005ea5;
-}
+    .govuk-tabs__tab:link {
+    color: #005ea5;
+    }
 
-.govuk-tabs__tab:visited {
-  color: #4c2c92;
-}
+    .govuk-tabs__tab:visited {
+    color: #4c2c92;
+    }
 
-.govuk-tabs__tab:hover {
-    color: #0B0C0C;
-    border-bottom: 5px solid #2b8cc4 !important;
-}
+    .govuk-tabs__tab:hover {
+        color: #0B0C0C;
+        border-bottom: 5px solid #2b8cc4 !important;
+    }
 
-.govuk-tabs__tab:active {
-  color: #2b8cc4;
-}
+    .govuk-tabs__tab:active {
+    color: #2b8cc4;
+    }
 
-.govuk-tabs__tab[aria-current="true"] {
-  color: #0b0c0c;
-  text-decoration: none;
-  border: none;
-}
+    .govuk-tabs__tab[aria-current="true"] {
+    color: #0b0c0c;
+    text-decoration: none;
+    border: none;
+    }
 
-.govuk-tabs__panel {
-  margin-bottom: 30px;
-  border: none;
-}
-
-.js-enabled .govuk-tabs__list {
-    padding-bottom: 15px;
+    .govuk-tabs__panel {
     margin-bottom: 30px;
-}
+    border: none;
+    }
 
-.js-enabled .govuk-tabs__list:after {
-  content: "";
-  display: block;
-  clear: both;
-}
+    .js-enabled .govuk-tabs__list {
+        padding-bottom: 15px;
+        margin-bottom: 30px;
+    }
 
-.js-enabled .govuk-tabs__list-item {
-  margin-left: 0;
-  margin-bottom: 5px;
-  height: 40px;
-  padding-right: 15px;
-}
+    .js-enabled .govuk-tabs__list:after {
+    content: "";
+    display: block;
+    clear: both;
+    }
 
-.js-enabled .govuk-tabs__list-item::before {
-  content: none;
-}
+    .js-enabled .govuk-tabs__list-item {
+    margin-left: 0;
+    margin-bottom: 5px;
+    height: 40px;
+    padding-right: 15px;
+    }
 
-.js-enabled .govuk-tabs__title {
-  display: none;
-  color: #1d70b8;
-}
+    .js-enabled .govuk-tabs__list-item::before {
+    content: none;
+    }
 
-.js-enabled .govuk-tabs__tab {
-  margin-right: 15px;
-  float: left;
-  color: #1d70b8;
-  background-color: #ffffff;
-  text-align: center;
-  text-decoration: none;
-  padding: 10px 0px 10px 0px;
-}
+    .js-enabled .govuk-tabs__title {
+    display: none;
+    color: #1d70b8;
+    }
 
-.js-enabled .govuk-tabs__tab[aria-selected="true"] {
-  padding: 15px 0px 10px 0px;
-  border: none;
-  color: #1d70b8;
-  background-color: #ffffff;
-}
+    .js-enabled .govuk-tabs__tab {
+    margin-right: 15px;
+    float: left;
+    color: #1d70b8;
+    background-color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0px 10px 0px;
+    }
 
-.js-enabled .govuk-tabs__tab[aria-selected="true"]:focus {
-  background-color: transparent;
-}
+    .js-enabled .govuk-tabs__tab[aria-selected="true"] {
+    padding: 15px 0px 10px 0px;
+    border: none;
+    color: #1d70b8;
+    background-color: #ffffff;
+    }
 
-.js-enabled .govuk-tabs__panel {
-  margin-bottom: 0;
-  margin-bottom: 0;
-  padding: 15px 0px 10px 0px;
-  border: none;
-  border-top: 0;
-}
+    .js-enabled .govuk-tabs__tab[aria-selected="true"]:focus {
+    background-color: transparent;
+    }
 
-.js-enabled .govuk-tabs__panel > :last-child {
-  margin-bottom: 0;
-}
+    .js-enabled .govuk-tabs__panel {
+    margin-bottom: 0;
+    margin-bottom: 0;
+    padding: 15px 0px 10px 0px;
+    border: none;
+    border-top: 0;
+    }
 
-.js-hidden {
-  display: none;
-}
+    .js-enabled .govuk-tabs__panel > :last-child {
+    margin-bottom: 0;
+    }
+
+    .js-hidden {
+    display: none;
+    }
 
 </style>
 
@@ -260,7 +260,7 @@
                     <li class="govuk-tabs__list-item"><a id="care-standards-tab" class="govuk-tabs__tab print-trigger" href="#care-standards">Care standards</a></li>
                     <li class="govuk-tabs__list-item"><a id="formula-protection-tab" class="govuk-tabs__tab print-trigger" href="#formula-protection">Formula protection</a></li>
                     <li class="govuk-tabs__list-item"><a id="high-needs-tab" class="govuk-tabs__tab print-trigger" href="#high-needs">High needs</a></li>
-                    <li class="govuk-tabs__list-item"><a id="student-financial-support" class="govuk-tabs__tab print-trigger" href="#student-financial-support">Student financial support</a></li>
+                    <li class="govuk-tabs__list-item"><a id="student-financial-support-tab" class="govuk-tabs__tab print-trigger" href="#student-financial-support">Student financial support</a></li>
                     <li class="govuk-tabs__list-item"><a id="industry-placement-tab" class="govuk-tabs__tab print-trigger" href="#industry-placement">Industry placement</a></li>
                     <li class="govuk-tabs__list-item"><a id="advanced-maths-tab" class="govuk-tabs__tab print-trigger" href="#advanced-maths">Advanced maths</a></li>
                     <li class="govuk-tabs__list-item"><a id="high-value-tab" class="govuk-tabs__tab print-trigger" href="#high-value">High value courses</a></li>
@@ -721,10 +721,10 @@
                             <div class="total-allocation-amount">
                                 <h2 class="heading-small no-margin-top">-£693,701</h2>
                             </div> -->
-
+<!-- 
                         </div>
 
-                    </div>                    
+                    </div>                     -->
                     
                     <!-- <div class="govuk-!-margin-bottom-8">
 
@@ -874,9 +874,9 @@
                                 <h2 class="heading-small no-margin-top">£169,579</h2>
                             </div> -->
 
-                        </div>
+                        <!-- </div>
 
-                    </div>       
+                    </div>        -->
 
                     <div class="govuk-!-margin-bottom-6">
                         <h3 class="heading-medium">Disadvantage funding</h3>
@@ -1115,10 +1115,10 @@
                             <div class="total-allocation-amount">
                                 <h2 class="heading-small no-margin-top">£91,342</h2>
                             </div> -->
-
+<!-- 
                         </div>
 
-                    </div>  
+                    </div>   -->
 
                     <!-- <div class="govuk-!-margin-bottom-6">
                         <h3 class="heading-medium">Programme funding formula</h3>
@@ -1190,13 +1190,13 @@
                             <h2 class="heading-medium variance-heading-no-margin">£22,508,598</h2>
                         </div> -->
 
-                    </div>
+                    <!-- </div> -->
 
                 </section>
                 <!-- Programme funding formula - (END) -->
 
                 <!-- Condition of funding adjustment - (START) -->
-                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="condition-of-funding-tab">
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="condition-of-funding">
                     
                     <div class="grid-row">
                 
@@ -1882,9 +1882,9 @@
 
             <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
             <!-- reloads (an incremented number each time the page is loaded) -->
-            <span id="reloads" style="display: none;">{{reloads}}</span>
+            <!-- <span id="reloads" style="display: none;">{{reloads}}</span> -->
             <!-- tab = school, mfg, highneeds, postopeninggrant -->
-            <span id="tab" style="display: none;">{{tab}}</span>
+            <!-- <span id="tab" style="display: none;">{{tab}}</span> -->
         </div>
 
     </div>
