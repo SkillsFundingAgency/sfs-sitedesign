@@ -3,7 +3,9 @@
 @import 'measurements';
 @import 'shims';
 
-$site-width: 960px;
+// $site-width: 960px;
+/* Chris Harding (04.08.20) - Changes to the global MYESF service widths to accommodate user need to read funding more easily */
+$site-width: 1160px;
 
 // An extendable selector to wrap your entire site content block
 // It limits the sites width to be 960px wide and maintains consistent margins
@@ -114,11 +116,15 @@ $site-width: 960px;
   @warn "The @mixin outer-block is deprecated and should be updated to use new grid helpers";
   margin: 0 auto;
   width: auto;
-  max-width: 960 + $gutter * 2;
+  // max-width: 960 + $gutter * 2;
+  /* Chris Harding (04.08.20) - Changes to the global MYESF service widths to accommodate user need to read funding more easily */
+  max-width: 1160 + $gutter * 2;
   @extend %contain-floats;
 
   @include ie-lte(8) {
-    width: 1020px;
+    // width: 1020px;
+    /* Chris Harding (04.08.20) - Changes to the global MYESF service widths to accommodate user need to read funding more easily */
+    width: 1220px;
   }
 }
 
