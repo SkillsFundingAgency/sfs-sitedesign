@@ -6,393 +6,7 @@
 
 {% block content %}
 
-<style>
-    .govuk-tabs {
-    font-family: "nta", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    line-height: 1.25;
-    font-size: 19px !important;
-    color: #0b0c0c;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    }
-
-    .govuk-tabs__title {
-    font-family: "nta", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    font-size: 19px !important;
-    line-height: 1.25;
-    color: #1d70b8;
-    margin-bottom: 5px;
-    }
-
-    .govuk-tabs__list {
-    margin: 0;
-    list-style: none;
-    }
-
-    .govuk-tabs__list-item {
-    margin-left: 25px;
-    display: inline-block;
-    border: none;
-    }
-
-    .govuk-tabs__list-item::before {
-    content: "— ";
-    margin-left: -25px;
-    border: none;
-    padding-right: 5px;
-    }
-
-    .govuk-tabs__tab {
-    font-family: "nta", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: "nta", Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-weight: 400;
-    font-size: 19px !important;
-    line-height: 1.25;
-    border: none;
-    display: inline-block;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    }
-
-    .govuk-tabs__tab:focus {
-        color: #0B0C0C;
-        border-bottom: 5px solid #2b8cc4 !important;
-        font-weight: bold;
-        outline: none;
-    }
-
-    .govuk-tabs__tab:link {
-    color: #005ea5;
-    }
-
-    .govuk-tabs__tab:visited {
-    color: #4c2c92;
-    }
-
-    .govuk-tabs__tab:hover {
-        color: #0B0C0C;
-        border-bottom: 5px solid #2b8cc4 !important;
-    }
-
-    .govuk-tabs__tab:active {
-    color: #2b8cc4;
-    }
-
-    .govuk-tabs__tab[aria-current="true"] {
-    color: #0b0c0c;
-    text-decoration: none;
-    border: none;
-    }
-
-    .govuk-tabs__panel {
-    margin-bottom: 30px;
-    border: none;
-    }
-
-    .js-enabled .govuk-tabs__list {
-        padding-bottom: 15px;
-        margin-bottom: 30px;
-    }
-
-    .js-enabled .govuk-tabs__list:after {
-    content: "";
-    display: block;
-    clear: both;
-    }
-
-    .js-enabled .govuk-tabs__list-item {
-    margin-left: 0;
-    margin-bottom: 5px;
-    height: 40px;
-    padding-right: 15px;
-    }
-
-    .js-enabled .govuk-tabs__list-item::before {
-    content: none;
-    }
-
-    .js-enabled .govuk-tabs__title {
-    display: none;
-    color: #1d70b8;
-    }
-
-    .js-enabled .govuk-tabs__tab {
-    margin-right: 15px;
-    float: left;
-    color: #1d70b8;
-    background-color: #ffffff;
-    text-align: center;
-    text-decoration: none;
-    padding: 10px 0px 10px 0px;
-    }
-
-    .js-enabled .govuk-tabs__tab[aria-selected="true"] {
-    padding: 15px 0px 10px 0px;
-    border: none;
-    color: #1d70b8;
-    background-color: #ffffff;
-    }
-
-    .js-enabled .govuk-tabs__tab[aria-selected="true"]:focus {
-    background-color: transparent;
-    }
-
-    .js-enabled .govuk-tabs__panel {
-    margin-bottom: 0;
-    margin-bottom: 0;
-    padding: 15px 0px 10px 0px;
-    border: none;
-    border-top: 0;
-    }
-
-    .js-enabled .govuk-tabs__panel > :last-child {
-    margin-bottom: 0;
-    }
-
-    .js-hidden {
-    display: none;
-    }
-
-    /* JAMES MCKECHNIE - Contents page list CSS */
-    .gem-c-contents-list {
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 20px;
-    margin-left: 0px;
-    z-index: 1;
-    background-image: initial;
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: rgb(255, 255, 255);
-    box-shadow: rgb(255, 255, 255) 0px 20px 15px -10px;
-    }
-    .gem-c-contents-list__title {
-    color: rgb(11, 12, 12);
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.5;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    }
-    .gem-c-contents-list__list, .gem-c-contents-list__nested-list {
-    color: rgb(11, 12, 12);
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 1.14286;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    list-style-type: none;
-    }
-    .gem-c-contents-list__list-item {
-    padding-top: 10px;
-    line-height: 1.3;
-    list-style-type: none;
-    }
-    .gem-c-contents-list__list-item--dashed {
-    position: relative;
-    padding-left: 25px;
-    padding-right: 25px;
-    margin-left: 15px;
-    }
-    .gem-c-contents-list__list-item--dashed::before {
-    content: "—";
-    position: absolute;
-    left: 0px;
-    width: 20px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-    }
-    .govuk-link, .gem-c-notice__title a, .gem-c-pagination__link, .gem-c-related-navigation__section-link, .gem-c-share-links__link, .gem-c-step-nav-related__link, .gem-c-subscription-links .gem-c-subscription-links__link, .gem-c-translation-nav__link, .app-c-header-notice__link {
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    }
-    .gem-c-contents-list--no-underline .gem-c-contents-list__link {
-    text-decoration-line: none;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-    }
-    .gem-c-document-list {
-    color: rgb(11, 12, 12);
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.25;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    }
-    .gem-c-document-list__item {
-    overflow-x: hidden;
-    overflow-y: hidden;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-    border-bottom-color: rgb(177, 180, 182);
-    list-style-position: initial;
-    list-style-image: initial;
-    list-style-type: none;
-    }
-    .gem-c-document-list__item:last-child {
-    border-bottom-width: 0px;
-    border-bottom-style: initial;
-    border-bottom-color: initial;
-    }
-    .gem-c-document-list__item-title {
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.25;
-    display: inline-block;
-    }
-    .gem-c-document-list__item-link {
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    }
-    .gem-c-document-list__item-link:focus {
-    outline-color: transparent;
-    outline-style: solid;
-    outline-width: 3px;
-    color: rgb(11, 12, 12);
-    background-color: rgb(255, 221, 0);
-    box-shadow: rgb(255, 221, 0) 0px -2px, rgb(11, 12, 12) 0px 4px;
-    text-decoration-line: none;
-    text-decoration-style: initial;
-    text-decoration-color: initial;
-    }
-    .gem-c-document-list__item-link:link {
-    color: rgb(29, 112, 184);
-    }
-    .gem-c-document-list__item-link:visited {
-    color: rgb(76, 44, 146);
-    }
-    .gem-c-document-list__item-link:hover {
-    color: rgb(0, 48, 120);
-    }
-    .gem-c-document-list__item-link:active {
-    color: rgb(11, 12, 12);
-    }
-    .gem-c-document-list__item-link:link:focus {
-    color: rgb(11, 12, 12);
-    }
-    .gem-c-document-list__attribute {
-    color: rgb(11, 12, 12);
-    font-family: nta, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 1.25;
-    display: inline-block;
-    list-style-position: initial;
-    list-style-image: initial;
-    list-style-type: none;
-    padding-right: 20px;
-    }
-    .js-enabled .govuk-sticky-element--stuck-to-window {
-    bottom: 0px;
-    position: fixed;
-    }
-    .js-enabled .govuk-sticky-element--enabled {
-    transition-duration: 0.3s;
-    transition-timing-function: ease;
-    transition-delay: 0s;
-    transition-property: opacity;
-    opacity: 1;
-    }
-    .js-enabled .govuk-sticky-element--hidden {
-    opacity: 0;
-    pointer-events: none;
-    }
-    .app-c-contents-list-with-body__link-wrapper {
-    padding-bottom: 10px;
-    }
-    .app-c-contents-list-with-body__link-wrapper.govuk-sticky-element--stuck-to-window {
-    background-color: rgb(243, 242, 241);
-    bottom: -1px;
-    left: 0px;
-    margin-top: 0px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    margin-left: 0px;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    position: fixed;
-    width: 100%;
-    z-index: 1;
-    }
-    .app-c-contents-list-with-body__link-container {
-    margin-top: 0px;
-    margin-right: auto;
-    margin-bottom: 0px;
-    margin-left: auto;
-    padding-top: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    }
-    .app-c-back-to-top {
-    display: inline-block;
-    margin-bottom: 15px;
-    margin-left: 15px;
-    margin-right: 15px;
-    }
-    .app-c-contents-list-with-body__link-container .app-c-back-to-top {
-    margin-left: 0px;
-    margin-right: 0px;
-    }
-    .app-c-contents-list-with-body__link-wrapper .app-c-back-to-top {
-    padding-bottom: 10px;
-    }
-    .app-c-contents-list-with-body__link-wrapper.govuk-sticky-element--stuck-to-window .app-c-back-to-top {
-    margin-bottom: 0px;
-    padding-top: 15px;
-    padding-right: 15px;
-    padding-bottom: 15px;
-    padding-left: 15px;
-    width: 66.6667%;
-    }
-    .app-c-back-to-top__icon {
-    float: left;
-    margin-right: 0.3em;
-    width: 0.8em;
-    height: 0.968em;
-    }
-</style>
+<link href="/public/stylesheets/component-library.css" media="screen" rel="stylesheet" type="text/css" />
 
 <main role="main" id="content">
 
@@ -418,11 +32,57 @@
                 </nav>
             </div>
 
-            <h1 class="heading-xlarge">
+        </div>
+
+        <div class="govuk-grid-column-one-quarter app-hide-mobile">
+			
+			<nav class="app-subnav">
+				<ul class="app-subnav__section">
+					<li class="app-subnav__section-item app-subnav__section-item--current">
+						<a class="app-subnav__link" href="12-09-2021-programme-formula">Programme funding formula</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-condition-of-funding">Condition of funding adjustment</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-care-standards">Care standards</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-formula-protection">Formula protection funding</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-high-needs">High needs</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-student-financial-support">Student financial support</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-industry-placement">Industry placements</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-advanced-maths">Advanced maths premium</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-high-value">High value courses premium</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-teachers-pension">Teachers' pension scheme grant</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="12-09-2021-alternative-completion">Alternative completion</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="govuk-grid-column-three-quarters">
+			
+			<h1 class="heading-xlarge">
                 16 to 19 funding: 2021 to 2022
                 <span class="heading-secondary">
                     This allocation:
-                    <span class="bold-medium">12 February 2021</span>
+                    <span class="bold-medium">12 September 2021</span>
                     <strong class="govuk-tag govuk-tag-secondary-heading">Latest</strong>
                 </span>
             </h1>
@@ -478,56 +138,11 @@
                 
             </div>
 
-            <div id="contents" class="app-c-contents-list-with-body" data-module="sticky-element-container">
-                
-                <div class="govuk-!-margin-bottom-8">
-                    <nav class="gem-c-contents-list gem-c-contents-list--no-underline" role="navigation">
-                        <h2 class="gem-c-contents-list__title">Contents</h2>
-                        <ol class="gem-c-contents-list__list">
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#programme-formula">Programme funding formula</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#condition-of-funding">Condition of funding</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#care-standards">Care standards</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#formula-protection">Formula protection</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#high-needs">High needs</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#student-financial-support">Student financial support</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#industry-placement">Industry placement</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#advanced-maths">Advanced maths</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#high-value">High value courses</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#teachers-pension">Teachers' pension</a>
-                            </li>
-                            <li class="gem-c-contents-list__list-item gem-c-contents-list__list-item--dashed">
-                                <a class="gem-c-contents-list__link govuk-link" href="#alternative-completion">Alternative completion</a>
-                            </li>
-                        </ol>
-                    </nav>
-                </div>
-                
-            </div>
-
             <!-- Programme funding formula - (START) -->
             <div class="govuk-!-margin-bottom-8">
-                <h2 id="programme-formula" class="lede">
-                    Total programme funding formula
-                    <p class="heading-large heading-funding-summary">£22,508,598</p>
+                <h2 class="lede">
+                    Funding breakdown
+                    <p class="heading-large heading-funding-summary">Programme funding formula</p>
                 </h2>
             </div>
 
@@ -1465,682 +1080,19 @@
                 </table>
                 
             </div>
+
+            <div class="total-allocation-wrapper form-group">
+
+                <div class="total-allocation-label">
+                    <h2 class="heading-medium">Total programme funding formula</h2>
+                </div>
+    
+                <div class="total-allocation-amount">
+                    <h2 class="heading-medium">£22,508,598</h2>
+                </div>
+
+            </div>
             <!-- Programme funding formula - (END) -->
-
-            <!-- Condition of funding adjustment - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="condition-of-funding">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total condition of funding adjustment
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Students from 2020 to 2021 not meeting condition of funding</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Planned hours of study</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Total R14 students 2019 to 2020</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate applied to total students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Students not meeting condition of funding</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Rate applied to students not meeting condition of funding</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Band 5
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 4,170
-                                        <br>
-                                        Rate 2020 to 2021: £4,000
-                                        <br>
-                                        Rate applied to total students: £16,680,000
-                                        <br>
-                                        Students not meeting conditions of funding: 48</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,170</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,000</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£16,680,000</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">48</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£192,000</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Band 4
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 628
-                                        <br>
-                                        Rate 2020 to 2021: £3,000
-                                        <br>
-                                        Rate applied to total students: £2,072,400
-                                        <br>
-                                        Students not meeting conditions of funding: 18</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">628</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£3,000</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,072,400</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">18</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£59,400</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Band 3
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 47
-                                        <br>
-                                        Rate 2020 to 2021: £2,700
-                                        <br>
-                                        Rate applied to total students: £126,900
-                                        <br>
-                                        Students not meeting conditions of funding: 6</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">47</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,700</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£126,900</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">6</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£16,200</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Band 2
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 8
-                                        <br>
-                                        Rate 2020 to 2021: £2,133
-                                        <br>
-                                        Rate applied to total students: £17,064
-                                        <br>
-                                        Students not meeting conditions of funding: 48</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">8</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,133</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£17,064</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">2</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,266</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Band 1 (full time equivalent)
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 12.71
-                                        <br>
-                                        Rate 2020 to 2021: £4,000
-                                        <br>
-                                        Rate applied to total students: £50,853
-                                        <br>
-                                        Students not meeting conditions of funding: 1.86</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">12.71</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,000</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£50,853</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">1.86</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£7,427</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Band 1 (students)
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 60
-                                        <br>
-                                        Students not meeting conditions of funding: 5</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">60</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">5</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Total condition of funding
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Students 2020 to 2021 (R14): 4,913
-                                        <br>
-                                        Rate applied to total students: £18,947,217
-                                        <br>
-                                        Students not meeting conditions of funding: 79</span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,913</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£18,947,217</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">79</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£279,293</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                </div>
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Condition of funding adjustment</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Condition of funding adjustment</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Rate applied to students not meeting condition of funding</th>
-                                <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£279,293</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">5% of funding for total 2019 to 2020 R14 students</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£947,361</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">50% reduction</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total condition of funding adjustment</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-
-                <div class="total-allocation-wrapper last-table-below-tab">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-medium">Total condition of funding adjustment</h2>
-                    </div>
-        
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-medium variance-heading-no-margin">£0</h2>
-                    </div>
-
-                </div>
-                
-
-            </section>
-            <!-- Condition of funding - (END) -->
-
-            <!-- care standards - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="care-standards">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total care standards
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Student funding</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Student funding</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Rate</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total student funding</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£817</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                                    
-                </div> 
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Lump sum</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Lump sum</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total lump sum</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                                    
-                </div> 
-
-                <div class="total-allocation-wrapper last-table-below-tab">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-medium">Total care standards</h2>
-                    </div>
-        
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-medium">£0</h2>
-                    </div>
-
-                </div>
-                
-            </section>
-            <!-- Care standards - (END) -->
-
-            <!-- Formula protection - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="formula-protection">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total formula protection funding
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-
-                <div class="govuk-!-margin-bottom-8 first-element-in-tab last-table-below-tab">
-                    <p>2021 to 2022 was the final year ESFA applied formula protection funding. You will no longer receive it.</p>
-                </div>
-
-            </section>
-            <!-- Formula protection - (END) -->
-
-            <!-- High needs - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="high-needs">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total high needs
-                            <p class="heading-large heading-funding-summary">£1,302,000</p>
-                        </h2>
-                    </div>
-                
-                </div>
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Funded students</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Funded students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">16 to 19</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">143</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">19 to 24</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">74</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Funded students</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">217</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">High needs</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">High needs</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Funded students</th>
-                                <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">217</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Rate</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-times" title="Multpily" aria-hidden="true"></i><span class="sr-only">Multiply</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£6,000</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total High needs</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,302,000</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-
-                <div class="total-allocation-wrapper last-table-below-tab">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-medium">Total High needs</h2>
-                    </div>
-        
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-medium">£1,302,000</h2>
-                    </div>
-
-                </div>
-
-            </section>
-            <!-- High Needs - (END) -->
-
-            <!-- Student financial support - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="student-financial-support">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total student financial support
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-
-            </section>
-            <!-- Student financial support - (END) -->
-
-            <!-- Industry placement - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="industry-placement">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total industry placement
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">T Level</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">T Level</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Estimated students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Rate</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total T Level</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">45</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£275</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£12,375</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div> 
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Capacity and delivery funding</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Capacity and delivery funding</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Eligible students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Eligible students (less estimated T Level students)</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Rate</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total capacity and delivery funding</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">871</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">826</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£206,500</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    
-                </div> 
-
-                <div class="total-allocation-wrapper last-table-below-tab">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-medium">Total industry placement funding</h2>
-                    </div>
-        
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-medium">£206,500</h2>
-                    </div>
-
-                </div>
-
-            </section>
-            <!-- Industry placement - (END) -->
-
-            <!-- Advanced maths - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="advanced-maths">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total advanced maths premium
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Funded students</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Funded students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Eligible students</th>
-                                <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">576</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Baseline of students</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">837</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Funded students</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Advanced maths premium</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Advanced maths premium</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default calc-letter">Calculation</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Funded students</th>
-                                <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Rate</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-times" title="Multpily" aria-hidden="true"></i><span class="sr-only">Multiply</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">576</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total advanced maths premium</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div> 
-
-                <div class="total-allocation-wrapper last-table-below-tab">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-medium">Total advanced maths premium</h2>
-                    </div>
-        
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-medium">£0</h2>
-                    </div>
-
-                </div>
-
-            </section>
-            <!-- Advanced maths - (END) -->
-
-            <!-- High value courses - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="high-value">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total high value courses premium
-                            <p class="heading-large heading-funding-summary">£152,800</p>
-                        </h2>
-                    </div>
-            
-                </div>
-                
-                <div class="govuk-!-margin-bottom-8">
-
-                    <table class="govuk-table first-element-in-tab">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">High value courses</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">High value courses premium</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Students</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Rate</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total high value courses premium</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">382</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£400</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£152,800</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                                    
-                </div> 
-
-                <div class="total-allocation-wrapper last-table-below-tab">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-medium">Total high value courses premium</h2>
-                    </div>
-        
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-medium">£152,800</h2>
-                    </div>
-
-                </div>
-
-            </section>
-            <!-- High value courses - (END) -->
-
-            <!-- Teachers' pension - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="teachers-pension">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total teachers' pension scheme grant
-                            <p class="heading-large heading-funding-summary">£0</p>
-                        </h2>
-                    </div>
-                
-                </div>
-
-            </section>
-            <!-- Teachers' pension - (END) -->
-
-            <!-- Alternative completion - (START) -->
-            <section class="govuk-!-margin-bottom-8" id="alternative-completion">
-                
-                <div class="grid-row">
-            
-                    <div class="block-header-total">
-                        <h2 class="lede">
-                            Total alternative completion
-                            <p class="heading-large heading-funding-summary">£34,034</p>
-                        </h2>
-                    </div>
-                
-                </div>
-
-            </section>
-            <!-- Alternative completion - (END) -->
 
             <div class="form-group">
                 <h3 class="heading-medium heading-guidance hide-on-print">Allocation history</h3>
@@ -2151,16 +1103,63 @@
                 </ul>
             </div>
 
-            <div class="form-group direction-rtl">
-                <a class="app-c-back-to-top dont-print" href="#content">
-                  <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
-                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
-                  </svg>
-                  Back to top
-                </a>
-            </div>
+            <!-- Mobile navigation menu (START) -->
+            <div class="app-pane__subnav-mobile-overview app-hide-desktop app-hide-tablet govuk-!-padding-top-4">
+                        
+                <nav class="app-subnav">
+                    <ul class="app-subnav__section">
+                        <li class="app-subnav__section-item mobile-app-subnav__section-item--current">
+                            <a class="app-subnav__link" href="12-09-2021-programme-formula">Programme funding formula</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-condition-of-funding">Condition of funding adjustment</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-care-standards">Care standards</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-formula-protection">Formula protection funding</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-high-needs">High needs</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-student-financial-support">Student financial support</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-industry-placement">Industry placements</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-advanced-maths">Advanced maths premium</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-high-value">High value courses premium</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-teachers-pension">Teachers' pension scheme grant</a>
+                        </li>
+                        <li class="app-subnav__section-item">
+                            <a class="app-subnav__link" href="12-09-2021-alternative-completion">Alternative completion</a>
+                        </li>
+                    </ul>
+                </nav>
 
-        </div>
+            </div>
+            <!-- Mobile navigation menu (END) -->
+
+		</div>
+
+		<div class="column-full back-to-top">
+
+			<div class="form-block direction-rtl">
+				<a class="app-c-back-to-top dont-print" href="#content">
+					<svg role="presentation" focusable="false" class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+						<path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+					</svg>Back to top
+				</a>
+			</div>
+
+		</div>
 
     </div>
 
@@ -2168,6 +1167,10 @@
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/tabs.js"></script>
+<!-- GAG -->
+<script src="/public/javascripts/{{version}}/16to19.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
 <!-- JavaScript (END) -->
