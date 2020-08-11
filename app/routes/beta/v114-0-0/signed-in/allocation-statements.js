@@ -1241,7 +1241,9 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
-			'organisationName' : req.session.organisationName
+			'organisationName' : req.session.organisationName,
+			'nothingToView' : req.query.nothingToView,
+			'noFilterResults' : req.query.noFilterResults
 		});
 	});
 
