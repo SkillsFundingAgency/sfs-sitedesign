@@ -365,16 +365,25 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show users the variant 1 (further education) view
-		else if (username == "1") {
+		// Show users the variant 1 - Academy view
+		else if (username == "academy") {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
-			req.session.sixteenToNineteenVariant = "1";
+			req.session.sixteenToNineteenVariant = "Academy";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show users the variant 1a (further education) view
+		// Show users the variant 2 - Further Education (FE) view
+		else if (username == "fe") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.sixteenToNineteenVariant = "FE";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
+		}
+		// Show users the variant 1a - Further Education (FE) view
 		// A/B TESTING (Version A)
 		else if (username == "1a") {
 
@@ -384,7 +393,7 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show users the variant 1b (further education) view
+		// Show users the variant 1b - Further Education (FE) view
 		// A/B TESTING (Version B)
 		else if (username == "1b") {
 
@@ -394,39 +403,30 @@ module.exports = function(router) {
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
-		// Show users the variant 2 (school sixth form) view
-		else if (username == "2") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.sixteenToNineteenVariant = "2";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
-		}
-		// Show users the variant 3 (academies) view
-		else if (username == "3") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.sixteenToNineteenVariant = "3";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
-		}
-		// Show users the variant 4 (SPI) view
-		else if (username == "4") {
-
-			req.session.hasValidRoles = "True";
-			req.session.noApprenticeshipServicePage = "False";
-			req.session.sixteenToNineteenVariant = "4";
-
-			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
-		}
-		// Show users the Non Maintained Special School (NMSS) view
+		// Show users variant 3 - Non Maintained Special School (NMSS) view
 		else if (username == "nmss") {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.sixteenToNineteenVariant = "NMSS";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
+		}
+		// Show users the variant 4 - Special Post-16 Institution (SPI) view
+		else if (username == "spi") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.sixteenToNineteenVariant = "SPI";
+
+			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
+		}
+		// Show users the variant 5 - School Sixth Form (SSF) view
+		else if (username == "ssf") {
+
+			req.session.hasValidRoles = "True";
+			req.session.noApprenticeshipServicePage = "False";
+			req.session.sixteenToNineteenVariant = "SSF";
 
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dashboard');
 		}
@@ -573,26 +573,6 @@ module.exports = function(router) {
 
 	// Full funding allocation (16 to 19: all statement variant blocks nested on same page)
 	// LATEST (12 SEPTEMBER 2021)
-
-	// VARIATION 1
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-1/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-1/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
 
 	// VARIATION 1A
 	// A/B TESTING (Version A)
@@ -834,15 +814,15 @@ module.exports = function(router) {
 		});
 	});
 
-	// VARIATION 2
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-2/12-09-2021', function (req, res) {
+	// VARIANT 1 - ACADEMY
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-academy/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Casterbridge College";
 		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-2/12-09-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-academy/12-09-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -854,15 +834,15 @@ module.exports = function(router) {
 		});
 	});
 
-	// VARIATION 3
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-3/12-09-2021', function (req, res) {
+	// VARIANT 2 - FE
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-fe/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Casterbridge College";
 		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-3/12-09-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-fe/12-09-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -874,147 +854,7 @@ module.exports = function(router) {
 		});
 	});
 
-	// VARIATION 4
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-4/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-4/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// VARIATION 5
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-5/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-5/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// VARIATION 6
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-6/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-6/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// VARIATION 7
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-7/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-7/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// VARIATION 8
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-8/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-8/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// VARIATION 9
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-9/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-9/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// VARIATION 10
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-10/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-10/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
-
-	// NMSS
+	// VARIANT 3 - NMSS
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
@@ -1034,16 +874,58 @@ module.exports = function(router) {
 		});
 	});
 
-	// Full funding allocation (14 to 16: all statement variant blocks nested on same page)
-	// PREVIOUS (27 JULY 2021)
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-1/27-07-2021', function (req, res) {
+	// VARIANT 4 - SPI
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Casterbridge College";
 		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-1/27-07-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/12-09-2021', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	// VARIANT 5 - SSF
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	// Full funding allocation (14 to 16: all statement variant blocks nested on same page)
+	// PREVIOUS (27 JULY 2021)
+	
+	// VARIANT 2 - FE
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-fe/27-07-2021', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-fe/27-07-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1372,14 +1254,14 @@ module.exports = function(router) {
 
 	// Full funding allocation (16 to 19: all statement variant blocks nested on same page)
 	// LATEST (12 SEPTEMBER 2021)
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/mat/funding-breakdown/12-09-2021', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/mat/funding-breakdown-academy/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/parent/mat/funding-breakdown/12-09-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/parent/mat/funding-breakdown-academy/12-09-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1393,14 +1275,14 @@ module.exports = function(router) {
 
 	// Full funding allocation (16 to 19: all statement variant blocks nested on same page)
 	// PREVIOUS (27 JULY 2021)
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la/funding-breakdown/27-07-2021', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/mat/funding-breakdown-academy/27-07-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/parent/la/funding-breakdown/27-07-2021', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/parent/mat/funding-breakdown-academy/27-07-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
