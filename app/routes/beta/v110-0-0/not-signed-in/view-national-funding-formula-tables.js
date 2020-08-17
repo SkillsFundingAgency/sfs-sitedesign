@@ -746,7 +746,7 @@ router.post('/' + version + '/not-signed-in/national-funding-formula/find-school
 		req.session.searchTerm = schoolOrAcademy;
 		req.session.didYouMean = "No";
 		
-		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child?input=' + schoolOrAcademy);
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown?input=' + schoolOrAcademy);
 	}
 	else {
 
