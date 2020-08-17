@@ -693,7 +693,7 @@ router.post('/' + version + '/not-signed-in/national-funding-formula/find-school
 		req.session.searchTerm = schoolOrAcademy;
 		req.session.didYouMean = "No";
 		
-		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown_child');
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/funding-breakdown');
 	}
 
 	else if (schoolOrAcademy == "102745" || schoolOrAcademy == "william davies primary school - newham") {
@@ -710,7 +710,7 @@ router.post('/' + version + '/not-signed-in/national-funding-formula/find-school
 		
 		req.session.radio = "Radio 1";
 		
-		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation_child?error=true&error1=true');
+		res.redirect('/' + version + '/not-signed-in/national-funding-formula/find-school/find-organisation?error=true&error1=true');
 	}
 	// Skips the did you mean page and finds a direct match "Hackwood primary"
 	else if (schoolOrAcademy == "hackwood") {
