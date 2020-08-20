@@ -123,6 +123,17 @@ module.exports = function(router) {
 		});
 	});
 
+	// REDIRECT hook page used to record the tab that the user wants to view on the 14 to 16 breakdown page
+	router.get('/' + version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/tab-choice', function (req, res) {		
+	
+		req.session.tab = req.query.tab;
+		// Reset this variable to 0 so we can execute the dynamic tab functionality
+		req.session.reloads = 0;
+		var redirectURL = req.query.redirectURL;
+		
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/' + redirectURL);
+	});
+
 	// Full funding allocation (14 to 16: all statement variant blocks nested on same page)
 	// LATEST (12 SEPTEMBER 2021)
 	router.get('/' + version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/12-09-2021', function (req, res) {
@@ -140,6 +151,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab,
 			'scenario' : req.query.scenario
 		});
 	});
@@ -161,6 +174,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab,
 			'scenario' : req.query.scenario
 		});
 	});
@@ -571,6 +586,17 @@ module.exports = function(router) {
 		});
 	});
 
+	// REDIRECT hook page used to record the tab that the user wants to view on the 16 to 19 breakdown page
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/tab-choice', function (req, res) {		
+		
+		req.session.tab = req.query.tab;
+		// Reset this variable to 0 so we can execute the dynamic tab functionality
+		req.session.reloads = 0;
+		var redirectURL = req.query.redirectURL;
+		
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/' + redirectURL);
+	});
+
 	// Full funding allocation (16 to 19: all statement variant blocks nested on same page)
 	// LATEST (12 SEPTEMBER 2021)
 
@@ -861,6 +887,8 @@ module.exports = function(router) {
 		req.session.idams = req.session.idams || "other";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
 		
 		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/12-09-2021', {
 			'version' : version,
@@ -870,6 +898,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
+			'reloads' : req.session.reloads,
+			'tab' : req.session.tab,
 			'scenario' : req.query.scenario
 		});
 	});
