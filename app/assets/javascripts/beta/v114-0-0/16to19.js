@@ -70,6 +70,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "conditionoffunding") {
@@ -121,6 +125,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "carestandards") {
@@ -172,6 +180,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "formulaprotection") {
@@ -223,6 +235,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "highneeds") {
@@ -274,6 +290,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "studentfinancialsupport") {
@@ -325,6 +345,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "industryplacement") {
@@ -376,6 +400,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "advancedmaths") {
@@ -427,6 +455,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "highvalue") {
@@ -478,6 +510,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         else if (tab == "teacherspension") {
@@ -525,6 +561,65 @@ $(document).ready(function () {
             $("#tab_high-value").attr("aria-selected", false);
             $("#tab_high-value").attr("tagindex", "-1");
             $("#high-value").addClass("govuk-tabs__panel--hidden");
+            $("#tab_alternative-completion").removeClass("govuk-tabs__tab--selected");
+            $("#tab_alternative-completion").attr("aria-selected", false);
+            $("#tab_alternative-completion").attr("tagindex", "-1");
+            $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
+    
+        }
+        else if (tab == "pupilpremium") {
+    
+            // Show this tab
+            $("#tab_pupil-premium").addClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", true);
+            $("#tab_pupil-premium").attr("tagindex", "0");
+            $("#pupil-premium").removeClass("govuk-tabs__panel--hidden");
+    
+            // Hide these
+            $("#tab_programme-formula").removeClass("govuk-tabs__tab--selected");
+            $("#tab_programme-formula").attr("aria-selected", false);
+            $("#tab_programme-formula").attr("tagindex", "-1");
+            $("#programme-formula").addClass("govuk-tabs__panel--hidden");
+            $("#tab_condition-of-funding").removeClass("govuk-tabs__tab--selected");
+            $("#tab_condition-of-funding").attr("aria-selected", false);
+            $("#tab_condition-of-funding").attr("tagindex", "-1");
+            $("#condition-of-funding").addClass("govuk-tabs__panel--hidden");
+            $("#tab_care-standards").removeClass("govuk-tabs__tab--selected");
+            $("#tab_care-standards").attr("aria-selected", false);
+            $("#tab_care-standards").attr("tagindex", "-1");
+            $("#care-standards").addClass("govuk-tabs__panel--hidden");
+            $("#tab_formula-protection").removeClass("govuk-tabs__tab--selected");
+            $("#tab_formula-protection").attr("aria-selected", false);
+            $("#tab_formula-protection").attr("tagindex", "-1");
+            $("#formula-protection").addClass("govuk-tabs__panel--hidden");
+            $("#tab_high-needs").removeClass("govuk-tabs__tab--selected");
+            $("#tab_high-needs").attr("aria-selected", false);
+            $("#tab_high-needs").attr("tagindex", "-1");
+            $("#high-needs").addClass("govuk-tabs__panel--hidden");
+            $("#tab_student-financial-support").removeClass("govuk-tabs__tab--selected");
+            $("#tab_student-financial-support").attr("aria-selected", false);
+            $("#tab_student-financial-support").attr("tagindex", "-1");
+            $("#student-financial-support").addClass("govuk-tabs__panel--hidden");
+            $("#tab_industry-placement").removeClass("govuk-tabs__tab--selected");
+            $("#tab_industry-placement").attr("aria-selected", false);
+            $("#tab_industry-placement").attr("tagindex", "-1");
+            $("#industry-placement").addClass("govuk-tabs__panel--hidden");
+            $("#tab_advanced-maths").removeClass("govuk-tabs__tab--selected");
+            $("#tab_advanced-maths").attr("aria-selected", false);
+            $("#tab_advanced-maths").attr("tagindex", "-1");
+            $("#advanced-maths").addClass("govuk-tabs__panel--hidden");
+            $("#tab_high-value").removeClass("govuk-tabs__tab--selected");
+            $("#tab_high-value").attr("aria-selected", false);
+            $("#tab_high-value").attr("tagindex", "-1");
+            $("#high-value").addClass("govuk-tabs__panel--hidden");
+            $("#tab_teachers-pension").removeClass("govuk-tabs__tab--selected");
+            $("#tab_teachers-pension").attr("aria-selected", false);
+            $("#tab_teachers-pension").attr("tagindex", "-1");
+            $("#teachers-pension").addClass("govuk-tabs__panel--hidden");
             $("#tab_alternative-completion").removeClass("govuk-tabs__tab--selected");
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
@@ -580,6 +675,10 @@ $(document).ready(function () {
             $("#tab_teachers-pension").attr("aria-selected", false);
             $("#tab_teachers-pension").attr("tagindex", "-1");
             $("#teachers-pension").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
         // Default to the default view wired into the GOV.UK tabs component - the 'school' tab
@@ -632,6 +731,10 @@ $(document).ready(function () {
             $("#tab_alternative-completion").attr("aria-selected", false);
             $("#tab_alternative-completion").attr("tagindex", "-1");
             $("#alternative-completion").addClass("govuk-tabs__panel--hidden");
+            $("#tab_pupil-premium").removeClass("govuk-tabs__tab--selected");
+            $("#tab_pupil-premium").attr("aria-selected", false);
+            $("#tab_pupil-premium").attr("tagindex", "-1");
+            $("#pupil-premium").addClass("govuk-tabs__panel--hidden");
     
         }
 
