@@ -66,7 +66,7 @@
 						<a class="app-subnav__link" href="12-09-2021-high-value">High value courses premium</a>
 					</li>
 					<li class="app-subnav__section-item">
-						<a class="app-subnav__link" href="12-09-2021-teachers-pension">Teachers' pension scheme grant</a>
+						<a class="app-subnav__link" href="12-09-2021-teachers-pension">Teachers' pension</a>
 					</li>
 					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="12-09-2021-alternative-completion">Alternative completion</a>
@@ -155,7 +155,7 @@
                             <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary fund</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Funded students</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances per student</th>
-                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th>
+                            <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th> -->
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                         </tr>
@@ -177,7 +177,7 @@
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,946</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.174</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td>
+                            <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£242</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£208,707</td>
                         </tr>
@@ -197,7 +197,7 @@
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,946</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.516</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td>
+                            <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£483</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£1,233,843</td>
                         </tr>
@@ -211,9 +211,9 @@
                                     Rate: £49
                                 </span>
                             </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">770</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,946</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.1556813587</td>
+                            <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">770</td> -->
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£49</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£37,730</td>
                         </tr>
@@ -224,7 +224,7 @@
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td> -->
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">-£95,935</td>
                         </tr>
@@ -235,16 +235,41 @@
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td> -->
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£1,384,346</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£234,911{% elif scenario == '2' %}£598,240{% elif scenario == '3' %}£1,384,346{% else %}£1,384,346{% endif %}</td>
                         </tr>
                     </tbody>
                 </table>
                 
             </div>
 
+            <!-- SCENARIO 2
+                 Adjusted discretionary bursary fund (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
+            {% if scenario == '2' %}
+
+            {% else %}
             <div class="govuk-!-margin-bottom-8">
+                        
+                <div class="panel panel-border-narrow">
+                    <!-- SCENARIO 1
+                         Adjusted discretionary bursary fund (low) - Display the scenario where an academy receives an adjusted minimum discretionary bursary fund (e.g. less than the 75% transition lower limit) -->
+                    {% if scenario == '1' %}
+                    <p>This year's discretionary bursary fund amount of £234,911 is lower than the 75% transition lower limit of £398,196 (based on last year's bursary of £530,927). This academy will receive an adjusted minimum discretionary bursary fund amount of £398,196.</p>
+                    <!-- SCENARIO 3
+                         Adjusted discretionary bursary fund (high) - Display the scenario where an academy receives an adjusted maximum capped discretionary bursary fund (e.g. greater than the 125% transition upper limit) -->
+                    {% elif scenario == '3' %}
+                    <p>This year's discretionary bursary fund amount of £1,384,346 is higher than the 125% transition upper limit of £663,659 (based on last year's bursary of £530,927). This academy will receive an adjusted maximum capped discretionary bursary fund amount of £663,659.</p>
+                    <!-- DEFAULT to scenario 3 -->
+                    {% else %}
+                    <p>This year's discretionary bursary fund amount of £1,384,346 is higher than the 125% transition upper limit of £663,659 (based on last year's bursary of £530,927). This academy will receive an adjusted maximum capped discretionary bursary fund amount of £663,659.</p>
+                    {% endif %}
+                </div>
+
+            </div>
+            {% endif %}
+
+            <!-- <div class="govuk-!-margin-bottom-8">
 
                 <table class="govuk-table">
                     <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
@@ -278,8 +303,37 @@
                     </tbody>
                 </table>
 
-            </div> 
+            </div> -->
 
+            <!-- SCENARIO 1
+                 Exceptional adjustment (related to discretionary bursary fund) - Show funding table for an eligible academy who receives exceptional adjustment funding -->
+            {% if scenario == '1' %}
+            <div class="govuk-!-margin-bottom-8">
+
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total exceptional adjustment breakdown</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">Total exceptional adjustment</th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£25,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            {% endif %}
+
+            <!-- SCENARIO 2
+                 Adjusted discretionary bursary fund (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
+            {% if scenario == '2' %}
+
+            {% else %}
             <div class="govuk-!-margin-bottom-6">
 
                 <div class="total-allocation-wrapper">
@@ -289,12 +343,13 @@
                     </div>
 
                     <div class="total-allocation-amount">
-                        <h2 class="heading-small no-margin-top">£663,659</h2>
+                        <h2 class="heading-small no-margin-top">{% if scenario == '1' %}£423,196{% elif scenario == '3' %}£663,659{% else %}£663,659{% endif %}</h2>
                     </div>
 
                 </div>
 
             </div>
+            {% endif %}
 
             <div class="govuk-!-margin-bottom-8">
 
@@ -322,25 +377,9 @@
                     </tbody>
                 </table>
 
-            </div> 
-
-            <div class="govuk-!-margin-bottom-6">
-
-                <div class="total-allocation-wrapper">
-
-                    <div class="total-allocation-label">
-                        <h2 class="heading-small no-margin-top">Total residential funding</h2>
-                    </div>
-
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-small no-margin-top">£0</h2>
-                    </div>
-
-                </div>
-
             </div>
 
-            <div class="govuk-!-margin-bottom-8">
+            <!-- <div class="govuk-!-margin-bottom-8">
 
                 <table class="govuk-table">
                     <caption class="govuk-table__caption heading-small visuallyhidden">Total free meals students breakdown</caption>
@@ -366,16 +405,17 @@
                     </tbody>
                 </table>
 
-            </div> 
+            </div> -->
 
             <div class="govuk-!-margin-bottom-8">
 
                 <table class="govuk-table">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Total free meals funding breakdown</caption>
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total free meals student funding breakdown</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Free meals funding</th>
-                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Eligible students</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Free meals student funding</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Total students</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Proportion of students on free meals</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                         </tr>
@@ -386,12 +426,15 @@
                                 Free meals higher rate
                                 <span class="table-column-mobile">
                                     <br>
-                                    Eligible students: 635.71
+                                    Total students: 4,840
+                                    <br>
+                                    Proportion of students on free meals: 13.16%
                                     <br>
                                     Rate: £358
                                 </span>
                             </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">635.71</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,840</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">13.16%</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£358</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£227,583</td>
                         </tr>
@@ -400,12 +443,15 @@
                                 Free meals lower rate
                                 <span class="table-column-mobile">
                                     <br>
-                                    Eligible students: 7.22
+                                    Total students: 55
                                     <br>
-                                    Rate: £179
+                                    Proportion of students on free meals: 13.16%
+                                    <br>
+                                    Rate: £358
                                 </span>
                             </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">7.22</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">55</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">13.16%</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£179</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£1,293</td>
                         </tr>
@@ -414,48 +460,93 @@
                                 Free meals FTE rate
                                 <span class="table-column-mobile">
                                     <br>
-                                    Eligible students: 1.67
+                                    Total students: 12.71
+                                    <br>
+                                    Proportion of students on free meals: 13.16%
                                     <br>
                                     Rate: £358
                                 </span>
                             </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1.67</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">12.71</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">13.16%</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£358</td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£598</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
-                                Free meals administration
+                                Total free meals student funding
 
                             </th>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£12,078</td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£229,474</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+
+            <div class="govuk-!-margin-bottom-8">
+
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total free meals funding breakdown</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Free meals funding</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                Total free meals student funding
+
+                            </th>
+                            <td class="govuk-table__cell govuk-table__header--numeric table-column-default"></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£229,474</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
-                                Exeptional adjustment
-
+                                Free meals administration (5% of total free meals student funding)
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
                             </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£12,078</td>
                         </tr>
+                        <!-- SCENARIO 1
+                             Exceptional adjustment (related to free meals funding) - Show funding table for an eligible academy who receives exceptional adjustment funding -->
+                        {% if scenario == '1' %}
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                Exeptional adjustment
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">£100</td>
+                        </tr>
+                        {% endif %}
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
                                 Total free meals funding
                                 <span class="table-column-mobile">
                                     <br>
-                                    Eligible students: 652
+                                    Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
                                 </span>
                             </th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">652</td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£241,552</td>
+                            <td class="govuk-table__cell govuk-table__header--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£241,652{% else %}£241,552{% endif %}</td>
                         </tr>
                     </tbody>
                 </table>
-                
+                                
             </div>
 
             <div class="govuk-!-margin-bottom-6">
@@ -463,11 +554,11 @@
                 <div class="total-allocation-wrapper">
 
                     <div class="total-allocation-label">
-                        <h2 class="heading-small no-margin-top">Total free school meals funding</h2>
+                        <h2 class="heading-small no-margin-top">Total free meals funding</h2>
                     </div>
 
                     <div class="total-allocation-amount">
-                        <h2 class="heading-small no-margin-top">£241,552</h2>
+                        <h2 class="heading-small no-margin-top">{% if scenario == '1' %}£241,652{% else %}£241,552{% endif %}</h2>
                     </div>
 
                 </div>
@@ -481,7 +572,7 @@
                 </div>
 
                 <div class="total-allocation-amount">
-                   <h2 class="heading-medium">£905,211</h2>
+                   <h2 class="heading-medium">{% if scenario == '1' %}£664,848{% elif scenario == '2' %}£839,792{% elif scenario == '3' %}£905,211{% else %}£905,211{% endif %}</h2>
                 </div>
 
             </div>
@@ -529,7 +620,7 @@
                             <a class="app-subnav__link" href="12-09-2021-high-value">High value courses premium</a>
                         </li>
                         <li class="app-subnav__section-item">
-                            <a class="app-subnav__link" href="12-09-2021-teachers-pension">Teachers' pension scheme grant</a>
+                            <a class="app-subnav__link" href="12-09-2021-teachers-pension">Teachers' pension</a>
                         </li>
                         <li class="app-subnav__section-item">
                             <a class="app-subnav__link" href="12-09-2021-alternative-completion">Alternative completion</a>
@@ -560,10 +651,6 @@
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
-<!-- GOV.UK Design System tabs -->
-<script src="/public/javascripts/{{version}}/tabs.js"></script>
-<!-- GAG -->
-<script src="/public/javascripts/{{version}}/16to19.js"></script>
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
 <!-- JavaScript (END) -->
