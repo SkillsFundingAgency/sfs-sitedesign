@@ -45,7 +45,7 @@
 						<a class="app-subnav__link" href="12-09-2021-condition-of-funding">GCSE Maths and English (condition of funding) adjustment</a>
 					</li>
 					<li class="app-subnav__section-item">
-						<a class="app-subnav__link" href="12-09-2021-care-standards">Care standards</a>
+						<a class="app-subnav__link" href="12-09-2021-care-standards">Residential accomodation (care standards)</a>
 					</li>
 					<li class="app-subnav__section-item">
 						<a class="app-subnav__link" href="12-09-2021-formula-protection">Formula protection funding</a>
@@ -235,8 +235,19 @@
                         </tr>
                     </tbody>
                 </table>
-                
-            </div>
+
+            <details>
+                <summary>
+                    <span class="summary">Where instances per student comes from</span>
+                </summary>
+
+                <div class="panel panel-border-narrow">
+                    <p>It is calculated using student’s home postcode from the October 2020 return (R14) and the index of multiple deprivation 2015.</p>
+                </div>
+
+            </details>
+
+        </div>
 
             <!-- SCENARIO 2
                  Adjusted discretionary bursary fund (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
@@ -249,19 +260,23 @@
                     <!-- SCENARIO 1
                          Adjusted discretionary bursary fund (low) - Display the scenario where an academy receives an adjusted minimum discretionary bursary fund (e.g. less than the 75% transition lower limit) -->
                     {% if scenario == '1' %}
-                    <p>This year's discretionary bursary fund amount of £234,911 is lower than the 75% transition lower limit of £398,196 (based on last year's bursary of £530,927). This academy will receive an adjusted minimum discretionary bursary fund amount of £398,196.</p>
+                    <p>ESFA is moving to a new methodology to calculate discretionary bursary fund. You received £530,927 in 2019 to 2020. In 2021 to 2022, you will receive at least 75% of that amount (£398,196) and up to 125%. </p> 
+                    <p>£234,911 is less than the 75% lower limit. You will receive an adjusted amount of £398,196.</p>
                     <!-- SCENARIO 3
                          Adjusted discretionary bursary fund (high) - Display the scenario where an academy receives an adjusted maximum capped discretionary bursary fund (e.g. greater than the 125% transition upper limit) -->
                     {% elif scenario == '3' %}
-                    <p>This year's discretionary bursary fund amount of £1,384,346 is higher than the 125% transition upper limit of £663,659 (based on last year's bursary of £530,927). This academy will receive an adjusted maximum capped discretionary bursary fund amount of £663,659.</p>
+                    <p>ESFA is moving to a new methodology to calculate discretionary bursary fund. You received £530,927 in 2019 to 2020. During the transition, you will receive at least 75% of that amount and up to 125% (£663,659). </p> 
+                    <p>£1,384,346 is more than the 125% upper limit. You will receive an adjusted amount of £663,659.</p>
                     <!-- DEFAULT to scenario 3 -->
                     {% else %}
-                    <p>This year's discretionary bursary fund amount of £1,384,346 is higher than the 125% transition upper limit of £663,659 (based on last year's bursary of £530,927). This academy will receive an adjusted maximum capped discretionary bursary fund amount of £663,659.</p>
+                    <p>ESFA is moving to a new methodology to calculate discretionary bursary fund. You received £530,927 in 2019 to 2020. During the transition, you will receive at least 75% of that amount and up to 125% (£663,659). </p> 
+                    <p>£1,384,346 is more than the 125% upper limit. You will receive an adjusted amount of £663,659.</p>
                     {% endif %}
                 </div>
 
             </div>
             {% endif %}
+
 
             <!-- <div class="govuk-!-margin-bottom-8">
 
@@ -322,6 +337,7 @@
 
             </div>
             {% endif %}
+            
 
             <!-- SCENARIO 2
                  Adjusted discretionary bursary fund (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
@@ -503,7 +519,7 @@
                     <tbody class="govuk-table__body">
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
-                                Free meals
+                                Total free meals
 
 
                             </th>
@@ -558,7 +574,7 @@
                 <div class="total-allocation-wrapper">
 
                     <div class="total-allocation-label">
-                        <h2 class="heading-small no-margin-top">Adjusted free meals funding</h2>
+                        <h2 class="heading-small no-margin-top">Total adjusted free meals funding</h2>
                     </div>
 
                     <div class="total-allocation-amount">
@@ -603,7 +619,7 @@
                             <a class="app-subnav__link" href="12-09-2021-condition-of-funding">GCSE Maths and English (condition of funding) adjustment</a>
                         </li>
                         <li class="app-subnav__section-item">
-                            <a class="app-subnav__link" href="12-09-2021-care-standards">Care standards</a>
+                            <a class="app-subnav__link" href="12-09-2021-care-standards">Residential accomodation (care standards)</a>
                         </li>
                         <li class="app-subnav__section-item">
                             <a class="app-subnav__link" href="12-09-2021-formula-protection">Formula protection funding</a>
