@@ -91,10 +91,18 @@
                 <h2 class="heading-large govuk-!-margin-bottom-6">{{organisationName}} (UKPRN: 12345678)</h2>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <h2 class="lede">
                     Total allocation
                     <p class="heading-large heading-funding-summary">£25,803,920</p>
+                </h2>
+            </div> -->
+
+            <div class="form-group">
+                <h2 class="lede">
+                    Total allocation
+                    <p class="heading-large heading-funding-summary variance-heading-no-margin">£25,404,208</p>
+                    <p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £399,712</p> 
                 </h2>
             </div>
 
@@ -141,8 +149,8 @@
             <!-- Student financial support - (START) -->
             <div class="govuk-!-margin-bottom-8">
                 <h2 class="lede">
-                    Funding breakdown
-                    <p class="heading-large heading-funding-summary">Student financial support</p>
+                    Total student financial support
+                    <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£664,848{% elif scenario == '2' %}£839,792{% elif scenario == '3' %}£905,211{% else %}£905,211{% endif %}</p>
                 </h2>
             </div>
 
@@ -236,18 +244,17 @@
                     </tbody>
                 </table>
 
-            <details>
-                <summary>
-                    <span class="summary">Where instances per student comes from</span>
-                </summary>
+                <details>
+                    <summary>
+                        <span class="summary">Where instances per student comes from</span>
+                    </summary>
 
-                <div class="panel panel-border-narrow">
-                    <p>It is calculated using student’s home postcode from the October 2020 return (R14) and the index of multiple deprivation 2015.</p>
-                </div>
+                    <div class="panel panel-border-narrow">
+                        <p>It is calculated using student’s home postcode from the October 2020 return (R14) and the index of multiple deprivation 2015.</p>
+                    </div>
 
-            </details>
-
-        </div>
+                </details>
+            </div>
 
             <!-- SCENARIO 2
                  Adjusted discretionary bursary fund (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
@@ -276,7 +283,6 @@
 
             </div>
             {% endif %}
-
 
             <!-- <div class="govuk-!-margin-bottom-8">
 
@@ -337,7 +343,6 @@
 
             </div>
             {% endif %}
-            
 
             <!-- SCENARIO 2
                  Adjusted discretionary bursary fund (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
@@ -420,12 +425,10 @@
             <div class="govuk-!-margin-bottom-8">
 
                 <table class="govuk-table">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Total free meals
- breakdown</caption>
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total free meals breakdown</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Free meals
-</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Free meals</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Students from October 2020 return (R14)</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Proportion of students</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
@@ -436,7 +439,6 @@
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
                                 Over 450 planned study hours (bands 4 and 5)
-
                                 <span class="table-column-mobile">
                                     <br>
                                     Students from October 2020 return (R14): 4,840
@@ -454,7 +456,6 @@
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
                                 280 to 449 planned study hours (bands 2 and 3)
-
                                 <span class="table-column-mobile">
                                     <br>
                                     Students from October 2020 return (R14): 55
@@ -472,7 +473,6 @@
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
                                 Full time equivalent of up to 279 planned study hours (band 1)
-
                                 <span class="table-column-mobile">
                                     <br>
                                     Students from October 2020 return (R14): 12.71
@@ -488,9 +488,7 @@
                             <td class="govuk-table__cell govuk-table__cell--numeric">£598</td>
                         </tr>
                         <tr class="govuk-table__row">
-                            <th scope="row" class="table-header-normal">
-                                Total free meals
-                            </th>
+                            <th scope="row" class="table-header-normal">Total free meals</th>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
@@ -504,12 +502,10 @@
             <div class="govuk-!-margin-bottom-8">
 
                 <table class="govuk-table">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Adjusted free meals breakdown
-</caption>
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Adjusted free meals breakdown</caption>
                     <thead class="govuk-table__head">
                         <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted free meals
-</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted free meals</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
                             <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                         </tr>
@@ -519,15 +515,13 @@
                             <th scope="row" class="table-header-normal">
                                 Total free meals
 
-
                             </th>
                             <td class="govuk-table__cell govuk-table__header--numeric table-column-default"></td>
                             <td class="govuk-table__cell govuk-table__cell--numeric">£229,474</td>
                         </tr>
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal">
-                                Free meals administration (5% of free meals
-)
+                                Free meals administration (5% of free meals)
                                 <span class="table-column-mobile">
                                     <br>
                                     Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
