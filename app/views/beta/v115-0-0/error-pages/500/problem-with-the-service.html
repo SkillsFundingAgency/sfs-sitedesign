@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Sorry, there is a problem with the service
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- Account Management (IDAMS) - START -->
+    {% if signedIn == 'Yes' %}
+    {% include version + "/includes/idams-account-header.html" %}
+    {% else %}
+
+    {% endif %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-two-thirds">
+
+            <div class="form-group">
+                <h1 class="heading-xlarge">Sorry, there is a problem with the service</h1>
+                <p class="lede">Try again later</p>
+                <p>If the problem continues, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">contact the helpdesk</a>.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

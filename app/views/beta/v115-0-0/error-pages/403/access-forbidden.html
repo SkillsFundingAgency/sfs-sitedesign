@@ -13,7 +13,11 @@
     <!-- GOV.UK phase banner (Beta) - END -->
 
     <!-- Account Management (IDAMS) - START -->
+    {% if signedIn == 'Yes' %}
     {% include version + "/includes/idams-account-header.html" %}
+    {% else %}
+
+    {% endif %}
     <!-- Account Management (IDAMS) - END -->
 
     <div class="grid-row">
@@ -22,8 +26,8 @@
 
             <div class="form-group">
                 <h1 class="heading-xlarge">Something isn't quite right!</h1>
-                <p class="lede">Access to this service has not been allowed. An approver at your organisation will be able to provide you with access to this service.</p>
-                <p>If your permission is confirmed please close this window and try again. If the problem persists, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">contact the helpdesk</a>.</p>
+                <p class="lede">Access to this service is forbidden.</p>
+                <p>If your permission is confirmed please close this window and try again. If the problem continues, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">contact the helpdesk</a>.</p>
             </div>
 
         </div>

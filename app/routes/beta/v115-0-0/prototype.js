@@ -51,7 +51,67 @@ module.exports = function(router) {
 
 	/**********
 	* PROTOTYPE
-	* SHUTTER OR ERROR PAGES (GLOBAL)
+	* HTTP STATUS CODE PAGES (GLOBAL)
+	* **********/
+	
+	// 401 (Unauthorized)
+	router.get('/' + version + '/error-pages/401/access-not-allowed', function (req, res) {
+		res.render(version + '/error-pages/401/access-not-allowed', {
+			'version' : version,
+			'versioning' : "True",
+			'idams' : "dashboard",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
+		});
+	});
+
+	// 403 (Forbidden)
+	router.get('/' + version + '/error-pages/403/access-forbidden', function (req, res) {
+		res.render(version + '/error-pages/403/access-forbidden', {
+			'version' : version,
+			'versioning' : "True",
+			'idams' : "dashboard",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
+		});
+	});
+	
+	// 404 (Not Found)
+	router.get('/' + version + '/error-pages/404/page-not-found', function (req, res) {
+		res.render(version + '/error-pages/404/page-not-found', {
+			'version' : version,
+			'versioning' : "True",
+			'idams' : "dashboard",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
+		});
+	});
+
+	// 500 (Internal Server Error)
+	router.get('/' + version + '/error-pages/500/problem-with-the-service', function (req, res) {
+		res.render(version + '/error-pages/500/problem-with-the-service', {
+			'version' : version,
+			'versioning' : "True",
+			'idams' : "dashboard",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
+		});
+	});
+
+	// 503 (Service Unavailable)
+	router.get('/' + version + '/error-pages/503/service-is-unavailable', function (req, res) {
+		res.render(version + '/error-pages/503/service-is-unavailable', {
+			'version' : version,
+			'versioning' : "True",
+			'idams' : "dashboard",
+			'myRolesAndPermissionsURL' : "#",
+			'signOutURL' : "#"
+		});
+	});
+
+	/**********
+	* PROTOTYPE
+	* CUSTOM MYESF ERROR PAGES (GLOBAL)
 	* **********/
 	
 	// Show to users when they are not permitted to access the apprenticeship service due to:
