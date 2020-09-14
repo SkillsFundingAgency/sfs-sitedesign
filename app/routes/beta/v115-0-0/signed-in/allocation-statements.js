@@ -292,8 +292,9 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/dfe-sign-in/sign-in?error=true');
 		}
 		// TRIGGER ERROR 1 - User has no valid MYESF roles
-		else if (password == "novalidroles") {
+		else if (username == "novalidroles") {
 
+			req.session.signedIn = "Yes";
 			req.session.hasValidRoles = "False";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.sixteenToNineteenVariant = "1";
@@ -305,7 +306,7 @@ module.exports = function(router) {
 		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
 		// REASON 1: User has not signed their apprenticeship agreement in MYESF
 		// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
-		else if (password == "noapprenticeshipservice") {
+		else if (username == "noapprenticeshipservice") {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "True";
@@ -435,9 +436,10 @@ module.exports = function(router) {
 
 			req.session.dashboard = "No";
 			
-			res.render(version + '/error-pages/access-denied', {
+			res.render(version + '/error-pages/401/access-not-allowed', {
 				'version' : version,
 				'versioning' : req.session.versioning,
+				'signedIn' : req.session.signedIn,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL,
 				'dashboard' : req.session.dashboard,
@@ -467,15 +469,16 @@ module.exports = function(router) {
 	});
 
 	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/access-denied', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/access-not-allowed', function (req, res) {
 
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		
-		res.render(version + '/error-pages/access-denied', {
+		res.render(version + '/error-pages/401/access-not-allowed', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'signedIn' : req.session.signedIn,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
@@ -569,7 +572,7 @@ module.exports = function(router) {
 		});
 	});
 
-	// REDIRECT hook page used to record the tab that the user wants to view on the 16 to 19 breakdown page
+	// REDIRECT hook page used to record the tab that the user wants to view on the 16 to 19 breakdown page (NMSS)
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/tab-choice', function (req, res) {		
 		
 		req.session.tab = req.query.tab;
@@ -862,7 +865,7 @@ module.exports = function(router) {
 			'scenario' : req.query.scenario
 		});
 	});
-
+	
 	// VARIANT 3 - NMSS
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/12-09-2021', function (req, res) {
 
@@ -908,24 +911,7 @@ module.exports = function(router) {
 	});
 
 	// VARIANT 5 - SSF
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021', function (req, res) {
-
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-		
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021', {
-			'version' : version,
-			'versioning' : req.session.versioning,
-			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
-			'signOutURL' : req.session.signOutURL,
-			'dashboard' : req.session.dashboard,
-			'idams' : req.session.idams,
-			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
-		});
-	});
+	// A/B TESTING (Version A)
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021-programme-formula', function (req, res) {
 
 		// Only set the session variable if it does not exist
@@ -1125,16 +1111,60 @@ module.exports = function(router) {
 		});
 	});
 
+	// VARIANT 5 - SSF
+	// A/B TESTING (Version B)
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021', function (req, res) {
 
-	// VARIANT 6 - LA
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/12-09-2021', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	// VARIANT 6 - LA (SCHOOL SIXTH FORM REVENUE FUNDING ALLOCATIONS)
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/12-09-2021', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "LA";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Redhill Council";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
 		
 		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/12-09-2021', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	// VARIANT 7 - LA (STUDENT NUMBERS)
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/05-09-2021', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "LA";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Redhill Council";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/05-09-2021', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1208,8 +1238,9 @@ module.exports = function(router) {
 			res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dfe-sign-in/sign-in?error=true');
 		}
 		// TRIGGER ERROR 1 - User has no valid MYESF roles
-		else if (password == "novalidroles") {
+		else if (username == "novalidroles") {
 
+			req.session.signedIn = "Yes";
 			req.session.hasValidRoles = "False";
 			req.session.noApprenticeshipServicePage = "False";
 			req.session.sixteenToNineteenVariant = "MAT";
@@ -1219,7 +1250,7 @@ module.exports = function(router) {
 		// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
 		// REASON 1: User has not signed their apprenticeship agreement in MYESF
 		// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
-		else if (password == "noapprenticeshipservice") {
+		else if (username == "noapprenticeshipservice") {
 
 			req.session.hasValidRoles = "True";
 			req.session.noApprenticeshipServicePage = "True";
@@ -1268,9 +1299,10 @@ module.exports = function(router) {
 
 			req.session.dashboard = "No";
 			
-			res.render(version + '/error-pages/access-denied', {
+			res.render(version + '/error-pages/401/access-not-allowed', {
 				'version' : version,
 				'versioning' : req.session.versioning,
+				'signedIn' : req.session.signedIn,
 				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 				'signOutURL' : req.session.signOutURL,
 				'dashboard' : req.session.dashboard,
@@ -1300,15 +1332,16 @@ module.exports = function(router) {
 	});
 
 	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/access-denied', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/access-not-allowed', function (req, res) {
 
 		req.session.dashboard = "No";
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "MAT";
 		
-		res.render(version + '/error-pages/access-denied', {
+		res.render(version + '/error-pages/401/access-not-allowed', {
 			'version' : version,
 			'versioning' : req.session.versioning,
+			'signedIn' : req.session.signedIn,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 			'signOutURL' : req.session.signOutURL,
 			'dashboard' : req.session.dashboard,
