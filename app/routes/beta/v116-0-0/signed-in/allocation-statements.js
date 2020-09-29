@@ -598,7 +598,8 @@ module.exports = function(router) {
 			'dashboard' : req.session.dashboard,
 			'idams' : req.session.idams,
 			'organisationName' : req.session.organisationName,
-			'scenario' : req.query.scenario
+			'scenario' : req.query.scenario,
+			'methodology' : req.query.methodology
 		});
 	});
 	
