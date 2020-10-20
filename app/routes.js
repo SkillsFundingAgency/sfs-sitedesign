@@ -9,7 +9,7 @@ var express = require('express');
 var router = express.Router();
 
 // Add latest versions of stable MYESF features here
-var latestVersion = 'beta/v116-0-0';
+var latestVersion = 'beta/v117-0-0';
 var latestVersionVLF = 'beta/v105-1-0';
 var latestVersionNFF = 'beta/v110-0-0';
 var latestVersionAdults = 'beta/v112-0-0';
@@ -21,7 +21,7 @@ var latestVersionDocumentExchange = 'beta/v109-0-0';
 * **********/
 
 // Index page
-router.get('/', function (req, res) {		
+router.get('/', function (req, res) {
 	res.render('index', {
 		'latestVersion' : latestVersion,
 		'latestVersionVLF' : latestVersionVLF,
@@ -34,7 +34,7 @@ router.get('/', function (req, res) {
 });
 
 // Archive page
-router.get('/archive', function (req, res) {		
+router.get('/archive', function (req, res) {
 	res.render('archive', {
 		'latestVersion' : latestVersion,
 		'showPropositionLinks' : "True"
@@ -42,7 +42,7 @@ router.get('/archive', function (req, res) {
 });
 
 // Legacy page
-router.get('/legacy', function (req, res) {		
+router.get('/legacy', function (req, res) {
 	res.render('legacy', {
 		'latestVersion' : latestVersion,
 		'showPropositionLinks' : "True"
@@ -61,6 +61,9 @@ require('./routes/component-library.js')(router);
 * **********/
 
 // Beta
+// beta-v117-0-0
+require('./routes/beta/v117-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v117-0-0/prototype.js')(router);
 // beta-v116-0-0
 require('./routes/beta/v116-0-0/signed-in/allocation-statements.js')(router);
 require('./routes/beta/v116-0-0/prototype.js')(router);
