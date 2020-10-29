@@ -46,7 +46,7 @@
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation
-                    <p class="heading-large heading-funding-summary">£9,675,073</p>
+                    <p class="heading-large heading-funding-summary">£9,618,058</p>
                 </h2>
             </div>
 
@@ -1155,13 +1155,13 @@
                 </div>
                 <!-- Core programme - (END) -->
 
-                <!-- Maths and English adjustment - (START) -->
+                <!-- Maths and English condition of funding adjustment - (START) -->
                 <div class="govuk-accordion__section">
                 
                     <div class="govuk-accordion__section-header govuk-accordion__small-accordion-header">
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
-                                <span class="govuk-accordion__heading-text-left">Maths and English adjustment</span>
+                                <span class="govuk-accordion__heading-text-left">Maths and English condition of funding adjustment</span>
                                 <span class="govuk-accordion__heading-number-right">{% if scenario == '1' %}-£5,611{% else %}£0{% endif %}</span>
                             </span>
                         </h2>
@@ -1176,7 +1176,7 @@
 
                         <!-- <div class="govuk-!-margin-bottom-8">
                             <h2 id="condition-of-funding" class="lede">
-                                Total maths and English (condition of funding) adjustment
+                                Total maths and English condition of funding adjustment
                                 <p class="heading-large heading-funding-summary">£0</p>
                             </h2>
                         </div> -->
@@ -1439,10 +1439,10 @@
                         <div class="govuk-!-margin-bottom-6">
 
                             <table class="govuk-table first-element-in-tab">
-                                <caption class="govuk-table__caption heading-small visuallyhidden">Total maths and English (condition of funding) adjustment</caption>
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Total maths and English condition of funding adjustment</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Maths and English adjustment</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Maths and English condition of funding adjustment</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                     </tr>
@@ -1469,7 +1469,7 @@
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            Total maths and English (condition of funding) adjustment
+                                            Total maths and English condition of funding adjustment
                                             <span class="table-column-mobile">
                                                 <br>
                                                 Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
@@ -1638,7 +1638,7 @@
                             <div class="total-allocation-wrapper">
 
                                 <div class="total-allocation-label">
-                                <h2 class="heading-medium">Total maths and English (condition of funding) adjustment</h2>
+                                <h2 class="heading-medium">Total maths and English condition of funding adjustment</h2>
                                 </div>
 
                                 <div class="total-allocation-amount">
@@ -1652,7 +1652,7 @@
                     </div>
 
                 </div>
-                <!-- Maths and English adjustment - (END) -->
+                <!-- Maths and English condition of funding adjustment - (END) -->
 
                 <!-- Advanced maths premium - (START) -->
                 <div class="govuk-accordion__section">
@@ -1845,12 +1845,12 @@
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
                                 <span class="govuk-accordion__heading-text-left">Industry placement</span>
-                                <span class="govuk-accordion__heading-number-right">{% if scenario == '2' %}£9,075{% else %}£135,325{% endif %}</span>
+                                <span class="govuk-accordion__heading-number-right">{% if scenario == '1' %}£0{% elif scenario == '2' or scenario == '3' %}£9,075{% else %}£135,325{% endif %}</span>
                             </span>
                         </h2>
-
+                        
                         <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-5">
-                            <span class="hidden-sub-section">{% if scenario == '2' %}£9,075{% else %}£135,325{% endif %}</span>
+                            <span class="hidden-sub-section">{% if scenario == '1' %}£0{% elif scenario == '2' or scenario == '3' %}£9,075{% else %}£135,325{% endif %}</span>
                         </div>
 
                     </div>
@@ -1864,6 +1864,13 @@
                             </h2>
                         </div> -->
 
+                        <!-- SCENARIO 1
+                             Industry placement (0 eligible students) - Display the scenario where an academy receives £0 funding due to having 0 eligible students -->
+                        {% if scenario == '1' %}
+                        <div class="govuk-!-margin-bottom-6 first-element-in-tab">
+                            <p>There were 0 eligible students. </p>
+                        </div>
+                        {% else %}
                         <div class="govuk-!-margin-bottom-8">
 
                             <table class="govuk-table first-element-in-tab">
@@ -1895,17 +1902,84 @@
                             </table>
             
                         </div>
-            
+                        {% endif %}
+
+                        <!-- SCENARIO 1
+                             Industry placement (0 eligible students) - Display the scenario where an academy receives £0 funding due to having 0 eligible students -->
+                        {% if scenario == '1' %}
                         <!-- SCENARIO 2
-                             Industry placement (funded students less than T-Level students) - Display the scenario where an academy receives £0 due to having less funded students than T-Level students (e.g. 100 funded students minus 120 T-Level students) -->
-                        {% if scenario == '2' %}
+                             Industry placement (below 20 funded students) - Display the scenario where an academy has less than 20 eligible students and so is rounded up to either 10 or 20 funded students (e.g. if academy has 14 eligible students this number is rounded up to 20 funded students) -->
+                        {% elif scenario == '2' %}
                         <div class="govuk-!-margin-bottom-6">
             
                             <table class="govuk-table">
-                                <caption class="govuk-table__caption heading-small visuallyhidden">Total level 2 and level 3 vocational and technical programmes (capacity and delivery) breakdown</caption>
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Total funded students for level 2 and 3 vocational and technical programmes breakdown</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Capacity and delivery fund for level 2 and 3 vocational and technical programmes </th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Funded students for level 2 and 3 vocational and technical programmes</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Funded students
+
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">20</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Estimated T Level students
+                                            <span class="table-column-mobile">
+                                                <br>
+                                                Calculation: <span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span>
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">33</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Total funded students for level 2 and 3 vocational and technical programmes
+                                            <span class="table-column-mobile">
+                                                <br>
+                                                Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="panel panel-border-narrow">
+                                <p>Funded students is 0 because eligible students is lower than estimated T-Level students.</p>
+                            </div>
+            
+                            <!-- <details>
+                                <summary>
+                                    <span class="summary">Where eligible students come from</span>
+                                </summary>
+            
+                                <div class="panel panel-border-narrow">
+                                    <p>If you have 1 to 10 eligible students, we will fund you for 10 students. If you have 11 to 20 eligible students, we will fund you for 20 students.</p>
+                                </div>
+            
+                            </details> -->
+                        </div>
+                        <!-- SCENARIO 3
+                             Industry placement (funded students less than T-Level students) - Display the scenario where an academy has less funded students than T-Level students (e.g. 100 funded students minus 120 T-Level students) -->
+                        {% elif scenario == '3' %}
+                        <div class="govuk-!-margin-bottom-6">
+            
+                            <table class="govuk-table">
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Total funded students for level 2 and 3 vocational and technical programmes breakdown</caption>
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Funded students for level 2 and 3 vocational and technical programmes</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                     </tr>
@@ -1932,7 +2006,7 @@
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            Funded students
+                                            Total funded students for level 2 and 3 vocational and technical programmes
                                             <span class="table-column-mobile">
                                                 <br>
                                                 Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
@@ -1964,10 +2038,10 @@
                         <div class="govuk-!-margin-bottom-6">
             
                             <table class="govuk-table">
-                                <caption class="govuk-table__caption heading-small visuallyhidden">Total level 2 and level 3 vocational and technical programmes (capacity and delivery) breakdown</caption>
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Total capacity and delivery fund for level 2 and 3 vocational and technical programmes breakdown</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Capacity and delivery fund for level 2 and 3 vocational and technical programmes </th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Capacity and delivery fund for level 2 and 3 vocational and technical programmes</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                     </tr>
@@ -2005,7 +2079,7 @@
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            Total level 2 and 3 vocational and technical programmes (capacity and delivery)
+                                            Total capacity and delivery fund for level 2 and 3 vocational and technical programmes
                                             <span class="table-column-mobile">
                                                 <br>
                                                 Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
