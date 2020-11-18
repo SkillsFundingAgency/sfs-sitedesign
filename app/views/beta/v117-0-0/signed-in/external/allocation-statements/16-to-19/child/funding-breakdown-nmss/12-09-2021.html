@@ -397,107 +397,102 @@
         
                         </details>
                     </div>
+
+                    <div class="govuk-!-margin-bottom-6">
+                        <h3 class="heading-medium">Adjusted discretionary bursary fund 2021 to 2022</h3>
+                        <p>From 2020 to 2021, the ESFA moved to a new methodology to calculate this fund. During the transition, you will receive between 50% and 150% of the amount you received in 2019 to 2020.</p>
+                    </div>
+
         
                     <!-- SCENARIO 2
                          Adjusted discretionary bursary fund (transition to new methodology) (no change) - Display the scenario where an academy does not receive an adjusted discretionary bursary fund due to it falling within transition lower and upper limits -->
                     {% if scenario == '2' %}
 
-                    <div class="govuk-!-margin-bottom-6">
-                        <h3 class="heading-medium">Adjusted discretionary bursary fund</h3>
-                    </div>
-
-                    <div class="govuk-!-margin-bottom-8">
-                                
-                        <div class="panel panel-border-narrow">
-                            <p>ESFA has moved to a new methodology to calculate discretionary bursary fund. You received £500 in 2019 to 2020. During the transition, you will receive at least 75% of that amount (£375) and up to 125% (£625). </p> 
-                            <p>£450 is in between the lower and upper limits. Your discretionary bursary fund does not need to be adjusted.</p>                   
-                        </div>
-
-                    </div>
-
-                    <div class="govuk-!-margin-bottom-6">
-
-                        <div class="total-allocation-wrapper">
-        
-                            <div class="total-allocation-label">
-                                <h2 class="heading-small no-margin-top">Adjusted discretionary bursary fund</h2>
-                            </div>
-        
-                            <div class="total-allocation-amount">
-                                <h2 class="heading-small no-margin-top variance-heading-no-margin">£450</h2>
-                                <!--<p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £39</p>-->
-                            </div>
-        
-                        </div>
-        
-                    </div> 
-
-                    <!-- SCENARIO 1
-                         Adjusted discretionary bursary fund (transition to new methodology) (low) - Display the scenario where an academy receives an adjusted minimum discretionary bursary fund (e.g. less than the 75% transition lower limit) -->
-                    {% elif scenario == '1' %}
-                    <div class="govuk-!-margin-bottom-6">
-                        <h3 class="heading-medium">Adjusted discretionary bursary fund - transition to new methodology</h3>
-                    </div>
-                    
                     <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Total transition lower limit breakdown</caption>
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Lower limit 2021 to 2022 </th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">2019 to 2020 discretionary bursary fund</th>
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£450</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2019 to 2020</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                 </tr>
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">75% of 2019 to 2020 amount</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">0.75</td>
+                                    <th scope="row" class="table-header-normal">Lower limit 2021 to 2022 - 50% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
                                 </tr>
-                                <!-- <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">2021 to 2022 upper limit - 125% of 2019 to 2020 amount</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£625</td>
-                                </tr> -->
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">Lower limit 2021 to 2022</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£375</td>
+                                    <th scope="row" class="table-header-normal">Upper limit 2021 to 2022 - 150% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£750</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£450</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div> 
+
+                    <!-- SCENARIO 1
+                         Adjusted discretionary bursary fund (transition to new methodology) (low) - Display the scenario where an academy receives an adjusted minimum discretionary bursary fund (e.g. less than the 50% transition lower limit) -->
+                    {% elif scenario == '1' %}
+                    <div class="govuk-!-margin-bottom-8">
+
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">152</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2019 to 2020</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Lower limit 2021 to 2022 - 50% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Upper limit 2021 to 2022 - 150% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£750</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
 
-                    <div class="govuk-!-margin-bottom-8">
-                                
-                        <div class="panel panel-border-narrow">
-                            Your discretionary bursary fund 2021 to 2022 (£152) is less than the 75% lower limit. You will receive an adjusted amount of £375. </p>                    
-                        </div>
-
-                    </div>
-
-                    <div class="govuk-!-margin-bottom-6">
-
-                        <div class="total-allocation-wrapper">
-        
-                            <div class="total-allocation-label">
-                                <h2 class="heading-small no-margin-top">Adjusted discretionary bursary fund</h2>
-                            </div>
-        
-                            <div class="total-allocation-amount">
-                                <h2 class="heading-small no-margin-top variance-heading-no-margin">£375</h2>
-                                <!--<p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £39</p> -->
-                            </div>
-        
-                        </div>
-        
-                    </div> 
-
                     <!-- SCENARIO 3
-                         Adjusted discretionary bursary fund (transition to new methodology) (high) - Display the scenario where an academy receives an adjusted maximum capped discretionary bursary fund (e.g. greater than the 125% transition upper limit) -->
+                         Adjusted discretionary bursary fund (transition to new methodology) (high) - Display the scenario where an academy receives an adjusted maximum capped discretionary bursary fund (e.g. greater than the 150% transition upper limit) -->
                     {% elif scenario == '3' %}
                     <div class="govuk-!-margin-bottom-8">
 
@@ -505,40 +500,40 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund - transition to new methodology</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">2019 to 2020 discretionary bursary fund</th>
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£800</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2019 to 2020</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                 </tr>
-                                <!-- <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">Transition lower limit - 75% of 2019 to 2020 amount</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£375</td>
-                                </tr> -->
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">2021 to 2022 upper limit - 125% of 2019 to 2020 amount</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£625</td>
+                                    <th scope="row" class="table-header-normal">Lower limit 2021 to 2022 - 50% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Upper limit 2021 to 2022 - 150% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£750</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,000</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£625</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,750</td>
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
 
-                    <!-- <div class="govuk-!-margin-bottom-8">
-                                
-                        <div class="panel panel-border-narrow">
-                            <p>ESFA has moved to a new methodology to calculate discretionary bursary fund. You received £530,927 in 2019 to 2020. During the transition, you will receive at least 75% of that amount and up to 125% (£663,659). </p> 
-                            <p>£1,384,346 is more than the 125% upper limit. You will receive an adjusted amount of £663,659.</p>
-                        </div>
-
-                    </div> -->
 
                     <!-- DEFAULT to scenario 1 -->
                     {% else %}
@@ -548,45 +543,44 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund - transition to new methodology</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                 </tr>
                             </thead>
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">2019 to 2020 discretionary bursary fund</th>
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">152</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Discretionary bursary fund 2019 to 2020</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                 </tr>
                                 <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">Transition lower limit - 75% of 2019 to 2020 amount</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£375</td>
+                                    <th scope="row" class="table-header-normal">Lower limit 2021 to 2022 - 50% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
                                 </tr>
-                                <!-- <tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">2021 to 2022 upper limit - 125% of 2019 to 2020 amount</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£625</td>
-                                </tr> -->
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Upper limit 2021 to 2022 - 150% of 2019 to 2020 amount</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£750</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£375</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
                                 </tr>
                             </tbody>
                         </table>
 
                     </div>
-
-                    <!-- <div class="govuk-!-margin-bottom-8">
-                                
-                        <div class="panel panel-border-narrow">
-                            <p>ESFA has moved to a new methodology to calculate discretionary bursary fund. You received £530,927 in 2019 to 2020. In 2021 to 2022, you will receive at least 75% of that amount (£398,196) and up to 125%. </p> 
-                            <p>£234,911 is less than the 75% lower limit. You will receive an adjusted amount of £398,196.</p>                    
-                        </div>
-
-                    </div> -->
                     {% endif %}
 
                     <!-- SCENARIO 3
                          Exceptional adjustment (related to discretionary bursary fund) - Show funding table for an academy who is eligible to receive exceptional adjustment funding
-                    -->
+                    
                     {% if scenario == '3' %}
                     <div class="govuk-!-margin-bottom-8">
 
@@ -606,7 +600,7 @@
                             </tbody>
                         </table>
 
-                    </div>
+                    </div> -->
                     <!-- DEFAULT to scenario 1 (low adjusted bursary) and scenario 2 (no change) - Do not show funding table for an academy who does not receive exceptional adjustment funding -->
                     {% else %}
                     
@@ -619,7 +613,7 @@
                         </div>
         
                         <div class="total-allocation-amount">
-                           <h2 class="heading-medium">{% if scenario == '1' %}£375{% elif scenario == '2' %}£450{% elif scenario == '3' %}£1,625{% else %}£375{% endif %}</h2>
+                           <h2 class="heading-medium">{% if scenario == '1' %}£250{% elif scenario == '2' %}£450{% elif scenario == '3' %}£1,750{% else %}£250{% endif %}</h2>
                         </div>
         
                     </div>
