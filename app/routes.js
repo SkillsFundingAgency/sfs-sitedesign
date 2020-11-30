@@ -9,8 +9,8 @@ var express = require('express');
 var router = express.Router();
 
 // Add latest versions of stable MYESF features here
-var latestVersion = 'beta/v117-0-0';
-var latestVersionVLF = 'beta/v117-0-0';
+var latestVersion = 'beta/v118-0-0';
+var latestVersionVLF = 'beta/v118-0-0';
 var latestVersionNFF = 'beta/v110-0-0';
 var latestVersionAdults = 'beta/v112-0-0';
 var latestVersionGAG = 'beta/v112-0-0';
@@ -61,6 +61,10 @@ require('./routes/component-library.js')(router);
 * **********/
 
 // Beta
+// beta-v118-0-0
+require('./routes/beta/v118-0-0/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/v118-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v118-0-0/prototype.js')(router);
 // beta-v117-0-0
 require('./routes/beta/v117-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v117-0-0/signed-in/allocation-statements.js')(router);
