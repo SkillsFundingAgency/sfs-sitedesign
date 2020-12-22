@@ -9,8 +9,8 @@ var express = require('express');
 var router = express.Router();
 
 // Add latest versions of stable MYESF features here
-var latestVersion = 'beta/v118-0-0';
-var latestVersionVLF = 'beta/v118-0-0';
+var latestVersion = 'beta/baselined-dec-2020';
+var latestVersionVLF = 'beta/baselined-dec-2020';
 var latestVersionNFF = 'beta/v110-0-0';
 var latestVersionAdults = 'beta/v112-0-0';
 var latestVersionGAG = 'beta/v112-0-0';
@@ -61,6 +61,10 @@ require('./routes/component-library.js')(router);
 * **********/
 
 // Beta
+// baselined-dec-2020
+require('./routes/beta/baselined-dec-2020/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/baselined-dec-2020/signed-in/allocation-statements.js')(router);
+require('./routes/beta/baselined-dec-2020/prototype.js')(router);
 // beta-v118-0-0
 require('./routes/beta/v118-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v118-0-0/signed-in/allocation-statements.js')(router);
