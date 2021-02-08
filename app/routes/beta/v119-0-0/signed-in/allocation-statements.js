@@ -548,6 +548,27 @@ module.exports = function(router) {
 		});
 	});
 
+	// Allocation history-no-data TEST
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/allocation-new-user-no-data', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "FE";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/allocation-new-user-no-data', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'organisationName' : req.session.organisationName
+		});
+	});
+
 	// REDIRECT hook page used to record the tab that the user wants to view on the 16 to 19 breakdown page (NMSS)
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/tab-choice', function (req, res) {
 
