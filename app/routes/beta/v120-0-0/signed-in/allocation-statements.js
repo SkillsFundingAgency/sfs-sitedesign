@@ -649,7 +649,7 @@ module.exports = function(router) {
 	});
 
 	// VARIANT 3b - NMSS
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/no-uplift', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/difference', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
@@ -658,7 +658,7 @@ module.exports = function(router) {
 		// Increment the number so we only execute the dynamic tab functionality ONCE
 		req.session.reloads++;
 
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/no-uplift', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/difference', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
