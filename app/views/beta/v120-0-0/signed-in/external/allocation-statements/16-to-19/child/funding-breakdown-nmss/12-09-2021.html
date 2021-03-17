@@ -46,7 +46,7 @@
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation
-                    <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£240,375{% elif scenario == '2' %}£240,450{% elif scenario == '3' %}£241,625{% else %}£601,425{% endif %}</p>
+                    <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£240,375{% elif scenario == '2' %}£240,450{% elif scenario == '3' %}£241,625{% elif scenario == '4' %}£601,500{% else %}£601,570{% endif %}</p>
                 </h2>
                  <h2 class="lede">
                     Students
@@ -363,7 +363,7 @@
                         <div class="block-header-total">
                             <h2 class="lede">
                                 Total student financial support
-                                <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£1,425{% elif scenario == '2' %}£1,425{% elif scenario == '3' %}£1,625{% else %}£1,425{% endif %}</p>
+                                <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£1,425{% elif scenario == '2' %}£1,425{% elif scenario == '3' %}£1,625{% elif scenario == '4' %}£1,500{% else %}£1,570{% endif %}</p>
                             </h2>
                         </div>
                     
@@ -376,7 +376,6 @@
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary fund</th>
-                                    <th scope="col" class="govuk-table__header govuk-table__header--numeric table-column-default">Post-16 funded<br>place number</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Post-16 high <br>needs pupils</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Average </br>instances</th>
                                     <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th> -->
@@ -389,8 +388,6 @@
                                     <th scope="row" class="table-header-normal">
                                         Financial disadvantage
                                         <span class="table-column-mobile">
-                                            :18
-                                            <br>
                                             Post-16 high needs pupils: 5.04
                                             <br>
                                             Average instances: 0.280
@@ -398,7 +395,6 @@
                                             Rate: £1,220
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">18</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">5.04</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.28</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
@@ -409,9 +405,6 @@
                                     <th scope="row" class="table-header-normal">
                                         Student costs - Travel
                                         <span class="table-column-mobile">
-                                            <br>
-                                            :18
-                                            <br>
                                             Post-16 high needs pupils: 4.17
                                             <br>
                                             Instances per student: 0.040
@@ -419,7 +412,6 @@
                                             Rate: £350
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">18</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.72</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.04</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
@@ -438,7 +430,6 @@
                                             Rate: £350
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
@@ -466,24 +457,13 @@
                                     <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£152{% elif scenario == '2' %}£450{% elif scenario == '3' %}£800{% else %}£1,570{% endif %}</td>
                                 </tr>
                             </tbody>
                         </table>
-                        
-<!--                        <details>-->
-<!--                            <summary>-->
-<!--                                <span class="summary">Where average instances comes from</span>-->
-<!--                            </summary>-->
-<!--        -->
-<!--                            <div class="panel panel-border-narrow">-->
-<!--                                <p>Average instances are calculated using local authority averages.</p>-->
-<!--                            </div>-->
-<!--        -->
-<!--                        </details>-->
+
                         <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/nmss-revenue-funding-allocation-guide-2020-to-2021#instances-per-student"
                            rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
                             More about average instances
@@ -625,8 +605,43 @@
                         </table>
 
                     </div>
+                    {% elif scenario == '4' %}
+                    <div class="govuk-!-margin-bottom-8">
 
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund/th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">2019 to 2020 Discretionary Bursary Fund - Baseline for Transition</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,000</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,500</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
 
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Total student financial support 2021 to 2022 </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,500</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <p>The discretionary bursary fund has been adjusted because it falls outside the transition limits</p>
+                    </div>
                     <!-- DEFAULT to scenario 1 -->
                     {% else %}
                     <div class="govuk-!-margin-bottom-8">
@@ -646,11 +661,11 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£855</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£570</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,425</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,710</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Exceptional adjustment</th>
@@ -659,7 +674,7 @@
                                
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Total student financial support 2021 to 2022 </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,425</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,570</td>
                                 </tr>
                             </tbody>
                         </table>
