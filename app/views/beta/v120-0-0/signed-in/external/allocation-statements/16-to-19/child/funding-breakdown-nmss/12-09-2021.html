@@ -31,7 +31,7 @@
             </div>
 
             <h1 class="heading-xlarge">
-                16 to 19 funding: 2021 to 2022
+                Non maintained special school funding 2021 to 2022
                 <span class="heading-secondary">
                     This allocation:
                     <span class="bold-medium">12 September 2021</span>
@@ -46,12 +46,14 @@
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation
-                    <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£240,375{% elif scenario == '2' %}£240,450{% elif scenario == '3' %}£241,625{% elif scenario == '4' %}£601,500{% else %}£601,570{% endif %}</p>
+                    <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£240,375{% elif scenario == '2' %}£240,450{% elif scenario == '3' %}£241,625{% elif scenario == '4' %}£561,200{% else %}£601,570{% endif %}</p>
                 </h2>
                  <h2 class="lede">
                     Students
 
-                    <p class="heading-large heading-funding-summary">60</p>
+                    <p class="heading-large heading-funding-summary">
+                        {% if scenario == '4' %}56{% else %}60{% endif %}
+                    </p>
                  </h2>
             </div>
 
@@ -90,7 +92,7 @@
                     </div>
 
                     <div class="govuk-inset-text">
-                        <p class="heading-small">Due to rounding, the values presented here may not add up precisely to the totals provided. The calculation of your funding however is done using unrounded values.</p>
+                        <p class="heading-small">The values in this statement may not add up precisely to the totals provided due to rounding. The actual calculation of your funding is done using unrounded values.</p>
                     </div>
                 
                 </section>
@@ -120,13 +122,251 @@
 
                 <!-- High needs - (START) -->
                 <section class="govuk-tabs__panel break-before" id="highneeds">
+                    {% if scenario == '4' %}
+                    <div class="grid-row">
 
+                        <div class="block-header-total">
+                            <h2 class="lede">
+                                Total high needs
+                                <p class="heading-large heading-funding-summary">
+                                   £560,000
+                                </p>
+                            </h2>
+                        </div>
+
+                    </div>
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table first-element-in-tab ">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total increase in recorded pupils breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pupil numbers</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default"></th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Funded pupils from autumn 2020 census
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Difference
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Total funded pupils 2021 to 2022</th>
+
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="govuk-inset-text">
+                        <p class="heading-small">
+                            Difference is 0 because the change in pupil numbers between autumn 2019 census and spring 2020 census is 0 or below.
+                        </p>
+                    </div>
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total funded pupils 2021 to 2022 breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Calculation of difference</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Funded pupils from spring 2020 census
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">48</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Funded pupils from autumn 2019 census
+                                    <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span>
+                                        </span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">52</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Change in pupil numbers</th>
+                                <span class="table-column-mobile">
+                                        <br>
+                                        Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
+                                    </span>
+
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">-4</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a rel="noreferrer noopener" target="_blank" title="Opens in a new tab" href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/nmss-revenue-funding-allocation-guide-2020-to-2021#non-maintained-special-school-funding-allocation">
+                            More about pupil numbers
+                        </a>
+                    </div>
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">
+                                Funded places in 2021 to 2022 allocation
+                            </caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">
+                                    Funded places in 2021 to 2022 allocation
+                                </th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Pre-16 sub-total</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Post-16 sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Total pupils from autumn 2020 census
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">39</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">17</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    All high needs pupils from autumn 2020 census
+                                    <span class="table-column-mobile">
+                                            <br>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-divide" title="Divide" aria-hidden="true"></i><span class="sr-only">Divide</span></span>
+                                        </span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
+                                    <span class="calc-letter"><i class="fas fa-divide" title="Divide" aria-hidden="true"></i><span class="sr-only">Divide</span></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Proportion of pupils</th>
+                                <span class="table-column-mobile">
+                                        <br>
+                                        Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
+                                    </span>
+
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0.70</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">0.30</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">All funded pupils 2021 to 2022</th>
+                                <span class="table-column-mobile">
+                                        <br>
+                                        Calculation: <span class="calc-letter"><i class="fas fa-times" title="Multiply" aria-hidden="true"></i><span class="sr-only">Multiply</span></span>
+                                    </span>
+
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
+                                    <span class="calc-letter">
+                                        <i class="fas fa-times" title="Multiply" aria-hidden="true"></i>
+                                        <span class="sr-only">Multiply</span>
+                                    </span>
+                                </td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Total funded pupils 2021/22</th>
+                                <span class="table-column-mobile">
+                                        <br>
+                                        Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
+                                    </span>
+
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">39</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">17</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total high needs breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">High needs</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Funded pupils <br> 2021 to 2022</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Pre-16
+                                    <span class="table-column-mobile">
+                                            <br>
+                                            Total funded pupils 2021 to 2022: 25
+                                            <br>
+                                            Rate: £10,000
+                                        </span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">39</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£10,000</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£390,000</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Post-16
+                                    <span class="table-column-mobile">
+                                            <br>
+                                            Total funded pupils 2021 to 2022: 25
+                                            <br>
+                                            Rate: £10,000
+                                        </span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">17</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£10,000</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£170,000</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Total high needs</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£560,000</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="total-allocation-wrapper last-table-below-tab">
+
+                        <div class="total-allocation-label">
+                            <h2 class="heading-medium">Total high needs</h2>
+                        </div>
+
+                        <div class="total-allocation-amount">
+                            <h2 class="heading-medium">£560,000</h2>
+                        </div>
+
+                    </div>
+                    {% else %}
                     <div class="grid-row">
                     
                         <div class="block-header-total">
                             <h2 class="lede">
                                 Total high needs
-                                <p class="heading-large heading-funding-summary">£600,000</p>
+                                <p class="heading-large heading-funding-summary">
+                                    {% if scenario == '4' %}£560,000{% else %}£600,000{% endif %}
+                                    </p>
                             </h2>
                         </div>
                     
@@ -172,7 +412,7 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total funded pupils 2021 to 2022 breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Calculation of Increase</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Calculation of increase</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                 </tr>
@@ -352,6 +592,7 @@
         
                     </div>
 
+                    {% endif %}
                 </section>
                 <!-- High needs - (END) -->
 
@@ -363,7 +604,7 @@
                         <div class="block-header-total">
                             <h2 class="lede">
                                 Total student financial support
-                                <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£1,425{% elif scenario == '2' %}£1,425{% elif scenario == '3' %}£1,625{% elif scenario == '4' %}£1,500{% else %}£1,570{% endif %}</p>
+                                <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£1,425{% elif scenario == '2' %}£1,425{% elif scenario == '3' %}£1,625{% elif scenario == '4' %}£1,200{% else %}£1,570{% endif %}</p>
                             </h2>
                         </div>
                     
@@ -376,7 +617,7 @@
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
                                     <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary fund</th>
-                                    <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Post-16 high <br>needs pupils</th>
+                                    <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Post-16 funded places</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Average </br>instances</th>
                                     <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th> -->
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Rate</th>
@@ -388,42 +629,42 @@
                                     <th scope="row" class="table-header-normal">
                                         Financial disadvantage
                                         <span class="table-column-mobile">
-                                            Post-16 high needs pupils: 5.04
+                                            Post-16 funded places: 17
                                             <br>
                                             Average instances: 0.280
                                             <br>
-                                            Rate: £1,220
+                                            Rate: £242
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">5.04</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">17</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.28</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£242</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,220</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,152</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Student costs - Travel
                                         <span class="table-column-mobile">
-                                            Post-16 high needs pupils: 4.17
+                                            Post-16 funded places: 17
                                             <br>
                                             Instances per student: 0.040
                                             <br>
                                             Rate: £350
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.72</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">17</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.04</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£483</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£350</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£328</td>
                                 </tr>
                                   <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Student costs - Industry Placement
                                         <span class="table-column-mobile">
                                             <br>
-                                            Post-16 high needs pupils: 4.17
+
                                             <br>
                                             Instances per student: 0.040
                                             <br>
@@ -459,14 +700,16 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£152{% elif scenario == '2' %}£450{% elif scenario == '3' %}£800{% else %}£1,570{% endif %}</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">
+                                        {% if scenario == '1' %}£152{% elif scenario == '2' %}£450{% elif scenario == '3' %}£800{% elif scenario == '4' %}£1,480{% else %}£1,570{% endif %}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
 
-                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/nmss-revenue-funding-allocation-guide-2020-to-2021#instances-per-student"
+                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
                            rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
-                            More about average instances
+                            More about discretionary bursary fund
                         </a>
                     </div>
 
@@ -619,15 +862,15 @@
                             <tbody class="govuk-table__body">
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">2019 to 2020 Discretionary Bursary Fund - Baseline for Transition</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,000</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£800</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£400</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,500</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,200</td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">Exceptional adjustment</th>
@@ -636,11 +879,15 @@
 
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">Total student financial support 2021 to 2022 </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,500</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,200</td>
                             </tr>
                             </tbody>
                         </table>
                         <p>The discretionary bursary fund has been adjusted because it falls outside the transition limits</p>
+                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
+                           rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                            More about exceptional adjustments
+                        </a>
                     </div>
                     <!-- DEFAULT to scenario 1 -->
                     {% else %}
@@ -678,7 +925,10 @@
                                 </tr>
                             </tbody>
                         </table>
-
+                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
+                           rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                            More about exceptional adjustments
+                        </a>
                     </div>
                     {% endif %}
 
