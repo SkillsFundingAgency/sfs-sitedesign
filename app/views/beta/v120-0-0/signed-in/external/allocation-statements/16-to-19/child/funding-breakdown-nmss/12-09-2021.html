@@ -603,7 +603,9 @@
                         <div class="block-header-total">
                             <h2 class="lede">
                                 Total student financial support
-                                <p class="heading-large heading-funding-summary">{% if scenario == '1' %}£1,425{% elif scenario == '2' %}£1,425{% elif scenario == '3' %}£1,625{% elif scenario == '4' %}£1,200{% else %}£1,570{% endif %}</p>
+                                <p class="heading-large heading-funding-summary">
+                                    {% if scenario == '1' %}£1,425{% elif scenario == '2' %}£1,425{% elif scenario == '3' %}£1,625{% elif scenario == '4' %}£1,200{% else %}£1,570{% endif %}
+                                </p>
                             </h2>
                         </div>
                     
@@ -628,14 +630,16 @@
                                     <th scope="row" class="table-header-normal">
                                         Financial disadvantage
                                         <span class="table-column-mobile">
-                                            Post-16 funded places: 18
+                                            Post-16 funded places: {% if scenario == '4' %}17{% else %}18{% endif %}
                                             <br>
                                             Average instances: 0.280
                                             <br>
                                             Rate: £242
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">18</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
+                                        {% if scenario == '4' %}17{% else %}18{% endif %}
+                                    </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.28</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£242</td>
@@ -645,14 +649,16 @@
                                     <th scope="row" class="table-header-normal">
                                         Student costs - Travel
                                         <span class="table-column-mobile">
-                                            Post-16 funded places: 18
+                                            Post-16 funded places: {% if scenario == '4' %}17{% else %}18{% endif %}
                                             <br>
                                             Instances per student: 0.040
                                             <br>
                                             Rate: £350
                                         </span>
                                     </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">18</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
+                                        {% if scenario == '4' %}17{% else %}18{% endif %}
+                                    </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.04</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£483</td>
