@@ -8,7 +8,23 @@
 <script src="/public/javascripts/application.js"></script>
 <script src="/public/javascripts/accordion.js"></script>
 <script>
-	
+
+
+    // only here to stop bug in testing when user goes through to second page with accordion and the second page has an accodion pre opened this closes all accordions on page load
+    (function (){
+        document.addEventListener("DOMContentLoaded", function(){
+
+            var e = document.getElementsByClassName("govuk-accordion__section");
+
+            for (let x of e) {
+                if(x.classList.contains("govuk-accordion__section--expanded")) {
+                    x.classList.remove("govuk-accordion__section--expanded")
+                }
+            }
+        });
+    })();
+
+
 	if ('addEventListener' in document && document.querySelectorAll) {
 		
 		document.addEventListener('DOMContentLoaded', function() {
@@ -57,17 +73,17 @@
 		var id = setInterval(frame, 0);
 		
 		function frame() {
-			
-			if (width >= 100) {
-				clearInterval(id);
-			}
-			else {
-				width++; 
-				elem.style.width = width + '%'; 
-				$('#progress span').html(width * 1 + '%');
-			}
-			
-		}
+            if (elem) {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    $('#progress span').html(width * 1 + '%');
+                }
+
+            }
+        }
 	
 	});
 

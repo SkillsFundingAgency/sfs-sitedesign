@@ -1269,19 +1269,6 @@
 	}(Object.defineProperty));
 	})
 	.call('object' === typeof window && window || 'object' === typeof self && self || 'object' === typeof commonjsGlobal && commonjsGlobal || {});
-	// only here to stop bug in testing when user goes throught to second page with accordion and the second page has an accodion pre opened this closes all accordions on page load
-	(function (){
-		document.addEventListener("DOMContentLoaded", function(){
-
-			var e = document.getElementsByClassName("govuk-accordion__section");
-
-			for (let x of e) {
-				if(x.classList.contains("govuk-accordion__section--expanded")) {
-					x.classList.remove("govuk-accordion__section--expanded")
-				}
-			}
-		});
-	})();
 
 		// document.onload = function  ggg(){
 		// 	var p = document.getElementsByClassName("govuk-accordion__section--expanded");
