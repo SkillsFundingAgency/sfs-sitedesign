@@ -680,10 +680,10 @@
                                     Funded pupils from autumn 2020 census
                                     <span class="table-column-mobile">
                                             <br>
-                                            Calculation: <span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span>
+                                            Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
                                         </span>
                                 </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-minus" title="Minus" aria-hidden="true"></i><span class="sr-only">Minus</span></span></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">56</td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -1100,8 +1100,8 @@
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total discretionary bursary fund breakdown</caption>
                             <thead class="govuk-table__head">
                                 <tr class="govuk-table__row">
-                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary fund</th>
-                                    <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Post-16 funded places</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary element</th>
+                                    <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Total funded students</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Average </br>instance</th>
                                     <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th> -->
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Rate</th>
@@ -1113,26 +1113,26 @@
                                     <th scope="row" class="table-header-normal">
                                         Financial disadvantage
                                         <span class="table-column-mobile">
-                                            Post-16 funded places: {% if scenario == '4' %}17{% else %}18{% endif %}
+                                            Post-16 funded places: {% if scenario == '4' %}17{% elif scenario == '5' %}11{% else %}18{% endif %}
                                             <br>
-                                            Average instances: 0.280
+                                            Average instances: 1.47
                                             <br>
-                                            Rate: £242
+                                            Rate: £243
                                         </span>
                                     </th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
-                                        {% if scenario == '4' %}17{% else %}18{% endif %}
+                                        {% if scenario == '4' %}17{% elif scenario == '5' %}11{% else %}18{% endif %}
                                     </td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.28</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1.47</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£242</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,220</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£243</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£356</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
                                         Student costs - Travel
                                         <span class="table-column-mobile">
-                                            Post-16 funded places: {% if scenario == '4' %}17{% else %}18{% endif %}
+                                            Post-16 funded places: {% if scenario == '4' %}17{% elif scenario == '5' %}11{% else %}18{% endif %}
                                             <br>
                                             Instances per student: 0.040
                                             <br>
@@ -1140,7 +1140,7 @@
                                         </span>
                                     </th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">
-                                        {% if scenario == '4' %}17{% else %}18{% endif %}
+                                        {% if scenario == '4' %}17{% elif scenario == '5' %}11{% else %}18{% endif %}
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.04</td>
                                     <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
@@ -1200,12 +1200,18 @@
                             </summary>
 
                             <div class="panel panel-border-narrow">
-                                <p>Your discretionary bursary fund allocation for each funding element is calculated by multiplying the number of post-16 funded places by the average instance, then by the rate.
-                                    <br/>
-                                    Post-16 funded places <strong>x</strong> Average instance <strong>x</strong> Rate = Subtotal</p>
+                                <p>The sub-total for each discretionary bursary element is calculated by multiplying the total funded students by the average instance, then by the rate:</p>
+
+                                <p> Post-16 funded places <strong>x</strong> Average instance <strong>x</strong> Rate = Subtotal</p>
+                                <p>The sub-totals are then added together to make your discretionary bursary fund total. This figure is then used in the next calculation. It is compared with your total discretionary bursary fund from 2019 to 2020. It will be adjusted if it falls outside the limits set for this year.</p>
                                 <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#instances-per-student-1"
                                    rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
                                     How instances are calculated
+                                </a>
+<br/>
+                                <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year"
+                                   rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                    More about the 16 to 19 bursary fund
                                 </a>
                             </div>
                         </details>
@@ -1514,19 +1520,26 @@
                             </summary>
 
                             <div class="panel panel-border-narrow">
-                                The baseline figure is the amount you received last year
-                                From 2020 to 2021 ... 50% to 150%
-                                Because this year's figure is greater than/less than the 50% to 150% limits you will receive the upper/lower amount
-                                <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#instances-per-student-1"
+                               <p>The bursary has not been adjusted because this year's discretionary bursary fund figure is between the lower and upper baseline limits. [OR] The bursary has been adjusted because this year's discretionary bursary fund figure is outside the lower and upper baseline limits.</p>
+                               <p>From 2020 to 2021, we moved to a new methodology to calculate your discretionary bursary fund. </p>
+                               <p>In 2019 to 2020, you received the amount shown in the first row of the adjusted discretionary bursary fund table. Going forward:</p>
+                               <ul class="list list-bullet">
+                                   <li>In 2020 to 2021, you received an amount capped between +/- 25% of the 2019 to 2020 total</li>
+                                   <li>This year, you will receive an amount capped between +/- 50% of the 2019 to 2020 total</li>
+                                   <li>In 2022 to 2023, you will receive an amount capped between +/- 75% of the 2019 to 2020 total</li>
+                                   <li>2023 to 2024 onward - you receive the amount with no cap applied</li>
+                               </ul>
+                                <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year"
                                    rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
-                                    How instances are calculated
+                                    More about the 16 to 19 bursary fund
                                 </a>
                             </div>
                         </details>
+                    </div>
 <!--                        <div class="govuk-inset-text">-->
 <!--                            <p class="heading-small">The discretionary bursary fund has been adjusted because hhit falls outside the transition limits.</p>-->
 <!--                        </div>-->
-
+                    <div class="govuk-!-margin-bottom-8">
                         <table class="govuk-table">
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
                             <thead class="govuk-table__head">
@@ -1546,8 +1559,8 @@
                            rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
                             More about exceptional adjustments
                         </a>
-
                     </div>
+
                     <!-- DEFAULT to scenario 1 -->
                     {% else %}
                     <div class="govuk-!-margin-bottom-8">
