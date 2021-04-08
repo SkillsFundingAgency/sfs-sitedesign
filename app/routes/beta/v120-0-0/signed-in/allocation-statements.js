@@ -672,6 +672,7 @@ module.exports = function(router) {
 		});
 	});
 
+
 	// VARIANT 4 - SPI
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/12-09-2021', function (req, res) {
 
