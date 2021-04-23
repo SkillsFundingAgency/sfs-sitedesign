@@ -59,4 +59,9 @@ function goBack() {
     window.history.back();
 }
 
+// Fix for issue where accordion toggle would stay as "Close all" after refreshing of page, despite accordions auto-closing
+window.onload = function () {
+    document.getElementById("accordionToggle").innerHTML="Open all <span class='govuk-visually-hidden'> sections</span>";
+}
+
 // JavaScript (END)

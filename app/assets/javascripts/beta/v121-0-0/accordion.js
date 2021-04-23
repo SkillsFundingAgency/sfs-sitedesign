@@ -807,6 +807,7 @@
 	  this.$openAllButton.setAttribute('type', 'button');
 	  this.$openAllButton.innerHTML = 'Open all <span class="govuk-visually-hidden">sections</span>';
 	  this.$openAllButton.setAttribute('class', this.openAllClass);
+	  this.$openAllButton.setAttribute('id', 'accordionToggle');
 	  this.$openAllButton.setAttribute('aria-expanded', 'false');
 	  this.$openAllButton.setAttribute('type', 'button');
 
