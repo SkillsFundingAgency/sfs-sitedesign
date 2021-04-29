@@ -45,14 +45,14 @@
 
             <div class="form-group govuk-!-margin-bottom-9">
                 <h2 class="lede govuk-!-margin-bottom-6">
-                    Total allocation
-                    <p class="heading-large heading-funding-summary variance-heading-no-margin">£1,104,824</p>
-                    <p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £145,106.34</p>
+                    Total allocation<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">£1,104,824</span><br>
+                    <span class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £145,106.34</span>
                 </h2>
                  <h2 class="lede">
-                    Students
+                    Students<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">213</span>
                 </h2>
-                <p class="heading-large heading-funding-summary variance-heading-no-margin">213</p>
             </div>
 
             <div class="form-block">
@@ -304,11 +304,336 @@
                             {% if scenario == 'ilr' %}ILR text here{% elseif scenario == 'census' %}census text here{% else %}{% endif %}
                         </div>
 
+                        <div>
+
+                        {% if scenario == '6' %}
+
+                        <div class="govuk-!-margin-bottom-6" id="student-funding-section">
+                            <h3 class="heading-medium">Student numbers breakdown</h3>
+                        </div>
+
+                        <table class="govuk-table govuk-!-margin-bottom-8">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Student numbers breakdown</caption>
+                            <thead class="govuk-table__head">
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-three-sixths">Mainstream annual planned study hours</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Student numbers<br>2019 to 2020</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Proportion</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Funded Students</th>
+                                </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        16 and 17 year olds, students aged 18 and over with high needs studying 540 hours and over (band 5)
+                                        <span class="table-column-mobile">
+                                            <!-- <br>
+                                            Students 2020 to 2021: 4,170
+                                            <br>
+                                            Proportion used in 2021 to 2022: 84.16% -->
+                                            <br>
+                                            Funded students: 203
+                                            <br>
+                                            Rate: £4,188
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">205</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">95.35%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">203</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Aged 18 and over who are not high needs and studying over 450 hours (band 4a)
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Funded students: 10
+                                            <br>
+                                            Rate: £3,455
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">10</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4.65%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">10</td>
+                                </tr>
+                                
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        16 and 17 year olds, students aged 18 and over with high needs studying 450 to 539 hours (band 4b)
+                                        <span class="table-column-mobile">
+                                            <br>
+                                            Students 2020 to 2021: 0
+                                            <br>
+                                            Rate: £3,455
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        360 to 449 hours (band 3)
+                                        <span class="table-column-mobile">
+                                            <!-- <br>
+                                            Students 2020 to 2021: 47
+                                            <br>
+                                            Proportion used in 2021 to 2022: 0.95% -->
+                                            <br>
+                                            Funded students: 0
+                                            <br>
+                                            Rate: £2,827
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        280 to 359 hours (band 2)
+                                        <span class="table-column-mobile">
+                                            <!-- <br>
+                                            Students 2020 to 2021: 8
+                                            <br>
+                                            Proportion used in 2021 to 2022: 0.16% -->
+                                            <br>
+                                            Funded students: 0
+                                            <br>
+                                            Rate: £2,234
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Up to 279 hours (band 1)
+                                        <span class="table-column-mobile">
+                                            <!-- <br>
+                                            Students 2020 to 2021: 60
+                                            <br>
+                                            Proportion used in 2021 to 2022: 1.21% -->
+                                            <br>
+                                            Funded students: 0
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Full time equivalent (band 1)
+                                        <span class="table-column-mobile">
+                                            <!-- <br>
+                                            Students 2020 to 2021: 12.71 -->
+                                            <br>
+                                            Funded students: 0
+                                            <br>
+                                            Rate: £4,188
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">
+                                        Mainstream funding
+                                        <span class="table-column-mobile">
+                                            <!-- <br>
+                                            Students 2020 to 2021: 4,955
+                                            <br>
+                                            Proportion used in 2021 to 2022: 100% -->
+                                            <br>
+                                            Funded students: 213
+                                        </span>
+                                    </th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        {% else %}
+
+                        {% endif %}
+
+                        </div>
+
                         <div class="govuk-!-margin-bottom-6" id="student-funding-section">
                             <h3 class="heading-medium">Student funding</h3>
                         </div>
 
                         <div>
+
+                            {% if scenario == '5' %}
+
+                            <table class="govuk-table">
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Total mainstream annual planned study hours breakdown</caption>
+                                <thead class="govuk-table__head">
+                                    <tr class="govuk-table__row">
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Mainstream annual planned study hours</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-seventh govuk-table__header--numeric table-column-default">Student numbers <br>2019 to 2020</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-seventh govuk-table__header--numeric table-column-default">Proportion</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-seventh govuk-table__header--numeric table-column-default">Funded <br>students</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-seventh govuk-table__header--numeric table-column-default">National rate</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-seventh govuk-table__header--numeric table-column-default">Sub-total</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            16 and 17 year olds, students aged 18 and over with high needs studying 540 hours and over (band 5)
+                                            <span class="table-column-mobile">
+                                                <!-- <br>
+                                                Students 2020 to 2021: 4,170
+                                                <br>
+                                                Proportion used in 2021 to 2022: 84.16% -->
+                                                <br>
+                                                Funded students: 203
+                                                <br>
+                                                Rate: £4,188
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">205</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">95.35%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">203</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,188</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£850,554</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Aged 18 and over who are not high needs and studying over 450 hours (band 4a)
+                                            <span class="table-column-mobile">
+                                                <br>
+                                                Funded students: 10
+                                                <br>
+                                                Rate: £3,455
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">10</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4.65%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">10</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£3,455</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£17,114</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            16 and 17 year olds, students aged 18 and over with high needs studying 450 to 539 hours (band 4b)
+                                            <span class="table-column-mobile">
+                                                <br>
+                                                Students 2020 to 2021: 0
+                                                <br>
+                                                Rate: £3,455
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£3,455</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            360 to 449 hours (band 3)
+                                            <span class="table-column-mobile">
+                                                <!-- <br>
+                                                Students 2020 to 2021: 47
+                                                <br>
+                                                Proportion used in 2021 to 2022: 0.95% -->
+                                                <br>
+                                                Funded students: 0
+                                                <br>
+                                                Rate: £2,827
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,827</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            280 to 359 hours (band 2)
+                                            <span class="table-column-mobile">
+                                                <!-- <br>
+                                                Students 2020 to 2021: 8
+                                                <br>
+                                                Proportion used in 2021 to 2022: 0.16% -->
+                                                <br>
+                                                Funded students: 0
+                                                <br>
+                                                Rate: £2,234
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£2,234</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Up to 279 hours (band 1)
+                                            <span class="table-column-mobile">
+                                                <!-- <br>
+                                                Students 2020 to 2021: 60
+                                                <br>
+                                                Proportion used in 2021 to 2022: 1.21% -->
+                                                <br>
+                                                Funded students: 0
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Full time equivalent (band 1)
+                                            <span class="table-column-mobile">
+                                                <!-- <br>
+                                                Students 2020 to 2021: 12.71 -->
+                                                <br>
+                                                Funded students: 0
+                                                <br>
+                                                Rate: £4,188
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,188</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Mainstream funding
+                                            <span class="table-column-mobile">
+                                                <!-- <br>
+                                                Students 2020 to 2021: 4,955
+                                                <br>
+                                                Proportion used in 2021 to 2022: 100% -->
+                                                <br>
+                                                Funded students: 213
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0%</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">213</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£884,782</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            {% else %}
 
                             <table class="govuk-table">
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total mainstream annual planned study hours breakdown</caption>
@@ -471,6 +796,8 @@
                                     </tr>
                                 </tbody>
                             </table>
+
+                            {% endif %}
 
                             <!-- <a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about mainstream and T Level funding</a> -->
                         </div>
@@ -933,7 +1260,7 @@
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total deprivation breakdown</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Deprivation</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Deprivation (block 1)</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Proportion of students</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Core programme up to level 3 maths and English</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
@@ -984,7 +1311,7 @@
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total care leavers breakdown</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Care leavers</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Care leavers (block 1)</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Eligible students</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
@@ -1016,7 +1343,7 @@
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total low prior attainment in maths or English breakdown</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Low prior attainment</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Low prior attainment (block 2)</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Funded students</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Average weighting</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
