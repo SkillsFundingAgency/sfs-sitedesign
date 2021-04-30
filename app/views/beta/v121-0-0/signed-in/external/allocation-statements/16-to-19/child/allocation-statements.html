@@ -29,9 +29,50 @@
                 </nav>
             </div>
 
-            <h1 class="heading-xlarge">Allocation statements</h1>
+                <!-- // Trying to use scenarios to tidy //
 
-            <div class="form-group">
+                {% if scenario == '2' %}
+                <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Important
+                    </h2>
+                    </div>
+                    <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading">
+                        <h2 class="heading-small">Previous allocations can be found in your <a class="govuk-notification-banner__link" href="#">allocation history</a>.</h2>
+                    </p>
+                    </div>
+                </div>
+                {% else %} {% endif %}
+
+                {% if scenario == '1' %}
+                <h1 class="heading-xlarge govuk-!-margin-bottom-4">Allocation statements</h1>
+                <div class="govuk-inset-text govuk-!-margin-bottom-8">
+                    <h2 class="heading-small">Previous allocations can be found in your <a href="">allocation history</a>.</h2>
+                </div>
+                {% else %}
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+                {% endif %}
+
+                -->
+
+                <!-- Example One -->
+
+                <h1 class="heading-xlarge govuk-!-margin-bottom-4">Allocation statements</h1>
+                <div class="govuk-inset-text govuk-!-margin-bottom-8">
+                    <h2 class="heading-small">Previous allocations can be found in your <a href="">allocation history</a>.</h2>
+                </div>
+                
+                <!-- End Example One -->
+
+                <!-- Example Two (Standard)
+
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+
+                End Example Two -->
+
+                <div class="form-group">
 
                 <!-- COMPONENT - ACCORDION (START) -->
                 <div class="govuk-accordion" data-module="accordion" id="accordion-default">
