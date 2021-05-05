@@ -104,14 +104,14 @@
             
             <div class="govuk-tabs clearfix" data-module="tabs">
                 <h3 class="govuk-tabs__title">Contents</h3>
-                <ul class="govuk-tabs__list" style="padding-bottom: 40px;">
+                <ul class="govuk-tabs__list" class="govuk-!-padding-bottom-7">
                     <li class="govuk-tabs__list-item"><a id="highneeds-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#highneeds">High needs</a></li>
                     <li class="govuk-tabs__list-item"><a id="studentfinancialsupport-tab" class="govuk-tabs__tab print-trigger" href="#studentfinancialsupport">16 to 19 discretionary bursary fund</a></li>
                 </ul>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
                 <!-- START-->
-                <details style="display: none;">
+                <details class="visuallyhidden">
                     <summary>
                         <span class="summary">...</span>
                     </summary>
@@ -556,7 +556,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <details class="govuk-!-margin-bottom-2">
+                        <details>
                             <summary>
                                 <span class="summary">Rounding differences in your calculations</span>
                             </summary>
@@ -1153,7 +1153,6 @@
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Total funded </br>students</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Instances </br>per student</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Number of </br>instances</th>
-                                    <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th> -->
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default govuk-!-padding-left-6">Rate</th>
                                     <th scope="col" class="govuk-table__header  govuk-table__header--numeric table-column-default">Sub-total</th>
                                 </tr>
@@ -1175,7 +1174,6 @@
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.13</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">{% if scenario == '6' %} 1.33 {% else %} 1.47 {% endif %}</td>
-                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£243</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '6' %}£323{% else %}£356{% endif %}</td>
                                 </tr>
@@ -1195,7 +1193,6 @@
                                     </td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.15</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">{% if scenario == '6' %} 1.48 {% else %} 1.63 {% endif %}</td>
-                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£468</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '6' %} £693 {% else %} £762 {% endif %}</td>
                                 </tr>
@@ -1214,33 +1211,14 @@
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£48</td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                 </tr>
-                                <!--<tr class="govuk-table__row">
-                                    <th scope="row" class="table-header-normal">
-                                        Student costs - industry placements
-                                        <span class="table-column-mobile">
-                                            <br>
-                                            Post-16 high needs pupils: 4.17
-                                            <br>
-                                            Average instances: 0
-                                            <br>
-                                            Rate: £49
-                                        </span>
-                                    </th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4.17</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£49</td>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                </tr>-->
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                    <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td> -->
                                     <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                     <td class="govuk-table__cell govuk-table__cell--numeric">
                                         {% if scenario == '1' %}£152
@@ -1263,11 +1241,11 @@
 
                             <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">The sub-total for each discretionary bursary element is calculated by multiplying the number of students by the instances per student to get the number of instances:</p>
 
-                            <p class="govuk-!-font-weight-bold">Total funded students <span style="display:inline-block; margin:0px 5px;">&times;</span> Instances per student <span style="display:inline-block; margin:0px 5px;">=</span> Number of instances</p>
+                            <p class="govuk-!-font-weight-bold">Total funded students <span class="calc-symbol">&times;</span> Instances per student <span class="calc-symbol">&equals;</span> Number of instances</p>
 
                             <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">The number of instances is then multiplied by the rate:</p>
 
-                            <p class="govuk-!-font-weight-bold">Number of instances <span style="display:inline-block; margin:0px 5px;">&times;</span> Rate <span style="display:inline-block; margin:0px 5px;">=</span> Sub-total</p>
+                            <p class="govuk-!-font-weight-bold">Number of instances <span class="calc-symbol">&times;</span> Rate <span class="calc-symbol">&equals;</span> Sub-total</p>
                             
                             <p>The sub-totals are then added together to make your discretionary bursary fund total. This figure is then used in the next calculation. It is compared with your total discretionary bursary fund from 2019 to 2020. It will be adjusted if it falls outside the limits set for this year.</p>
                             <p>
@@ -1784,9 +1762,9 @@
 
             <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
             <!-- reloads (an incremented number each time the page is loaded) -->
-            <span id="reloads" style="display: none;">{{reloads}}</span>
+            <span id="reloads" class="visuallyhidden">{{reloads}}</span>
             <!-- tab = highneeds, studentfinancialsupport -->
-            <span id="tab" style="display: none;">{{tab}}</span>
+            <span id="tab" class="visuallyhidden">{{tab}}</span>
         </div>
 
     </div>
