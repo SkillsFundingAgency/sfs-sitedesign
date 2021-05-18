@@ -408,7 +408,8 @@
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">
-                                        Difference in funded pupils
+                                        Difference in funded pupils <br>
+                                        <span class="table-row-embed-text">Any reduction in pupil numbers is set to zero.<br>This ensures no school is funded below its autumn 2019 census pupil numbers.</span>
                                     </th>
                                     <span class="table-column-mobile">
                                             <br>
@@ -423,16 +424,6 @@
                     </div>
 
                     <!-- TABLE ONE END -->
-
-                    <details class="govuk-!-margin-bottom-6">
-                        <summary>
-                            <span class="summary">Why the difference is zero</span>
-                        </summary>
-
-                        <div class="panel panel-border-narrow">
-                            Any reduction in pupil numbers is set to zero. This ensures no school is funded below its autumn 2019 census pupil numbers.
-                        </div>
-                    </details>
 
                     <!-- TABLE TWO START -->
 
@@ -1483,96 +1474,8 @@
                             </div>
                         </details>
 
-                    </div>
-
-                    {% elif scenario == '6' %}
-
-                    <div class="govuk-!-margin-bottom-8">
-                        <table class="govuk-table">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
-                            <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                            </thead>
-                            <tbody class="govuk-table__body">
-
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">2019 to 2020 Discretionary bursary fund - baseline for transition</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£659</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£329</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£988</td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == '1' %}£152
-                                    {% elif scenario == '2' %}£450
-                                    {% elif scenario == '3' %}£800
-                                    {% elif scenario == '4' %}£1,480
-                                    {% else %}£1016{% endif %}
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Total student financial support 2021 to 2022<br>
-                                    <span class="table-row-embed-text">The bursary has been adjusted because this year's discretionary bursary fund figure is outside the transition limits</span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£988</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="govuk-!-margin-bottom-8">
-                        <details>
-                            <summary>
-                                <span class="summary">More about the transition limits</span>
-                            </summary>
-
-                            <div class="panel panel-border-narrow">
-                                <p>From 2020 to 2021, we moved to a new methodology to calculate your discretionary bursary fund. </p>
-                                <p>In 2019 to 2020, you received the amount shown in the first row of the adjusted discretionary bursary fund table. Going forward:</p>
-                                <ul class="list list-bullet">
-                                    <li>In 2020 to 2021, you received an amount capped between +/- 25% of the 2019 to 2020 total</li>
-                                    <li>This year, you will receive an amount capped between +/- 50% of the 2019 to 2020 total</li>
-                                    <li>In 2022 to 2023, you will receive an amount capped between +/- 75% of the 2019 to 2020 total</li>
-                                    <li>2023 to 2024 onward - you receive the amount with no cap applied</li>
-                                </ul>
-                                <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year"
-                                   rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
-                                    More about the 16 to 19 bursary fund (opens in new tab)
-                                </a>
-                            </div>
-                        </details>
-                    </div>
-                    <div class="govuk-!-margin-bottom-8">
-                        <table class="govuk-table">
-                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
-                            <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                            </thead>
-                            <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">Exceptional adjustment</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
-                           rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
-                            More about exceptional adjustments (opens in new tab)
-                        </a>
-                    </div>
                     {% elif scenario == '5' %}
+
                     <div class="govuk-!-margin-bottom-8">
                         <table class="govuk-table">
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
@@ -1598,9 +1501,7 @@
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == '1' %}£152{% elif scenario == '2' %}£450{% elif scenario == '3' %}£800{% elif scenario == '4' %}£1,480{% elif scenario == '5' %}£1,119{% else %}£1,570{% endif %}
-                                </td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,119</td>
                             </tr>
 
                             <tr class="govuk-table__row">
@@ -1631,9 +1532,7 @@
                             </div>
                         </details>
                     </div>
-<!--                        <div class="govuk-inset-text">-->
-<!--                            <p class="heading-small">The discretionary bursary fund has been adjusted because hhit falls outside the transition limits.</p>-->
-<!--                        </div>-->
+
                     <div class="govuk-!-margin-bottom-8">
                         <table class="govuk-table">
                             <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
@@ -1656,8 +1555,251 @@
                         </a>
                     </div>
 
-                    <!-- DEFAULT to scenario 1 -->
+                    {% elif scenario == '6' %}
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">2019 to 2020 Discretionary bursary fund (baseline for transition)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£434</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£217</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£651</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£363</td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund<br>
+                                    <span class="table-row-embed-text">The bursary figure has been adjusted to the minimum allocation value</span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <details>
+                            <summary>
+                                <span class="summary">More about the transition limits</span>
+                            </summary>
+                            <div class="panel panel-border-narrow">
+                               <p>From 2020 to 2021, we moved to a new methodology to calculate your discretionary bursary fund. </p>
+                               <p>In 2019 to 2020, you received the amount shown in the first row of the adjusted discretionary bursary fund table. Going forward:</p>
+                               <ul class="list list-bullet">
+                                   <li>In 2020 to 2021, you received an amount capped between +/- 25% of the 2019 to 2020 total</li>
+                                   <li>This year, you will receive an amount capped between +/- 50% of the 2019 to 2020 total</li>
+                                   <li>In 2022 to 2023, you will receive an amount capped between +/- 75% of the 2019 to 2020 total</li>
+                                   <li>2023 to 2024 onward - you receive the amount with no cap applied</li>
+                               </ul>
+                                <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year"
+                                   rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                    More about the 16 to 19 bursary fund (opens in new tab)
+                                </a>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
+                           rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                            More about exceptional adjustments (opens in new tab)
+                        </a>
+                    </div>
+
+                    {% elif scenario == '7' %}
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">2019 to 2020 Discretionary bursary fund (baseline for transition)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,072</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£536</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,608</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£520</td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund<br>
+                                    <span class="table-row-embed-text">The bursary has been adjusted because this year's discretionary bursary fund figure is outside the transition limits</span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£536</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <details>
+                            <summary>
+                                <span class="summary">More about the transition limits</span>
+                            </summary>
+                            <div class="panel panel-border-narrow">
+                               <p>From 2020 to 2021, we moved to a new methodology to calculate your discretionary bursary fund. </p>
+                               <p>In 2019 to 2020, you received the amount shown in the first row of the adjusted discretionary bursary fund table. Going forward:</p>
+                               <ul class="list list-bullet">
+                                   <li>In 2020 to 2021, you received an amount capped between +/- 25% of the 2019 to 2020 total</li>
+                                   <li>This year, you will receive an amount capped between +/- 50% of the 2019 to 2020 total</li>
+                                   <li>In 2022 to 2023, you will receive an amount capped between +/- 75% of the 2019 to 2020 total</li>
+                                   <li>2023 to 2024 onward - you receive the amount with no cap applied</li>
+                               </ul>
+                                <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year"
+                                   rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                    More about the 16 to 19 bursary fund (opens in new tab)
+                                </a>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
+                           rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                            More about exceptional adjustments (opens in new tab)
+                        </a>
+                    </div>
+
+                    {% elif scenario == '8' %}
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Adjusted discretionary bursary fund</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">2019 to 2020 Discretionary bursary fund (baseline for transition)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£988</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£494</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,482</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,573</td>
+                            </tr>
+
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund<br>
+                                    <span class="table-row-embed-text">The bursary has been adjusted because this year's discretionary bursary fund figure is outside the transition limits</span>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£1,482</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <details>
+                            <summary>
+                                <span class="summary">More about the transition limits</span>
+                            </summary>
+                            <div class="panel panel-border-narrow">
+                               <p>From 2020 to 2021, we moved to a new methodology to calculate your discretionary bursary fund. </p>
+                               <p>In 2019 to 2020, you received the amount shown in the first row of the adjusted discretionary bursary fund table. Going forward:</p>
+                               <ul class="list list-bullet">
+                                   <li>In 2020 to 2021, you received an amount capped between +/- 25% of the 2019 to 2020 total</li>
+                                   <li>This year, you will receive an amount capped between +/- 50% of the 2019 to 2020 total</li>
+                                   <li>In 2022 to 2023, you will receive an amount capped between +/- 75% of the 2019 to 2020 total</li>
+                                   <li>2023 to 2024 onward - you receive the amount with no cap applied</li>
+                               </ul>
+                                <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year"
+                                   rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                    More about the 16 to 19 bursary fund (opens in new tab)
+                                </a>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div class="govuk-!-margin-bottom-8">
+                        <table class="govuk-table">
+                            <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
+                            <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                            </tr>
+                            </thead>
+                            <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
+                           rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                            More about exceptional adjustments (opens in new tab)
+                        </a>
+                    </div>
+
                     {% else %}
+
                     <div class="govuk-!-margin-bottom-8">
 
                         <table class="govuk-table">
@@ -1671,9 +1813,7 @@
                             <tbody class="govuk-table__body">
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
-                                    <td class="govuk-table__cell govuk-table__cell--numeric">
-                                        {% if scenario == '1' %}£152{% elif scenario == '2' %}£450{% elif scenario == '3' %}£800{% elif scenario == '4' %}£1,480{% else %}£1,570{% endif %}
-                                    </td>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£1,570</td>
                                 </tr>
                                 <tr class="govuk-table__row">
                                     <th scope="row" class="table-header-normal">2019 to 2020 Discretionary bursary fund - baseline for transition</th>
@@ -1703,6 +1843,7 @@
                             More about exceptional adjustments (opens in new tab)
                         </a>
                     </div>
+
                     {% endif %}
 
                     <!-- SCENARIO 3
@@ -1751,9 +1892,9 @@
             </div>
 
             <div class="form-block">
-                <h2 class="heading-medium heading-guidance-final-section hide-on-print">Allocation history</h2>
+                <h2 class="heading-small heading-guidance-final-section hide-on-print">Allocation history</h2>
                 <p class="hide-on-print"><a href="../allocation-history">View history of allocated funding</a></p>
-                <h2 class="heading-medium heading-guidance">Explore the topic</h2>
+                <h2 class="heading-small heading-guidance">Explore the topic</h2>
                 <ul class="list">
                     <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/nmss-revenue-funding-allocation-guide-2020-to-2021"
                            rel="noreferrer noopener"
