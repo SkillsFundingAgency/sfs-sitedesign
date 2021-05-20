@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}View funding at organisation level
+{% endblock %}
+
+{% block content %}                   
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="viewing-choice">Choose how to view funding</a></li>
+                        <li>View funding at organisation level</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+
+            <form method="post" class="form">
+
+                <div class="form-group">
+
+                    {% if error %}
+                    <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                        <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                        <ul class="error-summary-list">
+                            <li><a href="#{% if radio == 'Radio 1' %}schoolOrAcademySearch{% elif radio == 'Radio 2' %}laSearch{% endif %}">Enter a term to search for an organisation</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <fieldset class="{% if error %}after-error-summary{% endif %}">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--xl">
+                            <h1 class="heading-xlarge">View funding at organisation level</h1>
+                        </legend>
+                        <p>Select a school, academy, college or local authority to view the latest funding for this financial or academic year.</p>
+                
+                        <div class="multiple-choice" data-target="schoolOrAcademy">
+                            <input id="radio-1" type="radio" name="searchScope" value="Child" {% if radio == 'Radio 1' %}checked{% endif %}>
+                            <label for="radio-1">School name, academy name, college name or local authority establishment number</label>
+                        </div>
+
+                        <!-- Hidden section for searching by school name, academy name or local authority establishment number (START) -->
+                        <div class="{% if error1 %}form-group-error {% endif %}panel panel-border-narrow js-hidden" id="schoolOrAcademy">
+
+                            <div class="search-field search-field-darker">
+                        
+                                <div class="search-input search-input-with-button">
+                                    <label class="form-label form-hint" for="schoolOrAcademySearch">For example, Lickhill Primary School or 3832470</label>
+                                    {% if error1 %}
+                                    <span class="error-message">Enter a term to search for an organisation</span>
+                                    {% endif %}
+                                    <input autocomplete="off" class="form-control" name="schoolOrAcademySearch" id="schoolOrAcademySearch" type="text" value="" />
+                                </div>
+        
+                                <div class="search-submit">
+                                    <button id="school-or-academy-submit" class="button" type="submit" id="schoolOrAcademySubmit" name="schoolOrAcademySubmit" value="Search for school name, academy name, or local authority establishment number">Search for school name, academy name, or local authority establishment number</button>
+                                </div>
+        
+                            </div>
+                            
+                        </div>
+                        <!-- Hidden section for searching by school name, academy name or local authority establishment number (END) -->
+
+                        <!-- <div class="multiple-choice" data-target="mat">
+                            <input id="radio-2" type="radio" name="searchScope" value="MAT">
+                            <label for="radio-2"><abbr title="Multi Academy Trust">MAT</abbr> name</label>
+                        </div> -->
+
+                        <!-- Hidden section for searching by multi academy trust name or UKPRN (START) -->                        
+                        <!-- <div class="panel panel-border-narrow js-hidden" id="mat">
+
+                            <div class="search-field search-field-darker">
+                        
+                                <div class="search-input search-input-with-button">
+                                    <label class="form-label form-hint" for="matSearch">For example, White Rose Academies Trust</label>
+                                    <input autocomplete="off" class="form-control" name="matSearch" id="matSearch" type="text" value="" />
+                                </div>
+        
+                                <div class="search-submit">
+                                    <button id="mat-submit" class="button" type="submit" id="matSubmit" name="matSubmit" value="Search for multi-academy trust (MAT) name or UK provider reference number (UKPRN)">Search for multi-academy trust (<abbr title="Multi Academy Trust">MAT</abbr>) name or UK provider reference number (<abbr title="UK Provider Reference Number">UKPRN</abbr>)</button>
+                                </div>
+        
+                            </div>
+
+                        </div> -->
+                        <!-- Hidden section for searching by multi academy trust name or code (END) -->
+
+                        <div class="multiple-choice" data-target="la">
+                            <input id="radio-2" type="radio" name="searchScope" value="LA" {% if radio == 'Radio 2' %}checked{% endif %}>
+                            <label for="radio-2">Local authority name or code</label>
+                        </div>
+
+                        <!-- Hidden section for searching by local authority name or code (START) -->                        
+                        <div class="{% if error2 %}form-group-error {% endif %}panel panel-border-narrow js-hidden" id="la">
+
+                            <div class="search-field search-field-darker">
+                        
+                                <div class="search-input search-input-with-button">
+                                    <label class="form-label form-hint" for="laSearch">For example, Camden or 202</label>
+                                    {% if error2 %}
+                                    <span class="error-message">Enter a term to search for an organisation</span>
+                                    {% endif %}
+                                    <input autocomplete="off" class="form-control" name="laSearch" id="laSearch" type="text" value="" />
+                                </div>
+        
+                                <div class="search-submit">
+                                    <button id="la-submit" class="button" type="submit" id="laSubmit" name="laSubmit" value="Search for local authority name or code">Search for local authority name or code</button>
+                                </div>
+        
+                            </div>
+
+                        </div>
+                        <!-- Hidden section for searching by local authority name or code (END) -->
+
+                        <!-- Support section in an expandable link - START -->
+                        {% include version + "/includes/support.html" %}
+                        <!-- Support section in an expandable link - END -->
+                            
+                    </fieldset>
+
+                </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+<!-- Tooltip taken from Nicolas Hoffmann (https://a11y.nicolas-hoffmann.net/modal/) -->
+<script src="/public/javascripts/{{version}}/jquery-accessible-modal-window-aria.js"></script>
+
+{% endblock %}

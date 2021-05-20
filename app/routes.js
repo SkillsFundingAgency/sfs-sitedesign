@@ -63,6 +63,14 @@ require('./routes/component-library.js')(router);
 
 // Beta
 
+// beta-v122-0-0
+require('./routes/beta/v122-0-0/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/v122-0-0/signed-in/allocation-statements.js')(router);
+require('./routes/beta/v122-0-0/prototype.js')(router);
+// beta-v122-0-0
+require('./routes/beta/baselined-may-2021/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/baselined-may-2021/signed-in/allocation-statements.js')(router);
+require('./routes/beta/baselined-may-2021/prototype.js')(router);
 // beta-v121-0-0
 require('./routes/beta/v121-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v121-0-0/signed-in/allocation-statements.js')(router);
