@@ -36,39 +36,62 @@
                 <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
                   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="heading-large govuk-!-margin-bottom-3 govuk-!-margin-top-8">
-                        How do you want to view your statement?
+                        Select how to view your statement
                     </h1>
                   </legend>
                   <div id="sign-in-hint" class="govuk-!-margin-bottom-6 govuk-hint radio-test-block govuk-font-size-19">
                     Comparing figures from previous statements will show increases and decreases.
                   </div>
+                 <!-- <hr class="govuk-!-margin-bottom-0 govuk-!-margin-top-0">
+                  <table class="break-after govuk-table first-element-in-tab govuk-!-margin-top-0 govuk-!-margin-bottom-6">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total funded students 2021 to 2022</caption>
+                    <thead class="govuk-table__head">
+                    </thead>
+                    
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal govuk-!-font-weight-bold">
+                                Statement
+                            </th>
+                            <td class="govuk-table__cell">16 to 19 funding: academic year 2021 to 2022</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal govuk-!-font-weight-bold">
+                                Published
+                            </th>
+                            <td class="govuk-table__cell">12 September 2021</td>
+                        </tr>
+                    </tbody>
+                </table> -->
+
                   <div class="govuk-radios radio-test-block">
                     <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                        <input class="govuk-radios__input" id="radiotest" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                         <label class="govuk-label govuk-radios__label" for="sign-in">
                             Only figures for this statement
                         </label>
                     </div>
                     <div class="govuk-radios__item govuk-!-margin-top-4">
-                        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                        <input class="govuk-radios__input" id="radiotest-1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                         <label class="govuk-label govuk-radios__label" for="sign-in">
-                            Comparing figures from last year
+                            Comparing figures from 2020 to 2021
                         </label>
                       </div>
                     <div class="govuk-radios__item govuk-!-margin-top-4">
-                      <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                      <input class="govuk-radios__input" id="radiotest-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
                       <label class="govuk-label govuk-radios__label" for="sign-in-2">
-                            Comparing figures from the last issued statement
+                            Comparing figures from 2020 to 2021 statement published on 7 August 2021
                       </label>
-                      <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+                      <!-- <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
                             The last statement was issued on December 18th 2020
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </fieldset>
 
-                <div class="govuk-button-group govuk-!-margin-top-6">
-                    <button onclick="location.href='../funding-breakdown-spi/12-09-2021'" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
+                <div class="govuk-button-group govuk-!-margin-top-8">
+
+                    <button onclick="radioVariant()" id="exampleRadioLink" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
                       Continue
                     </button>
                   
@@ -83,6 +106,20 @@
     </div>
 
 </main>
+
+<script type="text/javascript">
+    function radioVariant() {
+      if(document.getElementById('radiotest').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='../funding-breakdown-spi/variant-test';
+      }
+      if(document.getElementById('radiotest-1').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='../funding-breakdown-spi/variant-test?scenario=1';
+      }
+      if(document.getElementById('radiotest-2').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='../funding-breakdown-spi/variant-test?scenario=2';
+      }
+    }
+</script>
 
 <!-- JavaScript (START) -->
 <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
