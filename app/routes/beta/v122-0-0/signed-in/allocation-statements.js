@@ -279,6 +279,31 @@ module.exports = function(router) {
 	});
 
 	/**********
+	* SPI Radio Test - Additional Tets
+	* **********/
+
+	// This is a separate, additional radio button page with two options for testing from another point of the statement listing
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/radiotest-2', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/radiotest-2', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
 	* SPI Variant Test
 	* **********/
 
