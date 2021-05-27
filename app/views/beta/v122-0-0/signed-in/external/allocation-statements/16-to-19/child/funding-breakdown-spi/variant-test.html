@@ -31,10 +31,18 @@
                 </nav>
             </div>
 
-            <!-- <div class="notification_banner" style="position:relative; border:5px solid #00703c; margin:20px 0px 60px; padding:0px; box-sizing:border-box;">
-                <p style=" position:absolute; top:-1px; left:-1px; color:#FFF; background-color:#00703c; width:100.5%; padding:10px 0px 10px 24px; box-sizing:border-box; margin:0px; font-size:21px; font-weight:bold;">Important</p>
-                <p style="margin:75px 0px 25px 25px; padding-right:20px; font-weight:bold; font-size:24px;">This statement is being compared to the 2019 to 2020 statement published on 12 July 2020.<a style="color:#1d70b8; text-decoration:underline;">Change</a>.</p>
-            </div> -->
+            <div class="notification_banner" style="position:relative; border:5px solid #005ea5; margin:20px 0px 60px; padding:0px; box-sizing:border-box;">
+                <p style=" position:absolute; top:-1px; left:-1px; color:#FFF; background-color:#005ea5; width:100.5%; padding:10px 0px 10px 24px; box-sizing:border-box; margin:0px; font-size:21px; font-weight:bold;">Important</p>
+                <p style="margin:75px 0px 25px 25px; padding-right:20px; font-weight:bold; font-size:24px;">
+                {% if scenario == 1 %}
+                This statement is being compared to the 2019 to 2020 statement published on 12 July 2020.&nbsp;
+                {% elif scenario == 2 %}
+                This statement is being compared to the 2020 to 2021 statement published on 28 April 2021.&nbsp;
+                {% else %}
+                The figures in this statement are not being compared to another statement.&nbsp;
+                {% endif %}
+                <a href="radiotest" style="color:#1d70b8; text-decoration:underline;">Change</a>.</p>
+            </div>
 
             <h1 class="heading-xlarge govuk-!-margin-bottom-8">
                 16 to 19 funding: 2020 to 2021
@@ -52,14 +60,14 @@
             <!-- Variant Notice -->
 
             {% if scenario == 1 %}
-            <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
+            <!-- <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
                 <span class="govuk-warning-text__icon aria-hidden="true" style="font-size:30px;">!</span>
                 <strong class="govuk-warning-text__text">
                     <span class="govuk-warning-text__assistive">Warning</span>
                     <p class="govuk-font-size-19" style="font-weight:bold; margin:0px 0px 0px 10px;">This statement is being compared to the 2019 to 2020 statement published on 12 July 2020</p>
                     <a href="radiotest" class="govuk-font-size-19" style="margin:0px 0px 0px 10px;">Change</a>
                 </strong>
-            </div>
+            </div> -->
             <!-- <div class="govuk-!-margin-bottom-8">
                 <div class="panel panel-border-narrow">
                     <p class="govuk-!-font-weight-bold govuk-!-padding-bottom-2 govuk-!-margin-bottom-0">This statement is being compared to the 2019 to 2020 statement published on 12 July 2020</p>
@@ -68,14 +76,14 @@
             </div> -->
 
             {% elif scenario == 2 %}
-            <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
+            <!-- <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
                 <span class="govuk-warning-text__icon aria-hidden="true" style="font-size:30px;">!</span>
                 <strong class="govuk-warning-text__text">
                     <span class="govuk-warning-text__assistive">Warning</span>
                     <p class="govuk-font-size-19" style="font-weight:bold; margin:0px 0px 0px 10px;">This statement is being compared to the 2020 to 2021 statement published on 28 April 2021</p>
                     <a href="radiotest" class="govuk-font-size-19" style="margin:0px 0px 0px 10px;">Change</a>
                 </strong>
-            </div>
+            </div> -->
             <!-- <div class="govuk-!-margin-bottom-8">
                 <div class="panel panel-border-narrow">
                     <p class="govuk-!-font-weight-bold govuk-!-padding-bottom-2 govuk-!-margin-bottom-0">This statement is being compared to the 2020 to 2021 statement published on 28 April 2021</p>
@@ -83,14 +91,14 @@
                 </div>
             </div> -->
             {% else %}
-            <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
+            <!-- <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
                 <span class="govuk-warning-text__icon aria-hidden="true" style="font-size:30px;">!</span>
                 <strong class="govuk-warning-text__text">
                     <span class="govuk-warning-text__assistive">Warning</span>
                     <p class="govuk-font-size-19" style="font-weight:bold; margin:0px 0px 0px 10px;">The figures in this statement are not being compared to another statement</p>
                     <a href="radiotest" class="govuk-font-size-19" style="margin:0px 0px 0px 10px;">Change</a>
                 </strong>
-            </div>
+            </div> -->
             <!-- <div class="govuk-!-margin-bottom-8">
                 <div class="panel panel-border-narrow">
                     <p class="govuk-!-font-weight-bold govuk-!-padding-bottom-2 govuk-!-margin-bottom-0">The figures in this statement are not being compared to another statement</p>
@@ -1649,9 +1657,19 @@
                                                 Rate: £400
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4
+                                            {% if scenario == '1' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 1</p>
+                                            {% else %}
+                                            {% endif %}
+                                        </td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£400</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£1,600
+                                            {% if scenario == '1' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £400</p>
+                                            {% else %}
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2232,37 +2250,11 @@
                                                 Rate: £243
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">103
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 10</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 2</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.266</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">27.42
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 2.66</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 0.53</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£243
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£6,663
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £672</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £129</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">9</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.120</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">1.08</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£242</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£261</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
@@ -2276,37 +2268,11 @@
                                                 Rate: £468
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">103
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 10</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 2</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.140</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">14.40
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 1.40</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 0.28</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£468
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £15</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£6,741
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £459</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £131</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">9</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.037</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.33</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£484</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£161</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
@@ -2323,7 +2289,7 @@
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£48</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£49</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                     </tr>
                                     <tr class="govuk-table__row">
@@ -2334,12 +2300,7 @@
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">-£917
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £571</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">-£57</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
@@ -2347,14 +2308,7 @@
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£12,487
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1,702</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £260</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£366</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -2420,38 +2374,24 @@
                                 <tbody class="govuk-table__body">
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">2019 to 2020 baseline for transition</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£10,635</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£5,318</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£15,952</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£750</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£12,487
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1,702</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £260</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£366</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund<br>
                                             <span class="table-row-embed-text">The bursary has not been adjusted because this year's discretionary bursary fund figure is between the transition limits</span></th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£12,487
-                                            {% if scenario == '1' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1,702</p>
-                                            {% elif scenario == '2' %}
-                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £260</p>
-                                            {% else %}
-                                            {% endif %}
-                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                     </tr>
                                 </tbody>
                             </table>
