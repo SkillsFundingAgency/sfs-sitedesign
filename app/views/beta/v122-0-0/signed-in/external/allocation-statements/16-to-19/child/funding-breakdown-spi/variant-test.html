@@ -31,18 +31,17 @@
                 </nav>
             </div>
 
-            <div class="notification_banner" style="position:relative; border:5px solid #005ea5; margin:20px 0px 60px; padding:0px; box-sizing:border-box;">
-                <p style=" position:absolute; top:-1px; left:-1px; color:#FFF; background-color:#005ea5; width:100.5%; padding:10px 0px 10px 24px; box-sizing:border-box; margin:0px; font-size:21px; font-weight:bold;">Important</p>
-                <p style="margin:75px 0px 25px 25px; padding-right:20px; font-weight:bold; font-size:24px;">
-                {% if scenario == 1 %}
-                This statement is being compared to the 2019 to 2020 statement published on 12 July 2020.&nbsp;
-                {% elif scenario == 2 %}
-                This statement is being compared to the 2020 to 2021 statement published on 28 April 2021.&nbsp;
-                {% else %}
-                The figures in this statement are not being compared to another statement.&nbsp;
-                {% endif %}
-                <a href="radiotest" style="color:#1d70b8; text-decoration:underline;">Change</a>.</p>
-            </div>
+            <!--
+
+            Custom test for important banner from GDS as implementation is not included in this version of GDS prototype.
+
+            <div class="notification_banner custom">
+                <p>Important</p>
+                <p>
+                    The figures in this statement are not being compared to another statement.&nbsp;
+                <a href="radiotest">Change</a>.</p>
+            </div> 
+            -->
 
             <h1 class="heading-xlarge govuk-!-margin-bottom-8">
                 16 to 19 funding: 2020 to 2021
@@ -59,54 +58,23 @@
 
             <!-- Variant Notice -->
 
-            {% if scenario == 1 %}
-            <!-- <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
-                <span class="govuk-warning-text__icon aria-hidden="true" style="font-size:30px;">!</span>
+            <div class="govuk-warning-text custom">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                 <strong class="govuk-warning-text__text">
                     <span class="govuk-warning-text__assistive">Warning</span>
-                    <p class="govuk-font-size-19" style="font-weight:bold; margin:0px 0px 0px 10px;">This statement is being compared to the 2019 to 2020 statement published on 12 July 2020</p>
-                    <a href="radiotest" class="govuk-font-size-19" style="margin:0px 0px 0px 10px;">Change</a>
+                    <p class="govuk-font-size-19">
+                        {% if scenario == 1 %}
+                            This statement is being compared to the 2019 to 2020 statement published on 12 July 2020
+                        {% elif scenario == 2 %}
+                            This statement is being compared to the 2020 to 2021 statement published on 28 April 2021
+                        {% else %}
+                            The figures in this statement are not being compared to another statement
+                        {% endif %}
+                    </p>
+                    <a href="radiotest" class="govuk-font-size-19">Change statement view</a>
                 </strong>
-            </div> -->
-            <!-- <div class="govuk-!-margin-bottom-8">
-                <div class="panel panel-border-narrow">
-                    <p class="govuk-!-font-weight-bold govuk-!-padding-bottom-2 govuk-!-margin-bottom-0">This statement is being compared to the 2019 to 2020 statement published on 12 July 2020</p>
-                    <a href="radiotest">Change</a>
-                </div>
-            </div> -->
-
-            {% elif scenario == 2 %}
-            <!-- <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
-                <span class="govuk-warning-text__icon aria-hidden="true" style="font-size:30px;">!</span>
-                <strong class="govuk-warning-text__text">
-                    <span class="govuk-warning-text__assistive">Warning</span>
-                    <p class="govuk-font-size-19" style="font-weight:bold; margin:0px 0px 0px 10px;">This statement is being compared to the 2020 to 2021 statement published on 28 April 2021</p>
-                    <a href="radiotest" class="govuk-font-size-19" style="margin:0px 0px 0px 10px;">Change</a>
-                </strong>
-            </div> -->
-            <!-- <div class="govuk-!-margin-bottom-8">
-                <div class="panel panel-border-narrow">
-                    <p class="govuk-!-font-weight-bold govuk-!-padding-bottom-2 govuk-!-margin-bottom-0">This statement is being compared to the 2020 to 2021 statement published on 28 April 2021</p>
-                    <a href="radiotest">Change</a>
-                </div>
-            </div> -->
-            {% else %}
-            <!-- <div class="govuk-warning-text" style="margin:20px 0px 50px 0px;">
-                <span class="govuk-warning-text__icon aria-hidden="true" style="font-size:30px;">!</span>
-                <strong class="govuk-warning-text__text">
-                    <span class="govuk-warning-text__assistive">Warning</span>
-                    <p class="govuk-font-size-19" style="font-weight:bold; margin:0px 0px 0px 10px;">The figures in this statement are not being compared to another statement</p>
-                    <a href="radiotest" class="govuk-font-size-19" style="margin:0px 0px 0px 10px;">Change</a>
-                </strong>
-            </div> -->
-            <!-- <div class="govuk-!-margin-bottom-8">
-                <div class="panel panel-border-narrow">
-                    <p class="govuk-!-font-weight-bold govuk-!-padding-bottom-2 govuk-!-margin-bottom-0">The figures in this statement are not being compared to another statement</p>
-                    <a href="radiotest">Change</a>
-                </div>
-            </div> -->
-            {% endif %}
-
+            </div>
+  
             <!-- -- -->
 
             <div class="form-group govuk-!-margin-bottom-8">
@@ -2390,7 +2358,7 @@
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund<br>
-                                            <span class="table-row-embed-text">The bursary has not been adjusted because this year's discretionary bursary fund figure is between the transition limits</span></th>
+                                            <span class="table-row-embed-text">The bursary figure has been adjusted to the £500 minimum allocation</span></th>
                                         <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                     </tr>
                                 </tbody>

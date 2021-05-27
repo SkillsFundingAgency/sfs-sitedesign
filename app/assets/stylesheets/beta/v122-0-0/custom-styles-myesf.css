@@ -2332,3 +2332,63 @@ dialog {
 .documentVersionFinal {
 	padding-bottom: 0px;
 }
+
+/* Max Sutcliffe (27.05.21) - Styling for warning notices and important blocks as they are either not fully working or not implemented in this version of GDS */
+
+/*- Warning -*/
+
+.govuk-warning-text.custom {
+	margin:20px 0px 50px 0px;
+}
+
+.govuk-warning-text.custom > span {
+	font-size:30px;
+}
+
+.govuk-warning-text.custom strong p {
+	font-weight:bold; 
+	margin:0px 0px 0px 10px;
+}
+
+.govuk-warning-text.custom strong a {
+	margin:0px 0px 0px 10px;
+}
+
+/*- Important Block -*/
+
+.notification_banner.custom {
+	position:relative; 
+	border:5px solid #005ea5; 
+	margin:20px 0px 60px; 
+	padding:0px; 
+	box-sizing:border-box;
+}
+
+.notification_banner.custom p:first-of-type {
+	/* 
+	Note:
+	Positioning and width .5% is used to cover obscure issue where border use gives a 1px white inset for an unknown reason 
+	*/
+	position:absolute; 
+	top:-1px; left:-1px; 
+	color:#FFF; 
+	background-color:#005ea5; 
+	width:100.5%; 
+	padding:10px 0px 10px 24px; 
+	box-sizing:border-box; 
+	margin:0px; 
+	font-size:21px; 
+	font-weight:bold;
+}
+
+.notification_banner.custom p:last-of-type {
+	margin:75px 0px 25px 25px; 
+	padding-right:20px; 
+	font-weight:bold; 
+	font-size:24px;
+}
+
+.notification_banner.custom a {
+	color:#1d70b8; 
+	text-decoration:underline;
+}
