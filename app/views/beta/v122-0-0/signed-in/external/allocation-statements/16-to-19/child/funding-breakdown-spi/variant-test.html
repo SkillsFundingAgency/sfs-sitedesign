@@ -48,7 +48,7 @@
                 <span class="heading-secondary">
                     This allocation:
                     <span class="bold-medium">7 May 2021</span>
-                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgred">Updated</strong>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
                 </span>
             </h1>
 
@@ -155,13 +155,13 @@
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
                                 <span class="govuk-accordion__heading-text-left">Core programme</span>
                                 <span class="govuk-accordion__heading-number-right">
+                                    £562,792
                                     {% if scenario == '1' %}
-                                    <span class="variance-summary-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span></span> 
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £54,639</p>
                                     {% elif scenario == '2' %}
-                                    <span class="variance-summary-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span></span> 
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £8,678</p>
                                     {% else %}
                                     {% endif %}
-                                    £562,792
                                 </span>
                             </span>
                         </h2>
@@ -1177,7 +1177,12 @@
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
                                 <span class="govuk-accordion__heading-text-left">Maths and English condition of funding deduction</span>
-                                <span class="govuk-accordion__heading-number-right">£9,300</span>
+                                <span class="govuk-accordion__heading-number-right">£9,300
+                                    {% if scenario == '1' %}
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £1,800</p>
+                                    {% else %}
+                                    {% endif %}
+                                </span>
                             </span>
                         </h2>
 
@@ -1590,7 +1595,12 @@
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
                                 <span class="govuk-accordion__heading-text-left">High value courses premium</span>
-                                <span class="govuk-accordion__heading-number-right">£400</span>
+                                <span class="govuk-accordion__heading-number-right">£1,600
+                                    {% if scenario == '1' %}
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £400</p>
+                                    {% else %}
+                                    {% endif %}
+                                </span>
                             </span>
                         </h2>
 
@@ -1866,12 +1876,18 @@
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-7">
                                 <span class="govuk-accordion__heading-text-left">High needs</span>
-                                <span class="govuk-accordion__heading-number-right">£528,000</span>
+                                <span class="govuk-accordion__heading-number-right">£528,000
+                                    {% if scenario == '1' %}
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £30,000</p>
+                                    {% else %}
+                                    {% endif %}
+                                </span>
                             </span>
                         </h2>
 
                         <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-7">
-                            <span class="hidden-sub-section">£528,000</span>
+                            <span class="hidden-sub-section">£528,000
+                            </span>
                         </div>
 
                     </div>
@@ -2086,7 +2102,14 @@
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-8">
                                 <span class="govuk-accordion__heading-text-left">Student financial support</span>
-                                <span class="govuk-accordion__heading-number-right">£14,574</span>
+                                <span class="govuk-accordion__heading-number-right">£14,574
+                                    {% if scenario == '1' %}
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 631</p>
+                                    {% elif scenario == '2' %}
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 299</p>
+                                    {% else %}
+                                    {% endif %}
+                                </span>
                             </span>
                         </h2>
 
