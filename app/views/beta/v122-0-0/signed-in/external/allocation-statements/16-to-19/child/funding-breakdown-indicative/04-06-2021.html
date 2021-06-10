@@ -25,17 +25,37 @@
                     <ol>
                         <li><a href="../../child/dashboard">Home</a></li>
                         <li><a href="../allocation-statements">Allocation statements</a></li>
+                        {% if scenario == '1' %}
+                        <li>(Final) 16 to 19 funding: academic year 2021 to 2022</li>
+                        {% elif scenario == '2' %}
+                        <li>(Final) 16 to 19 funding: academic year 2021 to 2022</li>
+                        {% else %}
                         <li>Indicative 16 to 19 funding: academic year 2021 to 2022</li>
+                        {% endif %}
                     </ol>
                 </nav>
             </div>
 
             <h1 class="heading-xlarge govuk-!-margin-bottom-8">
+                {% if scenario == '1' %}
+                (Final) 16 to 19 funding: academic year 2021 to 2022
+                {% elif scenario == '2' %}
+                (Final) 16 to 19 funding: academic year 2021 to 2022
+                {% else %}
                 Indicative 16 to 19 funding: academic year 2021 to 2022
+                {% endif %}
                 <span class="heading-secondary">
                     This allocation:
+                    {% if scenario == '1' %}
+                    <span class="bold-medium">18 August 2021</span>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bggrey">Final</strong>
+                    {% elif scenario == '2' %}
+                    <span class="bold-medium">18 August 2021</span>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bggrey">Final</strong>
+                    {% else %}
                     <span class="bold-medium">12 April 2021</span>
                     <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
+                    {% endif %}
                 </span>
             </h1>
 
@@ -46,13 +66,16 @@
             <div class="form-group govuk-!-margin-bottom-8">
                 <h2 class="lede govuk-!-margin-bottom-6">Total allocation<br>
                 <span class="heading-large heading-funding-summary variance-heading-no-margin">
-                    £43,293,661
+                    {% if scenario == '1' %}£43,296,161{% else %}£43,293,661{% endif %}
                 </span>
-                <!-- <span class="variance-text">
-                    <i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i>
-                    <span class="sr-only">Decrease</span>
-                    £15,106.34
-                </span> -->
+                {% if scenario == '1' %}
+                <span class="variance-text">
+                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                    <span class="sr-only">Increase</span>
+                    £2,400
+                </span>
+                {% else %}
+                {% endif %}
                 </h2>
                 <h2 class="lede">
                     Open date<br>
@@ -145,8 +168,11 @@
                         </tr>
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal custom-table-padding"><span>High needs</span></th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£918,000
-                                <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £631</p>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£918,600{% else %}£918,000{% endif %}
+                                {% if scenario == '1' %}
+                                <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £600</p>
+                                {% else %}
+                                {% endif %}
                             </td>
                         </tr>
                         <tr class="govuk-table__row">
@@ -157,8 +183,11 @@
                         </tr>
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal custom-table-padding">Alternative completion</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£2,000
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£1,800{% else %}£2,000{% endif %}
+                                {% if scenario == '1' %}
                                 <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £200</p>
+                                {% else %}
+                                {% endif %}
                             </td>
                         </tr>
                         <tr class="govuk-table__row">
@@ -175,8 +204,11 @@
                         </tr>
                         <tr class="govuk-table__row">
                             <th scope="row" class="table-header-normal custom-table-padding">Maths top up</th>
-                            <td class="govuk-table__cell govuk-table__cell--numeric">£350,000
+                            <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£360,000{% else %}£350,000{% endif %}
+                                {% if scenario == '1' %}
                                 <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span>£10,000</p>
+                                {% else %}
+                                {% endif %}
                             </td>
                         </tr>
                         <tr class="govuk-table__row">
@@ -232,8 +264,11 @@
 
 
             <div class="form-group">
+                {% if scenario == '1' %}
                 <h3 class="heading-small heading-guidance">Allocation history</h3>
                 <p><a href="#">View history of allocated funding</a></p>
+                {% else %}
+                {% endif %}
                 <h2 class="heading-small heading-guidance">Explore the topic</h2>
                 <ul class="list">
                     <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">16 to 19 funding allocations supporting documents: 2021 to 2022 (opens in new tab)</a></li>
