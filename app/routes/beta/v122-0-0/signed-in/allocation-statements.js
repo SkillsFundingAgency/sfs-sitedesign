@@ -375,6 +375,30 @@ module.exports = function(router) {
 		});
 	});
 
+	/**********
+	* Radio Button page for Summary Statement Variation Choices
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-indicative/summary-versions', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-indicative/summary-versions', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
