@@ -35,12 +35,29 @@
                 <span class="heading-secondary">
                     This allocation:
                     <span class="bold-medium">25 March 2021</span>
-                    <strong class="govuk-tag govuk-tag-secondary-heading">Latest</strong>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
                 </span>
             </h1>
 
             <div class="show-on-print">
                 <h2 class="heading-large govuk-!-margin-bottom-8">{{organisationName}} (UKPRN: 87654321)</h2>
+            </div>
+
+            <div class="govuk-warning-text custom">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    <p class="govuk-font-size-19">
+                        {% if scenario == 1 %}
+                            This statement is being compared to the 2019 to 2020 statement published on 12 July 2020
+                        {% elif scenario == 2 %}
+                            This statement is being compared to the 2020 to 2021 statement published on 28 April 2021
+                        {% else %}
+                            The figures in this statement are not being compared to another statement
+                        {% endif %}
+                    </p>
+                    <a href="" class="govuk-font-size-19">Change statement view</a>
+                </strong>
             </div>
 
              <div class="form-group">

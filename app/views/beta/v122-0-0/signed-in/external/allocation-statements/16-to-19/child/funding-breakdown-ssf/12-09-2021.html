@@ -35,12 +35,29 @@
                 <span class="heading-secondary">
                     This allocation:
                     <span class="bold-medium">12 September 2021</span>
-                    <strong class="govuk-tag govuk-tag-secondary-heading">Latest</strong>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
                 </span>
             </h1>
 
             <div class="show-on-print">
                 <h2 class="heading-large govuk-!-margin-bottom-6">{{organisationName}} (UKPRN: 12345678)</h2>
+            </div>
+
+            <div class="govuk-warning-text custom">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    <p class="govuk-font-size-19">
+                        {% if scenario == 1 %}
+                            This statement is being compared to the 2019 to 2020 statement published on 12 July 2020
+                        {% elif scenario == 2 %}
+                            This statement is being compared to the 2020 to 2021 statement published on 28 April 2021
+                        {% else %}
+                            The figures in this statement are not being compared to another statement
+                        {% endif %}
+                    </p>
+                    <a href="" class="govuk-font-size-19">Change statement view</a>
+                </strong>
             </div>
 
             <div class="form-group govuk-!-margin-bottom-9">
@@ -109,9 +126,8 @@
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
                                 <span class="govuk-accordion__heading-text-left">Core programme</span>
-                                <span class="govuk-accordion__heading-number-right">
-                                    <span class="variance-summary-text"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span></span>
-                                    £1,044,412
+                                <span class="govuk-accordion__heading-number-right">£1,044,412
+                                    <p class="variance-text govuk-!-margin-bottom-0"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £398,752</p>
                                 </span>
                             </span>
                         </h2>
@@ -147,6 +163,14 @@
                                     </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            <a href="#student-numbers-title" title="Link to Student Funding detail in Core Programme section">Student numbers</a>
+
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__header--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">213</td>
+                                    </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
                                             <a href="#student-funding-section" title="Link to Student Funding detail in Core Programme section">Student funding</a>
@@ -259,7 +283,7 @@
                         </div>
 
                         <div class="govuk-!-margin-bottom-6">
-                            <h3 class="heading-medium">Student numbers</h3>
+                            <h3 class="heading-medium" id="student-numbers-title">Student numbers</h3>
                         </div>
 
                         <!-- METHODOLOGY 2 (Census S02/Phased closure)
@@ -1289,12 +1313,12 @@
                                             Deprivation
                                             <span class="table-column-mobile">
                                                 <br>
-                                                Proportion of students: {% if scenario == '1' %}0.00301{% else %}0.01244{% endif %}
+                                                Proportion of students: {% if scenario == '1' %}0.003{% else %}0.012{% endif %}
                                                 <br>
                                                 Core programme up to level 3 maths and English: £911,591
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">{% if scenario == '1' %}0.00301{% else %}0.01244{% endif %}</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">{% if scenario == '1' %}0.003{% else %}0.012{% endif %}</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£911,591</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£2,744{% else %}£9,143{% endif %}</td>
                                     </tr>
@@ -1351,10 +1375,9 @@
                                     </tr>
                                 </tbody>
                             </table>
-
+                            <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year#defining-in-care-and-care-leavers" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about care leavers (opens in new tab)</a>
                         </div>
-
-                        <div class="govuk-!-margin-bottom-8">
+                        <div class="govuk-!-margin-bottom-6">
 
                             <table class="govuk-table">
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total low prior attainment in maths or English breakdown</caption>
@@ -1362,7 +1385,7 @@
                                     <tr class="govuk-table__row">
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-third">Low prior attainment (block 2)</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Funded students</th>
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Average weighting</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Average instances</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                     </tr>
@@ -1373,17 +1396,31 @@
                                             Bands 4 and 5
                                             <span class="table-column-mobile">
                                                 <br>
-                                                Funded students: {% if scenario == '1' %}2{% else %}213{% endif %}
+                                                Funded students: 103
                                                 <br>
-                                                Average weighting: 0.10742
+                                                Average instances: 2
                                                 <br>
                                                 Rate: £480
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">{% if scenario == '1' %}2{% else %}213{% endif %}</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.10742</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">103
+                                            {% if scenario == '1' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 10</p>
+                                            {% elif scenario == '2' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> 2</p>
+                                            {% else %}
+                                            {% endif %}
+                                        </td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£480</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£103{% else %}£10,938{% endif %}</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£98,880
+                                            {% if scenario == '1' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £9,600</p>
+                                            {% elif scenario == '2' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1,920</p>
+                                            {% else %}
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
@@ -1392,13 +1429,13 @@
                                                 <br>
                                                 Funded students: 0
                                                 <br>
-                                                Average weighting: 0.10742
+                                                Average instances: 2
                                                 <br>
                                                 Rate: £292
                                             </span>
                                         </th>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.10742</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£292</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                     </tr>
@@ -1409,106 +1446,92 @@
                                                 <br>
                                                 Funded students: 0
                                                 <br>
-                                                Average weighting: 0.10742
+                                                Average instances: 2
                                                 <br>
                                                 Rate: £480
                                             </span>
                                         </th>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.10742</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£480</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
                                     </tr>
+                                  
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Total low prior attainment in maths or English</th>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£103{% else %}£10,938{% endif %}</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£98,880
+                                            {% if scenario == '1' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £9,600</p>
+                                            {% elif scenario == '2' %}
+                                            <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1,920</p>
+                                            {% else %}
+                                            {% endif %}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
 
-                            <details class="govuk-!-margin-bottom-3">
+                            <details>
                                 <summary>
-                                    <span class="summary">Where average weighting comes from</span>
+                                    <span class="summary">Where average instances comes from</span>
                                 </summary>
 
                                 <div class="panel panel-border-narrow">
-                                    <p>Average weighting is calculated using 2019 to 2020 data from the autumn census 2020. A student gets a weighting of 1 if they do not have grade 4, C or higher in GCSE maths or English. Those without both GCSEs get a weighting of 2.</p> <p>Details are in your <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-school-and-academy-sixth-form-allocation-calculation-toolkit-2020-to-2021#block-2-prior-attainment" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">allocation calculation toolkit (opens in new tab)</a>.</p>
+                                    <p>Average instances are calculated using data from the October 2020 return (R14). A student gets one instance of funding if they do not have grade 4, C or higher in GCSE maths or English. Those without both GCSEs get 2 instances of funding.</p>
+                                    <p> Details are in your <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-further-education-allocation-calculation-toolkit-2020-to-2021#level-3-programme-maths-and-english-payment" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">allocation calculation toolkit (opens in new tab)</a>.</p>
                                 </div>
                             </details>
-                            <details class="govuk-!-margin-bottom-8">
-                                <summary>
-                                    <span class="summary">Rounding differences in your calculations</span>
-                                </summary>
-                                <div class="panel panel-border-narrow">
-                                    <p>The values in this statement may not add up precisely to the totals provided due to rounding. The calculation of your funding is done using exact figures.</p>
-                                </div>
-                            </details>
-                        </div>
-
-                        <!-- <div class="govuk-!-margin-bottom-8">
-
-                            <div class="panel panel-border-narrow">
-                                <p>Disadvantage funding is less than £6,000. It will be topped up by £xxx.</p>
-                            </div>
-
                         </div>
 
                         <div class="govuk-!-margin-bottom-8">
-
+                            <h3 class="heading-small visuallyhidden">Disadvantage funding top up</h3>
                             <table class="govuk-table">
-                                <caption class="govuk-table__caption heading-small visuallyhidden">Total minimum top-up breakdown</caption>
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Disadvantage funding top up</caption>
                                 <thead class="govuk-table__head">
-                                    <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Minimum top-up</th>
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                                    </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Disadvantage funding top up</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                                </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Minimum top-up</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                    </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Top up<br>
+                                        <span class="table-row-embed-text">To bring the disadvantage funding amount up to the £6,000 minimum</span></th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
                                 </tbody>
                             </table>
-
-                        </div> -->
-
-                        <!-- SCENARIO 1
-                             Disadvantage funding (top up applied) - Display the scenario where a school sixth form receives a top up to their disadvantage funding due to it being below £6,000 -->
-                        {% if scenario == '1' %}
-                        <div class="govuk-!-margin-bottom-6 govuk-!-padding-bottom-6">
-
-                            <table class="govuk-table">
-                                <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted disadvantage funding breakdown</caption>
-                                <thead class="govuk-table__head">
-                                    <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Disadvantage funding top up<p>If the total disadvantage funding for an institution<br>is less than £6,000, disadvantage funding<br>will be topped up to £6,000.</p></th>
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="govuk-table__body">
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Total disadvantage funding</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£2,847</td>
-                                    </tr>
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Top up to reach minimum amount</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£3,153</td>
-                                    </tr>
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Minimum top up</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£6,000</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-
+                            <details>
+                                <summary>
+                                    <span class="summary">More about disadvantage funding top up</span>
+                                </summary>
+                                <div class="panel panel-border-narrow">
+                                    <p>You will receive a minimum of £6,000 in disadvantage funding. We will top up your funding to £6,000 if the combined total of your care leavers and low prior attaintment funding is below this minimum.</p>
+                                </div>
+                            </details>
                         </div>
-                        {% endif %}
-
                         
+                        <div class="govuk-!-margin-bottom-9 break-after">
+                            <div class=" break-after total-allocation-wrapper">
+                                <div class="total-allocation-label">
+                                    <h4 class="heading-small no-margin-top">Total disadvantage funding</h4>
+                                </div>
+
+                                <div class="total-allocation-amount">
+                                    <h4 class="heading-small no-margin-top variance-heading-no-margin">£115,863
+                                        {% if scenario == '1' %}
+                                        <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £11,249</p>
+                                        {% elif scenario == '2' %}
+                                        <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £1,920</p>
+                                        {% else %}
+                                        {% endif %}
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="govuk-!-margin-bottom-6" id="large-programme-uplift-section">
                             <div class="govuk-!-margin-bottom-3">
@@ -2490,8 +2513,8 @@
                                 </summary>
             
                                 <div class="panel panel-border-narrow">
-                                    <p>Average weighting is calculated using 2019 to 2020 data from the autumn census 2020 and the index of multiple deprivation 2019. Students are given a weighting for each funding element that is then averaged across total funded students.</p>
-                                    <p> Details are in your <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-school-and-academy-sixth-form-allocation-calculation-toolkit-2020-to-2021#discretionary-bursary-funding" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">allocation calculation toolkit (opens in new tab)</a>.</p>
+                                    <p>Average instances are calculated using data from the October 2020 return (R14). A student gets one instance of funding if they do not have grade 4, C or higher in GCSE maths or English. Those without both GCSEs get 2 instances of funding.</p>
+                                    <p> Details are in your <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-further-education-allocation-calculation-toolkit-2020-to-2021#level-3-programme-maths-and-english-payment" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">allocation calculation toolkit (opens in new tab)</a>.</p>
                                 </div>
                             </details>
                             <details class="govuk-!-margin-bottom-8">
