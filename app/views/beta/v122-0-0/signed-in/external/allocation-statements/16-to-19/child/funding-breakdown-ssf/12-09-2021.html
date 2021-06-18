@@ -181,7 +181,7 @@
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            <a href="#retention-factor-section" title="Link to retention factor detail in Core Programme section">Retention factor</a>
+                                            <a href="#retention-factor-adjustment" title="Link to retention factor detail in Core Programme section">Retention factor</a>
                                             <span class="table-column-mobile">
                                                 <br>
                                                 Calculation: <span class="calc-letter"><i class="fas fa-times" title="Multiply" aria-hidden="true"></i><span class="sr-only">Multiply</span></span>
@@ -852,24 +852,7 @@
                             </div>
                         </details>
 
-                        <div class="govuk-!-margin-bottom-6" id="retention-factor-section">
-
-                            <div class="total-allocation-wrapper">
-
-                                <div class="total-allocation-label">
-                                    <h2 class="heading-small no-margin-top">Student funding</h2>
-                                </div>
-
-                                <div class="total-allocation-amount">
-                                    <h2 class="heading-small no-margin-top">£884,782</h2>
-                                </div>
-
-                            </div>
-
-                        </div>
-
                         <div class="govuk-!-margin-bottom-3">
-
                             <table class="govuk-table" id="retention-factor-adjustment">
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total student funding after retention adjustment breakdown</caption>
                                 <thead class="govuk-table__head">
@@ -2175,7 +2158,7 @@
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            Funded students
+                                            Funded students<span class="table-row-embed-text">Funded students is 0 because eligible students is lower than the baseline</span>
                                             <span class="table-column-mobile">
                                                 <br>
                                                 Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
@@ -2184,13 +2167,30 @@
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric">0</td>
                                     </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Rate
+                                            <span class="table-column-mobile">
+                                                <br>
+                                                Calculation: <span class="calc-letter"><i class="fas fa-times" title="Multiply" aria-hidden="true"></i><span class="sr-only">Multiply</span></span>
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-times" title="Multiply" aria-hidden="true"></i><span class="sr-only">Multiply</span></span></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£600</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Sub total
+                                            <span class="table-column-mobile">
+                                                <br>
+                                                Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
+                                            </span>
+                                        </th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                    </tr>
                                 </tbody>
                             </table>
-
-                            <div class="panel panel-border-narrow">
-                                <p>Funded students is 0 because eligible students is lower than the baseline.</p>
-                            </div>
-
                         </div>
                         {% endif %}
                         <p><a href="https://www.gov.uk/guidance/16-to-19-funding-advanced-maths-premium" rel="noreferrer noopener" target="_blank" title="Opens in a new tab" >More about the advanced maths premium (opens in new tab)</a></p>
@@ -2411,25 +2411,19 @@
 
                     <div id="accordion-default-content-6" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-6">
 
-                        <!-- <div class="govuk-!-margin-bottom-8">
-                            <h2 id="student-financial-support" class="lede">
-                                Total student financial support
-                                <p class="heading-large heading-funding-summary variance-heading-no-margin">{% if scenario == '1' %}£689,848{% elif scenario == '2' %}£839,792{% elif scenario == '3' %}£930,211{% else %}£930,211{% endif %}</p>
-                                <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £25,000</p>
-                            </h2>
-                        </div> -->
+                        <!-- Note: No summary table here as SSF has fewer elements than FE/SPI/Academy -->
 
                         <div class="govuk-!-margin-bottom-8">
 
-                            <table class="govuk-table first-element-in-tab">
+                            <table class="govuk-table">
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total discretionary bursary fund breakdown</caption>
                                 <thead class="govuk-table__head">
                                     <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary fund</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Discretionary bursary breakdown</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Total funded students</th>
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Average weighting</th>
-                                        <!-- <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances</th> -->
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Rate</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Instances per student</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Number of instances</th>
+                                        <th scope="col" class="govuk-table__header govuk-!-width-one-seventh govuk-!-padding-left-9 govuk-table__header--numeric table-column-default">Rate</th>
                                         <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
                                     </tr>
                                 </thead>
@@ -2439,82 +2433,105 @@
                                             Financial disadvantage
                                             <span class="table-column-mobile">
                                                 <br>
-                                                Total funded students: 213
+                                                Total funded students: 4,946
                                                 <br>
-                                                Average weighting: 0.06322
+                                                Average instances: 0.17437
                                                 <br>
                                                 Rate: £242
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">213</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.06322</td>
-                                        <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td> -->
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,946</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.174</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">862.43</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£242</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£3,261</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£208,707</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            Student costs - travel
+                                            Travel
                                             <span class="table-column-mobile">
                                                 <br>
-                                                Total funded students: 213
+                                                Total funded students: 4,946
                                                 <br>
-                                                Average weighting: 0.08544
+                                                Average instances: {% if scenario == '1' %}0.04649{% elif scenario == '2' %}0.09649{% else %}0.51649{% endif %}
                                                 <br>
                                                 Rate: £483
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">213</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0.08544</td>
-                                        <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td> -->
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">4,946</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">{% if scenario == '1' %}0.04649{% elif scenario == '2' %}0.09649{% else %}0.516{% endif %}</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">2,554.54</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£483</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£8,705</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£111,060.80{% elif scenario == '2' %}£230,506.70{% else %}£1,233,843{% endif %}</td>
                                     </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">
-                                            Student costs - industry placements
+                                            Industry placement
                                             <span class="table-column-mobile">
                                                 <br>
-                                                Total funded students: 213
+                                                Total funded students: 4,946
                                                 <br>
-                                                Average weighting: 0
+                                                Average instances: 0.15568
                                                 <br>
                                                 Rate: £49
                                             </span>
                                         </th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">213</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">0</td>
-                                        <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">770</td> -->
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">770</td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£49</td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£37,730</td>
                                     </tr>
-                                    <!-- <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Free meals adjustment</th>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">
+                                            Free meals adjustment
+                                        </th>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                    </tr> -->
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">-£95,935</td>
+                                    </tr>
                                     <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                        <!-- <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td> -->
                                         <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£11,965</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">{% if scenario == '1' %}£261,562.80{% elif scenario == '2' %}£381,008.70{% else %}£1,384,346{% endif %}</td>
                                     </tr>
                                 </tbody>
                             </table>
-
-                            <details class="govuk-!-margin-bottom-3">
+                            <details class="govuk-!-margin-bottom-2">
                                 <summary>
-                                    <span class="summary">Where average weighting comes from</span>
+                                    <span class="summary">More about this table</span>
                                 </summary>
-            
                                 <div class="panel panel-border-narrow">
-                                    <p>Average instances are calculated using data from the October 2020 return (R14). A student gets one instance of funding if they do not have grade 4, C or higher in GCSE maths or English. Those without both GCSEs get 2 instances of funding.</p>
-                                    <p> Details are in your <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-further-education-allocation-calculation-toolkit-2020-to-2021#level-3-programme-maths-and-english-payment" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">allocation calculation toolkit (opens in new tab)</a>.</p>
+
+                                    <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">The sub-total for each discretionary bursary element is calculated by multiplying the number of students by the instances per student to get the number of instances:</p>
+
+                                    <p class="govuk-!-font-weight-bold">Total funded students <span class="calc-symbol">&times;</span> Instances per student <span class="calc-symbol">&equals;</span> Number of instances</p>
+        
+                                    <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">The number of instances is then multiplied by the rate:</p>
+        
+                                    <p class="govuk-!-font-weight-bold">Number of instances <span class="calc-symbol">&times;</span> Rate <span class="calc-symbol">&equals;</span> Sub-total</p>
+                                    
+                                    <p>The sub-totals are then added together to make your discretionary bursary fund total. This figure is then used in the next calculation. It is compared with your total discretionary bursary fund from 2019 to 2020. It will be adjusted if it falls outside the limits set for this year.</p>
+
+                                    <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#instances-per-student-1" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                        <p>How instances are calculated (opens in new tab)</p>
+                                    </a>
+                                    <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                    <p>More about the 16 to 19 bursary fund (opens in new tab)</p>
+                                    </a>
+                                </div>
+                            </details>
+                            <details class="govuk-!-margin-bottom-2">
+                                <summary>
+                                    <span class="summary">Where free meals adjustment comes from</span>
+                                </summary>
+                                <div class="panel panel-border-narrow">
+                                    <p>The free meals adjustment figure corrects historic double funding between free meals and the bursary fund. We calculate your share of the total number of students supported with free meals and then work out how much should be subtracted from your discretionary bursary allocation.</p>
                                 </div>
                             </details>
                             <details class="govuk-!-margin-bottom-8">
@@ -2529,11 +2546,9 @@
 
                         <div class="govuk-!-margin-bottom-6">
                             <h3 class="heading-medium">Adjusted discretionary bursary fund 2021 to 2022</h3>
-                            <p>From 2020 to 2021, the ESFA moved to a new methodology to calculate this fund. During the transition, you will receive between 50% and 150% of the amount you received in 2019 to 2020.</p>
                         </div>
 
-                        <div class="govuk-!-margin-bottom-6">
-
+                        <div class="govuk-!-margin-bottom-8">
                             <table class="govuk-table">
                                 <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
                                 <thead class="govuk-table__head">
@@ -2544,87 +2559,70 @@
                                 </thead>
                                 <tbody class="govuk-table__body">
                                     <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">2019 to 2020 baseline for transition</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Transition lower limit (50%)</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£250</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
+                                        <th scope="row" class="table-header-normal">Transition upper limit (150%)</th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£750</td>
+                                    </tr>
+                                    <tr class="govuk-table__row">
                                         <th scope="row" class="table-header-normal">Discretionary bursary fund 2021 to 2022</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£11,965</td>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£366</td>
                                     </tr>
                                     <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Discretionary bursary fund 2019 to 2020</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£16,357</td>
-                                    </tr>
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Lower limit 2021 to 2022 - 50% of 2019 to 2020 amount</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£8,178.50</td>
-                                    </tr>
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Upper limit 2021 to 2022 - 150% of 2019 to 2020 amount</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£24,535.50</td>
-                                    </tr>
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Exceptional adjustment</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                    </tr>
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£11,965</td>
+                                        <th scope="row" class="table-header-normal">Adjusted discretionary bursary fund<br>
+                                            <span class="table-row-embed-text">The bursary figure has been adjusted to the £500 minimum allocation</span></th>
+                                        <td class="govuk-table__cell govuk-table__cell--numeric">£500</td>
                                     </tr>
                                 </tbody>
                             </table>
 
+                            <details class=" govuk-!-margin-bottom-4">
+                                <summary>
+                                    <span class="summary">More about the transition limits</span>
+                                </summary>
+                                <div class="panel panel-border-narrow">
+                                    <p>From 2020 to 2021, we moved to a new methodology to calculate your discretionary bursary fund.</p>
+                                    <p>In 2019 to 2020, you received the amount shown in the first row of the adjusted discretionary bursary fund table. Going forward:</p>
+                                    <ul class="govuk-list govuk-list--bullet">
+                                        <li class="govuk-font-size-19">In 2020 to 2021, you received an amount capped between +/- 25% of the 2019 to 2020 total</li>
+                                        <li class="govuk-font-size-19">This year, you will receive an amount capped between +/- 50% of the 2019 to 2020 total</li>
+                                        <li class="govuk-font-size-19">In 2022 to 2023, you will receive an amount capped between +/- 75% of the 2019 to 2020 total</li>
+                                        <li class="govuk-font-size-19">2023 to 2024 onward - you receive the amount with no cap applied</li>
+                                    </ul>
+                                </div>
+                            </details>
+                            <a href="https://www.gov.uk/guidance/16-to-19-bursary-fund-guide-2020-to-2021-academic-year" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                More about the 16 to 19 bursary fund (opens in new tab)
+                            </a>
                         </div>
 
-                        <!-- <div class="govuk-!-margin-bottom-6">
-
+                        <div class="govuk-!-margin-bottom-8">
                             <table class="govuk-table">
-                                <caption class="govuk-table__caption heading-small visuallyhidden">Total exceptional adjustment breakdown</caption>
+                                <caption class="govuk-table__caption heading-small visuallyhidden">Total adjusted discretionary bursary fund breakdown</caption>
                                 <thead class="govuk-table__head">
-                                    <tr class="govuk-table__row">
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
-                                        <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                                    </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-third">Exceptional adjustment</th>
+                                    <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                                </tr>
                                 </thead>
                                 <tbody class="govuk-table__body">
-                                    <tr class="govuk-table__row">
-                                        <th scope="row" class="table-header-normal">Exceptional adjustment</th>
-                                        <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
-                                    </tr>
+                                <tr class="govuk-table__row">
+                                    <th scope="row" class="table-header-normal">Exceptional adjustment</th>
+                                    <td class="govuk-table__cell govuk-table__cell--numeric">£0</td>
+                                </tr>
                                 </tbody>
                             </table>
-
-                        </div> -->
-
-                        <!-- <div class="govuk-!-margin-bottom-6">
-
-                            <div class="total-allocation-wrapper">
-
-                                <div class="total-allocation-label">
-                                    <h2 class="heading-small no-margin-top">Adjusted discretionary bursary fund</h2>
-                                </div>
-
-                                <div class="total-allocation-amount">
-                                    <h2 class="heading-small no-margin-top variance-heading-no-margin">{% if scenario == '1' %}£448,196{% elif scenario == '3' %}£688,659{% else %}£688,659{% endif %}</h2>
-                                    <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £25,000</p>
-                                </div>
-
-                            </div>
-
+                            <a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022/16-to-19-further-education-revenue-funding-allocation-guide-2021-to-2022#exceptional-adjustment"
+                               rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                More about exceptional adjustments (opens in new tab)
+                            </a>
                         </div>
-
-                        <div class="govuk-!-margin-bottom-6">
-
-                            <div class="total-allocation-wrapper">
-
-                                <div class="total-allocation-label">
-                                    <h2 class="heading-medium">Total student financial support</h2>
-                                </div>
-
-                                <div class="total-allocation-amount">
-                                    <h2 class="heading-medium variance-heading-no-margin">{% if scenario == '1' %}£689,848{% elif scenario == '2' %}£839,792{% elif scenario == '3' %}£930,211{% else %}£930,211{% endif %}</h2>
-                                    <p class="variance-text"><i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i><span class="sr-only">Increase</span> £25,000</p>
-                                </div>
-
-                            </div>
-
-                        </div> -->
 
                     </div>
                     
