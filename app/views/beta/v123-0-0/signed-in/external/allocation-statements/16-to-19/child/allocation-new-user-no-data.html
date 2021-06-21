@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Allocation history - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="../../16-to-19/child/{% if sixteenToNineteenVariant == 'LA' %}allocation-statements-la{% else %}allocation-statements{% endif %}">Allocation statements</a></li>
+                    </ol>
+                </nav>
+            </div> 
+
+        </div>
+
+        <div class="column-full">
+
+            <form method="post" class="form">
+
+                <div class="form-block">
+                    <h1 class="heading-xlarge">
+                        <!--<span class="heading-secondary">{% if sixteenToNineteenVariant == 'NMSS' %}Non maintained special school funding{% elif sixteenToNineteenVariant == 'LA' %}School sixth form funding{% else %}16 to 19 funding{% endif %}</span> -->
+                        Allocation statements
+                    </h1>
+                    <p class="lede">You don't have any digital allocation statements yet. If you have a Secure Access account, past statements can be viewed and downloaded using <a href="https://services.signin.education.gov.uk/">DfE Sign in</a>.</p>
+                   </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
