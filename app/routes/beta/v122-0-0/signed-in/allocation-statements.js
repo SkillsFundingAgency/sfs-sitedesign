@@ -254,19 +254,201 @@ module.exports = function(router) {
 	});
 
 	/**********
-	* SPI Radio Test
+	* FE Variance Selector (Radio Buttons Page)
 	* **********/
 
-	// Test of Radio Button selection for variations
-
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/radiotest', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-fe/variance-selection', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Casterbridge College";
 
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/radiotest', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-fe/variance-selection', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* Academy Variance Selector (Radio Buttons Page)
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-academy/variance-selection', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-academy/variance-selection', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* NMSS Variance Selector (Radio Buttons Page)
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/variance-selection', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/variance-selection', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* NMSS Variance Selector (Radio Buttons Page) 2 - This second one is needed to redirect to the chosen tab
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/variance-selection-2', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-nmss/variance-selection-2', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* SSF Variance Selector (Radio Buttons Page)
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/variance-selection', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-ssf/variance-selection', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* LA Variance Selector (Radio Buttons Page)
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/variance-selection', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/variance-selection', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* 14-16 Variance Selector (Radio Buttons Page)
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/variance-selection', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/variance-selection', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/**********
+	* 14-16 Variance Selector (Radio Buttons Page) 2 - See notes on NMSS variance-selection page for why two radio button pages are needed for tab direction within the prototype
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/variance-selection-2', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/14-to-16/child/funding-breakdown/variance-selection-2', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});	
+
+	/**********
+	* SPI Variance Selection (Radio Button Page)
+	* **********/
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/variance-selection', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "other";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Casterbridge College";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/variance-selection', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -309,14 +491,14 @@ module.exports = function(router) {
 
 	// Separate SPI Statement for the sole purpose of being linked to via radio button choices, to display three options on showing variants.
 
-	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/variant-test', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/latest-variance', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "other";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Casterbridge College";
 
-		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/variant-test', {
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-spi/latest-variance', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
