@@ -13,7 +13,7 @@ var latestVersion = 'beta/v123-0-0';
 var latestVersionVLF = 'beta/v119-0-0';
 var latestVersionNFF = 'beta/v110-0-0';
 var latestVersionAdults = 'beta/v112-0-0';
-var latestVersionGAG = 'beta/v112-0-0';
+var latestVersionGAG = 'beta/v123-0-0';
 var latestVersionDocumentExchange = 'beta/v109-0-0';
 
 /**********
