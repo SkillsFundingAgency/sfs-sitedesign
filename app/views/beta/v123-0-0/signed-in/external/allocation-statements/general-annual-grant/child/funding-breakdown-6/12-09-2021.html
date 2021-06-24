@@ -33,7 +33,7 @@
                 </nav>
             </div>
 
-            <h1 class="heading-xlarge">
+            <h1 class="heading-xlarge govuk-!-margin-bottom-6">
                 General annual grant: 2021 to 2022
                 <span class="heading-secondary">
                     This allocation:
@@ -46,6 +46,23 @@
                 <h2 class="heading-large govuk-!-margin-bottom-6">{{organisationName}} (UKPRN: 12345678)</h2>
             </div>
 
+            <div class="govuk-warning-text custom">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    <p class="govuk-font-size-19">
+                        {% if scenario == 1 %}
+                            This statement is being compared to the 2019 to 2020 statement published on 12 July 2020
+                        {% elif scenario == 2 %}
+                            This statement is being compared to the 2020 to 2021 statement published on 28 April 2021
+                        {% else %}
+                            The figures in this statement are not being compared to another statement
+                        {% endif %}
+                    </p>
+                    <a href="variance-selection" class="govuk-font-size-19">Change statement view</a>
+                </strong>
+            </div>
+
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation (based on being open 123 days)
@@ -56,18 +73,28 @@
             <div class="form-group">
                         
                 <section class="form-block attachment embedded">
-        
+
+                    <div class="print-a-document-container">
+
+                        <div class="print-icon">
+                            <i class="fa fa-print fa-print-large" title="Print" aria-hidden="true"></i><span class="sr-only">Print</span>
+                        </div>
+
+                        <div class="print-a-document">
+                            <a class="print-page" href="#">Save or print this statement</a>
+                        </div>
+
+                    </div>
                     <div class="download-a-document-container-new">
-                        
+
                         <div class="download-icon">
                             <i class="fa fa-file" title="Document" aria-hidden="true"></i><span class="sr-only">Document</span>
                         </div>
 
                         <div class="download-a-document-new">
-                            <a href="/public/documents/{{version}}/signed-in/external/allocation-statements/general-annual-grant/funding-breakdown-6/gag_2021-to-2022_published-12-09-2021_mole-catch-academy.csv" title="Download general annual grant allocation for {{organisationName}} 2021 to 2022">Download general annual grant allocation for {{organisationName}} 2021 to 2022</a>   
+                            <a href="/public/documents/{{version}}/signed-in/external/allocation-statements/general-annual-grant/funding-breakdown-1/gag_2021-to-2022_published-12-09-2021_mole-catch-academy.csv" title="Download raw data (csv) of 16 to 19 funding for {{organisationName}} 2021 to 2022, 206KB">Download csv of this statement , 206KB</a>
                             <br>
                             <span class="download-a-document-content">
-                                <span class="download-a-document-section-1">Comma-Separated Values (<abbr title="Comma-Separated Values">CSV</abbr>), 206KB</span>
                                 <span class="download-a-document-section-2">
                                     You may need a different format if you're using assistive technology. <a href="#attachment-1-accessibility-request" class="expand-hidden-section" data-controls="attachment-1-accessibility-request" data-expanded="false" role="button" aria-controls="attachment-1-accessibility-request" aria-expanded="false">Request an accessible format</a>.
                                     <span id="attachment-1-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%0A%20%20Original%20format%3A%20csv%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
@@ -76,19 +103,6 @@
                         </div>
 
                     </div>
-            
-                    <div class="print-a-document-container">
-
-                        <div class="print-icon"> 
-                            <i class="fa fa-print fa-print-large" title="Print" aria-hidden="true"></i><span class="sr-only">Print</span>
-                        </div>
-
-                        <div class="print-a-document">
-                            <a class="print-page" href="#">Save or print this statement</a>  
-                        </div>
-
-                    </div>
-                
                 </section>
                 
             </div>
@@ -193,7 +207,7 @@
                             <div class="panel panel-border-narrow">
                                 <p>Places are either rolled forward from 2020 to 2021 or your local authority agreed it with ESFA. This provides a base level of funding.</p>
                                 <p>You must agree additional funding above this level with your local authority. Local authorities pay you the top-up funding directly. It is not shown in this statement.</p>
-                                <p><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#special-and-alternative-provision-academies-and-special-free-schools" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about pre-16 high needs</a></p>
+                                <p><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#special-and-alternative-provision-academies-and-special-free-schools" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about pre-16 high needs (opens in new tab)</a></p>
                             </div>
                             
                         </details>
@@ -201,7 +215,7 @@
                         <div class="show-on-print">
                             <p>Places are either rolled forward from 2020 to 2021 or your local authority agreed it with ESFA. This provides a base level of funding.</p>
                             <p>You must agree additional funding above this level with your local authority. Local authorities pay you the top-up funding directly. It is not shown in this statement.</p>
-                            <p><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#special-and-alternative-provision-academies-and-special-free-schools" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about pre-16 high needs</a></p>
+                            <p><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html#special-and-alternative-provision-academies-and-special-free-schools" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about pre-16 high needs (opens in new tab)</a></p>
                         </div>
 
                     </div>
@@ -226,9 +240,9 @@
             <div class="form-block">
                 <h3 class="heading-medium heading-guidance-final-section hide-on-print">Allocation history</h3>
                 <p class="hide-on-print"><a href="../allocation-history">View history of allocated funding</a></p>
-                <h3 class="heading-medium heading-guidance">General annual grant resources</h3>
+                <h3 class="heading-medium heading-guidance">Explore the topic</h3>
                 <ul class="list">
-                    <li><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guide: 2021 to 2022</a></li>
+                    <li><a href="../../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guide: 2021 to 2022 (opens in new tab)</a></li>
                 </ul>
             </div>
 
