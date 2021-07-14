@@ -66,6 +66,10 @@ require('./routes/component-library.js')(router);
 require('./routes/beta/v123-0-0/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/v123-0-0/signed-in/allocation-statements.js')(router);
 require('./routes/beta/v123-0-0/prototype.js')(router);
+// prototype dummy version for piers 
+require('./routes/beta/piers-prototype/not-signed-in/view-latest-funding.js')(router);
+require('./routes/beta/piers-prototype/signed-in/allocation-statements.js')(router);
+require('./routes/beta/piers-prototype/prototype.js')(router);
 // baselined june 2021
 require('./routes/beta/baselined-june-2021/not-signed-in/view-latest-funding.js')(router);
 require('./routes/beta/baselined-june-2021/signed-in/allocation-statements.js')(router);
