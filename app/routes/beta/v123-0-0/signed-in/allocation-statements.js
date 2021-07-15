@@ -580,16 +580,47 @@ module.exports = function(router) {
 		});
 	});
 
-	/* - - - - Sign-in Mockup Test - - - - */
+	/* - - - - - - - - - - - - - - - ******************** - - - - - - - - - - - - - */
+	/* - - - - Mockup for the Dual Authentication for IDAMS and DfE Sign-in - - - - */
+	/* - - - - - - - - - - - - - - - ******************** - - - - - - - - - - - - - */
+
+	/* - - - - Dual Auth Signposting (MOCKUP ONLY) - - - - */
 
 	router.get('/' + version + '/signed-in/sign-in-test/select-your-organisation', function (req, res) {
 
-		// Only set the session variable if it does not exist
-		req.session.idams = req.session.idams || "other";
-		req.session.dashboard = req.session.dashboard || "No";
-		req.session.organisationName = req.session.organisationName || "Casterbridge College";
-
 		res.render(version + '/signed-in/sign-in-test/select-your-organisation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/* - - - - Sign-In IDAMS (MOCKUP ONLY) - - - - */
+
+		router.get('/' + version + '/signed-in/sign-in-test/login-idams', function (req, res) {
+	
+			res.render(version + '/signed-in/sign-in-test/login-idams', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams,
+				'organisationName' : req.session.organisationName,
+				'scenario' : req.query.scenario
+			});
+		});
+
+	/* - - - - Sign-In DfE (MOCKUP ONLY) - - - - */
+
+	router.get('/' + version + '/signed-in/sign-in-test/login-dfe', function (req, res) {
+
+		res.render(version + '/signed-in/sign-in-test/login-dfe', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
