@@ -23,48 +23,49 @@
                 </nav>
             </div>
 
-            <h1 class="heading-large govuk-!-margin-top-6 govuk-!-margin-bottom-6">
-                Select your sign-in
-            </h1>
-
-            <div class="govuk-warning-text govuk-!-margin-top-2">
-                <span class="govuk-warning-text__icon" style="font-size:30px;" aria-hidden="true">!</span>
-                <strong class="govuk-warning-text__text govuk-font-size-19">
-                  <span class="govuk-warning-text__assistive">Warning</span>
-                  There are two sign-in methods. You should select the one appropriate for your provider type.
-                </strong>
+            <div class="govuk-form-group govuk-!-margin-top-6" style="max-width:900px;">
+                <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="heading-large govuk-!-margin-bottom-4 govuk-!-margin-top-0">
+                        Select your sign-in
+                    </h1>
+                    </legend>
+                    <div id="sign-in-hint" class="govuk-hint govuk-font-size-19 govuk-!-margin-bottom-6">
+                        There are two sign-in methods. Which one you use depends on your provider type.
+                    </div>
+                    <span id="passport-issued-error" class="hide govuk-error-message">
+                        <span class="govuk-visually-hidden">Error:</span> Select a sign in option
+                    </span>
+                    <div class="govuk-radios">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sign-in-dfe" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                        <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in">
+                            DfE Sign-in
+                        </label>
+                        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-font-size-19">
+                            You will use this sign in if your provider type is a multi or single academy trust, academy or a school. 
+                        </div>
+                    </div>
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sign-in-idams" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                        <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in-2">
+                            IDAMS
+                        </label>
+                        <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-font-size-19">
+                            You will use this sign in if your provider type is an independent learning provider, local authority, further education college, university or public body.
+                        </div>
+                    </div>
+                    </div>
+                
+                </fieldset>
             </div>
 
-            <h2 class="heading-medium">DfE Sign-in</h2>
-            <p>DfE Sign-in covers the following provider types:</p>
-            <ul class="govuk-list govuk-list--bullet govuk-font-size-19">
-                <li>Example type 1</li>
-                <li>Example type 2</li>
-                <li>Example type 3</li>
-                <li>Example type 4</li>
-                <li>Example type 5</li>
-            </ul>
-            <button onclick="window.location.href='login-dfe';" class="govuk-button govuk-font-size-19 govuk-!-margin-top-2" data-module="govuk-button">
-                Sign in to MYESF using DfE Sign-in
-            </button>
-            <p><a href="#" class="govuk-link">Create a DfE sign-in account</a></p>
-
-            <hr class="govuk-section-break govuk-section-break--l govuk-section-break--visible">
-
-            <h2 class="heading-medium">IDAMS</h2>
-            <p>IDAMS covers the following provider types:</p>
-            <ul class="govuk-list govuk-list--bullet govuk-font-size-19">
-                <li>Example type 1</li>
-                <li>Example type 2</li>
-                <li>Example type 3</li>
-                <li>Example type 4</li>
-                <li>Example type 5</li>
-            </ul>
-            <button onclick="window.location.href='login-idams';" class="govuk-button govuk-font-size-19 govuk-!-margin-top-2" data-module="govuk-button">
-                Sign in to MYESF using IDAMS
-            </button>
-            <p><a href="#" class="govuk-link">Create an IDAMS account</a></p>
-        </div>
+            <div class="govuk-button-group govuk-!-margin-top-4">
+                <button onclick="dualAuthOptions()" id="dual-auth-button" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
+                  Continue
+                </button>
+                <!-- <a class="govuk-link govuk-!-margin-top-2 govuk-!-margin-left-4 govuk-!-display-inline-block" href="../allocation-statements">Cancel</a> -->
+            </div>
     </div>
 
 </main>
@@ -77,5 +78,20 @@
 <!-- Custom global behaviour -->
 <script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
 <!-- JavaScript (END) -->
+
+<script type="text/javascript">
+    function dualAuthOptions() {
+      if(document.getElementById('sign-in-dfe').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='login-dfe';
+      }
+      else if(document.getElementById('sign-in-idams').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='login-idams';
+      }
+      else {
+        $(".govuk-form-group").addClass("govuk-form-group--error");
+        $("#passport-issued-error").removeClass("hide");
+      }
+    }
+  </script>
 
 {% endblock %}
