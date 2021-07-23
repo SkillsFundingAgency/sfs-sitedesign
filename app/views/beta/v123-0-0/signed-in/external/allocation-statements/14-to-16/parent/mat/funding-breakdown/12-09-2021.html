@@ -43,6 +43,27 @@
                 <h2 class="heading-large govuk-!-margin-bottom-6">{{organisationName}} (URN: 790647)</h2>
             </div>
 
+            <!-- Variant Notice -->
+
+            <div class="govuk-warning-text custom">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    <p class="govuk-font-size-19">
+                        {% if scenario == 1 %}
+                            This statement is being compared to the 2019 to 2020 statement published on 12 July 2020
+                        {% elif scenario == 2 %}
+                            This statement is being compared to the 2020 to 2021 statement published on 28 April 2021
+                        {% else %}
+                            The figures in this statement are not being compared to another statement
+                        {% endif %}
+                    </p>
+                    <a href="variance-selection" class="govuk-font-size-19">Change statement view</a>
+                </strong>
+            </div>
+  
+            <!-- -- -->
+
             <div class="form-group">
                 <h2 class="lede">
                     Total allocation
@@ -548,9 +569,9 @@
             </div>
 
             <div class="form-block">
-                <h3 class="heading-medium heading-guidance-final-section hide-on-print">Allocation history</h3>
+                <h3 class="heading-small heading-guidance-final-section hide-on-print">Allocation history</h3>
                 <p class="hide-on-print"><a href="../allocation-history">View history of allocated funding</a></p>
-                <h3 class="heading-medium heading-guidance">14 to 16 funding resources</h3>
+                <h3 class="heading-small heading-guidance">Explore the topic</h3>
                 <ul class="list">
                     <li><a href="../../../../../../guidance/academies-14-to-16-allocation-guides-2021-to-2022.html" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding guide: 2021 to 2022</a></li>
                 </ul>
