@@ -27,40 +27,66 @@
                 <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
                     <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="heading-large govuk-!-margin-bottom-4 govuk-!-margin-top-0">
-                        Select your sign in
+                        {% if scenario == '1' %}
+                            Select your sign in
+                        {% elif scenario == '2' %}
+                            Select your provider type
+                        {% else %}
+                        {% endif %}
                     </h1>
                     </legend>
                     <div id="sign-in-hint" class="govuk-hint govuk-font-size-19 govuk-!-margin-bottom-6">
                         There are two sign in options. Which one you use depends on your provider type.
                     </div>
                     <span id="passport-issued-error" class="hide govuk-error-message">
-                        <span class="govuk-visually-hidden">Error:</span> Select a sign in option
+                        {% if scenario == '1' %}
+                            <span class="govuk-visually-hidden">Error:</span> Select a sign in option
+                        {% elif scenario == '2' %}
+                            <span class="govuk-visually-hidden">Error:</span> Select a provider type
+                        {% else %}
+                        {% endif %}
                     </span>
                     <div class="govuk-radios">
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="sign-in-dfe" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
-                        <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in">
-                            DfE Sign-in
-                        </label>
-                        <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-font-size-19">
-                            You will use this sign in if your provider type is a multi or single academy trust, academy or a school. 
+                    {% if scenario == '1' %}
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sign-in-dfe" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                            <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in">
+                                DfE Sign-in
+                            </label>
+                            <div id="sign-in-item-hint" class="govuk-hint govuk-radios__hint govuk-font-size-19">
+                                You will use this sign in if your provider type is a multi or single academy trust, academy, or a school. 
+                            </div>
                         </div>
-                    </div>
-                    <div class="govuk-radios__item">
-                        <input class="govuk-radios__input" id="sign-in-idams" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
-                        <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in-2">
-                            IDAMS
-                        </label>
-                        <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-font-size-19">
-                            You will use this sign in if your provider type is an independent learning provider, local authority, further education college, university or public body.
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sign-in-idams" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                            <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in-2">
+                                IDAMS
+                            </label>
+                            <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint govuk-font-size-19">
+                                You will use this sign in if your provider type is an independent learning provider, local authority, further education college, university, or public body.
+                            </div>
                         </div>
-                    </div>
+                    {% elif scenario == '2' %}
+                        <div class="govuk-radios__item govuk-!-margin-bottom-4">
+                            <input class="govuk-radios__input" id="sign-in-dfe" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                            <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in">
+                                Multi or single academy trust, academy, or a school
+                            </label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sign-in-idams" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                            <label class="govuk-label govuk-radios__label govuk-font-size-19" for="sign-in-2">
+                                Independent learning provider, local authority, further education college, university, or public body
+                            </label>
+                        </div>
+                    {% else %}
+                    {% endif %}
                     </div>
                 
                 </fieldset>
             </div>
 
-            <div class="govuk-button-group govuk-!-margin-top-4">
+            <div class="govuk-button-group govuk-!-margin-top-6">
                 <button onclick="dualAuthOptions()" id="dual-auth-button" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
                   Continue
                 </button>
