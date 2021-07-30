@@ -16,7 +16,7 @@
 
         <div class="column-full">
 
-            <div id="global-breadcrumb" class="breadcrumbs group">
+            <!-- <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
                         <li><a href="">Home</a></li>
@@ -24,7 +24,7 @@
                         <li>Sign-in</li>
                     </ol>
                 </nav>
-            </div>
+            </div> -->
 
             <!-- content -->
 
@@ -36,7 +36,10 @@
                   <ul class="govuk-list govuk-error-summary__list govuk-font-size-19">
                     <li>
                       <a href="#emailinputmockup" style="color:#d4351c;">Please enter a valid user ID or email address</a>
-                      <!-- <p class="govuk-!-margin-top-4" style="margin-bottom:0px;">If you are a multi or single academy trust, academy or school sign in using <a href="login-idams" style="color:#005ea5" class="govuk-!-font-weight-bold">DfE Sign-in</a>.</p> -->
+                      {% if scenario == '3' %}
+                        <p class="govuk-!-margin-top-4" style="margin-bottom:0px;">Sign in with <a href="login-idams" style="color:#005ea5" class="govuk-!-font-weight-bold">DfE Sign-in</a> if you are a multi or single academy trust, academy or school.</p>
+                      {% else %}
+                      {% endif %}
                     </li>
                   </ul>
                 </div>
