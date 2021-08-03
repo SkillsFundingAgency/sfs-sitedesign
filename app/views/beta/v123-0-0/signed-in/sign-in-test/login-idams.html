@@ -91,19 +91,22 @@
 
 <script type="text/javascript">
 
+    // Change the heading title
+    document.getElementById("proposition-name").textContent="Information Management Services (IDAMS)";
+    //Username and error logic
     document.getElementById('sign-in-button').onclick = function(){
 
-    var userInput = document.getElementById("username-entry").value;
+        var userInput = document.getElementById("username-entry").value;
 
-    if (userInput == "independent learning provider" || userInput == "local authority" || userInput == "further education college" || userInput == "university" || userInput == "university") {
-        document.getElementById('sign-in-button').onclick = location.href='/beta/v123-0-0/signed-in/external/allocation-statements/16-to-19/child/dashboard';
-    }
+        if (userInput == "independent learning provider" || userInput == "local authority" || userInput == "further education college" || userInput == "university" || userInput == "public body") {
+            document.getElementById('sign-in-button').onclick = location.href='/beta/v123-0-0/signed-in/external/allocation-statements/16-to-19/child/dashboard';
+        }
 
-    else {
-        $(".form-group.emailError").addClass("govuk-form-group--error");
-        $(".govuk-error-summary, #passport-issued-error").removeClass("hide");
+        else {
+            $(".form-group.emailError").addClass("govuk-form-group--error");
+            $(".govuk-error-summary, #passport-issued-error").removeClass("hide");
+        }
     }
-}
 
 </script>
 

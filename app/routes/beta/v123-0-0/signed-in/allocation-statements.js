@@ -632,6 +632,38 @@ module.exports = function(router) {
 		});
 	});
 
+	/* - - - - Sign-In IDAMS (MOCKUP ONLY - TEMP) - - - - */
+
+	router.get('/' + version + '/signed-in/sign-in-test/login-idams-sens', function (req, res) {
+	
+		res.render(version + '/signed-in/sign-in-test/login-idams-sens', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+/* - - - - Sign-In DfE (MOCKUP ONLY - TEMP) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-test/login-dfe-sens', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-test/login-dfe-sens', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
