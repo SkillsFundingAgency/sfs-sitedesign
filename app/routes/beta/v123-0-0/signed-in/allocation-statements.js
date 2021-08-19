@@ -664,6 +664,171 @@ router.get('/' + version + '/signed-in/sign-in-test/login-dfe-sens', function (r
 	});
 });
 
+/* - - - - User Roles and Permissions (MOCKUP ONLY) - - - - */
+
+router.get('/' + version + '/signed-in/roles-test/your-roles-permissions', function (req, res) {
+
+	res.render(version + '/signed-in/roles-test/your-roles-permissions', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+	/* - - - - - - - - - - - - - - - ******************** - - - - - - - - - - - - - */
+	/* - - - - - - Mockup for the Roles & Dual Auth Sign-in UR Sessions - - - - - - */
+	/* - - - - - - - - - - - - - - - ******************** - - - - - - - - - - - - - */
+
+	/* - - - - Dual Auth Signposting (MOCKUP ONLY) - - - - */
+
+	router.get('/' + version + '/signed-in/sign-in-roles/select-your-organisation', function (req, res) {
+
+		res.render(version + '/signed-in/sign-in-roles/select-your-organisation', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/* - - - - Sign-In IDAMS (MOCKUP ONLY) - - - - */
+
+		router.get('/' + version + '/signed-in/sign-in-roles/login-idams', function (req, res) {
+	
+			res.render(version + '/signed-in/sign-in-roles/login-idams', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams,
+				'organisationName' : req.session.organisationName,
+				'scenario' : req.query.scenario
+			});
+		});
+
+	/* - - - - Sign-In DfE (MOCKUP ONLY) - - - - */
+
+	router.get('/' + version + '/signed-in/sign-in-roles/login-dfe', function (req, res) {
+
+		res.render(version + '/signed-in/sign-in-roles/login-dfe', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+	/* - - - - Sign-In IDAMS (MOCKUP ONLY - TEMP) - - - - */
+
+	router.get('/' + version + '/signed-in/sign-in-roles/login-idams-sens', function (req, res) {
+	
+		res.render(version + '/signed-in/sign-in-roles/login-idams-sens', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+
+/* - - - - Sign-In DfE (MOCKUP ONLY - TEMP) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/login-dfe-sens', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/login-dfe-sens', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/* - - - - User Roles and Permissions (MOCKUP ONLY) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/view-your-roles', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/view-your-roles', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/* - - - - Dashboard for the Roles Journey (MOCKUP ONLY) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/dashboard', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/dashboard', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/* - - - - Page to view all roles (MOCKUP ONLY) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/all-roles', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/all-roles', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/* - - - - Page to view all roles (MOCKUP ONLY) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/no-access', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/no-access', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
