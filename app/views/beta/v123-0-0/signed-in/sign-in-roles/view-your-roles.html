@@ -251,21 +251,83 @@
                     Sign funding claims</p>
             </div>
 
+            {% elif scenario == '9' %}
+
+            <h2 class="heading-medium govuk-!-margin-top-6">Roles assigned to you</h2>
+            <div class="roles-wrap">
+                <p class="role-tag assigned checkmark box check-only" style="position:relative;">
+                    <span class="checkmark-wrap">
+                        <span class="css-checkmark">
+                            <span class="css-checkmark-stem green"></span>
+                            <span class="css-checkmark-kick green"></span>
+                        </span>
+                    </span>
+                    View contracts and agreements</p>
+                <p class="role-tag assigned checkmark box check-only" style="position:relative;">
+                    <span class="checkmark-wrap">
+                        <span class="css-checkmark">
+                            <span class="css-checkmark-stem green"></span>
+                            <span class="css-checkmark-kick green"></span>
+                        </span>
+                    </span>
+                    Sign contracts and agreements</p>
+                <p class="role-tag assigned checkmark box check-only" style="position:relative;">
+                    <span class="checkmark-wrap">
+                        <span class="css-checkmark">
+                            <span class="css-checkmark-stem green"></span>
+                            <span class="css-checkmark-kick green"></span>
+                        </span>
+                    </span>
+                    View funding claims and reconciliation statements</p>
+                <p class="role-tag assigned checkmark box check-only" style="position:relative;">
+                    <span class="checkmark-wrap">
+                        <span class="css-checkmark">
+                            <span class="css-checkmark-stem green"></span>
+                            <span class="css-checkmark-kick green"></span>
+                        </span>
+                    </span>
+                    Sign funding claims</p>
+            </div>
+
             {% else %}
 
+            <h2 class="heading-medium govuk-!-margin-top-6">Roles assigned to you</h2>
+            <div class="roles-wrap">
+                <p class="role-tag subtle-assigned">View contracts and agreements</p>
+                <p class="role-tag subtle-assigned">Sign contracts and agreements</p>
+                <p class="role-tag subtle-assigned">View funding claims and reconciliation statements</p>
+                <p class="role-tag subtle-assigned">Sign funding claims</p>
+            </div>
+            
+            {% endif %}
+
             <h2 class="heading-medium govuk-!-margin-top-6 float-reset">Requesting roles</h2>
+            {% if scenario == '8' %}
             <p>You can request more roles by contacting your super user through the <a href="">Identity and Access Management System (IDAMS)</a>.</p>
             <p><a href="all-roles">View all roles</a>.</p>
+            {% elif scenario == '9' %}
+            <p>You can request more roles by contacting your super user through <a href="">DfE Sign-in</a>.</p>
+            <p><a href="all-roles?scenario=1">View all roles</a>.</p>
+            {% else %}
+            <p>You can request more roles by contacting your super user through the <a href="">Identity and Access Management System (IDAMS)</a>.</p>
+            <p><a href="all-roles">View all roles</a>.</p>
+            {% endif %}
 
             <h2 class="heading-medium govuk-!-margin-top-6 float-reset">Your account settings</h2>
+
+            {% if scenario == '8' %}
+            <p><p>Through <a href="">IDAMS</a> you can:</p></p>
+            {% elif scenario == '9' %}
+            <p><p>Through <a href="">DfE Sign-in</a> you can:</p></p>
+            {% else %}
             <p>Through <a href="">IDAMS</a> you can:</p>
+            {% endif %}
+
             <ul class="govuk-list govuk-list--bullet govuk-font-size-19">
               <li>update your contact information</li>
               <li>change your password</li>
               <li>request user roles for ESFA services</li>
             </ul>
-
-            {% endif %}
 
             <h2 class="heading-medium govuk-!-margin-top-6 float-reset">Manage your users</h2>
             <p>If you are a super user for your organisation you can:</p>

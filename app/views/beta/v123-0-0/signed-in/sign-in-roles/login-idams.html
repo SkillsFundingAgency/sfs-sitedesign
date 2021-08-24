@@ -98,8 +98,12 @@
 
         var userInput = document.getElementById("username-entry").value;
 
-        if (userInput == "independent learning provider" || userInput == "local authority" || userInput == "further education college" || userInput == "university" || userInput == "public body") {
+        if (userInput == "independent learning provider" || userInput == "local authority" || userInput == "idams" || userInput == "further education college" || userInput == "university" || userInput == "public body") {
             document.getElementById('sign-in-button').onclick = location.href='dashboard';
+        }
+
+        else if (userInput == "dfe") {
+            document.getElementById('sign-in-button').onclick = location.href='no-access';
         }
 
         else {
