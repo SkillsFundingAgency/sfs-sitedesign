@@ -13,33 +13,17 @@
         <div class="column-full">
     
             <div class="account-details">
-    
-                {% if dashboard == 'Yes' or idams == 'dashboard' or idams == 'internal' %}
-                <!-- Do not display this section since it is not needed -->
-                {% else %}
+
+
                 <div class="account-name">
                     <span class="name">
-                        {% if idams == 'adults' or idams == 'other' %}
                         Casterbridge College (UKPRN: 12345678)
-                        {% elif idams == 'SAT' %}
-                        Mole Catch Academy (UKPRN: 12345678)
-                        {% elif idams == 'LA' or idams == 'TP' %}
-                        Redhill Council (UKPRN: 87654321)
-                        {% elif idams == 'MAT' %}
-                        Rupert Shoggins Academy Trust (UKPRN: 87654321)
-                        {% else %}
-                        [ORGANISATION NAME] (UKPRN: [UKPRN])
-                        {% endif %}
                     </span>
                 </div>
-                {% endif %}
+    
     
                 <div class="account-features">
-                    {% if scenario == '1' %}
-                    <span class="account-link"><a href="view-your-roles?scenario=9">View your roles</a></span>
-                    {% else %}
-                    <span class="account-link"><a href="view-your-roles?scenario=8">View your roles</a></span>
-                    {% endif %}
+                    <span class="account-link"><a href="view-your-roles?scenario=3">View your roles</a></span>
                     <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
                 </div>
     
@@ -52,20 +36,7 @@
     <div class="grid-row">
 
         <div class="column-full">
-            <h1 class="heading-xlarge">
-                {% if idams == 'other' %}
-                <span class="heading-secondary">Casterbridge College</span>
-                <span class="heading-secondary">UKPRN: 12345678</span>
-                {% elif idams == 'LA' %}
-                <span class="heading-secondary">Redhill Council</span>
-                <span class="heading-secondary">UKPRN: 87654321</span>
-                {% elif idams == 'MAT' %}
-                <span class="heading-secondary">Rupert Shoggins Academy Trust</span>
-                <span class="heading-secondary">UKPRN: 87654321</span>
-                {% else %}
-                <span class="heading-secondary">Casterbridge College</span>
-                <span class="heading-secondary">UKPRN: 12345678</span>
-                {% endif %}
+            <h1 class="heading-xlarge govuk-!-margin-top-7 govuk-!-margin-bottom-8">
                 Manage your education and skills funding
             </h1>
 
@@ -74,41 +45,43 @@
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="allocationStatements" class="dashboard-links" href="{% if sixteenToNineteenVariant == 'MAT' %}mat/allocation-statements{% elif sixteenToNineteenVariant == 'LA' %}allocation-statements-la{% else %}allocation-statements{% endif %}">
-                            <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
-                            <span id="allocation-statements-alert" class="alert alert-name-red">{% if tagType == '1' %}1 new statement{% elif tagType == '2' %}1 updated statement{% elif tagType == '3' %}1 new and 1 updated statement{% elif tagType == '4' %}1 new and 3 updated statements{% else %}{% if sixteenToNineteenVariant == '1' %}2 updated statements{% elseif sixteenToNineteenVariant == 'LA' %}1 new statement{% elseif sixteenToNineteenVariant == 'FE' %}2 updated statements{% elseif sixteenToNineteenVariant == 'Academy' %}1 new and 2 updated statements{% elseif sixteenToNineteenVariant == 'SPI' %}1 new and 2 updated statements{% elseif sixteenToNineteenVariant == 'NMSS' %}2 updated statements{% else %}1 new statement{% endif %}{% endif %}</span>
-                        </a>
+                        <div class="tile-wrap">
+                            <h3>Allocation statements</h3>
+                            <p>Suspendisse non metus pretium, imperdiet velit sed, consectetur sem. Aliquam gravida metus est, eu condimentum lacu.</p>
+                            <a href="">View statements</a>
+                        </div>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a id="apprenticeshipService" class="dashboard-links" href="{% if noApprenticeshipServicePage == 'True' %}/{{version}}/signed-in/external/allocation-statements/16-to-19/parent/no-apprenticeship-service{% else %}https://providers.apprenticeships.education.gov.uk{% endif %}">
-                            <span id="apprenticeship-declaration-service" class="service-name">Apprenticeship service</span>
-                            {% if scenario == '1' %}
-                            <span id="apprenticeship-declaration-alert" class="alert alert-name-green">Continue to IDAMS</span>
-                            {% else %}
-                            <span id="apprenticeship-declaration-alert" class="alert alert-name-green">Continue to apprenticeship service</span>
-                            {% endif %}
-                        </a>
+                        <div class="tile-wrap">
+                            <h3>Contracts and agreements</h3>
+                            <p>Suspendisse non metus pretium, imperdiet velit sed, consectetur sem. Aliquam gravida metus est, eu condimentum lacu.</p>
+                            <a href="">View contracts</a>
+                        </div>
                     </div>
 
                     <div class="column-third margin-top">
-                        <a id="contractsAndAgreements" class="dashboard-links" href="#">
-                            <span id="contracts-and-agreements-service" class="service-name">Contracts and agreements</span>
-                            <!-- <span id="contracts-and-agreements-alert" class="alert alert-name-red">2 new contracts</span> -->
-                            <span id="contracts-and-agreements-alert" class="alert alert-name-green">View contracts</span>
-                        </a>
+                        <div class="tile-wrap">
+                            <h3>Document exchange</h3>
+                            <p>Suspendisse non metus pretium, imperdiet velit sed, consectetur sem. Aliquam gravida metus est, eu condimentum lacu.</p>
+                            <a href="">View documents</a>
+                        </div>
                     </div>
 
                 </div>
 
+                <hr class="govuk-!-margin-top-8">
+
+                <h2 class="heading-medium">Other services</h2>
+
                 <div class="grid-row">
 
                     <div class="column-third margin-top">
-                        <a id="documentExchange" class="dashboard-links" href="#">
-                            <span id="document-exchange-service" class="service-name">Document exchange</span>
-                            <!-- <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span> -->
-                            <span id="document-exchange-alert" class="alert alert-name-green">View documents</span>
-                        </a>
+                        <div class="tile-wrap">
+                            <h3>Apprenticeship service</h3>
+                            <p>Suspendisse non metus pretium, imperdiet velit sed, consectetur sem. Aliquam gravida metus est, eu condimentum lacu.</p>
+                            <a href="">Continue to IDAMS</a>
+                        </div>
                     </div>
 
                 </div>
