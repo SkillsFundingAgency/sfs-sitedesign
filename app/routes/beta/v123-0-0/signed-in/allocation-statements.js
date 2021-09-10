@@ -829,6 +829,54 @@ router.get('/' + version + '/signed-in/sign-in-roles/no-access', function (req, 
 });
 
 
+/* - - - - Page warning users they will need to current role to access the apprenticeship service - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/apprenticeship-roles', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/apprenticeship-roles', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/* - - - - Page prompting the user that their apprenticeship agreement is unsigned - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/apprenticeship-unsigned', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/apprenticeship-unsigned', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/* - - - - Page that will be displayed if the user has no apprenticeship service agreement - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/apprenticeship-no-agreement', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/apprenticeship-no-agreement', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
