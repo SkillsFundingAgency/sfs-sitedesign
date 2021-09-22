@@ -877,6 +877,23 @@ router.get('/' + version + '/signed-in/sign-in-roles/apprenticeship-no-agreement
 	});
 });
 
+/* - - - - Alternative roles page (temp) - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles/apprenticeship-roles-alt', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles/apprenticeship-roles-alt', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
