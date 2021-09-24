@@ -25,6 +25,16 @@
                 </legend>
             </div>
 
+            {% if scenario == '1' %}
+            <div class="panel panel-border-narrow govuk-!-margin-top-0 govuk-!-margin-bottom-7">
+                <p>
+                    <span style="font-weight:bold;">Apprenticeship cohorts cannot be approved until the agreement is signed.</span><br>
+                    You can sign the agreement if you have the 'sign contracts and agreements' user role.
+                </p>
+            </div>
+
+            {% else %}
+
             <div class="govuk-warning-text custom">
                 <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
                 <strong class="govuk-warning-text__text">
@@ -35,16 +45,20 @@
                 </strong>
             </div>
 
+            {% endif %}
+
             <!-- <div class="panel panel-border-narrow govuk-!-margin-top-0 govuk-!-margin-bottom-7">
                 <p class="govuk-!-margin-bottom-2">You need the 'sign contracts and agreements' user role to sign this agreement.</p>
                 <a href="">Request this role through IDAMS</a>
             </div> -->
 
-            <div class="govuk-button-group govuk-!-margin-top-6">
+            <!-- <div class="govuk-button-group govuk-!-margin-top-6">
                 <button id="app-roles-button" class="govuk-button govuk-font-size-19" onclick="window.location.href='no-access'" data-module="govuk-button" type="button">
                   Sign your apprenticeship agreement
                 </button>
-            </div>
+            </div> -->
+
+            <a href="no-access">Sign your apprenticeship agreement</a>
 
             <h2 class="heading-medium float-reset govuk-!-margin-top-8 govuk-!-margin-bottom-6">Using the apprenticeship service without a signed agreement</h2>
             <p>You can:</p>
