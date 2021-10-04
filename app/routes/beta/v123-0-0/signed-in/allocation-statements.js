@@ -877,6 +877,38 @@ router.get('/' + version + '/signed-in/sign-in-roles/apprenticeship-no-agreement
 	});
 });
 
+/* - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - ALTERNATE VERSION OF SIGN-IN-ROLES BASED ON PRE-PROD ENVIRONMENT - - - - */
+/* - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - */
+
+router.get('/' + version + '/signed-in/sign-in-roles-alt/dashboard', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles-alt/dashboard', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/sign-in-roles-alt/view-your-roles', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles-alt/view-your-roles', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 
 	/**********

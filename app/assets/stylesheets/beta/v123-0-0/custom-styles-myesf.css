@@ -2690,23 +2690,35 @@ dialog {
 /* - Experimenting with tiles - */
 /* - - - - - - -- - - - - - - - */
 
+.dashboard-item {
+	height:220px;
+}
+
+.dashboard-item:nth-child(1),
+.dashboard-item:nth-child(2),
+.dashboard-item:nth-child(3) {
+	margin-bottom:15px;
+}
+
 .tile-wrap {
 	border: 2px solid #4a4a4a;
     border-radius: 6px;
     box-sizing: border-box;
     overflow: hidden;
-	width:100%;
-	max-width:340px;
-    padding: 20px 20px 70px;
+    width: 100%;
+    height: 150px;
+    max-height: 150px;
+    max-width: 340px;
+    padding: 15px 20px 70px;
     position: relative;
 }
 
 .tile-wrap h3 {
-	font-weight: bold;
+    font-weight: bold;
     font-size: 22px;
     width: 100%;
     display: block;
-    line-height: 22px;
+    line-height: 27px;
     margin-bottom: 25px;
 }
 
@@ -2763,6 +2775,7 @@ dialog {
 .alert-wrap {
     font-size: 16px;
     font-weight: bold;
+	line-height: 24px;
     color: #003078;
     margin: 15px 0px 10px;
 }
@@ -2771,9 +2784,9 @@ dialog {
     font-weight: bold;
     font-size: 21px;
     padding: 0px 0px 0px 9px;
-    height: 28px;
+    height: 27px;
     box-sizing: border-box;
-    width: 28px;
+    width: 27px;
     border: 2px solid #003078;
     border-radius: 50%;
     display: inline-block;
@@ -2945,4 +2958,42 @@ span.has-email-alerts span.text {
     font-size: 15px;
 }
 
+/* - Full-hover tile variant - */
 
+.tile-wrap.variant a {
+	background-color:transparent;
+	position:absolute;
+}
+
+.tile-wrap.variant * {
+	z-index:1;
+	position:relative;
+}
+
+.tile-wrap.variant span {
+	z-index: 0;
+    position: absolute;
+    width: 100%;
+    background-color: #00703c;
+    height: 47px;
+    display: block;
+    bottom: 0px;
+    left: 0px;
+}
+
+.tile-wrap.variant:hover {
+	cursor:pointer;
+}
+
+.tile-wrap.variant:hover span {
+	height:100%;
+}
+
+.tile-wrap.variant:hover h3 {
+	color:#FFF;
+}
+
+.tile-wrap.variant span,
+.tile-wrap.variant h3 {
+	transition:0.2s all ease-in-out;
+}
