@@ -668,8 +668,13 @@
                                             <td class="govuk-table__cell govuk-table__cell--numeric">National funding formula</td>
                                         </tr>                                        
                                         <tr class="govuk-table__row">
-                                            <th scope="row" class="table-header-normal">Minimum distance from second nearest school (miles) set by local authority</th>
+                                            {% if scenario == '8' %}
+                                            <th scope="row" class="table-header-normal">Distance threshold set by your local authority</th>
+                                            <td class="govuk-table__cell govuk-table__cell--numeric">2.777777</td>
+                                            {% else %}
+                                            <th scope="row" class="table-header-normal">Default distance threshold set by your local authority</th>
                                             <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+                                            {% endif %}
                                         </tr>
                                         <tr class="govuk-table__row">
                                             <th scope="row" class="table-header-normal">Academy's distance from second nearest eligible school (miles)</th>
