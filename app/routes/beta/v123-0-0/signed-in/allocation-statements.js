@@ -909,6 +909,38 @@ router.get('/' + version + '/signed-in/sign-in-roles-alt/view-your-roles', funct
 	});
 });
 
+/* - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - */
+/* - - - - ALTERNATE VERSION OF SIGN-IN-ROLES BASED ON PRE-PROD ENVIRONMENT - - - - */
+/* - - - - - - - - - - - - - - - - - -- - - - - - - - - - - - - - - - - - - - - - - */
+
+router.get('/' + version + '/signed-in/recoupment/variance-selection', function (req, res) {
+
+	res.render(version + '/signed-in/recoupment/variance-selection', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/recoupment/recoupment-report', function (req, res) {
+
+	res.render(version + '/signed-in/recoupment/recoupment-report', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 
 	/**********

@@ -1,0 +1,456 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Recoupment report
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../child/dashboard">Home</a></li>
+                        <li><a href="variance-selection">Select how to compare your figures</a></li>
+                        <li>Recoupment report</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h1 class="heading-xlarge govuk-!-margin-bottom-8">
+                Recoupment report 2021 to 2022
+                <span class="heading-secondary">
+                    <span class="bold-medium">1 April 2021</span>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
+                </span>
+            </h1>
+
+            <div class="show-on-print">
+                <h2 class="heading-large govuk-!-margin-bottom-4">{{organisationName}} (UKPRN: 12345678)</h2>
+            </div>
+
+            <!-- Variance Notice -->
+
+            <div class="govuk-warning-text custom">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    <p class="govuk-font-size-19">
+                        {% if scenario == 1 %}
+                            The figures in this report are being compared to the APT
+                        {% else %}
+                            The figures in this report are not being compared to the APT
+                        {% endif %}
+                    </p>
+                    <a href="variance-selection" class="govuk-font-size-19">Change statement view</a>
+                </strong>
+            </div>
+
+            <!-- Total figure -->
+
+            <div class="form-group govuk-!-margin-bottom-8">
+                <h2 class="lede govuk-!-margin-bottom-4">Total recoupment<br>
+                <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                    £1,105,366
+                </span>
+                </h2>
+            </div>
+
+            <!-- Print and Save -->
+
+            <div class="form-block">
+                <section class="form-block attachment embedded">
+                    <div class="print-a-document-container">
+                        <div class="print-icon">
+                            <i class="fa fa-print fa-print-large" title="Print" aria-hidden="true"></i><span class="sr-only">Print</span>
+                        </div>
+                        <div class="print-a-document">
+                            <a class="print-page" href="#">Save or print this statement</a>
+                        </div>
+                    </div>
+                    <div class="download-a-document-container-new">
+                        <div class="download-icon">
+                            <i class="fa fa-file" title="Document" aria-hidden="true"></i><span class="sr-only">Document</span>
+                        </div>
+                        <div class="download-a-document-new">
+                            <a href="/public/documents/{{version}}/signed-in/external/allocation-statements/16-to-19/funding-breakdown-fe/16-to-19_2021-to-2022_published-12-09-2021_casterbridge-college.csv">Download the raw data for this statement (XLSX, 20MB)</a>
+                            <br>
+                            <span class="download-a-document-content">
+                                <span class="download-a-document-section-2">
+                                    You may need a different format if you're using assistive technology. <a href="#attachment-1-accessibility-request" class="expand-hidden-section" data-controls="attachment-1-accessibility-request" data-expanded="false" role="button" aria-controls="attachment-1-accessibility-request" aria-expanded="false">Request an accessible format</a>.
+                                    <span id="attachment-1-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%0A%20%20Original%20format%3A%20csv%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m">
+
+            <!-- Guidance 5.4 -->
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">5.4 Academies opening from 11 January 2021 to April 2021 (inclusive)</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-9 break-after">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.4 Academies opening from 11 January 2021 to April 2021 (inclusive)</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Academy</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Rate</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Reason for <br>adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Total <br>recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Hillsborough College<br>(8888888)</td>
+                            <td class="govuk-table__cell table-column-default">01/08/28<br>Open 288 days</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">Private finance initiative</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88
+                                {% if scenario == '1' %}
+                                <p class="variance-text">
+                                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                                    <span class="sr-only">Increase</span> 
+                                    £8,888,888.88
+                                </p>
+                                {% else %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <details class="govuk-!-margin-bottom-2">
+                    <summary>
+                        <span class="summary">How this recoupment is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p>Recoupment is calculated using the following equation:</p>
+                        <p class="govuk-!-font-weight-bold">(Post MFG budget <span class="calc-symbol">&minus;</span> Rates) <span class="calc-symbol">&plus;</span> (Rates <span class="calc-symbol">&times;</span> 0.2) <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <p>This calculation allows for business rate adjustments.</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-3-for-academies-opening-from-11-january-2021-up-to-1-april-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about recoupment calculations (opens in new tab)</a>
+                    </div>
+                </details>
+            </div>
+  
+            <!-- Guidance 5.5 -->
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">5.5 Academies opening from 2 April 2021 to 1 September 2021 (inclusive)</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.5 Academies opening from 2 April 2021 to 1 September 2021 (inclusive)</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Academy</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Post <br>de-delegation <br>budget</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Rate</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">7/12 of <br>de-delegation</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Reason for <br>adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Total <br>recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Hillsborough College<br>(8888888)</td>
+                            <td class="govuk-table__cell table-column-default">01/08/28<br>Open 188 days</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">Infrastructural changes</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88
+                                {% if scenario == '1' %}
+                                <p class="variance-text">
+                                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                                    <span class="sr-only">Increase</span> 
+                                    £8,888,888.88
+                                </p>
+                                {% else %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <details class="govuk-!-margin-bottom-2">
+                    <summary>
+                        <span class="summary">How this recoupment is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We will recoup the de-delegated funding for the period September 2021 to March 2022 using the following equations:</p>
+                        <p class="govuk-!-font-weight-bold">(Post de-delegation budget <span class="calc-symbol">&minus;</span> Rates) <span class="calc-symbol">&plus;</span> (Rates <span class="calc-symbol">&times;</span> 0.2) <span class="calc-symbol">&equals;</span> Full year recoupment</p>
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We then pro-rata this into days that the academy is open.</p>
+                        <p class="govuk-!-font-weight-bold">(Full year recoupment <span class="calc-symbol">&divide;</span> 365) <span class="calc-symbol">&times;</span> Days open <span class="calc-symbol">&equals;</span> Recoupment adjusted pro rata</p>
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We finally add the de-delegated funding pro-rata.</p>
+                        <p class="govuk-!-font-weight-bold">7/12 of de-delegation<span class="calc-symbol">&plus;</span> Recoupment adjusted pro rata <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-4-for-academies-opening-from-2-april-2021-up-to-1-september-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about recoupment calculations (opens in new tab)</a>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Guidance 5.6 -->
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">5.6 Academies open from 2 September 2021 to 31 March 2022</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.6 Academies open from 2 September 2021 to 31 March 2022</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Academy</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Post <br>de-delegation <br>budget</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Rate</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Reason for <br>adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Total <br>recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Hillsborough College<br>(8888888)</td>
+                            <td class="govuk-table__cell table-column-default">01/08/28<br>Open 188 days</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">Example text goes here</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88
+                                {% if scenario == '1' %}
+                                <p class="variance-text">
+                                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                                    <span class="sr-only">Increase</span> 
+                                    £8,888,888.88
+                                </p>
+                                {% else %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <details class="govuk-!-margin-bottom-2">
+                    <summary>
+                        <span class="summary">How this recoupment is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We pro-rata the recoupment calculation for the days that the academy is open using the following equations:</p>
+                        <p class="govuk-!-font-weight-bold">(Post de-delegation budget <span class="calc-symbol">&minus;</span> Rates) <span class="calc-symbol">&plus;</span> (Rates <span class="calc-symbol">&times;</span> 0.2) <span class="calc-symbol">&equals;</span> Full year recoupment</p>
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We then pro-rata this into days that the academy is open.</p>
+                        <p class="govuk-!-font-weight-bold">(Full year recoupment <span class="calc-symbol">&divide;</span> 365) <span class="calc-symbol">&times;</span> Days open <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <p>We will not recoup the de-delegation funding for the financial year.</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-5-for-academies-opening-from-2-september-2021-up-to-31-march-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about recoupment calculations (opens in new tab)</a>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Guidance 5.7 -->
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">5.7 New free schools opening from 1 September to 31 March 2022</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.7 New free schools opening from 1 September to 31 March 2022</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Academy</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Reason for <br>adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Total <br>recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Hillsborough College<br>(8888888)</td>
+                            <td class="govuk-table__cell table-column-default">01/08/28<br>Open 188 days</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">Example text goes here</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88
+                                {% if scenario == '1' %}
+                                <p class="variance-text">
+                                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                                    <span class="sr-only">Increase</span> 
+                                    £8,888,888.88
+                                </p>
+                                {% else %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel panel-border-narrow">
+                    <p>We will recoup the full post MFG budget. We will not pro-rata this figure.</p>
+                </div>
+
+                <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-6-for-new-free-schools-opening-from-1-september-up-to-31-march-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about recoupment calculations (opens in new tab)</a>
+
+            </div>
+
+            <!-- Guidance 5.2 -->
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">5.2 Free schools open by September 2020</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.2 Free schools open by September 2020</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Academy</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Reason for <br>adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Total <br>recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Hillsborough College<br>(8888888)</td>
+                            <td class="govuk-table__cell table-column-default">01/08/28<br>Open 188 days</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">Example text goes here</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88
+                                {% if scenario == '1' %}
+                                <p class="variance-text">
+                                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                                    <span class="sr-only">Increase</span> 
+                                    £8,888,888.88
+                                </p>
+                                {% else %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel panel-border-narrow">
+                    <p>We will recoup the full post MFG budget.</p>
+                </div>
+
+                <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-1-for-free-schools-open-by-september-2020" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about recoupment calculations (opens in new tab)</a>            
+            </div>
+
+            <!-- Guidance 5.3 -->
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">5.3 Academies open up to 11 January 2021 (inclusive)</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.3 Academies open up to 11 January 2021 (inclusive)</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Academy</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Growth fund</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Reason for <br>adjustment</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-eighth">Total <br>recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Hillsborough College<br>(8888888)</td>
+                            <td class="govuk-table__cell table-column-default">01/08/28<br>Open 188 days</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">£8,888.88</td>
+                            <td class="govuk-table__cell table-column-default">Example text goes here</td>
+                            <td class="govuk-table__cell table-column-default">£8,888,888.88
+                                {% if scenario == '1' %}
+                                <p class="variance-text">
+                                    <i class="fas fa-caret-up fa-lg increase" title="Increase" aria-hidden="true"></i>
+                                    <span class="sr-only">Increase</span> 
+                                    £8,888,888.88
+                                </p>
+                                {% else %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <details class="govuk-!-margin-bottom-2">
+                    <summary>
+                        <span class="summary">How this recoupment is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p>Recoupment is calculated using the following equation:</p>
+                        <p class="govuk-!-font-weight-bold">Post MFG budget <span class="calc-symbol">&minus;</span> Growth fund <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-2-for-academies-open-up-to-11-january-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about recoupment calculations (opens in new tab)</a>
+                    </div>
+                </details>
+            </div>
+
+            <!-- End guidance tables -->
+
+            <div class="form-group direction-rtl">
+                <a class="app-c-back-to-top dont-print" href="#content">
+                    <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                        <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                    </svg>
+                    Back to top
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
