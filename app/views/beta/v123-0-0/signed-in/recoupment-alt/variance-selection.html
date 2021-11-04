@@ -24,18 +24,18 @@
                 <nav>
                     <ol>
                         <li><a href="../../child/dashboard">Home</a></li>
-                        <li>Select how to compare your figures</li>
+                        <li>Select how to view your figures</li>
                     </ol>
                 </nav>
             </div>
 
             <!-- content -->
 
-            <div class="govuk-form-group govuk-!-margin-top-8">
+            <div class="govuk-form-group govuk-!-margin-top-6">
                 <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
                   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="heading-large govuk-!-margin-bottom-4 govuk-!-margin-top-0">
-                        Select how you want to view your report
+                        Select which view you wish to use
                     </h1>
                   </legend>
 
@@ -49,17 +49,17 @@
                     <span class="govuk-visually-hidden">Error:</span> Select a comparison view
                   </span>
 
-                  <div class="govuk-radios radio-test-block">
+                  <div class="govuk-radios radio-test-block govuk-!-margin-top-4">
                     <div class="govuk-radios__item">
                       <input class="govuk-radios__input" id="radiotest-1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                       <label class="govuk-label govuk-radios__label" for="sign-in">
-                        Show totals as amount recouped
+                        View recoupment
                       </label>
                     </div>
                     <div class="govuk-radios__item govuk-!-margin-top-4">
                       <input class="govuk-radios__input" id="radiotest" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                       <label class="govuk-label govuk-radios__label" for="sign-in">
-                        Show totals as amount retained
+                        View retainment
                       </label>
                     </div>
                   </div>
@@ -93,10 +93,10 @@
 <script type="text/javascript">
   function radioVariant() {
     if(document.getElementById('radiotest-1').checked) {
-        document.getElementById('exampleRadioLink').onclick = location.href='../recoupment/recoupment-report';
+        document.getElementById('exampleRadioLink').onclick = location.href='../recoupment-alt/recoupment-report';
     }
     else if(document.getElementById('radiotest').checked) {
-        document.getElementById('exampleRadioLink').onclick = location.href='../recoupment/recoupment-report?scenario=1';
+        document.getElementById('exampleRadioLink').onclick = location.href='../recoupment-alt/retainment-report';
     }
     else {
       $(".govuk-form-group").addClass("govuk-form-group--error");

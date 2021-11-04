@@ -35,15 +35,15 @@
                 <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
                   <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                     <h1 class="heading-large govuk-!-margin-bottom-4 govuk-!-margin-top-0">
-                        Select how you want to view your report
+                        Select how you want to compare your report
                     </h1>
                   </legend>
 
-                  <!-- <div class="govuk-!-margin-bottom-6">
+                  <div class="govuk-!-margin-bottom-6">
                     <div class="panel panel-border-narrow">
                         <p>Comparing figures from the authority pro forma tool (APT) will show increases and decreases.</p>
                     </div>
-                  </div> -->
+                  </div>
 
                   <span id="passport-issued-error" class="hide govuk-error-message">
                     <span class="govuk-visually-hidden">Error:</span> Select a comparison view
@@ -53,13 +53,13 @@
                     <div class="govuk-radios__item">
                       <input class="govuk-radios__input" id="radiotest-1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                       <label class="govuk-label govuk-radios__label" for="sign-in">
-                        Show totals as amount recouped
+                        Compare to the APT
                       </label>
                     </div>
                     <div class="govuk-radios__item govuk-!-margin-top-4">
                       <input class="govuk-radios__input" id="radiotest" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                       <label class="govuk-label govuk-radios__label" for="sign-in">
-                        Show totals as amount retained
+                        No comparison
                       </label>
                     </div>
                   </div>
@@ -92,10 +92,10 @@
 
 <script type="text/javascript">
   function radioVariant() {
-    if(document.getElementById('radiotest-1').checked) {
+    if(document.getElementById('radiotest').checked) {
         document.getElementById('exampleRadioLink').onclick = location.href='../recoupment/recoupment-report';
     }
-    else if(document.getElementById('radiotest').checked) {
+    else if(document.getElementById('radiotest-1').checked) {
         document.getElementById('exampleRadioLink').onclick = location.href='../recoupment/recoupment-report?scenario=1';
     }
     else {

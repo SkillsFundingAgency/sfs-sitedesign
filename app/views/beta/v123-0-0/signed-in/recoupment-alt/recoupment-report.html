@@ -49,11 +49,7 @@
                 <strong class="govuk-warning-text__text">
                     <span class="govuk-warning-text__assistive">Warning</span>
                     <p class="govuk-font-size-19">
-                        {% if scenario == 1 %}
-                            The totals in this statement reflect the amount retained
-                        {% else %}
-                            The totals in this statement reflect the amount recouped
-                        {% endif %}
+                        The totals in this statement reflect the amount recouped
                     </p>
                     <a href="variance-selection" class="govuk-font-size-19">Change view</a>
                 </strong>
@@ -62,19 +58,11 @@
             <!-- Total figure -->
 
             <div class="form-group govuk-!-margin-bottom-8">
-                {% if scenario == 1 %}
-                <h2 class="lede govuk-!-margin-bottom-4">Total retained from the DSG<br>
-                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
-                        £9,366,756.77
-                    </span>
-                    </h2>
-                {% else %}
                 <h2 class="lede govuk-!-margin-bottom-4">Total recoupment from the DSG<br>
                     <span class="heading-large heading-funding-summary variance-heading-no-margin">
                         £35,467,682.41
                     </span>
-                    </h2>
-                {% endif %}
+                </h2>
             </div>
 
             <!-- Print and Save -->
@@ -138,17 +126,9 @@
             <!-- Recoupment Totals -->
 
             <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-4 float-reset">
-                {% if scenario == 1 %}
-                <h3 class="heading-medium">Total retained</h3>
-                {% else %}
                 <h3 class="heading-medium">Total recoupment</h3>
-                {% endif %}
                     <table class="govuk-table">
-                        {% if scenario == 1 %}
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Total retained</caption>
-                        {% else %}
                         <caption class="govuk-table__caption heading-small visuallyhidden">Total recoupment</caption>
-                        {% endif %}
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
                                 <th scope="col" class="govuk-table__header govuk-!-width-one-third">Opening date</th>
@@ -163,11 +143,7 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £12,124.16
-                                    {% else %}
                                     £4,749,669.09
-                                    {% endif %}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -180,11 +156,7 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £2,368,504.42
-                                    {% else %}
                                     £5,942,389.32
-                                    {% endif %}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -197,11 +169,7 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £6,831,090.38
-                                    {% else %}
                                     £6,007,343.57
-                                    {% endif %}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -214,11 +182,7 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £0.00
-                                    {% else %}
                                     £4,636,094.62
-                                    {% endif %}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -231,11 +195,7 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £0.00
-                                    {% else %}
                                     £2,875,306.44
-                                    {% endif %}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
@@ -248,20 +208,12 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £155,037.81
-                                    {% else %}
                                     £11,256,879.37
-                                    {% endif %}
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
                                 <th scope="row" class="table-header-normal">
-                                    {% if scenario == 1 %}
-                                    Total retained
-                                    {% else %}
                                     Total recoupment
-                                    {% endif %}
                                     <span class="table-column-mobile">
                                         <br>
                                         Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
@@ -269,11 +221,7 @@
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    {% if scenario == 1 %}
-                                    £9,366,756.77
-                                    {% else %}
                                     £35,467,682.41
-                                    {% endif %}
                                 </td>
                             </tr>
                         </tbody>
@@ -298,7 +246,7 @@
                             <th scope="col" class="govuk-table__header">Rate</th>
                             <th scope="col" class="govuk-table__header">Net adjustment</th>
                             <th scope="col" class="govuk-table__header">Total recoupment</th>
-                            <th scope="col" class="govuk-table__header">Total retained</th>
+                            <!-- <th scope="col" class="govuk-table__header">Total retained</th> -->
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -309,7 +257,7 @@
                             <td class="govuk-table__cell table-column-default">£4,147.20</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,248,587.77</td>
-                            <td class="govuk-table__cell table-column-default">£3,317.76</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£3,317.76</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Holy Rosary and St Anne's Catholic Primary School, a Voluntary Academy<br>(3833383)</td>
@@ -318,7 +266,7 @@
                             <td class="govuk-table__cell table-column-default">£3,635.20</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,087,746.76</td>
-                            <td class="govuk-table__cell table-column-default">£2,908.16</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£2,908.16</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Pheasey Park Farm Primary School and Early Years Centre<br>(3355203)</td>
@@ -327,7 +275,7 @@
                             <td class="govuk-table__cell table-column-default">£7,372.80</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£2,413,334.56</td>
-                            <td class="govuk-table__cell table-column-default">£5,898.24</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£5,898.24</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -346,18 +294,10 @@
 
                 <div class="total-allocation-wrapper govuk-!-margin-top-2">
                     <div class="total-allocation-label">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">Total retained</h2>
-                        {% else %}
                         <h2 class="heading-small">Total recoupment</h2>
-                        {% endif %}
                     </div>
                     <div class="total-allocation-amount">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">£12,124.16</h2>
-                        {% else %}
                         <h2 class="heading-small">£4,749,669.09</h2>
-                        {% endif %}
                     </div>
                 </div>
 
@@ -382,7 +322,7 @@
                             <th scope="col" class="govuk-table__header">7/12 of <br>de-delegation</th>
                             <th scope="col" class="govuk-table__header">Net adjustment</th>
                             <th scope="col" class="govuk-table__header">Total recoupment</th>
-                            <th scope="col" class="govuk-table__header">Total retained</th>
+                            <!-- <th scope="col" class="govuk-table__header">Total retained</th> -->
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -394,7 +334,7 @@
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£314,397.36</td>
-                            <td class="govuk-table__cell table-column-default">£111,543.38</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£111,543.38</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Oakmeadow Church of England Primary and Nursery School<br>(8935204)</td>
@@ -404,7 +344,7 @@
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,498,202.97</td>
-                            <td class="govuk-table__cell table-column-default">£159,569.03</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£159,569.03</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">St Monica's RC High School, a Voluntary Academy<br>(3514006)</td>
@@ -414,7 +354,7 @@
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£4,129,788.99</td>
-                            <td class="govuk-table__cell table-column-default">£2,097,392.01</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£2,097,392.01</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -436,18 +376,10 @@
 
                 <div class="total-allocation-wrapper govuk-!-margin-top-2">
                     <div class="total-allocation-label">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">Total retained</h2>
-                        {% else %}
                         <h2 class="heading-small">Total recoupment</h2>
-                        {% endif %}
                     </div>
                     <div class="total-allocation-amount">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">£2,368,504.42</h2>
-                        {% else %}
                         <h2 class="heading-small">£5,942,389.32</h2>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -470,7 +402,7 @@
                             <th scope="col" class="govuk-table__header">Rate</th>
                             <th scope="col" class="govuk-table__header">Net adjustment</th>
                             <th scope="col" class="govuk-table__header">Total recoupment</th>
-                            <th scope="col" class="govuk-table__header">Total retained</th>
+                            <!-- <th scope="col" class="govuk-table__header">Total retained</th> -->
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -481,7 +413,7 @@
                             <td class="govuk-table__cell table-column-default">£12,801.00</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£142,042.68</td>
-                            <td class="govuk-table__cell table-column-default">£746,936.76</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£746,936.76</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Garboldisham Church of England Primary Academy<br>(9262242)</td>
@@ -490,7 +422,7 @@
                             <td class="govuk-table__cell table-column-default">£1,172.65</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£155,551.16</td>
-                            <td class="govuk-table__cell table-column-default">£314,611.54</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£314,611.54</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Starbank School<br>(3304038)</td>
@@ -499,7 +431,7 @@
                             <td class="govuk-table__cell table-column-default">£35,525.12</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£5,709,749.73</td>
-                            <td class="govuk-table__cell table-column-default">£5,769,542.08</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£5,769,542.08</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -520,18 +452,10 @@
 
                 <div class="total-allocation-wrapper govuk-!-margin-top-2">
                     <div class="total-allocation-label">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">Total retained</h2>
-                        {% else %}
                         <h2 class="heading-small">Total recoupment</h2>
-                        {% endif %}
                     </div>
                     <div class="total-allocation-amount">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">£6,831,090.38</h2>
-                        {% else %}
                         <h2 class="heading-small">£6,007,343.57</h2>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -553,7 +477,7 @@
                             <th scope="col" class="govuk-table__header">Post MFG budget</th>
                             <th scope="col" class="govuk-table__header">Net adjustment</th>
                             <th scope="col" class="govuk-table__header">Total recoupment</th>
-                            <th scope="col" class="govuk-table__header">Total retained</th>
+                            <!-- <th scope="col" class="govuk-table__header">Total retained</th> -->
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -563,7 +487,7 @@
                             <td class="govuk-table__cell table-column-default">£1,037,871.42</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,037,871.42</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£0.00</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Waterside Primary School<br>(8612045)</td>
@@ -571,7 +495,7 @@
                             <td class="govuk-table__cell table-column-default">£1,737,000.59</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,737,000.59</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£0.00</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Witton Middle School<br>(8852042)</td>
@@ -579,7 +503,7 @@
                             <td class="govuk-table__cell table-column-default">£1,861,222.61</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,861,222.61</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£0.00</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -591,18 +515,10 @@
 
                 <div class="total-allocation-wrapper govuk-!-margin-top-2">
                     <div class="total-allocation-label">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">Total retained</h2>
-                        {% else %}
                         <h2 class="heading-small">Total recoupment</h2>
-                        {% endif %}
                     </div>
                     <div class="total-allocation-amount">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">£0.00</h2>
-                        {% else %}
                         <h2 class="heading-small">£4,636,094.62</h2>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -624,7 +540,7 @@
                             <th scope="col" class="govuk-table__header">Post MFG budget</th>
                             <th scope="col" class="govuk-table__header">Net adjustment</th>
                             <th scope="col" class="govuk-table__header">Total recoupment</th>
-                            <th scope="col" class="govuk-table__header">Total retained</th>
+                            <!-- <th scope="col" class="govuk-table__header">Total retained</th> -->
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -634,7 +550,7 @@
                             <td class="govuk-table__cell table-column-default">£1,222,240.00</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,222,240.00</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£0.00</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Keyingham Primary School<br>(8112014)</td>
@@ -642,7 +558,7 @@
                             <td class="govuk-table__cell table-column-default">£821,407.10</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£821,407.10</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£0.00</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Nythe Primary School<br>(8662161)</td>
@@ -650,7 +566,7 @@
                             <td class="govuk-table__cell table-column-default">£831,659.34</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£831,659.34</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£0.00</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -662,18 +578,10 @@
                 
                 <div class="total-allocation-wrapper govuk-!-margin-top-2">
                     <div class="total-allocation-label">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">Total retained</h2>
-                        {% else %}
                         <h2 class="heading-small">Total recoupment</h2>
-                        {% endif %}
                     </div>
                     <div class="total-allocation-amount">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">£0.00</h2>
-                        {% else %}
                         <h2 class="heading-small">£2,875,306.44</h2>
-                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -696,7 +604,7 @@
                             <th scope="col" class="govuk-table__header">Growth fund</th>
                             <th scope="col" class="govuk-table__header">Net adjustment</th>
                             <th scope="col" class="govuk-table__header">Total recoupment</th>
-                            <th scope="col" class="govuk-table__header">Total retained</th>
+                            <!-- <th scope="col" class="govuk-table__header">Total retained</th> -->
                         </tr>
                     </thead>
                     <tbody class="govuk-table__body">
@@ -707,7 +615,7 @@
                             <td class="govuk-table__cell table-column-default">£132,290.16</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£9,733,885.20</td>
-                            <td class="govuk-table__cell table-column-default">£132,290.16</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£132,290.16</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Rufforth Primary School<br>(8162349)</td>
@@ -716,7 +624,7 @@
                             <td class="govuk-table__cell table-column-default">£10,664.32</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£468,688.70</td>
-                            <td class="govuk-table__cell table-column-default">£10,664.32</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£10,664.32</td> -->
                         </tr>
                         <tr class="govuk-table__row">
                             <td class="govuk-table__cell table-column-default">Somersham Primary School<br>(8732089)</td>
@@ -725,7 +633,7 @@
                             <td class="govuk-table__cell table-column-default">£12,083.33</td>
                             <td class="govuk-table__cell table-column-default">£0.00</td>
                             <td class="govuk-table__cell table-column-default">£1,054,305.47</td>
-                            <td class="govuk-table__cell table-column-default">£12,083.33</td>
+                            <!-- <td class="govuk-table__cell table-column-default">£12,083.33</td> -->
                         </tr>
                     </tbody>
                 </table>
@@ -743,18 +651,10 @@
 
                 <div class="total-allocation-wrapper govuk-!-margin-top-2">
                     <div class="total-allocation-label">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">Total retained</h2>
-                        {% else %}
                         <h2 class="heading-small">Total recoupment</h2>
-                        {% endif %}
                     </div>
                     <div class="total-allocation-amount">
-                        {% if scenario == 1 %}
-                        <h2 class="heading-small">£155,037.81</h2>
-                        {% else %}
                         <h2 class="heading-small">£11,256,879.37</h2>
-                        {% endif %}
                     </div>
                 </div>
             </div>
