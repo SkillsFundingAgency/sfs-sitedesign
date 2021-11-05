@@ -668,15 +668,24 @@
                                             <td class="govuk-table__cell govuk-table__cell--numeric">National funding formula</td>
                                         </tr>                                        
                                         <tr class="govuk-table__row">
+                                            <th scope="row" class="table-header-normal">Distance threshold (miles)</th>
+                                            <td class="govuk-table__cell govuk-table__cell--numeric">
                                             {% if scenario == '8' %}
-                                            <th scope="row" class="table-header-normal">Distance threshold
-                                                <span class="table-row-embed-text">Your local authority is using a distance taper</span>
-                                            </th>
-                                            <td class="govuk-table__cell govuk-table__cell--numeric">2</td>
+                                                3
                                             {% else %}
-                                            <th scope="row" class="table-header-normal">Distance threshold</th>
-                                            <td class="govuk-table__cell govuk-table__cell--numeric">3</td>
+                                                2.77777777777
                                             {% endif %}
+                                            </td>
+                                        </tr>
+                                        <tr class="govuk-table__row">
+                                            <th scope="row" class="table-header-normal">Does the local authority use the distance taper?</th>
+                                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                            {% if scenario == '8' %}
+                                                Yes
+                                            {% else %}
+                                                No
+                                            {% endif %}
+                                            </td>
                                         </tr>
                                         <tr class="govuk-table__row">
                                             <th scope="row" class="table-header-normal">Academy's distance from second nearest eligible school (miles)</th>
