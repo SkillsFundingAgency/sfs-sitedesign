@@ -111,8 +111,8 @@
                 <h3 class="govuk-tabs__title">Contents</h3>
                 <ul class="govuk-tabs__list" class="govuk-!-padding-bottom-7">
                     <li class="govuk-tabs__list-item"><a id="calculations-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#calculations">Recoupment calculations</a></li>
-                    <li class="govuk-tabs__list-item"><a id="comparisons-tab" class="govuk-tabs__tab print-trigger" href="#comparisons">APT budget submissions</a></li>
                     <li class="govuk-tabs__list-item"><a id="adjustments-tab" class="govuk-tabs__tab print-trigger" href="#adjustments">Anomalies</a></li>
+                    <li class="govuk-tabs__list-item"><a id="comparisons-tab" class="govuk-tabs__tab print-trigger" href="#comparisons">APT budget submission</a></li>
                 </ul>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
@@ -129,8 +129,7 @@
                 </details>
                 <!-- END -->
 
-                <!-- High needs - (START) -->
-            <section class="govuk-tabs__panel break-before" id="calculations">
+        <section class="govuk-tabs__panel break-before" id="calculations">
 
             <!-- Recoupment Totals -->
 
@@ -634,13 +633,76 @@
         
         <!-- Start Tab Two -->
 
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden break-before" id="adjustments">
+
+            <div id="studentnumbersection" class="govuk-!-margin-top-4 govuk-!-margin-bottom-2 float-reset">
+                <h3 class="heading-medium">Anomalies</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-2 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Anomalies</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Academy</th>
+                            <th scope="col" class="govuk-table__header">Positive anomaly</th>
+                            <th scope="col" class="govuk-table__header">Reason<br> for anomaly</th>
+                            <th scope="col" class="govuk-table__header">Negative anomaly</th>
+                            <th scope="col" class="govuk-table__header">Reason<br> for anomaly</th>
+                            <th scope="col" class="govuk-table__header">Net anomalies</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Brackenwood Junior School<br>(8502210)</td>
+                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <td class="govuk-table__cell table-column-default">N/A</td>
+                            <td class="govuk-table__cell table-column-default">-£20,564.00</td>
+                            <td class="govuk-table__cell table-column-default">Growth funding not paid by LA</td>
+                            <td class="govuk-table__cell table-column-default">-£20,564.00</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Farington Primary School<br>(8502012)</td>
+                            <td class="govuk-table__cell table-column-default">£24,152.64</td>
+                            <td class="govuk-table__cell table-column-default">GPN change</td>
+                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <td class="govuk-table__cell table-column-default">N/A</td>
+                            <td class="govuk-table__cell table-column-default">£24,152.64</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">St Monica's RC High School, a Voluntary Academy<br>(8504006)</td>
+                            <td class="govuk-table__cell table-column-default">£14,689.35</td>
+                            <td class="govuk-table__cell table-column-default">Growth funding adjustment</td>
+                            <td class="govuk-table__cell table-column-default">-£25,321.48</td>
+                            <td class="govuk-table__cell table-column-default">Rates</td>
+                            <td class="govuk-table__cell table-column-default">-£10,632.13</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#recoupment-adjustments" target="_blank">More about anomalies (opens in new tab)</a></p>
+                </div>
+
+                <div class="total-allocation-wrapper govuk-!-margin-top-2">
+                    <div class="total-allocation-label">
+                        <h2 class="heading-small">Total anomalies</h2>
+                    </div>
+                    <div class="total-allocation-amount">
+                        <h2 class="heading-small">-£7,043.49</h2>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Start Tab Three -->
+
         <section class="govuk-tabs__panel break-before" id="comparisons">
 
             <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-4 float-reset">
                 
-                <h3 class="heading-medium">APT budget submissions</h3>
+                <h3 class="heading-medium">APT budget submission</h3>
                     <div class="panel panel-border-narrow">
-                        <p>You can compare the difference between your authority proforma tool (APT) budget submissions and the total recoupment amount.</p>
+                        <p>You can compare the difference between your authority proforma tool (APT) budget submission and the total recoupment amount.</p>
                     </div>
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small visuallyhidden">Differences</caption>
@@ -1086,74 +1148,7 @@
 
         </section>
 
-        <!-- Start Tab Three -->
-
-        <section class="govuk-tabs__panel govuk-tabs__panel--hidden break-before" id="adjustments">
-
-            <!-- Adjustments -->
-
-            <div id="studentnumbersection" class="govuk-!-margin-top-4 govuk-!-margin-bottom-2 float-reset">
-                <h3 class="heading-medium">Anomalies</h3>
-            </div>
-
-            <div class="govuk-!-margin-bottom-2 break-after ">
-
-                <table class="govuk-table first-element-in-tab">
-                    <caption class="govuk-table__caption heading-small visuallyhidden">Anomalies</caption>
-                    <thead class="govuk-table__head">
-                        <tr class="govuk-table__row">
-                            <th scope="col" class="govuk-table__header">Academy</th>
-                            <th scope="col" class="govuk-table__header">Positive anomaly</th>
-                            <th scope="col" class="govuk-table__header">Reason<br> for anomaly</th>
-                            <th scope="col" class="govuk-table__header">Negative anomaly</th>
-                            <th scope="col" class="govuk-table__header">Reason<br> for anomaly</th>
-                            <th scope="col" class="govuk-table__header">Net anomalies</th>
-                        </tr>
-                    </thead>
-                    <tbody class="govuk-table__body">
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell table-column-default">Brackenwood Junior School<br>(8502210)</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
-                            <td class="govuk-table__cell table-column-default">N/A</td>
-                            <td class="govuk-table__cell table-column-default">-£20,564.00</td>
-                            <td class="govuk-table__cell table-column-default">Growth funding not paid by LA</td>
-                            <td class="govuk-table__cell table-column-default">-£20,564.00</td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell table-column-default">Farington Primary School<br>(8502012)</td>
-                            <td class="govuk-table__cell table-column-default">£24,152.64</td>
-                            <td class="govuk-table__cell table-column-default">GPN change</td>
-                            <td class="govuk-table__cell table-column-default">£0.00</td>
-                            <td class="govuk-table__cell table-column-default">N/A</td>
-                            <td class="govuk-table__cell table-column-default">£24,152.64</td>
-                        </tr>
-                        <tr class="govuk-table__row">
-                            <td class="govuk-table__cell table-column-default">St Monica's RC High School, a Voluntary Academy<br>(8504006)</td>
-                            <td class="govuk-table__cell table-column-default">£14,689.35</td>
-                            <td class="govuk-table__cell table-column-default">Growth funding adjustment</td>
-                            <td class="govuk-table__cell table-column-default">-£25,321.48</td>
-                            <td class="govuk-table__cell table-column-default">Rates</td>
-                            <td class="govuk-table__cell table-column-default">-£10,632.13</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#recoupment-adjustments" target="_blank">More about anomalies (opens in new tab)</a></p>
-                </div>
-
-                <div class="total-allocation-wrapper govuk-!-margin-top-2">
-                    <div class="total-allocation-label">
-                        <h2 class="heading-small">Total anomalies</h2>
-                    </div>
-                    <div class="total-allocation-amount">
-                        <h2 class="heading-small">-£7,043.49</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- End Tables -->
-
-            </section>
-            <!-- End Tabs -->
+        <!-- End Tabs -->
 
         </div>
 
