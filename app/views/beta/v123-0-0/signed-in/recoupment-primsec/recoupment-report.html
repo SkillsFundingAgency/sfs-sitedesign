@@ -112,7 +112,7 @@
                 <ul class="govuk-tabs__list" class="govuk-!-padding-bottom-7">
                     <li class="govuk-tabs__list-item"><a id="calculations-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#calculations">Recoupment calculations</a></li>
                     <li class="govuk-tabs__list-item"><a id="adjustments-tab" class="govuk-tabs__tab print-trigger" href="#adjustments">Anomalies</a></li>
-                    <li class="govuk-tabs__list-item"><a id="comparisons-tab" class="govuk-tabs__tab print-trigger" href="#comparisons">APT budget submission</a></li>
+                    <li class="govuk-tabs__list-item"><a id="comparisons-tab" class="govuk-tabs__tab print-trigger" href="#comparisons">Difference to the APT</a></li>
                 </ul>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
@@ -135,105 +135,108 @@
 
             <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-4 float-reset">
                 <h3 class="heading-medium">Total recoupment</h3>
-                    <table class="govuk-table">
-                        <caption class="govuk-table__caption heading-small visuallyhidden">Total recoupment</caption>
-                        <thead class="govuk-table__head">
-                            <tr class="govuk-table__row">
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Opening date</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
-                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
-                            </tr>
-                        </thead>
-                        <tbody class="govuk-table__body">
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    <a href="#five-four">Academies opening from 11 January 2020 to 1 April 2020</a>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £4,749,669.09
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    <a href="#five-five">Academies opening from 2 April 2020 to 1 September 2020</a>
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £5,951,149.89
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    <a href="#five-six">Academies open from 2 September 2020 to 31 March 2021</a>
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £6,031,496.21
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    <a href="#five-seven">Free schools opening from 1 September 2020 to 31 March 2021</a>
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £4,615,530.62
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    <a href="#five-two">Free schools open by September 2020</a>
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £2,875,306.44
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    <a href="#five-three">Academies open up to 11 January 2020</a>
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £11,256,879.37
-                                </td>
-                            </tr>
-                            <tr class="govuk-table__row">
-                                <th scope="row" class="table-header-normal">
-                                    Total recoupment
-                                    <span class="table-column-mobile">
-                                        <br>
-                                        Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
-                                    </span>
-                                </th>
-                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £35,480,031.62
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="panel panel-border-narrow">
+                    <p>How we calculate recoupment depends on when the academy or free school opened in the academic year.</p>
+                </div>
+                <table class="govuk-table">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Total recoupment</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-third">Opening date</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default">Calculation</th>
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Sub-total</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                <a href="#five-four">Academies opening from 11 January 2020 to 1 April 2020</a>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £4,749,669.09
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                <a href="#five-five">Academies opening from 2 April 2020 to 1 September 2020</a>
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £5,951,149.89
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                <a href="#five-six">Academies open from 2 September 2020 to 31 March 2021</a>
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £6,031,496.21
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                <a href="#five-seven">Free schools opening from 1 September 2020 to 31 March 2021</a>
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £4,615,530.62
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                <a href="#five-two">Free schools open by September 2020</a>
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £2,875,306.44
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                <a href="#five-three">Academies open up to 11 January 2020</a>
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £11,256,879.37
+                            </td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <th scope="row" class="table-header-normal">
+                                Total recoupment
+                                <span class="table-column-mobile">
+                                    <br>
+                                    Calculation: <span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span>
+                                </span>
+                            </th>
+                            <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-equals" title="Equals" aria-hidden="true"></i><span class="sr-only">Equals</span></span></td>
+                            <td class="govuk-table__cell govuk-table__cell--numeric">
+                                £35,480,031.62
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
 
             <!-- Guidance 5.4 -->
@@ -453,7 +456,7 @@
                         <p class="govuk-!-font-weight-bold">(Post de-delegation budget <span class="calc-symbol">&minus;</span> Rates) <span class="calc-symbol">&plus;</span> (Rates <span class="calc-symbol">&times;</span> 0.2) <span class="calc-symbol">&equals;</span> Full year recoupment</p>
                         <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We then pro-rata this for the days the academy has been open:</p>
                         <p class="govuk-!-font-weight-bold">(Full year recoupment <span class="calc-symbol">&divide;</span> 365) <span class="calc-symbol">&times;</span> Days open <span class="calc-symbol">&equals;</span> Recoupment adjusted pro rata</p>
-                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We finally add the de-delegated funding pro-rata for 7 months of the year:</p>
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We finally add your retained de-delegated funding pro-rata for April to August:</p>
                         <p class="govuk-!-font-weight-bold">(Recoupment adjusted pro rata<span class="calc-symbol">&plus;</span>7 months de-delegation) <span class="calc-symbol">&plus;/&minus;</span> Net anomalies <span class="calc-symbol">&equals;</span> Total recoupment</p>
                         <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-4-for-academies-opening-from-2-april-2021-up-to-1-september-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a>
                     </div>
@@ -746,7 +749,9 @@
             </div>
 
             <div class="govuk-!-margin-bottom-2 break-after ">
-
+                <div class="panel panel-border-narrow">
+                    <p>Anomalies increase or decrease the recoupment amount. We will have agreed on the amounts and reasons with you.</p>
+                </div>
                 <table class="govuk-table first-element-in-tab">
                     <caption class="govuk-table__caption heading-small visuallyhidden">Anomalies</caption>
                     <thead class="govuk-table__head">
@@ -806,9 +811,9 @@
 
             <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-4 float-reset">
                 
-                <h3 class="heading-medium">APT budget submission</h3>
+                <h3 class="heading-medium">Difference to the APT</h3>
                     <div class="panel panel-border-narrow">
-                        <p>You can compare the difference between your authority proforma tool (APT) budget submission and the total recoupment amount.</p>
+                        <p>The calculations, growth funding and anomalies can cause differences between your authority proforma tool (APT) budget submission and the total recoupment amount.</p>
                     </div>
                     <table class="govuk-table">
                         <caption class="govuk-table__caption heading-small visuallyhidden">Differences</caption>
@@ -838,8 +843,7 @@
                                     </span>
                                 </th>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"><span class="calc-letter"><i class="fas fa-plus" title="Plus" aria-hidden="true"></i><span class="sr-only">Plus</span></span></td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">
-                                    £2,359,743.91
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£2,359,743.91
                                 </td>
                             </tr>
                             <tr class="govuk-table__row">
