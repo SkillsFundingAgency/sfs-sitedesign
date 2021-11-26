@@ -997,6 +997,20 @@ router.get('/' + version + '/signed-in/recoupment-primsec/recoupment-report', fu
 	});
 });
 
+router.get('/' + version + '/signed-in/recoupment-primsec/recoupment-history', function (req, res) {
+
+	res.render(version + '/signed-in/recoupment-primsec/recoupment-history', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
 	* MYESF (ALLOCATION STATEMENTS)
