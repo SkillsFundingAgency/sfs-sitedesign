@@ -913,9 +913,9 @@ router.get('/' + version + '/signed-in/sign-in-roles-alt/view-your-roles', funct
 /* - - - - RECOUPMENT FROM GSD - - - - */
 /* - - - - - - - - - - - - - - - - - - */
 
-router.get('/' + version + '/signed-in/recoupment/variance-selection', function (req, res) {
+router.get('/' + version + '/signed-in/recoupment/recoupment-report', function (req, res) {
 
-	res.render(version + '/signed-in/recoupment/variance-selection', {
+	res.render(version + '/signed-in/recoupment/recoupment-report', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -927,9 +927,23 @@ router.get('/' + version + '/signed-in/recoupment/variance-selection', function 
 	});
 });
 
-router.get('/' + version + '/signed-in/recoupment/recoupment-report', function (req, res) {
+router.get('/' + version + '/signed-in/recoupment/recoupment-report-real', function (req, res) {
 
-	res.render(version + '/signed-in/recoupment/recoupment-report', {
+	res.render(version + '/signed-in/recoupment/recoupment-report-real', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/recoupment/recoupment-history', function (req, res) {
+
+	res.render(version + '/signed-in/recoupment/recoupment-history', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
