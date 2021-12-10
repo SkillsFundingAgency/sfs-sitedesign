@@ -895,6 +895,20 @@ router.get('/' + version + '/signed-in/sign-in-roles-alt/dashboard', function (r
 	});
 });
 
+router.get('/' + version + '/signed-in/sign-in-roles-alt/dashboard-alt', function (req, res) {
+
+	res.render(version + '/signed-in/sign-in-roles-alt/dashboard-alt', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 router.get('/' + version + '/signed-in/sign-in-roles-alt/view-your-roles', function (req, res) {
 
 	res.render(version + '/signed-in/sign-in-roles-alt/view-your-roles', {
