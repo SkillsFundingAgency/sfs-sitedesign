@@ -2694,12 +2694,6 @@ dialog {
 	height:220px;
 }
 
-.dashboard-item:nth-child(1),
-.dashboard-item:nth-child(2),
-.dashboard-item:nth-child(3) {
-	margin-bottom:15px;
-}
-
 .tile-wrap {
 	border: 2px solid #4a4a4a;
     border-radius: 6px;
@@ -3043,3 +3037,50 @@ span.has-email-alerts span.text {
     margin-top: 5px;
     display: inline-block;
 }
+
+/* Additional dashboard styles - 12/21 */
+
+.dashboard-item {
+	margin-bottom:15px;
+}
+
+.alert-wrap {
+	max-width: 340px;
+}
+
+.alert-wrap p {
+	font-weight:bold;
+}
+
+.alert-wrap div:first-child {
+	width:10%;
+	float:left;
+	margin-right:3%;
+}
+
+.alert-wrap div:last-child {
+	width:87%;
+}
+
+@media (min-width: 641px) and (max-width: 915px) { 
+	.dashboard-item.column-third {
+		width:50%;
+		float:left;
+	}
+ }
+
+.dashboard-item.inactive .tile-wrap {
+	border-color: #b1b4b6;
+	color:#677979;
+ }
+
+ .dashboard-item.inactive .tile-wrap.variant:hover span,
+ .dashboard-item.inactive .tile-wrap span,
+ .dashboard-item.inactive .tile-wrap a {
+	 display:none;
+ }
+
+ .dashboard-item.inactive .tile-wrap.variant:hover h3 {
+	color:#677979;
+ }
+ 
