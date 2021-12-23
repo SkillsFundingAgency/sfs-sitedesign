@@ -2709,7 +2709,10 @@ dialog {
 
 .tile-wrap h3 {
     font-weight: bold;
+	color:#0b0c0c;
+	z-index:2;
     font-size: 22px;
+	position:relative;
     width: 100%;
     display: block;
     line-height: 27px;
@@ -2961,7 +2964,7 @@ span.has-email-alerts span.text {
 
 .tile-wrap.variant * {
 	z-index:1;
-	position:relative;
+	text-decoration: none;;
 }
 
 .tile-wrap.variant span {
@@ -3069,7 +3072,14 @@ span.has-email-alerts span.text {
 	}
  }
 
-.dashboard-item.inactive .tile-wrap {
+.dashboard-item.inactive .tile-wrap,
+.dashboard-item.inactive .tile-wrap h3,
+.dashboard-item.inactive .tile-wrap:hover {
+	cursor:default;
+}
+
+.dashboard-item.inactive .tile-wrap,
+.dashboard-item.inactive .tile-wrap h3 {
 	border-color: #b1b4b6;
 	color:#677979;
  }
@@ -3083,4 +3093,21 @@ span.has-email-alerts span.text {
  .dashboard-item.inactive .tile-wrap.variant:hover h3 {
 	color:#677979;
  }
+
+ .dashboard-item a {
+	 text-decoration: none;
+ }
  
+.tile-wrap p {
+	background-color: transparent;
+    color: #FFF;
+    position: absolute;
+    font-size: 18px;
+    width: 100%;
+    padding: 14px 10px 10px 20px;
+    left: 0px;
+    bottom: 0px;
+    font-weight: bold;
+    text-decoration: none;
+    box-sizing: border-box;
+}
