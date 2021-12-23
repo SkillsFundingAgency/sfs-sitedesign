@@ -941,6 +941,20 @@ router.get('/' + version + '/signed-in/recoupment/recoupment-report', function (
 	});
 });
 
+router.get('/' + version + '/signed-in/recoupment/recoupment-reports', function (req, res) {
+
+	res.render(version + '/signed-in/recoupment/recoupment-reports', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 router.get('/' + version + '/signed-in/recoupment/recoupment-report-real', function (req, res) {
 
 	res.render(version + '/signed-in/recoupment/recoupment-report-real', {
@@ -1052,6 +1066,7 @@ router.get('/' + version + '/signed-in/recoupment-primsec/recoupment-history', f
 		'scenario' : req.query.scenario
 	});
 });
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)

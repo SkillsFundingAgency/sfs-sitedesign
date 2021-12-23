@@ -1,0 +1,192 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Recoupment reports
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li>Recoupment reports</li>
+                    </ol>
+                </nav>
+            </div>
+
+                <!-- // Trying to use scenarios to tidy //
+
+                {% if scenario == '2' %}
+                <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Important
+                    </h2>
+                    </div>
+                    <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading">
+                        <h2 class="heading-small">Previous allocations can be found in your <a class="govuk-notification-banner__link" href="#">allocation history</a>.</h2>
+                    </p>
+                    </div>
+                </div>
+                {% else %} {% endif %}
+
+                {% if scenario == '1' %}
+                <h1 class="heading-xlarge govuk-!-margin-bottom-4">Allocation statements</h1>
+                <div class="govuk-inset-text govuk-!-margin-bottom-8">
+                    <h2 class="heading-small">Previous allocations can be found in your <a href="">allocation history</a>.</h2>
+                </div>
+                {% else %}
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+                {% endif %}
+
+                -->
+
+                <!-- Example One -->
+
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Recoupment reports</h1>
+                <!-- <div class="govuk-inset-text govuk-!-margin-bottom-8">
+                    <h2 class="heading-small">Previous allocations can be found in your <a href="">allocation history</a>.</h2>
+                </div> -->
+                
+                <!-- End Example One -->
+
+                <!-- Example Two (Standard)
+
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+
+                End Example Two -->
+
+                <div class="form-group">
+
+                <!-- COMPONENT - ACCORDION (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+
+                <!-- Start Indicative Statement -->
+
+            
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Recoupment from the dedicated
+                                        schools grant (DSG) 2020 to 2021</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        £40,864,703.42
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="hidden-sub-section">
+                                    £360,710
+                                    <br>
+                                </span>
+                                Published: 1 April 2021 <strong class="govuk-tag govuk-bgblue">Latest</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <!-- <h3 class="heading-medium heading-guidance">Funding breakdown</h3> -->
+
+                            <div class="funding-block">
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="recoupment-report-real">Recoupment calculations</a></h4>
+                                </div>
+                                <div class="funding-right-container">
+                                    <!-- <p class="funding-right-text">£342,720</p> -->
+                                </div>
+                            </div>
+
+                            <div class="funding-block">
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="recoupment-report-real#adjustments">Anomalies</a></h4>
+                                </div>
+                                <div class="funding-right-container">
+                                    <!-- <p class="funding-right-text">£342,720</p> -->
+                                </div>
+                            </div>
+
+                            <div class="funding-block">
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="recoupment-report-real#phasetotals">Phase totals</a></h4>
+                                </div>
+                                <div class="funding-right-container">
+                                    <!-- <p class="funding-right-text">£342,720</p> -->
+                                </div>
+                            </div>
+
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-0">Recoupment history</h3>
+                            <p><a href="recoupment-history">View history of recoupment</a></p>
+                            <!-- <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022 (opens in new tab)</a></li>
+                            </ul> -->
+                        </div>
+                
+                    </div>
+                </div>
+                <!-- COMPONENT - ACCORDION (END) -->
+
+            </div>
+
+            <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+            <!-- START-->
+            <details class="visuallyhidden">
+                <summary>
+                    <span class="summary">...</span>
+                </summary>
+                
+                <div class="panel panel-border-narrow">
+                    <p>...</p>             
+                </div>
+
+            </details>
+            <!-- END -->
+
+            <!-- <div class="form-group">
+                <details>
+                    <summary>
+                        <span class="summary">I'm looking for another funding type</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>
+                    </div>
+
+                </details>
+            </div> -->
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
