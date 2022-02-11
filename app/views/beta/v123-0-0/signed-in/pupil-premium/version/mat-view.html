@@ -1,0 +1,516 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Pupil premium
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../child/dashboard">Home</a></li>
+                        <li>Pupil Premium 2021 to 2022</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h1 class="heading-xlarge govuk-!-margin-bottom-8">
+                Pupil premium 2021 to 2022
+                <span class="heading-secondary govuk-!-margin-top-2">
+                    <span class="bold-medium">1 April 2021</span>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
+                </span>
+            </h1>
+
+            <div class="show-on-print">
+                <h2 class="heading-large govuk-!-margin-bottom-4">{{organisationName}} (UKPRN: 12345678)</h2>
+            </div>
+
+            <!-- Total figures -->
+
+            <div class="form-group govuk-!-margin-bottom-7">
+                <h2 class="lede govuk-!-margin-bottom-4">Total pupil premium<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                        £137,395
+                    </span>
+                </h2>
+            </div>
+<!-- 
+            <div class="primsec-totals form-group govuk-!-margin-bottom-6">
+                <h2 class="lede">Total recoupment from primary academies and free schools<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                        £21,265,764.07
+                    </span>
+                </h2>
+
+                <h2 class="lede">Total recoupment from secondary academies and free schools<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                        £19,598,939.35
+                    </span>
+                </h2>
+            </div> -->
+
+            <!-- Print and Save -->
+
+            <div class="form-block">
+                <section class="form-block attachment embedded">
+                    <div class="print-a-document-container">
+                        <div class="print-icon">
+                            <i class="fa fa-print fa-print-large" title="Print" aria-hidden="true"></i><span class="sr-only">Print</span>
+                        </div>
+                        <div class="print-a-document">
+                            <a class="print-page" href="#">Save or print this statement</a>
+                        </div>
+                    </div>
+                    <div class="download-a-document-container-new">
+                        <div class="download-icon">
+                            <i class="fa fa-file" title="Document" aria-hidden="true"></i><span class="sr-only">Document</span>
+                        </div>
+                        <div class="download-a-document-new">
+                            <a href="/public/documents/{{version}}/signed-in/external/allocation-statements/16-to-19/funding-breakdown-fe/16-to-19_2021-to-2022_published-12-09-2021_casterbridge-college.csv">Download the raw data for this statement (ODS, 6MB)</a>
+                            <br>
+                            <span class="download-a-document-content">
+                                <span class="download-a-document-section-2">
+                                    You may need a different format if you're using assistive technology. <a href="#attachment-1-accessibility-request" class="expand-hidden-section" data-controls="attachment-1-accessibility-request" data-expanded="false" role="button" aria-controls="attachment-1-accessibility-request" aria-expanded="false">Request an accessible format</a>.
+                                    <span id="attachment-1-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%0A%20%20Original%20format%3A%20csv%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m">
+
+
+
+            <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">Total pupil premium</h3>
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Total recoupment</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Pupil premium</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default"></th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    <a href="#anchor-one">Deprivation</a>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£131,950</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    <a href="#anchor-two">Service pupil premium Ever 6</a>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£3,100</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    <a href="#anchor-three">Pupil premium plus</a>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£2,345</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Total
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£137,395</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- Deprivation -->
+
+                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4 float-reset">
+                    <h3 id="anchor-one" class="heading-medium">Deprivation pupil premium</h3>
+                </div>
+
+                <div id="five-six" class="govuk-!-margin-top-4 float-reset">
+                    <h3 class="heading-medium recoupment-subheader">Primary free school meals 6 (FSM6) pupils</h3>
+                </div>
+
+                <!-- Primary FSM6 -->
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Primary free school meals 6 (FSM6)  pupils</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Pupils</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Burman Infant School<br>(3342001)</td>
+                                <td class="govuk-table__cell table-column-default">Community school</td>
+                                <td class="govuk-table__cell--numeric table-column-default">10</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£1,345</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£13,450</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£13,450</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <!-- <details class="govuk-!-margin-bottom-4">
+                        <summary>
+                            <span class="summary">How recoupment for this opening period is calculated</span>
+                        </summary>
+                        <div class="panel panel-border-narrow">
+                            <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Recoupment is calculated using the following equation:</p>
+                            <p class="govuk-!-font-weight-bold">(Post de-delegation budget <span class="calc-symbol">&minus;</span> Rates liability) <span class="calc-symbol">&equals;</span> Full year recoupment</p>
+                            <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We then pro-rata this for the days the academy has been open:</p>
+                            <p class="govuk-!-font-weight-bold">(Full year recoupment <span class="calc-symbol">&divide;</span> 365) <span class="calc-symbol">&times;</span> Days open <span class="calc-symbol">&plus;/&minus;</span> Net anomalies <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                            <p>We will not recoup the de-delegation funding for the financial year.</p>
+                            <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-5-for-academies-opening-from-2-september-2021-up-to-31-march-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a>
+                        </div>
+                    </details> -->
+                    <!-- <a href="#adjustments">View breakdown of anomalies</a> -->
+                </div>
+
+                <!-- <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Free school meals 6 (FSM6)  pupils eligible for deprivation</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric">Primary</th>
+                                <th scope="col" class="govuk-table__header--numeric">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric">Secondary</th>
+                                <th scope="col" class="govuk-table__header--numeric">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Burman Infant School<br>(3342001)</td>
+                                <td class="govuk-table__cell table-column-default">Community school</td>
+                                <td class="govuk-table__cell--numeric table-column-default">18</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£1,345</td>
+                                <td class="govuk-table__cell--numeric table-column-default">10</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£955</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£24,210</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£165,781.48</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> -->
+
+                <!-- Secondary FSM6 -->
+
+                <div id="five-six" class="govuk-!-margin-top-4 float-reset">
+                    <h3 class="heading-medium recoupment-subheader">Secondary free school meals 6 (FSM6) pupils</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Secondary free school meals 6 (FSM6) pupils</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Pupils</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Tudor Grange Academy<br>(3344014)</td>
+                                <td class="govuk-table__cell table-column-default">Community school</td>
+                                <td class="govuk-table__cell--numeric table-column-default">100</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£955</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£95,500</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£95,500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Primary NRPF -->
+
+                <div id="five-six" class="govuk-!-margin-top-4 float-reset">
+                    <h3 class="heading-medium recoupment-subheader">Primary pupils with no recourse to public funds (NRPF)</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Primary pupils with no recourse to public funds (NRPF)</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Pupils</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Balsall Common Primary School<br>(3344014)</td>
+                                <td class="govuk-table__cell table-column-default">Mainstream academy</td>
+                                <td class="govuk-table__cell--numeric table-column-default">10</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£1,345</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£13,450</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£13,450</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Secondary NRPF -->
+
+                <div id="five-six" class="govuk-!-margin-top-4 float-reset">
+                    <h3 class="heading-medium recoupment-subheader">Secondary pupils with no recourse to public funds (NRPF)</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Secondary pupils with no recourse to public funds (NRPF)</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Pupils</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">South Bank University Academy<br>(3341045)</td>
+                                <td class="govuk-table__cell table-column-default">Mainstream academy</td>
+                                <td class="govuk-table__cell--numeric table-column-default">10</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£955</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£9,550</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£9,550</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Secondary NRPF -->
+
+                <div id="five-six" class="govuk-!-margin-top-4 float-reset">
+                    <h3 class="heading-medium recoupment-subheader">Total deprivation pupil premium</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Total deprivation pupil premium</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric">Primary FSM6</th>
+                                <th scope="col" class="govuk-table__header--numeric">Secondary FSM6</th>
+                                <th scope="col" class="govuk-table__header--numeric">Primary NRPF</th>
+                                <th scope="col" class="govuk-table__header--numeric">Secondary NRPF</th>
+                                <th scope="col" class="govuk-table__header--numeric">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">South Bank University Academy<br>(3341045)</td>
+                                <td class="govuk-table__cell table-column-default">Mainstream academy</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£13,450</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£95,500</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£13,450</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£9,550</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£131,950</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£131,950</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- Service Child -->
+
+                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4 float-reset">
+                    <h3 id="anchor-two" class="heading-medium">Service pupil premium Ever 6</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Service pupil premium Ever 6</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Pupils</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Burman Infant School<br>(3342001)</td>
+                                <td class="govuk-table__cell table-column-default">Community school</td>
+                                <td class="govuk-table__cell--numeric table-column-default">10</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£310</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£3,100</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£3,100</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pupil Premium plus -->
+
+                <div class="govuk-!-margin-top-4 govuk-!-margin-bottom-4 float-reset">
+                    <h3 id="anchor-three" class="heading-medium">Pupil premium plus</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Pupil premium plus</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-fifth">School type</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Pupils</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Rate</th>
+                                <th scope="col" class="govuk-table__header--numeric govuk-!-width-one-fifth">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Burman Infant School<br>(3342001)</td>
+                                <td class="govuk-table__cell table-column-default">Community school</td>
+                                <td class="govuk-table__cell--numeric table-column-default">1</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£2,345</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£2,345</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£2,345</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+  
+            </div>
+
+
+            <!-- End guidance tables -->
+
+
+
+
+        </div>
+
+        <div class="form-block break-before">
+            <h3 class="heading-medium heading-guidance-final-section hide-on-print">Pupil premium history</h3>
+            <p class="hide-on-print"><a href="">View history of pupil premium</a></p>
+        </div>
+
+            <!-- <div class="form-group direction-rtl float-reset govuk-!-margin-top-8">
+                <a class="app-c-back-to-top dont-print" href="#content">
+                    <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                        <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                    </svg>
+                    Back to top
+                </a>
+            </div> -->
+
+            <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
+            <!-- reloads (an incremented number each time the page is loaded) -->
+            <span id="reloads" class="visuallyhidden">{{reloads}}</span>
+            <!-- tab = highneeds, studentfinancialsupport -->
+            <span id="tab" class="visuallyhidden">{{tab}}</span>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/tabs.js"></script>
+<!-- 16 to 19 -->
+<script src="/public/javascripts/{{version}}/16to19.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
