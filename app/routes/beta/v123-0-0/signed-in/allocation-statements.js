@@ -1097,6 +1097,20 @@ router.get('/' + version + '/signed-in/pupil-premium/version/single-view', funct
 	});
 });
 
+router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-statements', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/listing/allocation-statements', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+
 
 
 	/**********
