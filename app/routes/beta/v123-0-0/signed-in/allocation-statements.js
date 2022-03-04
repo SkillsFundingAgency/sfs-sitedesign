@@ -1123,6 +1123,19 @@ router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-
 	});
 });
 
+router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
