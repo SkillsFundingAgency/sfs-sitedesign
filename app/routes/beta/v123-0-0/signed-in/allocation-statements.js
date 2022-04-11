@@ -1150,6 +1150,103 @@ router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-histo
 });
 
 
+/* - - - - - - - - - - - - - - - - - - - */
+/* - - - - PUPIL PREMIUM JOURNEY - - - - */
+/* - - - - - - - - - - - - - - - - - - - */
+
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/mat-view', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/mat-view', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/single-view', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/single-view', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/single-view-dev', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/single-view-dev', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/listing/allocation-statements', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/listing/allocation-statements', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/pupil-premium-history', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/pupil-premium-history', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/pupil-premium-history-dev', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/pupil-premium-history-dev', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/dashboard', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/dashboard', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
 	* MYESF (ALLOCATION STATEMENTS)
