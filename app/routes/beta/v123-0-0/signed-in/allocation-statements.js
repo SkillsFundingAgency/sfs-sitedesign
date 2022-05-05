@@ -1246,6 +1246,21 @@ router.get('/' + version + '/signed-in/pupil-premium-journey/version/dashboard',
 	});
 });
 
+/* - - LA Pupil Premium - - */
+
+router.get('/' + version + '/signed-in/la-pupil-premium/la-pp', function (req, res) {
+	res.render(version + '/signed-in/la-pupil-premium/la-pp', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 	/**********
 	* SIGNED IN (EXTERNAL USERS)
