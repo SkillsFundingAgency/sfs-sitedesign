@@ -1136,6 +1136,19 @@ router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-histo
 	});
 });
 
+router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history-laedit', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history-laedit', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history-dev', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history-dev', {
 		'version' : version,
