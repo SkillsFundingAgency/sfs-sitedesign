@@ -1,0 +1,98 @@
+<!-- JavaScript (START) -->
+<script src="/node_modules/govuk-frontend/all.js"></script>
+<script src="/public/javascripts/details.polyfill.js"></script>
+<script src="/public/javascripts/bind.js"></script>
+<script src="/public/javascripts/jquery-1.11.3.js"></script>
+<script src="/public/javascripts/govuk/shim-links-with-button-role.js"></script>
+<script src="/public/javascripts/govuk/show-hide-content.js"></script>
+<script src="/public/javascripts/application.js"></script>
+<script src="/public/javascripts/accordion.js"></script>
+<script>
+
+
+    // only here to stop bug in testing when user goes through to second page with accordion and the second page has an accodion pre opened this closes all accordions on page load
+    (function (){
+        document.addEventListener("DOMContentLoaded", function(){
+
+            var e = document.getElementsByClassName("govuk-accordion__section");
+
+            for (let x of e) {
+                if(x.classList.contains("govuk-accordion__section--expanded")) {
+                    x.classList.remove("govuk-accordion__section--expanded")
+                }
+            }
+        });
+    })();
+
+
+	if ('addEventListener' in document && document.querySelectorAll) {
+		
+		document.addEventListener('DOMContentLoaded', function() {
+			
+			var accordions = document.querySelectorAll('.accordion');
+
+			for (var i = accordions.length - 1; i >= 0; i--) {
+				new Accordion(accordions[i]);
+			};
+
+		});
+	}
+
+	$(document).ready(function() {
+		
+		$('.confirmation-internal .button').click(function() {
+			
+			var choice = $('input[name=radio-inline-group]:checked').val();
+			
+			if (choice == "Yes") {
+				window.location.href = 'documents-to-review-published-remove-confirmation.html';
+				return false;
+			}
+			else {
+				window.location.href = 'documents-to-review.html';
+				return false;
+			}
+
+		});
+
+		$('.confirmation-review .button').click(function() {
+			
+			var choice = $('input[name=radio-inline-group]:checked').val();
+			
+			if (choice == "Yes") {
+				window.location.href = 'documents-to-review-remove-confirmation.html';
+			}
+			else {
+				window.location.href = 'documents-to-review.html';
+			}
+
+		});
+
+		var elem = document.getElementById("myBar"); 
+		var width = 0;
+		var id = setInterval(frame, 0);
+		
+		function frame() {
+            if (elem) {
+                if (width >= 100) {
+                    clearInterval(id);
+                } else {
+                    width++;
+                    elem.style.width = width + '%';
+                    $('#progress span').html(width * 1 + '%');
+                }
+
+            }
+        }
+	
+	});
+
+</script>
+<script src="/public/javascripts/listbox-collapsibe.js"></script>
+<script src="/public/javascripts/listbox.js"></script>
+<script src="/public/javascripts/utils.js"></script>
+{% if useAutoStoreData %}
+<script src="/public/javascripts/auto-store-data.js"></script>
+{% endif %}
+<script>window.GOVUKFrontend.initAll()</script>
+<!-- JavaScript (END) -->
