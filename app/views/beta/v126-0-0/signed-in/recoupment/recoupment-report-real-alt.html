@@ -1,0 +1,753 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Recoupment report
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../child/dashboard">Home</a></li>
+                        <li>Recoupment from the dedicated schools grant (DSG) 2020 to 2021</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h1 class="heading-xlarge govuk-!-margin-bottom-8">
+                Recoupment from the dedicated <br>schools grant (DSG) 2020 to 2021
+                <span class="heading-secondary govuk-!-margin-top-2">
+                    <span class="bold-medium">1 April 2021</span>
+                    <strong class="govuk-tag govuk-tag-secondary-heading govuk-bgblue">Latest</strong>
+                </span>
+            </h1>
+
+            <div class="show-on-print">
+                <h2 class="heading-large govuk-!-margin-bottom-4">{{organisationName}} (UKPRN: 12345678)</h2>
+            </div>
+
+            <!-- Total figures -->
+
+            <div class="form-group govuk-!-margin-bottom-7">
+                <h2 class="lede govuk-!-margin-bottom-4">Total recoupment from the DSG<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                        £44,979,865.76
+                    </span>
+                </h2>
+            </div>
+
+            <div class="primsec-totals form-group govuk-!-margin-bottom-6">
+                <h2 class="lede">Total recoupment from primary academies and free schools<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                        £21,265,764.07
+                    </span>
+                </h2>
+
+                <h2 class="lede">Total recoupment from secondary academies and free schools<br>
+                    <span class="heading-large heading-funding-summary variance-heading-no-margin">
+                        £23,714,101.69
+                    </span>
+                </h2>
+            </div>
+
+            <!-- Print and Save -->
+
+            <div class="form-block">
+                <section class="form-block attachment embedded">
+                    <div class="print-a-document-container">
+                        <div class="print-icon">
+                            <i class="fa fa-print fa-print-large" title="Print" aria-hidden="true"></i><span class="sr-only">Print</span>
+                        </div>
+                        <div class="print-a-document">
+                            <a class="print-page" href="#">Save or print this statement</a>
+                        </div>
+                    </div>
+                    <div class="download-a-document-container-new">
+                        <div class="download-icon">
+                            <i class="fa fa-file" title="Document" aria-hidden="true"></i><span class="sr-only">Document</span>
+                        </div>
+                        <div class="download-a-document-new">
+                            <a href="/public/documents/{{version}}/signed-in/external/allocation-statements/16-to-19/funding-breakdown-fe/16-to-19_2021-to-2022_published-12-09-2021_casterbridge-college.csv">Download the raw data for this statement (ODS, 6MB)</a>
+                            <br>
+                            <span class="download-a-document-content">
+                                <span class="download-a-document-section-2">
+                                    You may need a different format if you're using assistive technology. <a href="#attachment-1-accessibility-request" class="expand-hidden-section" data-controls="attachment-1-accessibility-request" data-expanded="false" role="button" aria-controls="attachment-1-accessibility-request" aria-expanded="false">Request an accessible format</a>.
+                                    <span id="attachment-1-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%0A%20%20Original%20format%3A%20csv%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27general%20annual%20grant%20allocation%20for%20{{organisationName}}%202021%20to%202022%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <hr class="govuk-section-break govuk-section-break--m">
+
+            <!-- Tabs -->
+
+            <div class="govuk-tabs clearfix" data-module="tabs">
+                <h3 class="govuk-tabs__title">Contents</h3>
+                <ul class="govuk-tabs__list" class="govuk-!-padding-bottom-7">
+                    <li class="govuk-tabs__list-item"><a id="calculations-tab" class="govuk-tabs__tab govuk-tabs__tab--selected print-trigger" href="#calculations">Recoupment calculations</a></li>
+                    <li class="govuk-tabs__list-item"><a id="adjustments-tab" class="govuk-tabs__tab print-trigger" href="#adjustments">Anomalies</a></li>
+                </ul>
+
+                <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+                <!-- START-->
+                <details class="visuallyhidden">
+                    <summary>
+                        <span class="summary">...</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>
+                    </div>
+
+                </details>
+                <!-- END -->
+
+        <section class="govuk-tabs__panel break-before" id="calculations">
+
+            <!-- Recoupment Totals -->
+
+            <div class="govuk-!-margin-bottom-8 govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium">Total recoupment</h3>
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Total recoupment</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-third">Academies and free schools</th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric table-column-default"></th>
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth govuk-table__header--numeric">Recoupment</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    <a href="#anchor-one">Recent academy conversions and free schools</a>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">
+                                    £4,280,943.82
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    <a href="#anchor-two">Existing academies and free schools</a>
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">
+                                    £40,698,921.94
+                                </td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal">
+                                    Total recoupment
+                                </th>
+                                <td class="govuk-table__cell govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">
+                                    £44,979,865.76
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <!-- Guidance 5.6 -->
+
+                <div id="five-four" class="govuk-!-margin-top-4 govuk-!-margin-bottom-4 float-reset">
+                    <h3 id="anchor-one" class="heading-medium">Recent academy conversions and free schools</h3>
+                </div>
+
+                <div id="five-six" class="govuk-!-margin-top-4 float-reset">
+                    <h3 class="heading-medium recoupment-subheader">Academies opened after 11 January 2020</h3>
+                </div>
+
+                <div class="govuk-!-margin-bottom-8 break-after ">
+
+                    <table class="govuk-table first-element-in-tab">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">5.6 Academies open from 2 September 2020 to 31 March 2021</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header govuk-!-width-one-sixth">Academy</th>
+                                <th scope="col" class="govuk-table__header">Phase</th>
+                                <th scope="col" class="govuk-table__header">Opening date</th>
+                                <th scope="col" class="govuk-table__header--numeric">Post <br>de-delegation <br>budget</th>
+                                <th scope="col" class="govuk-table__header--numeric">Rates liability</th>
+                                <th scope="col" class="govuk-table__header--numeric">Net anomalies</th>
+                                <th scope="col" class="govuk-table__header--numeric">Total recoupment</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Farington School<br>(8502012)</td>
+                                <td class="govuk-table__cell table-column-default">Secondary</td>
+                                <td class="govuk-table__cell table-column-default">01/02/2021<br>Open 59 days</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£888,979.44</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£12,801.00</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£24,152.64</td>
+                                <td class="govuk-table__cell--numeric table-column-default">£165,781.48</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell table-column-default">Total recoupment</td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default"></td>
+                                <td class="govuk-table__cell--numeric table-column-default">£165,781.48</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <details class="govuk-!-margin-bottom-4">
+                        <summary>
+                            <span class="summary">How recoupment for this opening period is calculated</span>
+                        </summary>
+                        <div class="panel panel-border-narrow">
+                            <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Recoupment is calculated using the following equation:</p>
+                            <p class="govuk-!-font-weight-bold">(Post de-delegation budget <span class="calc-symbol">&minus;</span> Rates liability) <span class="calc-symbol">&equals;</span> Full year recoupment</p>
+                            <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We then pro-rata this for the days the academy has been open:</p>
+                            <p class="govuk-!-font-weight-bold">(Full year recoupment <span class="calc-symbol">&divide;</span> 365) <span class="calc-symbol">&times;</span> Days open <span class="calc-symbol">&plus;/&minus;</span> Net anomalies <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                            <p>We will not recoup the de-delegation funding for the financial year.</p>
+                            <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-5-for-academies-opening-from-2-september-2021-up-to-31-march-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a>
+                        </div>
+                    </details>
+                    <a href="#adjustments">View breakdown of anomalies</a>
+                </div>
+  
+            <!-- Guidance 5.5 -->
+
+            <!-- <div id="five-five" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium recoupment-subheader">Academies opening from 2 April 2020 to 1 September 2020</h3>
+            </div> -->
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.5 Academies opening from 2 April 2020 to 1 September 2020</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-sixth">Academy</th>
+                            <th scope="col" class="govuk-table__header">Phase</th>
+                            <th scope="col" class="govuk-table__header">Opening date</th>
+                            <th scope="col" class="govuk-table__header--numeric">Post <br>de-delegation <br>budget</th>
+                            <th scope="col" class="govuk-table__header--numeric">Rates liability</th>
+                            <th scope="col" class="govuk-table__header--numeric">7 months de-delegation</th>
+                            <th scope="col" class="govuk-table__header--numeric">Net anomalies</th>
+                            <th scope="col" class="govuk-table__header--numeric">Total recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">St Monica's RC School<br>(8504006)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell table-column-default">01/08/2020<br>Open 243 days</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£6,227,181.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£30,000.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">-£10,632.13</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£4,115,162.34</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Total recoupment</td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default">£4,115,162.34</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <details class="govuk-!-margin-bottom-4">
+                    <summary>
+                        <span class="summary">How recoupment for this opening period is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">Recoupment is calculated using the following equation:</p>
+                        <p class="govuk-!-font-weight-bold">(Post de-delegation budget <span class="calc-symbol">&minus;</span> Rates liability) <span class="calc-symbol">&equals;</span> Full year recoupment</p>
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We then pro-rata this for the days the academy has been open:</p>
+                        <p class="govuk-!-font-weight-bold">(Full year recoupment <span class="calc-symbol">&divide;</span> 365) <span class="calc-symbol">&times;</span> Days open <span class="calc-symbol">&equals;</span> Recoupment adjusted pro rata</p>
+                        <p class="govuk-!-padding-bottom-0 govuk-!-margin-bottom-0">We finally add the de-delegated funding pro-rata for 7 months of the year:</p>
+                        <p class="govuk-!-font-weight-bold">(Recoupment adjusted pro rata<span class="calc-symbol">&plus;</span>7 months de-delegation) <span class="calc-symbol">&plus;/&minus;</span> Net anomalies <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-4-for-academies-opening-from-2-april-2021-up-to-1-september-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a>
+                    </div>
+                </details>
+                <a href="#adjustments">View breakdown of anomalies</a>
+            </div>
+
+            <!-- Guidance 5.4 -->
+
+            <!--
+
+            <div id="five-four" class="float-reset">
+                <h3 class="heading-medium recoupment-subheader">Academies opening from 11 January 2020 to April 2020</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-9 break-after">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.4 Academies opening from 11 January 2020 to April 2020</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Academy</th>
+                            <th scope="col" class="govuk-table__header">Phase</th>
+                            <th scope="col" class="govuk-table__header--numeric">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header--numeric">Rates liability</th>
+                            <th scope="col" class="govuk-table__header--numeric">Net anomalies</th>
+                            <th scope="col" class="govuk-table__header--numeric">Total recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Darley Dene School<br>(8502044)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,251,905.53</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£4,147.20</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,248,587.77</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Total recoupment</td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,248,587.77</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <details class="govuk-!-margin-bottom-2">
+                    <summary>
+                        <span class="summary">How recoupment for this opening period is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p>Recoupment is calculated using the following equation:</p>
+                        <p class="govuk-!-font-weight-bold">(Post MFG budget <span class="calc-symbol">&minus;</span> Rates liability) <span class="calc-symbol">&plus;/&minus;</span> Net anomalies <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-3-for-academies-opening-from-11-january-2021-up-to-1-april-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a>
+                    </div>
+                </details>
+
+            </div> -->
+
+            <!-- Guidance 5.7 -->
+
+            <div class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium recoupment-subheader">Free schools opened after 2 September 2020</h3>
+            </div>
+
+            <div class="panel govuk-!-margin-bottom-8 panel-border-narrow">
+                <p>No free schools have opened after September 2020.</p>
+            </div>
+
+            <!-- <div id="five-seven" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium recoupment-subheader">New free schools opening from 1 September 2020 to 31 March 2021</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.7 New free schools opening from 1 September 2020 to 31 March 2021</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Academy</th>
+                            <th scope="col" class="govuk-table__header">Phase</th>
+                            <th scope="col" class="govuk-table__header--numeric">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header--numeric">Net anomalies</th>
+                            <th scope="col" class="govuk-table__header--numeric">Total recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Brackenwood School<br>(8502210)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,037,871.42</td>
+                            <td class="govuk-table__cell--numeric table-column-default">-£20,564.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,017,307.42</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Total recoupment</td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,017,307.42</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel govuk-!-margin-bottom-4 panel-border-narrow">
+                    <p>We will recoup the full post MFG budget after anomalies.</p>
+                </div>
+                <p><a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-6-for-new-free-schools-opening-from-1-september-up-to-31-march-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a></p>
+                <a href="#adjustments">View breakdown of anomalies</a>
+
+            </div> -->
+
+            <!-- Guidance 5.3 -->
+
+            <div id="five-four" class="govuk-!-margin-top-8 govuk-!-margin-bottom-4 float-reset">
+                <h3 id="anchor-two" class="heading-medium">Existing academies and free schools</h3>
+            </div>
+
+            <div id="anchor-three" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium recoupment-subheader">Academies opened before 11 January 2020</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.3 Academies open up to 11 January 2020</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Academy</th>
+                            <th scope="col" class="govuk-table__header">Phase</th>
+                            <th scope="col" class="govuk-table__header--numeric">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header--numeric">Growth fund</th>
+                            <th scope="col" class="govuk-table__header--numeric">Net anomalies</th>
+                            <th scope="col" class="govuk-table__header--numeric">Total recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Beulah School<br>(8502095)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£970,952.29</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£970,952.29</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Carlton Bolling<br>(8504100)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£9,866,175.36</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£132,290.16</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£9,733,885.20</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Great Heath School<br>(8502103)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£2,086,010.40</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£2,086,010.40</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Highgate Academy<br>(8502061)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,377,276.90</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,377,276.90</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Rufforth School<br>(8502349)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£479,353.02</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£10,664.32</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£468,688.70</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Sidney Stringer Academy<br>(8502016)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£2,003,272.06</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£2,003,272.06</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Somersham School<br>(8502089)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,066,388.80</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£12,083.33</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,054,305.47</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">St Nicholas CofE School<br>(8503224)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£440,976.83</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£440,976.83</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Staplegrove Church School<br>(9333189)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£871,609.02</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£871,609.02</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">The Priory School<br>(8934368)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£4,584,379.19</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£4,584,379.19</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Total recoupment</td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default">£23,591,356.06</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <details class="govuk-!-margin-bottom-2">
+                    <summary>
+                        <span class="summary">How recoupment for this opening period is calculated</span>
+                    </summary>
+                    <div class="panel panel-border-narrow">
+                        <p>Recoupment is calculated using the following equation:</p>
+                        <p class="govuk-!-font-weight-bold">(Post MFG budget <span class="calc-symbol">&minus;</span> Growth fund) <span class="calc-symbol">&plus;/&minus;</span> Net anomalies <span class="calc-symbol">&equals;</span> Total recoupment</p>
+                        <a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-2-for-academies-open-up-to-11-january-2021-inclusive" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a>
+                    </div>
+                </details>
+
+            </div>
+
+            <!-- Guidance 5.2 -->
+
+            <div id="anchor-four" class="govuk-!-margin-top-4 float-reset">
+                <h3 class="heading-medium recoupment-subheader">Free schools opened before 2 September 2020</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-8 break-after ">
+
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">5.2 Free schools open by September 2020</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header">Free school</th>
+                            <th scope="col" class="govuk-table__header">Phase</th>
+                            <th scope="col" class="govuk-table__header--numeric">Post MFG budget</th>
+                            <th scope="col" class="govuk-table__header--numeric">Net anomalies</th>
+                            <th scope="col" class="govuk-table__header--numeric">Total recoupment</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Bude Park School<br>(8502902)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,177,998.20</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,177,998.20</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Cherry Tree School<br>(8503253)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,885,674.97</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,885,674.97</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Court Lane School<br>(8502644)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£2,009,021.80</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£2,009,021.80</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Disley School<br>(8502139)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,222,240.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,222,240.00</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Keyingham School<br>(8502014)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£821,407.10</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£821,407.10</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Nythe School<br>(8502161)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£831,659.34</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£831,659.34</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Old Bank School<br>(3822070)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£719,753.62</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£719,753.62</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Pool Hayes School<br>(8504106)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£5,919,429.17</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£5,919,429.17</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Skinners' Kent School<br>(8502045)</td>
+                            <td class="govuk-table__cell table-column-default">Secondary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£888,824.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£888,824.00</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Wellgate School<br>(8502142)</td>
+                            <td class="govuk-table__cell table-column-default">Primary</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,631,557.68</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£0.00</td>
+                            <td class="govuk-table__cell--numeric table-column-default">£1,631,557.68</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Total recoupment</td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default"></td>
+                            <td class="govuk-table__cell--numeric table-column-default">£17,107,565.88</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="panel govuk-!-margin-bottom-4 panel-border-narrow">
+                    <p>We will recoup the full post MFG budget after anomalies.</p>
+                </div>
+                <p><a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#example-1-for-free-schools-open-by-september-2020" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">More about this recoupment calculation (opens in new tab)</a></p>
+                <!-- <a href="#adjustments">View breakdown of anomalies</a> -->
+                
+            </div>
+
+
+            <!-- End guidance tables -->
+
+        </section>
+        <!-- End Tab One --> 
+        
+        <!-- Start Tab Two -->
+
+        <section class="govuk-tabs__panel govuk-tabs__panel--hidden break-before" id="adjustments">
+
+            <div id="anomalies-section" class="govuk-!-margin-top-4 govuk-!-margin-bottom-2 float-reset">
+                <h3 class="heading-medium">Anomalies</h3>
+            </div>
+
+            <div class="govuk-!-margin-bottom-2 break-after ">
+                <div class="panel panel-border-narrow">
+                    <p class="govuk-!-margin-bottom-2">Anomalies increase or decrease the recoupment amount we calculated from your APT. You will have contacted us to agree the amounts and reasons.</p>
+                    <p><a href="https://www.gov.uk/government/publications/academies-and-dedicated-schools-grant-recoupment/academies-and-dedicated-schools-grant-2021-to-2022-calculation-of-recoupment#recoupment-adjustments" target="_blank">More about anomalies (opens in new tab)</a></p>
+                </div>
+                <table class="govuk-table first-element-in-tab">
+                    <caption class="govuk-table__caption heading-small visuallyhidden">Anomalies</caption>
+                    <thead class="govuk-table__head">
+                        <tr class="govuk-table__row">
+                            <th scope="col" class="govuk-table__header govuk-!-width-one-quarter">Academy</th>
+                            <th scope="col" class="govuk-table__header">Positive anomaly</th>
+                            <th scope="col" class="govuk-table__header">Reason<br> for anomaly</th>
+                            <th scope="col" class="govuk-table__header">Negative anomaly</th>
+                            <th scope="col" class="govuk-table__header">Reason<br> for anomaly</th>
+                            <th scope="col" class="govuk-table__header">Net anomalies</th>
+                        </tr>
+                    </thead>
+                    <tbody class="govuk-table__body">
+                        <!-- <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Brackenwood School<br>(8502210)</td>
+                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <td class="govuk-table__cell table-column-default">N/A</td>
+                            <td class="govuk-table__cell table-column-default">-£20,564.00</td>
+                            <td class="govuk-table__cell table-column-default">Growth funding not paid by LA</td>
+                            <td class="govuk-table__cell table-column-default">-£20,564.00</td>
+                        </tr> -->
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Farington School<br>(8502012)</td>
+                            <td class="govuk-table__cell table-column-default">£24,152.64</td>
+                            <td class="govuk-table__cell table-column-default">Structural change adjustment</td>
+                            <td class="govuk-table__cell table-column-default">£0.00</td>
+                            <td class="govuk-table__cell table-column-default">N/A</td>
+                            <td class="govuk-table__cell table-column-default">£24,152.64</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">St Monica's RC School<br>(8504006)</td>
+                            <td class="govuk-table__cell table-column-default">£14,689.35</td>
+                            <td class="govuk-table__cell table-column-default">Growth funding adjustment</td>
+                            <td class="govuk-table__cell table-column-default">-£25,321.48</td>
+                            <td class="govuk-table__cell table-column-default">Rates liability</td>
+                            <td class="govuk-table__cell table-column-default">-£10,632.13</td>
+                        </tr>
+                        <tr class="govuk-table__row">
+                            <td class="govuk-table__cell table-column-default">Total net anomalies</td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell table-column-default"></td>
+                            <td class="govuk-table__cell table-column-default">£13,520.51</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+                
+        </section>
+
+        <!-- End Tabs -->
+
+        </div>
+
+        <div class="form-block break-before">
+            <h3 class="heading-medium heading-guidance-final-section hide-on-print">Recoupment history</h3>
+            <p class="hide-on-print"><a href="recoupment-history">View history of recoupment</a></p>
+        </div>
+
+            <!-- <div class="form-group direction-rtl float-reset govuk-!-margin-top-8">
+                <a class="app-c-back-to-top dont-print" href="#content">
+                    <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                        <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                    </svg>
+                    Back to top
+                </a>
+            </div> -->
+
+            <!-- Hidden hooks to pass variables between the server (Node.js) > client side (JavaScript and jQuery) -->
+            <!-- reloads (an incremented number each time the page is loaded) -->
+            <span id="reloads" class="visuallyhidden">{{reloads}}</span>
+            <!-- tab = highneeds, studentfinancialsupport -->
+            <span id="tab" class="visuallyhidden">{{tab}}</span>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/tabs.js"></script>
+<!-- 16 to 19 -->
+<script src="/public/javascripts/{{version}}/16to19.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
