@@ -1297,6 +1297,19 @@ router.get('/' + version + '/signed-in/pupil-premium-journey/version/listing/all
 	});
 });
 
+router.get('/' + version + '/signed-in/pupil-premium-journey/version/listing/allocation-statement-gag', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium-journey/version/listing/allocation-statement-gag', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 /* end*/
 router.get('/' + version + '/signed-in/pupil-premium-journey/version/pupil-premium-history', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium-journey/version/pupil-premium-history', {
