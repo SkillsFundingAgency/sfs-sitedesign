@@ -1096,6 +1096,37 @@ router.get('/' + version + '/signed-in/pupil-premium/version/single-view', funct
 		'scenario' : req.query.scenario
 	});
 });
+<<<<<<< Updated upstream
+=======
+/*single-viewed*/
+router.get('/' + version + '/signed-in/pupil-premium/version/single-viewed', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/single-viewed', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+/*single view*/
+
+router.get('/' + version + '/signed-in/pupil-premium/version/single-views', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/single-views', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+>>>>>>> Stashed changes
 
 router.get('/' + version + '/signed-in/pupil-premium/version/single-view-dev', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/single-view-dev', {
@@ -1174,7 +1205,23 @@ router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-histo
 		'scenario' : req.query.scenario
 	});
 });
+<<<<<<< Updated upstream
 
+=======
+// views pupil history
+router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history-views', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history-views', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+>>>>>>> Stashed changes
 /* - - - - - - - - - - - - - - - - - - - */
 /* - - - - PUPIL PREMIUM JOURNEY - - - - */
 /* - - - - - - - - - - - - - - - - - - - */
