@@ -1083,6 +1083,19 @@ router.get('/' + version + '/signed-in/pupil-premium/version/mat-view', function
 		'scenario' : req.query.scenario
 	});
 });
+//mat-vie-gag
+router.get('/' + version + '/signed-in/pupil-premium/version/mat-view-gag', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/mat-view-gag', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
 
 router.get('/' + version + '/signed-in/pupil-premium/version/single-view', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/single-view', {
@@ -1121,7 +1134,18 @@ router.get('/' + version + '/signed-in/pupil-premium/version/single-viewed', fun
 		'scenario' : req.query.scenario
 	});
 });
-
+router.get('/' + version + '/signed-in/pupil-premium/version/single-view-gag', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/single-view-gag', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
 
 router.get('/' + version + '/signed-in/pupil-premium/version/single-view-dev', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/single-view-dev', {
@@ -1138,6 +1162,19 @@ router.get('/' + version + '/signed-in/pupil-premium/version/single-view-dev', f
 
 router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-statements', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/listing/allocation-statements', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
+router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-statements-view', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/listing/allocation-statements-view', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -1202,6 +1239,30 @@ router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-histo
 });
 router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history-view', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history-view', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history-new', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history-new', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+router.get('/' + version + '/signed-in/pupil-premium/version/pupil-premium-history-new1', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/pupil-premium-history-new1', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
