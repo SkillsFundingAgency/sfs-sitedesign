@@ -1159,6 +1159,18 @@ router.get('/' + version + '/signed-in/pupil-premium/version/single-view-dev', f
 		'scenario' : req.query.scenario
 	});
 });
+router.get('/' + version + '/signed-in/pupil-premium/version/single-view-filter', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/single-view-filter', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
 
 router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-statements', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/listing/allocation-statements', {
@@ -1175,6 +1187,18 @@ router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-
 
 router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-statements-view', function (req, res) {
 	res.render(version + '/signed-in/pupil-premium/version/listing/allocation-statements-view', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+router.get('/' + version + '/signed-in/pupil-premium/version/listing/allocation-statements-filter', function (req, res) {
+	res.render(version + '/signed-in/pupil-premium/version/listing/allocation-statements-filter', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,

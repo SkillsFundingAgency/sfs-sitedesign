@@ -191,13 +191,14 @@ $(document).ready(function () {
         if (checkedAllFilters.length) {
 
             showAll = false;
-
+          
             checkedAllFilters.each(function() {
                 $("." + $(this).val()).show();
                 $("." + $(this).val()).removeClass("hidden");
                 $("." + $(this).val()).attr("aria-hidden", false);
                 $("." + $(this).val()).removeAttr("hidden");
             });
+           
         }
 
         // If no checkbox filters are ticked, then restore the default page list of items
