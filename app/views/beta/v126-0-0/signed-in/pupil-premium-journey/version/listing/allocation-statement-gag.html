@@ -93,6 +93,16 @@
                         <header id="academy-link" class="js-filter-collapsible-header">
                             <h2 class="filters-headings heading-small">Filter by learning provider</h2>
                         </header>
+                            <div class="search-field-wrap" aria-hidden="false">
+                                <label class="filter-searchwithin-label">
+                                    <span class="visuallyhidden">Search here</span>
+                                    <input type="text" class="filter-search">
+                                    <button class="field-clear hidden">
+                                        <span class="visuallyhidden"></span>
+                                    </button>
+                                </label>
+
+                            </div>
                     </a>
                   
                     
@@ -2641,26 +2651,63 @@
                 </div>
                 <!-- COMPONENT - ACCORDION (END) -->
 
-                <div class="form-group">
-
-                    <div class="pager">
-                                
-                        <div class="pager-summary">
-                            Showing 1 to X of X allocation statements
+                
+                <!-- Pagination begins -->
+                <nav class="govuk-pagination" role="navigation" aria-label="results">        
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                        
+                              Showing 1 to 25 of 36 allocation statements
                         </div>
-
+                   <div class="govuk-grid-column-one-half" style="display:flex; padding-left:100px;">                  
+                        <div class="govuk-pagination__prev">
+                        <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+                            <svg class="govuk-pagination__icon govuk-pagination__icon--prev"style="padding-right:10px;" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                            <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                            </svg>
+                            <span class="govuk-pagination__link-title">Previous</span>
+                        </a>
+                        </div>
+                        <ul class="govuk-pagination__list" style="display:flex;">
+                            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"style="padding:0 10px;">
+                                1
+                                </a>
+                            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page" style="padding:0 10px; background-color:#1d70b8;color:white;font-weight:bold;">
+                                2
+                                </a>
+                            <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3"style="padding:0 10px;">
+                                3
+                                </a>
+                             
+                                    
+                        </ul>
+                        <div class="govuk-pagination__next"style="padding:0 10px;">
+                        <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> 
+                            <svg class="govuk-pagination__icon govuk-pagination__icon--next" style="padding-left:10px;" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                            <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                            </svg></a>
+                        </div>
                     </div>
+                
+                </nav>
+            <!-- Pagination end -->
+        </div>
+        {% endif %}
 
-                </div>
+    </form>
+    {% endif %}
+   
+    
+  
+    <div class="form-group direction-rtl" style="padding-top:50px;">
+        <a class="app-c-back-to-top dont-print" href="#content">
+            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+            </svg>
+            Back to top
+        </a>
+    </div>
 
-                <div class="form-group direction-rtl">
-                    <a class="app-c-back-to-top dont-print" href="#content">
-                        <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
-                            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
-                        </svg>
-                        Back to top
-                    </a>
-                </div>
 
                 <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
                 <!-- START-->
@@ -2688,12 +2735,6 @@
 
                     </details>
                 </div> -->
-
-            </div>
-            {% endif %}
-
-        </form>
-        {% endif %}
 
     </div>
 
