@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Apprenticeship carry-in 2018 to 2019 - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        {% if feature %}
+                        <li><a href="which-feature">Select type of statements: {{feature}}</a></li>
+                        {% endif %}
+                        <li><a href="allocation-statements">Allocation statements</a></li>
+                        <li>Apprenticeship carry-in 2018 to 2019</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds table-with-no-borders">
+            
+            <div class="form-group">
+                <h1 class="heading-xlarge">Apprenticeship carry-in 2018 to 2019</h1>
+                <h2 class="lede">Total 2018 to 2019 allocation
+                    <p class="heading-large" style="margin-top: 5px;">£441,116</p>
+                </h2>
+                <p><a href="https://www.gov.uk/government/publications/19-funding-allocation-guidance" target="external" rel="external" title="This will open in a new tab or window">How we calculate this</a></p>
+            </div>
+
+            <div class="govuk-tabs" data-module="tabs">
+                <h3 class="govuk-tabs__title">How to view the apprenticeship carry-in 2018 to 2019 funding breakdown</h3>
+                <ul class="govuk-tabs__list">
+                    <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab govuk-tabs__tab--selected" href="#date">View by date</a></li>
+                    <li class="govuk-tabs__list-item"><a class="govuk-tabs__tab" href="#type">View by type</a></li>
+                </ul>
+
+                <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+                <!-- START-->
+                <details style="display: none;">
+                    <summary>
+                        <span class="summary">...</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>             
+                    </div>
+
+                </details>
+                <!-- END -->
+
+                <!-- View by date - (START) -->
+                <section class="govuk-tabs__panel" id="date">
+                    <h3 class="heading-small">Apprenticeship carry-in</h3>
+                    
+                    <table class="allocation-statements-table-last">
+                        <tr>
+                            <th class="non-bold">August 2018 to March 2019</th>
+                            <td class="numeric">£278,653</td>
+                        </tr>
+                        <tr>
+                            <th class="non-bold">April 2019 to July 2019</th>
+                            <td class="numeric">£162,463</td>
+                        </tr>
+                        <tr>
+                            <th class="non-bold">Total apprenticeship carry-in</th>
+                            <td class="numeric">£441,116</td>
+                        </tr>
+                    </table>
+
+                    <table class="allocation-statements-table-total">
+                        <tr>
+                            <th class="bold">Total 2018 to 2019 allocation</th>
+                            <td class="numeric bold">£441,116</td>
+                        </tr>
+                    </table>
+
+                    <section class="attachment embedded">
+                        
+                        <div class="form-download-container">
+                            <p class="form-download">
+                                <a href="/public/documents/signed-in/allocation-statements/apprenticeship-carry-in/view-by-date/apprenticeship-carry-in_2018-to-2019_published-10-06-2019_casterbridge-college.pdf" title="Download apprenticeship carry-in allocation 2018 to 2019 (PDF, 94KB)" download>Download apprenticeship carry-in allocation 2018 to 2019 (<abbr title="Portable Document Format">PDF</abbr>, 94KB)</a>   
+                                <br>
+                                <span class="published-date">Published 10 June 2019</span>
+                            </p>
+                        </div>
+
+                    </section>
+                    <p>This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation" rel="external" target="external" title="This will open in a new tab or window">OpenDocument</a> format. You may need a different format if you're using assistive technology. <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk">Request an accessible format</a>.</p>
+                </section>
+                <!-- View by date - (END) -->
+
+                <!-- View by type - (START) -->
+                <section class="govuk-tabs__panel govuk-tabs__panel--hidden" id="type">
+                    <h3 class="heading-small">Apprenticeship carry-in</h3>
+                    
+                    <table class="allocation-statements-table-last">
+                        <tr>
+                            <th class="non-bold">16 to 18 apprentices that started before 1 May 2017</th>
+                            <td class="numeric">£83,921</td>
+                        </tr>
+                        <tr >
+                            <th class="non-bold">19+ apprentices that started before 1 May 2017</th>
+                            <td class="numeric">£148,919</td>
+                        </tr>
+                        <tr>
+                            <th class="non-bold">16 to 18 non-levy apprentices that started between 1 May 2017 and 31 December 2017</th>
+                            <td class="numeric">£6,449</td>
+                        </tr>
+                        <tr>
+                            <th class="non-bold">19+ non-levy apprentices that started between 1 May 2017 and 31 December 2017</th>
+                            <td class="numeric">£201,827</td>
+                        </tr>
+                        <tr>
+                            <th class="non-bold">Total apprenticeship carry-in</th>
+                            <td class="numeric">£441,116</td>
+                        </tr>
+                    </table>
+
+                    <table class="allocation-statements-table-total">
+                        <tr>
+                            <th class="bold">Total 2018 to 2019 allocation</th>
+                            <td class="numeric bold">£441,116</td>
+                        </tr>
+                    </table>
+
+                    <section class="attachment embedded">
+                        
+                        <div class="form-download-container">
+                            <p class="form-download">
+                                <a href="/public/documents/signed-in/allocation-statements/apprenticeship-carry-in/view-by-type/apprenticeship-carry-in_2018-to-2019_published-10-06-2019_casterbridge-college.pdf" title="Download apprenticeship carry-in allocation 2018 to 2019 (PDF, 110KB)" download>Download apprenticeship carry-in allocation 2018 to 2019 (<abbr title="Portable Document Format">PDF</abbr>, 110KB)</a>   
+                                <br>
+                                <span class="published-date">Published 10 June 2019</span>
+                            </p>
+                        </div>
+
+                    </section>
+                    <p>This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation" rel="external" target="external" title="This will open in a new tab or window">OpenDocument</a> format. You may need a different format if you're using assistive technology. <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk">Request an accessible format</a>.</p>
+                </section>
+                <!-- View by type - (END) -->
+
+            </div>
+
+            <details class="form-block">
+                <summary>
+                    <span class="summary">Could my allocation change?</span>
+                </summary>
+                
+                <div class="panel panel-border-narrow">
+                    <p>We can reduce or remove your allocation if there's evidence that public funds are at risk.</p>
+                    <p>Allocation statements are not legally binding. They do not create any legal obligation against the Secretary of State for Education, acting through the Education and Skills Funding Agency.</p>                
+                </div>
+                
+            </details>
+        </div>
+
+        <div class="related-container">
+            <aside class="related" id="related">
+                
+                <div class="inner group related-subsection">
+                    <h2 id="parent-subsection">Related content</h2>
+                    <nav role="navigation" aria-labelledby="parent-subsection">
+                        <ul>
+                            <li><a href="https://www.gov.uk/guidance/19-funding-allocations?utm_source=a0b7c5ea-d37f-41fc-ac38-d14d741e279f&utm_medium=email&utm_campaign=govuk-notifications&utm_content=immediate&utm_source=eshot&utm_medium=email&utm_campaign=CountdownIssue905" rel="external" style="line-height: 20px;" target="external" title="This will open in a new tab or window">19+ funding allocations</a></li>
+                            <li><a href="https://www.gov.uk/guidance/sfa-funding-rules" rel="external" style="line-height: 20px; margin-top: 10px;" target="external" title="This will open in a new tab or window">Funding and performance management rules</a></li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </aside>
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/tabs.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

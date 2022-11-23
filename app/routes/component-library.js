@@ -1,6 +1,7 @@
 module.exports = function(router) {
 
 	// Add latest versions of MYESF features here
+	
 	var latestVersion = 'beta/v123-0-0';
 	var latestVersionVLF = 'beta/v123-0-0';
 	var latestVersionNFF = 'beta/v123-0-0';
