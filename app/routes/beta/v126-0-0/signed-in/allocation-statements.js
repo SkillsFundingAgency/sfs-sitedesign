@@ -4123,15 +4123,15 @@ router.get('/' + version + '/signed-in/la-pupil-premium/la-pp-tabbed', function 
 			'feature' : req.session.feature
 		});
 	});
-// Non-levy apprenticeship funding 
-router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/non-levy-apprenticeship-funding', function (req, res) {
+     // Non-levy apprenticeship funding 
+    router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/non-levy-apprenticeship-funding-latest', function (req, res) {
 
 	// Only set the session variable if it does not exist
 	req.session.idams = req.session.idams || "SAT";
 	req.session.dashboard = req.session.dashboard || "No";
 	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 	
-	res.render(version + '/signed-in/external/allocation-statements/adults/child/non-levy-apprenticeship-funding', {
+	res.render(version + '/signed-in/external/allocation-statements/adults/child/non-levy-apprenticeship-funding-latest', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -4142,6 +4142,7 @@ router.get('/' + version + '/signed-in/external/allocation-statements/adults/chi
 		'feature' : req.session.feature
 	});
 });
+
 	// Apprenticeship carry-in for 2018 to 2019
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', function (req, res) {
 
@@ -4151,6 +4152,26 @@ router.get('/' + version + '/signed-in/external/allocation-statements/adults/chi
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
 		res.render(version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
+		});
+	});
+	//Apprenticeship carry-in latest
+
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details-latest', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/apprenticeship-carry-in-details-latest', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
@@ -4203,7 +4224,25 @@ router.get('/' + version + '/signed-in/external/allocation-statements/adults/chi
 			'feature' : req.session.feature
 		});
 	});
+    // Advanced learner loans latest	
+    router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-latest', function (req, res) {
 
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "SAT";
+	req.session.dashboard = req.session.dashboard || "No";
+	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+	
+	res.render(version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-latest', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'feature' : req.session.feature
+	});
+});
 	// Advanced learner loans for 2018 to 2019 (v2)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-v2', function (req, res) {
 
