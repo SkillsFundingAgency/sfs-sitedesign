@@ -4005,6 +4005,24 @@ router.get('/' + version + '/signed-in/la-pupil-premium/la-pp-tabbed', function 
 		}
 		
 	});
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/index', function (req, res) {
+
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/adults/index', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
+		});
+	});
 
 	// ERROR 1 - Show to users when they are not able to view any of the service features (tiles)
 	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/access-denied', function (req, res) {
@@ -4103,16 +4121,74 @@ router.get('/' + version + '/signed-in/la-pupil-premium/la-pp-tabbed', function 
 			'feature' : req.session.feature
 		});
 	});
+// Allocation statements latest
+router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/allocation-statements-latest', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "SAT";
+	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+	
+	res.render(version + '/signed-in/external/allocation-statements/adults/child/allocation-statements-latest', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'feature' : req.session.feature
+	});
+});
 
 	// 16 to 18 traineeships for 2018 to 2019
-	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', function (req, res) {
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/16-18-traineeships-old', function (req, res) {
 
 		// Only set the session variable if it does not exist
 		req.session.idams = req.session.idams || "SAT";
 		req.session.dashboard = req.session.dashboard || "No";
 		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 		
-		res.render(version + '/signed-in/external/allocation-statements/adults/child/16-to-18-traineeships', {
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/16-18-traineeships-old', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
+		});
+	});
+	// 16 to 18 traineeships for 2022 to 2023
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/16-18-traineeships-latest', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/16-18-traineeships-latest', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'feature' : req.session.feature
+		});
+	});
+
+	// 19-24 tarineeships for 2022 to 2023
+	router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/19-24-traineeships-latest', function (req, res) {
+
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "SAT";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		res.render(version + '/signed-in/external/allocation-statements/adults/child/19-24-traineeships-latest', {
 			'version' : version,
 			'versioning' : req.session.versioning,
 			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
