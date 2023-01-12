@@ -35,8 +35,8 @@ module.exports = function(router) {
 	* **********/
 
 	// Render session variables needed for the archive page
-	router.get('/archive/beta/kanban-beta-v117-0-0', function (req, res) {
-		res.render('archive/beta/kanban-beta-v117-0-0', {
+	router.get('/archive/beta/kanban-beta-v126-0-0', function (req, res) {
+		res.render('archive/beta/kanban-beta-v126-0-0', {
 			'version' : version,
 			'latestVersion' : version,
 			'latestVersionVLF' : latestVersionVLF,
