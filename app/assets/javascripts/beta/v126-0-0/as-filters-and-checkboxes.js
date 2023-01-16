@@ -33,11 +33,11 @@ $(document).ready(function() {
     });
 
    
-    $("#filter-2018 , #filter-2017 ,#filter-2021,#filter-2022, #filter-traineeships ,#filter-19-traineeships,#filter-nonlevy, #filter-adult , #filter-carryin , #filter-loans").click(function() {
+    $("#filter-2018 , #filter-2017,#filter-2019,#filter-2020 ,#filter-2021,#filter-2022, #filter-traineeships ,#filter-19-traineeships,#filter-nonlevy, #filter-adult , #filter-carryin , #filter-loans").click(function() {
         reset();
         $(".active").removeClass("active"); 
     
-        if($('#filter-2018').prop('checked') == false && $('#filter-2017').prop('checked') == false && $('#filter-2021').prop('checked') == false &&$('#filter-2022').prop('checked') == false && $('#filter-traineeships').prop('checked') == false&& $('#filter-19-traineeships').prop('checked') == false && $('#filter-adult').prop('checked') == false && $('#filter-carryin').prop('checked') == false && $('#filter-loans').prop('checked') == false&& $('#filter-nonlevy').prop('checked') == false) {
+        if($('#filter-2018').prop('checked') == false && $('#filter-2017').prop('checked') == false && $('#filter-2019').prop('checked') == false && $('#filter-2020').prop('checked') == false && $('#filter-2021').prop('checked') == false &&$('#filter-2022').prop('checked') == false && $('#filter-traineeships').prop('checked') == false&& $('#filter-19-traineeships').prop('checked') == false && $('#filter-adult').prop('checked') == false && $('#filter-carryin').prop('checked') == false && $('#filter-loans').prop('checked') == false&& $('#filter-nonlevy').prop('checked') == false) {
             $(".hide").removeClass("hide"); 
         }
         else {
@@ -46,6 +46,12 @@ $(document).ready(function() {
             }
             if ($('#filter-2017').is(':checked')) {
                 $(".2017").removeClass("hide"); 
+            }
+            if ($('#filter-2019').is(':checked')) {
+                $(".2019").removeClass("hide"); 
+            }
+            if ($('#filter-2020').is(':checked')) {
+                $(".2020").removeClass("hide"); 
             }
             if ($('#filter-2021').is(':checked')) {
                 $(".2021").removeClass("hide"); 
