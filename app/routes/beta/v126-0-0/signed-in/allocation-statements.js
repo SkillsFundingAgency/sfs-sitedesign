@@ -4519,7 +4519,14 @@ router.get('/' + version + '/signed-in/external/allocation-statements/adults/chi
 		});
 	});
 
-
+	router.post('/beta/v126-0-0/signed-in/subcontractor-flow/do-you-use-subcontractors', function (req, res) {
+		let answer = req.body.useSubcontractors;
+		if (answer === 'no') {
+		  res.redirect('/beta/v126-0-0/signed-in/subcontractor-flow/not-subcontracting')
+		} else {
+		  res.redirect('/beta/v126-0-0/signed-in/subcontractor-flow/before-you-start');
+		}
+	  });
 
 }
 

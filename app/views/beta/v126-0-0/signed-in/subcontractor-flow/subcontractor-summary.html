@@ -1,0 +1,304 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Subcontractor summary - Manage your education and skills funding
+{% endblock %}
+
+{% set subcontractPaymentFigure %}
+{% if data['subcontractPayment'] %}
+   {{ data['subcontractPayment'] }}
+{% else %}
+   £2308.08
+{% endif %}
+{% endset %}
+
+{% set policyLinkURL %}
+{% if data['policyLink'] %}
+   {{ data['policyLink'] }}
+{% else %}
+   www.yourorganisation.co.uk/subcontracting
+{% endif %}
+{% endset %}
+
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<script type="text/javascript"></script>
+
+  <main role="main" id="content">
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div class="account-details">
+
+
+                <div class="account-name">
+                    <span class="name">
+                        Lincoln College (UKPRN: 10003928)
+                    </span>
+                </div>
+    
+    
+                <div class="account-features">
+                    <span class="account-link"><a href="view-your-roles">View your roles</a></span>
+                    <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard-latest">Home</a></li>
+
+        </ul>
+        </div>
+    </div>
+    
+<div class="grid-row">
+        <div class="column-full">    
+        <h1 class="heading-xlarge" style="margin-bottom: 32px;">Subcontractor summary</h1>
+
+
+<h2 class="heading-large">Overview</h2>        
+
+<dl class="govuk-summary-list" style="margin-bottom: 44px;">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      This statement applies to the period
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1 August 2022 to 31 July 2023
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Are you subcontracting?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      Yes
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="" href="#">
+        Edit<span class="govuk-visually-hidden"> if you are subcontracting</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Subcontracting policy page address
+    </dt>
+    <dd class="govuk-summary-list__value">
+     {{ policyLinkURL }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="" href="#">
+        Edit<span class="govuk-visually-hidden"> subcontracting policy page address</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Subcontracting total for this period
+    </dt>
+    <dd class="govuk-summary-list__value">
+     {{ subcontractPaymentFigure }}
+     </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl>
+
+<h3 class="heading-medium">Funding streams breakdown</h3>        
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {% if data['whichLevy'] === "sixteenEighteen" %}
+        Apprenticeships Levy 16 to 18
+      {% else %}
+        Apprenticeships Levy 19+
+     {% endif %}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ subcontractPaymentFigure }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl>
+
+<h2 class="heading-large">My subcontractors</h2>        
+
+<p>Accordion here</p>
+
+<div class="form-group">
+
+  <!-- COMPONENT - ACCORDION (START) -->
+  <div class="govuk-accordion" data-module="accordion" id="accordion-default"><div class="govuk-accordion__controls"><button type="button" class="govuk-accordion__open-all" id="accordionToggle" aria-expanded="false">Open all <span class="govuk-visually-hidden"> sections</span></button></div>
+
+      <div class="govuk-accordion__section">
+  
+          <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+              <h2 class="govuk-accordion__section-heading">
+                  
+              <button type="button" id="accordion-default-heading-6" aria-controls="accordion-default-content-1" class="govuk-accordion__section-button" aria-describedby="accordion-default-summary-1" aria-expanded="false">
+                      <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                      <span class="govuk-accordion__heading-number-right">
+                          
+                          £2,906,249.75
+                          
+                      </span>
+                  </button><span class="govuk-accordion__icon" aria-hidden="true"></span></h2>
+
+              <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-6">
+                  <span class="hidden-sub-section">
+                      
+                      £2,906,249.75
+                      
+                      <br>
+                  </span>
+                  Published: 12 September 2021
+              </div>
+
+          </div>
+  
+          <div id="accordion-default-content-6" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-6">
+              <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                                      
+              <div class="funding-block">
+
+                  <div class="funding-left-container">
+                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=school">School budget share</a></p>
+                  </div>
+      
+                  <div class="funding-right-container">
+                      <p class="funding-right-text">£2,881,249.75</p>
+                  </div>
+      
+              </div>
+
+              <div class="funding-block">
+
+                  <div class="funding-left-container">
+                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=mfg">Minimum funding guarantee</a></p>
+                  </div>
+      
+                  <div class="funding-right-container">
+                      <p class="funding-right-text">£0</p>
+                  </div>
+      
+              </div>
+                                          
+              <div class="funding-block">
+
+                  <div class="funding-left-container">
+                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=highneeds">High needs</a></p>
+                  </div>
+      
+                  <div class="funding-right-container">
+                      <p class="funding-right-text">£0</p>
+                  </div>
+      
+              </div>
+
+              <div class="funding-block funding-margin-bottom">
+
+                  <div class="funding-left-container">
+                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=postopeninggrant">Start-up grant</a></p>
+                  </div>
+      
+                  <div class="funding-right-container">
+                      <p class="funding-right-text">£25,000</p>
+                  </div>
+      
+              </div>
+              
+
+              <h3 class="heading-small heading-guidance govuk-!-margin-top-0">Allocation history</h3>
+              <p><a href="allocation-history">View history of allocated funding</a></p>
+              <h3 class="heading-small heading-guidance">Explore the topic</h3>
+              <ul class="list footer-guidance">                                    
+                  <li><a href="../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+              </ul>
+          </div>
+  
+      </div>
+
+
+    </div>
+
+
+
+
+
+  <!-- COMPONENT - ACCORDION (END) -->
+
+
+<div style="margin-bottom: 24px; margin-top: 24px;">    
+  <input type="submit" class="button-grey margin-right" value="Add another subcontractor">
+</div>
+
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key sum-list-total-value-key">
+      Total value of this declaration
+    </dt>
+    <dd class="govuk-summary-list__value sum-list-total-value-value">
+      £2308.08
+    </dd>
+  </div>
+</dl>
+
+
+
+
+<div style="margin-top: 12px;">    
+  <a class="button margin-right" href="yes-subcontracting.html" role="button">Continue to submit</a>
+  <input type="submit" class="button-grey margin-right" value="Save and come back later">
+  <a href="#" style="float: right;">Download draft declaration</a>
+</div>
+
+
+
+
+<details class="helpdesk" role="group" style="margin-bottom: 24px; margin-top: 24px;">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false"><span class="summary">Request an accessible format</span></summary>
+  <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+      <p>If you use assistive technology (such as a screen reader) and need a version of a document in a more accessible format, please email <a href="#">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</p>
+  </div>
+  </details>
+
+
+
+
+  <!--  <div>    
+        <input type="submit" class="button margin-right" value="Save and continue"> <br>
+
+    </div>-->
+    
+    
+        </fieldset>
+  
+  </form>
+
+    </div>
+</div>
+
+
+</main>
+
+
+{% endblock %}
