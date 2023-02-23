@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block page_title %}
-  Subcontractor summary - Manage your education and skills funding
+   Subcontractor summary - manage your education and skills funding 
 {% endblock %}
 
 {% set subcontractPaymentFigure %}
@@ -19,42 +19,47 @@
    www.yourorganisation.co.uk/subcontracting
 {% endif %}
 {% endset %}
-
-
 {% block content %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<main role="main" id="content">
 
-<script type="text/javascript"></script>
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
 
-  <main role="main" id="content">
+
 
     <div class="grid-row">
     
-        <div class="column-full">
-    
-            <div class="account-details">
+      <div class="column-full">
+  
+          <div class="account-details">
 
 
-                <div class="account-name">
-                    <span class="name">
-                        Lincoln College (UKPRN: 10003928)
-                    </span>
-                </div>
-    
-    
-                <div class="account-features">
-                    <span class="account-link"><a href="view-your-roles">View your roles</a></span>
-                    <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
-                </div>
-    
-            </div>
-    
-        </div>
-    
-    </div>
+              <div class="account-name">
+                  <span class="name">
+                      Lincoln College (UKPRN: 10003928)
+                  </span>
+              </div>
+  
+  
+              <div class="account-features">
+                  <span class="account-link"><a href="view-your-roles">View your roles</a></span>
+                  <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+              </div>
+  
+          </div>
+  
+      </div>
+  
+  </div>
+<!-- Account Management (IDAMS) - END -->
 
-    <div class="grid-row ">
+<div class="grid-row">
+
+    <div class="column-full">
+
+      <div class="grid-row ">
         <div class="navigation">
         <ul>
             <li><a class="font-xsmall" href="dashboard-latest">Home</a></li>
@@ -140,165 +145,204 @@
 
 <h2 class="heading-large">My subcontractors</h2>        
 
-<p>Accordion here</p>
-
-<div class="form-group">
-
-  <!-- COMPONENT - ACCORDION (START) -->
-  <div class="govuk-accordion" data-module="accordion" id="accordion-default"><div class="govuk-accordion__controls"><button type="button" class="govuk-accordion__open-all" id="accordionToggle" aria-expanded="false">Open all <span class="govuk-visually-hidden"> sections</span></button></div>
-
-      <div class="govuk-accordion__section">
-  
-          <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
-              <h2 class="govuk-accordion__section-heading">
-                  
-              <button type="button" id="accordion-default-heading-6" aria-controls="accordion-default-content-1" class="govuk-accordion__section-button" aria-describedby="accordion-default-summary-1" aria-expanded="false">
-                      <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
-                      <span class="govuk-accordion__heading-number-right">
-                          
-                          £2,906,249.75
-                          
-                      </span>
-                  </button><span class="govuk-accordion__icon" aria-hidden="true"></span></h2>
-
-              <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-6">
-                  <span class="hidden-sub-section">
-                      
-                      £2,906,249.75
-                      
-                      <br>
-                  </span>
-                  Published: 12 September 2021
-              </div>
-
-          </div>
-  
-          <div id="accordion-default-content-6" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-6">
-              <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
-
-                                      
-              <div class="funding-block">
-
-                  <div class="funding-left-container">
-                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=school">School budget share</a></p>
-                  </div>
-      
-                  <div class="funding-right-container">
-                      <p class="funding-right-text">£2,881,249.75</p>
-                  </div>
-      
-              </div>
-
-              <div class="funding-block">
-
-                  <div class="funding-left-container">
-                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=mfg">Minimum funding guarantee</a></p>
-                  </div>
-      
-                  <div class="funding-right-container">
-                      <p class="funding-right-text">£0</p>
-                  </div>
-      
-              </div>
-                                          
-              <div class="funding-block">
-
-                  <div class="funding-left-container">
-                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=highneeds">High needs</a></p>
-                  </div>
-      
-                  <div class="funding-right-container">
-                      <p class="funding-right-text">£0</p>
-                  </div>
-      
-              </div>
-
-              <div class="funding-block funding-margin-bottom">
-
-                  <div class="funding-left-container">
-                      <p class="funding-left-text"><a href="funding-breakdown/tab-choice?redirectURL=12-09-2021&amp;tab=postopeninggrant">Start-up grant</a></p>
-                  </div>
-      
-                  <div class="funding-right-container">
-                      <p class="funding-right-text">£25,000</p>
-                  </div>
-      
-              </div>
-              
-
-              <h3 class="heading-small heading-guidance govuk-!-margin-top-0">Allocation history</h3>
-              <p><a href="allocation-history">View history of allocated funding</a></p>
-              <h3 class="heading-small heading-guidance">Explore the topic</h3>
-              <ul class="list footer-guidance">                                    
-                  <li><a href="../../../../../guidance/academies-general-annual-grant-allocation-guides-2021-to-2022.html" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
-              </ul>
-          </div>
-  
-      </div>
-
 
     </div>
 
+    {% if nothingToView %}
+
+    {% else %}
+    <form method="post" class="form">
+
+       
 
 
+           
 
+            <div class="column-full document-list">
 
-  <!-- COMPONENT - ACCORDION (END) -->
+                {% if noFilterResults %}
+                <div class="form-block panel panel-border-wide">
+                    <p>No results found. Use the filters to refine your search again.</p>
+                </div>
 
+            </div>
+                {% else %}
+                <!-- COMPONENT - ACCORDION (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Leed City Council</span>
+                                    <span class="govuk-accordion__heading-text-left">Sub total</span>
+                                    <span class="govuk-accordion__heading-number-right">£256,811
 
-<div style="margin-bottom: 24px; margin-top: 24px;">    
-  <input type="submit" class="button-grey margin-right" value="Add another subcontractor">
-</div>
+                                    </span>
+                                </span>
+                            </h2>
 
+                           
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">XYZ</h3>
 
-<dl class="govuk-summary-list">
-  <div class="govuk-summary-list__row">
-    <dt class="govuk-summary-list__key sum-list-total-value-key">
-      Total value of this declaration
-    </dt>
-    <dd class="govuk-summary-list__value sum-list-total-value-value">
-      £2308.08
-    </dd>
-  </div>
-</dl>
+                            <div class="funding-block">
 
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">abc</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £134,545
+                                    </p>
+                                </div>
+                    
+                            </div>
 
+                            <div class="funding-block">
 
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">abc</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £50,000
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
 
-<div style="margin-top: 12px;">    
-  <a class="button margin-right" href="yes-subcontracting.html" role="button">Continue to submit</a>
-  <input type="submit" class="button-grey margin-right" value="Save and come back later">
-  <a href="#" style="float: right;">Download draft declaration</a>
-</div>
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">abcd</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£46,566</p>
+                                </div>
+                    
+                            </div>
 
+                            <div class="funding-block">
 
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">xyz</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £25,700
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Test</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Test1</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    <!-- x -->
+                   
 
+                </div>
+                <!-- COMPONENT - ACCORDION (END) -->
 
-<details class="helpdesk" role="group" style="margin-bottom: 24px; margin-top: 24px;">
-  <summary role="button" aria-controls="details-content-0" aria-expanded="false"><span class="summary">Request an accessible format</span></summary>
-  <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
-      <p>If you use assistive technology (such as a screen reader) and need a version of a document in a more accessible format, please email <a href="#">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</p>
-  </div>
-  </details>
+                <div style="margin-bottom: 24px; margin-top: 24px;">    
+                  <input type="submit" class="button-grey margin-right" value="Add another subcontractor">
+                </div>
+                
+                
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key sum-list-total-value-key">
+                      Total value of this declaration
+                    </dt>
+                    <dd class="govuk-summary-list__value sum-list-total-value-value">
+                      £2308.08
+                    </dd>
+                  </div>
+                </dl>
+                
+                
+                
+                
+                <div style="margin-top: 12px;">    
+                  <a class="button margin-right" href="yes-subcontracting.html" role="button">Continue to submit</a>
+                  <input type="submit" class="button-grey margin-right" value="Save and come back later">
+                  <a href="#" style="float: right;">Download draft declaration</a>
+                </div>
+                
+                
+                
+                
+                <details class="helpdesk" role="group" style="margin-bottom: 24px; margin-top: 24px;">
+                  <summary role="button" aria-controls="details-content-0" aria-expanded="false"><span class="summary">Request an accessible format</span></summary>
+                  <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                      <p>If you use assistive technology (such as a screen reader) and need a version of a document in a more accessible format, please email <a href="#">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</p>
+                  </div>
+                  </details>    
+                
+        </div>
+        {% endif %}
 
-
-
-
-  <!--  <div>    
-        <input type="submit" class="button margin-right" value="Save and continue"> <br>
-
-    </div>-->
+    </form>
+    {% endif %}
+   
     
-    
-        </fieldset>
   
-  </form>
+ 
 
+
+                <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+                <!-- START-->
+                <details style="display: none;">
+                    <summary>
+                        <span class="summary">...</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>             
+                    </div>
+
+                </details>
+                <!-- END -->
+
+                <!-- <div class="form-group">
+                    <details>
+                        <summary>
+                            <span class="summary">I'm looking for another funding type</span>
+                        </summary>
+                        
+                        <div class="panel panel-border-narrow">
+                            <p>...</p>
+                        </div>
+
+                    </details>
+                </div> -->
     </div>
-</div>
-
 
 </main>
 
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Search all available filters -->
+<script src="/public/javascripts/{{version}}/search-filter-options.js?v=1.0.3"></script>
+<!-- JavaScript (END) -->
 
 {% endblock %}

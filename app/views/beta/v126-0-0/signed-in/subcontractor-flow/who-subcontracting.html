@@ -86,6 +86,7 @@
 </main>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
 <script>
+  //search input
     $(document).ready(function(){
     $("#searchInput").on("keyup", function() {
       var value = $(this).val().toLowerCase();
@@ -98,16 +99,18 @@
   function setValueOfInput(e) {
     $("#searchInput").val(e.innerHTML);
 }
+
+//show search values
 function myFunction() {
   $("#dropdown-values").addClass("show");
 }
-
+//select search value
 $(document).click(function(e) {
   if( e.target.id != 'myInput') {
     $("#dropdown-values").removeClass("show");
   }
 });
-
+//select/filter based upon search input
 function filterFunction() {
   var input, filter, a, i;
   filter = $("#myInput").val().toUpperCase();
@@ -128,10 +131,12 @@ function setValueOfInput(e) {
 }
 </script>
 <script>
+  //Onclick search icon 
   document.getElementById("onSearch").onclick = function () {
       location.href = "../../signed-in/subcontractor-flow/who-subcontracting-active.html";
   };
 </script>
+
 <style>
     .dropdown-content {
   position: relative;
