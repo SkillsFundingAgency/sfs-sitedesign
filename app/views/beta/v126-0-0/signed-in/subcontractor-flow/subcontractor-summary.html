@@ -6,7 +6,7 @@
 
 {% set subcontractPaymentFigure %}
 {% if data['subcontractPayment'] %}
-   {{ data['subcontractPayment'] }}
+  £{{data['subcontractPayment']}}
 {% else %}
    £2308.08
 {% endif %}
@@ -19,13 +19,46 @@
    www.yourorganisation.co.uk/subcontracting
 {% endif %}
 {% endset %}
+
+
+{% set usingSubcontractors %}
+{% if data['useSubcontractors'] === "no" %}
+   No
+{% else %}
+   Yes
+{% endif %}
+{% endset %}
+
+{% set numberOfLearnersFigure %}
+{% if data['numberOfLearners'] %}
+   {{ data['numberOfLearners'] }}
+{% else %}
+  20
+{% endif %}
+{% endset %}
+
+
+{% set locationNames = {
+    eastEngland: "East of England",
+    eastMidlands: "East Midlands",
+    london: "London",
+    northEast: "North East",
+    northWest: "North West",
+    southEast: "South East",
+    southWest: "South West",
+    westMidlands: " West Midlands",
+    yorkshireHumber: "Yorkshire and Humber"
+  } %}
+  
+
+
 {% block content %}
 
 <main role="main" id="content">
 
-    <!-- GOV.UK phase banner (Beta) - START -->
+    <!-- GOV.UK phase banner (Beta) - START
     {% include version + "/includes/phase_banner_beta.html" %}
-    <!-- GOV.UK phase banner (Beta) - END -->
+     GOV.UK phase banner (Beta) - END -->
 
 
 
@@ -91,10 +124,10 @@
       Are you subcontracting?
     </dt>
     <dd class="govuk-summary-list__value">
-      Yes
+      {{ usingSubcontractors }}
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="" href="#">
+      <a class="" href="do-you-use-subcontractors.html">
         Edit<span class="govuk-visually-hidden"> if you are subcontracting</span>
       </a>
     </dd>
@@ -107,7 +140,7 @@
      {{ policyLinkURL }}
     </dd>
     <dd class="govuk-summary-list__actions">
-      <a class="" href="#">
+      <a class="" href="your-policy.html">
         Edit<span class="govuk-visually-hidden"> subcontracting policy page address</span>
       </a>
     </dd>
@@ -117,7 +150,7 @@
       Subcontracting total for this period
     </dt>
     <dd class="govuk-summary-list__value">
-     {{ subcontractPaymentFigure }}
+      {{ subcontractPaymentFigure }}
      </dd>
     <dd class="govuk-summary-list__actions">
     </dd>
@@ -172,22 +205,99 @@
                     <!-- x -->
                     <div class="govuk-accordion__section sectionContent">
                 
-                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <div class="govuk-accordion__section-header" style="padding-bottom: 0px;">
                             <h2 class="govuk-accordion__section-heading">
                                 <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                                    <span class="govuk-accordion__heading-text-left">Leed City Council</span>
-                                    <span class="govuk-accordion__heading-text-left">Sub total</span>
-                                    <span class="govuk-accordion__heading-number-right">£256,811
+                                    <span class="govuk-accordion__heading-text-left-scd">Active Lincolnshire</span>
+                                    <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-10003934">
+                                      <dl class="govuk-summary-list govuk-summary-list--no-border" style="margin-bottom:0px; margin-left: 8px;">
+                                          <div class="govuk-summary-list__row">
+                                              <dt class="govuk-summary-list__key color-black">
+                                                  Subtotal
+                                              </dt>
+                                              <dd class="govuk-summary-list__value">
+                                                {{ subcontractPaymentFigure }}
+                                              </dd>
+                                          </div>
+                                      </dl>
+                                  </div>
 
-                                    </span>
-                                </span>
                             </h2>
 
                            
                         </div>
                 
-                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
-                            <h3 class="heading-medium heading-guidance">XYZ</h3>
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" style="padding-right:0px;"  style="padding-left: 6px;" aria-labelledby="accordion-default-heading-1">
+                          <div class="grid-row">
+                            <div class="column-two-thirds" style="float:left;">
+                              {% if data['whichLevy'] === "sixteenEighteen" %}
+                                <h2 class="govuk-caption-m funding-stream-name" style="margin-left: 6px; margin-bottom: 8px;">
+                                  Funding stream: Apprenticeships Levy 16 to 18</h2>
+                                {% else %}
+                                <h2 class="govuk-caption-m funding-stream-name" style="margin-left: 6px; margin-bottom: 8px;">
+                                  Funding stream: Apprenticeships Levy 19+
+                                  </h2>
+                                  {% endif %}
+                                      </div>
+                            <div class="column-third" style="padding-left: 200px;">
+                                <span style="float: right;">
+                                  <a style="padding-right: 8px;" href="#">Edit</a>
+                                  <a href="#">Delete</a>
+                            </div>
+                        </div>  
+
+                        <div class="grid-row mini-card-scd" style="margin-left:6px;">
+                          <div class="column-third column-third-scd scd">
+                              <span class="declaration-info-name">Learners</span>
+                          </div>
+                          <div class="column-two-thirds scd">
+                              <span class="declaration-info-value">{{ numberOfLearnersFigure }}</span>
+                          </div>
+                      </div>
+
+                      <div class="grid-row mini-card-scd" style="margin-left:6px;">
+                        <div class="column-third column-third-scd scd">
+                            <span class="declaration-info-name">Payments</span>
+                        </div>
+                        <div class="column-two-thirds scd">
+        
+                            <span class="declaration-info-value">{{subcontractPaymentFigure}}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="grid-row mini-card-scd" style="margin-left:6px;">
+                      <div class="column-third column-third-scd scd">
+                          <span class="declaration-info-name">Locations</span>
+                      </div>
+                      <div class="column-two-thirds scd">
+                        <span class="declaration-info-value">
+                        {% if data['chooseLocation'] | length == 0 %}
+                        Locations: Yorkshire and the Humber
+                      {% elseif data['chooseLocation'] | length == 1 %}
+                        Location: {{ locationNames[data['chooseLocation']]}}
+                      {% else %}
+                        {% set locations %}
+                          {% for location in data['chooseLocation'] %}
+                            {{ locationNames[location] }}{% if not loop.last %},{% endif %}
+                          {% endfor %}
+                        {% endset %}
+                        Locations: {{ locations }}
+                      {% endif %}
+                    </span>
+                      </div>
+                  </div>
+
+                  <div class="grid-row margin-top-3">
+                    <div class="column-full" style="margin-left:0px;">
+
+                      <input type="submit" class="button-grey margin-right" value="Add a funding stream">
+                  <input type="submit" class="button red-button margin-right" value="Delete subcontractor"> <br>
+
+                </div>
+              </div>
+                          
+                          <!--<h3 class="heading-medium heading-guidance">XYZ</h3>
 
                             <div class="funding-block">
 
@@ -247,7 +357,10 @@
                             <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Test</h3>
                             <ul class="list footer-guidance">                                    
                                 <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Test1</a></li>
-                            </ul>
+                            </ul>-->
+
+
+
                         </div>
                 
                     </div>
@@ -257,7 +370,7 @@
                 </div>
                 <!-- COMPONENT - ACCORDION (END) -->
 
-                <div style="margin-bottom: 24px; margin-top: 24px;">    
+                <div style="margin-bottom: 24px; margin-top: 60px;">    
                   <input type="submit" class="button-grey margin-right" value="Add another subcontractor">
                 </div>
                 
@@ -268,7 +381,7 @@
                       Total value of this declaration
                     </dt>
                     <dd class="govuk-summary-list__value sum-list-total-value-value">
-                      £2308.08
+                      {{ subcontractPaymentFigure }}
                     </dd>
                   </div>
                 </dl>
