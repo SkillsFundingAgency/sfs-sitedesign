@@ -1066,6 +1066,37 @@ router.get('/' + version + '/signed-in/recoupment-primsec/recoupment-history', f
 		'scenario' : req.query.scenario
 	});
 });
+/* - - - - - - - - - - - - - - - */
+/* - - - - SubContractor-flow - - - - */
+/* - - - - - - - - - - - - - - - */
+
+router.get('/' + version + '/signed-in/subcontractor-flow/prototype-index', function (req, res) {
+
+	res.render(version + '/signed-in/subcontractor-flow/prototype-index', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+router.get('/' + version + '/signed-in/subcontractor-flow/subcontractor-summary', function (req, res) {
+
+	res.render(version + '/signed-in/subcontractor-flow/subcontractor-summary', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'organisationName' : req.session.organisationName,
+		'scenario' : req.query.scenario
+	});
+});
+
 
 /* - - - - - - - - - - - - - - - */
 /* - - - - PUPIL PREMIUM - - - - */
@@ -4519,7 +4550,15 @@ router.get('/' + version + '/signed-in/external/allocation-statements/adults/chi
 		});
 	});
 
-
-
+	router.post('/beta/v126-0-0/signed-in/subcontractor-flow/do-you-use-subcontractors', function (req, res) {
+		let answer = req.body.useSubcontractors;
+		if (answer === 'no') {
+		  res.redirect('/beta/v126-0-0/signed-in/subcontractor-flow/not-subcontracting')
+		} else {
+		  res.redirect('/beta/v126-0-0/signed-in/subcontractor-flow/before-you-start');
+		}
+	  });
+	
+	
 }
 

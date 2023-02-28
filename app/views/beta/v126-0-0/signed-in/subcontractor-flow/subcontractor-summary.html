@@ -1,0 +1,461 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+   Subcontractor summary - manage your education and skills funding 
+{% endblock %}
+
+{% set subcontractPaymentFigure %}
+{% if data['subcontractPayment'] %}
+  £{{data['subcontractPayment']}}
+{% else %}
+   £2308.08
+{% endif %}
+{% endset %}
+
+{% set policyLinkURL %}
+{% if data['policyLink'] %}
+   {{ data['policyLink'] }}
+{% else %}
+   www.yourorganisation.co.uk/subcontracting
+{% endif %}
+{% endset %}
+
+
+{% set usingSubcontractors %}
+{% if data['useSubcontractors'] === "no" %}
+   No
+{% else %}
+   Yes
+{% endif %}
+{% endset %}
+
+{% set numberOfLearnersFigure %}
+{% if data['numberOfLearners'] %}
+   {{ data['numberOfLearners'] }}
+{% else %}
+  20
+{% endif %}
+{% endset %}
+
+
+{% set locationNames = {
+    eastEngland: "East of England",
+    eastMidlands: "East Midlands",
+    london: "London",
+    northEast: "North East",
+    northWest: "North West",
+    southEast: "South East",
+    southWest: "South West",
+    westMidlands: " West Midlands",
+    yorkshireHumber: "Yorkshire and Humber"
+  } %}
+  
+
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START
+    {% include version + "/includes/phase_banner_beta.html" %}
+     GOV.UK phase banner (Beta) - END -->
+
+
+
+    <div class="grid-row">
+    
+      <div class="column-full">
+  
+          <div class="account-details">
+
+
+              <div class="account-name">
+                  <span class="name">
+                      Lincoln College (UKPRN: 10003928)
+                  </span>
+              </div>
+  
+  
+              <div class="account-features">
+                  <span class="account-link"><a href="view-your-roles">View your roles</a></span>
+                  <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+              </div>
+  
+          </div>
+  
+      </div>
+  
+  </div>
+<!-- Account Management (IDAMS) - END -->
+
+<div class="grid-row">
+
+    <div class="column-full">
+
+      <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard-latest">Home</a></li>
+
+        </ul>
+        </div>
+    </div>
+    
+<div class="grid-row">
+        <div class="column-full">    
+        <h1 class="heading-xlarge" style="margin-bottom: 32px;">Subcontractor summary</h1>
+
+
+<h2 class="heading-large">Overview</h2>        
+
+<dl class="govuk-summary-list" style="margin-bottom: 44px;">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      This statement applies to the period
+    </dt>
+    <dd class="govuk-summary-list__value">
+      1 August 2022 to 31 July 2023
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Are you subcontracting?
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ usingSubcontractors }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="" href="do-you-use-subcontractors.html">
+        Edit<span class="govuk-visually-hidden"> if you are subcontracting</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Subcontracting policy page address
+    </dt>
+    <dd class="govuk-summary-list__value">
+     {{ policyLinkURL }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+      <a class="" href="your-policy.html">
+        Edit<span class="govuk-visually-hidden"> subcontracting policy page address</span>
+      </a>
+    </dd>
+  </div>
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      Subcontracting total for this period
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ subcontractPaymentFigure }}
+     </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl>
+
+<h3 class="heading-medium">Funding streams breakdown</h3>        
+
+<dl class="govuk-summary-list">
+  <div class="govuk-summary-list__row">
+    <dt class="govuk-summary-list__key">
+      {% if data['whichLevy'] === "sixteenEighteen" %}
+        Apprenticeships Levy 16 to 18
+      {% else %}
+        Apprenticeships Levy 19+
+     {% endif %}
+    </dt>
+    <dd class="govuk-summary-list__value">
+      {{ subcontractPaymentFigure }}
+    </dd>
+    <dd class="govuk-summary-list__actions">
+    </dd>
+  </div>
+</dl>
+
+<h2 class="heading-large">My subcontractors</h2>        
+
+
+    </div>
+
+    {% if nothingToView %}
+
+    {% else %}
+    <form method="post" class="form">
+
+       
+
+
+           
+
+            <div class="column-full document-list">
+
+                {% if noFilterResults %}
+                <div class="form-block panel panel-border-wide">
+                    <p>No results found. Use the filters to refine your search again.</p>
+                </div>
+
+            </div>
+                {% else %}
+                <!-- COMPONENT - ACCORDION (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent">
+                
+                        <div class="govuk-accordion__section-header" style="padding-bottom: 0px;">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left-scd">Active Lincolnshire</span>
+                                    <div class="govuk-accordion__section-summary govuk-body" id="accordion-with-summary-sections-summary-10003934">
+                                      <dl class="govuk-summary-list govuk-summary-list--no-border" style="margin-bottom:0px; margin-left: 8px;">
+                                          <div class="govuk-summary-list__row">
+                                              <dt class="govuk-summary-list__key color-black">
+                                                  Subtotal
+                                              </dt>
+                                              <dd class="govuk-summary-list__value">
+                                                {{ subcontractPaymentFigure }}
+                                              </dd>
+                                          </div>
+                                      </dl>
+                                  </div>
+
+                            </h2>
+
+                           
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content" style="padding-right:0px;"  style="padding-left: 6px;" aria-labelledby="accordion-default-heading-1">
+                          <div class="grid-row">
+                            <div class="column-two-thirds" style="float:left;">
+                              {% if data['whichLevy'] === "sixteenEighteen" %}
+                                <h2 class="govuk-caption-m funding-stream-name" style="margin-left: 6px; margin-bottom: 8px;">
+                                  Funding stream: Apprenticeships Levy 16 to 18</h2>
+                                {% else %}
+                                <h2 class="govuk-caption-m funding-stream-name" style="margin-left: 6px; margin-bottom: 8px;">
+                                  Funding stream: Apprenticeships Levy 19+
+                                  </h2>
+                                  {% endif %}
+                                      </div>
+                            <div class="column-third" style="padding-left: 200px;">
+                                <span style="float: right;">
+                                  <a style="padding-right: 8px;" href="#">Edit</a>
+                                  <a href="#">Delete</a>
+                            </div>
+                        </div>  
+
+                        <div class="grid-row mini-card-scd" style="margin-left:6px;">
+                          <div class="column-third column-third-scd scd">
+                              <span class="declaration-info-name">Learners</span>
+                          </div>
+                          <div class="column-two-thirds scd">
+                              <span class="declaration-info-value">{{ numberOfLearnersFigure }}</span>
+                          </div>
+                      </div>
+
+                      <div class="grid-row mini-card-scd" style="margin-left:6px;">
+                        <div class="column-third column-third-scd scd">
+                            <span class="declaration-info-name">Payments</span>
+                        </div>
+                        <div class="column-two-thirds scd">
+        
+                            <span class="declaration-info-value">{{subcontractPaymentFigure}}</span>
+                        </div>
+                    </div>
+
+
+                    <div class="grid-row mini-card-scd" style="margin-left:6px;">
+                      <div class="column-third column-third-scd scd">
+                          <span class="declaration-info-name">Locations</span>
+                      </div>
+                      <div class="column-two-thirds scd">
+                        <span class="declaration-info-value">
+                        {% if data['chooseLocation'] | length == 0 %}
+                        Locations: Yorkshire and the Humber
+                      {% elseif data['chooseLocation'] | length == 1 %}
+                        Location: {{ locationNames[data['chooseLocation']]}}
+                      {% else %}
+                        {% set locations %}
+                          {% for location in data['chooseLocation'] %}
+                            {{ locationNames[location] }}{% if not loop.last %},{% endif %}
+                          {% endfor %}
+                        {% endset %}
+                        Locations: {{ locations }}
+                      {% endif %}
+                    </span>
+                      </div>
+                  </div>
+
+                  <div class="grid-row margin-top-3">
+                    <div class="column-full" style="margin-left:0px;">
+
+                      <input type="submit" class="button-grey margin-right" value="Add a funding stream">
+                  <input type="submit" class="button red-button margin-right" value="Delete subcontractor"> <br>
+
+                </div>
+              </div>
+                          
+                          <!--<h3 class="heading-medium heading-guidance">XYZ</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">abc</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £134,545
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">abc</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £50,000
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">abcd</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£46,566</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">xyz</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £25,700
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Test</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Test1</a></li>
+                            </ul>-->
+
+
+
+                        </div>
+                
+                    </div>
+                    <!-- x -->
+                   
+
+                </div>
+                <!-- COMPONENT - ACCORDION (END) -->
+
+                <div style="margin-bottom: 24px; margin-top: 60px;">    
+                  <input type="submit" class="button-grey margin-right" value="Add another subcontractor">
+                </div>
+                
+                
+                <dl class="govuk-summary-list">
+                  <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key sum-list-total-value-key">
+                      Total value of this declaration
+                    </dt>
+                    <dd class="govuk-summary-list__value sum-list-total-value-value">
+                      {{ subcontractPaymentFigure }}
+                    </dd>
+                  </div>
+                </dl>
+                
+                
+                
+                
+                <div style="margin-top: 12px;">    
+                  <a class="button margin-right" href="yes-subcontracting.html" role="button">Continue to submit</a>
+                  <input type="submit" class="button-grey margin-right" value="Save and come back later">
+                  <a href="#" style="float: right;">Download draft declaration</a>
+                </div>
+                
+                
+                
+                
+                <details class="helpdesk" role="group" style="margin-bottom: 24px; margin-top: 24px;">
+                  <summary role="button" aria-controls="details-content-0" aria-expanded="false"><span class="summary">Request an accessible format</span></summary>
+                  <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+                      <p>If you use assistive technology (such as a screen reader) and need a version of a document in a more accessible format, please email <a href="#">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</p>
+                  </div>
+                  </details>    
+                
+        </div>
+        {% endif %}
+
+    </form>
+    {% endif %}
+   
+    
+  
+ 
+
+
+                <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+                <!-- START-->
+                <details style="display: none;">
+                    <summary>
+                        <span class="summary">...</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>             
+                    </div>
+
+                </details>
+                <!-- END -->
+
+                <!-- <div class="form-group">
+                    <details>
+                        <summary>
+                            <span class="summary">I'm looking for another funding type</span>
+                        </summary>
+                        
+                        <div class="panel panel-border-narrow">
+                            <p>...</p>
+                        </div>
+
+                    </details>
+                </div> -->
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Search all available filters -->
+<script src="/public/javascripts/{{version}}/search-filter-options.js?v=1.0.3"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
