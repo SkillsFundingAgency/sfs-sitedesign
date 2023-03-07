@@ -4349,6 +4349,71 @@ router.get('/' + version + '/signed-in/external/allocation-statements/adults/chi
 			'feature' : req.session.feature
 		});
 	});
+
+			// ESFA adult education budget grant 2022 to 2023 (latest v2)
+			router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/aeb-budget-grant-v2', function (req, res) {
+
+				// Only set the session variable if it does not exist
+				req.session.idams = req.session.idams || "SAT";
+				req.session.dashboard = req.session.dashboard || "No";
+				req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+				
+				res.render(version + '/signed-in/external/allocation-statements/adults/child/aeb-budget-grant-v2', {
+					'version' : version,
+					'versioning' : req.session.versioning,
+					'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+					'signOutURL' : req.session.signOutURL,
+					'dashboard' : req.session.dashboard,
+					'idams' : req.session.idams,
+					'organisationName' : req.session.organisationName,
+					'interimDesign' : req.query.interimDesign,
+					'feature' : req.session.feature
+				});
+			});
+
+		// ESFA adult education budget grant 2022 to 2023 (latest v1)
+		router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/aeb-budget-grant', function (req, res) {
+
+			// Only set the session variable if it does not exist
+			req.session.idams = req.session.idams || "SAT";
+			req.session.dashboard = req.session.dashboard || "No";
+			req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+			
+			res.render(version + '/signed-in/external/allocation-statements/adults/child/aeb-budget-grant', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams,
+				'organisationName' : req.session.organisationName,
+				'interimDesign' : req.query.interimDesign,
+				'feature' : req.session.feature
+			});
+		});
+
+				// ESFA adult education budget contract for services 2022 to 2023 (latest)
+				router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/aeb-budget-contract-services', function (req, res) {
+
+					// Only set the session variable if it does not exist
+					req.session.idams = req.session.idams || "SAT";
+					req.session.dashboard = req.session.dashboard || "No";
+					req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+					
+					res.render(version + '/signed-in/external/allocation-statements/adults/child/aeb-budget-contract-services', {
+						'version' : version,
+						'versioning' : req.session.versioning,
+						'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+						'signOutURL' : req.session.signOutURL,
+						'dashboard' : req.session.dashboard,
+						'idams' : req.session.idams,
+						'organisationName' : req.session.organisationName,
+						'interimDesign' : req.query.interimDesign,
+						'feature' : req.session.feature
+					});
+				});
+		
+
     // Advanced learner loans latest	
     router.get('/' + version + '/signed-in/external/allocation-statements/adults/child/advanced-learner-loan-details-latest', function (req, res) {
 
