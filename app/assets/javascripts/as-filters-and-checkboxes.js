@@ -33,7 +33,7 @@ $(document).ready(function() {
     });
 
    
-    $("#filter-2018 , #filter-2017 , #filter-2019 , #filter-2020 , #filter-2021 , #filter-2022, #filter-traineeships ,#filter-19-traineeships,#filter-nonlevy, #filter-adult , #filter-carryin , #filter-loans").click(function() {
+    $("#filter-2018 , #filter-2017,#filter-2019,#filter-2020 ,#filter-2021,#filter-2022, #filter-traineeships ,#filter-19-traineeships,#filter-nonlevy, #filter-adult , #filter-carryin , #filter-loans").click(function() {
         reset();
         $(".active").removeClass("active"); 
     
@@ -76,7 +76,7 @@ $(document).ready(function() {
             }
             if ($('#filter-nonlevy').is(':checked')) {
                 $(".nonlevy").removeClass("hide");
-                // $(".nonlevy").removeClass("hide"); 
+             
             }
             $("#view-all").removeClass("hide");
         }
