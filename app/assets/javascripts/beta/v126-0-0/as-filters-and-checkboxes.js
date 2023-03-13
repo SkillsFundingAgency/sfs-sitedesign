@@ -76,7 +76,7 @@ $(document).ready(function() {
             }
             if ($('#filter-nonlevy').is(':checked')) {
                 $(".nonlevy").removeClass("hide");
-                // $(".nonlevy").removeClass("hide"); 
+             
             }
             $("#view-all").removeClass("hide");
         }
