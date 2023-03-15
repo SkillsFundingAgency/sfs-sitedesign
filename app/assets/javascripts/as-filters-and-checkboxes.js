@@ -32,7 +32,7 @@ $(document).ready(function() {
         $("#view-all").removeClass("hide");
     });
 
-       $("#filter-2018 , #filter-2017, #filter-2019, #filter-2020 , #filter-2021, #filter-2022, #filter-traineeships , #filter-19-traineeships, #filter-nonlevy, #filter-adult , #filter-carryin , #filter-loans").click(function() {
+       $("#filter-2018 , #filter-2017, #filter-2019, #filter-2020 , #filter-2021, #filter-2022, #filter-traineeships , #filter-19traineeships , #filter-levy , #filter-adult , #filter-carryin , #filter-loans").click(function() {
 
         reset();
         $(".active").removeClass("active"); 
@@ -40,9 +40,9 @@ $(document).ready(function() {
         if($('#filter-2018').prop('checked') == false && $('#filter-2017').prop('checked') == false && 
         $('#filter-2019').prop('checked') == false && $('#filter-2020').prop('checked') == false && 
         $('#filter-2021').prop('checked') == false && $('#filter-2022').prop('checked') == false && 
-        $('#filter-traineeships').prop('checked') == false && $('#filter-19-traineeships').prop('checked') == false &&
+        $('#filter-traineeships').prop('checked') == false && $('#filter-19traineeships').prop('checked') == false &&
         $('#filter-adult').prop('checked') == false && $('#filter-carryin').prop('checked') == false && 
-         $('#filter-loans').prop('checked') == false && $('#filter-nonlevy').prop('checked') == false) {
+         $('#filter-loans').prop('checked') == false && $('#filter-levy').prop('checked') == false) {
             $(".hide").removeClass("hide"); 
         }
         else {
@@ -67,8 +67,8 @@ $(document).ready(function() {
             if ($('#filter-traineeships').is(':checked')) {
                 $(".traineeships").removeClass("hide"); 
             }
-            if ($('#filter-19-traineeships').is(':checked')) {
-                $(".19traineeships").removeClass("hide"); 
+            if ($('#filter-19traineeships').is(':checked')) {
+                $(".19-traineeships").removeClass("hide"); 
             }
             if ($('#filter-adult').is(':checked')) {
                 $(".adult").removeClass("hide"); 
@@ -79,8 +79,8 @@ $(document).ready(function() {
             if ($('#filter-loans').is(':checked')) {
                 $(".loans").removeClass("hide"); 
             }
-            if ($('#filter-nonlevy').is(':checked')) {
-                $(".nonlevy").removeClass("hide");
+            if ($('#filter-levy').is(':checked')) {
+                $(".non-levy").removeClass("hide");
              
             }
             $("#view-all").removeClass("hide");
