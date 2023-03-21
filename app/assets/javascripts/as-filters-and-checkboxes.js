@@ -31,12 +31,10 @@ $(document).ready(function() {
         $('input:checkbox').removeAttr('checked');
         $("#view-all").removeClass("hide");
     });
-
+// Added New fileters 
        $("#filter-2018 , #filter-2017, #filter-2019, #filter-2020 , #filter-2021, #filter-2022, #filter-traineeships , #filter-19traineeships , #filter-levy , #filter-adult , #filter-carryin , #filter-loans").click(function() {
-
         reset();
         $(".active").removeClass("active"); 
-    
         if($('#filter-2018').prop('checked') == false && $('#filter-2017').prop('checked') == false && 
         $('#filter-2019').prop('checked') == false && $('#filter-2020').prop('checked') == false && 
         $('#filter-2021').prop('checked') == false && $('#filter-2022').prop('checked') == false && 
@@ -44,8 +42,10 @@ $(document).ready(function() {
         $('#filter-adult').prop('checked') == false && $('#filter-carryin').prop('checked') == false && 
          $('#filter-loans').prop('checked') == false && $('#filter-levy').prop('checked') == false) {
             $(".hide").removeClass("hide"); 
+
         }
         else {
+
             if ($('#filter-2018').is(':checked')) {
                 $(".2018").removeClass("hide"); 
             }
