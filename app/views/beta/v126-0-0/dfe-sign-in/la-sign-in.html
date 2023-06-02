@@ -4,10 +4,8 @@
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta charset="utf-8">
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="DfE Sign-In, Secure Access, DfE Login, Key to Success, Analyse School Performance, Teacher services, Teaching jobs, Trainee Teacher Portal, Collect, Get Information About Schools, Information exchange, Post 16 portal, School to School, Publish teacher training courses">
-    <meta name="description" content ="Use DfE Sign-in to login to services including Analyse School Performance, COLLECT, Key to Success and other services previously accessed through Secure Access.">
+
     <title>DfE Sign-in</title>
 
     <link rel="stylesheet" href="https://rawgit.com/DFE-Digital/dfe.ui.toolkit/master/dist/css/govuk/fonts.css">
@@ -33,7 +31,6 @@
       gtag('config', 'UA-114739594-2');
     </script>
 </head>
-
 <body>
 
 <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
@@ -49,7 +46,6 @@
 </div>
 
 <div class="wrapper">
-
     <header id="global-header">
         <div class="header-wrapper">
             <div class="header-global">
@@ -65,77 +61,93 @@
 
     <div class="header-user">
         <div class="header-inner">
-            <div class="service-status">
-                <div class="phase-banner phase-banner-beta">
+            <div class="service-info">
+                <div class="phase-banner-beta">
                     <p>
                         <strong class="phase-tag">BETA</strong>
                         <span>This is a new service – your <a href="#" target="_blank" title="This is a new service, your feedback will help us to improve it">feedback</a> will help us to improve it. </span>
                     </p>
                 </div>
             </div>
+            
         </div>
-    </div>
-
-    <div class="global-navigation">
-        <nav>
-            <ul>
-                
-
-            </ul>
-        </nav>
     </div>
 
     <main id="content" tabindex="-1">
 
-        <div class="row">
+    <div class="grid-row">
 
-            <div class="col-8">
-                <h1 class="heading-xlarge">DfE Sign-in</h1>
-            </div>
+        <div class="col-8">
 
-        </div>
-
-        <div class="row">
-            <div class="col-8">
-                <p class="lede">DfE Sign-in is the new way to access your DfE online services and has now replaced Secure Access.</p>
-                <h2 class="heading-medium">Before you start</h2>
-                <p>You'll need:</p>
-                <ul class="list list-bullet">
-                    <li><b>An existing DfE Sign-in account.</b> This will be the email address and password you created when you first accessed DfE Sign-in.</li>
+            {% if error %}
+            <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                <ul class="error-summary-list">
+                    <li><a href="#username">Please enter your email address</a></li>
+                    <li><a href="#password">Please enter your password</a></li>
                 </ul>
-                <a class="button button-start" href="sign-in.html" role="button">Start now</a>
-                <details class="services-dropdown">
-                    <summary><span class="summary">Services accessed using DfE Sign-in</span></summary>
-                    <div class="panel panel-border-narrow">
-                        <p>
-                            These DfE services are now accessed using your DfE Sign-in account.
-                        </p>
-                        <ol class="list list-bullet">
-                            <li>Agency Supply Teachers</li>
-                            <li>Apply to convert</li>
-                            <li>Collect</li>
-                            <li>Course Directory</li>                    
-                            <li>DAS Assessor Service</li>
-                            <li>Evolve - Appropriate Body</li>
-                            <li>Evolve - Employer Access - Agent</li>
-                            <li>Evolve - Employer Access - Schools</li>
-                            <li>Get Information About Schools</li>
-                            <li>ITT Provider</li>
-                            <li>Information Exchange</li>
-                            <li>Key to Success</li>
-                            <li>List a teaching job on Teaching Vacancies</li>
-                            <li>MYESF</li>
-                            <li>Post 16 Portal</li>
-                            <li>Publish teacher training courses</li>
-                            <li>SISL</li>
-                            <li>School 2 School</li>
-                            <li>School Experience</li>
-                            <li>Trainee Teacher Portal</li>
-                        </ol>
-                    </div>
-                </details>
             </div>
+            {% endif %}
+
+            <h1 class="heading-xlarge">
+                DfE Sign-in
+            </h1>
         </div>
+
+    </div>
+
+    <div class="row govuk-!-margin-bottom-6">
+        <div class="col-6">
+            <p>To access some specific education sector services you will need to <a href="#">create a DfE Sign-in account</a>.</p>
+            <!-- <form method="post" id="form-signin" class="form-signin"> -->
+            <form method="post" class="form">
+                <input type="hidden" name="_csrf" value="fM9xb4VS-PR6TVmgzn6Zrb1Me7SOO0x6FAZM" />
+                <input type="hidden" name="clientId" value="services"/>
+                <input type="hidden" name="redirectUri" value="https://signin-test-svc-as.azurewebsites.net:443/auth/cb"/>
+                <fieldset>
+                    <legend class="heading-medium">Sign-in</legend>
+                    <div class="form-group">
+                        <label class="form-label" for="username">Email address</label>
+                        <input class="form-control full-width" id="username" name="username" type="text"  value="">
+                    </div>
+                    <div class="form-group ">
+                        <label class="form-label" for="password">Password</label>
+                        
+                        <div class="show-password full-width">
+                            <input class="form-control" id="password" name="password" type="password" >
+                        </div>
+                        <p class="form-help"><a href="#">Forgotten your password?</a></p>
+                    </div>
+                </fieldset>
+                <div class="panel panel-border-wide">
+                    <p>By continuing you accept the <a href="#">terms and conditions</a>.</p>
+                </div>
+                <div class="form-submit submit-buttons">
+                    <button type="submit" class="button">
+                        Sign in
+                        <span class="loader spinner-inline vh">
+                            <span class="ball b-1"></span>
+                            <span class="ball b-2"></span>
+                            <span class="ball b-3"></span>
+                        </span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div><br/>
+    <div class="row">
+        <div class="col-8">
+            <details class="helpdesk">
+    <summary><span class="summary">Having problems?</span></summary>
+    <div class="panel panel-border-narrow">
+        <p>If you are having problems using the DfE Sign-in service, follow <a href="/{{version}}/dfe-sign-in/help.html">DfE Sign-in Help</a>. You will be able to request further assistance if required.</p>
+    </div>
+</details>
+
+        </div>
+    </div>
+
+
 
     </main>
 
@@ -143,7 +155,6 @@
 
 <footer class="group js-footer" id="footer">
     <div class="footer-wrapper">
-        
         <nav>
             <ul>
                 <li><a href="#">Cookies</a></li>
@@ -151,7 +162,6 @@
                 <li><a href="#">Need help using this service?</a></li>
             </ul>
         </nav>
-        
         <div class="footer-meta">
             <div class="footer-meta-inner">
                 <div class="open-government-licence">
@@ -166,7 +176,7 @@
     </div>
 </footer>
 
-<script src="https://rawgit.com/DFE-Digital/dfe.ui.toolkit/master/dist/javascript/vendors/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 <script src="https://rawgit.com/DFE-Digital/dfe.ui.toolkit/master/dist/javascript/app.min.js"></script>
 
 </body>

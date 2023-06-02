@@ -2309,6 +2309,178 @@ router.get('/' + version + '/signed-in/la-pupil-premium/la-pp-tabbed', function 
 		}
 
 	});
+//GOVUK entry LA view
+
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-start', function (req, res) {
+	res.render(version + '/la-start', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'userRolesAndPermissionsURL' : req.session.userRolesAndPermissionsURL,
+		'latestVersionVLF' : latestVersionVLF
+	});
+});
+router.post('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-start', function (req, res) {
+	res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dfe-sign-in/la-sign-in');
+});
+
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dfe-sign-in/la-sign-in', function (req, res) {
+	res.render(version + '/dfe-sign-in/la-sign-in', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'error' : req.query.error
+	});
+});
+router.post('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dfe-sign-in/la-sign-in', function (req, res) {
+
+	req.session.username = req.body.username.toLowerCase();
+	var username = req.session.username;
+	req.session.password = req.body.password.toLowerCase();
+	var password = req.session.password;
+
+	// Make sure the user enters a username and password
+	if (username == "" || password == "") {
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dfe-sign-in/la-sign-in?error=true');
+	}
+	// TRIGGER ERROR 1 - User has no valid MYESF roles
+	else if (username == "novalidroles") {
+
+		req.session.signedIn = "Yes";
+		req.session.hasValidRoles = "False";
+		req.session.noApprenticeshipServicePage = "False";
+		req.session.sixteenToNineteenVariant = "MAT";
+
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard');
+	}
+	// TRIGGER ERROR 2 - Show to users when they are not permitted to access the apprenticeship service due to:
+	// REASON 1: User has not signed their apprenticeship agreement in MYESF
+	// REASON 2: User as not signed their apprenticeship agreement in MYESF AND does not have the required role in MYESF to sign it
+	else if (username == "noapprenticeshipservice") {
+
+		req.session.hasValidRoles = "True";
+		req.session.noApprenticeshipServicePage = "True";
+		req.session.sixteenToNineteenVariant = "MAT";
+
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard');
+	}
+	// Show users the MAT view
+	else if (username == "la") {
+
+		req.session.hasValidRoles = "True";
+		req.session.noApprenticeshipServicePage = "False";
+		req.session.sixteenToNineteenVariant = "MAT";
+		req.session.idams = "MAT";
+		req.session.organisationName = "Mole Catch Academy";
+
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard');
+	}
+	// Anything else take user to dashboard with valid MYESF roles
+	// DEFAULT to MAT view
+	else {
+
+		req.session.hasValidRoles = "True";
+		req.session.noApprenticeshipServicePage = "False";
+		req.session.sixteenToNineteenVariant = "MAT";
+		req.session.idams = "MAT";
+		req.session.organisationName = "Mole Catch Academy";
+
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard');
+	}
+
+});
+//LA-Dashboard
+// Dashboard
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard', function (req, res) {
+
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.hasValidRoles = req.session.hasValidRoles || "True";
+	req.session.noApprenticeshipServicePage = req.session.noApprenticeshipServicePage || "False";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+
+	// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
+	if (req.session.hasValidRoles == "False") {
+
+		req.session.dashboard = "No";
+
+		res.render(version + '/error-pages/401/access-not-allowed', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'signedIn' : req.session.signedIn,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams
+		});
+	}
+	// Take users to the standard dashbord
+	else {
+
+		req.session.dashboard = "Yes";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-dashboard', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'tagType' : req.query.tagType
+		});
+	}
+
+});
+//LA-Dashboard
+// Dashboard
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard1', function (req, res) {
+
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.hasValidRoles = req.session.hasValidRoles || "True";
+	req.session.noApprenticeshipServicePage = req.session.noApprenticeshipServicePage || "False";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+
+	// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
+	if (req.session.hasValidRoles == "False") {
+
+		req.session.dashboard = "No";
+
+		res.render(version + '/error-pages/401/access-not-allowed', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'signedIn' : req.session.signedIn,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams
+		});
+	}
+	// Take users to the standard dashbord
+	else {
+
+		req.session.dashboard = "Yes";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-dashboard1', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'tagType' : req.query.tagType
+		});
+	}
+
+});
 
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dashboard', function (req, res) {
@@ -2393,6 +2565,145 @@ router.get('/' + version + '/signed-in/la-pupil-premium/la-pp-tabbed', function 
 			'idams' : req.session.idams
 		});
 	});
+/*********** *
+** LA 
+/*********** */
+
+// Allocation statements
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-allocation-statements', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "";
+
+	res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-allocation-statements', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+		'organisationName' : req.session.organisationName,
+		'nothingToView' : req.query.nothingToView,
+		'noFilterResults' : req.query.noFilterResults
+	});
+});
+// Allocation statements
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-statements-visited', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "";
+
+	res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-statements-visited', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+		'organisationName' : req.session.organisationName,
+		'nothingToView' : req.query.nothingToView,
+		'noFilterResults' : req.query.noFilterResults
+	});
+});
+
+// Training provider statement
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-training-statements', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "";
+
+	res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-training-statements', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+		'organisationName' : req.session.organisationName,
+		'nothingToView' : req.query.nothingToView,
+		'noFilterResults' : req.query.noFilterResults
+	});
+});
+ 
+//Optional page 
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-optionalpage', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "";
+
+	res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-optionalpage', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+		'organisationName' : req.session.organisationName,
+		'nothingToView' : req.query.nothingToView,
+		'noFilterResults' : req.query.noFilterResults
+	});
+});
+//Optional page 
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-optionalpages', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "";
+
+	res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-optionalpages', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+		'organisationName' : req.session.organisationName,
+		'nothingToView' : req.query.nothingToView,
+		'noFilterResults' : req.query.noFilterResults
+	});
+});
+//Boulder Cross statement 
+router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/bouldercross-statement', function (req, res) {
+
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "MAT";
+	req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+	req.session.organisationName = req.session.organisationName || "";
+
+	res.render(version + '/signed-in/external/allocation-statements/16-to-19/bouldercross-statement', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+		'organisationName' : req.session.organisationName,
+		'nothingToView' : req.query.nothingToView,
+		'noFilterResults' : req.query.noFilterResults
+	});
+});
+
 
 	/**********
 	* MAT
