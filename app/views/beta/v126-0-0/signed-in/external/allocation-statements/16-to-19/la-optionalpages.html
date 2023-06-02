@@ -1,0 +1,158 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+ 
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div class="account-details">
+
+
+                <div class="account-name">
+                    <span class="name">
+                       Local Authority (UKPRN: 123456)
+                    </span>
+                </div>
+    
+    
+                <div class="account-features">
+                    <span class="account-link"><a href="view-your-roles">View your roles</a></span>
+                    <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+                </div>
+    
+            </div>
+    
+        </div>
+
+
+    
+
+        <div class="govuk-grid-column-three-quarters">
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <!-- <li><a href="../../../../../../../../index.html">Home</a></li> -->
+                        <li><a href="la-dashboard1">Home</a></li>
+                        
+                    </ol>
+                </nav>
+            </div>
+            <!-- <h1 class="heading-large">
+               Choose the allocation statements you want to view
+            </h1> -->
+          
+                
+                    <div class="govuk-form-group"style="border-color:#d4351c;">
+                      <div class="govuk-error-summary govuk-visually-hidden"style="font-size:30px;" id="notification1" data-module="govuk-error-summary"style="margin-bottom:0px;">
+                        <div role="alert">
+                          <h2 class="govuk-error-summary__title">
+                            There is a problem
+                          </h2>
+                          <div class="govuk-error-summary__body"style="color:red;">
+                            <ul class="govuk-list govuk-error-summary__list">
+                              <li>
+                                <a href="#" style="font-size:15px;color:#d4351c;">Select the statements you want to view </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div> 
+                      <br/>
+                      <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+                          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h1 class="govuk-fieldset__heading">
+                              Choose the allocation statements you want to view
+                            </h1>
+                          </legend>
+                          <br/>
+                          <span class="govuk-caption-xl">
+                            Select one option.
+                          </span>
+                          <br/>
+                          <!-- <div class="govuk-form-group--error" id="error1"> -->
+                       <p id="nationality-error govuk-form-group--error" class="govuk-error-message">
+                            <span class="govuk-visually-hidden govuk-form-group--error" id="error"> Select the statements you want to view </span> </p>
+                          <div class="govuk-radios" data-module="govuk-radios">
+                           
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="radio1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                              <label class="govuk-label govuk-radios__label" for="sign-in"style="font-size: 20px;">
+                                Local authority funded schools
+                                <!-- onclick="display()" <strong class="govuk-tag govuk-bgred">New</strong> -->
+                              
+                              <div class="alert-wrap" id="new"><div><span>!</span></div><div><p style="font-size: small;">5 new statements </p></div></div> 
+                    </div>
+                  </label>
+                            </div>
+                            
+                            <div class="govuk-radios__item">
+                              <input class="govuk-radios__input" id="radio2" name="sign-in" type="radio"  value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                              <label class="govuk-label govuk-radios__label" for="sign-in-2"style="font-size: 20px;">
+                                The local authority as a training provider
+                                <!-- onclick="display()"<strong class="govuk-tag govuk-bgred">Updated</strong> -->
+                              
+                                <div class="alert-wrap" id="updated"><div><span>!</span></div><div><p style="font-size: small;">2 updated statements </p></div></div> 
+                      </div>
+                    </label>
+                              </div>
+                          </div>
+                          </div>
+                        </fieldset>
+                      </div>
+                      <div>                            
+                        <input type="submit" class="button margin-right" value="Continue" id="btn1"  onclick="check()"> <br>
+                
+                    </div>
+                  
+</main>
+<script>
+  document.getElementById("error").classList.add('govuk-visually-hidden').style.display="hidden";
+  function check()
+  {
+    if(document.getElementById('radio1').checked)
+   {
+     location.href="la-allocation-statements";
+    
+   }
+ else  if(document.getElementById('radio2').checked)
+   {
+    location.href="la-training-statements";
+   }
+   else if(!(document.getElementById('radio1').checked) && (!(document.getElementById('radio2').checked)))
+   {
+    document.getElementById('notification1').classList.remove('govuk-visually-hidden');
+    document.getElementById('error').classList.remove('govuk-visually-hidden');
+
+   }
+  }
+
+  function display()
+  {
+    if(document.getElementById('radio1').checked)
+    {
+      document.getElementById('notification1').classList.add('govuk-visually-hidden');
+      document.getElementById('error').classList.add('govuk-visually-hidden');
+      document.getElementById('new').classList.remove('govuk-visually-hidden');
+      document.getElementById('updated').classList.add('govuk-visually-hidden');
+
+    }
+    else if(document.getElementById('radio2').checked)
+    {
+      document.getElementById('notification1').classList.add('govuk-visually-hidden');
+      document.getElementById('error').classList.add('govuk-visually-hidden');
+      document.getElementById('new').classList.add('govuk-visually-hidden');
+      document.getElementById('updated').classList.remove('govuk-visually-hidden');
+    }
+  }
+
+</script>
+{% endblock %}
