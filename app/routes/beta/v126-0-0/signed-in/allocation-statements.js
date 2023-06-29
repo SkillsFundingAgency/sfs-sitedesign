@@ -2341,6 +2341,19 @@ router.post('/' + version + '/signed-in/external/allocation-statements/16-to-19/
 	if (username == "" || password == "") {
 		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/dfe-sign-in/la-sign-in?error=true');
 	}
+
+
+	//New username for experimental LA Parent view with radio options and alerts
+	else if (username == "laop1" || password == "newlaview" ) {
+
+		req.session.noApprenticeshipServicePage = "False";
+		req.session.sixteenToNineteenVariant = "MAT";
+		req.session.idams = "MAT";
+		req.session.organisationName = "Mole Catch Academy";
+
+		res.redirect('/' + version + '/signed-in/external/allocation-statements/16-to-19/la-dashboard2');		
+	}
+
 	// TRIGGER ERROR 1 - User has no valid MYESF roles
 	else if (username == "novalidroles") {
 
