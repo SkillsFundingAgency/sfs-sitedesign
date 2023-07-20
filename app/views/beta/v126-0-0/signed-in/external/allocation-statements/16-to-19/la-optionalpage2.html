@@ -41,7 +41,8 @@ Manage your education and skills funding - GOV.UK
           <ol>
             <!-- <li><a href="../../../../../../../../index.html">Home</a></li> -->
             <li><a href="la-dashboard2">Home</a></li>
-            <li>Choose allocation statement to view</li>
+            <li><a href="la-optionalpage">Choose allocation statement to view</a></li>
+            <li>What types of statements to view</li>
           </ol>
         </nav>
       </div>
@@ -67,24 +68,23 @@ Manage your education and skills funding - GOV.UK
         <div class="govuk-form-group">
           <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
             <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-              <h2 class="heading-large">Choose the allocation statements you want to view</h2>
+              <h2 class="heading-large">What type of statements would you like to view?</h2>
             </legend>
-            <br/>
 
             <!--Hint text description-->
-            <div id="contact-hint" class="govuk-hint" style="font-size: 19px;">Select one option.</div>
+           <!-- <div id="contact-hint" class="govuk-hint" style="font-size: 19px;">Select one option.</div>-->
 
              <!-- <div class="govuk-form-group--error" id="error1"> -->
               <p id="nationality-error govuk-form-group--error" class="govuk-error-message">
-                <span class="govuk-visually-hidden govuk-form-group--error" style="font-size:19px" id="error"> Select the statements you want to view </span> </p>
+                <span class="govuk-visually-hidden govuk-form-group--error" style="font-size:19px; color:#d4351c;"  id="error"> Select the statements you want to view </span> </p>
                 <div class="govuk-radios" data-module="govuk-radios">
                   
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="radio1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                     <label class="govuk-label govuk-radios__label" for="sign-in"style="font-size: 20px;">
-                      Local authority funded schools 
+                      Pre-16
                       <!-- onclick="display()"<strong class="govuk-tag govuk-bgred">New</strong> -->
-                      <strong class="govuk-tag govuk-bgred">6 new statements</strong>
+                     <!--<strong class="govuk-tag govuk-bgred">6 new statements</strong>-->
                     </label>
                   </div>
                   <!-- <div class="alert-wrap" id="new"><div><span>!</span></div><div><p style="font-size: small;">6 new statements </p></div></div>--> 
@@ -95,15 +95,26 @@ Manage your education and skills funding - GOV.UK
             <div class="govuk-radios__item">
               <input class="govuk-radios__input" id="radio2b" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
               <label class="govuk-label govuk-radios__label" for="sign-in-2"style="font-size: 20px;">
-                The local authority as a training provider
+                16 to 19
                 <!-- onclick="display()" <strong class="govuk-tag govuk-bgred">Updated</strong> -->
-                <strong class="govuk-tag govuk-bgred">2 updated statements</strong>                     
+                <!--<strong class="govuk-tag govuk-bgred">2 updated statements</strong>-->                  
                 <!--<div class="alert-wrap" id="updated"><div><span>!</span></div><div><p style="font-size: small;">2 updated statements </p></div></div> -->
               </div>
             </label>
           </div>
         </div>
       </div>
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="radio3" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in-2"style="font-size: 20px;">
+          19+
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+<br>
     </fieldset>
   </div>
   <div>    
@@ -119,14 +130,17 @@ Manage your education and skills funding - GOV.UK
   {
     if(document.getElementById('radio1').checked)
     {
-      location.href="la-allocation-statements";
-      
+      location.href="";
     }
     else  if(document.getElementById('radio2b').checked)
     {
-      location.href="la-optionalpage-existing";
+      location.href="";
     }
-    else if(!(document.getElementById('radio1').checked) && (!(document.getElementById('radio2b').checked)))
+    else if(document.getElementById('radio3'). checked)
+    {
+      location.href="la-training-statements";
+    }
+    else if(!(document.getElementById('radio1').checked) && (!(document.getElementById('radio2b').checked)) && (!(document.getElementById('radio3').checked)))
     {
       document.getElementById('notification1').classList.remove('govuk-visually-hidden');
       document.getElementById('error').classList.remove('govuk-visually-hidden');
@@ -145,6 +159,13 @@ Manage your education and skills funding - GOV.UK
       
     }
     else if(document.getElementById('radio2b').checked)
+    {
+      document.getElementById('notification1').classList.add('govuk-visually-hidden');
+      document.getElementById('error').classList.add('govuk-visually-hidden');
+      document.getElementById('new').classList.add('govuk-visually-hidden');
+      document.getElementById('updated').classList.remove('govuk-visually-hidden');
+    }
+    else if(document.getElementById('radio3').checked)
     {
       document.getElementById('notification1').classList.add('govuk-visually-hidden');
       document.getElementById('error').classList.add('govuk-visually-hidden');
