@@ -82,7 +82,7 @@ Manage your education and skills funding - GOV.UK
                   <div class="govuk-radios__item">
                     <input class="govuk-radios__input" id="radio1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
                     <label class="govuk-label govuk-radios__label" for="sign-in"style="font-size: 20px;">
-                      Pre-16
+                      Pre-16 and 16 to 19
                       <!-- onclick="display()"<strong class="govuk-tag govuk-bgred">New</strong> -->
                      <!--<strong class="govuk-tag govuk-bgred">6 new statements</strong>-->
                     </label>
@@ -91,22 +91,10 @@ Manage your education and skills funding - GOV.UK
                 </div>
               </label>
             </div>
-            
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="radio2b" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
-              <label class="govuk-label govuk-radios__label" for="sign-in-2"style="font-size: 20px;">
-                16 to 19
-                <!-- onclick="display()" <strong class="govuk-tag govuk-bgred">Updated</strong> -->
-                <!--<strong class="govuk-tag govuk-bgred">2 updated statements</strong>-->                  
-                <!--<div class="alert-wrap" id="updated"><div><span>!</span></div><div><p style="font-size: small;">2 updated statements </p></div></div> -->
-              </div>
-            </label>
-          </div>
-        </div>
-      </div>
+          
 
       <div class="govuk-radios__item">
-        <input class="govuk-radios__input" id="radio3" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <input class="govuk-radios__input" id="radio2b" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
         <label class="govuk-label govuk-radios__label" for="sign-in-2"style="font-size: 20px;">
           19+
         </div>
@@ -130,17 +118,13 @@ Manage your education and skills funding - GOV.UK
   {
     if(document.getElementById('radio1').checked)
     {
-      location.href="";
+      location.href="la-pre16and16to19-statements";
     }
-    else  if(document.getElementById('radio2b').checked)
-    {
-      location.href="";
-    }
-    else if(document.getElementById('radio3'). checked)
+    else if(document.getElementById('radio2b'). checked)
     {
       location.href="la-training-statements";
     }
-    else if(!(document.getElementById('radio1').checked) && (!(document.getElementById('radio2b').checked)) && (!(document.getElementById('radio3').checked)))
+    else if(!(document.getElementById('radio1').checked) && (!(document.getElementById('radio2b').checked)))
     {
       document.getElementById('notification1').classList.remove('govuk-visually-hidden');
       document.getElementById('error').classList.remove('govuk-visually-hidden');
@@ -159,13 +143,6 @@ Manage your education and skills funding - GOV.UK
       
     }
     else if(document.getElementById('radio2b').checked)
-    {
-      document.getElementById('notification1').classList.add('govuk-visually-hidden');
-      document.getElementById('error').classList.add('govuk-visually-hidden');
-      document.getElementById('new').classList.add('govuk-visually-hidden');
-      document.getElementById('updated').classList.remove('govuk-visually-hidden');
-    }
-    else if(document.getElementById('radio3').checked)
     {
       document.getElementById('notification1').classList.add('govuk-visually-hidden');
       document.getElementById('error').classList.add('govuk-visually-hidden');
