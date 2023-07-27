@@ -43,11 +43,13 @@
     
         <div class="column-full">
     
+           
             <div id="global-breadcrumb" class="breadcrumbs group">
                 <nav>
                     <ol>
                         <!-- <li><a href="../../../../../../index.html">Home</a></li> -->
-                        <li><a href="la-dashboard-visited">Home</a></li>
+                        <li><a href="la-dashboard2">Home</a></li>
+                      
                         <li>Allocation statements</li>
                     </ol>
                 </nav>
@@ -63,11 +65,12 @@
                 <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 50 of 50 allocation statements</h2>
             </div>
 
-            <h1 class="heading-xlarge margin-bottom">Allocation statements</h1>
+            
+            <!-- <div class="govuk-grid-column-one-half no-margin-top"> -->
+                <h1 class="heading-xlarge margin-bottom">Allocation statements</h1>
               
-            <!-- <p  class="bold"> <a href="la-optionalpage-visited.html">Change statement view </a>to Local authority as a training provider</p> -->
 
-
+            <!-- </div> -->
 
             {% endif %}
 
@@ -109,7 +112,7 @@
 
                                         <section class="toggled-adult-funding-content group div-style">
                                             <div class=" govuk-radios govuk-radios__item govuk-radios--inline gds-multiple-choice multiple-choice myesf-filter">
-                                                <input class="govuk-radios__input"  onclick="show()" id="queryFilterAcademy11" name="queryFilterAcademy" type="radio" value="queryFilterAcademy11">
+                                                <input class="govuk-radios__input"  onclick="show()" id="queryFilterAcademy11" name="queryFilterAcademy" type="radio"checked value="queryFilterAcademy11">
                                                 <label class="govuk-label govuk-radios__label " for="queryFilterAcademy11">
                                                     Casterbridge Local Authority
                                                 </label>
@@ -154,7 +157,7 @@
                                                     </label>
                                                 </li>
                                                 <li class="govuk-radios govuk-radios__item govuk-radios--inline gds-multiple-choice multiple-choice myesf-filter">
-                                                    <input  class="govuk-radios__input" onclick="display2()" id="queryFilterAcademy03" name="queryFilterAcademy" type="radio" value="queryFilterAcademy03"checked>
+                                                    <input  class="govuk-radios__input" onclick="display2()" id="queryFilterAcademy03" name="queryFilterAcademy" type="radio" value="queryFilterAcademy03">
                                                     <label class="govuk-label govuk-radios__label block" for="queryFilterAcademy03">
                                                         Kale Dean School 
                                                         <!-- <strong class="govuk-tag govuk-bgred" id="school1"> 2 New </strong>
@@ -261,7 +264,9 @@
                     <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
                         <h2 class="govuk-accordion__section-heading">
                             <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
-                                <span class="govuk-accordion__heading-text-left">School sixth form funding: academic year 2021 to 2022</span>
+                                <span class="govuk-accordion__heading-text-left">School sixth form funding: academic year 2021 to 2022
+                        
+                                </span>
                                 <span class="govuk-accordion__heading-number-right">£2,544,480</span>
                             </span>
                         </h2>
@@ -890,7 +895,7 @@
             <div class="funding-block">
 
                 <div class="funding-left-container">
-                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="kale-dean-statement.html">View Pupil Premium funding</a></h4>
+                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a id="check2"href="kale-dean-statement.html">View Pupil Premium funding</a></h4>
                 </div>
     
                 <div class="funding-right-container">
@@ -1402,7 +1407,7 @@
                 <!-- COMPONENT - ACCORDION (END) -->
 
                 <!-- Pagination begins -->
-                    <!-- <nav class="govuk-pagination" role="navigation" aria-label="results" style="padding-left: 410px;">        
+                    <nav class="govuk-pagination" role="navigation" aria-label="results" style="padding-left: 410px;">        
                         <div class="govuk-grid-row">
                             <div class="govuk-grid-column-one-half">
                             
@@ -1438,7 +1443,7 @@
                             </div>
                         </div>
                     
-                    </nav>                                        -->
+                    </nav>                                       
                 <!-- Pagination end -->
             </div>
             {% endif %}
@@ -1491,10 +1496,10 @@
 
 <!-- Dispaly Divs based upon radio button selections -->
 <script>
-     document.getElementById('div4').style.display = 'block';
-     document.getElementById('div1').style.display = 'none';
+     document.getElementById('div1').style.display = 'block';
      document.getElementById('div2').style.display = 'none';
      document.getElementById('div3').style.display = 'none';
+     document.getElementById('div4').style.display = 'none';
      document.getElementById('div5').style.display = 'none';
      document.getElementById('div6').style.display = 'none';
  function show()
@@ -1565,55 +1570,15 @@
 
 
     }
-//hide New tag when view  Overview statement details
 
-  document.addEventListener("DOMContentLoaded", function() {
-  var newTag = document.getElementById("newTag");
-  var change = document.getElementById("change");
-  var newTag1 = document.getElementById("newTag1");
-  var newTag2 = document.getElementById("newTag2");
-  var newTag3 = document.getElementById("newTag3");
-  var newTag4 = document.getElementById("newTag4");
-  var newTag5 = document.getElementById("newTag5");
-  var isNewTagHidden = sessionStorage.getItem("isNewTagHidden");
- 
-  if (isNewTagHidden) {
-    newTag3.style.display = "none";
-  }
- 
-  document.addEventListener("visibilitychange", function() {
-    if (document.visibilityState === "hidden") {
-      sessionStorage.setItem("isNewTagHidden", newTag3.style.display === "none");
-    }
-
-    });
-   
-  
-});
-
-//hide New tag when view  Overview statement details
-
-//   document.addEventListener("DOMContentLoaded", function() {
-//   var newTag = document.getElementById("newTag");
-//   var change1 = document.getElementById("change1");
-//   var change = document.getElementById("change");
-//    var newTag1 = document.getElementById("newTag1");
+//     if(document.getElementById('check').click)
+//     document.addEventListener("DOMContentLoaded", function() {
 //   var newTag2 = document.getElementById("newTag2");
-//   var newTag3 = document.getElementById("newTag3");
-//   var newTag4 = document.getElementById("newTag4");
-//   var newTag5 = document.getElementById("newTag5");
-
+  
 //   var isNewTagHidden = sessionStorage.getItem("isNewTagHidden");
+ 
 //   if (isNewTagHidden) {
-//     newTag.style.display = "none";
-//     newTag1.style.display = "none";
 //     newTag2.style.display = "none";
-//     newTag3.style.display = "none";
-//     newTag4.style.display = "none";
-//     newTag5.style.display = "none";
-//     change.style.display ="none";
-//     change1.classList.remove('govuk-visually-hidden').style.display ="block";
-
 //   }
  
 //   document.addEventListener("visibilitychange", function() {
@@ -1624,7 +1589,8 @@
 //     });
    
   
-// }); 
+// });
+    
 </script>
 <iframe src="" frameborder="0"></iframe>
 <!-- JavaScript (START) -->
