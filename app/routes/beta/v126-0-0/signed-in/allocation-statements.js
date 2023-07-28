@@ -2938,6 +2938,94 @@ module.exports = function(router) {
 			'noFilterResults' : req.query.noFilterResults
 		});
 	});
+	// AEB Training provider statement
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/aeb-budget-grant-v12', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+		req.session.organisationName = req.session.organisationName || "";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/aeb-budget-grant-v12', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'organisationName' : req.session.organisationName,
+			'nothingToView' : req.query.nothingToView,
+			'noFilterResults' : req.query.noFilterResults
+		});
+	});
+	// AEB2 Training provider statement
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/aeb-budget-grant-v22', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+		req.session.organisationName = req.session.organisationName || "";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/aeb-budget-grant-v12', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'organisationName' : req.session.organisationName,
+			'nothingToView' : req.query.nothingToView,
+			'noFilterResults' : req.query.noFilterResults
+		});
+	});
+	//AEB contract Training provider statement
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/aeb-budget-contract-services1', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+		req.session.organisationName = req.session.organisationName || "";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/aeb-budget-contract-services1', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'organisationName' : req.session.organisationName,
+			'nothingToView' : req.query.nothingToView,
+			'noFilterResults' : req.query.noFilterResults
+		});
+	});
+	//AEB2 Training provider statement
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/aeb-budget-contract-services2', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+		req.session.organisationName = req.session.organisationName || "";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/aeb-budget-contract-services2', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'organisationName' : req.session.organisationName,
+			'nothingToView' : req.query.nothingToView,
+			'noFilterResults' : req.query.noFilterResults
+		});
+	});
 	//LA Training provider statement
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-latp-statements', function (req, res) {
 		
