@@ -1090,12 +1090,41 @@
                         <h2 class="lede">
                             Total local authority academic year funding
                             <p class="heading-large heading-funding-summary">£2,544,480</p>
-                            <span class="variance-text" style="color: #d4351c; font-weight: bold;"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span> £2,000</span>
+                        <!--VARIANCE INDICATOR STYLE #1 
+                          <a class="variance-text" style="color: #d4351c; font-weight: bold;" href="#MainStreamSchools"><i class="fas fa-caret-down fa-lg decrease" title="Decreased by" aria-hidden="true"></i><span class="sr-only">Decreased by</span> £2,000</a> -->
+                        
+                        <!--VARIANCE INDICATOR STYLE #2 
+                          <a class="variance-text" style="color: #d4351c; font-weight:bold;" href="#MainStreamSchools"><i class="arrow down" title="Decreased by" aria-hidden="false" aria-labelledby="Decreased by"></i><span class="sr-only">Decreased by</span> £2,000</a> -->                        
+                        
+                        <!-- VARIANCE INDICATOR STYLE #3 -->  
+                          <p class="govuk-visually-hidden" id="DecreasedByVariance" aria-label="Decreased by">Decreased by</p>
 
-                        </h2>
-                    </div>
-                
+                        <!-- VARIANCE INDICATOR STYLE #3 SCREEN READER VISUALLY-HIDDEN LABEL CURRENTLY NOT WORKING -->  
+                          <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
+                            <a class="variance-text" aria-describedby="DecreasedByVariance" style="color: #d4351c; font-weight:bold; font-size: large;" title="Decreased by">£2,000</a>
+                    
+                        </h2>                    
+                         </div>              
                 </div>
+            
+                <!--CSS STYLING FOR VARIANCE INDICATOR STYLE #2 ABOVE
+                <style>
+                    .arrow {
+                        border: solid #d4351c;
+                        border-width: 0 3px 3px 0;
+                        display: inline-block;
+                        margin-right: 5px;
+                        margin-bottom: 4px;
+                        padding: 4px;                                                       
+                    }
+
+                    .down {
+                        transform: rotate(-135deg);
+                        -webkit-transform: rotate(45deg);
+                    }
+                </style>
+
+                CSS STYLING FOR VARIANCE INDICATOR END -->
 
                 <div class="govuk-!-margin-bottom-8">
 
@@ -1126,7 +1155,7 @@
                 </div>
 
                 <div>
-                    <table class="govuk-table first-element-in-tab">
+                    <table class="govuk-table first-element-in-tab" id="MainStreamSchools">
                         <caption class="govuk-table__caption heading-small visuallyhidden">Total mainstream schools breakdown</caption>
                         <thead class="govuk-table__head">
                             <tr class="govuk-table__row">
@@ -1190,7 +1219,7 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,200</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£7,200</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">470,000</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£470,000</td>
                             </tr>
 
                             <tr class="govuk-table__row">
@@ -1216,8 +1245,15 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£3,150</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£5,800</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">495,000
-                                    <span class="variance-text" style="font-weight: bold; color: #d4351c; font-size: large;"><i class="fas fa-caret-down fa-lg decrease" title="Decrease" aria-hidden="true"></i><span class="sr-only">Decrease</span>£2,000</span> 
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£495,000
+                                    
+                                <!-- DECREASED VARIANCE INDICATOR-->
+                                <br>
+                                    <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
+                                    <a class="variance-text" aria-describedby="DecreasedByVariance" style="color: #d4351c; font-weight:bold; font-size: large;" title="Decreased by">£2,000</a>
+                                    
+                            </div>              
+                        </div>
                                 </td>
                                 
                             </tr>
@@ -1245,7 +1281,7 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£5,000</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£5,500</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">348,500</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£348,500</td>
                             </tr>
 
                             <tr class="govuk-table__row">
@@ -1271,7 +1307,7 @@
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£0</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£3,100</td>
                                 <td class="govuk-table__cell govuk-table__cell--numeric table-column-default">£4,800</td>
-                                <td class="govuk-table__cell govuk-table__cell--numeric">418,078</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric">£418,078</td>
                             </tr>
 
                             <tr class="govuk-table__row">
