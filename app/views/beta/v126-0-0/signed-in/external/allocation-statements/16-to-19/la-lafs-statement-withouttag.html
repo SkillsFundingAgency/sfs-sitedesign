@@ -48,21 +48,15 @@
                 <nav>
                     <ol>
                         <!-- <li><a href="../../../../../../index.html">Home</a></li> -->
-                        <li><a href="la-dashboard2">Home</a></li>                    
-                        <li>Your school allocation statements</li>
-                    </ol>
-                </nav>
-            </div>
-            <div id="global-breadcrumb" class="breadcrumbs group govuk-visually-hidden"id ="homeLink1">
-                <nav>
-                    <ol>
-                        <!-- <li><a href="../../../../../../index.html">Home</a></li> -->
-                        <li><a href="la-dashboard1">Home</a></li>                    
+                        <li><a href="la-dashboard-withouttag">Home</a></li>                    
                         <li>Your school allocation statements</li>
                     </ol>
                 </nav>
             </div>
 
+ 
+
+</script>
             {% if nothingToView %}
             <h1 class="heading-xlarge">Your school allocation statements</h1>
             <p>No allocation statements to view yet.</p>
@@ -238,7 +232,7 @@
                                     <br>
                                 </span>
                                 Published: 20 August 2023 
-                                <strong class="govuk-tag govuk-bgred" id="FundingLinkClicked">Updated</strong>                           
+                                <!-- <strong class="govuk-tag govuk-bgred" id="FundingLinkClicked">Updated</strong>                            -->
                             </div>
     
                         </div>
@@ -246,14 +240,14 @@
                         <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
                             <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
     
-                            <div class="funding-block govuk-!-margin-bottom-2" >
+                            <div class="funding-block govuk-!-margin-bottom-2">
                                 <h4 class="govuk-heading-l" id="check" ><a href="\beta\v126-0-0\signed-in\external\allocation-statements\16-to-19\child\funding-breakdown-la\12-09-2021">View 16 to 19 funding breakdown</a></h4>
                             <!-- <script>
                                  function hide() {
                                     document.getElementById('homeLink').style.display = 'none'; 
                                     
-                                 }
-                            </script> -->
+                                 } -->
+                            </script>
                             
                          
                             </div>
@@ -1563,27 +1557,27 @@
 
     }
 //back button behaviour
-//     if(document.getElementById('check').click)
-//     document.addEventListener("DOMContentLoaded", function() {
-//   var newTag2 = document.getElementById("FundingLinkClicked");
+    if(document.getElementById('check').click)
+    document.addEventListener("DOMContentLoaded", function() {
+  var newTag2 = document.getElementById("FundingLinkClicked");
 
-//   var isNewTagHidden = sessionStorage.getItem("isNewTagHidden");
+  var isNewTagHidden = sessionStorage.getItem("isNewTagHidden");
  
-//   if (isNewTagHidden) {
-//     newTag2.style.display = "none";
+  if (isNewTagHidden) {
+    newTag2.style.display = "none";
       
-//   }
+  }
  
-//   document.addEventListener("visibilitychange", function() {
-//     if (document.visibilityState === "hidden") {
-//       sessionStorage.setItem("isNewTagHidden", newTag2.style.display === "none");
-//    //   document.getElementById('homeLink1').classList.add('govuk-visually-hidden');
-//         }
+  document.addEventListener("visibilitychange", function() {
+    if (document.visibilityState === "hidden") {
+      sessionStorage.setItem("isNewTagHidden", newTag2.style.display === "none");
+   //   document.getElementById('homeLink1').classList.add('govuk-visually-hidden');
+        }
 
-//     });
+    });
    
   
-// });
+});
 
 
 </script>    

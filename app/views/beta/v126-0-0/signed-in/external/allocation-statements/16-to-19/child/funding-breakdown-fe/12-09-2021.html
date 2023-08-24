@@ -8,15 +8,7 @@
 
 <main role="main" id="content">
 
-    <!-- GOV.UK phase banner (Beta) - START -->
-    <!-- {% include version + "/includes/phase_banner_beta.html" %} -->
-    <!-- GOV.UK phase banner (Beta) - END -->
-
-    <!-- Account Management (IDAMS) - START -->
-    <!-- {% include version + "/includes/idams-account-header.html" %} -->
-    <!-- Account Management (IDAMS) - END -->
-
-    <div class="grid-row">
+       <div class="grid-row">
 
         <div class="column-full">
 
@@ -4011,8 +4003,8 @@
                     <nav>
                         <ol>
                             <!-- <li><a href="../../../../../../index.html">Home</a></li> -->
-                            <li><a href="/beta/v126-0-0/signed-in/external/allocation-statements/16-to-19/la-dashboard2">Home</a></li>
-                            <li><a href="https://pds-test-sfsprototype-as.azurewebsites.net/beta/v126-0-0/signed-in/external/allocation-statements/16-to-19/parent/la-lafs-statement">Your school allocation statements</a></li>
+                            <li><a href="/beta/v126-0-0/signed-in/external/allocation-statements/16-to-19/la-dashboard-withouttag">Home</a></li>
+                            <li><a href="/beta/v126-0-0/signed-in/external/allocation-statements/16-to-19/parent/la-lafs-statement-withouttag">Your school allocation statements</a></li>
                             <li>16 to 19 funding: 2023 to 2024</li>
                         </ol>
                     </nav>
@@ -4057,9 +4049,12 @@
                 </span>
                 
                 <!-- DECREASED VARIANCE INDICATOR-->
-                 <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
-                 <a class="variance-text" aria-describedby="DecreasedByVariance" style="color: #d4351c; font-weight:bold; font-size: large;" title="Decreased by">£2,000</a>
-                                              
+                                          <!-- <p  id="DecreasedByVariance" style=" display:hidden; text-indent: -10000px;font-size:0px;"aria-label="Decreased by">Decreased by</p> -->
+                                               <p  id="DecreasedByVariance" aria-label="Decreased by">Decreased by</p>
+                     
+                                             <!-- VARIANCE INDICATOR STYLE #3 SCREEN READER VISUALLY-HIDDEN LABEL CURRENTLY NOT WORKING -->  
+                                            <p></p>   <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
+                                               </p><a class="variance-text" aria-describedby="DecreasedByVariance" style="color: #d4351c; font-weight:bold; font-size: large; padding-top:5px;" title="Decreased by">  £2,000</a>
             </h2>
              <h2 class="lede">
                 Students<br>
@@ -4120,8 +4115,14 @@
                                                       
                 <!-- DECREASED VARIANCE INDICATOR-->
                 <br>
-                 <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
+                 <!-- <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
                  <a class="variance-text" aria-describedby="DecreasedByVariance" style="color: #d4351c; font-weight:bold; font-size: large;" title="Decreased by">£2,000</a> 
+                 -->
+                 
+                 <svg class="app-c-back-to-top__icon" style="transform: rotate(180deg)"><path fill=#d4351c d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path></svg>
+                              <p id="DecreasedByVariance" style=" display:hidden;font-size:0px "aria-label="Decreased by">Decreased by</p>
+                              <a class="variance-text" aria-describedby="DecreasedByVariance" style="color: #d4351c; font-weight:bold;font-size: large;" alt="A red down arrow indicating a decreased value" title="Decreased by">£2,000</a>
+                      
                 </td> 
               </tr>           
               
