@@ -2179,6 +2179,27 @@ module.exports = function(router) {
 			'scenario' : req.query.scenario
 		});
 	});
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/12-09-2021-copy', function (req, res) {
+		
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "LA";
+		req.session.dashboard = req.session.dashboard || "No";
+		req.session.organisationName = req.session.organisationName || "Redhill Council";
+		// Increment the number so we only execute the dynamic tab functionality ONCE
+		req.session.reloads++;
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/12-09-2021-copy', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'organisationName' : req.session.organisationName,
+			'scenario' : req.query.scenario
+		});
+	});
+	
 	
 	// VARIANT 7 - LA (STUDENT NUMBERS)
 	/* router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/child/funding-breakdown-la/05-09-2021', function (req, res) {
@@ -2469,6 +2490,51 @@ module.exports = function(router) {
 		
 	});
 	//LA-Dashboard
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard-withouttag', function (req, res) {
+		
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.hasValidRoles = req.session.hasValidRoles || "True";
+		req.session.noApprenticeshipServicePage = req.session.noApprenticeshipServicePage || "False";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+		req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+		
+		// Trigger an unsuccessfull sign in with no valid MYESF roles or permissions
+		if (req.session.hasValidRoles == "False") {
+			
+			req.session.dashboard = "No";
+			
+			res.render(version + '/error-pages/401/access-not-allowed', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'signedIn' : req.session.signedIn,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams
+			});
+		}
+		// Take users to the standard dashbord
+		else {
+			
+			req.session.dashboard = "Yes";
+			// Only set the session variable if it does not exist
+			req.session.idams = req.session.idams || "MAT";
+			
+			res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-dashboard-withouttag', {
+				'version' : version,
+				'versioning' : req.session.versioning,
+				'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+				'signOutURL' : req.session.signOutURL,
+				'dashboard' : req.session.dashboard,
+				'idams' : req.session.idams,
+				'noApprenticeshipServicePage' : req.session.noApprenticeshipServicePage,
+				'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+				'tagType' : req.query.tagType
+			});
+		}
+		
+	});
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-dashboard-visited', function (req, res) {
 		
@@ -2808,7 +2874,28 @@ module.exports = function(router) {
 			'noFilterResults' : req.query.noFilterResults
 		});
 	});
-	
+	// Allocation statements
+	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-lafs-statement-withouttag', function (req, res) {
+		
+		req.session.dashboard = "No";
+		// Only set the session variable if it does not exist
+		req.session.idams = req.session.idams || "MAT";
+		req.session.sixteenToNineteenVariant = req.session.sixteenToNineteenVariant || "MAT";
+		req.session.organisationName = req.session.organisationName || "";
+		
+		res.render(version + '/signed-in/external/allocation-statements/16-to-19/la-lafs-statement-withouttag', {
+			'version' : version,
+			'versioning' : req.session.versioning,
+			'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+			'signOutURL' : req.session.signOutURL,
+			'dashboard' : req.session.dashboard,
+			'idams' : req.session.idams,
+			'sixteenToNineteenVariant' : req.session.sixteenToNineteenVariant,
+			'organisationName' : req.session.organisationName,
+			'nothingToView' : req.query.nothingToView,
+			'noFilterResults' : req.query.noFilterResults
+		});
+	});
 	// Allocation statements
 	router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/parent/la-statements-new', function (req, res) {
 		
