@@ -4310,8 +4310,31 @@ router.get('/' + version + '/signed-in/external/allocation-statements/general-an
 		res.redirect('/' + version + '/signed-in/external/allocation-statements/general-annual-grant-latest/sign-in');
 	});
 
-	
 
+	// 15 June 2023/24 GAG final year previous statement
+router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant-latest/child/funding-breakdown-1/15-06-23-GAG-final-statement', function (req, res) {
+		
+	req.session.dashboard = "No";
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "SAT";
+	req.session.gagVariant = req.session.gagVariant || "1";
+	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+	
+	res.render(version + '/signed-in/external/allocation-statements/general-annual-grant-latest/child/funding-breakdown-1/15-06-23-GAG-final-statement', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'gagVariant' : req.session.gagVariant,
+		'organisationName' : req.session.organisationName,
+		'feature' : req.session.feature
+	});
+});
+	// 15 June 2023/24 GAG final year previous statement
+
+	
 	// Dashboard
 	router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant-latest/dashboard', function (req, res) {
 		
