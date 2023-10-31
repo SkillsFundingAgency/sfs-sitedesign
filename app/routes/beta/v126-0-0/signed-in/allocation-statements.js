@@ -3763,23 +3763,46 @@ router.get('/' + version + '/signed-in/external/allocation-statements/16-to-19/p
 	});
 
 		// 15 June 2023/24 GAG final year previous statement
-router.get('/' + version + '/beta/v126-0-0/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/15-06-23-GAG-final-statement', function (req, res) {
+// router.get('/' + version + '/beta/v126-0-0/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/15-06-23-GAG-final-statement.html', function (req, res) {
 		
-	req.session.dashboard = "No";
+// 	req.session.dashboard = "No";
+// 	// Only set the session variable if it does not exist
+// 	req.session.idams = req.session.idams || "SAT";
+// 	req.session.gagVariant = req.session.gagVariant || "1";
+// 	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+	
+// 	res.render(version + '/beta/v126-0-0/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/15-06-23-GAG-final-statement.html', {
+// 		'version' : version,
+// 		'versioning' : req.session.versioning,
+// 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+// 		'signOutURL' : req.session.signOutURL,
+// 		'dashboard' : req.session.dashboard,
+// 		'idams' : req.session.idams,
+// 		'gagVariant' : req.session.gagVariant,
+// 		'organisationName' : req.session.organisationName,
+// 		'feature' : req.session.feature
+// 	});
+// });
+router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/15-06-23-GAG-final-statement.html', function (req, res) {
+	
 	// Only set the session variable if it does not exist
 	req.session.idams = req.session.idams || "SAT";
-	req.session.gagVariant = req.session.gagVariant || "1";
+	req.session.dashboard = req.session.dashboard || "No";
 	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+	// Increment the number so we only execute the dynamic tab functionality ONCE
+	req.session.reloads++;
 	
-	res.render(version + '/beta/v126-0-0/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/15-06-23-GAG-final-statement', {
+	res.render(version + '/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/15-06-23-GAG-final-statement.html', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
 		'signOutURL' : req.session.signOutURL,
 		'dashboard' : req.session.dashboard,
 		'idams' : req.session.idams,
-		'gagVariant' : req.session.gagVariant,
 		'organisationName' : req.session.organisationName,
+		'reloads' : req.session.reloads,
+		'scenario' : req.query.scenario,
+		'tab' : req.session.tab,
 		'feature' : req.session.feature
 	});
 });
@@ -4241,6 +4264,27 @@ router.get('/' + version + '/signed-in/external/allocation-statements/general-an
 	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
 	
 	res.render(version + '/signed-in/external/allocation-statements/general-annual-grant-updated/child/allocation-history', {
+		'version' : version,
+		'versioning' : req.session.versioning,
+		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
+		'signOutURL' : req.session.signOutURL,
+		'dashboard' : req.session.dashboard,
+		'idams' : req.session.idams,
+		'gagVariant' : req.session.gagVariant,
+		'organisationName' : req.session.organisationName,
+		'feature' : req.session.feature
+	});
+});
+// Allocation history 15 June
+router.get('/' + version + '/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/allocation-history-15-june', function (req, res) {
+	
+	// Only set the session variable if it does not exist
+	req.session.idams = req.session.idams || "SAT";
+	req.session.dashboard = req.session.dashboard || "No";
+	req.session.gagVariant = req.session.gagVariant || "1";
+	req.session.organisationName = req.session.organisationName || "Mole Catch Academy";
+	
+	res.render(version + '/signed-in/external/allocation-statements/general-annual-grant-updated/child/funding-breakdown-1/allocation-history-15-june', {
 		'version' : version,
 		'versioning' : req.session.versioning,
 		'myRolesAndPermissionsURL' : req.session.myRolesAndPermissionsURL,
