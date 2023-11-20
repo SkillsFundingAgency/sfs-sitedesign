@@ -52,48 +52,54 @@
                     </ol>
                 </nav>
             </div>
-
+<br/>
             <!-- content -->
-
+            <div class="govuk-error-summary govuk-visually-hidden"style="font-size:30px;" id="notification1" data-module="govuk-error-summary"style="margin-bottom:0px;">
+              <div role="alert">
+                <h2 class="govuk-error-summary__title">
+                  There is a problem
+                </h2>
+                <div class="govuk-error-summary__body"style="color:red;">
+                  <ul class="govuk-list govuk-error-summary__list">
+                    <li>
+                      <a href="#" style="font-size:15px;color:#d4351c;">Select the statements you want to view </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div> 
             <div class="govuk-form-group">
-                <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
-                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                    <h1 class="heading-large govuk-!-margin-bottom-3 govuk-!-margin-top-8">
-                      Select one of the options to see the changes to your allocation
-                    </h1>
-                  </legend>
-
-
-                  <p><span class="govuk-!-font-weight-bold">This allocation: published 3 April 2024</span></p>
-
-
-                  <!-- <div class="govuk-!-margin-bottom-6">
-                      <div class="panel panel-border-narrow">
-                          <p>Comparing figures from previous statements will show increases and decreases</p>
-                      </div>
-
-                  </div> -->
-                  <h2 class="heading-large heading-guidance">AY 2024 to 2025</h2>
-                  <div class="govuk-radios radio-test-block">
-                   
-
-                    <div class="govuk-radios__item govuk-!-margin-top-4">
-                      <input class="govuk-radios__input" id="radiotest-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
-                      <label class="govuk-label govuk-radios__label" for="sign-in-2">
-                        Compare to previous statement, published 15 March 2024
-                      </label>
-                    </div>
+              <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                  <h1 class="heading-large govuk-!-margin-bottom-3 govuk-!-margin-top-8">
+                    Select one of the options to see the changes to your allocation
                   
-                    <div class="govuk-radios__item govuk-!-margin-top-4">
-                      <input class="govuk-radios__input" id="radiotest" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
-                      <label class="govuk-label govuk-radios__label" for="sign-in">
-                        No comparison
-                      </label>
-                    </div>             
-                  </div>
+                <span class="heading-secondary">
+                  This allocation:
+                  <span class="bold-medium">Published 3 April 2024</span>
+                  </span>
+                </h1>
+              </legend>
+                <!-- <p><span class="govuk-!-font-weight-bold">This allocation: published 3 April 2024</span></p> -->
+
+                <!-- <div class="govuk-!-margin-bottom-6">
+                    <div class="panel panel-border-narrow">
+                        <p>Comparing figures from previous statements will show increases and decreases</p>
+                    </div>
+                </div> -->
+                <h2 class="heading-medium heading-guidance">AY 2024 to 2025</h2>
+                <div class="govuk-radios radio-test-block">
                  
-                  <h2 class="heading-large heading-guidance">AY 2024 to 2025</h2>
-              
+                  <div class="govuk-radios__item govuk-!-margin-top-4">
+                    <input class="govuk-radios__input" id="radiotest-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                    <label class="govuk-label govuk-radios__label" for="sign-in-2">
+                      Compare to previous statement, published 15 March 2024
+                    </label>
+                  </div>
+                             
+                </div>
+               <br/>
+                <h2 class="heading-medium heading-guidance">AY 2023 to 2024</h2>
                 <div class="govuk-radios radio-test-block">
                 <div class="govuk-radios__item">
                   <input class="govuk-radios__input" id="radiotest-1" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
@@ -102,6 +108,15 @@
 
                   </label>
                 </div>
+                </div>
+                <h3 class="heading-medium heading-guidance non-bold">or</h3>
+                <div class="govuk-radios radio-test-block">
+                <div class="govuk-radios__item govuk-!-margin-top-4">
+                  <input class="govuk-radios__input" id="radiotest" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                  <label class="govuk-label govuk-radios__label" for="sign-in">
+                    No comparison
+                  </label>
+                </div>  
                 </div>
                 </fieldset>
 
@@ -113,7 +128,7 @@
                     </button> -->
 
                     <!-- Dummy button used for demonstration -->
-                    <button onclick="radioVariant()" id="exampleRadioLink" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
+                    <button onclick="radioVariant()"  id="exampleRadioLink" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
                       Continue
                     </button>
 
@@ -135,6 +150,8 @@
 -->
 
 <script type="text/javascript">
+   
+   document.getElementById("error").classList.add('govuk-visually-hidden').style.display="hidden";
     function radioVariant() {
       if(document.getElementById('radiotest').checked) {
           document.getElementById('exampleRadioLink').onclick = location.href='child/funding-breakdown-1/12-09-2021.html';
@@ -145,7 +162,15 @@
       if(document.getElementById('radiotest-2').checked) {
           document.getElementById('exampleRadioLink').onclick = location.href='child/funding-breakdown-1/12-09-2021-previous.html';
       }
-    }
+   
+   
+ else if(!(document.getElementById('radiotest').checked) && (!(document.getElementById('radiotest-1').checked)) && (!(document.getElementById('radiotest-2').checked)))
+   {
+    document.getElementById('notification1').classList.remove('govuk-visually-hidden');
+    document.getElementById('error').classList.remove('govuk-visually-hidden');
+
+   }
+  } 
 </script>
 
 <!-- JavaScript (START) -->
