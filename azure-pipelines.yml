@@ -1,0 +1,23 @@
+# Install and zip
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: |
+    zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip .
+  displayName: 'Archive files'
+- task: AzureWebApp@1
+  displayName: 'Deploy'
+  inputs:
+    azureSubscription: 'pds-cds-azure-devops'
+    appType: 'webAppLinux'
+    appName: 'pds-sfs-sitedesign-webapp'
+    deployToSlotOrASE: true
+    resourceGroupName: 'pds-sfs-design-prototype-rg'
+    slotName: 'production'
+    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    runtimeStack: 'NODE|14-lts'
