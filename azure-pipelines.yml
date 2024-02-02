@@ -1,14 +1,16 @@
-# Install and zip
-
 trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - script: |
-    zip -r $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip .
+    echo Installing NPM dependencies...
+    npm install
+  displayName: 'Install NPM dependencies'
+- powershell: |
+    Compress-Archive -Path * -DestinationPath $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
   displayName: 'Archive files'
 - task: AzureWebApp@1
   displayName: 'Deploy'
