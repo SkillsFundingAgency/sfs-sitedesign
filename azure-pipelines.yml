@@ -19,5 +19,5 @@ steps:
     deployToSlotOrASE: true
     resourceGroupName: 'pds-sfs-design-prototype-rg'
     slotName: 'production'
-    package: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
     runtimeStack: 'NODE|14-lts'
