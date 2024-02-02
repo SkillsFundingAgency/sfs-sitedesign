@@ -4,7 +4,7 @@ trigger:
 - master
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: windows-latest
 
 steps:
 - script: |
@@ -14,10 +14,8 @@ steps:
   displayName: 'Deploy'
   inputs:
     azureSubscription: 'pds-cds-azure-devops'
-    appType: 'webAppLinux'
     appName: 'pds-sfs-sitedesign-webapp'
     deployToSlotOrASE: true
     resourceGroupName: 'pds-sfs-design-prototype-rg'
     slotName: 'production'
     package: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-    runtimeStack: 'NODE:16-lts'
