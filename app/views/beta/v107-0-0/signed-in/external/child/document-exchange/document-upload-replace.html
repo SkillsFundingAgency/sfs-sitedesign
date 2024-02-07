@@ -1,0 +1,137 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Replace your document
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol id="removeADocBreadcrumb1">
+                        <li><a href="../../../../signed-in/external/child/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>Replace your document </li>
+                    </ol>
+                    <ol id="removeADocBreadcrumb2" style="display: none">
+                        <li><a href="../../../../signed-in/external/child/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li><a href="#">Replace your document</a></li>
+                        <li>Remove a document</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#fileInput0">Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+                
+                <h1 id="originalHeading1" class="heading-xlarge">
+                    <!-- <span class="heading-secondary">Casterbridge College</span>
+                    <span class="heading-secondary">UKPRN: 12345678</span> -->
+                    Replace your document
+                </h1>
+
+                {% if uploadedDocumentStatus == 'Show' %}
+                {% else %}
+                <div class="form-group" id="uploadFileDiv">
+                    
+                    <div class="form-block" id="form-upload">
+                        <label class="form-label visuallyhidden" for="fileInput">Choose a document to upload</label>
+                        <p class="lede">You are replacing ‘Business case (2018-2019) v2.xls’.</p>
+                        <p>Each document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format.</p>
+
+                        <div class="form-block" id="fileUploadPlaceholder">
+                            <p>Upload a document</p>
+                            <input id="fileInput0" name="fileInput" type="file" class="fileUploads">
+                            <label class="form-label visuallyhidden" for="fileInput0">Upload a document</label>
+                        </div>
+                        
+                    </div>
+                {% endif %}
+                    
+                    <div class="form-group">
+                        <table class="file-upload-table" id="documentsToSend" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;{% endif %}">
+                            <thead>
+                                <tr>
+                                    <th>Document name</th>
+                                    <th>Document type</th>
+                                    <th>Version</th>
+                                    <th class="numeric"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% if uploadedDocumentStatus == 'Show' %}
+                                <tr>
+                                    <td><a href="#">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></td>
+                                    <td>Business case</td>
+                                    <td>3</td>
+                                    <td class="numeric"><a class="" href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">Remove</a></td>
+                                </tr>
+                                <tr style="display: none;">
+                                    <td>
+                                        <input id="fileName" name="fileName" type="text" value="{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}">
+                                        <label class="form-label visuallyhidden" for="fileName">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</label>
+                                    </td>
+                                </tr>
+                                {% endif %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <input type="submit" id="goToStep3" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %} class="button" value="Send">
+                    <label class="form-label visuallyhidden" for="goToStep3">Send</label>
+                </div>        
+
+                <div class="form-group" id="removeFileDiv" style="display: none;">
+                    <h1 class="heading-xlarge">Are you sure you want to remove <span id="removeFileNameHeading1"></span>?</h1>
+                    <p>This will remove <span id="removeFileName"></span> from your list of documents and it will not be sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr>.</p>
+                    <p><a href="#" id="backToStep2">Cancel and go back</a></p>
+                    <a class="button" id="button-to-remove" href="document-upload-file-type">Remove</a>
+                    <p></p>
+                </div>
+
+                <div style="display: none;" id="hiddenFormEles">
+                    <!-- File uploads will get sent here + radio button selections -->
+                    <p id="fileType">{% if fileType %}{{fileType}}{% endif %}</p>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/{{version}}/file-upload-replace.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

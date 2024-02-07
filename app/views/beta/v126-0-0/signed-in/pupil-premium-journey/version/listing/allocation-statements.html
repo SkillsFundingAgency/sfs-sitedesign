@@ -1,0 +1,2768 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Allocation statements - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+  
+        <div class="grid-row">
+        
+            <div class="column-full">
+        
+                <div class="account-details">
+    
+    
+                    <div class="account-name">
+                        <span class="name">
+                            Wisewood Academy Trust (UKPRN: 123456)
+                        </span>
+                    </div>
+        
+        
+                    <div class="account-features">
+                        <span class="account-link"><a href="view-your-roles">View your roles</a></span>
+                        <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+                    </div>
+        
+                </div>
+        
+            </div>
+        
+        </div>
+    
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../../../../index.html">Home</a></li>
+                        <li><a href="../dashboard">Dashboard</a></li>
+                        <li>Allocation statements</li>
+                    </ol>
+                </nav>
+            </div>
+
+            {% if nothingToView %}
+            <h1 class="heading-xlarge">Allocation statements</h1>
+            <p>No allocation statements to view yet.</p>
+            <p>You will receive an email when a new allocation statement is available.</p>
+            {% else %}
+            <!-- Dynamic alert for screen readers so users know when the filtered results have been updated -->
+            <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 50 of 50 allocation statements</h2>
+            </div>
+
+            <h1 class="heading-xlarge">Allocation statements</h1>
+            {% endif %}
+
+        </div>
+
+        {% if nothingToView %}
+
+        {% else %}
+        <form method="post" class="form">
+
+            <div id="filterContentInDivs" class="column-third"><br />
+
+                <div class="form-block">
+                    <div id="filterContentInDivsAcademy">
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by learning provider</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academy-link-filter" class="js-filter-collapsible js-open">
+                                <input type="hidden" name="queryFilterOpenAcademyLink" id="queryFilterOpenAcademyLink" aria-expanded="true" aria-controls="filter-by-academy-link" value="true">
+                                    <a href="#" id="filter-keyboard-academy-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academy-link">
+                                        <header id="academy-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by learning provider
+                                            </h2>
+                                        </header>
+                                        <div class="search-field-wrap" aria-hidden="false">
+                                            <label class="filter-searchwithin-label">
+                                                <span class="visuallyhidden">Search here</span>
+                                                <input type="text" id="search-here" class="filter-search" onkeyup="search()" autocomplete="off">
+                                                <button class="field-clear hidden">
+                                                    <span class="visuallyhidden"></span>
+                                                </button>
+                                            </label>
+
+                                        </div>
+                                    </a>
+                                  
+                                    <div id="filter-by-academy-link" class="js-filter-collapsible-content" aria-labelledby="academy-link">
+
+                                        <section class="toggled-adult-funding-content group div-style">
+                                             <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy11" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy11">
+                                                    <label class="block" for="queryFilterAcademy11">
+                                                    Wisewood Academy Trust
+                                                    </label>
+                                                </li>
+                                                                                                            
+                                            </ul>  
+                                         </div>
+                                        <style>                                                
+                                            hr {
+                                                width:auto;
+                                                margin:0px;
+                                                padding:0px;
+                                                }
+                                         </style>
+                                            <hr /> 
+                                            <div id="filter-by-academy-link" class="js-filter-collapsible-content" aria-labelledby="academy-link">
+                                                <section class="toggled-adult-funding-content group">
+                                                    <!-- style="padding-top:10px;" style="overflow:hidden;"" -->
+                                            <ul class="queryFilterAcademys">   
+                                              
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy01" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy01">
+                                                    <label class="block" for="queryFilterAcademy01">
+                                                        Anglemire College
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy02" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy02">
+                                                    <label class="block" for="queryFilterAcademy02">
+                                                        Barley Grove School
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy03" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy03">
+                                                    <label class="block" for="queryFilterAcademy03">
+                                                        Blossom Down Catholic School
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy04" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy04">
+                                                    <label class="block" for="queryFilterAcademy04">
+                                                        Boulder Cross
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy05" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy05">
+                                                    <label class="block" for="queryFilterAcademy05">
+                                                        Deerwood Primary School
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy06" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy06">
+                                                    <label class="block" for="queryFilterAcademy06">
+                                                        Ironside Academy
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy07" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy07">
+                                                    <label class="block" for="queryFilterAcademy07">
+                                                        Kale Dean School
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy08" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy08">
+                                                    <label class="block" for="queryFilterAcademy08">
+                                                        Seacrest Academy
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy09" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy09">
+                                                    <label class="block" for="queryFilterAcademy09">
+                                                        Wiseman York Primary School
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterAcademy10" name="queryFilterAcademy" type="checkbox" value="queryFilterAcademy10">
+                                                    <label class="block" for="queryFilterAcademy10">
+                                                        Wolfhook School
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+                </div>
+            
+       
+                <div class="form-block">
+                    <div id="filterContentInDivsType">
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by funding type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="type-link-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenTypeLink" id="queryFilterOpenTypeLink" aria-expanded="true" aria-controls="filter-by-type-link" value="true">
+                                    <a href="#" id="filter-keyboard-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-type-link">
+                                        <header id="type-link" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by funding type</h2>
+                                        </header>
+                                    </a>
+
+                                    <div id="filter-by-type-link" class="js-filter-collapsible-content" aria-labelledby="type-link">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterType02" name="queryFilterType" type="checkbox" value="queryFilterType02">
+                                                    <label class="block" for="queryFilterType02">
+                                                        General annual grant
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterType03" name="queryFilterType" type="checkbox" value="queryFilterType03">
+                                                    <label class="block" for="queryFilterType03">
+                                                        PE and sport premium
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterType01" name="queryFilterType" type="checkbox" value="queryFilterType01">
+                                                    <label class="block" for="queryFilterType01">
+                                                        Pupil premium
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterType04" name="queryFilterType" type="checkbox" value="queryFilterType04">
+                                                    <label class="block" for="queryFilterType04">
+                                                        Universal infant free school meals
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                    <input id="queryFilterType05" name="queryFilterType" type="checkbox" value="queryFilterType05">
+                                                    <label class="block" for="queryFilterType05">
+                                                        16 to 19 funding
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>    
+                </div>
+
+                <div class="form-block">
+                    <fieldset class="filter">
+                        <legend class="visuallyhidden">Filter by local authority</legend>
+                        
+                        <div class="js-filter-collapsible-collections">
+                            <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                    <header id="local-authority-link" class="js-filter-collapsible-header">
+                                        <h2 class="filters-headings heading-small">Filter by local authority</h2>
+                                    </header>
+                                </a>
+
+                                <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                    <section class="toggled-adult-funding-content group">
+                                        <ul>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterLocalAuthority01" name="queryFilterLocalAuthority" type="checkbox" value="queryFilterLocalAuthority01">
+                                                <label class="block" for="queryFilterLocalAuthority01">
+                                                    Dorset
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterLocalAuthority02" name="queryFilterLocalAuthority" type="checkbox" value="queryFilterLocalAuthority02">
+                                                <label class="block" for="queryFilterLocalAuthority02">
+                                                    Hampshire
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+
+                            </section>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div id="postButton" class="form-group">
+                    <button class="button">Update results</button>
+                </div>
+
+                <div id="clearAllFilters" class="form-group">
+                    <a href="">Clear filters</a>
+                </div>
+
+            </div>
+
+            <div class="column-two-thirds document-list">
+
+                {% if noFilterResults %}
+                <div class="form-block panel panel-border-wide">
+                    <p>No results found. Use the filters to refine your search again.</p>
+                </div>
+
+            </div>
+                {% else %}
+                <!-- COMPONENT - ACCORDION (START) -->
+               <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                    <!-- x -->
+                   
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy01 queryFilterType02 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£256,811
+
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Anglemire College (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                     £256,811
+                                    <br>
+                                </span>
+                                Published: 10 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=school">School budget share</a></h4>
+                                </div>
+                    
+                    </script>
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £134,545
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=mfg">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £50,000
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=highneeds">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£46,566</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown/tab-choice?redirectURL=12-09-2021&tab=postopeninggrant">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £25,700
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy03 queryFilterType02 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£930,281.80</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Blossom Down Catholic School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £930,281.80
+                                    <br>
+                                </span>
+                                Published: 10 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy04 queryFilterType02 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right"> £328,179</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Boulder Cross (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £328,179
+                                    <br>
+                                </span>
+                                Published: 10 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021.html">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £234,545
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021.html">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £38,090
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021.html">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£55,544</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="../../../external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021.html">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £0
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy11 queryFilterType01  queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Trust overview for pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,858,687</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wisewood Academy Trust (UKPRN: 123456)</span>
+                                <!-- URN: 404677 -->
+                                <span class="hidden-sub-section">
+                                    £1,858,687
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../pupil-premium/version/mat-view.html">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- PE and Sport MAT -->
+
+                   
+                    <!-- Pupil Premium Singles -->
+                    <!-- queryFilterAcademy01 queryFilterType01  -->
+                 
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy01 queryFilterType01 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£211,055</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Anglemire College (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £211,055
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../pupil-premium/version/single-view-filter.html">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy02 queryFilterType01 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£82,502</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Barley Grove School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £82,502
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                   
+                    
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy03  queryFilterType01 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£151,505</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Blossom Down Catholic School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £151,505
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy04  queryFilterType01 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£123,740</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Boulder Cross (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £123,740
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy05  queryFilterType01 queryFilterLocalAuthority02">
+                           
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£50,075</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Deerwood Primary School(URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £50,075
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../single-view">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>        
+                    <!-- x -->                    
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy06 queryFilterType01 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£102,035</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Ironside Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £102,035
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../../pupil-premium/version/single-views.html">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../pupil-premium/version/pupil-premium-history-viewed.html">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                 
+                    <!-- x -->
+                    
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy07 queryFilterType01 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£359,645</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Kale Dean School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £359,645
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy08  queryFilterType01 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£393,770</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Seacrest Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £393,770
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../pupil-premium/version/pupil-premium-history.html">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy09  queryFilterType01 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£139,880</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wiseman York Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £139,880
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy10 queryFilterType01 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Pupil premium April 2021 to March 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£244,480</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wolfhook School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £244,480
+                                    <br>
+                                </span>
+                                Published: 1 March 2022 <strong class="govuk-tag govuk-bgred">New</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">View Pupil Premium funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- TR02 -->
+
+                    
+
+                                                    
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy05 queryFilterType02 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,389,300.21</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Deerwood Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £1,389,300.21
+                                    <br>
+                                </span>
+                                Published: 20 February 2022
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+                 
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy06 queryFilterType02 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£901,820.78</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Ironside Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £901,820.78
+                                    <br>
+                                </span>
+                                Published: 20 February 2022
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    
+                    <!-- x -->
+                    
+                    <div class="govuk-accordion__section sectionContent  queryFilterAcademy11 queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Trust overview for PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£104,470</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wisewood Academy Trust (UKPRN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £104,470
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-2" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-2">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0 govuk-link:link"><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div> 
+                    <!-- x -->
+                    <!-- <div class="govuk-accordion__section sectionContent queryFilterAcademy07 queryFilterType02 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£813,020.40</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Kale Dean School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £813,020.40
+                                    <br>
+                                </span>
+                                Published: 16 July 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div> -->
+
+                    <!-- x -->
+
+                 
+                    <!-- x -->
+
+                    <!-- <div class="govuk-accordion__section sectionContent queryFilterAcademy09 queryFilterType02 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,450,328.48</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wiseman York Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £1,450,328.48
+                                    <br>
+                                </span>
+                                Published: 16 July 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div> -->
+
+                    <!-- x -->
+
+                    <!-- <div class="govuk-accordion__section sectionContent queryFilterAcademy10 queryFilterType02 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,132,910.54</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wolfhook School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £1,132,910.54
+                                    <br>
+                                </span>
+                                Published: 16 July 2021
+                            </div>
+ 
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">High Needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l"><a href="">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div> --> 
+
+                    <!-- TR03 -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy01 queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£10,230</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Anglemire College (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £10,230
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                                  <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy02 queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£18,200</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Barley Grove School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £18,200
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                            <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                            <!-- <h3 class="heading-medium heading-guidance">Allocation history</h3> -->
+                            <h3 class="heading-small heading-guidance">Payment dates</h3>
+                            <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                            <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy03 queryFilterType03 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£11,960</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Blossom Down Catholic School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £11,960
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy04 queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£9,230</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Boulder Cross (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £9,230
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>               
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy05 queryFilterType03 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£8,500</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Deerwood Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £8,500
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+
+                            <!-- <h3 class="heading-medium heading-guidance">Allocation history</h3> -->
+                            <h3 class="heading-small heading-guidance">Payment dates</h3>
+                            <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                            <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy06 queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£13,950</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Ironside Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £13,950
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy07 queryFilterType03 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£11,800</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Kale Dean School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £11,800
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy08 queryFilterType03 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£9,450</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Seacrest Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £9,450
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                                  <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                                  <h3 class="heading-small heading-guidance">Payment dates</h3>
+                                  <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                                  <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <!-- <div class="govuk-accordion__section sectionContent queryFilterAcademy09 queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£12,480</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wiseman York Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £12,480
+                                    <br>
+                                </span>
+                                Published: 22 April 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                            <p class="funding-margin-bottom"><a href="#">View all schools' and academies' individual allocations</a></p>               
+                            
+                            <section class="form-block attachment embedded">
+                        
+                                <div class="download-a-document-container-new">
+
+                                    <div class="download-icon">
+                                        <i class="fa fa-file" title="Document" aria-hidden="true"></i><span class="sr-only">Document</span>
+                                    </div>
+
+                                    <div class="download-a-document-new">
+                                        <a href="#" title="Download PE and sport premium allocation for Baldwin Bridge Academy 2021 to 2022">Download PE and sport premium allocation for Baldwin Bridge Academy 2021 to 2022</a>   
+                                        <br>
+                                        <span class="download-a-document-content">
+                                            <span class="download-a-document-section-1">OpenDocument Spreadsheet (<abbr title="OpenDocument Spreadsheet">ODS</abbr>), 5KB</span>
+                                            <span class="download-a-document-section-2">
+                                                This file is in an <a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">OpenDocument</a> format. You may need a different format if you're using assistive technology. <a href="#attachment-12-accessibility-request" class="expand-hidden-section" data-controls="attachment-12-accessibility-request" data-expanded="false" role="button" aria-controls="attachment-12-accessibility-request" aria-expanded="false">Request an accessible format</a>.
+                                                <span id="attachment-12-accessibility-request" class="hidden-section js-hidden" aria-live="polite" role="region" aria-hidden="true">If you use assistive technology (such as a screen reader) and need a version of this document in a more accessible format, please email <a href="mailto:ESFA.GOVUK-ENQUIRIES@education.gov.uk?body=Details%20of%20document%20required%3A%0A%0A%20%20Title%3A%20PE%20and%20sport%20premium%20allocation%20for%20Baldwin%20Bridge%20Academy%202021%20to%202022%0A%20%20Original%20format%3A%20ods%0A%0APlease%20tell%20us%3A%0A%0A%20%201.%20What%20makes%20this%20format%20unsuitable%20for%20you%3F%0A%20%202.%20What%20format%20you%20would%20prefer%3F%0A%20%20%20%20%20%20&subject=Request%20for%20%27PE%20and%20sport%20premium%20allocation%20for%20Baldwin%20Bridge%20Academy%202021%20to%202022%27%20in%20an%20alternative%20format">ESFA.GOVUK-ENQUIRIES@education.gov.uk</a>. Please tell us what format you need. It will help us if you say what assistive technology you use.</span>
+                                            </span>
+                                        </span>
+                                    </div>
+
+                                </div>
+                            
+                            </section>
+
+                            <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-medium heading-guidance">General PE and sport premium resources</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div> -->
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy10 queryFilterType03 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£11,150</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wolfhook School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £11,150
+                                    <br>
+                                </span>
+                                Published:  28 october 2021
+                            </div>
+ 
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+                            <a class="govuk-heading-l" href="#">View PE and sport funding</a>
+                            <h3 class="heading-small heading-guidance">Payment dates</h3>
+                            <p class="govuk-!-margin-bottom-0">There are no more scheduled payments for academic year 2021 to 2022.</p>
+                            <p class="govuk-!-margin-bottom-0">You can view more information on payments on the <a href="#"> PE and sport premium for primary schools </a> page.</p>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- TR04 -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy11 queryFilterType04 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Trust overview for Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£585,682</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wisewood Academy Trust (UKPRN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £585,682
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy01 queryFilterType04 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£60,700</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Anglemire College (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £60,700
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy02 queryFilterType04 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£80,070</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Barley Grove School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £80,070
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy03 queryFilterType04 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£40,000</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Blossom Down Catholic School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £40,000
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                   <!-- x -->
+                   <div class="govuk-accordion__section sectionContent queryFilterAcademy0 queryFilterType04 queryFilterLocalAuthority02">
+                
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                <span class="govuk-accordion__heading-number-right">£50,000</span>
+                            </span>
+                        </h2>
+
+                        <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                            <span class="academyName">Boulder Cross (URN: 123456)</span>
+                            <span class="hidden-sub-section">
+                                £50,000
+                                <br>
+                            </span>
+                            Published: 1 September 2021
+                        </div>
+
+                    </div>
+            
+                    <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                        <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                        <div class="funding-block">
+
+                            <div class="funding-left-container">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../single-view">Test Report 04</a></h4>
+                            </div>
+                
+                            <div class="funding-right-container">
+                            </div>
+                
+                        </div>
+
+
+                        <h3 class="heading-small heading-guidance">Allocation history</h3>
+                        <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                        <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                        <ul class="list footer-guidance">                                    
+                            <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                        </ul>
+                    </div>
+            
+                </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy05 queryFilterType04 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£81,700</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Deerwood Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £81,700
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../single-view">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy06 queryFilterType04 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£70,360</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Ironside Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £70,360
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy07 queryFilterType04 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£46,070</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Kale Dean School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £46,070
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy08 queryFilterType04 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£30,670</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Seacrest Academy (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £30,670
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy09 queryFilterType04 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£80,034</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wiseman York Primary School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £80,034
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy10 queryFilterType04 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">Universal infant free school meals 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£46,078</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wolfhook School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £46,078
+                                    <br>
+                                </span>
+                                Published: 1 September 2021
+                            </div>
+ 
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance govuk-!-padding-top-0 govuk-!-margin-bottom-2">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="">Test Report 04</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                </div>
+                    
+                            </div>
+
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p class="govuk-!-margin-bottom-0"><a href="../../../14-to-16/parent/mat/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-2">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                    <!--x-->
+                    <!-- 16 to 19 Funding (F05) -->
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy03 queryFilterType05 queryFilterLocalAuthority02">
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">16 to 19 funding: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,345,029</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Blossom Down Catholic School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £151,505
+                                    <br>
+                                </span>
+                                Published:  20 August 2021  
+                            </div>
+                            
+                        </div>
+                        
+                        </div>
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block govuk-!-margin-bottom-2">
+                                <h4 class="govuk-heading-l"><a href="">View 16 to 19 funding breakdown for Blossom Down Catholic School</a></h4>
+                            </div>
+
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-further-education-revenue-funding-allocation-guide-2020-to-2021" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">16 to 19 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                      
+                    <!-- </div> -->
+                    <!-- x -->
+
+                    <div class="govuk-accordion__section sectionContent queryFilterAcademy10 queryFilterType05 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">16 to 19 funding: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£812,902</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="academyName">Wolfhook School (URN: 123456)</span>
+                                <span class="hidden-sub-section">
+                                    £244,480
+                                    <br>
+                                </span>
+                                Published: 20 August 2021 
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block govuk-!-margin-bottom-2">
+                                <h4 class="govuk-heading-l"><a href="">View 16 to 19 funding breakdown for Wolfhook School</a></h4>
+                            </div>
+
+                            <h3 class="heading-small govuk-!-margin-top-0 heading-guidance">Allocation history</h3>
+                            <p><a href="allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small govuk-!-margin-top-0 govuk-!-padding-top-0 heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/16-to-19-further-education-revenue-funding-allocation-guide-2020-to-2021" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">16 to 19 funding allocation guides: 2021 to 2022</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+
+
+                </div>
+                
+                <!-- COMPONENT - ACCORDION (END) -->
+
+                <!-- Pagination begins -->
+                    <nav class="govuk-pagination" role="navigation" aria-label="results">        
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                            
+                                  Showing 1 to 25 of 36 allocation statements
+                            </div>
+                       <div class="govuk-grid-column-one-half" style="display:flex; padding-left:100px;">                  
+                            <div class="govuk-pagination__prev">
+                            <a class="govuk-link govuk-pagination__link" href="#" rel="prev">
+                                <svg class="govuk-pagination__icon govuk-pagination__icon--prev"style="padding-right:10px;" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                                <path d="m6.5938-0.0078125-6.7266 6.7266 6.7441 6.4062 1.377-1.449-4.1856-3.9768h12.896v-2h-12.984l4.2931-4.293-1.414-1.414z"></path>
+                                </svg>
+                                <span class="govuk-pagination__link-title">Previous</span>
+                            </a>
+                            </div>
+                            <ul class="govuk-pagination__list" style="display:flex;">
+                                <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 1"style="padding:0 10px;">
+                                    1
+                                    </a>
+                                <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 2" aria-current="page" style="padding:0 10px; background-color:#1d70b8;color:white;font-weight:bold;">
+                                    2
+                                    </a>
+                                <a class="govuk-link govuk-pagination__link" href="#" aria-label="Page 3"style="padding:0 10px;">
+                                    3
+                                    </a>
+                                    
+                                        
+                            </ul>
+                            <div class="govuk-pagination__next"style="padding:0 10px;">
+                            <a class="govuk-link govuk-pagination__link" href="#" rel="next"> <span class="govuk-pagination__link-title">Next</span> 
+                                <svg class="govuk-pagination__icon govuk-pagination__icon--next" style="padding-left:10px;" xmlns="http://www.w3.org/2000/svg" height="13" width="15" aria-hidden="true" focusable="false" viewBox="0 0 15 13">
+                                <path d="m8.107-0.0078125-1.4136 1.414 4.2926 4.293h-12.986v2h12.896l-4.1855 3.9766 1.377 1.4492 6.7441-6.4062-6.7246-6.7266z"></path>
+                                </svg></a>
+                            </div>
+                        </div>
+                    
+                    </nav>                                       
+                <!-- Pagination end -->
+            </div>
+            {% endif %}
+
+        </form>
+        {% endif %}
+       
+        
+      
+        <div class="form-group direction-rtl" style="padding-top:50px;">
+            <a class="app-c-back-to-top dont-print" href="#content">
+                <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                </svg>
+                Back to top
+            </a>
+        </div>
+
+        <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+        <!-- START-->
+        <details style="display: none;">
+            <summary>
+                <span class="summary">...</span>
+            </summary>
+            
+            <div class="panel panel-border-narrow">
+                <p>...</p>             
+            </div>
+
+        </details>
+        <!-- END -->
+
+        <!-- <div class="form-group">
+            <details>
+                <summary>
+                    <span class="summary">I'm looking for another funding type</span>
+                </summary>
+                
+                <div class="panel panel-border-narrow">
+                    <p>...</p>
+                </div>
+
+            </details>
+        </div> -->
+
+
+    </div>
+
+</main>
+<!-- <script>
+    function search()
+    {
+        var input, filter, ul, li, a, i;
+  input = document.getElementById("search-here");
+  filter = input.value.toUpperCase();
+  ul = document.getElementById("filter-by-academy-link");
+  li = ul.getElementsByTagName("label");
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+    }
+</script> -->
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Search all available filters -->
+<script src="/public/javascripts/{{version}}/search-filter-options.js?v=1.0.3"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Search results
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Alpha) - START -->
+    {% include "includes/phase_banner_alpha.html" %}
+    <!-- GOV.UK phase banner (Alpha) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="start">How would you like to view funding allocations?</a></li>
+                        <li><a href="find-an-organisation">View funding by organisation</a></li>
+                        <li>Search results</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+            
+            <form method="post" class="form">
+
+                <div class="form-group">
+                    <h1 class="heading-xlarge">Search results</h1>
+                    <h2 class="heading-medium">No results for '{% if searchTerm %}{{searchTerm}}{% else %}{searchTerm}{% endif %}'</h2>
+                    <p>This is because either:</p>
+                    <ul class="list list-bullet">
+                        <li>there are no funding allocations for this organisation</li>
+                        <li>there is a misspelling</li>
+                    </ul>
+                    <p><a href="find-an-organisation">Find an organisation</a></p>
+                </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

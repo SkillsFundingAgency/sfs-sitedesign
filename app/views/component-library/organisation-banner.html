@@ -1,0 +1,293 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+	Organisation banner
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<!-- ESFA banner - START -->
+	{% include "includes/esfa_banner.html" %}
+	<!-- ESFA banner - END -->
+
+	<div class="govuk-grid-row">
+
+		<div class="govuk-grid-column-one-quarter app-hide-mobile">
+			
+			<nav class="app-subnav">
+				<ul class="app-subnav__section">
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="accordion">Accordion</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="back-to-top-link">Back to top link</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="card">Card</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="download-a-document">Download a document</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="filter-a-list">Filter a list</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-header">Funding header</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-table">Funding table</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-totals">Funding totals</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="icons">Icons</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="links">Links</a>
+					</li>
+					<li class="app-subnav__section-item app-subnav__section-item--current">
+						<a class="app-subnav__link" href="organisation-banner">Organisation banner</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="pagination">Pagination</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="search">Search</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="signed-in-account-banner">Signed-in account banner</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="tag">Tag</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="govuk-grid-column-three-quarters">
+			<h1 class="heading-xlarge">
+				<span class="heading-secondary">Component library</span>
+				Organisation banner
+			</h1>
+
+			<div class="app-prose-scope">
+				<p>A banner that sits below the global GOV.UK header to help a user identify which department they are interacting with on GOV.UK.</p>
+				<p>This component is not currently in the GOV.UK design system, but is in their <a href="https://github.com/alphagov/govuk-design-system-backlog/issues/118">GitHub backlog</a>.</p>
+				<p>The organisation banner is used on <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/start">view latest funding</a> and <a href="/{{latestVersionNFF}}/not-signed-in/view-national-funding-formula-tables/2020-to-2021/start">view national funding formula for schools</a>.</p>
+
+				<!--
+				Example CODE snippet (START) 
+				*** ORGANISATION BANNER ***
+				-->
+				<div class="app-example-wrapper" id="organisation-banner-example" data-module="app-tabs">
+				
+					<div class="app-example app-example--tabs">
+						<a href="examples/organisation-banner" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">back to top link</span> example in a new window</a>
+						<iframe title="Organisation banner example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/organisation-banner" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
+					</div>
+
+					<span id="options-organisation-banner-example"></span>
+					<ul class="app-tabs" role="tablist">
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#organisation-banner-example-html" role="tab" aria-controls="organisation-banner-example-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#organisation-banner-example-css" role="tab" aria-controls="organisation-banner-example-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+					</ul>
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#organisation-banner-example-html" role="tab" aria-controls="organisation-banner-example-html" data-track="tab-html" aria-expanded="false">HTML</a>
+					</div>
+				
+					<!-- HTML Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="organisation-banner-example-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-row"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"column-full"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"esfa-banner-container"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"esfa-banner-crest-image"</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"/public/images/{{latestVersion}}/org_crest_18px_x2.png"</span> <span class="hljs-attr">alt</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"esfa-banner-crest-name"</span>&gt;</span>Education &amp; Skills Funding Agency<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+					</div>
+					<!-- HTML Code Tab (END) -->
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#organisation-banner-example-css" role="tab" aria-controls="organisation-banner-example-css" data-track="tab-css" aria-expanded="false">CSS</a>
+					</div>
+
+					<!-- CSS Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="organisation-banner-example-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.esfa-banner-container &#123;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-family</span></span></span></span>: <span class="hljs-string">"HelveticaNeue", "Helvetica Neue", "Arial", "Helvetica", sans-serif</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-size</span></span></span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-weight</span></span></span></span>: <span class="hljs-string">400</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">display</span></span></span></span>: <span class="hljs-string">inline-block</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">width</span></span></span></span>: <span class="hljs-string">100</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">height</span></span></span></span>: <span class="hljs-string">20px</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">border-bottom</span></span></span></span>: <span class="hljs-string">1px solid #bfc1c3;</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">padding</span></span></span></span>: <span class="hljs-string">8px 0 8px 0</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .esfa-banner-container &#123;
+    <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">font-size</span></span></span></span>: <span class="hljs-string">18px</span>;
+    <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">height</span></span></span></span>: <span class="hljs-string">26px</span>;
+    <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">padding</span></span></span></span>: <span class="hljs-string">10px 0 10px 0</span>;
+  &#125;  
+&#125;
+
+.esfa-banner-crest-image &#123;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">float</span></span></span></span>: <span class="hljs-string">left</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">width</span></span></span></span>: <span class="hljs-string">auto</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">max-height</span></span></span></span>: <span class="hljs-string">20px</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">border-left</span></span></span></span>: <span class="hljs-string">2px solid #003a69</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">padding</span></span></span></span>: <span class="hljs-string">0 5px</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .esfa-banner-crest-image &#123;
+    <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">max-height</span></span></span></span>: <span class="hljs-string">26px</span>;
+  &#125;  
+&#125;
+
+.esfa-banner-container &#123;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">display</span></span></span></span>: <span class="hljs-string">inline-block</span>;
+  <span class="hljs-tag"><span class="hljs-attr"><span class="hljs-tag"><span class="hljs-attr">vertical-align</span></span></span></span>: <span class="hljs-string">middle</span>;
+&#125;</code></pre>
+					</div>
+					<!-- CSS Code Tab (END) -->
+						
+				</div>
+				<!--
+				Example CODE snippet (END) 
+				*** ORGANISATION BANNER ***
+				-->
+
+				<div class="form-group">
+					<h2 class="heading-large first-sub-heading">When to use this component</h2>
+					<p>Use this component when it's useful for the user to know which organisation is providing the service, for example, <abbr title="Education and Skills Funding Agency">ESFA</abbr>. This means there is no need to identify <abbr title="Education and Skills Funding Agency">ESFA</abbr> on each page.</p>
+					<h2 class="heading-large">When not to use this component</h2>
+					<p>For now, this component only works when there isn’t already a banner in that place. More design work is needed for services like <a href="/{{latestVersionAdults}}/signed-in/external/allocation-statements/adults/child/dashboard">MYESF</a>. In these cases, the place is used to sign in and navigate to different pages.</p>
+					<h2 class="heading-large">How it works</h2>
+					<p>The banner has been designed in-house. GDS and <abbr title="Education and Skills Funding Agency">ESFA</abbr> have approved it to be used across our services.</p>
+					<p>The banner can be implemented in the same way as the <a href="https://design-system.service.gov.uk/components/phase-banner/">phase banner</a> on the design system. If both the phase and <abbr title="Education and Skills Funding Agency">ESFA</abbr> banners are needed, they should be in the following vertical order:</p>
+					<ul class="list list-bullet">
+						<li>GOV.UK header</li>
+						<li>phase banner</li>
+						<li><abbr title="Education and Skills Funding Agency">ESFA</abbr> banner</li>
+					</ul>
+					<h2 class="heading-large">Research on this component</h2>
+					<p>The organisation banner has aided users in orienting themselves with the regard to the government ecosystem; in making it clearer which agency the page or service sits under, research participants have intimated that they have more confidence they are the correct place to perform their task.</p>
+				</div>
+
+			</div>
+
+			<div class="app-pane__subnav-mobile-overview app-hide-desktop app-hide-tablet govuk-!-padding-top-4">
+			
+				<nav class="app-subnav">
+					<ul class="app-subnav__section">
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="accordion">Accordion</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="back-to-top-link">Back to top link</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="card">Card</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="download-a-document">Download a document</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="filter-a-list">Filter a list</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-header">Funding header</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-table">Funding table</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-totals">Funding totals</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="icons">Icons</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="links">Links</a>
+						</li>
+						<li class="app-subnav__section-item mobile-app-subnav__section-item--current">
+							<a class="app-subnav__link" href="organisation-banner">Organisation banner</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="pagination">Pagination</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="search">Search</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="signed-in-account-banner">Signed-in account banner</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="tag">Tag</a>
+						</li>
+					</ul>
+				</nav>
+			
+			</div>
+
+		</div>
+
+		<div class="column-full back-to-top">
+
+			<div class="form-block direction-rtl">
+				<a class="app-c-back-to-top dont-print" href="#content">
+					<svg role="presentation" focusable="false" class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+						<path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+					</svg>Back to top
+				</a>
+			</div>
+
+		</div>
+
+	</div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
+<script src="/public/javascripts/iframeResizer.min.js"></script>
+<script>
+
+  iFrameResize({
+      log: true
+  }, '.iFrameResizer')
+
+</script>
+<!-- GOV.UK Design System JavaScript -->
+<script src="/public/javascripts/design-system.js"></script>
+<!-- Copy and paste code from the UI -->
+<script type="text/javascript" id="">
+    
+  function getSelectionText() {
+
+    var a = "";
+
+    window.getSelection ? a = window.getSelection().toString() : document.selection && "Control" != document.selection.type && (a = document.selection.createRange().text);
+    return a
+  }
+
+  document.addEventListener("copy", function(a) {
+    dataLayer.push({
+        event: "textCopied",
+        clipboardText: getSelectionText(),
+        clipboardLength: getSelectionText().length
+    })
+  });
+    
+</script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

@@ -1,0 +1,446 @@
+{{<layout}}
+
+{{$title}}Landfill data formatting rules{{/title}}
+
+{{$content}}
+
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <a id="back.btn" href="{{src}}" class="link-back">Go back</a>
+
+    <header>
+        <h1 class="form-title heading-xlarge">
+            <span id="title">{{$title}}{{/title}}</span>
+        </h1>
+    </header>
+
+    <h2 class="heading-small">Contents</h2>
+    <ul class="list list-bullet">
+        <li><a href="#how-to-prepare">How to prepare your data file</a></li>
+        <li><a href="#data-rules">Data formatting rules</a></li>
+        <li><a href="#exceptions">Exceptions and special cases</a></li>
+        <li><a href="#allowed-value-lists">Landfill data allowed value lists</a></li>
+    </ul>
+
+    <section class="group text" id="how-to-prepare">
+        <h2 class="heading-large">How to prepare your data file</h2>
+        <ol class="list list-number">
+            <li>Your data file should be a comma-separated values (CSV) file. You can use spreadsheet software such as Excel to create a CSV file. Or you can set up your data management systems to produce an automated export of data in the correct format. </li>
+            <li>Include column headings as the first row. Use the correct column heading shown in the data rules. The columns can be in any order. The column heading tells our system what data is in that column. </li>
+            <li>List each reading or measurement in its own row. </li>
+            <li>Check the data rules to make sure you have the correct data in each column. You can use the service to check the files before you send them. </li>
+            <li>You can use any filename provided it ends in '.csv'. You may find it helpful to use a descriptive filename.</li>
+        </ol>
+        <p>If you wish to, you can send data for more than one permit type in the same file. The maximum file size allowed is {{config.csv.maxFileSizeMb}}MB. Split the files if they are larger than this. </p>
+        <p><a href="{{links.Example_Data_Return}}">Example data for landfill</a></p>
+    </section>
+    <section class="group" id="data-rules">
+        <h2 class="heading-large">Data formatting rules</h2>
+        <table class="table-control mobile-format datarules">
+            <thead>
+                <tr>
+                    <th class="cell-one-sixth" scope="col">Column heading</th>
+                    <th class="cell-one-third" scope="col">Description</th>
+                    <th class="cell-one-third" scope="col">Rules</th>
+                    <th class="cell-one-sixth" scope="col">Example</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th class="dr_field" scope="row">EA_ID</th>
+                <td class="dr_description">This is the permit or licence number that we have in our records.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Required.</li>
+                    <li><a href="{{links.Help_Operator_Lookup}}">Find the correct EA_ID and Site_Name</a> using our search tool. </li>
+                  </ul>
+                </td>
+                <td class="dr_example">AB1234ZZ or 654321</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Site_Name</th>
+                <td class="dr_description">The site name in our records. It's used to check that you used the correct EA_ID. </td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Required.</li>
+                    <li>Check that the site name in your data file matches our records. You must use the site name that you find in our records even if it’s different to the site name on your permit.</li>
+                    <li><a href="{{links.Help_Operator_Lookup}}">Find the correct EA_ID and Site_Name</a> using our search tool. </li>
+                  </ul>
+                </td>
+                <td class="dr_example">Leeds Landfill Site</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Rtn_Period</th>
+                <td class="dr_description">The week, month, quarter or year that your return covers.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Give this information where possible.</li>
+                    <li>You must use one of the values in the <a href="{{links.fields.Rtn_Period}}">return period allowed values list</a>. </li>
+                    <li>To give details of date and time for the individual monitoring item use Mon_Date.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">Qtr 2 2016</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Rtn_Type</th>
+                <td class="dr_description">The type of data that you're reporting.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Required.</li>
+                    <li>You must use one of the values in the <a href="{{links.fields.Rtn_Type}}">return type allowed value list</a>.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">Landfill gas borehole</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Mon_Point</th>
+                <td class="dr_description">The sampling or emission point where the sample was taken.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Required.</li>
+                    <li>Enter the monitoring point specified on your permit or licence.</li>
+                    <li>For certain return types the monitoring point on your permit may be 'site'.</li>
+                    <li>Maximum 50 characters.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">Borehole 1</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Mon_Date</th>
+                <td class="dr_description">The date and, optionally, the time you took the measurement.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Date is required.</li>
+                    <li>Give the time if your permit requires it. If your permit does not require time, you can decide whether or not to add it.</li>
+                    <li>If you're monitoring for a period of time give the date, and time if required, at the end of the monitoring period.</li>
+                    <li>Format the date as YYYY-MM-DD, DD-MM-YYYY or DD/MM/YYYY.</li>
+                    <li>Format time as hh:mm:ss using the 24-hour clock.</li>
+                    <li>If you're giving time put a 'T' or a space between date and time.</li>
+                    <li>If you're using spreadsheet software it may change dates so they are in the wrong format. Fix this by setting the spreadsheet cell format to 'text'.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">
+                  <p style="white-space: nowrap">2016-08-31 15:28:02 or</p>
+                  <p style="white-space: nowrap">2016-08-31T15:28:04 or</p>
+                  <p style="white-space: nowrap">31-08-2016 or</p>
+                  <p style="white-space: nowrap">31/08/2016</p>
+                </td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Parameter</th>
+                <td class="dr_description">The chemical substance, biological or physical parameter you're monitoring.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Required.</li>
+                    <li>You must use one of the values in the <a href="{{links.fields.Parameter}}">parameters allowed values list</a>.</li>
+                    <li>If the parameter is pH, use the unit pH.</li>
+                    <li>Special case: <a href="{{links.Help_SpecialCases}}">when you need to report a descriptive measurement</a>.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">CH4</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Qualifier</th>
+                <td class="dr_description">Gives more information about the measurement, such as sample or operating condition, or the calculation used.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Use this where there’s a basic parameter that can have different values (and different limits) depending on how you measured it. For example, 'Dry weight' or 'Wet weight'.</li>
+                    <li>If you enter a qualifier, you must use one of the values in the <a href="{{links.fields.Qualifier}}">qualifier allowed values list</a>.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">Filtered</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Ref_Period</th>
+                <td class="dr_description">The reference period for the sample, as specified in your permit or licence. This explains how you took the measurement, for example, '24 hour total', 'Half hour average' or 'Monthly mean'.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>You can leave this blank if there are no reference period requirements in your permit or licence. You can also leave it blank for instantaneous or spot sample readings.</li>
+                    <li>If you enter a period, you must use one of the values in the <a href="{{links.fields.Ref_Period}}">reference period allowed value list</a>.</li>
+                    <li>Special case: <a href="{{links.Help_SpecialCases}}">when Ref_Period covers multiple measurements in a single calculation</a>.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">Daily mean</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Value</th>
+                <td class="dr_description">The numerical value of your measurement.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>You must enter either a Value or Text_Value. You cannot enter both.</li>
+                    <li>Numerical values only but can include zeros, blanks (nulls) &gt; and &lt;.</li>
+                    <li>You can enter negative values.</li>
+                    <li>Values such as 'waterlogged' should be in 'comments' field.</li>
+                    <li>Special case: <a href="{{links.Help_SpecialCases}}">when you need to give a ‘No result’ measurement</a>.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">0.2</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Txt_Value</th>
+                <td class="dr_description">Used to enter text for a measurement, for example, ‘Yes’, ‘No’, 'No result' and 'See comments'. </td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>You must enter either a Value or Text_Value. You cannot enter both.</li>
+                    <li>If you enter a text value, you must use one of the values in the <a href="{{links.fields.Txt_Value}}">text value allowed value list</a>.</li>
+                    <li>Only use ‘See comments’ when the result is descriptive text. For example, appearance or site weather conditions.</li>
+                    <li>Do not use this to simply add comments about your result. For more information see <a href="{{links.Help_SpecialCases}}">exceptions and special cases</a> below.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">No result</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Unit</th>
+                <td class="dr_description">The unit for the measurement.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>Required.</li>
+                    <li>You must use one of the values in the <a href="{{links.fields.Unit}}">unit or measure allowed value list</a>.</li>
+                    <li>If the parameter is pH, use the unit pH.</li>
+                    <li>Units are case sensitive.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">m</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Meth_Stand</th>
+                <td class="dr_description">The method or standard used for sampling.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>You must report this if your permit requires it. If it does not, then leave it blank.</li>
+                    <li>If you need to report this you must use one of the values in the <a href="{{links.fields.Meth_Stand}}">monitoring standard or method allowed value list</a>.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">BS EN 14791</td>
+              </tr>
+              <tr>
+                <th class="dr_field" scope="row">Comments</th>
+                <td class="dr_description">Use this for comments about the row of data. For example, if you were unable to take a reading. You can also use this field if you wish to give your own system references to store with the results.</td>
+                <td class="dr_rules">
+                  <ul class="list list-bullet">
+                    <li>You must provide this if Text_Value is 'See comments'. </li>
+                    <li>If Text_Value is 'No result' you should explain why in the comments.</li>
+                    <li>You can also use this to provide extra information.</li>
+                    <li>Maximum 255 characters.</li>
+                    <li>Don't include any personal information such as names or contact details.</li>
+                  </ul>
+                </td>
+                <td class="dr_example">Borehole blocked</td>
+              </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="group" id="exceptions">
+        <h2 class="heading-large">Exceptions and special cases</h2>
+        <p class="text">There are some exceptions where you may not have to fill mandatory fields because of circumstances, or special cases where your data needs to be adapted. The table below describes these exceptions and explains how you must format your data in these circumstances. It also gives example data.</p>
+        <section class="exception">
+            <h3 class="heading-medium">When you need to give a ‘No result’ measurement</h3>
+            <p class="text">You should leave the Value field blank and enter ‘No result’ in the Txt_Value field if you’re reporting on a parameter but can’t give a measurement, for example, because a borehole is blocked. You should also give an explanation in the Comments field.</p>
+            <p class="text">You must give a line of data for each parameter, including instances where you couldn’t take a measurement.</p>
+            <div class="example-file-wrapper" tabindex="0">
+                <table class="table-control example">
+                    <thead>
+                        <tr>
+                            <th>EA_ID</th>
+                            <th>Site_Name</th>
+                            <th>Rtn_Period</th>
+                            <th>Rtn_Type</th>
+                            <th>Mon_Point</th>
+                            <th>Mon_Date</th>
+                            <th>Parameter</th>
+                            <th>Qualifier</th>
+                            <th>Ref_Period</th>
+                            <th>Value</th>
+                            <th>Txt_Value</th>
+                            <th>Unit</th>
+                            <th>Meth_Stand</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AB1234YZ</td>
+                            <td>Greendale Landfill</td>
+                            <td>Qtr 4 2016</td>
+                            <td>Landfill gas borehole</td>
+                            <td>Borehole 1</td>
+                            <td>2016-01-01T09:14</td>
+                            <td>Methane</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>No result</td>
+                            <td></td>
+                            <td></td>
+                            <td>Borehole is blocked</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="exception">
+            <h3 class="heading-medium">When Ref_Period covers multiple measurements in a single calculation</h3>
+            <p class="text">Give date and time data from the end of a period if you’re reporting a Ref_Period measurement calculated across multiple readings such as ‘Average’, ‘Maximum daily’ or ‘Minimum daily’. In the example below the single date and time entered for a Ref_Period of ‘Hourly mean’ represents a set of readings taken from 3pm to 4pm on 1 August 2016.</p>
+            <div class="example-file-wrapper" tabindex="0">
+                <table class="table-control example">
+                    <thead>
+                        <tr>
+                            <th>EA_ID</th>
+                            <th>Site_Name</th>
+                            <th>Rtn_Period</th>
+                            <th>Rtn_Type</th>
+                            <th>Mon_Point</th>
+                            <th>Mon_Date</th>
+                            <th>Parameter</th>
+                            <th>Qualifier</th>
+                            <th>Ref_Period</th>
+                            <th>Value</th>
+                            <th>Txt_Value</th>
+                            <th>Unit</th>
+                            <th>Meth_Stand</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AB1234YZ</td>
+                            <td>Greendale Landfill</td>
+                            <td>Qtr 4 2016</td>
+                            <td>Landfill gas engine</td>
+                            <td>Eng1</td>
+                            <td>2016-08-01T16:00:00</td>
+                            <td>NOX</td>
+                            <td></td>
+                            <td>Hourly mean</td>
+                            <td>380</td>
+                            <td></td>
+                            <td>mg/m3</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <section class="exception">
+            <h3 class="heading-medium">When you need to report a descriptive measurement</h3>
+            <p class="text">You may need to report on parameters, for example ‘Weather conditions’, that have no numerical result so you should give a description instead. To do this leave the Value and Units fields blank and enter ‘See comment’ in Txt_Value. Then you must enter a description in the Comments field. </p>
+            <div class="example-file-wrapper" tabindex="0">
+                <table class="table-control example">
+                    <thead>
+                        <tr>
+                            <th>EA_ID</th>
+                            <th>Site_Name</th>
+                            <th>Rtn_Period</th>
+                            <th>Rtn_Type</th>
+                            <th>Mon_Point</th>
+                            <th>Mon_Date</th>
+                            <th>Parameter</th>
+                            <th>Qualifier</th>
+                            <th>Ref_Period</th>
+                            <th>Value</th>
+                            <th>Txt_Value</th>
+                            <th>Unit</th>
+                            <th>Meth_Stand</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>AB1234YZ</td>
+                            <td>Greendale Landfill</td>
+                            <td>Qtr 4 2016</td>
+                            <td>Landfill gas borehole</td>
+                            <td>site</td>
+                            <td>2016-01-01</td>
+                            <td>Site weather conditions</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td>See comments</td>
+                            <td></td>
+                            <td></td>
+                            <td>11°C sunny breezy 1022 mbs</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </section>
+
+    <section id="allowed-value-lists">
+        <article class="text">
+            <h2 class="heading-large">Landfill data allowed value lists</h2>
+            <p>You must use the values in these lists when you report your data.</p>
+
+
+            <section class="csv">
+                <h2>Return period</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Rtn_Period}}"><span class="visually-hidden">Return period list: </span>View list</a></span> or
+                    <span class="download"><a href="{{links.downloads.Rtn_Period}}"><span class="visually-hidden">Return period list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Return type</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Rtn_Type}}"><span class="visually-hidden">Return type list: </span>View list</a></span> or
+                    <span class="download"><a href="{{links.downloads.Rtn_Type}}"><span class="visually-hidden">Return type list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Parameter (substance name)</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Parameter}}"><span class="visually-hidden">Parameter list: </span>View list</a></span> or
+                    <span class="download"><a href="{{links.downloads.Parameter}}"><span class="visually-hidden">Parameter list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Qualifier</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Qualifier}}"><span class="visually-hidden">Qualifier list: </span>View list</a></span> or
+                    <span class="download"> <a href="{{links.downloads.Qualifier}}"><span class="visually-hidden">Qualifier list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Reference period</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Ref_Period}}"><span class="visually-hidden">Reference period list: </span>View list</a></span> or
+                    <span class="download"><a href="{{links.downloads.Ref_Period}}"><span class="visually-hidden">Reference period list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Text value</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Txt_Value}}"><span class="visually-hidden">Text value list: </span>View list</a></span> or
+                    <span class="download"> <a href="{{links.downloads.Txt_Value}}"><span class="visually-hidden">Text value list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Unit or measure</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Unit}}"><span class="visually-hidden">Unit or measure list: </span>View list</a></span> or
+                    <span class="download"><a href="{{links.downloads.Unit}}"><span class="visually-hidden">Unit or measure list: </span>download CSV</a></span>
+                </p>
+            </section>
+
+            <section class="csv">
+                <h2>Monitoring standard or method</h2>
+                <p>
+                    <span class="preview"><a href="{{links.fields.Meth_Stand}}"><span class="visually-hidden">Monitoring standard or method list: </span>View list</a></span> or
+                    <span class="download"><a href="{{links.downloads.Meth_Stand}}"><span class="visually-hidden">Monitoring standard or method list: </span>download CSV</a></span>
+                </p>
+            </section>
+        </article>
+    <section>
+</main>
+{{/content}}
+{{/layout}}

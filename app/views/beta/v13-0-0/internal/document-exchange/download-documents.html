@@ -1,0 +1,454 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Download your documents
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>Download your documents</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- <form method="post" class="form"> -->
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
+                    <ul class="error-summary-list">
+                        <li class="non-linked-error">Select the documents that you want to download</li>
+                    </ul>
+                </div>
+                {% endif %}
+
+                <!-- Only display this content within the div when the paragraph is required (conditionally) -->
+                <!-- <div class="form-group"> -->
+                    <h1 class="heading-xlarge">Download your documents</h1>
+                    <!-- <p>Any documents you receive will show here.</p> -->
+                <!-- </div> -->
+    
+                <div class="pager-top">
+    
+                    <div id="documentsSelectedText" class="pager-summary">
+                        0 documents selected
+                    </div>
+    
+                </div>
+
+                <div class="column-filter-one-third column-third minus-25px-margin-top">
+                    <section class="filters">
+                        <br>
+
+                        <div>
+                            <ul>
+                                <li>
+                                    <fieldset class="filter">
+                                        <legend class="visuallyhidden">Filter by status</legend>
+                
+                                        <div class="js-filter-collapsible-collections statusFilter">
+                                            <section id="status-filter" class="js-filter-collapsible js-open">
+                                                <input type="hidden" name="queryFilterOpenStatus" id="queryFilterOpenStatus" value="True">
+                                                <header class="js-filter-collapsible-header">
+                                                    <h3 id="status" class="filters-headings heading-small">Filter by status</h3>
+                                                </header>
+
+                                                <div class="js-filter-collapsible-content">
+                                                    <section class="toggled-adult-funding-content group">
+                                                        <ul>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterStatusNew" rel="New" name="queryFilterStatus" type="checkbox" value="New">
+                                                                <label class="block" for="queryFilterStatusNew">
+                                                                    New ({% if paginationRequired %}18{% else %}2{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterStatusDownloaded" rel="Downloaded" name="queryFilterStatus" type="checkbox" value="Downloaded">
+                                                                <label class="block" for="queryFilterStatusDownloaded">
+                                                                    Downloaded ({% if paginationRequired %}36{% else %}4{% endif %})
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </section>
+                                                </div>
+
+                                            </section>
+                                        </div>
+
+                                    </fieldset>
+                                </li>
+                                <li>
+                                    <fieldset class="filter">
+                                        <legend class="visuallyhidden">Filter by document type</legend>
+                
+                                        <div class="js-filter-collapsible-collections documentTypeFilter">
+                                            <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                                <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" value="True">
+                                                <header class="js-filter-collapsible-header">
+                                                    <h3 id="documentType" class="filters-headings heading-small">Filter by document type</h3>
+                                                </header>
+
+                                                <div class="js-filter-collapsible-content">
+                                                    <section class="toggled-adult-funding-content group">
+                                                        <ul>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                                <label class="block" for="queryFilterDocumentType01">
+                                                                    16 to 19 reconciliation statement ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                                <label class="block" for="queryFilterDocumentType02">
+                                                                    Business case audit evidence return ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                                <label class="block" for="queryFilterDocumentType03">
+                                                                    Data sharing protocol ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
+                                                                <label class="block" for="queryFilterDocumentType04">
+                                                                    Pupil premium return ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                                </label>
+                                                            </li>
+                                                            <li class="gds-multiple-choice multiple-choice">
+                                                                <input id="queryFilterDocumentType05" rel="05" name="queryFilterDocumentType" type="checkbox" value="05">
+                                                                <label class="block" for="queryFilterDocumentType05">
+                                                                    School financial value assurance statement ({% if paginationRequired %}1{% else %}1{% endif %})
+                                                                </label>
+                                                            </li>
+                                                        </ul>
+                                                    </section>
+                                                </div>
+
+                                            </section>
+                                        </div>
+
+                                    </fieldset>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </section>
+                </div>
+
+                <!-- Document list -->
+                <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
+                    <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
+
+                    <div class="form-group">
+                        <table>
+                            <thead>
+                                <tr class="first">
+                                    <th>
+                                        <div style="display: none;" class="document-checkbox-div multiple-choice">
+                                            <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
+                                            <label for="document-checkbox">Select/deselect all documents</label>
+                                        </div>
+                                    </th>
+                                    <th class="">
+                                        <span class="tab-header-no-sort">Document name</span>
+                                    </th>                                
+                                    <th>
+                                        <span class="tab-header-no-sort">Document type</span>
+                                    </th>
+                                    <th>
+                                        <span class="tab-header-no-sort">Status</span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <!-- 54 RESULTS -->
+                            {% if paginationRequired %}
+                            <!-- 25 RESULTS (1-25 OF 54) -->
+                            {% if page1 %}
+                            
+                            <!-- 25 RESULTS (26-50 OF 54) -->
+                            {% elif page2 %}
+
+                            <!-- 4 RESULTS (51-54 OF 54) -->
+                            {% elif page3 %}
+
+                            {% endif %}
+                            <!-- 6 RESULTS -->
+                            {% else %}
+                            <tbody id="sortable-table-contents">
+                                <tr id="file-01">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01" onclick="">
+                                            <label for="checkbox-file-01"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">2001034_pupil<wbr>premium<wbr>return_v2-20182019.pdf</a>
+                                        <br>
+                                        10:54am on 12 December 2018
+                                    </td>
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        Pupil premium return
+                                    </td>
+                                    <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred">New</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-02">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02" onclick="">
+                                            <label for="checkbox-file-02"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">2345609<wbr>_financial<wbr>value<wbr>statement<wbr>_v1<wbr>-20182019<wbr>.pdf</a>
+                                        <br>
+                                        10:51am on 12 December 2018
+                                    </td>
+                                    <td class="sortable-td 05" rel="05" style="vertical-align: top;">
+                                        School financial value assurance statement
+                                    </td>
+                                    <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                        <strong class="govuk-tag govuk-bgred">New</strong>
+                                    </td>
+                                </tr>
+                                <tr id="file-03">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03" onclick="">
+                                            <label for="checkbox-file-03"></label>
+                                        </div>
+                                    </td>  
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">4166019<wbr>_pupil<wbr>premium<wbr>return<wbr>_v1<wbr>-20182019<wbr>.docx</a>
+                                        <br>
+                                        9:46am on 23 October 2018
+                                    </td>
+                                    <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                        Pupil premium return
+                                    </td>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <br>
+                                        <span>J Jones at 10:07am on 24 October 2018</span>
+                                    </td>
+                                </tr>
+                                <tr id="file-04">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04" onclick="">
+                                            <label for="checkbox-file-04"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">4450019<wbr>_business<wbr>case<wbr>audit<wbr>evidence<wbr>_v1<wbr>-20182019<wbr>.pdf </a>
+                                        <br>
+                                        9:02am on 1 October 2018
+                                    </td>
+                                    <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                        Business case audit evidence return
+                                    </td>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <br>
+                                        <span>J Jones at 4:22pm on 1 October 2018</span>
+                                    </td>
+                                </tr>
+                                <tr id="file-05">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05" onclick="">
+                                            <label for="checkbox-file-05"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">6465888<wbr>_16<wbr>to<wbr>19<wbr>statement<wbr>_v1<wbr>-20182019<wbr>.ppt</a>
+                                        <br>
+                                        12:32pm on 21 September 2018
+                                    </td>
+                                    <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                        16 to 19 reconciliation statement
+                                    </td>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <br>
+                                        <span>J Jones at 10:34am on 24 September 2018</span>
+                                    </td>
+                                </tr>
+                                <tr id="file-06">
+                                    <td class="document-checkbox-td sortable-td">
+                                        <div class="document-checkbox-div multiple-choice">
+                                            <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06" onclick="">
+                                            <label for="checkbox-file-06"></label>
+                                        </div>
+                                    </td>
+                                    <td class="sortable-td" style="vertical-align: top;">
+                                        <a href="#">7655122<wbr>_data<wbr>sharing<wbr>protocol<wbr>_v1<wbr>-20182019<wbr>.pdf </a>
+                                        <br>
+                                        4:02pm on 20 September 2018
+                                    </td>
+                                    <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                        Data sharing protocol
+                                    </td>
+                                    <td class="sortable-td Downloaded" rel="Downloaded" style="vertical-align: top;">
+                                        <strong class="govuk-tag">Downloaded</strong>
+                                        <br>
+                                        <span>J Jones at 9:15am on 21 September 2018</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            {% endif %}
+                        </table>
+
+                        {% if paginationRequired %}
+                        {% if page1 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">
+                                <ul class="pager-items">
+                                    <li>
+                                        <span class="text-bold">1</span>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Next</a>
+                                </ul>                                
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 1 to 25 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page2 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page1=true">Previous</a>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">2</span>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page3=true">3</a>
+                                    </li>
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page3=true">Next</a>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 26 to 50 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% elif page3 %}
+                        <div class="pager">
+
+                            <div class="pager-controls">                               
+                                <ul class="pager-items">
+                                    <a class="pager-next" href="documents-to-publish?paginationRequired=true&page2=true">Previous</a>
+                                    &nbsp;&nbsp;
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page1=true">1</a>
+                                    </li>
+                                    <li>
+                                        <a href="documents-to-publish?paginationRequired=true&page2=true">2</a>
+                                    </li>
+                                    <li>
+                                        <span class="text-bold">3</span>
+                                    </li>
+                                </ul>
+                            </div>
+            
+                            <div class="pager-summary">
+                                Showing 51 to 54 of 54 documents
+                                <span id="totalDocumentCount" style="display: none;">54</span>
+                            </div>
+            
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <div class="pager">
+            
+                            <div class="pager-summary">
+                                Showing 1 to 6 of 6 documents
+                                <span id="totalDocumentCount" style="display: none;">6</span>
+                            </div>
+            
+                        </div>
+                        {% endif %}
+
+                    </div>
+
+                    <div class="form-group">
+                        <button class="button">Download selected documents</button>
+                    </div>
+
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
+                    </div>
+
+                </div>
+
+            <!-- </form> -->
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/lifted/jquery-ui.js"></script>
+<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
+<script src="/public/javascripts/lifted/application.js"></script>
+<script src="/public/javascripts/lifted/bind.js"></script>
+<script src="/public/javascripts/lifted/details.polyfill.js"></script>
+<script src="/public/javascripts/lifted/govuk-template.js"></script>
+<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
+<script src="/public/javascripts/lifted/selection-buttons.js"></script>
+<script src="/public/javascripts/lifted/pds.js"></script>
+
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Sorting for the document list -->
+<script src="/public/javascripts/{{version}}/sorting-fileshare.js"></script>
+
+{% endblock %}

@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Select the type of document you want to send
+{% endblock %}
+
+{% block content %}
+
+<main id="content">
+
+    <!-- Account Management (IDAMS) - START -->
+    <div class="account-master">
+
+        <div class="grid-row account-details">
+            
+            <div class="column-full controls account-div">
+                <span class="account-link"><a href="#">Settings</a></span>
+                <span class="account-link"><a href="#">Sign out</a></span>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+    
+                <nav>
+                    <ol id="removeADocBreadcrumb1">
+                        <li><a href="../../external/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>Send your document</li>
+                    </ol>
+                </nav>
+
+            </div>
+  
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h1 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h1>
+                    <ul class="error-summary-list">
+                        <li><a href="#documentType">Select your type of document</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+
+                <fieldset class="{% if error %}after-error-summary{% endif %}">
+                    <legend id="documentType">
+                        <h1 class="heading-xlarge">Select the type of document you want to send</h1>
+                    </legend>
+                    <p>This will be the new file name.</p>
+
+                    <div class="form-group {% if error %}form-group-error{% endif %}">
+                        {% if error %}
+                        <span class="error-message">Select your type of document</span>
+                        {% endif %}
+
+                        <div class="multiple-choice">
+                            <input id="radio-1" type="radio" name="fileType" value="Alternative completions">
+                            <label for="radio-1">Alternative completions</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-2" type="radio" name="fileType" value="Business case">
+                            <label for="radio-2">Business case</label>
+                        </div>
+                        
+                        <div class="multiple-choice">
+                            <input id="radio-3" type="radio" name="fileType" value="Business case audit evidence">
+                            <label for="radio-3">Business case audit evidence</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-4" type="radio" name="fileType" value="Data sharing protocols">
+                            <label for="radio-4">Data sharing protocols</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-5" type="radio" name="fileType" value="Financial report">
+                            <label for="radio-5">Financial report</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-6" type="radio" name="fileType" value="Funding monitoring reports">
+                            <label for="radio-6">Funding monitoring reports</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-7" type="radio" name="fileType" value="Infrastructure return">
+                            <label for="radio-7">Infrastructure return</label>
+                        </div>
+
+                        <div class="multiple-choice">
+                            <input id="radio-8" type="radio" name="fileType" value="Reconciliation return">
+                            <label for="radio-8">Reconciliation return</label>
+                        </div>
+
+                    </div>
+
+                </fieldset>
+
+                <div class="form-group">
+                    <button class="button">Continue</button>
+                </div>
+
+                <div class="form-group">
+                    <a href="javascript: history.go(-1)">Cancel and go back</a>
+                </div>
+        
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

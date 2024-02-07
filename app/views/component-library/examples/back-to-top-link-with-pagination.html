@@ -1,0 +1,467 @@
+<!doctype html>
+<!--[if lt IE 9]><html class="lte-ie8" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html lang="en"><!--<![endif]-->
+
+    <head>
+        <style id="stndz-style"></style>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex, nofollow">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:image" content="/public/images/opengraph-image.png?0.19.2">
+        <title>Back to top link: with pagination</title>
+
+        <!--[if gt IE 8]><!--><link href="/public/stylesheets/govuk-template.css?0.19.2" media="screen" rel="stylesheet"><!--<![endif]-->
+        <!--[if IE 6]><link href="/public/stylesheets/govuk-template-ie6.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
+        <!--[if IE 7]><link href="/public/stylesheets/govuk-template-ie7.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
+        <!--[if IE 8]><link href="/public/stylesheets/govuk-template-ie8.css?0.19.2" media="screen" rel="stylesheet" /><![endif]-->
+        <link href="/public/stylesheets/govuk-template-print.css?0.19.2" media="print" rel="stylesheet">
+
+        <!--[if IE 8]><link href="/public/stylesheets/fonts-ie8.css?0.19.2" media="all" rel="stylesheet" /><![endif]-->
+        <!--[if gte IE 9]><!--><link href="/public/stylesheets/fonts.css?0.19.2" media="all" rel="stylesheet"><!--<![endif]-->
+        <!--[if lt IE 9]><script src="/public/javascripts/ie.js?0.19.2"></script><![endif]-->
+
+        <link rel="shortcut icon" href="/public/images/favicon.ico?0.19.2" type="image/x-icon">
+        <link rel="mask-icon" href="/public/images/gov.uk_logotype_crown.svg?0.19.2" color="#0b0c0c">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/public/images/apple-touch-icon-152x152.png?0.19.2">
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/public/images/apple-touch-icon-120x120.png?0.19.2">
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/public/images/apple-touch-icon-76x76.png?0.19.2">
+        <link rel="apple-touch-icon-precomposed" href="/public/images/apple-touch-icon-60x60.png?0.19.2">
+
+        <!-- Static global CSS - do NOT change these GDS styles (START) -->
+        <link href="/public/kit-icons/icons.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/public/stylesheets/accordion.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+        <!-- Static global CSS - do NOT change these GDS styles (END) -->
+
+        <!-- External third party CSS links (START) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <!-- External third party CSS links (END) -->
+
+        <!-- Changeable Custom CSS - add all variable CSS here (START) -->
+        <link href="/public/stylesheets/{{latestVersion}}/custom-styles-myesf.css" media="screen" rel="stylesheet" type="text/css" />
+        <link href="/public/stylesheets/{{latestVersion}}/print.css" media="print" rel="stylesheet" type="text/css" />
+        <!-- Changeable Custom CSS - add all variable CSS here (END) -->
+
+        <!--[if lt IE 9]>
+            <script src="/javascripts/head-ie8-a371085ca251931cc9b5360c7da328f6.js"></script>
+        <![endif]-->
+        <script src="/javascripts/vendor/modernizr.js"></script>
+    </head>
+
+    <style>
+
+        html {
+            background-color: #ffffff;
+            font-size: inherit;
+        }
+        .app-example-page {
+            padding: 60px 30px 30px 30px;
+        }
+        .app-example-page--full-page {
+            padding: 0;
+        }
+    
+    </style>
+
+    <body class="app-example-page js-enabled" cz-shortcut-listen="true">
+        <script>document.body.className = ((document.body.className) ? document.body.className + ' js-enabled' : 'js-enabled');</script>
+
+        <main role="main" id="example">
+
+            <form action="/form-handler" method="post" novalidate="">
+
+                <div class="form-block visuallyhidden">
+                    <p>Searching on <span class="bold">'abbey'</span> we found 52 schools. Did you mean:</p>                     
+
+                    <!-- JS TABLE ROWS (START) -->
+                    <!-- 52 RESULTS -->
+                    <div class="hidden" hidden aria-hidden="true" data-checkboxes>
+
+                        <!-- 1-25 (START) -->
+                        <div class="form-block sectionContent searchable-div 01 Maintained">
+                            <a href="statement">Abbey Catholic Primary School (Birmingham, B23 6QL)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 21 Maintained">
+                            <a href="statement">Abbey CofE Academy (Daventry, NN11 4GD)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 33 Maintained">
+                            <a href="statement">Abbey CofE Infant School (Nuneaton, CV11 5EL)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 17 Maintained">
+                            <a href="statement">Abbey Court Foundation Special School (Rochester, ME2 3SP)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 23 Maintained">
+                            <a href="statement">Abbey Gates Primary School (Nottingham, NG15 9BN)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 16 Maintained">
+                            <a href="statement">Abbey Hey Primary Academy (Manchester, M18 8PF)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 23 Maintained">
+                            <a href="statement">Abbey Hill Primary & Nursery (Nottingham, NG17 7NZ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 28 Maintained">
+                            <a href="statement">Abbey Hill School and College (Stoke-On-Trent, ST3 5PP)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 28 Maintained">
+                            <a href="statement">Abbey Hulton Primary School (Stoke-on-Trent, ST2 8BS)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 26 Maintained">
+                            <a href="statement">Abbey Infant School (Smethwick, B67 5LR)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 07 Maintained">
+                            <a href="statement">Abbey Infants' School (Darlington, DL3 8JA)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 07 Maintained">
+                            <a href="statement">Abbey Junior School (Darlington, DL3 8NN)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 26 Maintained">
+                            <a href="statement">Abbey Junior School (Smethwick, B67 5LT)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 27 Maintained">
+                            <a href="statement">Abbey Lane Primary School (Sheffield, S8 0BN)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 04 Maintained">
+                            <a href="statement">Abbey Meadows Primary School (Cambridge, CB5 8ND)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 31 Maintained">
+                            <a href="statement">Abbey Meads Community Primary School (Swindon, SN25 4GY)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 31 Maintained">
+                            <a href="statement">Abbey Meads Community Primary School (Swindon, SN25 4GY)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 03 Maintained">
+                            <a href="statement">Abbey Park Academy (Halifax, HX2 9DG)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 34 Maintained">
+                            <a href="statement">Abbey Park First and Nursery School (Pershore, WR10 1DF)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 34 Maintained">
+                            <a href="statement">Abbey Park Middle School (Pershore, WR10 1DF)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 13 Maintained">
+                            <a href="statement">Abbey Primary Community School (Leicester, LE4 5HH)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 23 Maintained">
+                            <a href="statement">Abbey Primary School (Mansfield, NG19 0AB)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 30 Maintained">
+                            <a href="statement">Abbey Primary School (Morden, SM4 6NY)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 32 Maintained">
+                            <a href="statement">Abbey Primary School (Walsall, WS3 2RP)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 23 Maintained">
+                            <a href="statement">Abbey Road Primary School (Nottingham, NG2 5ND)</a>
+                        </div>
+                        <!-- 1-25 (END) -->
+
+                        <!-- 26-50 (START) -->
+                        <div class="form-block sectionContent searchable-div 25 Maintained">
+                            <a href="statement">Abbey School (Rotherham, S61 2RA)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 12 Maintained">
+                            <a href="statement">Abbey Village Primary School (Chorley, PR6 8DD)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 24 Maintained">
+                            <a href="statement">Abbey Woods Academy (Wallingford, OX10 7LZ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 27 Maintained">
+                            <a href="statement">Abbeyfield Primary Academy (Sheffield, S3 9AN)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 22 Maintained">
+                            <a href="statement">Abbeyfields First School (Morpeth, NE61 2LZ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 09 Maintained">
+                            <a href="statement">Abbeymead Primary School (Gloucester, GL4 5YS)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 19 Maintained">
+                            <a href="statement">Abbeys Primary School (Milton Keynes, MK3 6PS)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 34 Maintained">
+                            <a href="statement">Abbeywood First School (Redditch, B98 9LR)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 14 Maintained">
+                            <a href="statement">Bourne Abbey Church of England Primary Academy (Bourne, PE10 9EP)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 15 Maintained">
+                            <a href="statement">Childwall Abbey School (Liverpool, L16 5EY)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 02 Maintained">
+                            <a href="statement">Haydon Abbey School and Pre-School (Aylesbury, HP19 9NS)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 06 Maintained">
+                            <a href="statement">Holm Cultram Abbey CofE School (Wigton, CA7 4RU)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 14 Maintained">
+                            <a href="statement">Lincoln Monks Abbey Primary School (Lincoln, LN2 5PF)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 18 Maintained">
+                            <a href="statement">Merton Abbey Primary School (London, SW19 2JY)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 10 Maintained">
+                            <a href="statement">Netley Abbey Infant School (Southampton, SO31 5EL)</a>
+                        </div>
+                        
+                        <div class="form-block sectionContent searchable-div 10 Maintained">
+                            <a href="statement">Netley Abbey Junior School (Southampton, SO31 5EL)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 10 Maintained">
+                            <a href="statement">Romsey Abbey Church of England Primary School (Romsey, SO51 8EP)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 20 Maintained">
+                            <a href="statement">Rosedale Abbey Community Primary School (Pickering, YO18 8SA)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 20 Maintained">
+                            <a href="statement">Selby Abbey Church of England Voluntary Controlled Primary School (Selby, YO8 4QB)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 08 Maintained">
+                            <a href="statement">Sherborne Abbey Church of England Voluntary Controlled Primary School (Sherborne, DT9 6AQ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 11 Maintained">
+                            <a href="statement">The Abbey Church of England Voluntary Aided Primary School, St Albans (St Albans, AL1 1DQ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 08 Maintained">
+                            <a href="statement">The Abbey CofE VA Primary School, Shaftesbury (Shaftesbury, SP7 8HQ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 21 Maintained">
+                            <a href="statement">The Abbey Primary School (Northampton, NN4 8AZ)</a>
+                        </div>
+                        
+                        <div class="form-block sectionContent searchable-div 21 Maintained">
+                            <a href="statement">The Abbey Primary School (Northampton, NN4 8AZ)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 29 Maintained">
+                            <a href="statement">Waverley Abbey CofE Junior School (Farnham, GU10 2AE)</a>
+                        </div>
+                        <!-- 26-50 (END) -->
+
+                        <!-- 51-52 (START) -->
+                        <div class="form-block sectionContent searchable-div 05 Maintained">
+                            <a href="statement">Whitley Abbey Primary School (Coventry, CV3 4DE)</a>
+                        </div>
+
+                        <div class="form-block sectionContent searchable-div 09 Maintained">
+                            <a href="statement">Winchcombe Abbey Church of England Primary School (Cheltenham, GL54 5PZ)</a>
+                        </div>
+                        <!-- 51-52 (END) -->
+
+                    </div>
+                    <!-- JS TABLE ROWS (END) -->
+
+                </div>
+
+                <!-- COMPONENT - BACK TO TOP LINK: WITH PAGINATION (START) -->
+                <!-- NON JS PAGING (START) -->
+                {% if paginationRequired %}
+                {% if page1 %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+
+                    <div class="pager-controls">
+                        <ul class="pager-items">
+                            <li>
+                                <span class="text-bold">1</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="back-to-top-link-with-pagination?paginationRequired=true&page2=true">2</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="back-to-top-link-with-pagination?paginationRequired=true&page3=true">3</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <a class="pager-next" href="back-to-top-link-with-pagination?paginationRequired=true&page2=true">Next</a>
+                            <span class="visuallyhidden"> page</span>
+                        </ul>                                
+                    </div>
+    
+                    <div class="pager-summary">
+                        Showing 1 to 25 of 52 results
+                    </div>
+    
+                </div>
+                {% elif page2 %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+
+                    <div class="pager-controls">                               
+                        <ul class="pager-items">
+                            <a class="pager-next" href="back-to-top-link-with-pagination?paginationRequired=true&page1=true">Previous</a>
+                            <span class="visuallyhidden"> page</span>
+                            &nbsp;&nbsp;
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="back-to-top-link-with-pagination?paginationRequired=true&page1=true">1</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="text-bold">2</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="back-to-top-link-with-pagination?paginationRequired=true&page3=true">3</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <a class="pager-next" href="back-to-top-link-with-pagination?paginationRequired=true&page3=true">Next</a>
+                            <span class="visuallyhidden"> page</span>
+                        </ul>
+                    </div>
+    
+                    <div class="pager-summary">
+                        Showing 26 to 50 of 52 results
+                    </div>
+    
+                </div>
+                {% elif page3 %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+
+                    <div class="pager-controls">                               
+                        <ul class="pager-items">
+                            <a class="pager-next" href="back-to-top-link-with-pagination?paginationRequired=true&page2=true">Previous</a>
+                            <span class="visuallyhidden"> page</span>
+                            &nbsp;&nbsp;
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="back-to-top-link-with-pagination?paginationRequired=true&page1=true">1</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="visuallyhidden">Page </span>
+                                <a href="back-to-top-link-with-pagination?paginationRequired=true&page2=true">2</a>
+                                <span class="visuallyhidden"> of 3</span>
+                            </li>
+                            <li>
+                                <span class="text-bold">3</span>
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <div class="pager-summary">
+                        Showing 51 to 52 of 52 results
+                    </div>
+    
+                </div>
+                {% endif %}
+                {% else %}
+                <div class="pager" style="margin-top: 0;" data-non-js-paging>
+    
+                    <div class="pager-summary">
+                        Showing 1 to 25 of 52 results
+                    </div>
+    
+                </div>
+                {% endif %}
+                <!-- NON JS PAGING (END) -->
+
+                <!-- JS PAGING (START) -->
+                <div class="pager hidden" hidden aria-hidden="true" style="margin-top: 0;" data-paging>
+                                    
+                    <div class="pager-controls">
+                        <a class="pager-prev" href="#">Previous</a>
+                        <ul class="pager-items"></ul>
+                        <a class="pager-next" href="#">Next</a>
+                    </div>
+
+                    <div class="pager-summary">
+                    </div>
+
+                </div>
+                <!-- JS PAGING (END) -->
+
+                <div class="form-group direction-rtl">
+                    <a class="app-c-back-to-top dont-print" href="#content">
+                        <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                        </svg>
+                        Back to top
+                    </a>
+                </div>
+                <!-- COMPONENT - BACK TO TOP LINK: WITH PAGINATION (END) -->
+
+            </form>
+
+        </main>
+
+        <!-- JavaScript (START) -->
+        <script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+        <script>
+
+            $(document).ready(function() {
+        
+                // Pass these parameters in (below)
+                dynamicPagination(
+                    // Total items (totalListCount)
+                    52,
+                    // Boolean whether to clear down the session data or not (clearLocalStorage)
+                    true,
+                    // How many items to show per page (itemsPerPage)
+                    25,
+                    // What to name the thing (singular) being displayed (itemTypeLabel)
+                    "result",
+                    // What to name the things (plural) being displayed (itemTypeLabelPlural)
+                    "results"
+                );
+        
+            });
+            
+        </script>
+        <!-- Dynamic pagination -->
+        <script src="/public/javascripts/{{latestVersion}}/dynamic-pagination-for-divs.js"></script>
+        <!-- Filters for the document list -->
+        <script src="/public/javascripts/{{latestVersion}}/filters-and-checkboxes.js"></script>
+        <!-- Search all available filters -->
+        <script src="/public/javascripts/{{latestVersion}}/search-filter-options.js?v=1.0.3"></script>
+        <!-- Custom global behaviour -->
+        <script src="/public/javascripts/{{latestVersion}}/custom-global-behaviour.js"></script>
+        <!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
+        <script src="/public/javascripts/iframeResizer.contentWindow.min.js"></script>
+        <!-- JavaScript (END) -->
+    </body>
+
+</html>

@@ -1,0 +1,218 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+
+
+
+
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table");
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding");
+
+
+        if (".down-arrow-funding")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2");
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+
+        if (".down-arrow-2")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-2").toggle();
+
+    });
+
+
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3");
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+
+        if (".down-arrow-3")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2, #funding-title-3").click();
+
+        $("#open-all").text("Close all");
+
+    });
+
+
+
+});
+
+
+</script>
+
+<main role="main" id="content" >
+    <div class="phase-banner-beta">
+
+        <div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <div>
+            <h1 class="heading-xlarge">Manage your skills and education funding</h1>
+        </div>
+
+        <p></p>
+
+
+
+
+        <p>Use this service to:</p>
+             <ul class="list list-bullet">
+                <li>sign documents</li>
+                <li>view your funding allocations</li>
+                <li>view the funding you’ve received</li>
+                <li>manage apprenticeship details</li>
+                <li>tell us about your subcontractors</li>
+
+
+            </ul>
+
+
+
+            <div class="transaction">
+                <div id="get-started" class="get-started">
+                    <a class="button button-get-started" href="../adult-for-roop/idams">Sign in or create an account</a>
+                </div>
+            </div><br />
+            <div>
+                <h2 class="heading-large">Before you start</h2>
+            </div>
+
+            <p></p>
+
+            <p>You need to have an account with the government's <a href="https://logon.fasst.org.uk/Login/dialog/appl/sfa/wflow/unauth/registrationUserDetails" rel="external" title="This will open in a new window">Identity Management Services system</a> to use this service.</p>
+
+            <div>
+                <h1 class="heading-medium">Contact</h1>
+            </div>
+
+            <p></p>
+            <strong>Education and Skills Funding Agency Service Desk</strong>
+
+            <a href="mailto:sde.servicedesk@education.gov.uk">sde.servicedesk@education.gov.uk</a>
+            <div>Telephone 0370 267 0001</div>
+            <br />
+          <div class="panel-border-wide panel">
+            <p>
+                  Find out how this <a href="https://www.gov.uk/performance/sign-sfa-contracts?new" rel="external" title="This will open in a new window">service is performing</a>.
+              </p>
+          </div>
+
+
+
+    </div>
+
+
+
+
+
+    <div class="related-container">
+        <aside class="related" id="related">
+            <div class="inner group related-subsection">
+                <h2 id="parent-subsection">Related content</h2>
+
+
+                        <ul>
+                            <li><a href="https://www.gov.uk/guidance/working-with-us-as-a-provider" target="_blank">How to become an approved training provider and bid for funding</a></li>
+                            <li>
+                                <a href="https://hub.fasst.org.uk/Pages/default.aspx" target="_blank">The Hub</a>
+                            </li>
+                            <li>
+                                <a href="https://skillsfunding.service.gov.uk/settings" target="_blank">User roles and permissions</a>
+                            </li>
+
+                          </ul><br />
+
+                          <hr style="height:1px;border:none;color:#b9b9b9;background-color:#b9b9bb;" />
+
+
+
+
+
+                          <p>Public information</p>
+
+                                  <ul>
+
+                                          <a href="../pe-public-sept-2018/find-org">PE and sport premium allocations for 2017 to 2018</a>
+                                      </li><p></p>
+
+
+                  </ul>
+
+
+                </nav>
+            </div>
+        </aside>
+
+
+    </div>
+
+</div>
+
+
+
+
+</main>
+
+
+{% endblock %}

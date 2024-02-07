@@ -1,0 +1,101 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Who will be subcontracting for you? - Manage your education and skills funding
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+<main role="main" id="content">
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div class="account-details">
+                <div class="account-name">
+                    <span class="name">
+                        Lincoln College (UKPRN: 10003928)
+                    </span>
+                </div>
+   
+                <div class="account-features">
+                    <span class="account-link"><a href="view-your-roles">View your roles</a></span>
+                    <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard-latest">Home</a></li>
+
+        </ul>
+        </div>
+    </div>
+
+  
+</div>
+</div>
+
+
+<div class="grid-row">
+    <div class="column-full">
+
+                    
+
+        <fieldset class="govuk-fieldset">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h1 class="heading-xlarge" style="margin-bottom: 32px;">
+                Who will be subcontracting for you?
+              </h1>
+            </legend>
+            <p class="govuk-body-m">Search for your subcontractors by name or UKPRN to add them to your list.</p>
+        
+        
+        <div class="form-group">
+            <label class="form-label label-subcontract" for="subcontracting-policy">
+                Search                   
+              </label>
+              
+                  <input class="form-control form-control-subcontract" type="text"  id="myInput" style="width:85%;height:49px;">
+                  <div class="search-submit" style="padding-left:60px;padding-top:13px;display:inline;position: relative;">
+                    <button class="button" type="submit" name="" id="onSearch" style="background-color:  #005ea5;">   
+              
+            </div>
+            </div>
+            </fieldset>
+       
+    <form action="select-funding-stream">
+    <div>
+        <ul>
+                
+                <li class="mini-card-subcontract">
+                    <h2 class="subcontractor-heading-secondary upper">Active Lincolnshire</h2>
+                       <p class="uk-prn-subcontract">UKPRN:10003934</p>
+                        
+                        <p><a class="subcontractor-add-link" href="#">Remove</a></p>
+                
+                </li>
+
+            </ul>
+        </div>
+        <div style="margin-top: 10px;">    
+            <input type="submit" class="button margin-right" value="Add a funding stream"> <br>
+    
+        </div>
+
+        </form>
+      </div>
+</div>
+
+</main>
+
+{% endblock %}

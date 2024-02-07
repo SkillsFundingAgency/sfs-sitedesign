@@ -1,0 +1,163 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+  
+$(document).ready(function() {
+     $('#agree-terms').change(function(){
+        if ($('#agree-terms').is(':checked'))    
+        {
+            $("#submit-sub").attr("href", "confirmation");   
+
+            $(".error-summary").addClass("hidden");
+            
+            $(".add-error").removeClass("error");
+            
+            $(".error-message").addClass("hidden");
+        }
+        
+        else
+        {
+            $("#submit-sub").attr("href", "");
+            
+        }
+    });
+
+    $("#submit-sub").click(function() {
+        
+        if ($('#agree-terms').is(':checked')) {
+            
+        }
+            
+            else
+            {
+                $(".error-summary").removeClass("hidden");
+                
+                $(".add-error").addClass("error");
+                
+                $(".error-message").removeClass("hidden");
+
+            }
+    });
+});
+
+</script>
+
+<main role="main" id="content">
+    <div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                <span>
+                    This is a new service – your
+                    <a href="https://www.surveymonkey.co.uk/r/DLL5F6K">feedback</a> will help us to improve it.
+                </span>
+            </p>
+        </div>
+    </div>
+    
+    
+    
+    <div class="grid-row ">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard2">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    
+    
+
+<div class="grid-row spacing-top">
+    <div class="column-two-thirds">
+
+    <div class="error-summary hidden" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+                  <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+                    You need to agree the contract signing terms
+                  </h1>
+
+                 
+
+                  <ul class="error-summary-list">
+                    <li><a href="#example-personal-details">You must check the box before signing </a></li>
+                  </ul>
+
+            </div>
+
+        <h2 class="heading-xlarge">Review your allocation</h2>
+
+        
+
+        
+
+        <section class="attachment">
+            <div class="attachment-thumb">
+        <a class="thumbnail" href="/public/documents/february.xls" target="_blank">
+            <img src="/public/images/xls_thumbnail2.png">
+        </a>
+    </div>
+            <div class="left-align">
+                
+                <h2 class="attachment-details">
+                        <a href="#">Allocation statement 2017 to 2018</a>
+                </h2>
+                
+                <p class="metadata">
+                    <span>PDF, 82KB</span>
+                </p>
+                
+                <div class="accessibility-warning">
+                    
+                    <h2>
+                        This file may not be suitable for users of assistive technology.
+                        <br>
+                        <span><a href="#">Request a different format</a></span>
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+</div>
+        
+        
+        
+        <div class="column-two-thirds">
+            
+<p>This statement is for the 2017 to 2018 academic year and provides detail of the 16 to 19 allocation funding you receive.</p>
+
+
+            
+                  
+
+        <div class="column-two-thirds">
+                
+                <p><a href="dashboard2">Back</a></p>
+            </ul>
+        </div>
+            
+
+
+
+
+</div>
+
+        
+    </div>
+
+
+
+</main>        
+
+
+
+{% endblock %}

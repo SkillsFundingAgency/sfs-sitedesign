@@ -1,0 +1,234 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+
+$("#next-button").on("click", function() {
+  if($('#radio-1').is(':checked'))
+  {
+    window.location.replace("../pe-public-gov-page/list-right");
+  }
+  else if ($('#radio-2').is(':checked'))
+  {
+    window.location.replace("idams");
+  }
+});
+
+
+
+    $("#funding-title").click(function(){
+
+        $(".hidden").toggleClass("show-table");
+
+        $(".down-arrow-funding").toggleClass("up-arrow-funding");
+
+
+        if (".down-arrow-funding")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        $("#total-claims-hide").toggle();
+
+    });
+
+
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-table-2");
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+
+
+        if (".down-arrow-2")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-2").toggle();
+
+    });
+
+
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-table-3");
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+
+
+        if (".down-arrow-3")
+        {
+            $("#open-all").text("Close all");
+        }
+
+        else {
+            $("#open-all").text("Open all");
+        }
+
+        $("#total-claims-hide-3").toggle();
+    });
+
+
+    $("#open-all").click(function(){
+
+        $("#funding-title, #funding-title-2, #funding-title-3").click();
+
+        $("#open-all").text("Close all");
+
+    });
+
+
+
+});
+
+
+</script>
+
+<main role="main" id="content" >
+    <div class="phase-banner-beta">
+
+        <div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        <div>
+            <h1 class="heading-large">What do you want to do?</h1>
+        </div>
+
+        <p></p>
+
+
+
+
+        <div class="grid-row">
+        <div class="column-two-thirds">
+
+
+
+
+<fieldset>
+<p>
+
+<div class="multiple-choice">
+  <input id="radio-1" type="radio" name="radio-group" value="view public info">
+  <label for="radio-1">View all PE and sport premium allocations for 2017 to 2018</label>
+</div>
+
+<div class="multiple-choice">
+  <input id="radio-2" type="radio" name="radio-group" value="login journey">
+  <label for="radio-2">Sign in to the skills funding service</label>
+</div>
+
+</p>
+</fieldset>
+<p>
+<fieldset>
+</P>
+
+<p>
+<fieldset>
+</P>
+
+
+<div class="transaction">
+    <div id="get-started" class="get-started">
+        <a class="button" href="#" id="next-button">Next</a>
+    </div>
+
+</p>
+
+
+
+</fieldset>
+
+
+<br />
+
+
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="related-container">
+        <aside class="related2" id="related">
+            <div class="inner group related-subsection">
+                <h2 id="parent-subsection">Related content</h2>
+
+
+                        <ul>
+                            <li>
+                                <a href="https://skillsfunding.service.gov.uk/settings">User roles and permissions</a>
+                            </li>
+                        </ul><br />
+
+                            <hr>
+
+                            <h3 id="related-nav-topics-9989fba8" data-track-count="sidebarRelatedItemSection" class="gem-c-related-navigation__sub-heading">
+      Explore the topic
+    </h3>
+                        <ul id="related-links-list">
+                            <li>
+                                <a href="https://www.gov.uk/guidance/how-to-become-an-approved-training-provider-and-bid-for-funding">How to become an approved training provider and bid for funding</a>
+                            </li>
+                            <li><a href="https://www.gov.uk/education/further-education-funding">Further education funding</a></li>
+                            <li><a href="https://www.gov.uk/education/school-and-academy-funding">School and academy funding</a></li>
+                        </ul><br />
+                            <h4 class="heading-small">Elsewhere on the web</h4>
+
+                   <ul id="related-links-list">
+                            <li>
+                                <a href="https://hub.fasst.org.uk/Pages/default.aspx">The Hub</a>
+                            </li>
+                        </ul>
+                </nav>
+            </div>
+
+        </aside>
+
+
+    </div>
+
+</div>
+
+
+
+
+</main>
+
+
+{% endblock %}

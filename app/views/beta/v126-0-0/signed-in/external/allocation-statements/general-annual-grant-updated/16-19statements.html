@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Allocation statements - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    <!-- {% include version + "/includes/idams-account-header.html" %} -->
+    <div class="grid-row">
+        
+        <div class="column-full">
+    
+            <div class="account-details">
+
+
+                <div class="account-name">
+                    <span class="name">
+                        The Dorchester Academy (UKPRN: 12345678)
+                    </span>
+                </div>
+    
+    
+                <div class="account-features">
+                    <span class="account-link"><a href="view-your-roles">View your sub-services</a></span>
+                    <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        {% if feature %}
+                        <li><a href="which-feature">Select type of statements: {{feature}}</a></li>
+                        {% endif %}
+                        <li>Allocation statements</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h1 class="heading-xlarge">Your allocation statements</h1>
+
+            <div class="form-group">
+
+                <!-- COMPONENT - ACCORDION (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+
+                    <div class="govuk-accordion__section">
+                
+               
+
+                   
+                 
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

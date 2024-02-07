@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Something isn't quite right!
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% if signedIn == 'Yes' %}
+    {% include version + "/includes/idams-account-header.html" %}
+    {% else %}
+
+    {% endif %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-two-thirds">
+
+            <div class="form-group">
+                <h1 class="heading-xlarge">Access to this service is not allowed</h1>
+                <p class="lede"> An approver at your organisation can give you access.</p>
+                <p>After your permission is confirmed, close this window and try again. If the problem continues, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">contact the helpdesk</a>.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

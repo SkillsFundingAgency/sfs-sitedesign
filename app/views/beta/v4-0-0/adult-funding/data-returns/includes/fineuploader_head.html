@@ -1,0 +1,118 @@
+<script src="/public/javascripts/fine-uploader/fine-uploader.js" type="text/javascript"></script>
+
+<script type="text/template" id="fu-template">
+    <div id="choose-file-button" class="button-choose-file button-secondary">
+        <label class="form-label" for="file-input">
+            Choose files
+        </label>
+    </div>
+    <p class="drag-drop-files-message">Or drag and drop your files onto this window.</p>
+</script>
+
+<script type="text/template" id="fur-template">
+    <tr class="statusbar">
+        <td class="filename"></td>
+        <td class="status"></td>
+        <td class="details"></td>
+        <td class="remove">
+            <form method="post" action="/file/choose" enctype="multipart/form-data">
+                <input type="hidden" name="action" value="remove"></input>
+                <input type="hidden" name="uuid" class="file-uuid"></input>
+                <label for="##id##-remove-link" class="visually-hidden">Remove ##name##</label>
+                <input id="##id##-remove-link" type="submit" class="remove-uuid-submit link" value="Remove"></input>
+            </form>
+        </td>
+    </tr>
+</script>
+
+<script type="text/javascript">
+    /*
+     * Update the file status list.
+     */
+    function setFileStatus(details) {
+        var $uploadList = $("#upload-list tbody");
+        var $resultTemplate = $("#fur-template");
+
+        if (details && details.id) {
+            $(".upload-list-no-files").hide();
+
+            var rowId = "summary-" + details.id;
+            var $uploadRow = $uploadList.children("#" + rowId);
+
+            if (!$uploadRow.length) {
+                // No existing row for this file.  Create a new row
+                var html = $resultTemplate.html();
+                html = html.replace(/##id##/g, details.id);
+                html = html.replace(/##name##/g, details.name);
+
+                $uploadRow = $(html);
+                $uploadRow.attr("id", rowId);
+                $uploadRow.attr("filename", details.name);
+
+                // Append to the list in an ordered position
+                var added = false;
+                $uploadList.children().not(".upload-list-no-files").each(function () {
+                    if ($(this).find("td.filename").text().toUpperCase() > details.name.toUpperCase()) {
+                        $uploadRow.insertBefore($(this));
+                        added = true;
+                        return false;
+                    }
+                });
+
+                if (!added) {
+                    $uploadList.append($uploadRow);
+                }
+            }
+
+            $uploadRow.find(".filename").text(details.name);
+            var $statusCell = $uploadRow.find(".status");
+            $statusCell.empty();
+            var $statusDiv = $("<div>");
+            $statusCell.append($statusDiv);
+            $statusDiv.html(details.status.description);
+            $statusDiv.attr("title", details.status.explanation);
+            $statusDiv
+                .removeClass("file-success file-error file-pending")
+                .addClass("file-" + details.status.state);
+            if (details.status.state === "pending") {
+                // Add aria tags
+                $statusDiv.attr("aria-live", "assertive");
+                $statusDiv.attr("aria-busy", "true");
+                $statusDiv.attr("role", "alertdialog");
+            } else {
+                // Remove aria tags
+                $statusDiv.removeAttr("aria-live");
+                $statusDiv.removeAttr("aria-busy");
+                $statusDiv.removeAttr("role");
+            }
+
+            var moreDetailsHtml = "";
+            if (details.status.moreDetailsUrl != null) {
+                moreDetailsHtml = "<a href=\"" + details.status.moreDetailsUrl + "\">";
+                moreDetailsHtml += "<span>" + details.status.moreDetailsTitle + "</span>";
+                moreDetailsHtml += "<span class=\"visually-hidden\"> for " + details.name + "</span>";
+                moreDetailsHtml += "</a>";
+            }
+            $uploadRow.find(".details").html(moreDetailsHtml);
+            $uploadRow.find(".file-uuid").val(details.id);
+        }
+    }
+
+    function updateContinueStatus() {
+        $.getJSON("/file/choose?status=true", function (status) {
+            var $continue = $("#continueBtn");
+            if (status.canContinue) {
+                $continue.removeAttr("disabled");
+                $continue.attr("href", "/file/confirm");
+                $continue.removeAttr("aria-disabled");
+            } else {
+                $continue.attr("disabled", "disabled");
+                $continue.removeAttr("href");
+                $continue.attr("aria-disabled", "true");
+            }
+
+            var $invalidMsg = $("#invalid-upload-msg");
+            $invalidMsg.toggle(status.hasInvalidUploads);
+        });
+    }
+</script>

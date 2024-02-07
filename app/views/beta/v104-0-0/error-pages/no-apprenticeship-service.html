@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Apprenticeship service
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="#">Home</a></li>
+                        <li>Apprenticeship service</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+    
+        <div class="column-two-thirds">
+
+            {% if alternativeContentRequired %}
+            {% if reason1 %}
+            <div class="form-group">
+                <h1 class="heading-xlarge">Apprenticeship service</h1>
+                <h2 class="heading-medium">Your organisation has an apprenticeship funding agreement</h1>
+                <p class="lede"><a href="#">Continue to apprenticeship service</a>.</p>
+            </div>
+            {% elif reason2 %}
+            <div class="form-group">
+                <h1 class="heading-xlarge">Apprenticeship service</h1>
+                <h2 class="heading-medium">Your organisation does not have an apprenticeship agreement</h1>
+                <p class="lede"><a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">Submit an enquiry</a> for more information or <a href="#">continue to apprenticeship service</a>.</p>
+            </div>
+            {% elif reason3 %} 
+            <div class="form-group">
+                <h1 class="heading-xlarge">Apprenticeship service</h1>
+                <h2 class="heading-medium">Your organisation’s apprenticeship agreement is unsigned</h1>
+                <p class="lede"><a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">Submit an enquiry</a> for more information or <a href="#">continue to apprenticeship service</a>.</p>
+            </div>
+            {% endif %}
+            {% else %} 
+            <div class="form-group">
+                <h1 class="heading-xlarge">Sorry, there is nothing to view</h1>
+                <h2 class="heading-medium">Please try again later</h2>
+                <p class="lede">If you need to contact the Education and Skills Funding Agency, you can <a href="https://form.education.gov.uk/en/AchieveForms/?form_uri=sandbox-publish://AF-Process-f9f4f5a1-936f-448b-bbeb-9dcdd595f468/AF-Stage-8aa41278-3cdd-45a3-ad87-80cbffb8b992/definition.json&redirectlink=%2Fen&cancelRedirectLink=%2Fen&consentMessage=yes">submit an enquiry</a>.</p>
+            </div>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

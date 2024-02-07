@@ -1,0 +1,161 @@
+{% extends "layout.html" %}
+{% block page_title %}
+  Apprenticeships
+{% endblock %}
+{% block content %}
+<link href="/public/stylesheets/filtering.css" media="screen" rel="stylesheet" type="text/css" />
+<style>
+.govuk-option-select .options-container label {width:100%;}
+</style>
+<script>
+//THERE'S ANOTHER SCRIPT AT THE BOTTOM >>>>>>>>>>>>>>>>>>>>>>>>>>>>>IT changes the name of the apprenticeship at the top of the page
+// This adds/removes apprenticeships
+    $(".shortlist").click(function (e) {
+        e.preventDefault();
+        console.log("shortlist button clicked: " + proCount);
+        //proCount++;
+        if ($("i", this).hasClass("fa-star-o")) {
+            console.log("isnt shortlisted");
+            proCount++;
+            appCount++;
+            console.log(proCount);
+            Cookies.set("proCount", proCount);
+            Cookies.set("appCount", appCount);
+            $("i", this).removeClass("fa-star-o").addClass("fa-star");
+            $("span", this).text("Remove training provider");
+            $("#bannerCountProvider span").text(Number(proCount));
+            $("#bannerCount span").text(Number(appCount));
+        } else {
+            console.log("is shortlisted");
+            $("i", this).removeClass("fa-star").addClass("fa-star-o");
+            $("span", this).text("Save training provider");
+            proCount--;
+            appCount--;
+            Cookies.set("proCount", proCount);
+            Cookies.set("appCount", appCount);
+            console.log(proCount);
+            $("#bannerCountProvider span").text(Number(proCount));
+            $("#bannerCount span").text(Number(appCount));
+        }
+        //.toggleClass(".fa-star-o").toggleClass(".fa-star");
+    })
+</script>
+    <link target="_blank=" href="/public/ty/assets/stylesheets/main.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/ty/assets/stylesheets/elements-page.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/ty/assets/stylesheets/_app.css" rel="stylesheet" />
+    <link target="_blank=" href="/public/ty/assets/stylesheets/_proResults.css" rel="stylesheet" />
+    <main id="content" role="main">
+
+        <div id="statusUpdate" class="hidden">
+            <i class="fa fa-check fa-2x"></i>
+            <h2 class="heading-medium">Training provider added to shortlist</h2>
+            <div class="close hidden"><i class="fa fa-times"></i></div>
+        </div>
+        <div class="grid-row">
+            <div class="column-two-thirds">
+                <h1 class="heading-xlarge">
+        Search results</h1>
+                <p>There are <span class="resultCount bold-small">123</span> training providers for the apprenticeship: 
+                    <span id ="financialServicesAdmin" class="bold-small appName">Financial Services Administrator, level 3.</span>
+                     <span id ="chefDePartie" class="bold-small appName rj-dont-display">Chef De Partie, level 3.</span>
+                      <span id ="buildingServices" class="bold-small appName rj-dont-display">Building services design engineer, level 6.</span>
+                </p>
+            </div>
+        </div>
+         <h2 class="heading-medium " style="">Filter results</h2>
+        <div class="grid-row">
+  <div class="column-third ">
+    <div class="filter-form filtering ">
+      <div id="finder-frontend" class="">
+          <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Training provider options</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state" style="height:170px ">
+                  <div class="js-auto-height-inner">
+                  <div style="margin: 15px 0 20px 10px"> <fieldset>
+                        <div class="multiple-choice">
+                          <input id="check-1" type="checkbox" name="checkbox-group" value="yes" >
+                          <label for="check-1">Day release</label>
+                        </div>
+                       <div class="multiple-choice">
+                                  <input id="check-2" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-2">Block release</label>
+                        </div>
+                                         <div class="multiple-choice">
+                                  <input id="check-3" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-3">At your location</label>
+                        </div>
+                                         <!--div class="multiple-choice">
+                                  <input id="check-4" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-4">Lisa Clarke</label>
+                        </div>
+                                                                 <div class="multiple-choice">
+                                  <input id="check-4" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-4">Helen Tyrell</label>
+                        </div>
+                                                                 <div class="multiple-choice">
+                                  <input id="check-4" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-4">Rachel Green</label>
+                        </div>
+                                                                 <div class="multiple-choice">
+                                  <input id="check-4" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-4">Claire Condor</label>
+                        </div>
+                                                                 <div class="multiple-choice">
+                                  <input id="check-4" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-4">Emma Raven</label>
+                        </div-->
+                  </fieldset> </div>
+                  </div>
+               </div>
+          </div>
+          <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Local or national providers</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state" style="">
+                  <div class="js-auto-height-inner">
+                  <div style="margin: 15px 0 20px 10px"> <fieldset>
+                        <div class="multiple-choice">
+                          <input id="check-1" type="checkbox" name="checkbox-group" value="yes" >
+                          <label for="check-1" style="padding-top:0">Show only national providers</label>
+                        </div>
+                  </fieldset> 
+                    </div>
+                  </div>
+               </div>
+             </div>
+         <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state">
+              <div class="option-select-label">Ofsted rating</div>
+              <div class="js-selected-counter"></div></button>
+                <div class="options-container" id="case_state" style=" ">
+                  <div class="js-auto-height-inner">
+                  <div style="margin: 15px 0 20px 10px"> <fieldset>
+  
+                       <div class="multiple-choice">
+                                  <input id="check-2" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-2">Outstanding</label>
+                        </div>
+                          <div class="multiple-choice">
+                                  <input id="check-3" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-3">Good</label>
+                        </div>
+                         <div class="multiple-choice">
+                                  <input id="check-3" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-3">Requires improvement</label>
+                        </div>
+                        <div class="multiple-choice">
+                                  <input id="check-3" type="checkbox" name="checkbox-group" value="no" >
+                          <label for="check-3">Inadequate</label>
+                        </div>
+                  </fieldset> </div>
+                  </div>
+               </div>
+          </div>
+        </div>
+                <div class="govuk-option-select js-collapsible" >
+            <button class="js-container-head" type="button" aria-expanded="false" aria-controls="case_state" />
+              
+              {% endblock %}

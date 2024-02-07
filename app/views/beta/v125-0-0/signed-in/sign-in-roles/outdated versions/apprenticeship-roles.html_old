@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    16 to 19 special post - 16 institutions: 2021 to 2022 - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <a href="dashboard" style="font-size:15px; margin:20px 0px 0px 0px; display:block; width:40px;">Home</a>
+
+    <div class="grid-row">
+        <div class="column-full">
+
+            <div class="govuk-form-group govuk-!-margin-top-2" style="max-width:900px;">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="heading-large govuk-!-margin-bottom-2 govuk-font-size-45 govuk-!-margin-top-4">
+                       Log in with IDAMS to access <br>the apprenticeship service
+                    </h1>
+                </legend>
+            </div>
+
+            <!-- <div class="panel panel-border-narrow govuk-!-margin-top-0 govuk-!-margin-bottom-7">
+                <p class="">You need an apprenticeship service role to access this service.</p>
+            </div> -->
+
+            <h2 class="heading-medium float-reset">Roles with access</h2>
+            <ul class="govuk-list govuk-list--bullet govuk-font-size-19">
+                <li>Account owner</li>
+                <li>Contributor</li>
+                <li>Contributor with approval</li>
+                <li>Viewer</li>
+            </ul>
+
+            <p>You can request these roles by contacting your super user through <a href="">IDAMS</a>.</p>
+            
+            <div class="govuk-button-group govuk-!-margin-top-6">
+                <button id="app-roles-button" onclick="window.location.href='login-idams'" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
+                Log in to apprenticeship service
+                </button>
+                <!-- <a class="govuk-link govuk-!-margin-top-2 govuk-!-margin-left-4 govuk-!-display-inline-block" href="../allocation-statements">Cancel</a> -->
+            </div>
+                
+    </div>
+
+</main>
+
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+<script type="text/javascript">
+    function dualAuthOptions() {
+      if(document.getElementById('sign-in-dfe').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='login-dfe-sens';
+      }
+      else if(document.getElementById('sign-in-idams').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='login-idams-sens';
+      }
+      else {
+        $(".govuk-form-group").addClass("govuk-form-group--error");
+        $("#passport-issued-error").removeClass("hide");
+      }
+    }
+  </script>
+
+{% endblock %}

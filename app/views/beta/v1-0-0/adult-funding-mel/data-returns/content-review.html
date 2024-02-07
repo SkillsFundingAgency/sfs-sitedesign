@@ -1,0 +1,24 @@
+{{<layout}}
+{{$pageTitle}}
+{{config.application.name}}: Content Review
+{{/pageTitle}}
+{{$content}}
+
+<main id="content" role="main">
+    {{#result}}
+        {{{result}}}
+    {{/result}}
+    {{^result}}
+        <p>
+            Choose a template from the list below to review content:
+        </p>
+
+        {{#compiledTemplates}}
+        <div>
+            <a href="/content/review?errorCode={{errorCode}}&amp;violationType={{violationType}}">{{key}}</a>
+        </div>
+        {{/compiledTemplates}}
+    {{/result}}
+</main>
+{{/content}}
+{{/layout}}

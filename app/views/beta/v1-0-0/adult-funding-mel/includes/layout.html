@@ -1,0 +1,84 @@
+{{<govuk_template}}
+
+<!-- Common <head> content expected on every page, defined separately so that pages can customise head content -->
+{{$commonHead}}
+    {{>commonHead}}
+    {{>ga-head}}
+    {{>scripts}}
+{{/commonHead}}
+
+<!-- Default definition for a page <head> -->
+{{$head}}
+    {{>head}}
+    {{$commonHead}}{{/commonHead}}
+{{/head}}
+
+{{$topOfPage}}{{/topOfPage}}
+{{$htmlLang}}en{{/htmlLang}}
+
+<!-- The title of the service -->
+{{$serviceTitle}}{{config.application.name}}{{/serviceTitle}}
+{{$fullServiceTitle}}{{$serviceTitle}}{{/serviceTitle}} - GOV.UK{{/fullServiceTitle}}
+
+<!-- Page title -->
+{{$pageTitle}}
+    {{>pageTitle}}
+    {{$title}}{{/title}} - {{$fullServiceTitle}}{{/fullServiceTitle}}
+{{/pageTitle}}
+
+{{$propositionHeader}}
+    {{>propositional_navigation}}
+{{/propositionHeader}}
+
+{{$headerClass}}with-proposition{{/headerClass}}
+
+{{$cookieMessage}}
+<div class="cookie-message full-width">
+    <div class="container">
+        <div class="row">
+            <div class="span12">
+                <p>
+                    {{$fullServiceTitle}}{{/fullServiceTitle}} use cookies to make the site simpler.
+                    <a href="/guidance/cookies.html">
+                        Find out more about cookies
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{{/cookieMessage}}
+
+<!-- Content displayed below the GOV.UK logo -->
+{{$insideHeader}}{{/insideHeader}}
+
+<!-- Body content -->
+{{$bodyStart}}
+    {{>ga-body}}
+{{/bodyStart}}
+
+{{$bodyEnd}}
+{{/bodyEnd}}
+
+
+{{$footerSupportLinks}}
+<div class="ea-footer">
+    <p>Environment Agency (England) helpline: <a href="tel:+443301591988">03301&#160;591&#160;988</a></p>
+    <p>
+        <a href="/guidance/privacy.html">Privacy</a>
+        &#160;&#160;
+        <a href="/guidance/cookies.html">Cookies</a>
+    </p>
+</div>
+<input type="hidden" id="pgid" value="{{pgid}}"></input>
+{{/footerSupportLinks}}
+
+
+<!-- License message and crown copyright reference for page footer -->
+{{$licenceMessage}}
+<p>All content is available under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" rel="license">Open Government Licence v3.0</a>, except where otherwise stated</p>
+{{/licenceMessage}}
+
+{{$crownCopyrightMessage}}&copy; Crown copyright{{/crownCopyrightMessage}}
+
+{{/govuk_template}}

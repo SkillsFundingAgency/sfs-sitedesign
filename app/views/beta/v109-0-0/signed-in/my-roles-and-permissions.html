@@ -1,0 +1,252 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    My user roles and permissions
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">                
+            <a href="#" class="link-back" onclick="goBack()">Back</a>
+        </div>
+    
+        <div class="column-full">
+            <h1 class="heading-xlarge">
+                <span class="heading-secondary">Manage your education and skills funding</span>
+                My user roles and permissions
+            </h1>
+            {% if hasValidRoles == 'True' %}
+            <p class="lede">You have these roles in Manage your education and skills funding (<abbr title="Manage your education and skills funding">MYESF</abbr>).</p>
+
+            <div class="form-block">
+                
+                <table class="document-list">
+                    <caption class="govuk-table__caption visuallyhidden">External user roles and permissions</caption>
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                            <th>
+                                Apprenticeships editor
+                            </th>
+                            <th>
+                                Contract authoriser
+                            </th> 
+                            <th>
+                                Document exchange user
+                            </th>                                                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age reports</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>All document exchange functions</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Complete subcontractor declarations</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Raise queries</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Receive comms from MYESF</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Sign contracts</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sign funding claims</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View adult allocations</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View the Apprenticeship service tile</td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View contracts and funding claims</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View payment history</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View subcontractor declarations history</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            {% elif hasValidRoles == 'False' %}
+            <p class="lede">You do not have any roles assigned to use in Manage your education and skills funding (<abbr title="Manage your education and skills funding">MYESF</abbr>).</p>
+            {% else %}
+            <p class="lede">You have these roles in Manage your education and skills funding (<abbr title="Manage your education and skills funding">MYESF</abbr>).</p>
+
+            <div class="form-block">
+                
+                <table class="document-list">
+                    <caption class="govuk-table__caption visuallyhidden">External user roles and permissions</caption>
+                    <thead>
+                        <tr>
+                            <th>
+                            </th>
+                            <th>
+                                Apprenticeships editor
+                            </th>
+                            <th>
+                                Contract authoriser
+                            </th> 
+                            <th>
+                                Document exchange user
+                            </th>                                                      
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Age reports</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>All document exchange functions</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Complete subcontractor declarations</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Raise queries</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Receive comms from MYESF</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                        </tr>
+                        <tr>
+                            <td>Sign contracts</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>Sign funding claims</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View adult allocations</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View the Apprenticeship service tile</td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View contracts and funding claims</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View payment history</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                        <tr>
+                            <td>View subcontractor declarations history</td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                            <td style="text-align: center"><span class="visuallyhidden">Yes</span><i class="hod-checkmark"></i></td>
+                            <td style="text-align: center"><span class="visuallyhidden">No</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            {% endif %}
+
+            <div class="form-group">
+                <p><a href="all-roles-and-permissions">View all available MYESF roles and permissions</a></p>
+            </div>
+
+            <div class="form-group">
+                <h2 class="heading-medium">Requesting roles</h2>
+                <p>An approver at your organisation will be able to provide you with access to this service. You may have more than one approver in your organisation.</p>
+                <p>If you do not know an approver at your organisation you can find out through <a href="/{{version}}/dfe-sign-in/organisations">DfE Sign-in</a>.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/tabs.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

@@ -1,0 +1,127 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    View funding by organisation
+{% endblock %}
+
+{% block content %}                   
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Alpha) - START -->
+    {% include "includes/phase_banner_alpha.html" %}
+    <!-- GOV.UK phase banner (Alpha) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="viewing-choice">How would you like to view funding allocations?</a></li>
+                        <li>View funding by organisation</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+
+            <form method="post" class="form">
+
+                <fieldset class="form-group">
+                    <legend>
+                        <h1 class="heading-xlarge">View funding by organisation</h1>
+                    </legend>
+                    <!-- <p>This is a public view service which requires no account or sign-in to access.</p> -->
+                    <p>Select a school, academy, local authority or multi-academy trust (<abbr title="Multi Academy Trust">MAT</abbr>) to view the latest funding for either this financial or academic year.</p>
+            
+                    <div class="form-group">
+
+                        <div class="multiple-choice" data-target="schoolOrAcademy">
+                            <input id="radio-1" type="radio" name="searchScope" value="Child">
+                            <label for="radio-1">School name, academy name, or local authority establishment number</label>
+                        </div>
+
+                        <!-- Hidden section for searching by school name, academy name or local authority establishment number (START) -->
+                        <div class="panel panel-border-narrow js-hidden" id="schoolOrAcademy">
+
+                            <div class="search-field search-field-darker">
+                        
+                                <div class="search-input search-input-with-button">
+                                    <label class="form-label form-hint" for="schoolOrAcademySearch">For example, Lickhill Primary School or 3832470</label>
+                                    <input autocomplete="off" class="form-control" name="schoolOrAcademySearch" id="schoolOrAcademySearch" type="text" value="" />
+                                </div>
+        
+                                <div class="search-submit">
+                                    <button id="school-or-academy-submit" class="button" type="submit" id="schoolOrAcademySubmit" name="schoolOrAcademySubmit" value="Search for school name, academy name, or local authority establishment number">Search for school name, academy name, or local authority establishment number</button>
+                                </div>
+        
+                            </div>
+                            
+                        </div>
+                        <!-- Hidden section for searching by school name, academy name or local authority establishment number (END) -->
+
+                        <div class="multiple-choice" data-target="mat">
+                            <input id="radio-2" type="radio" name="searchScope" value="MAT">
+                            <label for="radio-2"><abbr title="Multi Academy Trust">MAT</abbr> name or UK provider reference number (<abbr title="UK Provider Reference Number">UKPRN</abbr>)</label>
+                        </div>
+
+                        <!-- Hidden section for searching by multi academy trust name or UKPRN (START) -->                        
+                        <div class="panel panel-border-narrow js-hidden" id="mat">
+
+                            <div class="search-field search-field-darker">
+                        
+                                <div class="search-input search-input-with-button">
+                                    <label class="form-label form-hint" for="matSearch">For example, White Rose Academies Trust or 07958615</label>
+                                    <input autocomplete="off" class="form-control" name="matSearch" id="matSearch" type="text" value="" />
+                                </div>
+        
+                                <div class="search-submit">
+                                    <button id="mat-submit" class="button" type="submit" id="matSubmit" name="matSubmit" value="Search for multi-academy trust (MAT) name or UK provider reference number (UKPRN)">Search for multi-academy trust (<abbr title="Multi Academy Trust">MAT</abbr>) name or UK provider reference number (<abbr title="UK Provider Reference Number">UKPRN</abbr>)</button>
+                                </div>
+        
+                            </div>
+
+                        </div>
+                        <!-- Hidden section for searching by multi academy trust name or code (END) -->
+
+                        <div class="multiple-choice" data-target="la">
+                            <input id="radio-3" type="radio" name="searchScope" value="LA">
+                            <label for="radio-3">Local authority name or code</label>
+                        </div>
+
+                        <!-- Hidden section for searching by local authority name or code (START) -->                        
+                        <div class="panel panel-border-narrow js-hidden" id="la">
+
+                            <div class="search-field search-field-darker">
+                        
+                                <div class="search-input search-input-with-button">
+                                    <label class="form-label form-hint" for="laSearch">For example, Camden or 202</label>
+                                    <input autocomplete="off" class="form-control" name="laSearch" id="laSearch" type="text" value="" />
+                                </div>
+        
+                                <div class="search-submit">
+                                    <button id="la-submit" class="button" type="submit" id="laSubmit" name="laSubmit" value="Search for local authority name or code">Search for local authority name or code</button>
+                                </div>
+        
+                            </div>
+
+                        </div>
+                        <!-- Hidden section for searching by local authority name or code (END) -->
+            
+                    </div>
+            
+                </fieldset>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

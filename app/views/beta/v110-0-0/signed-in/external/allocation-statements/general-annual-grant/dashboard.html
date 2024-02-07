@@ -1,0 +1,81 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+            <h1 class="heading-xlarge">
+                {% if idams == 'SAT' %}
+                <span class="heading-secondary">Mole Catch Academy</span>
+                <span class="heading-secondary">UKPRN: 12345678</span>
+                {% elif idams == 'MAT' %}
+                <span class="heading-secondary">Rupert Shoggins Academy Trust</span>
+                <span class="heading-secondary">UKPRN: 87654321</span>
+                {% else %}
+                <span class="heading-secondary">Mole Catch Academy</span>
+                <span class="heading-secondary">UKPRN: 12345678</span>
+                {% endif %}
+                Manage your education and skills funding
+            </h1>
+                
+            <section>
+
+                <div class="grid-row">
+
+                    <div class="column-third margin-top">
+                        <a id="allocationStatements" class="dashboard-links" href="{% if idams == 'SAT' %}allocation-statements{% elif idams == 'MAT' %}select-academy?paginationRequired=true&page1=true{% else %}allocation-statements{% endif %}">
+                            <span id="allocation-statements-declaration-service" class="service-name">Allocation statements</span>
+                            <span id="allocation-statements-alert" class="alert alert-name-red">1 new statement</span>
+                            <!-- <span id="allocation-statements-declaration-alert" class="alert alert-name-green">View statements</span> -->
+                        </a>
+                    </div>
+
+                    <div class="column-third margin-top">
+                        <a id="apprenticeshipService" class="dashboard-links" href="{% if noApprenticeshipServicePage == 'True' %}/{{version}}/signed-in/external/allocation-statements/general-annual-grant/parent/no-apprenticeship-service{% else %}https://providers.apprenticeships.education.gov.uk{% endif %}">
+                            <span id="apprenticeship-declaration-service" class="service-name">Apprenticeship service</span>
+                            <span id="apprenticeship-declaration-alert" class="alert alert-name-green">Go to apprenticeship service</span>
+                        </a>
+                    </div>
+
+                    <div class="column-third margin-top">
+                        <a id="contractsAndAgreements" class="dashboard-links" href="#">
+                            <span id="contracts-and-agreements-service" class="service-name">Contracts and agreements</span>
+                            <!-- <span id="contracts-and-agreements-alert" class="alert alert-name-red">2 new contracts</span> -->
+                            <span id="contracts-and-agreements-alert" class="alert alert-name-green">View contracts</span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="grid-row">
+
+                    <div class="column-third margin-top">
+                        <a id="documentExchange" class="dashboard-links" href="#">
+                            <span id="document-exchange-service" class="service-name">Document exchange</span>
+                            <!-- <span id="document-exchange-alert" class="alert alert-name-red">2 new documents</span> -->
+                            <span id="document-exchange-alert" class="alert alert-name-green">View documents</span>
+                        </a>
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

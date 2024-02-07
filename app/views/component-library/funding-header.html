@@ -1,0 +1,482 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+	Funding header
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+
+	<!-- ESFA banner - START -->
+	{% include "includes/esfa_banner.html" %}
+	<!-- ESFA banner - END -->
+
+	<div class="govuk-grid-row">
+
+		<div class="govuk-grid-column-one-quarter app-hide-mobile">
+			
+			<nav class="app-subnav">
+				<ul class="app-subnav__section">
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="accordion">Accordion</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="back-to-top-link">Back to top link</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="card">Card</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="download-a-document">Download a document</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="filter-a-list">Filter a list</a>
+					</li>
+					<li class="app-subnav__section-item app-subnav__section-item--current">
+						<a class="app-subnav__link" href="funding-header">Funding header</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-table">Funding table</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="funding-totals">Funding totals</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="icons">Icons</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="links">Links</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="organisation-banner">Organisation banner</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="pagination">Pagination</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="search">Search</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="signed-in-account-banner">Signed-in account banner</a>
+					</li>
+					<li class="app-subnav__section-item">
+						<a class="app-subnav__link" href="tag">Tag</a>
+					</li>
+				</ul>
+			</nav>
+
+		</div>
+
+		<div class="govuk-grid-column-three-quarters">
+			<h1 class="heading-xlarge">
+				<span class="heading-secondary">Component library</span>
+				Funding header
+			</h1>
+
+			<div class="app-prose-scope">
+				<p>A custom styled typography which is used to give headline funding totals within a top level heading on the page.</p>
+				<p>View more general guidelines on this style in the <a href="https://design-system.service.gov.uk/styles/typography/#headings-with-captions">GOV.UK design system</a>.</p>
+				<p>The funding header section is used as a way of introducing totals for funding types in <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a> and on <a href="/{{latestVersionGAG}}/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021"><abbr title="Manage your education and skills funding">MYESF</abbr> allocation statements</a>.</p>
+
+				<!--
+				Example CODE snippet (START) 
+				*** FUNDING HEADER: FULL WIDTH ***
+				-->
+				<div class="app-example-wrapper" id="funding-header-example1" data-module="app-tabs">
+				
+					<div class="app-example app-example--tabs">
+						<a href="examples/funding-header-full-width" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">funding header</span> example in a new window</a>
+						<iframe title="Funding header example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/funding-header-full-width" frameborder="0" loading="lazy" id="iFrameResizer0" scrolling="no"></iframe>
+					</div>
+
+					<span id="options-funding-header-example1"></span>
+					<ul class="app-tabs" role="tablist">
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example1-html" role="tab" aria-controls="funding-header-example1-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+						<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example1-css" role="tab" aria-controls="funding-header-example1-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+					</ul>
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#funding-header-example1-html" role="tab" aria-controls="funding-header-example1-html" data-track="tab-html" aria-expanded="false">HTML</a>
+					</div>
+				
+					<!-- HTML Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example1-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lede"</span>&gt;</span>
+  Total 2018 to 2019 allocation
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-large heading-funding-summary"</span>&gt;</span>£441,116<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></code></pre>
+					</div>
+					<!-- HTML Code Tab (END) -->
+
+					<div class="app-tabs__heading js-tabs__heading">
+						<a href="#funding-header-example1-css" role="tab" aria-controls="funding-header-example1-css" data-track="tab-css" aria-expanded="false">CSS</a>
+					</div>
+
+					<!-- CSS Code Tab (START) -->
+					<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example1-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.heading-funding-summary &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">5px</span>;
+&#125;</code></pre>
+					</div>
+					<!-- CSS Code Tab (END) -->
+
+				</div>
+				<!--
+				Example CODE snippet (END) 
+				*** FUNDING HEADER: FULL WIDTH ***
+				-->
+
+				<div class="form-group">
+					<h2 class="heading-large first-sub-heading">When to use this component</h2>
+					<p>This component can be used to show totals to users within top level headings on a page.</p>
+					<h2 class="heading-large">When not to use this component</h2>
+					<p>Do not use this component on the same page as a lot of other headings of similar size. This can confuse the user and reduce its visibility on the page. </p>
+					<p>This component should only be used once on a page. The only time to use it more than once is on separate <a href="https://design-system.service.gov.uk/components/tabs/">GOV.UK Design System tabs</a>.</p>
+					<h2 class="heading-large">How it works</h2>
+					<h3 class="heading-medium">Full width</h3>
+					<p> Use this version of the component as a heading when displaying the total funding for a local authority, school or college. For example, on <a href="/{{latestVersionGAG}}/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-1/12-09-2021"><abbr title="Manage your education and skills funding">MYESF</abbr> allocation statements</a> we use this version to display the total funding amount in the <span class="code">&lt;h1&gt;</span>.</p>
+
+					<!--
+					Example CODE snippet (START) 
+					*** FUNDING HEADER: FULL WIDTH ***
+					-->
+					<div class="app-example-wrapper" id="funding-header-example2" data-module="app-tabs">
+					
+						<div class="app-example app-example--tabs">
+							<a href="examples/funding-header-full-width" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">funding header</span> example in a new window</a>
+							<iframe title="Funding header example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/funding-header-full-width" frameborder="0" loading="lazy" id="iFrameResizer1" scrolling="no"></iframe>
+						</div>
+
+						<span id="options-funding-header-example2"></span>
+						<ul class="app-tabs" role="tablist">
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example2-html" role="tab" aria-controls="funding-header-example2-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example2-css" role="tab" aria-controls="funding-header-example2-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						</ul>
+
+						<div class="app-tabs__heading js-tabs__heading">
+							<a href="#funding-header-example2-html" role="tab" aria-controls="funding-header-example2-html" data-track="tab-html" aria-expanded="false">HTML</a>
+						</div>
+					
+						<!-- HTML Code Tab (START) -->
+						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example2-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lede"</span>&gt;</span>
+  Total 2018 to 2019 allocation
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-large heading-funding-summary"</span>&gt;</span>£441,116<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></code></pre>
+						</div>
+						<!-- HTML Code Tab (END) -->
+
+						<div class="app-tabs__heading js-tabs__heading">
+							<a href="#funding-header-example2-css" role="tab" aria-controls="funding-header-example2-css" data-track="tab-css" aria-expanded="false">CSS</a>
+						</div>
+
+						<!-- CSS Code Tab (START) -->
+						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example2-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.heading-funding-summary &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">5px</span>;
+&#125;</code></pre>
+						</div>
+						<!-- CSS Code Tab (END) -->
+
+					</div>
+					<!--
+					Example CODE snippet (END) 
+					*** FUNDING HEADER: FULL WIDTH ***
+					-->
+
+					<h3 id="funding-header-float-left" class="heading-medium">Float left</h3>
+          <p>Sometimes we need to use tabs to show how total funding is broken down into funding type. For example, we use tabs to break down the DSG into different funding types in <a href="/{{latestVersionVLF}}/not-signed-in/view-latest-funding/latest/dedicated-schools-grant/funding-breakdown/17-12-2019">view latest funding</a>. To meet user needs, we display the DSG total funding heading amount as well as the totals for each funding type.</p>
+          <p>When using this version of the component, make sure that the user can print each tab by including a print this page <a href="links#links-action">action link</a> on the right hand side of the funding header.</p>
+
+					<!--
+					Example CODE snippet (START) 
+					*** FUNDING HEADER: FLOAT LEFT ***
+					-->
+					<div class="app-example-wrapper" id="funding-header-example3" data-module="app-tabs">
+					
+						<div class="app-example app-example--tabs">
+							<a href="examples/funding-header-float-left" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">funding header</span> example in a new window</a>
+							<iframe title="Funding header example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/funding-header-float-left" frameborder="0" loading="lazy" id="iFrameResizer2" scrolling="no"></iframe>
+						</div>
+
+						<span id="options-funding-header-example3"></span>
+						<ul class="app-tabs" role="tablist">
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example3-html" role="tab" aria-controls="funding-header-example3-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example3-css" role="tab" aria-controls="funding-header-example3-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+						</ul>
+
+						<div class="app-tabs__heading js-tabs__heading">
+							<a href="#funding-header-example3-html" role="tab" aria-controls="funding-header-example3-html" data-track="tab-html" aria-expanded="false">HTML</a>
+						</div>
+					
+						<!-- HTML Code Tab (START) -->
+						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example3-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-row"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-header-total"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lede"</span>&gt;</span>
+      Total 2018 to 2019 allocation
+      <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-large heading-funding-summary"</span>&gt;</span>£441,116<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"block-header-print block-header-print-tabs"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"print-page"</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fa fa-print"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Print"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Print<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>Print this page<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></code></pre>
+						</div>
+						<!-- HTML Code Tab (END) -->
+
+						<div class="app-tabs__heading js-tabs__heading">
+							<a href="#funding-header-example3-css" role="tab" aria-controls="funding-header-example3-css" data-track="tab-css" aria-expanded="false">CSS</a>
+						</div>
+
+						<!-- CSS Code Tab (START) -->
+						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example3-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.block-header-total &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">10px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-bottom</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-right</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding-left</span></span>: <span class="hljs-string">15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-webkit-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-moz-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .block-header-total &#123;
+    <span class="hljs-tag"><span class="hljs-attr">float</span></span>: <span class="hljs-string">left</span>;
+    <span class="hljs-tag"><span class="hljs-attr">width</span></span>: <span class="hljs-string">60%</span>;
+    <span class="hljs-tag"><span class="hljs-attr">padding-top</span></span>: <span class="hljs-string">15px</span>;
+  &#125;
+&#125;
+
+.block-header-print &#123;
+  <span class="hljs-tag"><span class="hljs-attr">text-align</span></span>: <span class="hljs-string">right</span>;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 15px</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-webkit-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">-moz-box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+  <span class="hljs-tag"><span class="hljs-attr">box-sizing</span></span>: <span class="hljs-string">border-box</span>;
+&#125;
+  
+.block-header-print-tabs &#123;
+  <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">none</span>;
+&#125;
+
+<span class="hljs-symbol">@media</span> (min-width: 641px) &#123;
+  .block-header-print-tabs &#123;
+    <span class="hljs-tag"><span class="hljs-attr">display</span></span>: <span class="hljs-string">inherit</span>;
+  &#125;
+&#125;
+
+.heading-funding-summary &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">5px</span>;
+&#125;
+
+.fa &#123;
+  <span class="hljs-tag"><span class="hljs-attr">padding</span></span>: <span class="hljs-string">0 0.3em 0 0</span>;
+&#125;</code></pre>
+						</div>
+						<!-- CSS Code Tab (END) -->
+
+					</div>
+					<!--
+					Example CODE snippet (END) 
+					*** FUNDING HEADER: FLOAT LEFT ***
+          -->
+          
+					<h3 id="funding-header-with-variance" class="heading-medium">With variance</h3>
+					<p>Use this version of the component when you need to show a change in something. For example, on <a href="/{{latestVersionGAG}}/signed-in/external/allocation-statements/general-annual-grant/parent/funding-breakdown-7/12-09-2021"><abbr title="Manage your education and skills funding">MYESF</abbr> allocation statements</a> we use this version to display the total funding amount with an <a href="icons#icons-increase">increase icon</a> to show the funding total has gone up.</p>
+
+					<!--
+					Example CODE snippet (START) 
+					*** FUNDING HEADER: VARIANCE ***
+					-->
+					<div class="app-example-wrapper" id="funding-header-example4" data-module="app-tabs">
+					
+						<div class="app-example app-example--tabs">
+							<a href="examples/funding-header-variance" class="app-example__new-window" target="_blank">Open this <span class="govuk-visually-hidden">funding header</span> example in a new window</a>
+							<iframe title="Funding header example" data-module="app-example-frame" class="iFrameResizer app-example__frame app-example__frame--resizable app-example__frame--xl" src="examples/funding-header-variance" frameborder="0" loading="lazy" id="iFrameResizer1" scrolling="no"></iframe>
+						</div>
+
+						<span id="options-funding-header-example4"></span>
+						<ul class="app-tabs" role="tablist">
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example4-html" role="tab" aria-controls="funding-header-example4-html" data-track="tab-html" aria-expanded="false">HTML</a></li>
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example4-css" role="tab" aria-controls="funding-header-example4-css" data-track="tab-css" aria-expanded="false">CSS</a></li>
+							<li class="app-tabs__item js-tabs__item" role="presentation"><a href="#funding-header-example4-javascript" role="tab" aria-controls="funding-header-example4-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a></li>
+						</ul>
+
+						<div class="app-tabs__heading js-tabs__heading">
+							<a href="#funding-header-example4-html" role="tab" aria-controls="funding-header-example4-html" data-track="tab-html" aria-expanded="false">HTML</a>
+						</div>
+					
+            <!-- HTML Code Tab (START) -->
+						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example4-html" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">h2</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"lede"</span>&gt;</span>
+  Total allocation
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"heading-large heading-funding-summary variance-heading-no-margin"</span>&gt;</span>£7,800,862.80<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"variance-text"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">i</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"fas fa-caret-up fa-lg increase"</span> <span class="hljs-attr">title</span>=<span class="hljs-string">"Increase"</span> <span class="hljs-attr">aria-hidden</span>=<span class="hljs-string">"true"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">i</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"sr-only"</span>&gt;</span>Increase<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span> £46,039.36<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span></code></pre>
+						</div>
+            <!-- HTML Code Tab (END) -->
+
+						<div class="app-tabs__heading js-tabs__heading">
+							<a href="#funding-header-example4-css" role="tab" aria-controls="funding-header-example4-css" data-track="tab-css" aria-expanded="false">CSS</a>
+						</div>
+
+						<!-- CSS Code Tab (START) -->
+						<div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example4-css" role="tabpanel" aria-hidden="true">
+<pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html">.heading-funding-summary &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">5px</span>;
+&#125;
+
+.variance-heading-no-margin &#123;
+  <span class="hljs-tag"><span class="hljs-attr">margin-bottom</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+.variance-text &#123;
+  <span class="hljs-tag"><span class="hljs-attr">font-size</span></span>: <span class="hljs-string">80%</span>;
+  <span class="hljs-tag"><span class="hljs-attr">margin-top</span></span>: <span class="hljs-string">0px</span>;
+&#125;
+
+.increase &#123;
+  <span class="hljs-tag"><span class="hljs-attr">color</span></span>: <span class="hljs-string">#00703c</span>;
+&#125;</code></pre>
+						</div>
+						<!-- CSS Code Tab (END) -->
+            
+            <div class="app-tabs__heading js-tabs__heading">
+              <a href="#funding-header-example4-javascript" role="tab" aria-controls="funding-header-example4-javascript" data-track="tab-javascript" aria-expanded="false">JavaScript</a>
+            </div>
+	
+            <!-- JavaScript Code Tab (START) -->
+            <div class="app-tabs__container js-tabs__container app-tabs__container--hidden" id="funding-header-example4-javascript" role="tabpanel" aria-hidden="true">
+              <p>This component uses a third party JavaScript library to dynamically generate the optimum CSS for the device utilising it. You will need to reference the following JavaScript resource below:</p>
+  <pre data-module="app-copy"><button class="app-copy-button js-copy-button" aria-live="assertive">Copy code</button><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://kit.fontawesome.com/71943611db.js"</span> <span class="hljs-attr">crossorigin</span>=<span class="hljs-string">"anonymous"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre>
+            </div>
+            <!-- JavaScript Code Tab (END) -->
+
+					</div>
+					<!--
+					Example CODE snippet (END) 
+					*** FUNDING HEADER: FULL WIDTH ***
+					-->
+
+					<h2 class="heading-large">Research on this component</h2>
+					<p>As long as there is no ambiguity for the user around what this headline figure represents, research supports the need of users for presenting summary figures boldly, so as to give immediate context to any further information.</p>
+					<h2 class="heading-large">Linked components</h2>
+					<ul class="list">
+            <li><a href="icons#icons-print">Icons (print)</a></li>
+            <li><a href="icons#icons-variance">Icons (variance)</a></li>
+            <li><a href="links#links-action">Links (with action)</a></li>
+					</ul>
+				</div>
+
+			</div>
+
+			<div class="app-pane__subnav-mobile-overview app-hide-desktop app-hide-tablet govuk-!-padding-top-4">
+			
+				<nav class="app-subnav">
+					<ul class="app-subnav__section">
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="accordion">Accordion</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="back-to-top-link">Back to top link</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="card">Card</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="download-a-document">Download a document</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="filter-a-list">Filter a list</a>
+						</li>
+						<li class="app-subnav__section-item mobile-app-subnav__section-item--current">
+							<a class="app-subnav__link" href="funding-header">Funding header</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-table">Funding table</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="funding-totals">Funding totals</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="icons">Icons</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="links">Links</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="organisation-banner">Organisation banner</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="pagination">Pagination</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="search">Search</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="signed-in-account-banner">Signed-in account banner</a>
+						</li>
+						<li class="app-subnav__section-item">
+							<a class="app-subnav__link" href="tag">Tag</a>
+						</li>
+					</ul>
+				</nav>
+			
+			</div>
+
+		</div>
+
+		<div class="column-full back-to-top">
+
+			<div class="form-block direction-rtl">
+				<a class="app-c-back-to-top dont-print" href="#content">
+					<svg role="presentation" focusable="false" class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+						<path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+					</svg>Back to top
+				</a>
+			</div>
+
+		</div>
+
+	</div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<!-- iFrame resizer tool taken from David J. Bradshaw (https://github.com/davidjbradshaw/iframe-resizer) -->
+<script src="/public/javascripts/iframeResizer.min.js"></script>
+<script>
+
+  iFrameResize({
+      log: true
+  }, '.iFrameResizer')
+
+</script>
+<!-- GOV.UK Design System JavaScript -->
+<script src="/public/javascripts/design-system.js"></script>
+<!-- Copy and paste code from the UI -->
+<script type="text/javascript" id="">
+    
+  function getSelectionText() {
+
+    var a = "";
+
+    window.getSelection ? a = window.getSelection().toString() : document.selection && "Control" != document.selection.type && (a = document.selection.createRange().text);
+    return a
+  }
+
+  document.addEventListener("copy", function(a) {
+    dataLayer.push({
+        event: "textCopied",
+        clipboardText: getSelectionText(),
+        clipboardLength: getSelectionText().length
+    })
+  });
+    
+</script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

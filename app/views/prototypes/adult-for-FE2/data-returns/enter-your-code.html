@@ -1,0 +1,58 @@
+{{<layout}}
+
+{{$title}}Enter the confirmation code{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+    <form method="post" class="form">
+        <input type="hidden" name="csrf" value="{{csrf}}"/>
+        {{#invalidPin}}
+        <div class="error-summary">
+            {{{errorMessage}}}
+            <input type="hidden" id="error_code" value="DR{{errorCode}}"/>
+        </div>
+        {{/invalidPin}}
+
+        {{^startAgain}}
+        
+        <div class="text">
+            <p>We sent the email to {{emailAddress}}. It can sometimes take a while for the email to arrive. Keep this page open while you are waiting.</p>
+        </div>
+
+        <div class="form-group {{#invalidPin}}error{{/invalidPin}}">
+            <label class="form-label" for="validation_code">
+                Confirmation code
+                <span class="form-hint">For example, 1234</span>
+            </label>
+            {{#invalidPin}}
+            <span class="error-message" id="error-message-full-name">Enter a valid confirmation code</span>
+            {{/invalidPin}}
+            <input class="form-control validation-code" id="validation_code" name="validation_code" type="text"
+                   autocomplete="off" autofocus maxlength="4">
+        </div>
+
+
+        <p>If you haven’t received the email you may need to:</p>
+        <ul class="list list-bullet">
+            <li>check your junk or spam folder</li>
+            <li>check you’ve given a valid email address</li>
+        </ul>
+        <p><a href="/email">Get a new code</a> using a valid email address.</p>
+
+        <div class="form-group">
+            <a id="nextHref">
+                <input class="button" type="submit" id="continueBtn" value="Send code" accesskey="C">
+            </a>
+        </div>
+        {{/startAgain}}
+        {{#startAgain}}
+        <div class="form-group">
+            <a id="returnToStartBtn" href="/start" class="button">Start again</a>
+        </div>
+        {{/startAgain}}
+    </form>
+</main>
+{{/content}}
+{{/layout}}

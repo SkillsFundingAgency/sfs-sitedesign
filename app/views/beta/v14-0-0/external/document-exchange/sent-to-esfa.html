@@ -1,0 +1,454 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr>
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../external/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>Documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></li>
+                    </ol>
+                </nav>
+            </div>
+
+            <form method="post" class="form">
+
+                {% if filterResultsUpdated %}
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 7 of 7 documents</h2>
+                </div>
+                {% endif %}
+    
+                <div class="form-group">
+                    <h1 class="heading-xlarge">Documents you've sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
+                    <p>If you’ve just sent a document, it can take a few minutes to show here.</p>
+                    <!-- <p><a href="document-upload-file-type">Send a document</a></p> -->
+                </div>
+                
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Business case ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        Business case audit evidence ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterDocumentType03">
+                                                        Financial report ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterDocumentType04">
+                                                        Infrastructure return ({% if pagingRequired %}?{% else %}1{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by academic year</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academic-year-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterAcademicYear" id="queryFilterAcademicYear" aria-expanded="true" aria-controls="filter-by-academic-year" value="true">
+                                    <a href="#" id="filter-keyboard-academic-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academic-year">
+                                        <header id="academic-year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by academic year</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-academic-year" class="js-filter-collapsible-content" aria-labelledby="academic-year">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
+                                                    <label class="block" for="queryFilterAcademicYear20182019">
+                                                        2018 to 2019 ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
+                                                    <label class="block" for="queryFilterAcademicYear20172018">
+                                                        2017 to 2018 ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Document list -->
+                <div id="document-list" class="column-document-list-two-thirds column-two-thirds document-list">
+
+                    {% if filterResultsUpdated %}
+                    <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                        <span id="filter-results" class="pager-summary">Showing 1 to 7 of 7 documents</span>
+                    </div>
+                    {% endif %}
+
+                    <table>
+                        <thead>
+                            <tr class="first">
+                                <th>
+                                    Document name
+                                </th>                                
+                                <th>
+                                    Document type
+                                </th>
+                                <th>
+                                    Version
+                                </th>
+                                <!-- Hidden column header for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <th style="display: none;">
+                                </th>
+                                <th class="numeric">
+                                </th>
+                            </tr>
+                        </thead>
+                        <!-- 54 RESULTS -->
+                        {% if paginationRequired %}
+                        <!-- SHOWING 1 TO 25 OF 54 DOCUMENTS -->
+                        {% if page1 %}
+
+                        <!-- SHOWING 26 TO 50 OF 54 DOCUMENTS -->
+                        {% elif page2 %}
+
+                        <!-- SHOWING 51 TO 54 OF 54 DOCUMENTS -->
+                        {% elif page3 %}
+
+                        {% endif %}
+                        <!-- 7 RESULTS -->
+                        {% else %}
+                        <!-- SHOWING 1 TO 7 OF 7 DOCUMENTS -->
+                        <tbody>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#">Business case (2018-2019) v2.xls</a>
+                                    <br>
+                                    <strong class="govuk-tag govuk-bgred">UPDATED</strong>
+                                    <br>
+                                    Sent by J Jones at 11:17am on 8 October 2018
+                                    <br>
+                                    <br>
+                                    <a href="#">Business case (2018-2019).xls</a>
+                                    <br>
+                                    Sent by J Jones at 5:44pm on 1 April 2018
+                                </td>
+                                <td class="01" rel="01" style="vertical-align: top;">
+                                    Business case
+                                </td>
+                                <td style="vertical-align: top;">
+                                    2
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    1
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                    2018-2019
+                                </td>
+                                <td class="numeric final-column" style="vertical-align: top;">
+                                    <a href="document-upload-replace">Replace</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#">Business case audit evidence.pdf</a>
+                                    <br>
+                                    Sent by J Jones at 11:29am on 8 October 2018
+                                </td>
+                                <td class="02" rel="02" style="vertical-align: top;">
+                                    Business case audit evidence
+                                </td>
+                                <td style="vertical-align: top;">
+                                    1
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                    2018-2019
+                                </td>
+                                <td class="numeric final-column" style="vertical-align: top;">
+                                    <a href="document-upload-replace">Replace</a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#">Financial Report (2018-2019).xls</a>
+                                    <br>
+                                    Sent by J Jones at 2:33pm on 23 March 2018
+                                </td>
+                                <td class="03" rel="03" style="vertical-align: top;">
+                                    Financial report
+                                </td>
+                                <td style="vertical-align: top;">
+                                    1
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                    2017 to 2018
+                                </td>
+                                <td class="numeric final-column" style="vertical-align: top;">
+                                    
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#">Business Case (2017-2018).xls</a>
+                                    <br>
+                                    Sent by J Jones at 3:03am on 5 October 2017
+                                </td>
+                                <td class="01" rel="01" style="vertical-align: top;">
+                                    Business case
+                                </td>
+                                <td style="vertical-align: top;">
+                                    1
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                    2017 to 2018
+                                </td>
+                                <td class="numeric final-column" style="vertical-align: top;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#">Business case audit evidence.pdf</a>
+                                    <br>
+                                    Sent by J Jones at 3:09am on 5 October 2017
+                                </td>
+                                <td class="02" rel="02" style="vertical-align: top;">
+                                    Business case audit evidence
+                                </td>
+                                <td style="vertical-align: top;">
+                                    1
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                    2017 to 2018
+                                </td>
+                                <td class="numeric final-column" style="vertical-align: top;">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">
+                                    <a href="#">Infrastructure Return (2017-2018).xls</a>
+                                    <br>
+                                    Sent by J Jones at 10:21am on 13 September 2017
+                                </td>
+                                <td class="04" rel="04" style="vertical-align: top;">
+                                    Infrastructure return
+                                </td>
+                                <td style="vertical-align: top;">
+                                    1
+                                </td>
+                                <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                    2017 to 2018
+                                </td>
+                                <td class="numeric final-column" style="vertical-align: top;">
+                                </td>
+                            </tr>
+                        </tbody>
+                        {% endif %}
+                    </table>
+
+                    {% if paginationRequired %}
+                    {% if page1 %}
+                    <div class="pager">
+
+                        <div class="pager-controls">
+                            <ul class="pager-items">
+                                <li>
+                                    <span class="text-bold">1</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page2=true">2</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page3=true">3</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page2=true">Next</a>
+                                <span class="visuallyhidden"> page</span>
+                            </ul>                                
+                        </div>
+        
+                        <div class="pager-summary">
+                            Showing 1 to 25 of 54 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
+                        </div>
+        
+                    </div>
+                    {% elif page2 %}
+                    <div class="pager">
+
+                        <div class="pager-controls">                               
+                            <ul class="pager-items">
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page1=true">Previous</a>
+                                <span class="visuallyhidden"> page</span>
+                                &nbsp;&nbsp;
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page1=true">1</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="text-bold">2</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page3=true">3</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page3=true">Next</a>
+                                <span class="visuallyhidden"> page</span>
+                            </ul>
+                        </div>
+        
+                        <div class="pager-summary">
+                            Showing 26 to 50 of 54 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
+                        </div>
+        
+                    </div>
+                    {% elif page3 %}
+                    <div class="pager">
+
+                        <div class="pager-controls">                               
+                            <ul class="pager-items">
+                                <a class="pager-next" href="sent-to-esfa?paginationRequired=true&page2=true">Previous</a>
+                                <span class="visuallyhidden"> page</span>
+                                &nbsp;&nbsp;
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page1=true">1</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="visuallyhidden">Page </span>
+                                    <a href="sent-to-esfa?paginationRequired=true&page2=true">2</a>
+                                    <span class="visuallyhidden"> of 3</span>
+                                </li>
+                                <li>
+                                    <span class="text-bold">3</span>
+                                </li>
+                            </ul>
+                        </div>
+        
+                        <div class="pager-summary">
+                            Showing 51 to 54 of 54 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">54</span> -->
+                        </div>
+        
+                    </div>
+                    {% endif %}
+                    {% else %}
+                    <div class="pager">
+        
+                        <div class="pager-summary">
+                            Showing 1 to 7 of 7 documents
+                            <!-- <span id="totalDocumentCount" style="display: none;">7</span> -->
+                        </div>
+        
+                    </div>
+                    {% endif %}
+
+                    <div class="form-group direction-rtl">
+                        <a class="app-c-back-to-top dont-print" href="#content">
+                            <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                            </svg>
+                            Back to top
+                        </a>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/lifted/jquery-ui.js"></script>
+<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
+<script src="/public/javascripts/lifted/application.js"></script>
+<script src="/public/javascripts/lifted/bind.js"></script>
+<script src="/public/javascripts/lifted/details.polyfill.js"></script>
+<script src="/public/javascripts/lifted/govuk-template.js"></script>
+<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
+<script src="/public/javascripts/lifted/selection-buttons.js"></script>
+<!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
+
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Sorting for the document list -->
+<script src="/public/javascripts/{{version}}/sorting-fileshare.js"></script>
+
+{% endblock %}

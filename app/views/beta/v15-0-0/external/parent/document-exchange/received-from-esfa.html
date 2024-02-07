@@ -1,0 +1,1382 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Documents received from ESFA
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs">
+                <nav>
+                    <ol>
+                        <li><a href="../../../external/parent/document-exchange/dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        <li>Documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- <form method="post" class="form"> -->
+                
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#document-list">Select the documents that you want to download</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if filterResultsUpdated %}
+                <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                    <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 4 of 4 documents</h2>
+                </div>
+                {% endif %}
+
+                <div class="form-group">
+                    <h1 class="heading-xlarge">Documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></h1>
+                    <!-- <p>You have not received any documents yet.</p>
+                    <p>Any documents you receive will show here.</p> -->
+                    <p>If you need a document in a different format, email <a href="#">pds.mailbox@education.gov.uk</a>.</p>
+                </div>
+
+                <div class="pager-top">
+    
+                    <div id="documentsSelectedText" class="pager-summary">
+                        0 documents selected
+                    </div>
+    
+                </div>
+                
+                <div class="column-filter-one-third column-third">
+                    
+                    <div>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by organisation</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="organisation-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenOrganisation" id="queryFilterOpenOrganisation" aria-expanded="true" aria-controls="filter-by-organisation" value="true">
+                                    <a href="#" id="filter-keyboard-organisation" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-organisation">
+                                        <header id="organisation" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by organisation</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-organisation" class="js-filter-collapsible-content" aria-labelledby="organisation">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild01" rel="Child01" name="queryFilterOrganisation" type="checkbox" value="Child01">
+                                                    <label class="block" for="queryFilterOrganisationChild01">
+                                                        {% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Cann Bridge College{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild02" rel="Child02" name="queryFilterOrganisation" type="checkbox" value="Child02">
+                                                    <label class="block" for="queryFilterOrganisationChild02">
+                                                        {% if parent == 'MAT' %}Drake Academy Coventry{% elif parent == 'LA' %}Eggbuckland Community School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild03" rel="Child03" name="queryFilterOrganisation" type="checkbox" value="Child03">
+                                                    <label class="block" for="queryFilterOrganisationChild03">
+                                                        {% if parent == 'MAT' %}Frog Field Academy{% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild04" rel="Child04" name="queryFilterOrganisation" type="checkbox" value="Child04">
+                                                    <label class="block" for="queryFilterOrganisationChild04">
+                                                        {% if parent == 'MAT' %}Helping Me and You Academy{% elif parent == 'LA' %}Hele’s School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild05" rel="Child05" name="queryFilterOrganisation" type="checkbox" value="Child05">
+                                                    <label class="block" for="queryFilterOrganisationChild05">
+                                                        {% if parent == 'MAT' %}Lipson Cooperative Academy{% elif parent == 'LA' %}Madani School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild06" rel="Child06" name="queryFilterOrganisation" type="checkbox" value="Child06">
+                                                    <label class="block" for="queryFilterOrganisationChild06">
+                                                        {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Newbridge School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent01" rel="Parent01" name="queryFilterOrganisation" type="checkbox" value="Parent01">
+                                                    <label class="block" for="queryFilterOrganisationParent01">
+                                                        {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003 {% else %}[[LA/MAT name]]{% endif %} ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                {% if parent == 'LA' %}
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationParent02" rel="Parent02" name="queryFilterOrganisation" type="checkbox" value="Parent02">
+                                                    <label class="block" for="queryFilterOrganisationParent02">
+                                                        Redhill Council: 491 ({% if pagingRequired %}?{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                {% endif %}
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild07" rel="Child07" name="queryFilterOrganisation" type="checkbox" value="Child07">
+                                                    <label class="block" for="queryFilterOrganisationChild07">
+                                                        {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild08" rel="Child08" name="queryFilterOrganisation" type="checkbox" value="Child08">
+                                                    <label class="block" for="queryFilterOrganisationChild08">
+                                                        {% if parent == 'MAT' %}Walsgrave Church of England Academy{% elif parent == 'LA' %}Tudor Grange School{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterOrganisationChild09" rel="Child09" name="queryFilterOrganisation" type="checkbox" value="Child09">
+                                                    <label class="block" for="queryFilterOrganisationChild09">
+                                                        {% if parent == 'MAT' %}WMG Academy{% elif parent == 'LA' %}Westover College{% else %}[[Academy or school name]]{% endif %} ({% if pagingRequired %}?{% else %}3{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by status</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="status-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenStatus" id="queryFilterOpenStatus" aria-expanded="true" aria-controls="filter-by-status" value="true">
+                                    <a href="#" id="filter-keyboard-status" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-status">
+                                        <header id="status" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by status</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-status" class="js-filter-collapsible-content" aria-labelledby="status">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterStatusNew" rel="New" name="queryFilterStatus" type="checkbox" value="New">
+                                                    <label class="block" for="queryFilterStatusNew">
+                                                        New ({% if paginationRequired %}2{% else %}2{% endif %})
+                                                    </label>
+                                                </li>
+                                                <!-- <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterStatusDownloaded" rel="Downloaded" name="queryFilterStatus" type="checkbox" value="Downloaded">
+                                                    <label class="block" for="queryFilterStatusDownloaded">
+                                                        Downloaded ({% if paginationRequired %}36{% else %}4{% endif %})
+                                                    </label>
+                                                </li> -->
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by document type</legend>
+                            
+                            <div class="js-filter-collapsible-collections">
+                                <section id="document-type-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterOpenDocumentType" id="queryFilterOpenDocumentType" aria-expanded="true" aria-controls="filter-by-document-type" value="true">
+                                    <a href="#" id="filter-keyboard-document-type" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-document-type">
+                                        <header id="document-type" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by document type</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-document-type" class="js-filter-collapsible-content" aria-labelledby="document-type">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType01" rel="01" name="queryFilterDocumentType" type="checkbox" value="01">
+                                                    <label class="block" for="queryFilterDocumentType01">
+                                                        Alternative completions template ({% if pagingRequired %}?{% else %}4{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType02" rel="02" name="queryFilterDocumentType" type="checkbox" value="02">
+                                                    <label class="block" for="queryFilterDocumentType02">
+                                                        Business case template ({% if parent == 'MAT' %}{% if pagingRequired %}?{% else %}9{% endif %}{% elif parent == 'LA' %}{% if pagingRequired %}?{% else %}10{% endif %}{% else %}{% if pagingRequired %}?{% else %}9{% endif %}{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType03" rel="03" name="queryFilterDocumentType" type="checkbox" value="03">
+                                                    <label class="block" for="queryFilterDocumentType03">
+                                                        Data sharing protocols ({% if parent == 'MAT' %}{% if pagingRequired %}?{% else %}12{% endif %}{% elif parent == 'LA' %}{% if pagingRequired %}?{% else %}13{% endif %}{% else %}{% if pagingRequired %}?{% else %}12{% endif %}{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterDocumentType04" rel="04" name="queryFilterDocumentType" type="checkbox" value="04">
+                                                    <label class="block" for="queryFilterDocumentType04">
+                                                        Infrastructure return template ({% if pagingRequired %}?{% else %}5{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                        <fieldset class="filter">
+                            <legend class="visuallyhidden">Filter by academic year</legend>
+
+                            <div class="js-filter-collapsible-collections">
+                                <section id="academic-year-filter" class="js-filter-collapsible js-open">
+                                    <input type="hidden" name="queryFilterAcademicYear" id="queryFilterAcademicYear" aria-expanded="true" aria-controls="filter-by-academic-year" value="true">
+                                    <a href="#" id="filter-keyboard-academic-year" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-academic-year">
+                                        <header id="academic-year" class="js-filter-collapsible-header">
+                                            <h2 class="filters-headings heading-small">Filter by academic year</h2>
+                                        </header>
+                                    </a>
+                                    
+                                    <div id="filter-by-academic-year" class="js-filter-collapsible-content" aria-labelledby="academic-year">
+                                        <section class="toggled-adult-funding-content group">
+                                            <ul>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20182019" rel="2018-2019" name="queryFilterAcademicYear" type="checkbox" value="2018-2019">
+                                                    <label class="block" for="queryFilterAcademicYear20182019">
+                                                        2018 to 2019 ({% if parent == 'MAT' %}{% if pagingRequired %}?{% else %}19{% endif %}{% elif parent == 'LA' %}{% if pagingRequired %}?{% else %}20{% endif %}{% else %}{% if pagingRequired %}?{% else %}19{% endif %}{% endif %})
+                                                    </label>
+                                                </li>
+                                                <li class="gds-multiple-choice multiple-choice">
+                                                    <input id="queryFilterAcademicYear20172018" rel="2017-2018" name="queryFilterAcademicYear" type="checkbox" value="2017-2018">
+                                                    <label class="block" for="queryFilterAcademicYear20172018">
+                                                        2017 to 2018 ({% if parent == 'MAT' %}{% if pagingRequired %}?{% else %}11{% endif %}{% elif parent == 'LA' %}{% if pagingRequired %}?{% else %}12{% endif %}{% else %}{% if pagingRequired %}?{% else %}11{% endif %}{% endif %})
+                                                    </label>
+                                                </li>
+                                            </ul>
+                                        </section>
+                                    </div>
+
+                                </section>
+                            </div>
+
+                        </fieldset>
+                    </div>
+
+                </div>
+
+                <!-- Document list -->
+                <div class="column-document-list-two-thirds column-two-thirds document-list">
+                    <fieldset>
+                        <legend id="document-list" class="visuallyhidden">Document list</legend>
+                        {% if paginationRequired %}
+                        {% if page1 %}
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 25 of 54 documents</span>
+                        </div>
+                        {% elif page2 %}
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 26 to 50 of 54 documents</span>
+                        </div>
+                        {% elif page3 %}
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 51 to 54 of 54 documents</span>
+                        </div>
+                        {% endif %}
+                        {% else %}
+                        <div class="visuallyhidden" role="alert" aria-labelledby="filter-results">
+                            <span id="filter-results" class="pager-summary">Showing 1 to 4 of 4 documents</span>
+                        </div>
+                        {% endif %}
+
+                        <p><a href="#" id="selectAllTrigger">Select/deselect all documents</a></p>
+
+                        <div class="form-group">
+                            <table>
+                                <thead>
+                                    <tr class="first">
+                                        <th>
+                                            <div style="display: none;" class="document-checkbox-div multiple-choice">
+                                                <input id="document-checkbox" name="document-checkbox" type="checkbox" value="document-checkbox" onchange="selectAll('sortable-table-contents')">
+                                                <label for="document-checkbox">Select/deselect all documents</label>
+                                            </div>
+                                        </th>
+                                        <th class="">
+                                            <span class="tab-header-no-sort">Document name</span>
+                                        </th>
+                                        <th>
+                                            <span class="tab-header-no-sort">Organisation</span>
+                                        </th>                                
+                                        <th>
+                                            <span class="tab-header-no-sort">Document type</span>
+                                        </th>
+                                        <!-- Hidden column header for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <th style="display: none;">
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <!-- 54 RESULTS -->
+                                {% if paginationRequired %}
+                                <!-- SHOWING 1 TO 25 OF 30 DOCUMENTS -->
+                                {% if page1 %}
+                                <tbody id="sortable-table-contents">
+                                    <tr id="file-01">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01">
+                                                <label for="checkbox-file-01"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                            <br>
+                                            9:20am on 22 January 2019
+                                        </td>
+                                        <td class="sortable-td Child04" rel="Child04" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Helping Me and You Academy{% elif parent == 'LA' %}Hele’s School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-02">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02">
+                                                <label for="checkbox-file-02"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                            <br>
+                                            3:07pm on 21 January 2019
+                                        </td>
+                                        <td class="sortable-td Child06" rel="Child06" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Newbridge School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-03">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03">
+                                                <label for="checkbox-file-03"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            9:05am on 16 January 2019
+                                        </td>
+                                        <td class="sortable-td Child01" rel="Child01" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Cann Bridge College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-04">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04">
+                                                <label for="checkbox-file-04"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            12:14pm on 9 January 2019
+                                        </td>
+                                        <td class="sortable-td Child09" rel="Child09" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}WMG Academy{% elif parent == 'LA' %}Westover College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-05">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-05" name="checkbox-file-selection" type="checkbox" value="checkbox-file-05">
+                                                <label for="checkbox-file-05"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            10:09am on 9 January 2019
+                                        </td>
+                                        <td class="sortable-td Child06" rel="Child06" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Newbridge School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-06">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-06" name="checkbox-file-selection" type="checkbox" value="checkbox-file-06">
+                                                <label for="checkbox-file-06"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            5:41pm on 8 January 2019
+                                        </td>
+                                        <td class="sortable-td Child05" rel="Child05" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Lipson Cooperative Academy{% elif parent == 'LA' %}Madani School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-07">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-07" name="checkbox-file-selection" type="checkbox" value="checkbox-file-07">
+                                                <label for="checkbox-file-07"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            10:46am on 7 January 2019
+                                        </td>
+                                        <td class="sortable-td Child04" rel="Child04" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Helping Me and You Academy{% elif parent == 'LA' %}Hele’s School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-08">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-08" name="checkbox-file-selection" type="checkbox" value="checkbox-file-08">
+                                                <label for="checkbox-file-08"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            10:46am on 7 January 2019
+                                        </td>
+                                        <td class="sortable-td Child02" rel="Child02" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Drake Academy Coventry{% elif parent == 'LA' %}Eggbuckland Community School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-09">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-09" name="checkbox-file-selection" type="checkbox" value="checkbox-file-09">
+                                                <label for="checkbox-file-09"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            10:46am on 7 January 2019
+                                        </td>
+                                        <td class="sortable-td Child01" rel="Child01" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Cann Bridge College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-10">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-10" name="checkbox-file-selection" type="checkbox" value="checkbox-file-10">
+                                                <label for="checkbox-file-10"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            10:45am on 7 January 2019
+                                        </td>
+                                        <td class="sortable-td Child03" rel="Child03" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Frog Field Academy{% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-11">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-11 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-11">
+                                                <label for="checkbox-file-11"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            4:55pm on 6 January 2019
+                                        </td>
+                                        <td class="sortable-td Child08" rel="Child08" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Walsgrave Church of England Academy{% elif parent == 'LA' %}Tudor Grange School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-12">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-12 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-12">
+                                                <label for="checkbox-file-12"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            4:55pm on 6 January 2019
+                                        </td>
+                                        <td class="sortable-td Parent01" rel="Parent01" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003{% else %}[[LA/MAT name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    {% if parent == 'LA' %}
+                                    <tr id="file-31">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-31 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-31">
+                                                <label for="checkbox-file-31"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            4:41pm on 6 January 2019
+                                        </td>
+                                        <td class="sortable-td Parent02" rel="Parent02" style="vertical-align: top;">
+                                            Redhill Council: 491
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr id="file-13">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-13 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-13">
+                                                <label for="checkbox-file-13"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            4:54pm on 6 January 2019
+                                        </td>
+                                        <td class="sortable-td Child07" rel="Child07" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-14">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-14 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-14">
+                                                <label for="checkbox-file-14"><span class="visuallyhidden">Select infrastructurereturntemplate.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">infrastructure<wbr>return<wbr>template<wbr>.xls</a>
+                                            <br>
+                                            5:27pm on 20 December 2018
+                                        </td>
+                                        <td class="sortable-td Child04" rel="Child04" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Helping Me and You Academy{% elif parent == 'LA' %}Hele’s School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            Infrastructure return template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-15">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-15 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-15">
+                                                <label for="checkbox-file-15"><span class="visuallyhidden">Select infrastructurereturntemplate.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">infrastructure<wbr>return<wbr>template<wbr>.xls</a>
+                                            <br>
+                                            10:10am on 1 December 2018
+                                        </td>
+                                        <td class="sortable-td Child09" rel="Child09" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}WMG Academy{% elif parent == 'LA' %}Westover College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            Infrastructure return template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-16">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-16 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-16">
+                                                <label for="checkbox-file-16"><span class="visuallyhidden">Select alternativecompletionstemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">alternative<wbr>completions<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            3:00pm on 19 November 2018
+                                        </td>
+                                        <td class="sortable-td Child05" rel="Child05" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Lipson Cooperative Academy{% elif parent == 'LA' %}Madani School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Alternative completions template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-17">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-17 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-17">
+                                                <label for="checkbox-file-17"><span class="visuallyhidden">Select alternativecompletionstemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">alternative<wbr>completions<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            2:57pm on 19 November 2018
+                                        </td>
+                                        <td class="sortable-td Child02" rel="Child02" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Drake Academy Coventry{% elif parent == 'LA' %}Eggbuckland Community School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Alternative completions template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-18">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-18 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-18">
+                                                <label for="checkbox-file-18"><span class="visuallyhidden">Select alternativecompletionstemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">alternative<wbr>completions<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            2:57pm on 19 November 2018
+                                        </td>
+                                        <td class="sortable-td Child07" rel="Child07" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Alternative completions template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-19">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-19 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-19">
+                                                <label for="checkbox-file-19"><span class="visuallyhidden">Select infrastructurereturntemplate.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">infrastructure<wbr>return<wbr>template<wbr>.xls</a>
+                                            <br>
+                                            8:55am on 27 September 2018
+                                        </td>
+                                        <td class="sortable-td Child03" rel="Child03" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Frog Field Academy{% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            Infrastructure return template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-20">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-20" name="checkbox-file-selection" type="checkbox" value="checkbox-file-20">
+                                                <label for="checkbox-file-20"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            3:41pm on 6 June 2018
+                                        </td>
+                                        <td class="sortable-td Child07" rel="Child07" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-21">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-21" name="checkbox-file-selection" type="checkbox" value="checkbox-file-21">
+                                                <label for="checkbox-file-21"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            3:41pm on 6 June 2018
+                                        </td>
+                                        <td class="sortable-td Child09" rel="Child09" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}WMG Academy{% elif parent == 'LA' %}Westover College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-22">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-22" name="checkbox-file-selection" type="checkbox" value="checkbox-file-22">
+                                                <label for="checkbox-file-22"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            3:41pm on 6 June 2018
+                                        </td>
+                                        <td class="sortable-td Child05" rel="Child05" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Lipson Cooperative Academy{% elif parent == 'LA' %}Madani School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-23">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-23 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-23">
+                                                <label for="checkbox-file-23"><span class="visuallyhidden">Select alternativecompletionstemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">alternative<wbr>completions<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            4:00pm on 1 April 2018
+                                        </td>
+                                        <td class="sortable-td Child03" rel="Child03" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Frog Field Academy{% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 01" rel="01" style="vertical-align: top;">
+                                            Alternative completions template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-24">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-24 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-24">
+                                                <label for="checkbox-file-24"><span class="visuallyhidden">Select infrastructurereturntemplate.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">infrastructure<wbr>return<wbr>template<wbr>.xls</a>
+                                            <br>
+                                            11:44am on 30 March 2018
+                                        </td>
+                                        <td class="sortable-td Child08" rel="Child08" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Walsgrave Church of England Academy{% elif parent == 'LA' %}Tudor Grange School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            Infrastructure return template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-25">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-25 " name="checkbox-file-selection" type="checkbox" value="checkbox-file-25">
+                                                <label for="checkbox-file-25"><span class="visuallyhidden">Select infrastructurereturntemplate.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">infrastructure<wbr>return<wbr>template<wbr>.xls</a>
+                                            <br>
+                                            11:43am on 30 March 2018
+                                        </td>
+                                        <td class="sortable-td Child02" rel="Child02" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Drake Academy Coventry{% elif parent == 'LA' %}Eggbuckland Community School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 04" rel="04" style="vertical-align: top;">
+                                            Infrastructure return template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <!-- SHOWING 26 TO 30 OF 30 DOCUMENTS -->
+                                {% elif page2 %}
+                                <tbody id="sortable-table-contents">
+                                    <tr id="file-26">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-26" name="checkbox-file-selection" type="checkbox" value="checkbox-file-26">
+                                                <label for="checkbox-file-26"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            11:43am on 6 January 2018
+                                        </td>
+                                        <td class="sortable-td Child01" rel="Child01" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Cann Bridge College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-27">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-27" name="checkbox-file-selection" type="checkbox" value="checkbox-file-27">
+                                                <label for="checkbox-file-27"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            9:20am on 14 November 2017
+                                        </td>
+                                        <td class="sortable-td Child03" rel="Child03" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Frog Field Academy{% elif parent == 'LA' %}Foxford School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-28">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-28" name="checkbox-file-selection" type="checkbox" value="checkbox-file-28">
+                                                <label for="checkbox-file-28"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            9:05am on 13 November 2017
+                                        </td>
+                                        <td class="sortable-td Child08" rel="Child08" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Walsgrave Church of England Academy{% elif parent == 'LA' %}Tudor Grange School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    <tr id="file-29">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-29" name="checkbox-file-selection" type="checkbox" value="checkbox-file-29">
+                                                <label for="checkbox-file-29"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            10:13am on 1 October 2017
+                                        </td>
+                                        <td class="sortable-td Parent01" rel="Parent01" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council: 10770003{% else %}[[LA/MAT name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    {% if parent == 'LA' %}
+                                    <tr id="file-32">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-32" name="checkbox-file-selection" type="checkbox" value="checkbox-file-32">
+                                                <label for="checkbox-file-32"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            10:07am on 1 October 2017
+                                        </td>
+                                        <td class="sortable-td Parent02" rel="Parent02" style="vertical-align: top;">
+                                            Redhill Council: 491
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                    <tr id="file-30">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-30" name="checkbox-file-selection" type="checkbox" value="checkbox-file-30">
+                                                <label for="checkbox-file-30"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            4:48am on 28 September 2017
+                                        </td>
+                                        <td class="sortable-td Child07" rel="Child07" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Ryckborst Academy of Justice{% elif parent == 'LA' %}Sir Frank Whittle College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2017-2018" rel="2017-2018">
+                                            2017-2018
+                                        </td>
+                                    </tr>
+                                </tbody>                            
+                                {% endif %}
+                                <!-- 4 RESULTS -->
+                                {% else %}
+                                <!-- SHOWING 1 TO 4 OF 4 DOCUMENTS -->
+                                <tbody id="sortable-table-contents">
+                                    <tr id="file-01">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-01" name="checkbox-file-selection" type="checkbox" value="checkbox-file-01">
+                                                <label for="checkbox-file-01"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                            <br>
+                                            9:20am on 22 January 2019
+                                        </td>
+                                        <td class="sortable-td Child04" rel="Child04" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Helping Me and You Academy{% elif parent == 'LA' %}Hele’s School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-02">
+                                        <td class="document-checkbox-td sortable-td">
+
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-02" name="checkbox-file-selection" type="checkbox" value="checkbox-file-02">
+                                                <label for="checkbox-file-02"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td New" rel="New" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            <strong class="govuk-tag govuk-bgred">NEW</strong>
+                                            <br>
+                                            3:07pm on 21 January 2019
+                                        </td>
+                                        <td class="sortable-td Child06" rel="Child06" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}Mole Catch Academy{% elif parent == 'LA' %}Newbridge School{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-03">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-03" name="checkbox-file-selection" type="checkbox" value="checkbox-file-03">
+                                                <label for="checkbox-file-03"><span class="visuallyhidden">Select datasharingprotocols.xls</span></label>
+                                            </div>
+
+                                        </td>  
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">data<wbr>sharing<wbr>protocols<wbr>.xls</a>
+                                            <br>
+                                            9:05am on 16 January 2019
+                                        </td>
+                                        <td class="sortable-td Child01" rel="Child01" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}12 Disciples Academy{% elif parent == 'LA' %}Cann Bridge College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 03" rel="03" style="vertical-align: top;">
+                                            Data sharing protocols
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                    <tr id="file-04">
+                                        <td class="document-checkbox-td sortable-td">
+                                            
+                                            <div class="document-checkbox-div multiple-choice">
+                                                <input id="checkbox-file-04" name="checkbox-file-selection" type="checkbox" value="checkbox-file-04">
+                                                <label for="checkbox-file-04"><span class="visuallyhidden">Select businesscasetemplate.pdf</span></label>
+                                            </div>
+
+                                        </td>
+                                        <td class="sortable-td" style="vertical-align: top;">
+                                            <a href="#">business<wbr>case<wbr>template<wbr>.pdf</a>
+                                            <br>
+                                            12:14pm on 9 January 2019
+                                        </td>
+                                        <td class="sortable-td Child09" rel="Child09" style="vertical-align: top;">
+                                            {% if parent == 'MAT' %}WMG Academy{% elif parent == 'LA' %}Westover College{% else %}[[Academy or school name]]{% endif %}
+                                        </td>
+                                        <td class="sortable-td 02" rel="02" style="vertical-align: top;">
+                                            Business case template
+                                        </td>
+                                        <!-- Hidden column for filtering purposes (e.g. allows user to filter by academic year) -->
+                                        <td style="display: none;" class="2018-2019" rel="2018-2019">
+                                            2018-2019
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endif %}
+                            </table>
+
+                            {% if paginationRequired %}
+                            {% if page1 %}
+                            <div class="pager">
+
+                                <div class="pager-controls">
+                                    <ul class="pager-items">
+                                        <li>
+                                            <span class="text-bold">1</span>
+                                        </li>
+                                        <li>
+                                            <span class="visuallyhidden">Page </span>
+                                            <a href="received-from-esfa?paginationRequired=true&page2=true">2</a>
+                                            <span class="visuallyhidden"> of 2</span>
+                                        </li>
+                                        <a class="pager-next" href="received-from-esfa?paginationRequired=true&page2=true">Next</a>
+                                        <span class="visuallyhidden"> page</span>
+                                    </ul>                                
+                                </div>
+                
+                                <div class="pager-summary">
+                                    {% if parent == 'MAT' %}
+                                    Showing 1 to 25 of 30 documents
+                                    <span id="totalDocumentCount" style="display: none;">30</span>
+                                    {% elif parent == 'LA' %}
+                                    Showing 1 to 25 of 32 documents
+                                    <span id="totalDocumentCount" style="display: none;">32</span>
+                                    {% else %}
+                                    Showing 1 to 25 of 30 documents
+                                    <span id="totalDocumentCount" style="display: none;">30</span>
+                                    {% endif %}
+                                </div>
+                
+                            </div>
+                            {% elif page2 %}
+                            <div class="pager">
+
+                                <div class="pager-controls">                               
+                                    <ul class="pager-items">
+                                        <a class="pager-next" href="received-from-esfa?paginationRequired=true&page1=true">Previous</a>
+                                        <span class="visuallyhidden"> page</span>
+                                        &nbsp;&nbsp;
+                                        <li>
+                                            <span class="visuallyhidden">Page </span>
+                                            <a href="received-from-esfa?paginationRequired=true&page1=true">1</a>
+                                            <span class="visuallyhidden"> of 2</span>
+                                        </li>
+                                        <li>
+                                            <span class="text-bold">2</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                
+                                <div class="pager-summary">
+                                    {% if parent == 'MAT' %}
+                                    Showing 26 to 30 of 30 documents
+                                    <span id="totalDocumentCount" style="display: none;">30</span>
+                                    {% elif parent == 'LA' %}
+                                    Showing 26 to 30 of 32 documents
+                                    <span id="totalDocumentCount" style="display: none;">32</span>
+                                    {% else %}
+                                    Showing 26 to 30 of 30 documents
+                                    <span id="totalDocumentCount" style="display: none;">30</span>
+                                    {% endif %}
+                                </div>
+                
+                            </div>
+                            {% endif %}
+                            {% else %}
+                            <div class="pager">
+                
+                                <div class="pager-summary">
+                                    Showing 1 to 4 of 4 documents
+                                    <span id="totalDocumentCount" style="display: none;">4</span>
+                                </div>
+                
+                            </div>
+                            {% endif %}
+
+                        </div>
+
+                        <div class="form-group">
+                            <button class="button">Download selected documents</button>
+                        </div>
+
+                        <div class="form-group direction-rtl">
+                            <a class="app-c-back-to-top dont-print" href="#content">
+                                <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                                    <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                                </svg>
+                                Back to top
+                            </a>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+            <!-- </form> -->
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/lifted/jquery-ui.js"></script>
+<script src="/public/javascripts/lifted/jquery.unobtrusive-ajax.js"></script>
+<script src="/public/javascripts/lifted/application.js"></script>
+<script src="/public/javascripts/lifted/bind.js"></script>
+<script src="/public/javascripts/lifted/details.polyfill.js"></script>
+<script src="/public/javascripts/lifted/govuk-template.js"></script>
+<script src="/public/javascripts/lifted/HeaderFooterOnly.js"></script>
+<script src="/public/javascripts/lifted/selection-buttons.js"></script>
+<!-- <script src="/public/javascripts/lifted/pds.js"></script> -->
+
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Sorting for the document list -->
+<script src="/public/javascripts/{{version}}/sorting-fileshare.js"></script>
+
+{% endblock %}

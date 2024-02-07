@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  Apprenticeships
+{% endblock %}
+
+{% block content %}
+
+<style>
+  .home-nav a {
+    {% include "includes/nav-on-state-css.html" %}
+  }
+
+  @media (min-width: 641px) and (max-width: 890px){
+.rj-alert-wrapper {
+  height:135px;
+}
+}
+
+  @media (min-width: 641px) and (max-width: 700px){
+.rj-alert-wrapper {
+  height:160px;
+}
+}
+
+</style>
+
+<script>
+  var page_name = "dashboard";
+</script>
+
+
+{% include "includes/phase_banner_beta.html" %}
+<main id="content" role="main">
+
+
+
+  <div class="breadcrumbs">
+    <ol role="breadcrumbs">
+      <li><a href="/{% include "includes/sprint-link.html" %}/balance">Account home</a></li>
+    </ol>
+  </div>
+
+<!--h1 class="heading-large">Levy account</h1-->
+ <!--h2 class="bold-medium">Acme Ltd Levy Account</h2-->
+
+            <h1 class="heading-xlarge rj-headings-border" id="company-Name" >{% include "includes/account-name-number.html" %}</h1>
+            <script>document.getElementById('company-Name').innerText = JSON.parse(localStorage.getItem('company-name-header'));</script>
+
+
+ <div class="grid-row">
+           <div class="column-two-thirds">
+            <!--h2 class="heading-large" style="margin:0px 0 50px 0">{% include "includes/account-name-number.html" %}Funding</h2-->
+         <div style="max-width:90%">
+          <div class="grid-row">
+            <div class="column-half ">
+              <h3 class="heading-medium" style="margin-top:0 "><a href="/{% include "includes/sprint-link.html" %}/finance">View funds</a></h3>
+              <p class="rj-home-spacer">Manage your funds including how much you have <a href="/{% include "includes/sprint-link.html" %}/forecast">available to spend</a>, your <a href="/{% include "includes/sprint-link.html" %}/history">transactions</a> and <a href="/{% include "includes/sprint-link.html" %}/expire">funds you could lose</a></p>
+            </div>
+
+            <div class="column-half">
+              <h3 class="heading-medium rj-top-border-mobile" style="margin-top:0;" ><a href="/{% include "includes/sprint-link.html" %}/apprentice-view/spend">Add apprentices</a></h3>
+              <p><a href="/{% include "includes/sprint-link.html" %}/contracts/new-contract">Add apprentices</a>, review and <a href="/{% include "includes/sprint-link.html" %}/contracts/in-progress">approve cohorts</a></p>
+            </div>
+          </div> 
+          <div class="grid-row">
+             <div class="column-half">
+              <h3 class="heading-medium rj-top-border" style="margin-top:0;padding-top:35px  " ><a href="/{% include "includes/sprint-link.html" %}/apprentice-view/">Manage apprentices</a></h3>
+              <p> <a href="/{% include "includes/sprint-link.html" %}/apprentice-view/">Pause or stop apprentices</a> and <a href="/{% include "includes/sprint-link.html" %}/apprentice-view/">review apprentices</a> that need your attention</p>
+            </div>
+            <div class="column-half ">
+              <h3 class="heading-medium rj-top-border" style="margin-top:0; padding-top:35px"><a href="/{% include "includes/sprint-link.html" %}/training">Find training</a></h3>
+              <p class="rj-home-spacer"> <span class="looks-like-a-link-underline">Search for new</span> apprenticeship training or <span class="looks-like-a-link-underline">find out about choosing an assessor</span></p>
+            </div>
+         </div>
+        <div class="grid-row">
+            <div class="column-half ">
+              <h3 class="heading-medium rj-top-border looks-like-a-link-underline-h2" style="margin-top:0; padding-top:35px">Manage team</h3>
+              <p class="rj-home-spacer rj-bottom-border-mobile "><span class="looks-like-a-link-underline">Add and change</span> people who have access to this service. </p>
+            </div>
+            <div class="column-half ">
+              <h3 class="heading-medium rj-top-border looks-like-a-link-underline-h2" style="margin-top:0; padding-top:35px"></h3>
+            </div>
+         </div>
+
+       </div>
+
+
+          </div>
+
+            <div class="column-one-third">
+
+            <h2 class="heading-medium" style="margin-top:0">To do:</h2>
+
+            <div class="rj-alert-wrapper">
+                <div class="rj-alert-copy">
+                  <h2 class="heading-small" style="margin: 22px 10px 5px 20px">Forecast: not completed  </h2>
+                  <p  style="width:85%; margin: 5px 10px 5px 20px" to-do-action><a href="/{% include "includes/sprint-link.html" %}/forecast/">Calculate your available spend</a></p>
+                </div>
+            </div>
+
+            <div class="rj-alert-wrapper">
+                <div class="rj-alert-copy">
+                  <h2 class="heading-small" style="margin: 22px 10px 5px 20px">Requests that need your attention: 5</h2>
+                  <p class="looks-like-a-link-underline to-do-action" style="width:88%; margin: 5px 10px 5px 20px">Review your apprentices</p>
+                </div>
+            </div>
+
+            <div class="rj-alert-wrapper">
+                <div class="rj-alert-copy">
+                  <h2 class="heading-small" style="margin: 22px 10px 5px 20px">Requests to change apprentice details: 50</h2>
+                  <p class="looks-like-a-link-underline to-do-action" style="width:85%; margin: 5px 10px 5px 20px">Review the changes</p>
+                </div>
+            </div>
+
+            <div class="rj-alert-wrapper">
+                <div class="rj-alert-copy">
+                  <h2 class="heading-small" style="margin: 22px 10px 5px 20px">Apprentices that failed double lock: 12 </h2>
+                  <p class="looks-like-a-link-underline to-do-action" style="width:85%; margin: 5px 10px 5px 20px">Update details</p>
+                </div>
+            </div>
+
+            <div class="rj-alert-wrapper">
+                <div class="rj-alert-copy">
+                  <h2 class="heading-small" style="margin: 22px 10px 5px 20px">Staff with access to account: 1 </h2>
+                  <p class="looks-like-a-link-underline to-do-action" style="width:85%; margin: 5px 10px 5px 20px">Grant access to others</p>
+                </div>
+            </div>
+
+
+
+        </div>
+
+
+
+</main>
+
+ <!--button class="button">Do the thing</button-->
+
+
+</script>
+
+{% endblock %}
+

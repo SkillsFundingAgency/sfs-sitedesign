@@ -1,0 +1,785 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Allocation statements - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li>Allocation statements</li>
+                    </ol>
+                </nav>
+            </div>
+
+                <!-- // Trying to use scenarios to tidy //
+
+                {% if scenario == '2' %}
+                <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title" data-module="govuk-notification-banner">
+                    <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                        Important
+                    </h2>
+                    </div>
+                    <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading">
+                        <h2 class="heading-small">Previous allocations can be found in your <a class="govuk-notification-banner__link" href="#">allocation history</a>.</h2>
+                    </p>
+                    </div>
+                </div>
+                {% else %} {% endif %}
+
+                {% if scenario == '1' %}
+                <h1 class="heading-xlarge govuk-!-margin-bottom-4">Allocation statements</h1>
+                <div class="govuk-inset-text govuk-!-margin-bottom-8">
+                    <h2 class="heading-small">Previous allocations can be found in your <a href="">allocation history</a>.</h2>
+                </div>
+                {% else %}
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+                {% endif %}
+
+                -->
+
+                <!-- Example One -->
+
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+                <!-- <div class="govuk-inset-text govuk-!-margin-bottom-8">
+                    <h2 class="heading-small">Previous allocations can be found in your <a href="">allocation history</a>.</h2>
+                </div> -->
+                
+                <!-- End Example One -->
+
+                <!-- Example Two (Standard)
+
+                <h1 class="heading-xlarge govuk-!-margin-bottom-8">Allocation statements</h1>
+
+                End Example Two -->
+
+                <div class="form-group">
+
+                <!-- COMPONENT - ACCORDION (START) -->
+                <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+
+                <!-- Start Indicative Statement -->
+
+                {% if sixteenToNineteenVariant == 'Academy' %}
+
+                <div class="govuk-accordion__section">
+
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                                <span class="govuk-accordion__heading-text-left">Indicative 16 to 19 funding: academic year 2021 to 2022</span>
+                                <span class="govuk-accordion__heading-number-right">
+                                    £43,293,661
+                                </span>
+                            </span>
+                        </h2>
+
+                        <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-2">
+                            <span class="hidden-sub-section">
+                                £43,293,661
+                                <br>
+                            </span>
+                            Published: 12 April 2021
+                            <strong class="govuk-tag govuk-bgred">New</strong>
+                        </div>
+
+                    </div>
+
+                    <div id="accordion-default-content-2" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-2">
+                        <h3 class="heading-medium heading-guidance">Funding breakdown </h3>
+                        <div class="funding-block govuk-!-padding-bottom-0">
+                            <h4 class="govuk-heading-l govuk-!-margin-bottom-3"><a href="funding-breakdown-indicative/indicative-versions">View funding breakdown for {{organisationName}}</a></h4>
+                            <!-- <h4 class="govuk-heading-l govuk-!-margin-bottom-3"><a href="funding-breakdown-indicative/indicative-versions">View funding breakdown for {{organisationName}} (Final Available)</a></h4> -->
+                        </div>
+                        <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                        <ul class="list footer-guidance">                                    
+                            <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                16 to 19 funding allocations supporting documents: 2021 to 2022 (opens in new tab)</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Final Summary Statement -->
+
+                <div class="govuk-accordion__section">
+
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <h2 class="govuk-accordion__section-heading">
+                            <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                                <span class="govuk-accordion__heading-text-left">(Final) 16 to 19 funding: academic year 2021 to 2022</span>
+                                <span class="govuk-accordion__heading-number-right">
+                                    £43,296,161
+                                </span>
+                            </span>
+                        </h2>
+
+                        <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-2">
+                            <span class="hidden-sub-section">
+                                £43,296,161
+                                <br>
+                            </span>
+                            Published: 18 August 2021
+                            <strong class="govuk-tag govuk-bgred">New</strong>
+                        </div>
+
+                    </div>
+
+                    <div id="accordion-default-content-2" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-2">
+                        <h3 class="heading-medium heading-guidance">Funding breakdown </h3>
+                        <div class="funding-block govuk-!-padding-bottom-0">
+                            <h4 class="govuk-heading-l govuk-!-margin-bottom-3"><a href="funding-breakdown-indicative/summary-versions">View funding breakdown for {{organisationName}}</a></h4>
+                        </div>
+                        <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                        <ul class="list footer-guidance">                                    
+                            <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2021-to-2022" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                16 to 19 funding allocations supporting documents: 2021 to 2022 (opens in new tab)</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+
+                {% else %}
+                {% endif %}
+
+                <!-- End Indicative Statement -->
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                    <span class="govuk-accordion__heading-text-left">14 to 16 funding: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        £360,710
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                <span class="hidden-sub-section">
+                                    £360,710
+                                    <br>
+                                </span>
+                                Published: 12 February 2021 <strong class="govuk-tag govuk-bgred">{% if sixteenToNineteenVariant == 'FE' %}Updated{% elseif sixteenToNineteenVariant == 'Academy' %}Updated{% else %}Updated{% endif %}</strong>
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-1" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-1">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../14-to-16/child/funding-breakdown/variance-selection">Core programme</a></h4>
+                                </div>
+
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£342,720</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block govuk-!-padding-bottom-0">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="../../14-to-16/child/funding-breakdown/variance-selection-2">Additional funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £17,990
+                                        <br>
+                                        £2,600</span>
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-0">Allocation history</h3>
+                            <p><a href="../../14-to-16/child/allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">14 to 16 funding allocation guides: 2021 to 2022 (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <!-- Start Example SPI Accordion -->
+
+                    {% if sixteenToNineteenVariant == 'SPI' %}
+
+                    <div class="govuk-accordion__section">
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                                    <span class="govuk-accordion__heading-text-left">16 to 19 funding: academic year 2020 to 2021</span>
+                                    <span class="govuk-accordion__heading-number-right">£1,105,366</span>
+                                </span>
+                            </h2>
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-2">
+                                <span class="hidden-sub-section">
+                                    £1,091,195
+                                    <br>
+                                </span>
+                                Published: 7 May 2021 <strong class="govuk-tag govuk-bgred">Updated</strong>
+                            </div>
+                        </div>
+                        <div id="accordion-default-content-2" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-2">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown </h3>
+                            <div class="funding-block govuk-!-padding-bottom-0">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="funding-breakdown-spi/variance-selection">View funding breakdown for {{organisationName}}</a></h4>
+                            </div>
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/nmss-revenue-funding-allocation-guide-2020-to-2021" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">16 to 19 funding allocation guides: 2020 to 2021 (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    {% endif %}
+
+                    <!-- End Example SPI Accordion -->
+                    
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-2">
+                                    <span class="govuk-accordion__heading-text-left">{% if sixteenToNineteenVariant == 'NMSS' %}Non maintained special school funding: academic year 2021 to 2022{% elif sixteenToNineteenVariant == 'SPI' %}16 to 19 funding: academic year 2021 to 2022{% else %}16 to 19 funding: academic year 2021 to 2022{% endif %}</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        {% if sixteenToNineteenVariant == 'Academy' %}
+                                        £9,618,058
+                                        {% elif sixteenToNineteenVariant == 'FE' %}
+                                        £25,540,207.34
+                                        {% elif sixteenToNineteenVariant == 'NMSS' %}
+                                        £971,119
+                                        {% elif sixteenToNineteenVariant == 'SPI' %}
+                                        £1,091,195
+                                        {% elif sixteenToNineteenVariant == 'SSF' %}
+                                        £1,104,824
+                                        {% else %}
+                                        £25,395,101
+                                        {% endif %}
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-2">
+                                <span class="hidden-sub-section">
+                                    {% if sixteenToNineteenVariant == 'Academy' %}
+                                    £9,618,058
+                                    {% elif sixteenToNineteenVariant == 'FE' %}
+                                    £25,540,207.34
+                                    {% elif sixteenToNineteenVariant == 'NMSS' %}
+                                    £240,375
+                                    {% elif sixteenToNineteenVariant == 'SPI' %}
+                                    £1,091,195
+                                    {% elif sixteenToNineteenVariant == 'SSF' %}
+                                    £1,104,824
+                                    {% else %}
+                                    £25,395,101
+                                    {% endif %}
+                                    <br>
+                                </span>
+                                {% if sixteenToNineteenVariant == 'SPI' %}Published: 12 March 2021{% else %}Published: 12 February 2021{% endif %} 
+                                {% if sixteenToNineteenVariant == 'SPI' %}
+                                <strong class="govuk-tag govuk-bgred">New</strong>
+                                {% else %}
+                                <strong class="govuk-tag govuk-bgred">Updated</strong>
+                                {% endif %}
+                            </div>
+
+                        </div>
+
+                        <div id="accordion-default-content-2" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-2">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown </h3>
+
+                            <!-- As we have removed the CSV block we are removing the "funding-margin-bottom" class from each parent div below -->
+
+                            {% if sixteenToNineteenVariant == 'Academy' %} 
+                            <div class="funding-block">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="funding-breakdown-academy/variance-selection">View funding breakdown for {{organisationName}}</a></h4>                
+                            </div>
+                            {% elif sixteenToNineteenVariant == 'FE' %}
+                            <div class="funding-block">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="funding-breakdown-fe/variance-selection">View funding breakdown for {{organisationName}}</a></h4>                    
+                            </div>
+                            {% elif sixteenToNineteenVariant == 'NMSS' %}
+                            <div class="funding-block">
+                                <div class="funding-left-container">
+                                    <!-- <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="funding-breakdown-nmss/tab-choice?redirectURL=12-09-2021?scenario=5&tab=highneeds">High needs funding</a></h4> -->
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="funding-breakdown-nmss/variance-selection">High needs funding</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£970,000</p>
+                                </div>
+                            </div>
+
+                            <div class="funding-block govuk-!-padding-bottom-0">
+
+                                <div class="funding-left-container">
+                                    <!-- <h4 class="govuk-heading-l  govuk-!-margin-bottom-0"><a href="funding-breakdown-nmss/tab-choice?redirectURL=12-09-2021?scenario=5&tab=studentfinancialsupport">16 to 19 discretionary bursary fund</a></h4> -->
+                                    <h4 class="govuk-heading-l  govuk-!-margin-bottom-0"><a href="funding-breakdown-nmss/variance-selection-2">16 to 19 discretionary bursary fund</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£1,119</p>
+                                </div>
+                    
+                            </div>
+                            {% elif sixteenToNineteenVariant == 'SPI' %}
+                            <div class="funding-block govuk-!-padding-bottom-0">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-3"><a href="funding-breakdown-spi/12-09-2021">View funding breakdown for {{organisationName}} (Old - Only reference for scenarios)</a></h4>
+                            </div>
+                            {% elif sixteenToNineteenVariant == 'SSF' %}
+                            <div class="funding-block">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="funding-breakdown-ssf/variance-selection">View funding breakdown for {{organisationName}}</a></h4>                    
+                            </div>
+                            {% else %}
+                            <div class="funding-block">
+                                <h4 class="govuk-heading-l"><a href="funding-breakdown-fe/12-09-2021">View funding breakdown for {{organisationName}}</a></h4>                    
+                            </div>
+                            {% endif %}
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="allocation-history">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="https://www.gov.uk/government/publications/16-to-19-funding-allocations-supporting-documents-for-2020-to-2021/nmss-revenue-funding-allocation-guide-2020-to-2021" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">
+                                    {% if sixteenToNineteenVariant == 'NMSS' %}
+                                    Non maintained special school funding allocation guides: 2021 to 2022 (opens in new tab)
+                                    {% elif sixteenToNineteenVariant == 'SPI' %}
+                                    16 to 19 funding allocation guides: 2021 to 2022 (opens in new tab)
+                                    {% else %}0
+                                    16 to 19 funding allocation guides: 2021 to 2022 (opens in new tab)
+                                    {% endif %}</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-3">
+                                    <span class="govuk-accordion__heading-text-left">Advanced learner loans: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        £568,805
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-3">
+                                <span class="hidden-sub-section">
+                                    £568,805
+                                    <br>
+                                </span>
+                                Published: 11 January 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-3" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-3">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">Advanced learner loan facility</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£441,116</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">Advanced learner loan bursary</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£127,689</p>
+                                </div>
+                    
+                            </div>
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">19+ funding allocations (opens in new tab)</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Funding and performance management rules (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-4">
+                                    <span class="govuk-accordion__heading-text-left"><abbr title="Education and Skills Funding Agency">ESFA</abbr> funded adult education budget: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        £3,225,520
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-4">
+                                <span class="hidden-sub-section">
+                                    £3,225,520
+                                    <br>
+                                </span>
+                                Published: 9 January 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-4" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-4">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#"><abbr title="Education and Skills Funding Agency">ESFA</abbr> funded adult education budget grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£2,994,841</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#"><abbr title="Education and Skills Funding Agency">ESFA</abbr> funded adult education budget contract for service</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£230,679</p>
+                                </div>
+                    
+                            </div>
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">19+ funding allocations (opens in new tab)</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Funding and performance management rules (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-5">
+                                    <span class="govuk-accordion__heading-text-left">General annual grant: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        £7,800,862.80
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-5">
+                                <span class="hidden-sub-section">
+                                    £7,800,862.80
+                                    <br>
+                                </span>
+                                Published: 18 February 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-5" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-5">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">School budget share</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £6,614,038.77
+                                        <br>
+                                        £45,589.63</span>
+                                    </p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">Minimum funding guarantee</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £1,131,324.03
+                                        <br>
+                                        £10,449.73</span>
+                                    </p>
+                                </div>
+                    
+                            </div>
+                                                        
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">High needs</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£0</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">Post-opening grant</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">
+                                        £55,500
+                                        <br>
+                                        10,000</span>
+                                    </p>
+                                </div>
+                    
+                            </div>
+                            
+                            <h3 class="heading-small heading-guidance govuk-!-margin-top-0">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">General annual grant allocation guides: 2021 to 2022 (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-6">
+                                    <span class="govuk-accordion__heading-text-left">PE and sport premium: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£17,500</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-6">
+                                <span class="hidden-sub-section">
+                                    £17,500
+                                    <br>
+                                </span>
+                                Published: 21 March 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-6" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-6">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">View funding breakdown</a></h4>                 
+                            </div>
+                            
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium: conditions of grant 2021 to 2022 (opens in new tab)</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">PE and sport premium for primary schools (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-7">
+                                    <span class="govuk-accordion__heading-text-left">16 to 18 traineeships: academic year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">
+                                        £1,680,657
+                                    </span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-7">
+                                <span class="hidden-sub-section">
+                                    £1,680,657
+                                    <br>
+                                </span>
+                                Published: 20 March 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-7" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-7">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">16 to 18 traineeships</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£670,302</p>
+                                </div>
+                    
+                            </div>
+
+                            <div class="funding-block">
+
+                                <div class="funding-left-container">
+                                    <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">16 to 18 traineeships bursary</a></h4>
+                                </div>
+                    
+                                <div class="funding-right-container">
+                                    <p class="funding-right-text">£1,010,355</p>
+                                </div>
+                    
+                            </div>
+
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">19+ funding allocations (opens in new tab)</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Funding and performance management rules (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+
+                    <div class="govuk-accordion__section">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <h2 class="govuk-accordion__section-heading">
+                                <span class="govuk-accordion__section-button" id="accordion-default-heading-8">
+                                    <span class="govuk-accordion__heading-text-left">Apprenticeship carry-in: financial year 2021 to 2022</span>
+                                    <span class="govuk-accordion__heading-number-right">£441,116</span>
+                                </span>
+                            </h2>
+
+                            <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-8">
+                                <span class="hidden-sub-section">
+                                    £441,116
+                                    <br>
+                                </span>
+                                Published: 13 March 2021
+                            </div>
+
+                        </div>
+                
+                        <div id="accordion-default-content-8" class="govuk-accordion__section-content govuk-!-padding-left-6" aria-labelledby="accordion-default-heading-8">
+                            <h3 class="heading-medium heading-guidance">Funding breakdown</h3>
+
+                            <div class="funding-block">
+                                <h4 class="govuk-heading-l govuk-!-margin-bottom-0"><a href="#">View funding breakdown</a></h4>           
+                            </div>
+                            
+                            <h3 class="heading-small heading-guidance">Allocation history</h3>
+                            <p><a href="#">View history of allocated funding</a></p>
+                            <h3 class="heading-small heading-guidance">Explore the topic</h3>
+                            <ul class="list footer-guidance">                                    
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">19+ funding allocations (opens in new tab)</a></li>
+                                <li><a href="#" rel="noreferrer noopener" target="_blank" title="Opens in a new tab">Funding and performance management rules (opens in new tab)</a></li>
+                            </ul>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                <!-- COMPONENT - ACCORDION (END) -->
+
+            </div>
+
+            <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+            <!-- START-->
+            <details class="visuallyhidden">
+                <summary>
+                    <span class="summary">...</span>
+                </summary>
+                
+                <div class="panel panel-border-narrow">
+                    <p>...</p>             
+                </div>
+
+            </details>
+            <!-- END -->
+
+            <!-- <div class="form-group">
+                <details>
+                    <summary>
+                        <span class="summary">I'm looking for another funding type</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>
+                    </div>
+
+                </details>
+            </div> -->
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

@@ -1,0 +1,128 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if error %}Error: {% endif %}Send your document
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="dashboard">Home</a></li>
+                        <li><a href="home">Document exchange</a></li>
+                        {% if parent == 'MAT' %}
+                        <li><a href="select-organisation">Select an organisation</a></li>
+                        {% elif parent == 'LA' %}
+                        {% else %}
+                        <li><a href="select-organisation">Select an organisation</a></li>
+                        {% endif %}
+                        <li>Send your document</li>
+                    </ol>
+                </nav>
+            </div>
+
+        </div>
+
+        <div class="column-two-thirds">
+
+            <form method="post" class="form">
+
+                {% if error %}
+                <div class="error-summary" role="alert" aria-labelledby="error-summary-heading" tabindex="-1">
+                    <h2 class="heading-medium error-summary-heading" id="error-summary-heading">There is a problem</h2>
+                    <ul class="error-summary-list">
+                        <li><a href="#fileInput">Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format</a></li>
+                    </ul>
+                </div>
+                {% endif %}
+            
+                <h1 class="heading-xlarge">Send your document</h1>
+                <p>Each document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format.</p>
+
+                {% if fileUploadComponent == 'Hide' %}
+                {% else %}
+                <div id="fileUploadComponent" class="form-block {% if error %}form-group-error{% endif %}">
+                    <label class="form-label" for="fileInput">
+                        Upload a document
+                    </label>
+                    {% if error %}
+                    <span id="fileInput-error" class="error-message">
+                        <span class="visuallyhidden">Error:</span> Document must be in CSV, DOC, DOCX, JPG, ODS, ODT, PDF, XLS or XLSX format
+                    </span>
+                    {% endif %}
+                    <input class="fileUploads {% if error %}govuk-file-upload--error{% endif %}" id="fileInput" name="fileInput" type="file" {% if error %}aria-describedby="fileInput-error"{% endif %}>
+                </div>
+                {% endif %}
+
+                <div class="form-block document-upload-review-section" id="documentToSendReviewTable" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %}>
+
+                    <table class="govuk-table">
+                        <caption class="govuk-table__caption heading-small visuallyhidden">Send your document review table</caption>
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Document name</th>
+                                <th scope="col" class="govuk-table__header">Document type</th>
+                                <th scope="col" class="govuk-table__header">Version</th>
+                                <th scope="col" class="govuk-table__header govuk-table__header--numeric"><span class="visuallyhidden">Action</span></th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <th scope="row" class="table-header-normal"><a href="#" id="fileName" name="fileName">{% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}</a></th>
+                                <td class="govuk-table__cell">{% if fileType %}{{fileType}}{% else %}[FILE TYPE]{% endif %}</td>
+                                <td class="govuk-table__cell">{% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[1]{% endif %}</td>
+                                <td class="govuk-table__cell govuk-table__cell--numeric"><a href="document-upload-remove?uploadedDocumentName={% if uploadedDocumentName %}{{uploadedDocumentName}}{% else %}[UPLOADED DOCUMENT NAME]{% endif %}" id="removeURL" name="removeURL">Remove</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="form-block" id="documentToSendButton" {% if uploadedDocumentStatus == 'Show' %}{% else %}style="display: none;"{% endif %}>
+                    <button class="button" type="submit" data-prevent-double-click="true">Send</button>
+                </div>
+
+                <!-- Non JavaScript button allowing POST back to the server after using the HTML input type="file" - START -->
+                <div id="nonJavaScript" class="form-block">
+                    
+                    <div class="form-block">
+                        <p>
+                            Document type: {% if fileType %}{{fileType}}{% else %}[DOCUMENT TYPE]{% endif %}
+                            <br>
+                            Version: {% if fileTypeVersion %}{{fileTypeVersion}}{% else %}[VERSION]{% endif %}
+                        </p>
+                    </div>
+                
+                    <button class="button" type="submit" data-prevent-double-click="true">Send</button>
+                </div>
+                <!-- Non JavaScript button allowing POST back to the server after using the HTML input type="file" - END -->
+
+            </form>
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/jquery-2.1.4.js"></script>
+<script src="/public/javascripts/{{version}}/send-your-document.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

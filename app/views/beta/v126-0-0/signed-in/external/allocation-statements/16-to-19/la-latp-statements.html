@@ -1,0 +1,419 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Allocation statements - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <div class="grid-row">
+        
+        <div class="column-full">
+    
+            <div class="account-details">
+
+
+                <div class="account-name">
+                    <span class="name">
+                        Casterbridge Local Authority (UKPRN: 12345678)
+                    </span>
+                </div>
+
+                <div class="account-features">
+                    <span class="account-link"><a href="\beta\v126-0-0\signed-in\view-your-roles\external-roles-version">View your sub-services</a></span>                    <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+                    
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+
+    <div class="grid-row">
+    
+        <div class="column-full">
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <!-- <li><a href="../../../../../../../../index.html">Home</a></li> -->
+                        <li><a href="la-dashboard3">Home</a></li>
+                        <li><a href="la-optionalpage3">Choose a statement type</a></li>
+                        <li>Your 19+ allocation statements</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- {% if nothingToView %}
+            <h1 class="heading-xlarge">Allocation statements</h1>
+            <p>No allocation statements to view yet.</p>
+            <p>You will receive an email when a new allocation statement is available.</p>
+            {% else %}
+             Dynamic alert for screen readers so users know when the filtered results have been updated -->
+            <div class="visuallyhidden" role="alert" aria-labelledby="filter-results-updated">
+                <h2 id="filter-results-updated" class="pager-summary">Results updated, now showing 1 to 28 of 28 allocation statements</h2>
+            </div> 
+
+           
+                <h1 class="heading-xlarge margin-bottom">Your 19+ allocation statements</h1>
+              
+
+            <!-- </div> -->
+                  <br/>
+            {% endif %}
+
+        </div>
+
+        {% if nothingToView %}
+
+        {% else %}
+        <form method="post" class="form">
+
+            <div id="filterContentInDivs" class="column-third">
+
+                
+
+                <div class="form-block">
+                    <fieldset class="filter">
+                        <legend class="visuallyhidden">Filter by type</legend>
+                        
+                        <div class="js-filter-collapsible-collections">
+                            <section id="type-link-filter" class="js-filter-collapsible js-open">
+                                <input type="hidden" name="queryFilterOpenTypeLink" id="queryFilterOpenTypeLink" aria-expanded="true" aria-controls="filter-by-type-link" value="true">
+                                <a href="#" id="filter-keyboard-type-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-type-link">
+                                    <header id="type-link" class="js-filter-collapsible-header">
+                                        <h2 class="filters-headings heading-small">Filter by type</h2>
+                                    </header>
+                                </a>
+
+                                <div id="filter-by-type-link" class="js-filter-collapsible-content" aria-labelledby="type-link">
+                                    <section class="toggled-adult-funding-content group">
+                                        <ul>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType01" name="queryFilterType" type="checkbox" value="queryFilterType01">
+                                                <label class="block" for="queryFilterType01">
+                                                    16 to 18 traineeships (1)
+                                                </label>
+                                            </li>
+                                            <!-- <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType07" name="queryFilterType" type="checkbox" value="queryFilterType07">
+                                                <label class="block" for="queryFilterType07">
+                                                    16 to 19 funding (1)
+                                                </label>
+                                            </li> -->
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType02" name="queryFilterType" type="checkbox" value="queryFilterType02">
+                                                <label class="block" for="queryFilterType02">
+                                                   19 to 24 traineeships (1)
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType03" name="queryFilterType" type="checkbox" value="queryFilterType03">
+                                                <label class="block" for="queryFilterType03">
+                                                    Advanced learner loans (1)
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType04" name="queryFilterType" type="checkbox" value="queryFilterType04">
+                                                <label class="block" for="queryFilterType04">
+                                                    Apprenticeship carry-in (1)
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType05" name="queryFilterType" type="checkbox" value="queryFilterType05">
+                                                <label class="block" for="queryFilterType05">
+                                                    <abbr title="Education and Skills Funding Agency">ESFA</abbr> funded adult education budget (2)
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterType06" name="queryFilterType" type="checkbox" value="queryFilterType06">
+                                                <label class="block" for="queryFilterType06">
+                                                    Non levy apprenticeship funding (1)
+                                                </label>
+
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+
+                            </section>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+                <div class="form-block">
+                    <fieldset class="filter">
+                        <legend class="visuallyhidden">Filter by year</legend>
+                        
+                        <div class="js-filter-collapsible-collections">
+                            <section id="local-authority-link-filter" class="js-filter-collapsible js-open">
+                                <input type="hidden" name="queryFilterOpenLocalAuthorityLink" id="queryFilterOpenLocalAuthorityLink" aria-expanded="true" aria-controls="filter-by-local-authority-link" value="true">
+                                <a href="#" id="filter-keyboard-local-authority-link" class="filter-keyboard" type="button" aria-expanded="true" aria-controls="filter-by-local-authority-link">
+                                    <header id="local-authority-link" class="js-filter-collapsible-header">
+                                        <h2 class="filters-headings heading-small">Filter by year</h2>
+                                    </header>
+                                </a>
+
+                                <div id="filter-by-local-authority-link" class="js-filter-collapsible-content" aria-labelledby="local-authority-link">
+                                    <section class="toggled-adult-funding-content group">
+                                        <ul>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterLocalAuthority01" name="queryFilterLocalAuthority" type="checkbox" value="queryFilterLocalAuthority01">
+                                                <label class="block" for="queryFilterLocalAuthority01">
+                                                    2022 to 2023 (6)
+                                                </label>
+                                            </li>
+                                            <li class="gds-multiple-choice multiple-choice myesf-filter">
+                                                <input id="queryFilterLocalAuthority02" name="queryFilterLocalAuthority" type="checkbox" value="queryFilterLocalAuthority02">
+                                                <label class="block" for="queryFilterLocalAuthority02">
+                                                    2021 to 2022 (1)
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </section>
+                                </div>
+
+                            </section>
+                        </div>
+
+                    </fieldset>
+                </div>
+
+               
+            </div>
+
+            <div class="column-two-thirds document-list">
+
+                {% if noFilterResults %}
+                <div class="form-block panel panel-border-wide">
+                    <p>No results found. Use the filters to refine your search again.</p>
+                </div>
+
+            </div>
+                {% else %}
+                <!-- COMPONENT - ACCORDION (START) -->
+
+            <div class="govuk-accordion" id="tab1" class="main-table">
+                    <div class="govuk-accordion__section sectionContent  queryFilterType05 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <div class="parent-wrapper">
+                                <h3 class="bold-small">
+                                    <a href="aeb-budget-grant-v22">ESFA funded adult education budget grant for 2022 to 2023 <span class="visuallyhidden">(version 1)</span></a>
+                                </h3>
+                                <span>Published: 4 March 2023 version 1</span>  <strong class="govuk-tag govuk-bgred">Updated</strong>
+                            </div>     
+                            <div class="amount-wrapper ">
+                                <h3 class="bold-small"> £849,742 </h3>
+                            </div>
+                        </div>
+                   </div>
+                    
+                <div class="govuk-accordion__section sectionContent  queryFilterType05 queryFilterLocalAuthority01" style="padding-top:10px;">
+                
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <div class="parent-wrapper">
+                            <h3 class="bold-small">
+                                <a href="aeb-budget-contract-services2">ESFA funded adult education budget contract for services for 2022 to 2023 <span class="visuallyhidden">(version 1)</span></a>
+                            </h3>
+                            <span>Published: 3 March 2023 version 1</span> <strong class="govuk-tag govuk-bgred">Updated</strong>
+                        </div>     
+                        <div class="amount-wrapper">
+                            <h3 class="bold-small"> £2,395,872 </h3>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="govuk-accordion__section sectionContent queryFilterType01 queryFilterLocalAuthority01">
+                    
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <div class="parent-wrapper">
+                            <h3 class="bold-small">
+                                <a href="">16 to 18 traineeships for 2022 to 2023 <span class="visuallyhidden">(version 1)</span></a>
+                            </h3>
+                            <span>Published: 1 March 2023 version 1</span>
+                        </div>     
+                        <div class="amount-wrapper">
+                            <h3 class="bold-small"> £192,916 </h3>
+                        </div>
+                    </div>
+            
+                </div>
+                <!-- <div class="govuk-accordion__section sectionContent queryFilterType07 queryFilterLocalAuthority01">
+                    
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <div class="parent-wrapper">
+                            <h3 class="bold-small">
+                                <a href="">16 to 19 funding for 2022 to 2023 <span class="visuallyhidden">(version 1)</span></a>
+                            </h3>
+                            <span>1 March 2023 version 1</span>
+                        </div>     
+                        <div class="amount-wrapper">
+                            <h3 class="bold-small"> £10,579,676 </h3>
+                        </div>
+                    </div>
+            
+                </div> -->
+                <div class="govuk-accordion__section sectionContent  queryFilterType02 queryFilterLocalAuthority01">
+            
+                    <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                        <div class="parent-wrapper">
+                            <h3 class="bold-small">
+                                <a href="">19 to 24 traineeships (2020 procurement) for 2022 to 2023 <span class="visuallyhidden">(version 1)</span></a>
+                            </h3>
+                            <span>Published: 1 March 2023 version 1</span>
+                        </div>     
+                        <div class="amount-wrapper">
+                            <h3 class="bold-small"> £205,266 </h3>
+                        </div>
+                    </div>
+                 </div>
+                
+                   
+                
+                       
+                     
+                    <div class="govuk-accordion__section  sectionContent queryFilterType03 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <div class="parent-wrapper">
+                                <h3 class="bold-small">
+                                    <a href="">Advanced learner loans for 2022 to 2023 </a>
+                                </h3>
+                                <span>Published: 1 July 2023 version 1 </span>
+                            </div>     
+                            <div class="amount-wrapper">
+                                <h3 class="bold-small"> £5,500 </h3>
+                            </div>
+
+                            
+                        </div>
+                
+                       
+                    </div>
+
+                   
+
+                   
+                    
+                        
+                   
+                    <div class="govuk-accordion__section  sectionContent  queryFilterType04 queryFilterLocalAuthority01">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <div class="parent-wrapper">
+                                <h3 class="bold-small">
+                                    <a href="">Apprenticeship carry-in for 2022 to 2023 </a>
+                                </h3>
+                                <span>Published: 1 July 2023 version 1</span>
+                            </div>     
+                            <div class="amount-wrapper">
+                                <h3 class="bold-small"> £1,100 </h3>
+                            </div>
+                           
+                        </div>
+                
+                     </div>
+                    
+
+                    
+                    <div class="govuk-accordion__section sectionContent  queryFilterType06 queryFilterLocalAuthority02">
+                
+                        <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                            <div class="parent-wrapper">
+                                <h3 class="bold-small">
+                                    <a href="">Non-levy apprenticeship for 2021 to 2022 </a>
+                                </h3>
+                                <span>Published: 1 March 2022 version 1</span>
+                            </div>     
+                            <div class="amount-wrapper">
+                                <h3 class="bold-small"> £1,187,538 </h3>
+                            </div>
+                        </div>
+                
+        
+                        
+                    </div>
+
+                
+           
+            </div>
+                <!-- COMPONENT - ACCORDION (END) -->
+
+                <div class="form-group">
+
+                    <div class="pager">
+                                
+                        <div class="pager-summary">
+                            Showing 1 to 7 of 7 allocation statements
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-group direction-rtl">
+                    <a class="app-c-back-to-top dont-print" href="#content">
+                        <svg class="app-c-back-to-top__icon" xmlns="http://www.w3.org/2000/svg" width="13" height="17" viewBox="0 0 13 17">
+                            <path fill="currentColor" d="M6.5 0L0 6.5 1.4 8l4-4v12.7h2V4l4.3 4L13 6.4z"></path>
+                        </svg>
+                        Back to top
+                    </a>
+                </div>
+
+                <!-- This is a quick dirty fix to a bug with the GOV.UK Design System's tabs component breaking the first details link within each section. The quick fix, is for me to apply this hidden details link. -->
+                <!-- START-->
+                <details style="display: none;">
+                    <summary>
+                        <span class="summary">...</span>
+                    </summary>
+                    
+                    <div class="panel panel-border-narrow">
+                        <p>...</p>             
+                    </div>
+
+                </details>
+                <!-- END -->
+
+                <!-- <div class="form-group">
+                    <details>
+                        <summary>
+                            <span class="summary">I'm looking for another funding type</span>
+                        </summary>
+                        
+                        <div class="panel panel-border-narrow">
+                            <p>...</p>
+                        </div>
+
+                    </details>
+                </div> -->
+
+            </div>
+            {% endif %}
+
+        </form>
+        {% endif %}
+
+    </div>
+
+</main>
+<script src="/public/javascripts/lifted/jquery-1.7.2.js"></script>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System tabs -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- Filters for the document list -->
+<script src="/public/javascripts/{{version}}/filters-and-checkboxes.js"></script>
+<!-- Search all available filters -->
+<script src="/public/javascripts/{{version}}/search-filter-options.js?v=1.0.3"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

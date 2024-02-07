@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    16 to 19 special post - 16 institutions: 2021 to 2022 - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <a href="dashboard?scenario=2" style="font-size:15px; margin:20px 0px 0px 0px; display:block; width:40px;">Home</a>
+
+    <div class="grid-row">
+        <div class="column-full">
+
+            <div class="govuk-form-group govuk-!-margin-top-2" style="max-width:900px;">
+                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="heading-large govuk-!-margin-bottom-2 govuk-font-size-45 govuk-!-margin-top-4">
+                       Your organisation does not have an apprenticeship agreement
+                    </h1>
+                </legend>
+            </div>
+
+            <p><a href="https://form.education.gov.uk/service/Education_and_Skills_Funding_Agency__ESFA__enquiry_form">Submit an enquiry</a> for advice on accessing the apprenticeship service.</p>
+
+            <!-- <h2 class="heading-medium govuk-!-margin-top-4 float-reset">Service desk</h2>
+            <p class="govuk-!-margin-bottom-2"><a href="">Submit an enquiry</a></p>
+            <p>Telephone: 0370 267 0001</p> -->
+
+            <h2 class="heading-medium govuk-!-margin-top-4 float-reset">Becoming an apprenticeship training provider</h2>
+            <p>Guidance is available on what is expected of a <a href="https://www.gov.uk/guidance/becoming-an-apprenticeship-training-provider" target="_blank" rel="external" title="opens in a new tab">registered apprenticeship training provider (opens in new tab)</a>.</p>
+                
+    </div>
+
+</main>
+
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+<script type="text/javascript">
+    function dualAuthOptions() {
+      if(document.getElementById('sign-in-dfe').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='login-dfe-sens';
+      }
+      else if(document.getElementById('sign-in-idams').checked) {
+          document.getElementById('exampleRadioLink').onclick = location.href='login-idams-sens';
+      }
+      else {
+        $(".govuk-form-group").addClass("govuk-form-group--error");
+        $("#passport-issued-error").removeClass("hide");
+      }
+    }
+  </script>
+
+{% endblock %}

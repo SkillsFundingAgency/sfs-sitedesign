@@ -1,0 +1,24 @@
+<!-- Static global CSS - do NOT change these GDS styles (START) -->
+<link href="/public/kit-icons/icons.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/public/stylesheets/accordion.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/public/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<!-- Static global CSS - do NOT change these GDS styles (END) -->
+
+<!-- External third party CSS links (START) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- External third party CSS links (END) -->
+
+<!-- Changeable Custom CSS - add all variable CSS here (START) -->
+<link href="/public/stylesheets/govuk-global-overrides.css" media="screen" rel="stylesheet" type="text/css" />
+{% if serviceScope == 'Component library' %}
+<link href="/public/stylesheets/component-library.css" media="screen" rel="stylesheet" type="text/css" />
+{% elif version == 'beta/v105-0-0' or version == 'beta/v104-0-0' or version == 'beta/v103-0-0' %}
+<link href="/public/stylesheets/{{version}}/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/public/stylesheets/{{version}}/print.css" media="print" rel="stylesheet" type="text/css" />
+{% elif version == 'beta/v102-0-0' or version == 'beta/v101-0-0' or version == 'beta/v100-0-0' or version == 'beta/v99-0-0' or version == 'beta/v98-0-0' or version == 'beta/v97-0-0' or version == 'beta/v96-0-0' or version == 'beta/v22-0-0' or version == 'beta/v21-0-0' or version == 'beta/v20-0-0' or version == 'beta/v19-0-0' or version == 'beta/v18-0-0' or version == 'beta/v17-0-0' or version == 'beta/v16-0-0' or version == 'beta/v15-0-0' or version == 'beta/v14-0-0' or version == 'beta/v13-0-0' %}
+<link href="/public/stylesheets/{{version}}/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
+{% else %}
+<link href="/public/stylesheets/{{version}}/custom-styles.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/public/stylesheets/{{version}}/custom-styles-myesf.css" media="screen" rel="stylesheet" type="text/css" />
+{% endif %}
+<!-- Changeable Custom CSS - add all variable CSS here (END) -->

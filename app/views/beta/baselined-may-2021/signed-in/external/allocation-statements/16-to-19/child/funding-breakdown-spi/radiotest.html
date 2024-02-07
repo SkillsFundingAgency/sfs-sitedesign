@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    16 to 19 special post - 16 institutions: 2021 to 2022 - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include version + "/includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../child/dashboard">Home</a></li>
+                        <li><a href="../allocation-statements">Allocation statements</a></li>
+                        <li>How do you want to view your statement?</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <!-- content -->
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+                  <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                    <h1 class="heading-large govuk-!-margin-bottom-3 govuk-!-margin-top-8">
+                        How do you want to view your statement?
+                    </h1>
+                  </legend>
+                  <div id="sign-in-hint" class="govuk-!-margin-bottom-6 govuk-hint radio-test-block govuk-font-size-19">
+                    Comparing figures from previous statements will show increases and decreases.
+                  </div>
+                  <div class="govuk-radios radio-test-block">
+                    <div class="govuk-radios__item">
+                        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                        <label class="govuk-label govuk-radios__label" for="sign-in">
+                            Only figures for this statement
+                        </label>
+                    </div>
+                    <div class="govuk-radios__item govuk-!-margin-top-4">
+                        <input class="govuk-radios__input" id="sign-in" name="sign-in" type="radio" value="government-gateway" aria-describedby="sign-in-item-hint">
+                        <label class="govuk-label govuk-radios__label" for="sign-in">
+                            Comparing figures from last year
+                        </label>
+                      </div>
+                    <div class="govuk-radios__item govuk-!-margin-top-4">
+                      <input class="govuk-radios__input" id="sign-in-2" name="sign-in" type="radio" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+                      <label class="govuk-label govuk-radios__label" for="sign-in-2">
+                            Comparing figures from the last issued statement
+                      </label>
+                      <div id="sign-in-2-item-hint" class="govuk-hint govuk-radios__hint">
+                            The last statement was issued on December 18th 2020
+                      </div>
+                    </div>
+                  </div>
+                </fieldset>
+
+                <div class="govuk-button-group govuk-!-margin-top-6">
+                    <button onclick="location.href='../funding-breakdown-spi/12-09-2021'" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
+                      Continue
+                    </button>
+                  
+                    <a class="govuk-link govuk-!-margin-top-2 govuk-!-margin-left-4 govuk-!-display-inline-block" href="../allocation-statements">Cancel</a>
+                </div>
+              </div>
+
+              <!-- end main content -->
+
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}

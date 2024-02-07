@@ -1,0 +1,23 @@
+{{<layout}}
+
+{{$title}}Landfill data allowed value lists{{/title}}
+
+{{$content}}
+<main id="content" role="main">
+    {{{feedbackbanner}}}
+    <h1 class="heading-large"><span id="title">{{$title}}{{/title}}</span></h1>
+
+    <div class="text">
+        You must use the values in these lists when you report your data.
+    </div>
+
+    <p>
+        <ul id="controlled-lists">
+            {{#controlledLists}}
+            <li><a href="/display-list?list={{heading}}">{{title}}</a></li>
+            {{/controlledLists}}
+        </ul>
+    </p>
+</main>
+{{/content}}
+{{/layout}}

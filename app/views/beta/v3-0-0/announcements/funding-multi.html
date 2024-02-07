@@ -1,0 +1,427 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+        
+        $(".view-all-hidden").hide();
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+    });
+    
+    
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    });
+
+    
+
+    $("#open-mobile-menu").click(function() {
+
+        $(".search-hidden-mobile").toggleClass("open-menu-mobile");
+
+        $(".mobile-arrow-down").toggleClass("mobile-arrow-up");
+    });
+   
+
+    
+    $('#update').on('click', function(e)  {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+        
+        $(".con-1, .con-2, .con-3, .con-4, .con-5").show();
+    
+        $('.text-here').text('');
+        
+        var firstTime = 0;
+
+        if(document.getElementById('contract-type-1').checked) {
+        
+            $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+
+            $(".con-1").show();
+
+            firstTime = 1;
+
+
+            $('.text-here').text('Weve found 4 contracts.');
+
+    
+        }
+
+        if(document.getElementById('contract-type-2').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-2").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        } 
+
+        if(document.getElementById('contract-type-3').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-3").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+        }
+
+        if(document.getElementById('contract-type-4').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-4").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        }
+
+        if(document.getElementById('contract-type-5').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".con-1, .con-2, .con-3, .con-4, .con-5").hide();
+            }
+            
+            $(".con-5").show();
+
+            firstTime = 1;
+
+            $('.text-here').text('Weve found 1 contract.');
+
+        }
+
+
+        if(document.getElementById('year17').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year17").show();
+
+            firstTime = 1;
+
+        }
+        
+        if(document.getElementById('year16').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year16").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('year15').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year15").show();
+
+            firstTime = 1;
+
+        }
+
+
+
+        if(document.getElementById('signed1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".signed1").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('amended1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".amended1").show();
+
+            firstTime = 1;
+
+        }
+
+        if(document.getElementById('withdrawn1').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed1, .amended1, .withdrawn1").hide();
+            }
+            
+            $(".withdrawn1").show();
+
+            firstTime = 1;
+
+        }
+        
+        
+
+    });
+
+
+    $('#reset-filter').click(function() {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+
+        $(".con-1, .con-2, .con-3, .con-4, .con-5").show();
+
+        $('.text-here').text('');
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+    
+    });
+
+
+
+    /* v v for collapsable search boxes v v */
+
+    $("#funding-title").click(function(){    
+
+        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+
+        $(".up-arrow-new").toggleClass("down-arrow");
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+    });
+
+   
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+    });
+
+
+
+    
+       
+});
+
+
+
+</script>
+
+<main role="main" id="content">
+    
+    
+    <div class="grid-row">
+        <div class="navigation">
+        <ul>
+            <li><a class="font-xsmall" href="dashboard2">Home</a></li>
+            
+            <li><a class="font-xsmall" href="/">Sign out</a></li>
+        </ul>
+        </div>
+    </div>
+    <div class="grid-row">
+        <div class="column-two-thirds">
+            <h1 class="heading-secondary">THE BLYTHE ACADEMY</h1>
+            <p>UPIN:12345678</p>
+        </div>
+        
+    </div>
+    
+
+    <div class="grid-row" >
+        <div class="column-two-thirds">
+            <h1 class="heading-xlarge margin-bottom">Funding allocations <br> 2017 to 2018</h1>
+        </div>
+    </div>
+    
+    <div class="grid-row mini-card">
+    <div class="column-two-thirds">
+        
+            <span><a href="school">Casterbridge Academy</a></span>   
+        
+    </div>
+
+    <div class="column-one-third"> <br>
+
+       <span class="small">£4,578,211.97</a></span><br>
+       
+       
+       <div class="column-one-third">
+       
+       
+    </div>
+    </div>
+</div>
+<div class="grid-row mini-card">
+    <div class="column-two-thirds">
+        
+            <span><a href="funding-multi2">All Souls Primary School</a></span>   
+        
+    </div>
+
+    <div class="column-one-third"> <br>
+
+       <span class="small">£278,093.44</a></span><br>
+       
+       
+       <div class="column-one-third">
+       
+       
+    </div>
+    </div>
+</div>
+<div class="grid-row mini-card">
+    <div class="column-two-thirds">
+        
+            <span><a href="funding-multi2">St John Fisher Primary School</a></span>   
+        
+    </div>
+
+    <div class="column-one-third"> <br>
+
+       <span class="small">£278,093.44</a></span><br>
+       
+       
+       <div class="column-one-third">
+       
+       
+    </div>
+    </div>
+</div>
+<div class="grid-row mini-card">
+    <div class="column-two-thirds">
+        
+            <span><a href="funding-multi2">Cardinal Newman Secondary School</a></span>   
+        
+    </div>
+
+    <div class="column-one-third"> <br>
+
+       <span class="small">£5,578,211.99</a></span><br>
+       
+       
+       <div class="column-one-third">
+       
+       
+    </div>
+    </div>
+</div>
+<div class="grid-row mini-card">
+    <div class="column-two-thirds">
+        
+            <span><a href="funding-multi2">St Gregorys Primary School</span> </a>  
+        
+    </div>
+
+    <div class="column-one-third"> <br>
+
+       <span class="small">£4,578,211.97</a></span><br>
+       
+       
+      
+       
+    </div>
+    </div>
+</div>
+    
+
+    
+    </div>
+    
+           
+
+            
+        </div>
+    </div>
+    </div>
+</div>
+
+    </div>
+
+</main>
+
+
+{% endblock %}

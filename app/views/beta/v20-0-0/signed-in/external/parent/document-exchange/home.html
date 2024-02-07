@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    Document exchange
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <!-- Account Management (IDAMS) - START -->
+    {% include "includes/idams-account-header.html" %}
+    <!-- Account Management (IDAMS) - END -->
+
+    <div class="grid-row">
+        
+        <div class="column-two-thirds">
+
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="../../../../signed-in/external/parent/document-exchange/dashboard">Home</a></li>
+                        <li>Document exchange</li>
+                    </ol>
+                </nav>
+            </div>
+
+            <h1 class="heading-xlarge">
+                <!-- <span class="heading-secondary">Casterbridge College</span>
+                <span class="heading-secondary">UKPRN: 12345678</span> -->
+                Document exchange
+            </h1>
+            <h2 class="heading-medium">Documents for {% if parent == 'MAT' %}Rupert Shoggins Academy Trust{% elif parent == 'LA' %}Redhill Council{% else %}[[LA or MAT name]]{% endif %}</h2>
+            <p><a href="received-from-esfa?paginationRequired=true&page1=true">Documents received from <abbr title="Education and Skills Funding Agency">ESFA</abbr></a>{% if receivedDocuments == 'Yes' %}<strong class="govuk-tag govuk-bgred gapLeft">{% if parent == 'MAT' %}2 new{% elif parent == 'LA' %}2 new{% else %}2 new{% endif %}</strong>{% endif %}</p>
+            <p><a href="sent-to-esfa">Documents sent to <abbr title="Education and Skills Funding Agency">ESFA</abbr></a></p>
+            <p><a href="{% if parent == 'MAT' %}select-organisation{% elif parent == 'LA' %}document-upload-file-type{% else %}select-organisation{% endif %}">Send a new document</a></p>
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

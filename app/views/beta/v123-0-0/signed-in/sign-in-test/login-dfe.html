@@ -1,0 +1,115 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    16 to 19 special post - 16 institutions: 2021 to 2022 - manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include version + "/includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+
+        <div class="column-full">
+
+            <!-- <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="">Home</a></li>
+                        <li><a href="select-your-organisation">Select your sign-in</a></li>
+                        <li>Department for Education Sign-in</li>
+                    </ol>
+                </nav>
+            </div> -->
+
+            <!-- content -->
+
+            <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-8 govuk-error-summary hide" aria-labelledby="error-summary-title" role="alert" tabindex="-1" data-module="govuk-error-summary" style="border-color:#d4351c;">
+                <h2 class="govuk-error-summary__title govuk-font-size-19" id="error-summary-title">
+                  There is a problem
+                </h2>
+                <div class="govuk-error-summary__body">
+                  <ul class="govuk-list govuk-error-summary__list govuk-font-size-19">
+                    <li>
+                      <a href="#emailinputmockup" style="color:#d4351c;">Please enter a valid email address</a>.
+                      {% if scenario == '3' %}
+                      <p class="govuk-!-margin-top-4" style="margin-bottom:0px;">Sign in with <a href="login-idams" style="color:#005ea5" class="govuk-!-font-weight-bold">IDAMS</a> if you are an independent learning provider, local authority, further education college, university or public body.</p>
+                      {% else %}
+                      {% endif %}
+                    </li>
+                  </ul>
+                </div>
+            </div>
+
+            <h1 class="heading-xlarge govuk-!-margin-bottom-6 govuk-!-margin-top-6">
+                Department for Education Sign-in
+            </h1>
+
+            <p class="govuk-!-margin-bottom-8">DfE Sign-in is your gateway to several important services in the education</p>
+            
+            <div class="form-group emailError">
+                <label class="form-label govuk-!-font-weight-bold" id="emailinputmockup" for="full-name-f1">Email address</label>
+                <span id="passport-issued-error" class="govuk-error-message hide"><span class="govuk-visually-hidden">Error:</span> Please enter a valid email address</span>
+                <input class="form-control" id="username-entry" type="text">
+            </div>
+
+            <div class="form-group govuk-!-margin-bottom-4">
+                <label class="form-label govuk-!-font-weight-bold" for="full-name-f1">Password</label>
+                <input class="form-control" id="user-password" type="password">
+            </div>
+            <p><a href="" class="govuk-!-font-weight-bold">Forgotten your password?</a></p>
+
+            <div class="govuk-inset-text govuk-font-size-19 govuk-!-margin-top-8">
+                By signing in you accept our <a href="" class="govuk-!-font-weight-bold">terms and conditions</a>.
+            </div>
+
+            <div class="govuk-button-group govuk-!-margin-top-6">
+                <button id="sign-in-button" class="govuk-button govuk-font-size-19" data-module="govuk-button" type="button">
+                  Sign in
+                </button>
+            </div>
+
+            <!-- end main content -->
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+<script type="text/javascript">
+
+    // Change the heading title and add padding to it to centre
+    document.getElementById("proposition-name").textContent="DfE Sign-In";
+    $("#proposition-name").addClass("govuk-!-padding-left-9 govuk-!-margin-left-8");
+    //Username and error logic
+    document.getElementById('sign-in-button').onclick = function(){
+
+        var userInput = document.getElementById("username-entry").value;
+
+        if (userInput == "single academy trust" || userInput == "multi academy trust" || userInput == "multi-academy trust" || userInput == "academy" || userInput == "school") {
+            document.getElementById('sign-in-button').onclick = location.href='/beta/v123-0-0/signed-in/external/allocation-statements/16-to-19/child/dashboard';
+        }
+
+        else {
+            $(".form-group.emailError").addClass("govuk-form-group--error");
+            $(".govuk-error-summary, #passport-issued-error").removeClass("hide");
+        }
+    }
+
+</script>
+
+{% endblock %}

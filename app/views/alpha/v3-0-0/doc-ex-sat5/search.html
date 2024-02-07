@@ -1,0 +1,176 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+    // for tabs// 
+
+    $(document).ready(function() {
+    
+        $('#search-submit').click(function() {
+        
+        $('.hidden-results').addClass('show-results');
+        
+        });
+
+        
+        $('#add-to-list-1').click(function() {
+        
+        $('.hidden-tag-1').addClass('show-tag-1') 
+
+        $(this).hide();
+
+        $('.hidden-complete').addClass('show-complete')
+        
+        });
+
+
+        $('#add-to-list-2').click(function() {
+        
+        $('.hidden-tag-2').addClass('show-tag-2') 
+
+        $(this).hide();
+
+        $('.hidden-complete2').addClass('show-complete2')
+        
+        });
+
+
+    });
+
+</script>
+
+<main role="main" id="content">
+    <div class="grid-row ">
+        <div class="navigation">
+            <ul>
+              <li><a class="font-xsmall" href="dash-old">Home</a></li>
+              <li><a class="font-xsmall active" href="funding-list-multi">Funding statements</a></li>
+              <li><a class="font-xsmall" href="download-list">Files to download</a></li>
+              <li><a class="font-xsmall" href="basic-upload">Upload files to ESFA</a></li>
+              <li><a class="font-xsmall" href="#">Sign out</a></li>
+          </ul>
+        </div>
+    </div>
+    
+    
+    
+    
+    
+
+
+
+
+
+
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+
+    
+
+    
+<span class="heading-secondary">Romero</span>
+<h1 class="heading-xlarge">Search for an organisation</h1> 
+
+       
+       
+     
+
+        <p>Search for the name or add the UK Provider Reference Number</p>
+        
+                
+                        <details>
+
+                         <summary><span class="summary">What is a UK Provider Reference Number?</span></summary>
+
+                         <div class="panel panel-border-narrow">
+
+                           <span ><p class="small">A UK Provider Reference Number (UKPRN) is a number that identifies you.</p>
+            
+                
+            </span>
+        
+
+
+
+                         </div>
+
+                        </details> <br>    
+  
+
+        <div class="search-filter">
+            <label class="legend bold-medium" for="finder-keyword-search">Search</label>
+            
+            <input value="" type="text" name="keywords" id="finder-keyword-search" class="text">
+            <button type="submit" id="search-submit" class="search-submit">Search</button>
+        </div>
+
+      </div>
+ 
+   
+</div>
+
+<div class="grid-row">
+    <div class="column-two-thirds">
+        
+            
+            
+            
+            <div class="hidden-results">
+            
+        
+            <ul>
+                          
+                    
+                    <li class="mini-card">
+                        <h4 class="bold-small">Blythe academy</h4>
+                        <ul>
+                            <li>UKPRN: 87651234</li>
+                            
+                            <li id="add-to-list-2" class="action-link"><a href="#">Add</a></li>
+                            <li class="action-link hidden-complete2"><a href="select-funding">Add a funding stream</a></li>
+                                                    </ul>
+                                                    
+                          
+                    
+                    <li class="mini-card">
+                        <h4 class="bold-small">Blythe primary</h4>
+                        <ul>
+                            <li>UKPRN: 5671234</li>
+                            
+                            <li id="add-to-list-2" class="action-link"><a href="#">Add</a></li>
+                            <li class="action-link hidden-complete2"><a href="select-funding"></a></li>
+                                                    </ul>
+                    </li>
+
+                    
+                    
+            </div>
+            &nbsp; <br>
+           
+            
+    <a class="button margin-right" href="subcontractor-list-incomplete">Save</a> 
+    &nbsp; 
+    <br>
+    <p></p>
+    
+        
+    
+</div> 
+
+
+
+
+
+</div>
+</main>
+
+
+{% endblock %}

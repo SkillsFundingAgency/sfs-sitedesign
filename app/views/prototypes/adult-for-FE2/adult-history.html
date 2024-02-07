@@ -1,0 +1,567 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+  GOV.UK prototype kit
+{% endblock %}
+
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function() {
+    $('.tabs .tab-links a').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").hide();
+        $(newCurrentValue).show();            
+ 
+        e.preventDefault();
+
+        $(".view-all-hidden").show();
+    });
+    
+    
+    $('.link-all').on('click', function(e)  {
+        var currentAttrValue = $(this).attr('href');
+        
+        var newCurrentValue = '.' + currentAttrValue.substring(1,currentAttrValue.length)    
+        
+        $(".tab1, .tab2, .tab3, .tab4, .tab5, .tab6, .tab7, .tab8, .tab-hidden").show();
+
+        $(".view-all-hidden").hide();
+        
+    });
+    
+    
+    $('a.impact-link').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+    
+    
+    $('a.link.link-all').click(function() {
+    
+        $('.impact-link.active').removeClass('active');
+        
+        $(this).addClass('active');
+    })
+    
+
+
+    
+    $("#open-mobile-menu").click(function() {
+
+        $(".search-hidden-mobile").toggleClass("open-menu-mobile");
+
+        $(".mobile-arrow-down").toggleClass("mobile-arrow-up");
+    });
+
+
+
+
+
+
+    $('#update').on('click', function(e)  {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+        
+        $(".final, .end").show();
+
+        var firstTime = 0;
+
+        if(document.getElementById('mid').checked) {
+        
+            $(".mid, .end, .final, .end-recon, .final-recon").hide();
+
+            $(".mid").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found no results.");
+        }
+
+        if(document.getElementById('end').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".end").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 result.");
+
+        } 
+
+        if(document.getElementById('final').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".final").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 2 results.");
+
+        }
+
+        if(document.getElementById('end-recon').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".end-recon").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 result.");
+
+        }
+
+        if(document.getElementById('final-recon').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".mid, .end, .final, .end-recon, .final-recon").hide();
+            }
+            
+            $(".final-recon").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 result.");
+
+        }
+
+
+
+        if(document.getElementById('year17').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year17").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 4 results.");
+
+        }
+        
+        if(document.getElementById('year16').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year16").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found no results.");
+
+        }
+
+        if(document.getElementById('year15').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".year15, .year16, .year17").hide();
+            }
+            
+            $(".year15").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found no results.");
+
+        }
+
+
+
+        if(document.getElementById('ready').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".ready").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+
+
+        if(document.getElementById('signed').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".signed").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+
+        if(document.getElementById('review').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".review").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+
+        if(document.getElementById('missed').checked) {
+            
+            if(firstTime == 0) {
+                
+                $(".ready, .signed, .review, .missed").hide();
+            }
+            
+            $(".missed").show();
+
+            firstTime = 1;
+
+            $('.text-here').text("We've found 1 contract.");
+
+        }
+        
+        
+
+    });
+
+
+    $('#reset-filter').click(function() {
+
+        $('.impact-link.active').removeClass('active');
+        
+        $(".view-all-hidden").hide();
+
+        $(".ready, .signed, .review, .missed").show();
+
+        $('.text-here').text('');
+
+        $('input[type=checkbox]').each(function() { this.checked = false; });
+
+        $('input[type=radio]').each(function() { this.checked = false; });
+    
+    });
+});
+
+
+/* v v for collapsable search boxes v v */
+$(document).ready(function() {
+
+    $("#funding-title").click(function(){    
+
+        $(".displayed-checkbox").toggleClass("hidden-checkbox"); 
+
+        $(".up-arrow-new").toggleClass("down-arrow");
+    });
+
+    
+    $("#funding-title-2").click(function(){
+
+        $(".hidden-2").toggleClass("show-2"); 
+
+        $(".down-arrow-2").toggleClass("up-arrow-new-2");
+    });
+
+   
+    $("#funding-title-3").click(function(){
+
+        $(".hidden-3").toggleClass("show-3"); 
+
+        $(".down-arrow-3").toggleClass("up-arrow-new-3");
+    });
+});
+
+</script>
+
+<main role="main" id="content">
+    <!--<div class="phase-banner-beta">
+
+        <div>
+            <p>
+                <strong class="phase-tag">BETA</strong>
+                
+            </p>
+        </div>
+    </div>-->
+
+    <div class="grid-row ">
+        <div class="welcome">
+        <ul class="">
+            <li class="font-xsmall">Andrea Authoriser</li>
+            
+            <li class="font-xsmall">UKPRN:12345678</li>
+        </ul>
+        </div>
+    </div>
+    
+    <div class="service-info">
+        <nav id="secondary-nav" class="account-menu" role="navigation" aria-label="Account">
+            <a href="dash-old" class="account-menu__link account-menu__link--home account-menu__link--active" data-journey-click="link - click:utility-nav:Account home">
+                            <span class="account-icon account-icon--home">
+
+
+                                    Home
+
+                            </span>
+            </a>
+
+            <a href="#" class="account-menu__link account-menu__link--menu js-hidden js-visible" aria-hidden="true" aria-expanded="false" data-journey-click="link - click:utility-nav:Account menu">
+
+
+                Account menu
+
+            </a>
+
+            <ul class="account-menu__main">
+                <li class="account-menu__link--back hidden" aria-hidden="true">
+                    <a href="#" class="account-menu__link" data-journey-click="link - click:utility-nav:Back">
+
+
+                        Back
+
+                    </a>
+                </li>
+
+
+
+                <li>
+                    <a href="#" class="account-menu__link"  data-journey-click="link - click:utility-nav:Sign out">
+
+
+                        Sign out
+
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    
+
+    
+    
+
+    
+
+    
+    <br>
+   
+
+    <div class="grid-row">
+        <div class="column-two-thirds" style="margin-bottom: 40px">
+            <p class="page-info">UKPRN:12345678</p>
+            <h1 class="heading-large no-margin-top">Previous year statements</h1>
+           
+        </div>
+        
+    </div>
+
+
+
+     
+     <div class="grid-row">
+
+
+     <div class="column-one-third" style="margin-top: 30px">
+
+
+
+
+
+         <a id="open-mobile-menu" class="heading-medium mob-search mobile-arrow-down">Edit search</a>
+
+
+         <div class="search-hidden-mobile">
+
+
+
+             <div class="filter-relative">
+                 <button type="button" value="Select contract types" id="funding-title" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by type<span class="up-arrow-new"> </span></button>
+
+
+                 <fieldset class="filters">
+
+                     <legend class="visuallyhidden">Search</legend>
+
+
+                     <div class="displayed-checkbox">
+                         <section class="toggled-content">
+                             <ul>
+
+                                 <li class="multiple-choice">
+                                     <input id="contract-type-1" name="contract" type="checkbox" value="16-19 Funding">
+                                     <label class="block" for="contract-type-1">
+
+                                         16 to 19 funding
+                                     </label>
+                                 </li>
+
+
+
+
+                                 <li class="multiple-choice">
+                                     <input id="contract-type-5" name="contract" type="checkbox" checked="checked"> 
+                                     <label class="block" for="contract-type-5">
+
+                                        Adult funding
+                                     </label>
+                                 </li>
+
+                                 <br/>
+
+                             </ul>
+                             <br />
+                         </section>
+                     </div>
+                 </fieldset>
+             </div>
+
+
+
+             <div class="filter-relative">
+                 <button type="button" value="Select years" id="funding-title-2" tabindex="0" role="button" class="filters-headings heading-small focusing">Filter by academic year<span class="up-arrow-new-2"></span></button>
+
+                 <fieldset class="filters">
+
+                     <legend class="visuallyhidden">Search</legend>
+
+
+                     <div class="displayed-checkbox-2">
+                         <section class="toggled-content">
+                             <ul>
+                                 <li class="multiple-choice">
+                                     <input id="year17" name="years" type="checkbox">
+                                     <label class="block" for="year17">
+
+                                         2018 to 2019
+                                     </label>
+                                 </li>
+
+                                 <li class="multiple-choice">
+                                     <input id="year16" name="years" type="checkbox">
+                                     <label class="block" for="year16">
+
+                                         2017 to 2018
+                                     </label>
+                                 </li>
+
+
+                             </ul>
+                         </section>
+                     </div>
+                 </fieldset>
+             </div>
+
+
+         </div>
+
+
+     </div>
+
+
+
+    <div class="column-two-thirds">
+        <div id="tab1" class="main-table"><br /><hr>
+             
+            <p class="text-here"></p>
+        
+            <ul class="tab-content">
+                      
+                    <section class="attachment AgeReportAttachment">
+
+         <div class="attachment-thumb">
+             <a class="thumbnail pdf-open-link" target="_blank" href="/public/documents/1819_10000055_AEB_ALF_v1.pdf">
+                 <img title="This PDF will open in a new window" alt="Allocation document" src="/public/images/PDF_Download_Thumbnail.png">
+             </a>
+         </div>
+
+         <h2>
+             <a class="pdf-open-link pdf-download-link" href="/public/documents/1819_10000055_AEB_ALF_v1.pdf" rel="external" target="_blank" title="This PDF will open in a new window">Adult funding for 2017 to 2018</a>
+         </h2>
+
+         <p class="metadata">Adult Education Budget and loans facilities funding statement.<br /><br />March 2018 version 1</p>
+
+         <div class="accessibility-warning">
+             <h2 id="pdf-file-size"><abbr title="Portable Document Format">PDF</abbr> 245KB</h2>
+             <h2>
+                 This PDF may not be suitable for users of assistive technology.
+                 <br>
+
+                 You can email <a href="mailto:pds.mailbox@education.gov.uk">pds.mailbox@education.gov.uk</a> to ask for a different format.</h2>
+         </div>
+     </section><br />
+     <hr>
+<section class="attachment AgeReportAttachment">
+        
+
+         <div class="attachment-thumb">
+             <a class="thumbnail pdf-open-link" target="_blank" href="/allocations/download/20">
+                 <img title="This PDF will open in a new window" alt="Allocation document" src="/public/images/PDF_Download_Thumbnail.png">
+             </a>
+         </div>
+
+         <h2>
+             <a class="pdf-open-link pdf-download-link" href="/allocations/download/20" rel="external" target="_blank" title="This PDF will open in a new window">Adult Funding for 2016 to 2017</a>
+         </h2>
+
+         <p class="metadata">Loans facilities and 16 to 18 Traineeships funding statement.<br /><br />May 2017 version 1</p>
+
+
+         <div class="accessibility-warning">
+             <h2 id="pdf-file-size"><abbr title="Portable Document Format">PDF</abbr> 245KB</h2>
+             <h2>
+                 This PDF may not be suitable for users of assistive technology.
+                 <br>
+
+                 You can email <a href="mailto:pds.mailbox@education.gov.uk">pds.mailbox@education.gov.uk</a> to ask for a different format.</h2>
+         </div>
+     </section>
+                    
+            </ul>  <br /><hr> 
+
+        </div>
+    </div>
+</div>    
+
+</div>
+
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,153 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+Manage your education and skills funding - GOV.UK
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+  
+  
+  <div class="grid-row">
+    
+    <div class="column-full">
+      
+      <div class="account-details">
+        
+        
+        <div class="account-name">
+          <span class="name">
+            Casterbridge Local Authority (UKPRN: 12345678)
+          </span>
+        </div>
+        
+        
+        <div class="account-features">
+          <span class="account-link"><a href="\beta\v126-0-0\signed-in\view-your-roles\external-roles-version">View your sub-services</a></span>          <span class="account-link"><a href="{{signOutURL}}">Sign out</a></span>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+    
+    
+    
+    <div class="govuk-grid-column-three-quarters">
+      <div id="global-breadcrumb" class="breadcrumbs group">
+        <nav>
+          <ol>
+            <!-- <li><a href="../../../../../../../../index.html">Home</a></li> -->
+            <li><a href="la-dashboard3">Home</a></li>
+            <li>Choose a statement type</li>
+          </ol>
+        </nav>
+      </div>
+      <!-- <h1 class="heading-large">
+        Choose the allocation statements you want to view
+      </h1> -->
+      
+      
+      <div class="govuk-form-group"style="border-color:#d4351c;">
+        <div class="govuk-error-summary govuk-visually-hidden"style="font-size:30px;" id="notification1" data-module="govuk-error-summary"style="margin-bottom:0px;">
+          <div role="alert">
+            <h2 class="govuk-error-summary__title" style="font-size: 24px;">There is a problem</h2>
+            <div class="govuk-error-summary__body"style="color:red;">
+              <ul class="govuk-list govuk-error-summary__list">
+                <li>
+                  <a href="#" style="font-size:19px; color:#d4351c;">Select the statements you want to view </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        
+        <div class="govuk-form-group">
+          <fieldset class="govuk-fieldset" aria-describedby="sign-in-hint">
+            <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+              <h2 class="heading-large">Choose a statement type</h2>
+            </legend>
+
+            <!--Hint text description-->
+           <!-- <div id="contact-hint" class="govuk-hint" style="font-size: 19px;">Select one option.</div>-->
+
+             <!-- <div class="govuk-form-group--error" id="error1"> -->
+              <p id="nationality-error govuk-form-group--error" class="govuk-error-message">
+                <span class="govuk-visually-hidden govuk-form-group--error" style="font-size:19px; color:#d4351c;"  id="error"> Select the statements you want to view </span> </p>
+                <div class="govuk-radios" data-module="govuk-radios">
+                  
+                  <div class="govuk-radios__item">
+                    <input class="govuk-radios__input" id="radio1" name="sign-in" type="radio" onclick="display()" value="government-gateway" aria-describedby="sign-in-item-hint">
+                    <label class="govuk-label govuk-radios__label" for="sign-in"style="font-size: 20px;">
+                    16 to 19 <strong class="govuk-tag govuk-bgred">1 UPDATED STATEMENT</strong> 
+                      <!-- onclick="display()"<strong class="govuk-tag govuk-bgred">New</strong> -->
+                     <!--<strong class="govuk-tag govuk-bgred">6 new statements</strong>-->
+                    </label>
+                  </div>
+                  <!-- <div class="alert-wrap" id="new"><div><span>!</span></div><div><p style="font-size: small;">6 new statements </p></div></div>--> 
+                </div>
+              </label>
+            </div>
+          
+
+      <div class="govuk-radios__item">
+        <input class="govuk-radios__input" id="radio2b" name="sign-in" type="radio"  onclick="display()" value="govuk-verify" aria-describedby="sign-in-2-item-hint">
+        <label class="govuk-label govuk-radios__label" for="sign-in-2"style="font-size: 20px;">
+          19+ <strong class="govuk-tag govuk-bgred">2 UPDATED STATEMENTS</strong> 
+        </div>
+      </label>
+    </div>
+  </div>
+</div>
+<br/>
+    </fieldset>
+  </div>
+  <div>    
+    
+    <input type="submit" class="button margin-right" value="Continue" id="btn1"  onclick="check()"> <br>
+  
+  </div>
+  
+</main>
+<script>
+  document.getElementById("error").classList.add('govuk-visually-hidden').style.display="hidden";
+  function check()
+  {
+    if(document.getElementById('radio1').checked)
+    {
+      location.href="la-tp-pre16and16to19-statements";
+    }
+    else if(document.getElementById('radio2b'). checked)
+    {
+      location.href="la-latp-statements";
+    }
+    else if(!(document.getElementById('radio1').checked) && (!(document.getElementById('radio2b').checked)))
+    {
+      document.getElementById('notification1').classList.remove('govuk-visually-hidden');
+      document.getElementById('error').classList.remove('govuk-visually-hidden');
+      
+    }
+  }
+  
+  function display()
+  {
+    if(document.getElementById('radio1').checked)
+    {
+      document.getElementById('notification1').classList.add('govuk-visually-hidden');
+      document.getElementById('error').classList.add('govuk-visually-hidden');
+      document.getElementById('new').classList.remove('govuk-visually-hidden');
+      document.getElementById('updated').classList.add('govuk-visually-hidden');
+      
+    }
+    else if(document.getElementById('radio2b').checked)
+    {
+      document.getElementById('notification1').classList.add('govuk-visually-hidden');
+      document.getElementById('error').classList.add('govuk-visually-hidden');
+      document.getElementById('new').classList.add('govuk-visually-hidden');
+      document.getElementById('updated').classList.remove('govuk-visually-hidden');
+    }
+  }
+  
+</script>
+{% endblock %}

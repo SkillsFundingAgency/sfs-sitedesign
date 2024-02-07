@@ -1,0 +1,865 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+    {% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}[ORGANISATION]{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<main role="main" id="content">
+
+    <!-- GOV.UK phase banner (Beta) - START -->
+    {% include "includes/phase_banner_beta.html" %}
+    <!-- GOV.UK phase banner (Beta) - END -->
+
+    <div class="grid-row">
+    
+        <div class="column-full">                
+    
+            <div id="global-breadcrumb" class="breadcrumbs group">
+                <nav>
+                    <ol>
+                        <li><a href="viewing-choice">Choose how to view funding</a></li>
+                        <li><a href="find-an-organisation">View funding by organisation</a></li>
+                        {% if didYouMean == 'Yes' %}
+                        <li><a href="did-you-mean">Search results</a></li>
+                        {% endif %}
+                        <li>{% if searchScope == 'Primary' %}St Mary's Kilburn Church of England Primary School{% elif searchScope == 'Secondary' %}Regent High School{% elif searchScope == 'MAT' %}White Rose Academies Trust{% elif searchScope == 'LA' %}Camden{% else %}St Mary's Kilburn Church of England Primary School{% endif %}</li>
+                    </ol>
+                </nav>
+            </div>
+            
+            <form method="post" class="form">               
+
+                <div class="form-group">
+
+                    {% if searchScope == 'Primary' %}
+                    <!-- Child (Primary School) - Dynamic content (START) -->
+                    <h1 class="heading-xlarge">St Mary's Kilburn Church of England Primary School</h1>
+
+                    <!-- Accordion section to display the data within the single funding statement (START) -->
+                    <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                    
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">PE and sport premium for academic year 2018 to 2019</span>
+                                        <span class="govuk-accordion__heading-number-right">
+                                            £17,720
+                                        </span>
+                                        <!-- <span class="govuk-accordion__heading-number-right">
+                                            <span class="variance-heading">up £1,000</span>
+                                        </span> -->
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £17,720
+                                        <br>
+                                        <!-- <span class="variance-heading">up £1,000</span>
+                                        <br> -->
+                                    </span>
+                                    Published 12 April 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+
+                                <div class="form-block document-list">
+                                    <table>
+                                        <caption class="visuallyhidden">Showing PE and sport premium for 'St Mary's Kilburn Church of England Primary School'</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Local authority code
+                                                </th>                                
+                                                <th>
+                                                    Local authority name
+                                                </th>
+                                                <th>
+                                                    Local authority establishment number (at Sep 2018)
+                                                </th>                                
+                                                <th>
+                                                    School name (at Sep 2018)
+                                                </th>
+                                                <th>
+                                                    Total allocation
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>302</td>
+                                                <td>Camden</td>
+                                                <td>2023517</td>
+                                                <td>St Mary's Kilburn Church of England Primary School</td>
+                                                <td>
+                                                    £17,720
+                                                    <!-- <br>
+                                                    up £1,000 -->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="form-block">
+                    
+                                    <div class="form-download-container">
+                                        <p class="form-download">
+                                            <a href="/public/documents/public-information/latest/pe-and-sport/pe-and-sport-premium_2018-to-2019_published-12-04-2019_st-marys-kilburn-church-of-england-primary-school.ods" title="Download PE and sport premium allocations for St Mary's Kilburn Church of England Primary School 2018 to 2019 (ODS, 5KB)" download>Download PE and sport premium allocations for St Mary's Kilburn Church of England Primary School 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a>
+                                            <br>
+                                            <span class="published-date">This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation">OpenDocument</a> format</span>
+                                        </p>                       
+                                    </div>
+                    
+                                    <p>You can <a href="#">request this in a different format</a>.</p>
+                                </div>
+
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">30 April 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    There are no more scheduled payments for academic year 2018 to 2019.
+                                </p>
+                                <p>Get more information on 2019 to 2020 payments from the PE and sport links in the ‘other grants’ section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General PE and sport premium resources</h3>
+                                <ul class="list">
+                                    <li>Get more general guidance on PE and sport premium 2019 to 2010 from the links in the ‘other grants’ section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</li>
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019" target="external">PE and sport premium: conditions of grant 2018 to 2019</a></li>
+                                    <li><a href="https://www.gov.uk/guidance/pe-and-sport-premium-for-primary-schools" target="external">PE and sport premium for primary schools</a></li> -->
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019/pe-and-sport-premium-conditions-of-grant-2018-to-2019-local-authorities-and-maintained-schools" target="external">PE and sport premium: conditions of grant 2018 to 2019 (local authorities and maintained schools)</a></li> -->
+                                </ul>
+                            </div>
+                    
+                        </div>
+
+                        <!-- <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Pupil premium for financial year 2019 to 2020</span>
+                                        <span class="govuk-accordion__heading-number-right">£112,200</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £112,200
+                                        <br>
+                                    </span>
+                                    Published 21 June 2019
+                                </div>
+
+                            </div>
+
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">28 June 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    Next allocation payment: <span class="bold-small">30 September 2019</span>.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings#payments-in-the-2019-to-2020-financial-year" target="external">funding and accountability for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2019 to 2020, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General pupil premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2019-to-2020/pupil-premium-conditions-of-grant-2019-to-2020">Pupil premium: conditions of grant 2019 to 2020</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div> -->
+                    
+                    </div>
+                    <!-- Accordion section to display the data within the single funding statement (END) -->
+                    <!-- Child (Primary School) - Dynamic content (END) -->
+                    {% elif searchScope == 'Secondary' %}
+                    <!-- Child (Secondary School) - Dynamic content (START) -->
+                    <h1 class="heading-xlarge">Regent High School</h1>
+
+                    <!-- Accordion section to display the data within the single funding statement (START) -->
+                    <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                        
+                        <!-- <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Pupil premium for financial year 2019 to 2020</span>
+                                        <span class="govuk-accordion__heading-number-right">£546,975</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £546,975
+                                        <br>
+                                    </span>
+                                    Published 21 June 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">28 June 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    Next allocation payment: <span class="bold-small">30 September 2019</span>.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings#payments-in-the-2019-to-2020-financial-year" target="external">funding and accountability for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2019 to 2020, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General pupil premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2019-to-2020/pupil-premium-conditions-of-grant-2019-to-2020">Pupil premium: conditions of grant 2019 to 2020</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div>
+
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Year 7 literacy and numeracy catch-up premium for financial year 2018 to 2019</span>
+                                        <span class="govuk-accordion__heading-number-right">£9,555</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £9,555
+                                        <br>
+                                    </span>
+                                    Published 18 February 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">28 February 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    There are no more scheduled payments for financial year 2018 to 2019.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/year-7-literacy-and-numeracy-catch-up-premium-guide-for-schools#payments" target="external">guide for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p<p>You can view all versions of this allocation for the financial year 2018 to 2019, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General year 7 literacy and numeracy catch-up premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/year-7-literacy-and-numeracy-catch-up-premium-2018-to-2019/year-7-literacy-and-numeracy-catch-up-premium-2018-to-2019-conditions-of-grant">Year 7 literacy and numeracy catch-up premium: 2018 to 2019 conditions of grant</a></li>
+                                    <li><a href="https://www.gov.uk/guidance/year-7-literacy-and-numeracy-catch-up-premium-guide-for-schools">Year 7 literacy and numeracy catch-up premium: guide for schools</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div> -->
+                    
+                    </div>
+                    <!-- Accordion section to display the data within the single funding statement (END) -->
+                    <!-- Child (Secondary School) - Dynamic content (END) -->
+                    {% elif searchScope == 'MAT' %}
+                    <!-- MAT - Dynamic content (START) -->
+                    <h1 class="heading-xlarge">White Rose Academies Trust</h1>
+
+                    <!-- Accordion section to display the data within the single funding statement (START) -->
+                    <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+
+                        <!-- <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Pupil premium for financial year 2019 to 2020</span>
+                                        <span class="govuk-accordion__heading-number-right">£1,254,303</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £1,254,303
+                                        <br>
+                                    </span>
+                                    Published 21 March 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">9 July 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    Next allocation payment: <span class="bold-small">8 October 2019</span>.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings#payments-in-the-2019-to-2020-financial-year" target="external">funding and accountability for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2019 to 2020, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General pupil premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2019-to-2020/pupil-premium-conditions-of-grant-2019-to-2020">Pupil premium: conditions of grant 2019 to 2020</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div>
+
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Year 7 literacy and numeracy catch-up premium for financial year 2018 to 2019</span>
+                                        <span class="govuk-accordion__heading-number-right">£355,901</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £355,901
+                                        <br>
+                                    </span>
+                                    Published 18 February 2019
+                                </div>
+
+                            </div>
+
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">1 March 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    There are no more scheduled payments for financial year 2018 to 2019.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/year-7-literacy-and-numeracy-catch-up-premium-guide-for-schools#payments" target="external">guide for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2018 to 2019, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General year 7 literacy and numeracy catch-up premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/year-7-literacy-and-numeracy-catch-up-premium-2018-to-2019/year-7-literacy-and-numeracy-catch-up-premium-2018-to-2019-conditions-of-grant">Year 7 literacy and numeracy catch-up premium: 2018 to 2019 conditions of grant</a></li>
+                                    <li><a href="https://www.gov.uk/guidance/year-7-literacy-and-numeracy-catch-up-premium-guide-for-schools">Year 7 literacy and numeracy catch-up premium: guide for schools</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div> -->
+                    
+                    </div>
+                    <!-- Accordion section to display the data within the single funding statement (END) -->
+                    <!-- MAT - Dynamic content (END) -->
+                    {% elif searchScope == 'LA' %}
+                    <!-- LA - Dynamic content (START) -->
+                    <h1 class="heading-xlarge">Camden</h1>
+
+                    <!-- Accordion section to display the data within the single funding statement (START) -->
+                    <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Dedicated schools grant (<abbr title="Dedicated Schools Grant">DSG</abbr>) for financial year 2019 to 2020</span>
+                                        <span class="govuk-accordion__heading-number-right">
+                                            £161,322,000
+                                            <!-- <br>
+                                            after recoupment and deductions
+                                            <br>
+                                            <span class="variance-heading">up £10,034</span> -->
+                                        </span>
+                                        <span class="govuk-accordion__heading-number-right">
+                                            <span class="variance-heading">after recoupment and deductions</span>
+                                        </span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £161,322,000
+                                        <br>
+                                        <!-- after recoupment
+                                        <br>
+                                        <span class="variance-heading">up £10,034</span>
+                                        <br> -->
+                                        <span class="variance-heading">after recoupment and deductions</span>
+                                        <br>
+                                    </span>
+                                    Published 27 March 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding breakdown</h3>
+                                
+                                <div class="funding-block">
+
+                                    <div class="funding-left-container">
+                                        <p class="funding-left-text"><a href="dedicated-schools-grant/27-03-2019#schools">Schools block</a></p>
+                                    </div>
+                        
+                                    <div class="funding-right-container">
+                                        <p class="funding-right-text">
+                                            £108,136,000
+                                        </p>
+                                        <!-- <p class="funding-right-text">
+                                            <span class="variance">down £381,167.94</span>
+                                        </p> -->
+                                    </div>
+                        
+                                </div>
+
+                                <div class="funding-block">
+
+                                    <div class="funding-left-container">
+                                        <p class="funding-left-text"><a href="dedicated-schools-grant/27-03-2019#css">Central school services block</a></p>
+                                    </div>
+                        
+                                    <div class="funding-right-container">
+                                        <p class="funding-right-text">
+                                            £1,430,000
+                                        </p>
+                                        <!-- <p class="funding-right-text">
+                                            <span class="variance">down £30,082</span>
+                                        </p> -->
+                                    </div>
+                        
+                                </div>
+
+                                <div class="funding-block">
+
+                                    <div class="funding-left-container">
+                                        <p class="funding-left-text"><a href="dedicated-schools-grant/27-03-2019#high-needs">High needs block</a></p>
+                                    </div>
+                        
+                                    <div class="funding-right-container">
+                                        <p class="funding-right-text">
+                                            £34,023,000
+                                        </p>
+                                        <!-- <p class="funding-right-text">
+                                            <span class="variance">up £12,064</span>
+                                        </p> -->
+                                    </div>
+                        
+                                </div>
+
+                                <div class="funding-block funding-margin-bottom">
+
+                                    <div class="funding-left-container">
+                                        <p class="funding-left-text"><a href="dedicated-schools-grant/27-03-2019#early-years">Early years block</a></p>
+                                    </div>
+                        
+                                    <div class="funding-right-container">
+                                        <p class="funding-right-text">
+                                            £17,734,000
+                                        </p>
+                                        <!-- <p class="funding-right-text">
+                                            <span class="variance">down £2,030</span>
+                                        </p> -->
+                                    </div>
+                        
+                                </div>
+
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">3 June 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    Next allocation payment: <span class="bold-small">22 August 2019</span>.
+                                </p>                                
+                                <p>Get more information on payments from the conditions of grant 2019 to 2020 page, which you can get to from the links in the <abbr title="Dedicated Schools Grant">DSG</abbr> section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2019 to 2020, on the <a href="dedicated-schools-grant/allocation-history">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General <abbr title="Dedicated Schools Grant">DSG</abbr> resources</h3>
+                                <ul class="list">
+                                    <li>Get more general guidance on <abbr title="Dedicated Schools Grant">DSG</abbr> 2019 to 2020 from the links in the <abbr title="Dedicated Schools Grant">DSG</abbr> section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</li>
+                                    
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020" target="external"><abbr title="Dedicated Schools Grant">DSG</abbr>: 2019 to 2020</a></li> -->
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-conditions-of-grant-2019-to-2020" target="external"><abbr title="Dedicated Schools Grant">DSG</abbr>: conditions of grant 2019 to 2020</a></li>
+                                    <li><a href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/765400/DSG_growth_calculations_values_2019_2020.ods" target="external" title="Download DSG: growth calculations values (ODS, 3.19MB)" download><abbr title="Dedicated Schools Grant">DSG</abbr>: growth calculations values 2019 to 2020 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 3.19MB)</a></li>
+                                    <li class="bold-xsmall gem-c-related-navigation__link toggle-wrap">
+                                        <a href="#" class="gem-c-related-navigation__toggle" data-controls="toggle_related_items" data-expanded="false" data-toggled-text="Show fewer" role="button" aria-controls="toggle_related_items" aria-expanded="false">More</a>
+                                    </li>
+                                    <li class="gem-c-related-navigation__link">
+                                        <span id="toggle_related_items" class="gem-c-related-navigation__toggle-more js-hidden" aria-live="polite" role="region" aria-hidden="true">
+                                            
+                                            <div class="gem-c-related-navigation__hidden-sub-section">
+                                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--sidebar gem-c-related-navigation__section-link--other" href="https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/765550/DSG_Pupil_Number_Tool_2019_2020.xls" target="external" title="Download DSG: pupil number tool 2019 to 2020 (XLS, 463KB)" download><abbr title="Dedicated Schools Grant">DSG</abbr>: pupil number tool 2019 to 2020 (<abbr title="eXceL Spreadsheet">XLS</abbr>, 463KB)</a>
+                                            </div>
+
+                                            <div class="gem-c-related-navigation__hidden-sub-section-last">
+                                                <a class="gem-c-related-navigation__section-link gem-c-related-navigation__section-link--sidebar gem-c-related-navigation__section-link--other" href="https://www.gov.uk/government/publications/dedicated-schools-grant-dsg-2019-to-2020/dedicated-schools-grant-technical-note-2019-to-2020" target="external"><abbr title="Dedicated Schools Grant">DSG</abbr>: technical note 2019 to 2020</a>
+                                            </div>
+
+                                        </span>
+                                    </li> -->
+                                </ul>
+                            </div>
+                    
+                        </div>
+                    
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">PE and sport premium for academic year 2018 to 2019</span>
+                                        <span class="govuk-accordion__heading-number-right">£850,660</span>
+                                        <!-- <span class="govuk-accordion__heading-number-right">
+                                            <span class="variance-heading">up £1,000</span>
+                                        </span> -->
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £850,660
+                                        <br>
+                                        <!-- <span class="variance-heading">up £1,000</span>
+                                        <br> -->
+                                    </span>
+                                    Published 12 April 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="pe-and-sport/12-04-2019">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">30 April 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    There are no more scheduled payments for academic year 2018 to 2019.
+                                </p>
+                                <p>Get more information on 2019 to 2020 payments from the PE and sport links in the ‘other grants’ section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the academic year 2018 to 2019, on the <a href="pe-and-sport/allocation-history">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General PE and sport premium resources</h3>
+                                <ul class="list">
+                                    <li>Get more general guidance on PE and sport premium 2019 to 2010 from the links in the ‘other grants’ section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</li>
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019" target="external">PE and sport premium: conditions of grant 2018 to 2019</a></li>
+                                    <li><a href="https://www.gov.uk/guidance/pe-and-sport-premium-for-primary-schools" target="external">PE and sport premium for primary schools</a></li> -->
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019/pe-and-sport-premium-conditions-of-grant-2018-to-2019-local-authorities-and-maintained-schools" target="external">PE and sport premium: conditions of grant 2018 to 2019 (local authorities and maintained schools)</a></li> -->
+                                </ul>
+                            </div>
+                    
+                        </div>
+
+                        <!-- <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Pupil premium for financial year 2019 to 2020</span>
+                                        <span class="govuk-accordion__heading-number-right">£2,279,658</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £2,279,658
+                                        <br>
+                                    </span>
+                                    Published 21 June 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">28 June 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    Next allocation payment: <span class="bold-small">30 September 2019</span>.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings#payments-in-the-2019-to-2020-financial-year" target="external">funding and accountability for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2019 to 2020, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General pupil premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2019-to-2020/pupil-premium-conditions-of-grant-2019-to-2020">Pupil premium: conditions of grant 2019 to 2020</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div>
+
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Year 7 literacy and numeracy catch-up premium for financial year 2018 to 2019</span>
+                                        <span class="govuk-accordion__heading-number-right">£102,572</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £102,572
+                                        <br>
+                                    </span>
+                                    Published 18 February 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">28 February 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    There are no more scheduled payments for financial year 2018 to 2019.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/year-7-literacy-and-numeracy-catch-up-premium-guide-for-schools#payments" target="external">guide for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2018 to 2019, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General year 7 literacy and numeracy catch-up premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/year-7-literacy-and-numeracy-catch-up-premium-2018-to-2019/year-7-literacy-and-numeracy-catch-up-premium-2018-to-2019-conditions-of-grant">Year 7 literacy and numeracy catch-up premium: 2018 to 2019 conditions of grant</a></li>
+                                    <li><a href="https://www.gov.uk/guidance/year-7-literacy-and-numeracy-catch-up-premium-guide-for-schools">Year 7 literacy and numeracy catch-up premium: guide for schools</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div> -->
+                    
+                    </div>
+                    <!-- Accordion section to display the data within the single funding statement (END) -->
+                    <!-- LA - Dynamic content (END) -->
+                    {% else %}
+                    <!-- DEFAULT VIEW - when all session variables fail (START) -->
+                    <h1 class="heading-xlarge">St Mary's Kilburn Church of England Primary School</h1>
+
+                    <!-- Accordion section to display the data within the single funding statement (START) -->
+                    <div class="govuk-accordion" data-module="accordion" id="accordion-default">
+                    
+                        <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">PE and sport premium for academic year 2018 to 2019</span>
+                                        <span class="govuk-accordion__heading-number-right">
+                                            £17,720
+                                        </span>
+                                        <!-- <span class="govuk-accordion__heading-number-right">
+                                            <span class="variance-heading">up £1,000</span>
+                                        </span> -->
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £17,720
+                                        <br>
+                                        <!-- <span class="variance-heading">up £1,000</span>
+                                        <br> -->
+                                    </span>
+                                    Published 12 April 2019
+                                </div>
+
+                            </div>
+                    
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+
+                                <div class="form-block document-list">
+                                    <table>
+                                        <caption class="visuallyhidden">Showing PE and sport premium for 'St Mary's Kilburn Church of England Primary School'</caption>
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Local authority code
+                                                </th>                                
+                                                <th>
+                                                    Local authority name
+                                                </th>
+                                                <th>
+                                                    Local authority establishment number (at Sep 2018)
+                                                </th>                                
+                                                <th>
+                                                    School name (at Sep 2018)
+                                                </th>
+                                                <th>
+                                                    Total allocation
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>302</td>
+                                                <td>Camden</td>
+                                                <td>2023517</td>
+                                                <td>St Mary's Kilburn Church of England Primary School</td>
+                                                <td>
+                                                    £17,720
+                                                    <!-- <br>
+                                                    up £1,000 -->
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <div class="form-block">
+                    
+                                    <div class="form-download-container">
+                                        <p class="form-download">
+                                            <a href="/public/documents/public-information/latest/pe-and-sport/pe-and-sport-premium_2018-to-2019_published-12-04-2019_st-marys-kilburn-church-of-england-primary-school.ods" title="Download PE and sport premium for St Mary's Kilburn Church of England Primary School 2018 to 2019 (ODS, 5KB)" download>Download PE and sport premium for St Mary's Kilburn Church of England Primary School 2018 to 2019 (<abbr title="Open Document Spreadsheet">ODS</abbr>, 5KB)</a>
+                                            <br>
+                                            <span class="published-date">This file is in an <a href="https://www.gov.uk/guidance/using-open-document-formats-odf-in-your-organisation">OpenDocument</a> format</span>
+                                        </p>                       
+                                    </div>
+                    
+                                    <p>You can <a href="#">request this in a different format</a>.</p>
+                                </div>
+
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">30 April 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    There are no more scheduled payments for academic year 2018 to 2019.
+                                </p>
+                                <p>Get more information on 2019 to 2020 payments from the PE and sport links in the ‘other grants’ section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General PE and sport premium resources</h3>
+                                <ul class="list">
+                                    <li>Get more general guidance on PE and sport premium 2019 to 2010 from the links in the ‘other grants’ section of the <a href="../../guidance/local-authorities-pre-16-schools-funding" target="external">local authorities guidance document collection</a>.</li>
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019" target="external">PE and sport premium: conditions of grant 2018 to 2019</a></li>
+                                    <li><a href="https://www.gov.uk/guidance/pe-and-sport-premium-for-primary-schools" target="external">PE and sport premium for primary schools</a></li> -->
+
+                                    <!-- <li><a href="https://www.gov.uk/government/publications/pe-and-sport-premium-conditions-of-grant-2018-to-2019/pe-and-sport-premium-conditions-of-grant-2018-to-2019-local-authorities-and-maintained-schools" target="external">PE and sport premium: conditions of grant 2018 to 2019 (local authorities and maintained schools)</a></li> -->
+                                </ul>
+                            </div>
+                    
+                        </div>
+
+                        <!-- <div class="govuk-accordion__section ">
+                    
+                            <div class="govuk-accordion__section-header govuk-accordion__single-funding-statement-header">
+                                <h2 class="govuk-accordion__section-heading">
+                                    <span class="govuk-accordion__section-button" id="accordion-default-heading-1">
+                                        <span class="govuk-accordion__heading-text-left">Pupil premium for financial year 2019 to 2020</span>
+                                        <span class="govuk-accordion__heading-number-right">£112,200</span>
+                                    </span>
+                                </h2>
+
+                                <div class="govuk-accordion__section-summary" id="accordion-with-summary-sections-summary-1">
+                                    <span class="hidden-sub-section">
+                                        £112,200
+                                        <br>
+                                    </span>
+                                    Published 21 June 2019
+                                </div>
+
+                            </div>
+
+                            <div id="accordion-default-content-1" class="govuk-accordion__section-content" aria-labelledby="accordion-default-heading-1">
+                                <h3 class="heading-medium">Funding</h3>
+                                <p class="lede bold-lede"><a href="#">View funding details</a></p>
+                                <h3 class="heading-medium heading-guidance">Payment dates</h3>
+                                <p>
+                                    {% if toggleVersion == 'b' or toggleVersion == 'B' %}
+                                    Last allocation payment: <span class="bold-small">28 June 2019</span>.
+                                    <br>
+                                    {% endif %}
+                                    Next allocation payment: <span class="bold-small">30 September 2019</span>.
+                                </p>
+                                <p>You can view more information on payments on the <a href="https://www.gov.uk/guidance/pupil-premium-information-for-schools-and-alternative-provision-settings#payments-in-the-2019-to-2020-financial-year" target="external">funding and accountability for schools</a> page.</p>
+                                <h3 class="heading-medium heading-guidance">Allocation history</h3>
+                                <p>You can view all versions of this allocation for the financial year 2019 to 2020, on the <a href="#">allocation history</a>.</p>
+                                <h3 class="heading-medium heading-guidance">General pupil premium guidance</h3>
+                                <ul class="list">
+                                    <li><a href="https://www.gov.uk/government/publications/pupil-premium-allocations-and-conditions-of-grant-2019-to-2020/pupil-premium-conditions-of-grant-2019-to-2020">Pupil premium: conditions of grant 2019 to 2020</a></li>
+                                </ul>
+                            </div>
+                    
+                        </div> -->
+                    
+                    </div>
+                    <!-- Accordion section to display the data within the single funding statement (END) -->
+                    <!-- DEFAULT VIEW - when all session variables fail (END) -->
+                    {% endif %}
+
+                </div>
+
+                <div class="form-group">
+                    <details>
+                        <summary>
+                            <span class="summary">I'm looking for another funding type</span>
+                        </summary>
+                        
+                        <div class="panel panel-border-narrow">                            
+                            <p>All users can view the funding types above.</p>
+                            <p>There are other funding types that only the organisation that receives them can view.</p>
+                            <!-- <p>All users can view the funding types above.</p>
+                            <p>There are other funding types that only the organisation that receives them can view. These organisations can sign in to <a href="../../../not-signed-in/single-funding-statement/start">manage your education and skills funding</a> to view them.</p> -->
+                        </div>
+
+                    </details>
+                </div>
+
+            </form>
+        
+        </div>
+
+    </div>
+
+</main>
+
+<!-- JavaScript (START) -->
+<script src="/public/javascripts/lifted/jquery-2.1.4.js"></script>
+<!-- GOV.UK Design System accordion -->
+<script src="/public/javascripts/{{version}}/accordion.js"></script>
+<!-- Custom global behaviour -->
+<script src="/public/javascripts/{{version}}/custom-global-behaviour.js"></script>
+<!-- JavaScript (END) -->
+
+{% endblock %}
